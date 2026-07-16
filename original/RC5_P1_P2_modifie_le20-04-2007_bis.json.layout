@@ -1,0 +1,3561 @@
+{
+ "screens": {
+  "Synth\u00e8se Etat UCE": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "verrouillage/deverrouillage lignes de M\u00e0F", 
+     "request": "Verrouillage/D\u00e9verrouillage de la mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 2835, 
+      "top": 1890, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Configuration de direction", 
+     "request": "Configuration du c\u00f4t\u00e9 de direction", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 2880, 
+      "top": 4065, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "configuration X84 phase 1 - phase 2", 
+     "request": "configuration X84 phase 1 - phase 2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 2280, 
+      "top": 7560, 
+      "height": 300, 
+      "left": 4800
+     }
+    }
+   ], 
+   "color": "rgb(207,207,207)", 
+   "labels": [
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etat des pannes", 
+     "bbox": {
+      "width": 3360, 
+      "top": 600, 
+      "height": 360, 
+      "left": 5280
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Synth\u00e8se Etat UCE", 
+     "bbox": {
+      "width": 7920, 
+      "top": 75, 
+      "height": 360, 
+      "left": 510
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 14.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "C\u00f4t\u00e9 de direction", 
+     "bbox": {
+      "width": 3855, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 4740
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etats sp\u00e9ciaux", 
+     "bbox": {
+      "width": 3855, 
+      "top": 585, 
+      "height": 360, 
+      "left": 300
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etat des voyants", 
+     "bbox": {
+      "width": 3960, 
+      "top": 2250, 
+      "height": 360, 
+      "left": 195
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etat d'inhibition", 
+     "bbox": {
+      "width": 3960, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Tra\u00e7abilit\u00e9 (num\u00e9ro de s\u00e9rie du calculateur)", 
+     "bbox": {
+      "width": 6480, 
+      "top": 5880, 
+      "height": 300, 
+      "left": 360
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }
+   ], 
+   "presend": [], 
+   "height": 8100, 
+   "buttons": [
+    {
+     "text": "ClearDTC", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Start Diagnostic Session.AfterSales"
+      }, 
+      {
+       "Delay": "1", 
+       "RequestName": "ClearDiagnosticInformation.All"
+      }
+     ], 
+     "uniquename": "ClearDTC_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3900, 
+      "top": 2850, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "text": "Lock", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Start Diagnostic Session.AfterSales"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Verrouillage/D\u00e9verrouillage de la mise \u00e0 feu"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Synth\u00e8se \u00e9tat UCE"
+      }
+     ], 
+     "uniquename": "Lock_1", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1905, 
+      "height": 300, 
+      "left": 3180
+     }
+    }, 
+    {
+     "text": "Config", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Start Diagnostic Session.AfterSales"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Configuration du c\u00f4t\u00e9 de direction"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Synth\u00e8se \u00e9tat UCE"
+      }
+     ], 
+     "uniquename": "Config_2", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4065, 
+      "height": 300, 
+      "left": 7740
+     }
+    }, 
+    {
+     "text": "Config phase 1 & 2", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Start Diagnostic Session.AfterSales"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "configuration X84 phase 1 - phase 2"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Synth\u00e8se \u00e9tat UCE"
+      }
+     ], 
+     "uniquename": "Config phase 1 & 2_3", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 1650, 
+      "top": 7560, 
+      "height": 360, 
+      "left": 7320
+     }
+    }
+   ], 
+   "width": 9180, 
+   "displays": [
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "calculateur verrouill\u00e9 par messagerie", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3930, 
+      "top": 1545, 
+      "height": 300, 
+      "left": 255
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "crash d\u00e9tect\u00e9", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3930, 
+      "top": 1245, 
+      "height": 300, 
+      "left": 255
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "pannes m\u00e9moris\u00e9es", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 2105, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3900, 
+      "top": 960, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "pannes pr\u00e9sentes", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 2105, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3900, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etat de direction", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3930, 
+      "top": 3705, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etat des airbags passager", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 4035, 
+      "height": 300, 
+      "left": 195
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "voyant d\u00e9faut airbag allum\u00e9", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 2610, 
+      "height": 300, 
+      "left": 195
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "voyant AIRBAG_OFF allum\u00e9", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 2850, 
+      "height": 300, 
+      "left": 195
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "calculateur \u00e0 changer", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3930, 
+      "top": 945, 
+      "height": 300, 
+      "left": 255
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "seuils d'alerte imp\u00e9dances des capteurs modifi\u00e9s", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 6170, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 4560, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "seuils d'alerte imp\u00e9dances des lignes de mises \u00e0 feu modifi\u00e9s", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 6170, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 4860, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "configuration des capteurs modifi\u00e9e", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 4550, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 5160, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "configuration des lignes de mises \u00e0 feu modifi\u00e9e", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 4550, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 5460, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etat du mode de d\u00e9tection des d\u00e9fauts", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3900, 
+      "top": 2160, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Etat d'inhibition : frontale et/ou lat\u00e9rale", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 3395, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 3735, 
+      "height": 300, 
+      "left": 195
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "nombre de d\u00e9fauts pr\u00e9sents", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 2745, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 1800, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "nombre de d\u00e9fauts m\u00e9moris\u00e9s", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 2750, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 1545, 
+      "height": 300, 
+      "left": 4740
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "nombre de RAZ des d\u00e9fauts m\u00e9moris\u00e9s", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 2580, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3720, 
+      "top": 2505, 
+      "height": 300, 
+      "left": 4860
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Code v\u00e9hicule h\u00f4te", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1875, 
+      "top": 150, 
+      "height": 300, 
+      "left": 6780
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "N\u00b0 de s\u00e9rie du calculateur", 
+     "request": "Trame de tra\u00e7abilit\u00e9", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4360, 
+      "top": 5880, 
+      "height": 300, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "valeur tension d'alimentation calculateur", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 2915, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 6360, 
+      "height": 660, 
+      "left": 4560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "configuration X84 phase 1 - phase 2", 
+     "request": "Synth\u00e8se \u00e9tat UCE", 
+     "width": 3275, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 7560, 
+      "height": 300, 
+      "left": 120
+     }
+    }
+   ]
+  }, 
+  "Configuration: Satellites": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "d\u00e9tect\u00e9", 
+     "bbox": {
+      "width": 720, 
+      "top": 840, 
+      "height": 300, 
+      "left": 4440
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "programm\u00e9", 
+     "bbox": {
+      "width": 1080, 
+      "top": 840, 
+      "height": 300, 
+      "left": 3240
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Satellites configuration", 
+     "bbox": {
+      "width": 6120, 
+      "top": 240, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "valeur d'acc\u00e9l\u00e9ration", 
+     "bbox": {
+      "width": 1200, 
+      "top": 600, 
+      "height": 540, 
+      "left": 5400
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Tra\u00e7abilit\u00e9 des satellites (num\u00e9ros de s\u00e9rie)", 
+     "bbox": {
+      "width": 6480, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 360
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "satellite lat\u00e9ral pied-milieu conducteur", 
+     "bbox": {
+      "width": 2640, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "satellite lat\u00e9ral pied-milieu passager", 
+     "bbox": {
+      "width": 2640, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "satellite lat\u00e9ral pied-milieu conducteur", 
+     "bbox": {
+      "width": 2760, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 360
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "satellite lat\u00e9ral pied-milieu passager", 
+     "bbox": {
+      "width": 2760, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 360
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }
+   ], 
+   "presend": [], 
+   "height": 5460, 
+   "buttons": [], 
+   "width": 7290, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Satellite lat\u00e9ral conducteur", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 3600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Satellite lat\u00e9ral passager", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 3600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Satellite lat\u00e9ral conducteur", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 4560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Satellite lat\u00e9ral passager", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 4560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "valeur Satellite lat\u00e9ral conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 760, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 5640
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "valeur Satellite lat\u00e9ral passager", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 760, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 5640
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "N\u00b0 de s\u00e9rie du capteur lat\u00e9ral conducteur", 
+     "request": "Trame de tra\u00e7abilit\u00e9 capteur lat\u00e9ral conducteur", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3640, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 3240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "N\u00b0 de s\u00e9rie du capteur lat\u00e9ral passager", 
+     "request": "Trame de tra\u00e7abilit\u00e9 capteur lat\u00e9ral passager", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3640, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 3240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Satellite lat\u00e9ral conducteur", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 3600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Satellite lat\u00e9ral passager", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 3600
+     }
+    }
+   ]
+  }, 
+  "Configuration: Firing lines": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag frontal conducteur niveau 1", 
+     "bbox": {
+      "width": 2520, 
+      "top": 1440, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag frontal conducteur niveau 2", 
+     "bbox": {
+      "width": 2760, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag frontal passager niveau 1", 
+     "bbox": {
+      "width": 2280, 
+      "top": 960, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag frontal passager niveau 2", 
+     "bbox": {
+      "width": 2520, 
+      "top": 1200, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral rideau conducteur", 
+     "bbox": {
+      "width": 2955, 
+      "top": 2880, 
+      "height": 270, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral rideau passager", 
+     "bbox": {
+      "width": 2955, 
+      "top": 3120, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral thorax avant conducteur", 
+     "bbox": {
+      "width": 3390, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral thorax avant passager", 
+     "bbox": {
+      "width": 2850, 
+      "top": 2640, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "d\u00e9tect\u00e9", 
+     "bbox": {
+      "width": 720, 
+      "top": 600, 
+      "height": 300, 
+      "left": 5280
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Enrouleur arri\u00e8re conducteur", 
+     "bbox": {
+      "width": 2565, 
+      "top": 3360, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Enrouleur arri\u00e8re passager", 
+     "bbox": {
+      "width": 2565, 
+      "top": 3600, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Enrouleur avant conducteur", 
+     "bbox": {
+      "width": 2280, 
+      "top": 3840, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Enrouleur avant passager", 
+     "bbox": {
+      "width": 2025, 
+      "top": 4080, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Firing lines configuration", 
+     "bbox": {
+      "width": 8040, 
+      "top": 120, 
+      "height": 300, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "imp\u00e9dance mesur\u00e9e", 
+     "bbox": {
+      "width": 960, 
+      "top": 480, 
+      "height": 420, 
+      "left": 6600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "PPV conducteur", 
+     "bbox": {
+      "width": 1410, 
+      "top": 1920, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "PPV passager", 
+     "bbox": {
+      "width": 1200, 
+      "top": 2160, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "programm\u00e9", 
+     "bbox": {
+      "width": 1025, 
+      "top": 600, 
+      "height": 300, 
+      "left": 3960
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral thorax arri\u00e8re conducteur", 
+     "bbox": {
+      "width": 2955, 
+      "top": 4320, 
+      "height": 300, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral thorax arri\u00e8re passager", 
+     "bbox": {
+      "width": 2955, 
+      "top": 4560, 
+      "height": 300, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }
+   ], 
+   "presend": [], 
+   "height": 5220, 
+   "buttons": [], 
+   "width": 8700, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Frontal Passager Adaptatif Niveau 1", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 960, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Frontal Passager Adaptatif Niveau 2", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1200, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Frontal Conducteur Adaptatif Niveau 1", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1440, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Frontal Conducteur Adaptatif Niveau 2", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP PPVentral avant passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2160, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP PPVentral avant conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1920, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Lat\u00e9ral Thorax Bassin Avant passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2640, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Lat\u00e9ral Thorax Bassin Avant conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Lat\u00e9ral Rideau T\u00eate conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2880, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Lat\u00e9ral Rideau T\u00eate passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3120, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Enrouleur pyro arri\u00e8re conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3360, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Enrouleur pyro arri\u00e8re passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3600, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Enrouleur pyro avant conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3840, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Enrouleur pyro avant passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 4080, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Frontal Passager Adaptatif Niveau 1", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 960, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Frontal Passager Adaptatif Niveau 2", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1200, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Frontal Conducteur Adaptatif Niveau 1", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1440, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Frontal Conducteur Adaptatif Niveau 2", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD PPVentral avant conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1920, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD PPVentral avant passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2160, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Lat\u00e9ral Thorax Bassin Avant conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Lat\u00e9ral Thorax Bassin Avant passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2640, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Lat\u00e9ral Rideau T\u00eate conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2880, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Lat\u00e9ral Rideau T\u00eate passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3120, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Enrouleur pyro arri\u00e8re conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3360, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Enrouleur pyro arri\u00e8re conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3360, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Enrouleur pyro arri\u00e8re passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3600, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Enrouleur pyro arri\u00e8re passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3600, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Enrouleur pyro avant conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3840, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Enrouleur pyro avant passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 4080, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Frontal Passager Niveau 1", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 960, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Frontal Passager Niveau 2", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 1200, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Frontal Conducteur Niveau 1", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 1440, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Frontal Conducteur Niveau 2", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance PPVentral avant conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 1920, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance PPVentral avant passager", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 2160, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Lat\u00e9ral Thorax Avant conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Lat\u00e9ral Thorax Avant passager", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 2640, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Lat\u00e9ral Rideau T\u00eate conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 2880, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Lat\u00e9ral Rideau T\u00eate passager", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 3120, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Enrouleur pyro arri\u00e8re conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 3360, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Enrouleur pyro arri\u00e8re conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 3360, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Enrouleur pyro arri\u00e8re passager", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 3600, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Enrouleur pyro arri\u00e8re passager", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 3600, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Enrouleur pyro avant conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 3840, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Enrouleur pyro avant passager", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 4080, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Lat\u00e9ral Thorax Arri\u00e8re conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 4320, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP AirBag Lat\u00e9ral Thorax Arri\u00e8re passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 4200
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Lat\u00e9ral Thorax Arri\u00e8re conducteur", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 4320, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD AirBag Lat\u00e9ral Thorax Arri\u00e8re passager", 
+     "request": "Lecture configuration des lignes de mise \u00e0 feu", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 5400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Lat\u00e9ral Thorax Arri\u00e8re conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 4320, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance AirBag Lat\u00e9ral Thorax Arri\u00e8re passager", 
+     "request": "Valeurs mesur\u00e9es sur les lignes de MaF", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 6840
+     }
+    }
+   ]
+  }, 
+  "Firing lines activated": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [
+    {
+     "color": "rgb(128,255,128)", 
+     "text": "", 
+     "bbox": {
+      "width": 1800, 
+      "top": 480, 
+      "height": 4440, 
+      "left": 3600
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(128,255,255)", 
+     "text": "", 
+     "bbox": {
+      "width": 1800, 
+      "top": 480, 
+      "height": 2640, 
+      "left": 5640
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag frontal adaptatif niveau 1", 
+     "bbox": {
+      "width": 2520, 
+      "top": 4320, 
+      "height": 300, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag frontal adaptatif niveau 2", 
+     "bbox": {
+      "width": 2760, 
+      "top": 4560, 
+      "height": 300, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral rideau", 
+     "bbox": {
+      "width": 2955, 
+      "top": 2760, 
+      "height": 270, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Airbag lat\u00e9ral thorax", 
+     "bbox": {
+      "width": 2760, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(128,255,255)", 
+     "text": "Conducteur", 
+     "bbox": {
+      "width": 840, 
+      "top": 960, 
+      "height": 300, 
+      "left": 5640
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(128,255,128)", 
+     "text": "Conducteur", 
+     "bbox": {
+      "width": 720, 
+      "top": 960, 
+      "height": 300, 
+      "left": 3720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Firing lines activated during crash", 
+     "bbox": {
+      "width": 6840, 
+      "top": 0, 
+      "height": 300, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(128,255,255)", 
+     "text": "places arri\u00e8re", 
+     "bbox": {
+      "width": 1800, 
+      "top": 600, 
+      "height": 300, 
+      "left": 5640
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(128,255,128)", 
+     "text": "places avant", 
+     "bbox": {
+      "width": 1560, 
+      "top": 600, 
+      "height": 300, 
+      "left": 3720
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Enrouleurs pyrotechniques", 
+     "bbox": {
+      "width": 2265, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Pr\u00e9tensionneurs ventraux", 
+     "bbox": {
+      "width": 2040, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 480
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(128,255,255)", 
+     "text": "Passager", 
+     "bbox": {
+      "width": 600, 
+      "top": 960, 
+      "height": 300, 
+      "left": 6720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(128,255,128)", 
+     "text": "Passager", 
+     "bbox": {
+      "width": 600, 
+      "top": 960, 
+      "height": 300, 
+      "left": 4680
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5370, 
+   "buttons": [], 
+   "width": 8490, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "PPVentral avant conducteur", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2040, 
+      "height": 240, 
+      "left": 3840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Frontal Conducteur Niveau 1", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 4320, 
+      "height": 240, 
+      "left": 3840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Frontal Conducteur Niveau 2", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 3840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Lat\u00e9ral Thorax Avant conducteur", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 3840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Lat\u00e9ral Rideau T\u00eate conducteur", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2760, 
+      "height": 240, 
+      "left": 3840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "PPVentral avant passager", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2040, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Frontal Passager Niveau 1", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 4320, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Frontal Passager Niveau 2", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Lat\u00e9ral Thorax Avant passager", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Lat\u00e9ral Rideau T\u00eate passager", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2760, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Lat\u00e9ral Thorax Arri\u00e8re conducteur", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 5880
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AirBag Lat\u00e9ral Thorax Arri\u00e8re passager", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 2400, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Enrouleur pyro arri\u00e8re passager", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 6840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Enrouleur pyro arri\u00e8re conducteur", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 5880
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Enrouleur pyro avant passager", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Enrouleur pyro avant conducteur", 
+     "request": "Lecture des lignes de mise \u00e0 feu pilot\u00e9es", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 360, 
+      "top": 1680, 
+      "height": 240, 
+      "left": 3840
+     }
+    }
+   ]
+  }, 
+  "Configuration: Switches": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "mode d'inhibition de l'airbag passager", 
+     "request": "S\u00e9lection du mode d'inhibition airbags", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 2920, 
+      "top": 4680, 
+      "height": 300, 
+      "left": 3000
+     }
+    }
+   ], 
+   "color": "rgb(255,255,128)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Boucle ceinture avant passager", 
+     "bbox": {
+      "width": 2520, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Interrupteur d'inhibition", 
+     "bbox": {
+      "width": 1920, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "d\u00e9tect\u00e9", 
+     "bbox": {
+      "width": 720, 
+      "top": 840, 
+      "height": 300, 
+      "left": 5160
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "D\u00e9tection d'occupant passager avant", 
+     "bbox": {
+      "width": 2880, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "imp\u00e9dance mesur\u00e9e", 
+     "bbox": {
+      "width": 1320, 
+      "top": 720, 
+      "height": 780, 
+      "left": 6120
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Position si\u00e8ge avant conducteur", 
+     "bbox": {
+      "width": 2355, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "programm\u00e9", 
+     "bbox": {
+      "width": 1080, 
+      "top": 840, 
+      "height": 300, 
+      "left": 3960
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Switches configuration", 
+     "bbox": {
+      "width": 6480, 
+      "top": 240, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,255)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 12.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "S\u00e9lection du mode d'inhibition", 
+     "bbox": {
+      "width": 6480, 
+      "top": 4440, 
+      "height": 300, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Boucle ceinture avant conducteur", 
+     "bbox": {
+      "width": 2520, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "0"
+    }
+   ], 
+   "presend": [], 
+   "height": 5220, 
+   "buttons": [
+    {
+     "text": "Config", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Start Diagnostic Session.AfterSales"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "S\u00e9lection du mode d'inhibition airbags"
+      }, 
+      {
+       "Delay": "1", 
+       "RequestName": "Lecture configuration des capteurs"
+      }
+     ], 
+     "uniquename": "Config_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 840, 
+      "top": 4680, 
+      "height": 300, 
+      "left": 6120
+     }
+    }
+   ], 
+   "width": 7530, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Capteur Position Si\u00e8ge Avant Conducteur", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 4440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Capteur de boucle de ceinture avant conducteur", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 4440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Capteur de boucle de ceinture avant passager", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 4440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Capteur de d\u00e9tection d'occupant si\u00e8ge Passager", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 4440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CP Interrupteur d'inhibition airbag", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 4440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Capteur Position Si\u00e8ge Avant Conducteur", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 5280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Capteur de d\u00e9tection d'occupant si\u00e8ge Passager", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 5280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CRD Interrupteur d'inhibition airbag", 
+     "request": "Lecture configuration des capteurs", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 480, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 5280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Capteur Position Si\u00e8ge Avant Conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 720, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Capteur de boucle de ceinture avant conducteur", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 720, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "<Datas>imp\u00e9dance Capteur de boucle de ceinture avant passager", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 720, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance Capteur de d\u00e9tection d'occupant si\u00e8ge Passager", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 720, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "imp\u00e9dance interrupteur d'inhibition", 
+     "request": "Valeurs mesur\u00e9es sur les capteurs et divers", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 720, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 6360
+     }
+    }
+   ]
+  }
+ }, 
+ "categories": {
+  "Configuration": [
+   "Configuration: Firing lines", 
+   "Configuration: Satellites", 
+   "Configuration: Switches", 
+   "Synth\u00e8se Etat UCE"
+  ], 
+  "Crash": [
+   "Firing lines activated"
+  ]
+ }
+}

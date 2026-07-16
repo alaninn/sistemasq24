@@ -1,0 +1,3365 @@
+{
+ "_meta": {
+  "funcname": {
+   "es": "",
+   "original": "UPC"
+  }
+ },
+ "buttons": {
+  "CAN Status": {
+   "es": "Estado del CAN"
+  },
+  "CAN received data": {
+   "es": "Datos CAN recibidos"
+  },
+  "CAN sent data": {
+   "es": "Datos CAN enviados"
+  },
+  "Clear DTC": {
+   "es": "Borrar códigos de falla (DTC)"
+  },
+  "ECU reset": {
+   "es": "Reinicio de la ECU"
+  },
+  "Freeze frame": {
+   "es": "Datos congelados (Freeze Frame)"
+  },
+  "Fuses and Open Circuitry Check": {
+   "es": "Verificación de fusibles y circuitos abiertos"
+  },
+  "Identification": {
+   "es": "Identificación"
+  },
+  "Mode degrade OFF": {
+   "es": "Modo degradado APAGADO"
+  },
+  "Mode degrade ON": {
+   "es": "Modo degradado ENCENDIDO"
+  },
+  "Output control": {
+   "es": "Control de actuadores"
+  },
+  "Read Configuration": {
+   "es": "Leer configuración"
+  },
+  "Read DTC": {
+   "es": "Leer códigos de falla (DTC)"
+  },
+  "Read Mask DTC": {
+   "es": "Leer máscara de códigos de falla (DTC)"
+  },
+  "Read alternator diagnosis": {
+   "es": "Leer diagnóstico del alternador"
+  },
+  "Read battery diagnosis": {
+   "es": "Leer diagnóstico de la batería"
+  },
+  "Read other data": {
+   "es": "Leer otros datos"
+  },
+  "Write Configuration": {
+   "es": "Escribir configuración"
+  },
+  "Write MasK DTC": {
+   "es": "Escribir máscara de DTC"
+  },
+  "Write Traceability": {
+   "es": "Escribir trazabilidad"
+  },
+  "Write VIN": {
+   "es": "Escribir VIN"
+  },
+  "Write alternator voltage": {
+   "es": "Escribir tensión del alternador"
+  },
+  "Write last access date": {
+   "es": "Escribir fecha del último acceso"
+  },
+  "Write manufacture data": {
+   "es": "Escribir datos de fabricación"
+  },
+  "Write traceability": {
+   "es": "Escribir trazabilidad"
+  }
+ },
+ "categories": {
+  "AfterSales & Manufacture": {
+   "es": "Posventa y fábrica"
+  },
+  "Supplier": {
+   "es": "Proveedor"
+  }
+ },
+ "data": {
+  "ACK of BSS": {
+   "ayuda": "",
+   "es": "ACK de BSS",
+   "lists": {
+    "0": {
+     "es": "Sin problema",
+     "original": "No problem"
+    },
+    "1": {
+     "es": "Problema",
+     "original": "Problem"
+    }
+   }
+  },
+  "After_sales_last_access_Date": {
+   "ayuda": "",
+   "es": "After_sales_last_access_Date"
+  },
+  "AllowedPowerGradient_DF": {
+   "ayuda": "",
+   "es": "AllowedPowerGradient_DF",
+   "unit": {
+    "es": "W/s",
+    "original": "W/s"
+   }
+  },
+  "Alternator Brand": {
+   "ayuda": "",
+   "es": "Marca del alternador",
+   "lists": {
+    "0": {
+     "es": "BOSCH",
+     "original": "BOSCH"
+    },
+    "1": {
+     "es": "VALEO",
+     "original": "VALEO"
+    },
+    "5": {
+     "es": "MELCO",
+     "original": "MELCO"
+    }
+   }
+  },
+  "Alternator Class": {
+   "ayuda": "",
+   "es": "Clase del alternador",
+   "lists": {
+    "12": {
+     "es": "110 A (VALEO)",
+     "original": "110 A (VALEO)"
+    },
+    "19": {
+     "es": "210 A (MELCO)",
+     "original": "210 A (MELCO)"
+    },
+    "22": {
+     "es": "150 A (BOSCH)",
+     "original": "150 A (BOSCH)"
+    },
+    "24": {
+     "es": "150 A (VALEO)",
+     "original": "150 A (VALEO)"
+    },
+    "4": {
+     "es": "90 A (BOSCH)",
+     "original": "90 A (BOSCH)"
+    },
+    "8": {
+     "es": "125 A (VALEO)",
+     "original": "125 A (VALEO)"
+    },
+    "9": {
+     "es": "120 A (BOSCH)",
+     "original": "120 A (BOSCH)"
+    }
+   }
+  },
+  "Alternator ECU Monitoring": {
+   "ayuda": "",
+   "es": "Monitoreo del alternador por la ECU",
+   "lists": {
+    "0": {
+     "es": "NOMINAL_CONDITION",
+     "original": "NOMINAL_CONDITION"
+    },
+    "1": {
+     "es": "DEFAULT_PRESENT",
+     "original": "DEFAULT_PRESENT"
+    },
+    "2": {
+     "es": "DEFAULT_PRESENT_BUT_FROZEN",
+     "original": "DEFAULT_PRESENT_BUT_FROZEN"
+    },
+    "3": {
+     "es": "DEFAULT_CONFIRMED",
+     "original": "DEFAULT_CONFIRMED"
+    }
+   }
+  },
+  "Alternator Failure Status": {
+   "ayuda": "",
+   "es": "Estado de falla del alternador",
+   "lists": {
+    "1": {
+     "es": "F_ELEC",
+     "original": "F_ELEC"
+    },
+    "2": {
+     "es": "F_MEC",
+     "original": "F_MEC"
+    },
+    "4": {
+     "es": "F_HT",
+     "original": "F_HT"
+    }
+   }
+  },
+  "AlternatorMaximumPower_DF": {
+   "ayuda": "",
+   "es": "AlternatorMaximumPower_DF",
+   "unit": {
+    "es": "W",
+    "original": "W"
+   }
+  },
+  "CAN_APCLineStatus": {
+   "ayuda": "",
+   "es": "CAN_APCLineStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_AlternatorLoad_84": {
+   "ayuda": "",
+   "comment": {
+    "es": "$FF: inválido",
+    "original": "$FF: invalid"
+   },
+   "es": "CAN_AlternatorLoad_84"
+  },
+  "CAN_AlternatorNumber": {
+   "ayuda": "",
+   "es": "CAN_AlternatorNumber",
+   "lists": {
+    "0": {
+     "es": "inválido",
+     "original": "invalid"
+    },
+    "1": {
+     "es": "Bosch KCB1 110A",
+     "original": "Bosch KCB1 110A"
+    },
+    "15": {
+     "es": "Tipo especial",
+     "original": "Special type"
+    },
+    "2": {
+     "es": "VALEO TG11 110A",
+     "original": "VALEO TG11 110A"
+    },
+    "3": {
+     "es": "VALEO SG12 125A",
+     "original": "VALEO SG12 125A"
+    },
+    "4": {
+     "es": "BOSCH LIE8 150A",
+     "original": "BOSCH LIE8 150A"
+    },
+    "5": {
+     "es": "VALEO SG15L 160A",
+     "original": "VALEO SG15L 160A"
+    },
+    "6": {
+     "es": "BOSCH LIE6 120A",
+     "original": "BOSCH LIE6 120A"
+    },
+    "7": {
+     "es": "VALEO TG15 150A",
+     "original": "VALEO TG15 150A"
+    },
+    "8": {
+     "es": "MELCO 8GM142 210A",
+     "original": "MELCO 8GM142 210A"
+    }
+   }
+  },
+  "CAN_BCM_AbsoluteTimeSince1rstIgnition": {
+   "ayuda": "",
+   "es": "CAN_BCM_AbsoluteTimeSince1rstIgnition",
+   "unit": {
+    "es": "min",
+    "original": "mn"
+   }
+  },
+  "CAN_BCM_ClutchSwitchMaximumTravel": {
+   "ayuda": "",
+   "es": "CAN_BCM_ClutchSwitchMaximumTravel",
+   "lists": {
+    "0": {
+     "es": "No presionado",
+     "original": "Not pressed"
+    },
+    "1": {
+     "es": "Presionado",
+     "original": "Pressed"
+    },
+    "2": {
+     "es": "Vehículo no equipado",
+     "original": "Vehicle not equipped"
+    },
+    "3": {
+     "es": "Inválido",
+     "original": "Invalid"
+    }
+   }
+  },
+  "CAN_BCM_CrankingAuthorization_Verlog": {
+   "ayuda": "",
+   "es": "CAN_BCM_CrankingAuthorization_Verlog",
+   "lists": {
+    "0": {
+     "es": "No permitido",
+     "original": "Not allowed"
+    },
+    "1": {
+     "es": "Permitido",
+     "original": "Allowed"
+    }
+   }
+  },
+  "CAN_BCM_DistanceTotalizer": {
+   "ayuda": "",
+   "es": "CAN_BCM_DistanceTotalizer",
+   "unit": {
+    "es": "km",
+    "original": "km"
+   }
+  },
+  "CAN_BCM_ElectricalPowerDrived": {
+   "ayuda": "",
+   "es": "CAN_BCM_ElectricalPowerDrived",
+   "unit": {
+    "es": "Watts",
+    "original": "Watts"
+   }
+  },
+  "CAN_BCM_EngineCoolantTemp": {
+   "ayuda": "",
+   "comment": {
+    "es": "$FF: inválido",
+    "original": "$FF: invalid"
+   },
+   "es": "CAN_BCM_EngineCoolantTemp"
+  },
+  "CAN_BCM_FrontFogLightsRequest": {
+   "ayuda": "",
+   "es": "CAN_BCM_FrontFogLightsRequest",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not requested"
+    },
+    "1": {
+     "es": "Solicitado",
+     "original": "Requested"
+    }
+   }
+  },
+  "CAN_BCM_FrontWipingRequest": {
+   "ayuda": "",
+   "es": "CAN_BCM_FrontWipingRequest",
+   "lists": {
+    "0": {
+     "es": "En posición de detención",
+     "original": "In Stop Position"
+    },
+    "1": {
+     "es": "Forzado a detenerse",
+     "original": "Forced to Stop"
+    },
+    "2": {
+     "es": "Velocidad baja solicitada una vez",
+     "original": "One time low speed requested"
+    },
+    "3": {
+     "es": "Velocidad alta solicitada una vez",
+     "original": "One time high speed requested"
+    },
+    "4": {
+     "es": "Inválido",
+     "original": "Invalid"
+    },
+    "5": {
+     "es": "Reservado",
+     "original": "Reserved"
+    },
+    "6": {
+     "es": "Velocidad baja solicitada",
+     "original": "Low Speed requested"
+    },
+    "7": {
+     "es": "Velocidad alta solicitada",
+     "original": "High Speed requested"
+    }
+   }
+  },
+  "CAN_BCM_HeadLampsWasherRequest": {
+   "ayuda": "",
+   "es": "CAN_BCM_HeadLampsWasherRequest",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not requested"
+    },
+    "1": {
+     "es": "Solicitado",
+     "original": "Requested"
+    }
+   }
+  },
+  "CAN_BCM_HeadLampsWasherSelection": {
+   "ayuda": "",
+   "es": "CAN_BCM_HeadLampsWasherSelection",
+   "lists": {
+    "0": {
+     "es": "Izquierda o presión alta",
+     "original": "Left or High pressure"
+    },
+    "1": {
+     "es": "Derecha",
+     "original": "Right"
+    }
+   }
+  },
+  "CAN_BCM_HighBeamRequest": {
+   "ayuda": "",
+   "es": "CAN_BCM_HighBeamRequest",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not requested"
+    },
+    "1": {
+     "es": "Solicitado",
+     "original": "Requested"
+    }
+   }
+  },
+  "CAN_BCM_LowBeamRequest": {
+   "ayuda": "",
+   "es": "CAN_BCM_LowBeamRequest",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not requested"
+    },
+    "1": {
+     "es": "Solicitado",
+     "original": "Requested"
+    }
+   }
+  },
+  "CAN_BCM_PositionLightsRequest": {
+   "ayuda": "",
+   "es": "CAN_BCM_PositionLightsRequest",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not requested"
+    },
+    "1": {
+     "es": "Solicitado",
+     "original": "Requested"
+    }
+   }
+  },
+  "CAN_BCM_RearDefrostRequest": {
+   "ayuda": "",
+   "es": "CAN_BCM_RearDefrostRequest",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not request"
+    },
+    "1": {
+     "es": "Reservado",
+     "original": "Reserved"
+    },
+    "2": {
+     "es": "Solicitud de la ECU del motor",
+     "original": "Request by ECM"
+    },
+    "3": {
+     "es": "Solicitud del cliente",
+     "original": "Request by customer"
+    }
+   }
+  },
+  "CAN_BCM_StartingMode": {
+   "ayuda": "",
+   "es": "CAN_BCM_StartingMode",
+   "lists": {
+    "0": {
+     "es": "Solicitud de apagado del motor",
+     "original": "Engine stopped request"
+    },
+    "1": {
+     "es": "Reservado",
+     "original": "Reserved"
+    },
+    "2": {
+     "es": "Solicitud de contacto",
+     "original": "Ignition request"
+    },
+    "3": {
+     "es": "Solicitud de arranque",
+     "original": "Starting request"
+    }
+   }
+  },
+  "CAN_BCM_WakeUpSleepCommand": {
+   "ayuda": "",
+   "es": "CAN_BCM_WakeUpSleepCommand",
+   "lists": {
+    "0": {
+     "es": "Ir a reposo",
+     "original": "Go to sleep"
+    },
+    "1": {
+     "es": "reservado",
+     "original": "reserved"
+    },
+    "2": {
+     "es": "reservado 2",
+     "original": "reserved2"
+    },
+    "3": {
+     "es": "Despertar",
+     "original": "Wake Up"
+    }
+   }
+  },
+  "CAN_BCM_WakeUpType": {
+   "ayuda": "",
+   "es": "CAN_BCM_WakeUpType",
+   "lists": {
+    "0": {
+     "es": "Cliente",
+     "original": "Customer"
+    },
+    "1": {
+     "es": "Sistema",
+     "original": "System"
+    }
+   }
+  },
+  "CAN_BCM_missing": {
+   "ayuda": "",
+   "es": "CAN_BCM_missing"
+  },
+  "CAN_BatteryLamp": {
+   "ayuda": "",
+   "es": "CAN_BatteryLamp",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_BatteryVoltage": {
+   "ayuda": "",
+   "es": "CAN_BatteryVoltage",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "CAN_Brake_missing": {
+   "ayuda": "",
+   "es": "CAN_Brake_missing"
+  },
+  "CAN_Bus_OFF_parameter": {
+   "ayuda": "",
+   "es": "CAN_Bus_OFF_parameter"
+  },
+  "CAN_ClimateCoolingStatus": {
+   "ayuda": "",
+   "es": "CAN_ClimateCoolingStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_ECM_AllowedPowerGradient": {
+   "ayuda": "",
+   "es": "CAN_ECM_AllowedPowerGradient",
+   "unit": {
+    "es": "W/s",
+    "original": "W/s"
+   }
+  },
+  "CAN_ECM_AlternatorMaximumPower": {
+   "ayuda": "",
+   "es": "CAN_ECM_AlternatorMaximumPower",
+   "unit": {
+    "es": "watts",
+    "original": "watts"
+   }
+  },
+  "CAN_ECM_CompressorActivation": {
+   "ayuda": "",
+   "es": "CAN_ECM_CompressorActivation",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not Requested"
+    },
+    "1": {
+     "es": "Solicitado",
+     "original": "Requested"
+    }
+   }
+  },
+  "CAN_ECM_CrankingAuthorisation_ATviaECM": {
+   "ayuda": "",
+   "es": "CAN_ECM_CrankingAuthorisation_ATviaECM",
+   "lists": {
+    "0": {
+     "es": "No permitido",
+     "original": "Not allowed"
+    },
+    "1": {
+     "es": "Permitido",
+     "original": "Allowed"
+    },
+    "2": {
+     "es": "Caja manual",
+     "original": "ManualGearBox"
+    },
+    "3": {
+     "es": "No disponible",
+     "original": "Unvalaible"
+    }
+   }
+  },
+  "CAN_ECM_CrankingAuthorisation_ECM": {
+   "ayuda": "",
+   "es": "CAN_ECM_CrankingAuthorisation_ECM",
+   "lists": {
+    "0": {
+     "es": "No permitido",
+     "original": "Not allowed"
+    },
+    "1": {
+     "es": "Permitido",
+     "original": "Allowed"
+    },
+    "2": {
+     "es": "Detención del arranque requerida",
+     "original": "Cranking Stopped required"
+    },
+    "3": {
+     "es": "Arranque no permitido: falla de la ECU del motor",
+     "original": "Cranking  not allowed: ECM failure"
+    }
+   }
+  },
+  "CAN_ECM_EngineFanSpeedRequest": {
+   "ayuda": "",
+   "es": "CAN_ECM_EngineFanSpeedRequest",
+   "lists": {
+    "0": {
+     "es": "No solicitado",
+     "original": "Not requested"
+    },
+    "1": {
+     "es": "Velocidad baja solicitada",
+     "original": "Low Speed requested"
+    },
+    "2": {
+     "es": "Velocidad media solicitada [Nissan]",
+     "original": "Middle Speed requested [Nissan]"
+    },
+    "3": {
+     "es": "Velocidad alta solicitada",
+     "original": "High Speed requested"
+    }
+   }
+  },
+  "CAN_ECM_EngineRPM": {
+   "ayuda": "",
+   "es": "CAN_ECM_EngineRPM",
+   "unit": {
+    "es": "tr/min",
+    "original": "tr/min"
+   }
+  },
+  "CAN_ECM_EngineStatus": {
+   "ayuda": "",
+   "es": "CAN_ECM_EngineStatus",
+   "lists": {
+    "0": {
+     "es": "Detenido",
+     "original": "Stopped"
+    },
+    "1": {
+     "es": "Calado",
+     "original": "Stalled"
+    },
+    "2": {
+     "es": "En ejecución",
+     "original": "Running"
+    },
+    "3": {
+     "es": "Arranque (cranking)",
+     "original": "Cranking"
+    }
+   }
+  },
+  "CAN_ECM_missing": {
+   "ayuda": "",
+   "es": "CAN_ECM_missing"
+  },
+  "CAN_EngineFanSpeedStatus": {
+   "ayuda": "",
+   "es": "CAN_EngineFanSpeedStatus",
+   "lists": {
+    "0": {
+     "es": "Detenido",
+     "original": "Stopped"
+    },
+    "1": {
+     "es": "Velocidad baja",
+     "original": "Low Speed"
+    },
+    "2": {
+     "es": "Velocidad media (no usada en Renault)",
+     "original": "Middle Speed (not used in Renault)"
+    },
+    "3": {
+     "es": "Velocidad alta",
+     "original": "High Speed"
+    }
+   }
+  },
+  "CAN_FrontFogLightStatus": {
+   "ayuda": "",
+   "es": "CAN_FrontFogLightStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_FrontWiperProtection": {
+   "ayuda": "",
+   "es": "CAN_FrontWiperProtection",
+   "lists": {
+    "0": {
+     "es": "Sin protección",
+     "original": "No protection"
+    },
+    "1": {
+     "es": "Protección del lado bajo (LS)",
+     "original": "LS protection"
+    },
+    "2": {
+     "es": "Protección del lado alto (HS)",
+     "original": "HS protection"
+    },
+    "3": {
+     "es": "Protección por bloqueo",
+     "original": "Blocked protection"
+    }
+   }
+  },
+  "CAN_FrontWiperStatus": {
+   "ayuda": "",
+   "es": "CAN_FrontWiperStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "LS",
+     "original": "LS"
+    },
+    "2": {
+     "es": "Fuera de servicio",
+     "original": "HS"
+    },
+    "3": {
+     "es": "inválido",
+     "original": "invalid"
+    }
+   }
+  },
+  "CAN_FrontWiperStopPosition": {
+   "ayuda": "",
+   "es": "CAN_FrontWiperStopPosition",
+   "lists": {
+    "0": {
+     "es": "No alcanzado",
+     "original": "Not Reached"
+    },
+    "1": {
+     "es": "Alcanzado",
+     "original": "Reached"
+    }
+   }
+  },
+  "CAN_HealLampsWasherStatus": {
+   "ayuda": "",
+   "es": "CAN_HealLampsWasherStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_HighBeamStatus": {
+   "ayuda": "",
+   "es": "CAN_HighBeamStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_IgnitionSupplyConfirmation": {
+   "ayuda": "",
+   "es": "CAN_IgnitionSupplyConfirmation",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_InstantMechanicalPowerByAlt": {
+   "ayuda": "",
+   "es": "CAN_InstantMechanicalPowerByAlt",
+   "unit": {
+    "es": "Watts",
+    "original": "Watts"
+   }
+  },
+  "CAN_LowBeamStatus": {
+   "ayuda": "",
+   "es": "CAN_LowBeamStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_MessageSet_Ref": {
+   "ayuda": "",
+   "comment": {
+    "es": "Valor: 8410",
+    "original": "Value: 8410"
+   },
+   "es": "CAN_MessageSet_Ref"
+  },
+  "CAN_Mute_parameter": {
+   "ayuda": "",
+   "es": "CAN_Mute_parameter"
+  },
+  "CAN_NeutralContact": {
+   "ayuda": "",
+   "es": "CAN_NeutralContact",
+   "lists": {
+    "0": {
+     "es": "No alcanzado",
+     "original": "Not reached"
+    },
+    "1": {
+     "es": "Alcanzado",
+     "original": "Reached"
+    },
+    "2": {
+     "es": "Vehículo no equipado",
+     "original": "Vehicle not equipped"
+    },
+    "3": {
+     "es": "Inválido",
+     "original": "Invalid"
+    }
+   }
+  },
+  "CAN_OilPressureSwitch": {
+   "ayuda": "",
+   "es": "CAN_OilPressureSwitch",
+   "lists": {
+    "0": {
+     "es": "Abierto",
+     "original": "Open"
+    },
+    "1": {
+     "es": "Cerrado",
+     "original": "Closed"
+    }
+   }
+  },
+  "CAN_PositionLightsStatus": {
+   "ayuda": "",
+   "es": "CAN_PositionLightsStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_PredictedMechanicalPowerByAlt": {
+   "ayuda": "",
+   "comment": {
+    "es": "$FF: inválido",
+    "original": "$FF: invalid"
+   },
+   "es": "CAN_PredictedMechanicalPowerByAlt",
+   "unit": {
+    "es": "Watts",
+    "original": "Watts"
+   }
+  },
+  "CAN_RearDefrostStatus": {
+   "ayuda": "",
+   "es": "CAN_RearDefrostStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_RearGearEngaged_84_UPC": {
+   "ayuda": "",
+   "es": "CAN_RearGearEngaged_84_UPC",
+   "lists": {
+    "0": {
+     "es": "no engranado",
+     "original": "not engaged"
+    },
+    "1": {
+     "es": "engranado",
+     "original": "engaged"
+    },
+    "2": {
+     "es": "invertido",
+     "original": "reversed"
+    },
+    "3": {
+     "es": "inválido",
+     "original": "invalid"
+    }
+   }
+  },
+  "CAN_ResetInfo_USM": {
+   "ayuda": "",
+   "es": "CAN_ResetInfo_USM",
+   "lists": {
+    "0": {
+     "es": "Sin reinicio",
+     "original": "No reset"
+    },
+    "1": {
+     "es": "Salida del reinicio",
+     "original": "Exit from reset"
+    }
+   }
+  },
+  "CAN_RotorCurrent_84": {
+   "ayuda": "",
+   "comment": {
+    "es": "$FF: inválido",
+    "original": "$FF: invalid"
+   },
+   "es": "CAN_RotorCurrent_84",
+   "unit": {
+    "es": "A",
+    "original": "A"
+   }
+  },
+  "CAN_StarterStatus": {
+   "ayuda": "",
+   "es": "CAN_StarterStatus",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "Relajación corta",
+     "original": "Short relaxation"
+    },
+    "2": {
+     "es": "Relajación larga",
+     "original": "Long relaxation"
+    },
+    "3": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_StarterStatus(copy)": {
+   "ayuda": "",
+   "es": "Estado del arranque por CAN (copia)",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "Relajación corta",
+     "original": "Short relaxation"
+    },
+    "2": {
+     "es": "Relajación larga",
+     "original": "Long relaxation"
+    },
+    "3": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "CAN_USM_Refuse_to_Sleep": {
+   "ayuda": "",
+   "es": "CAN_USM_Refuse_to_Sleep",
+   "lists": {
+    "0": {
+     "es": "reservado",
+     "original": "reserved"
+    },
+    "1": {
+     "es": "Refuse_to_sleep",
+     "original": "Refuse_to_sleep"
+    },
+    "2": {
+     "es": "Ready_to_sleep",
+     "original": "Ready_to_sleep"
+    },
+    "3": {
+     "es": "reservado 2",
+     "original": "reserved2"
+    }
+   }
+  },
+  "CAN_brake_VehicleSpeed": {
+   "ayuda": "",
+   "es": "CAN_brake_VehicleSpeed",
+   "unit": {
+    "es": "km/h",
+    "original": "km/h"
+   }
+  },
+  "C_B_ActiveDiagTest": {
+   "ayuda": "",
+   "es": "C_B_ActiveDiagTest",
+   "lists": {
+    "0": {
+     "es": "Sin prueba de diagnóstico activo",
+     "original": "No activ diagnosis test"
+    },
+    "1": {
+     "es": "Prueba de diagnóstico activo OK",
+     "original": "Activ diagnosis test ok"
+    }
+   }
+  },
+  "C_B_Actuator3": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: actuador 3 (MN-03)",
+    "original": "O_ACTUATOR3 (MN-03)"
+   },
+   "es": "C_B_Actuator3",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_AirConditionning": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: embrague del compresor de A/A (MN-10)",
+    "original": "O_AC_CLUTCH (MN-10)"
+   },
+   "es": "C_B_AirConditionning",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_AutomaticGearBox": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: contacto del antiarranque (MN-13)",
+    "original": "O_IGN_AT (MN-13)"
+   },
+   "es": "C_B_AutomaticGearBox",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_BatteryLamp": {
+   "ayuda": "",
+   "es": "C_B_BatteryLamp",
+   "lists": {
+    "0": {
+     "es": "Gestión de energía",
+     "original": "Energy management"
+    },
+    "1": {
+     "es": "Sensor del alternador",
+     "original": "Alternator sensor"
+    }
+   }
+  },
+  "C_B_Battery_ABSValve": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: batería - válvulas del ABS (CM-05)",
+    "original": "O_BAT-ABS_VALVES (CM-05)"
+   },
+   "es": "C_B_Battery_ABSValve",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_Battery_AT_LPG": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: batería - caja automática/GLP (MN-08)",
+    "original": "O_BAT-AT-GEAR/LPG (MN-08)"
+   },
+   "es": "C_B_Battery_AT_LPG",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_Battery_ECMAct": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: batería - actuadores de la ECU motor (MN-06)",
+    "original": "O_BAT-ECM_ACT (MN-06)"
+   },
+   "es": "C_B_Battery_ECMAct",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_DF_Regulation": {
+   "ayuda": "",
+   "es": "C_B_DF_Regulation",
+   "lists": {
+    "0": {
+     "es": "ECU del motor lista",
+     "original": "ECM Ready"
+    },
+    "1": {
+     "es": "ECU del motor no lista",
+     "original": "ECM not ready"
+    }
+   }
+  },
+  "C_B_DayTimeRunningLight": {
+   "ayuda": "",
+   "es": "C_B_DayTimeRunningLight",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_DefrostTimeoutEnable": {
+   "ayuda": "",
+   "es": "C_B_DefrostTimeoutEnable",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "C_B_Defroster": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: desempañador trasero (CM-04)",
+    "original": "O_RR_DEFROSTER (CM-04)"
+   },
+   "es": "C_B_Defroster",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_EnableVehicleRunning": {
+   "ayuda": "",
+   "es": "C_B_EnableVehicleRunning",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_FogLamps": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: luces antiniebla delanteras izquierda y derecha (AN-02 y AN-03)",
+    "original": "O_LIGHT-FR-FOG-LAMPS LH and RH (AN-02 and AN-03)"
+   },
+   "es": "C_B_FogLamps",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_GPL": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: contacto del GLP (MN-04)",
+    "original": "O_IGN_LPG (MN-04)"
+   },
+   "es": "C_B_GPL",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_HeadLampsWasher": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: lavafaros izquierdo y derecho (CN-07 y CN-11)",
+    "original": "O_WASHER left and right (CN-07 and CN-11)"
+   },
+   "es": "C_B_HeadLampsWasher",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_KmIllimited": {
+   "ayuda": "",
+   "es": "C_B_KmIllimited",
+   "lists": {
+    "0": {
+     "es": "La función SOC está inhibida después de C_B_KmIllimited",
+     "original": "SOC function is inhibited after C_B_KmIllimited"
+    },
+    "1": {
+     "es": "La función SOC no está inhibida después de C_B_KmIllimited",
+     "original": "SOC function is not inhibited after C_B_KmIllimited"
+    }
+   }
+  },
+  "C_B_NotColumnLocked": {
+   "ayuda": "",
+   "comment": {
+    "es": "Salida: contacto - sin bloqueo de columna (CN-10)",
+    "original": "O_IGN-NOT_COLUMN-LOCK (CN-10)"
+   },
+   "es": "C_B_NotColumnLocked",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Not present"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Present"
+    }
+   }
+  },
+  "C_B_SafetyLineEnable": {
+   "ayuda": "",
+   "es": "C_B_SafetyLineEnable",
+   "lists": {
+    "0": {
+     "es": "NO",
+     "original": "NO"
+    },
+    "1": {
+     "es": "SÍ",
+     "original": "YES"
+    }
+   }
+  },
+  "C_B_SmartKeyLess": {
+   "ayuda": "",
+   "es": "C_B_SmartKeyLess",
+   "lists": {
+    "0": {
+     "es": "Vehículo sin llave manos libres",
+     "original": "Car without smart key less"
+    },
+    "1": {
+     "es": "Vehículo con llave manos libres",
+     "original": "Car with smart key less"
+    }
+   }
+  },
+  "C_B_SocInitInhib": {
+   "ayuda": "",
+   "es": "C_B_SocInitInhib",
+   "lists": {
+    "0": {
+     "es": "La función S0C no está inhibida",
+     "original": "S0C function is not inhibited"
+    },
+    "1": {
+     "es": "La función SOC está inhibida",
+     "original": "SOC function is inhibited"
+    }
+   }
+  },
+  "C_B_StarterProtection": {
+   "ayuda": "",
+   "es": "C_B_StarterProtection",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "C_B_StressProtectionEnable": {
+   "ayuda": "",
+   "es": "C_B_StressProtectionEnable",
+   "lists": {
+    "0": {
+     "es": "APAGADO",
+     "original": "OFF"
+    },
+    "1": {
+     "es": "ENCENDIDO",
+     "original": "ON"
+    }
+   }
+  },
+  "C_B_SuperSleepAddiction": {
+   "ayuda": "",
+   "es": "C_B_SuperSleepAddiction",
+   "lists": {
+    "0": {
+     "es": "Sin dependencia de sueño profundo",
+     "original": "No super sleep addiction"
+    },
+    "1": {
+     "es": "Dependencia de sueño profundo",
+     "original": "Super sleep addiction"
+    }
+   }
+  },
+  "C_B_UbattManu_req": {
+   "ayuda": "",
+   "es": "C_B_UbattManu_req",
+   "lists": {
+    "0": {
+     "es": "Manual",
+     "original": "Manual"
+    },
+    "1": {
+     "es": "Automático",
+     "original": "Automatic"
+    }
+   }
+  },
+  "C_B_alt_BackUp": {
+   "ayuda": "",
+   "es": "C_B_alt_BackUp",
+   "lists": {
+    "0": {
+     "es": "No permitido",
+     "original": "Not allowed"
+    },
+    "1": {
+     "es": "Permitido",
+     "original": "Allowed"
+    }
+   }
+  },
+  "C_D_InformOfSoc_max": {
+   "ayuda": "",
+   "es": "C_D_InformOfSoc_max",
+   "unit": {
+    "es": "km",
+    "original": "Km"
+   }
+  },
+  "C_K_Gain2_RotorCurrent": {
+   "ayuda": "",
+   "es": "C_K_Gain2_RotorCurrent"
+  },
+  "C_K_Gain_RotorCurrent": {
+   "ayuda": "",
+   "es": "C_K_Gain_RotorCurrent"
+  },
+  "C_K_MechanicalRatio": {
+   "ayuda": "",
+   "es": "C_K_MechanicalRatio"
+  },
+  "C_K_MotorType_Status": {
+   "ayuda": "",
+   "es": "C_K_MotorType_Status",
+   "lists": {
+    "0": {
+     "es": "Diésel",
+     "original": "Diesel"
+    },
+    "1": {
+     "es": "Nafta",
+     "original": "Gasoline"
+    }
+   }
+  },
+  "C_K_Ramp_BACKUP": {
+   "ayuda": "",
+   "es": "C_K_Ramp_BACKUP",
+   "lists": {
+    "0": {
+     "es": "0,2 segundos",
+     "original": "0,2 Secondes"
+    },
+    "1": {
+     "es": "5 segundos",
+     "original": "5 Secondes"
+    },
+    "2": {
+     "es": "10 segundos",
+     "original": "10 Secondes"
+    },
+    "3": {
+     "es": "15 segundos",
+     "original": "15 Secondes"
+    }
+   }
+  },
+  "C_K_TauBattGainU0": {
+   "ayuda": "",
+   "es": "C_K_TauBattGainU0"
+  },
+  "C_Ki_TorqueLim_max": {
+   "ayuda": "",
+   "es": "C_Ki_TorqueLim_max"
+  },
+  "C_Ki_TorqueLim_min": {
+   "ayuda": "",
+   "es": "C_Ki_TorqueLim_min"
+  },
+  "C_Kp_TorqueLim_max": {
+   "ayuda": "",
+   "es": "C_Kp_TorqueLim_max"
+  },
+  "C_Kp_TorqueLim_min": {
+   "ayuda": "",
+   "es": "C_Kp_TorqueLim_min"
+  },
+  "C_N_alt_OFF_BACKUP": {
+   "ayuda": "",
+   "es": "C_N_alt_OFF_BACKUP",
+   "unit": {
+    "es": "rpm",
+    "original": "Tr/min"
+   }
+  },
+  "C_N_alt_ON_BACKUP": {
+   "ayuda": "",
+   "es": "C_N_alt_ON_BACKUP",
+   "unit": {
+    "es": "rpm",
+    "original": "Tr/min"
+   }
+  },
+  "C_R_Global": {
+   "ayuda": "",
+   "es": "C_R_Global"
+  },
+  "C_TM_ECMRelaySwitchingTime": {
+   "ayuda": "",
+   "es": "C_TM_ECMRelaySwitchingTime"
+  },
+  "C_TM_HighSpeedPeriod_limit_max": {
+   "ayuda": "",
+   "es": "C_TM_HighSpeedPeriod_limit_max",
+   "unit": {
+    "es": "ms",
+    "original": "ms"
+   }
+  },
+  "C_TM_HighSpeedWipingProtection": {
+   "ayuda": "",
+   "es": "C_TM_HighSpeedWipingProtection",
+   "unit": {
+    "es": "ms",
+    "original": "ms"
+   }
+  },
+  "C_TM_Lestage_Alt_Voltage": {
+   "ayuda": "",
+   "es": "C_TM_Lestage_Alt_Voltage"
+  },
+  "C_TM_LowSpeedPeriod_limit_max": {
+   "ayuda": "",
+   "es": "C_TM_LowSpeedPeriod_limit_max",
+   "unit": {
+    "es": "ms",
+    "original": "ms"
+   }
+  },
+  "C_TM_LowSpeedWipingProtection": {
+   "ayuda": "",
+   "es": "C_TM_LowSpeedWipingProtection",
+   "unit": {
+    "es": "s",
+    "original": "s"
+   }
+  },
+  "C_TM_PmaxNul_BACKUP": {
+   "ayuda": "",
+   "es": "C_TM_PmaxNul_BACKUP",
+   "unit": {
+    "es": "s",
+    "original": "s"
+   }
+  },
+  "C_TM_RampH01": {
+   "ayuda": "",
+   "es": "C_TM_RampH01"
+  },
+  "C_TM_RampH10": {
+   "ayuda": "",
+   "es": "C_TM_RampH10"
+  },
+  "C_TM_RampH12": {
+   "ayuda": "",
+   "es": "C_TM_RampH12"
+  },
+  "C_TM_RampH21": {
+   "ayuda": "",
+   "es": "C_TM_RampH21"
+  },
+  "C_TM_RampH23": {
+   "ayuda": "",
+   "es": "C_TM_RampH23"
+  },
+  "C_TM_RampH32": {
+   "ayuda": "",
+   "es": "C_TM_RampH32"
+  },
+  "C_TM_UBattOffsetNul": {
+   "ayuda": "",
+   "es": "C_TM_UBattOffsetNul"
+  },
+  "C_Tau_Battery": {
+   "ayuda": "",
+   "es": "C_Tau_Battery"
+  },
+  "C_Tau_Engine": {
+   "ayuda": "",
+   "es": "C_Tau_Engine"
+  },
+  "C_Teta_High": {
+   "ayuda": "",
+   "es": "C_Teta_High"
+  },
+  "C_Teta_Low": {
+   "ayuda": "",
+   "es": "C_Teta_Low"
+  },
+  "C_U_2RelON_1RelOFF_FFog": {
+   "ayuda": "",
+   "es": "C_U_2RelON_1RelOFF_FFog"
+  },
+  "C_U_2RelON_1RelOFF_MFan": {
+   "ayuda": "",
+   "es": "C_U_2RelON_1RelOFF_MFan"
+  },
+  "C_U_4RelON_1RelOFF_AC_N3": {
+   "ayuda": "",
+   "es": "C_U_4RelON_1RelOFF_AC_N3"
+  },
+  "C_U_4RelON_1RelOFF_AC_N4": {
+   "ayuda": "",
+   "es": "C_U_4RelON_1RelOFF_AC_N4"
+  },
+  "C_U_4RelON_1RelOFF_HB": {
+   "ayuda": "",
+   "es": "C_U_4RelON_1RelOFF_HB"
+  },
+  "C_U_4RelON_1RelOFF_LB": {
+   "ayuda": "",
+   "es": "C_U_4RelON_1RelOFF_LB"
+  },
+  "C_U_4RelON_1RelOFF_PL": {
+   "ayuda": "",
+   "es": "C_U_4RelON_1RelOFF_PL"
+  },
+  "C_U_4RelON_1RelOFF_RD": {
+   "ayuda": "",
+   "es": "C_U_4RelON_1RelOFF_RD"
+  },
+  "C_U_Batt_MAX": {
+   "ayuda": "",
+   "es": "C_U_Batt_MAX",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "C_U_Batt_MIN": {
+   "ayuda": "",
+   "es": "C_U_Batt_MIN",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "C_U_OffsetMAX": {
+   "ayuda": "",
+   "es": "C_U_OffsetMAX",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "C_U_alt_diag": {
+   "ayuda": "",
+   "es": "C_U_alt_diag",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "C_U_batt_NoLoadTemp_min": {
+   "ayuda": "",
+   "es": "C_U_batt_NoLoadTemp_min",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "C_U_batt_VoltageNetwork_max": {
+   "ayuda": "",
+   "es": "C_U_batt_VoltageNetwork_max"
+  },
+  "C_U_batt_req_manu": {
+   "ayuda": "",
+   "es": "C_U_batt_req_manu",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "C_U_fuses_AB_COL_BAT_N3": {
+   "ayuda": "",
+   "es": "C_U_fuses_AB_COL_BAT_N3"
+  },
+  "C_U_fuses_AB_COL_BAT_N4": {
+   "ayuda": "",
+   "es": "C_U_fuses_AB_COL_BAT_N4"
+  },
+  "C_U_fuses_AT": {
+   "ayuda": "",
+   "es": "C_U_fuses_AT"
+  },
+  "C_U_fuses_AT_LPG": {
+   "ayuda": "",
+   "es": "C_U_fuses_AT_LPG"
+  },
+  "C_U_fuses_BAT_N3": {
+   "ayuda": "",
+   "es": "C_U_fuses_BAT_N3"
+  },
+  "C_U_fuses_BAT_N4": {
+   "ayuda": "",
+   "es": "C_U_fuses_BAT_N4"
+  },
+  "C_U_fuses_Cabin": {
+   "ayuda": "",
+   "es": "C_U_fuses_Cabin"
+  },
+  "C_U_fuses_Compressor": {
+   "ayuda": "",
+   "es": "C_U_fuses_Compressor"
+  },
+  "C_U_fuses_Defroster": {
+   "ayuda": "",
+   "es": "C_U_fuses_Defroster"
+  },
+  "C_U_fuses_FAN": {
+   "ayuda": "",
+   "es": "C_U_fuses_FAN"
+  },
+  "C_U_fuses_FF": {
+   "ayuda": "",
+   "es": "C_U_fuses_FF"
+  },
+  "C_U_fuses_FrontWiper": {
+   "ayuda": "",
+   "es": "C_U_fuses_FrontWiper"
+  },
+  "C_U_fuses_HB_LH": {
+   "ayuda": "",
+   "es": "C_U_fuses_HB_LH"
+  },
+  "C_U_fuses_HB_RH": {
+   "ayuda": "",
+   "es": "C_U_fuses_HB_RH"
+  },
+  "C_U_fuses_IN1_threshold": {
+   "ayuda": "",
+   "es": "C_U_fuses_IN1_threshold"
+  },
+  "C_U_fuses_LB_LH": {
+   "ayuda": "",
+   "es": "C_U_fuses_LB_LH"
+  },
+  "C_U_fuses_LB_RH": {
+   "ayuda": "",
+   "es": "C_U_fuses_LB_RH"
+  },
+  "C_U_fuses_LPG": {
+   "ayuda": "",
+   "es": "C_U_fuses_LPG"
+  },
+  "C_U_fuses_Position_LH": {
+   "ayuda": "",
+   "es": "C_U_fuses_Position_LH"
+  },
+  "C_U_fuses_Position_RH": {
+   "ayuda": "",
+   "es": "C_U_fuses_Position_RH"
+  },
+  "C_U_fuses_Reverse": {
+   "ayuda": "",
+   "es": "C_U_fuses_Reverse"
+  },
+  "C_U_fuses_SafetyLine": {
+   "ayuda": "",
+   "es": "C_U_fuses_SafetyLine"
+  },
+  "C_U_fuses_Washer": {
+   "ayuda": "",
+   "es": "C_U_fuses_Washer"
+  },
+  "C_U_threshold_CO": {
+   "ayuda": "",
+   "es": "C_U_threshold_CO",
+   "unit": {
+    "es": "mV",
+    "original": "mV"
+   }
+  },
+  "C_WINDOW_TIME_2": {
+   "ayuda": "",
+   "es": "C_WINDOW_TIME_2"
+  },
+  "C_dU_RampDetect_max": {
+   "ayuda": "",
+   "es": "C_dU_RampDetect_max"
+  },
+  "C_dU_RampDetect_min": {
+   "ayuda": "",
+   "es": "C_dU_RampDetect_min"
+  },
+  "Current Failure": {
+   "ayuda": "",
+   "es": "Falla actual",
+   "lists": {
+    "0": {
+     "es": "No",
+     "original": "No"
+    },
+    "1": {
+     "es": "Sí",
+     "original": "Yes"
+    }
+   }
+  },
+  "D1": {
+   "ayuda": "",
+   "es": "D1"
+  },
+  "D10": {
+   "ayuda": "",
+   "es": "D10"
+  },
+  "D2": {
+   "ayuda": "",
+   "es": "D2"
+  },
+  "D3": {
+   "ayuda": "",
+   "es": "D3"
+  },
+  "D4": {
+   "ayuda": "",
+   "es": "D4"
+  },
+  "D5": {
+   "ayuda": "",
+   "es": "D5"
+  },
+  "D6": {
+   "ayuda": "",
+   "es": "D6"
+  },
+  "D7": {
+   "ayuda": "",
+   "es": "D7"
+  },
+  "D8": {
+   "ayuda": "",
+   "es": "D8"
+  },
+  "D9": {
+   "ayuda": "",
+   "es": "D9"
+  },
+  "DF Monitor": {
+   "ayuda": "",
+   "es": "Monitor de fallas",
+   "unit": {
+    "es": "%",
+    "original": "%"
+   }
+  },
+  "EM_Calib_Name": {
+   "ayuda": "",
+   "es": "EM_Calib_Name",
+   "lists": {
+    "0": {
+     "es": "C_U_OffsetMAX",
+     "original": "C_U_OffsetMAX"
+    },
+    "1": {
+     "es": "C_Tau_Battery",
+     "original": "C_Tau_Battery"
+    },
+    "10": {
+     "es": "C_Ki_TorqueLim_min",
+     "original": "C_Ki_TorqueLim_min"
+    },
+    "11": {
+     "es": "C_dU_RampDetect_max",
+     "original": "C_dU_RampDetect_max"
+    },
+    "12": {
+     "es": "C_dU_RampDetect_min",
+     "original": "C_dU_RampDetect_min"
+    },
+    "13": {
+     "es": "C_TM_UBattOffsetNul",
+     "original": "C_TM_UBattOffsetNul"
+    },
+    "14": {
+     "es": "C_TM_Lestage_Alt_Voltage",
+     "original": "C_TM_Lestage_Alt_Voltage"
+    },
+    "2": {
+     "es": "C_Tau_Engine",
+     "original": "C_Tau_Engine"
+    },
+    "3": {
+     "es": "C_K_TauBattGainU0",
+     "original": "C_K_TauBattGainU0"
+    },
+    "4": {
+     "es": "C_R_Global",
+     "original": "C_R_Global"
+    },
+    "5": {
+     "es": "C_U_batt_VoltageNetwork_max",
+     "original": "C_U_batt_VoltageNetwork_max"
+    },
+    "6": {
+     "es": "C_WINDOW_TIME_2",
+     "original": "C_WINDOW_TIME_2"
+    },
+    "7": {
+     "es": "C_Kp_TorqueLim_max",
+     "original": "C_Kp_TorqueLim_max"
+    },
+    "8": {
+     "es": "C_Kp_TorqueLim_min",
+     "original": "C_Kp_TorqueLim_min"
+    },
+    "9": {
+     "es": "C_Ki_TorqueLim_max",
+     "original": "C_Ki_TorqueLim_max"
+    }
+   }
+  },
+  "EM_Calib_Value": {
+   "ayuda": "",
+   "es": "EM_Calib_Value"
+  },
+  "ENERGY_BATTERY_VOLTAGE_H": {
+   "ayuda": "",
+   "es": "ENERGY_BATTERY_VOLTAGE_H"
+  },
+  "ENERGY_BATTERY_VOLTAGE_L": {
+   "ayuda": "",
+   "es": "ENERGY_BATTERY_VOLTAGE_L"
+  },
+  "FFN": {
+   "ayuda": "",
+   "es": "FFN"
+  },
+  "FirstDTC": {
+   "ayuda": "",
+   "comment": {
+    "es": "Nombre del DTC",
+    "original": "Name of DTC"
+   },
+   "es": "Primer código de falla (DTC)",
+   "lists": {
+    "37390": {
+     "es": "Falla de la ECU",
+     "original": "ECU failure"
+    },
+    "37391": {
+     "es": "BSS: falla de red",
+     "original": "BSS : Network default"
+    },
+    "37392": {
+     "es": "BSS: falla del alternador",
+     "original": "BSS : Alternator default"
+    },
+    "37393": {
+     "es": "BSS: falla de comunicación",
+     "original": "BSS : Communication default"
+    },
+    "37394": {
+     "es": "Alternador desconocido",
+     "original": "Alternator unknown"
+    },
+    "37395": {
+     "es": "Alimentación de la USM",
+     "original": "USM supply"
+    },
+    "37397": {
+     "es": "Luz baja izquierda",
+     "original": "Low beam LH"
+    },
+    "37398": {
+     "es": "Luz baja derecha y nivelación",
+     "original": "Low beam RH & levelize"
+    },
+    "37399": {
+     "es": "Luces de posición izquierda y trasera izquierda",
+     "original": "Position Lights LH & Rear LH"
+    },
+    "37400": {
+     "es": "Luces de posición derecha, trasera derecha y patente",
+     "original": "Position Lights RH & Rear RH & Plate"
+    },
+    "37401": {
+     "es": "Embrague del compresor de A/A",
+     "original": "AC clutch"
+    },
+    "37402": {
+     "es": "Limpiaparabrisas delantero",
+     "original": "FR wiper"
+    },
+    "37403": {
+     "es": "Luz alta izquierda",
+     "original": "High Beam LH"
+    },
+    "37404": {
+     "es": "Luz alta derecha",
+     "original": "High Beam RH"
+    },
+    "37405": {
+     "es": "Luces antiniebla izquierda y derecha",
+     "original": "Fog Lamps LH & RH"
+    },
+    "37406": {
+     "es": "Desempañador",
+     "original": "Defroster"
+    },
+    "37407": {
+     "es": "Lavafaros",
+     "original": "H/L Washer"
+    },
+    "37408": {
+     "es": "Contacto sin bloqueo de columna",
+     "original": "Ignition Not column lock"
+    },
+    "37409": {
+     "es": "Contacto de la línea de seguridad de la ECU del motor",
+     "original": "Ignition ECM safetyline"
+    },
+    "37410": {
+     "es": "Contacto del GLP",
+     "original": "Ignition LPG"
+    },
+    "37411": {
+     "es": "Contacto de EPS/AIRBAG",
+     "original": "Ignition EPS/AIRBAG"
+    },
+    "37412": {
+     "es": "Contacto del antiarranque",
+     "original": "Ignition AT"
+    },
+    "37413": {
+     "es": "Contacto del habitáculo",
+     "original": "Ignition Cabin"
+    },
+    "37414": {
+     "es": "Contacto del interruptor de marcha atrás",
+     "original": "Ignition Reverse SW"
+    },
+    "37415": {
+     "es": "Batería",
+     "original": "Battery"
+    },
+    "37416": {
+     "es": "Actuador 3",
+     "original": "Actuator 3"
+    },
+    "37417": {
+     "es": "Electroventilador del motor",
+     "original": "Motor FAN"
+    }
+   }
+  },
+  "Freeze_Number": {
+   "ayuda": "",
+   "es": "Freeze_Number"
+  },
+  "Historical Failure": {
+   "ayuda": "",
+   "es": "Falla histórica (memorizada)",
+   "lists": {
+    "0": {
+     "es": "No",
+     "original": "No"
+    },
+    "1": {
+     "es": "Sí",
+     "original": "Yes"
+    }
+   }
+  },
+  "Irotor": {
+   "ayuda": "",
+   "es": "Corriente del rotor",
+   "unit": {
+    "es": "A",
+    "original": "A"
+   }
+  },
+  "LCR Cut Off Speed": {
+   "ayuda": "",
+   "es": "Velocidad de corte del LCR",
+   "lists": {
+    "0": {
+     "es": "Válido",
+     "original": "Valid"
+    },
+    "1": {
+     "es": "Sin límite de velocidad",
+     "original": "No speed limit"
+    }
+   }
+  },
+  "LRC": {
+   "ayuda": "",
+   "es": "LRC",
+   "lists": {
+    "0": {
+     "es": "0,2 s",
+     "original": "0,2 s"
+    },
+    "1": {
+     "es": "5 s",
+     "original": "5 s"
+    },
+    "2": {
+     "es": "10 s",
+     "original": "10 s"
+    },
+    "3": {
+     "es": "15 s",
+     "original": "15 s"
+    }
+   }
+  },
+  "MaskDTC": {
+   "ayuda": "",
+   "es": "Máscara de DTC"
+  },
+  "NDTC": {
+   "ayuda": "",
+   "es": "Cantidad de códigos de falla (DTC)"
+  },
+  "NeutralPosition_sens_status": {
+   "ayuda": "",
+   "es": "NeutralPosition_sens_status"
+  },
+  "OC_Calib_Name": {
+   "ayuda": "",
+   "es": "OC_Calib_Name",
+   "lists": {
+    "0": {
+     "es": "C_U_4RelON_1RelOFF_HB",
+     "original": "C_U_4RelON_1RelOFF_HB"
+    },
+    "1": {
+     "es": "C_U_4RelON_1RelOFF_PL",
+     "original": "C_U_4RelON_1RelOFF_PL"
+    },
+    "10": {
+     "es": "C_U_fuses_Cabin",
+     "original": "C_U_fuses_Cabin"
+    },
+    "11": {
+     "es": "C_U_fuses_AT_LPG",
+     "original": "C_U_fuses_AT_LPG"
+    },
+    "12": {
+     "es": "C_U_fuses_AT",
+     "original": "C_U_fuses_AT"
+    },
+    "13": {
+     "es": "C_U_fuses_LPG",
+     "original": "C_U_fuses_LPG"
+    },
+    "14": {
+     "es": "C_U_fuses_FAN",
+     "original": "C_U_fuses_FAN"
+    },
+    "15": {
+     "es": "C_U_fuses_HB_RH",
+     "original": "C_U_fuses_HB_RH"
+    },
+    "16": {
+     "es": "C_U_fuses_HB_LH",
+     "original": "C_U_fuses_HB_LH"
+    },
+    "17": {
+     "es": "C_U_fuses_FrontWiper",
+     "original": "C_U_fuses_FrontWiper"
+    },
+    "18": {
+     "es": "C_U_fuses_LB_RH",
+     "original": "C_U_fuses_LB_RH"
+    },
+    "19": {
+     "es": "C_U_fuses_LB_LH",
+     "original": "C_U_fuses_LB_LH"
+    },
+    "2": {
+     "es": "C_U_4RelON_1RelOFF_RD",
+     "original": "C_U_4RelON_1RelOFF_RD"
+    },
+    "20": {
+     "es": "C_U_fuses_FF",
+     "original": "C_U_fuses_FF"
+    },
+    "21": {
+     "es": "C_U_fuses_Washer",
+     "original": "C_U_fuses_Washer"
+    },
+    "22": {
+     "es": "C_U_fuses_Position_LH",
+     "original": "C_U_fuses_Position_LH"
+    },
+    "23": {
+     "es": "C_U_fuses_Position_RH",
+     "original": "C_U_fuses_Position_RH"
+    },
+    "24": {
+     "es": "C_U_fuses_Compressor",
+     "original": "C_U_fuses_Compressor"
+    },
+    "25": {
+     "es": "C_U_fuses_Defroster",
+     "original": "C_U_fuses_Defroster"
+    },
+    "26": {
+     "es": "C_U_fuses_IN1_threshold",
+     "original": "C_U_fuses_IN1_threshold"
+    },
+    "27": {
+     "es": "C_U_fuses_AB_COL_BAT_N4",
+     "original": "C_U_fuses_AB_COL_BAT_N4"
+    },
+    "28": {
+     "es": "C_U_fuses_AB_COL_BAT_N3",
+     "original": "C_U_fuses_AB_COL_BAT_N3"
+    },
+    "29": {
+     "es": "C_U_fuses_BAT_N4",
+     "original": "C_U_fuses_BAT_N4"
+    },
+    "3": {
+     "es": "C_U_4RelON_1RelOFF_LB",
+     "original": "C_U_4RelON_1RelOFF_LB"
+    },
+    "30": {
+     "es": "C_U_fuses_BAT_N3",
+     "original": "C_U_fuses_BAT_N3"
+    },
+    "31": {
+     "es": "id_HardwareConfig_OL",
+     "original": "id_HardwareConfig_OL"
+    },
+    "4": {
+     "es": "C_U_4RelON_1RelOFF_AC_N4",
+     "original": "C_U_4RelON_1RelOFF_AC_N4"
+    },
+    "5": {
+     "es": "C_U_4RelON_1RelOFF_AC_N3",
+     "original": "C_U_4RelON_1RelOFF_AC_N3"
+    },
+    "6": {
+     "es": "C_U_2RelON_1RelOFF_FFog",
+     "original": "C_U_2RelON_1RelOFF_FFog"
+    },
+    "7": {
+     "es": "C_U_2RelON_1RelOFF_MFan",
+     "original": "C_U_2RelON_1RelOFF_MFan"
+    },
+    "8": {
+     "es": "C_U_fuses_Reverse",
+     "original": "C_U_fuses_Reverse"
+    },
+    "9": {
+     "es": "C_U_fuses_SafetyLine",
+     "original": "C_U_fuses_SafetyLine"
+    }
+   }
+  },
+  "OC_Calib_Value": {
+   "ayuda": "",
+   "es": "OC_Calib_Value"
+  },
+  "OilPressureSwitch": {
+   "ayuda": "",
+   "es": "Manocontacto de presión de aceite"
+  },
+  "Output Control Command": {
+   "ayuda": "",
+   "es": "Comando de control de actuadores",
+   "lists": {
+    "0": {
+     "es": "Iniciar temporal",
+     "original": "Start Temporary"
+    },
+    "1": {
+     "es": "Estado",
+     "original": "Status"
+    },
+    "128": {
+     "es": "Temporizador de reinicio $80",
+     "original": "Reset timer $80"
+    },
+    "17": {
+     "es": "Detener",
+     "original": "Stop"
+    },
+    "32": {
+     "es": "Iniciar permanente",
+     "original": "Start Permanent"
+    }
+   }
+  },
+  "Output Control Status": {
+   "ayuda": "",
+   "comment": {
+    "es": "Estado de E/S",
+    "original": "IO status"
+   },
+   "es": "Estado del control de actuadores",
+   "lists": {
+    "1": {
+     "es": "En ejecución",
+     "original": "Running"
+    },
+    "17": {
+     "es": "Detenido manualmente",
+     "original": "Manually Stopped"
+    },
+    "2": {
+     "es": "Detenido",
+     "original": "Stopped"
+    }
+   }
+  },
+  "Output Control.tempON": {
+   "ayuda": "",
+   "comment": {
+    "es": "Encendido temporal: tiempo de activación (resolución: 640 ms)",
+    "original": "TempOn: Activation time (resolution:640 ms)"
+   },
+   "es": "Control de actuadores.encendido temporal"
+  },
+  "Output Permanent Control List": {
+   "ayuda": "",
+   "es": "Lista de controles permanentes de actuadores",
+   "lists": {
+    "33": {
+     "es": "Luces altas (Lear)",
+     "original": "High Beam (Lear)"
+    },
+    "34": {
+     "es": "Luces bajas (Lear)",
+     "original": "Low Beam (Lear)"
+    },
+    "35": {
+     "es": "Luces de posición (Lear)",
+     "original": "Position Lights (Lear)"
+    },
+    "36": {
+     "es": "Luces antiniebla (Lear)",
+     "original": "Fog Lamps (Lear)"
+    },
+    "37": {
+     "es": "Aire acondicionado (Lear)",
+     "original": "Air Conditioning (Lear)"
+    },
+    "38": {
+     "es": "Limpiaparabrisas en velocidad baja (Lear)",
+     "original": "Wiper Low Speed (Lear)"
+    },
+    "39": {
+     "es": "Limpiaparabrisas en velocidad alta (Lear)",
+     "original": "Wiper High Speed (Lear)"
+    },
+    "40": {
+     "es": "Electroventilador en velocidad baja (Lear)",
+     "original": "Fan Unit Low Speed (Lear)"
+    },
+    "41": {
+     "es": "Electroventilador en velocidad alta externo (Lear)",
+     "original": "Fan Unit High Speed external (Lear)"
+    },
+    "42": {
+     "es": "Electroventilador en velocidad alta interno (Lear)",
+     "original": "Fan Unit High Speed internal (Lear)"
+    },
+    "43": {
+     "es": "Desempañador (Lear)",
+     "original": "Defroster (Lear)"
+    },
+    "44": {
+     "es": "Lavafaros derecho (Lear)",
+     "original": "HL washer RS (Lear)"
+    },
+    "45": {
+     "es": "Lavafaros izquierdo (Lear)",
+     "original": "HL washer LS (Lear)"
+    },
+    "46": {
+     "es": "Motor de arranque (Lear)",
+     "original": "Starter (Lear)"
+    },
+    "47": {
+     "es": "ECLK (Lear)",
+     "original": "ECLK (Lear)"
+    }
+   }
+  },
+  "Output Temporary Control List": {
+   "ayuda": "",
+   "es": "Lista de controles temporales de actuadores",
+   "lists": {
+    "1": {
+     "es": "Luces altas",
+     "original": "High Beam"
+    },
+    "10": {
+     "es": "Desempañador",
+     "original": "Defroster"
+    },
+    "11": {
+     "es": "Lavafaros derecho",
+     "original": "HL washer RS"
+    },
+    "12": {
+     "es": "Lavafaros izquierdo",
+     "original": "HL washer LS"
+    },
+    "13": {
+     "es": "Contacto (control de 40 min)",
+     "original": "IGN (40min control)"
+    },
+    "14": {
+     "es": "Interruptor de posición neutra",
+     "original": "Neutral Position Switch"
+    },
+    "15": {
+     "es": "Manocontacto de presión de aceite",
+     "original": "Oil Pressure Switch"
+    },
+    "16": {
+     "es": "Electroventilador apagado",
+     "original": "Fan Unit Off"
+    },
+    "2": {
+     "es": "Luces bajas",
+     "original": "Low Beam"
+    },
+    "3": {
+     "es": "Luces de posición",
+     "original": "Position Lights"
+    },
+    "4": {
+     "es": "Luces antiniebla",
+     "original": "Fog Lamps"
+    },
+    "5": {
+     "es": "Aire acondicionado",
+     "original": "Air Conditioning"
+    },
+    "6": {
+     "es": "Limpiaparabrisas en velocidad baja",
+     "original": "Wiper Low Speed"
+    },
+    "7": {
+     "es": "Limpiaparabrisas en velocidad alta",
+     "original": "Wiper High Speed"
+    },
+    "8": {
+     "es": "Electroventilador en velocidad baja",
+     "original": "Fan Unit Low Speed"
+    },
+    "9": {
+     "es": "Electroventilador en velocidad alta",
+     "original": "Fan Unit High Speed"
+    }
+   }
+  },
+  "ReReadIgn_sens_status": {
+   "ayuda": "",
+   "es": "ReReadIgn_sens_status"
+  },
+  "ReverseGear_sens_status": {
+   "ayuda": "",
+   "es": "ReverseGear_sens_status"
+  },
+  "Session Name": {
+   "ayuda": "",
+   "es": "Nombre de sesión",
+   "lists": {
+    "129": {
+     "es": "Sesión por defecto",
+     "original": "Default Session"
+    },
+    "133": {
+     "es": "Sesión de programación para ECU reprogramable",
+     "original": "Programming Session for reprogrammable ECU"
+    },
+    "134": {
+     "es": "Sesión de ingeniería",
+     "original": "Engineering Session"
+    },
+    "192": {
+     "es": "Sesión de posventa y fábrica",
+     "original": "After Sales Manufacture Session"
+    },
+    "196": {
+     "es": "Sesión de aire acondicionado",
+     "original": "Clim Session"
+    },
+    "200": {
+     "es": "Sesión VSC",
+     "original": "VSC Session"
+    },
+    "204": {
+     "es": "Sesión ligera",
+     "original": "Light Session"
+    },
+    "207": {
+     "es": "Sesión del limpiaparabrisas",
+     "original": "Wiper Session"
+    }
+   }
+  },
+  "Standard Fault": {
+   "ayuda": "",
+   "es": "Falla estándar",
+   "lists": {
+    "0": {
+     "es": "Sin clasificación posible del tipo de falla",
+     "original": "No possible classification about the type of fault"
+    },
+    "1": {
+     "es": "Circuito abierto",
+     "original": "Open circuit"
+    },
+    "10": {
+     "es": "Nivel bajo permanente",
+     "original": "Permanent Low Level"
+    },
+    "11": {
+     "es": "Nivel alto permanente",
+     "original": "Permanent High Level"
+    },
+    "12": {
+     "es": "Líneas en cortocircuito",
+     "original": "Lines short-circuited"
+    },
+    "13": {
+     "es": "Anomalía electrónica interna",
+     "original": "Internal electronic anomaly"
+    },
+    "16": {
+     "es": "Comunicación perturbada",
+     "original": "Disturbed communication"
+    },
+    "2": {
+     "es": "Cortocircuito a masa",
+     "original": "Short circuit to ground"
+    },
+    "3": {
+     "es": "Cortocircuito a batería (+)",
+     "original": "Short circuit at battery +"
+    },
+    "6": {
+     "es": "Incoherencia, no plausible",
+     "original": "Incoherency, not plausible"
+    },
+    "7": {
+     "es": "Sin señal",
+     "original": "No signal"
+    }
+   }
+  },
+  "StopPosition_flt": {
+   "ayuda": "",
+   "es": "StopPosition_flt"
+  },
+  "VIN": {
+   "ayuda": "",
+   "comment": {
+    "es": "Valor por defecto: $FF",
+    "original": "Default value: $FF"
+   },
+   "es": "VIN"
+  },
+  "VIN CRC": {
+   "ayuda": "",
+   "es": "CRC del VIN"
+  },
+  "VREF_ALTERNATOR_H": {
+   "ayuda": "",
+   "es": "VREF_ALTERNATOR_H"
+  },
+  "VREF_ALTERNATOR_L": {
+   "ayuda": "",
+   "es": "VREF_ALTERNATOR_L"
+  },
+  "V_B_EndOfLearning_status": {
+   "ayuda": "",
+   "es": "V_B_EndOfLearning_status"
+  },
+  "V_K_LearningCounter_status": {
+   "ayuda": "",
+   "es": "V_K_LearningCounter_status"
+  },
+  "V_N_eng_2ndComp_est": {
+   "ayuda": "",
+   "es": "V_N_eng_2ndComp_est",
+   "unit": {
+    "es": "rpm",
+    "original": "Tr/min"
+   }
+  },
+  "V_N_eng_2ndComp_m20_est": {
+   "ayuda": "",
+   "es": "V_N_eng_2ndComp_m20_est",
+   "unit": {
+    "es": "rpm",
+    "original": "Tr/min"
+   }
+  },
+  "V_TM_ParkingDuration": {
+   "ayuda": "",
+   "es": "V_TM_ParkingDuration",
+   "unit": {
+    "es": "min",
+    "original": "min"
+   }
+  },
+  "V_Temp_batt_MiniDem_est": {
+   "ayuda": "",
+   "es": "V_Temp_batt_MiniDem_est",
+   "unit": {
+    "es": "°C",
+    "original": "°C"
+   }
+  },
+  "V_Temp_batt_est": {
+   "ayuda": "",
+   "es": "V_Temp_batt_est",
+   "unit": {
+    "es": "°C",
+    "original": "°C"
+   }
+  },
+  "V_U_IN1_mes_H": {
+   "ayuda": "",
+   "es": "V_U_IN1_mes_H"
+  },
+  "V_U_IN1_mes_L": {
+   "ayuda": "",
+   "es": "V_U_IN1_mes_L"
+  },
+  "V_U_IN2_mes_H": {
+   "ayuda": "",
+   "es": "V_U_IN2_mes_H"
+  },
+  "V_U_IN2_mes_L": {
+   "ayuda": "",
+   "es": "V_U_IN2_mes_L"
+  },
+  "V_U_IN3_mes_H": {
+   "ayuda": "",
+   "es": "V_U_IN3_mes_H"
+  },
+  "V_U_IN3_mes_L": {
+   "ayuda": "",
+   "es": "V_U_IN3_mes_L"
+  },
+  "V_U_IN4_mes_H": {
+   "ayuda": "",
+   "es": "V_U_IN4_mes_H"
+  },
+  "V_U_IN4_mes_L": {
+   "ayuda": "",
+   "es": "V_U_IN4_mes_L"
+  },
+  "V_U_IN5_mes_H": {
+   "ayuda": "",
+   "es": "V_U_IN5_mes_H"
+  },
+  "V_U_IN5_mes_L": {
+   "ayuda": "",
+   "es": "V_U_IN5_mes_L"
+  },
+  "V_U_batt_NoLoad_est": {
+   "ayuda": "",
+   "es": "V_U_batt_NoLoad_est",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "Vbat_Result": {
+   "ayuda": "",
+   "es": "Vbat_Result",
+   "lists": {
+    "1": {
+     "es": "Calibración realizada",
+     "original": "Calibration done"
+    },
+    "2": {
+     "es": "No calibrado",
+     "original": "Not calibrated"
+    }
+   }
+  },
+  "Vbat_Step": {
+   "ayuda": "",
+   "es": "Vbat_Step",
+   "lists": {
+    "1": {
+     "es": "Lectura",
+     "original": "Reading"
+    },
+    "2": {
+     "es": "Resultado",
+     "original": "Result"
+    }
+   }
+  },
+  "Vbat_answer": {
+   "ayuda": "",
+   "es": "Vbat_answer",
+   "lists": {
+    "1": {
+     "es": "Respuesta positiva",
+     "original": "Positive answer"
+    },
+    "2": {
+     "es": "Resultado de la calibración",
+     "original": "Result calibration"
+    }
+   }
+  },
+  "Voltage Regulation Target": {
+   "ayuda": "",
+   "es": "Objetivo de regulación de tensión",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "alternator_activation_type": {
+   "ayuda": "",
+   "es": "alternator_activation_type",
+   "lists": {
+    "0": {
+     "es": "Ninguno",
+     "original": "None"
+    },
+    "1": {
+     "es": "Temporal",
+     "original": "Temporary"
+    },
+    "2": {
+     "es": "Permanente",
+     "original": "Permanent"
+    },
+    "3": {
+     "es": "Reservado",
+     "original": "Reserved"
+    }
+   }
+  },
+  "alternator_voltage_temp_ON": {
+   "ayuda": "",
+   "comment": {
+    "es": "Tiempo de activación (resolución: 640 ms)",
+    "original": "Ton: Activation time (resolution:640 ms)"
+   },
+   "es": "alternator_voltage_temp_ON"
+  },
+  "alternator_voltage_value": {
+   "ayuda": "",
+   "es": "alternator_voltage_value"
+  },
+  "calib_Name": {
+   "ayuda": "",
+   "es": "calib_Name",
+   "lists": {
+    "0": {
+     "es": "C_K_MotorType_Status",
+     "original": "C_K_MotorType_Status"
+    },
+    "1": {
+     "es": "C_K_MechanicalRatio",
+     "original": "C_K_MechanicalRatio"
+    },
+    "10": {
+     "es": "C_B_SafetyLineEnable",
+     "original": "C_B_SafetyLineEnable"
+    },
+    "11": {
+     "es": "C_B_DefrostTimeoutEnable",
+     "original": "C_B_DefrostTimeoutEnable"
+    },
+    "12": {
+     "es": "C_U_batt_NoLoadTemp_min",
+     "original": "C_U_batt_NoLoadTemp_min"
+    },
+    "13": {
+     "es": "C_B_KmIllimited",
+     "original": "C_B_KmIllimited"
+    },
+    "14": {
+     "es": "C_B_SocInitInhib",
+     "original": "C_B_SocInitInhib"
+    },
+    "15": {
+     "es": "C_B_SuperSleepAddiction",
+     "original": "C_B_SuperSleepAddiction"
+    },
+    "16": {
+     "es": "C_B_alt_BackUp",
+     "original": "C_B_alt_BackUp"
+    },
+    "17": {
+     "es": "C_B_DF_Regulation",
+     "original": "C_B_DF_Regulation"
+    },
+    "18": {
+     "es": "C_U_batt_req_manu",
+     "original": "C_U_batt_req_manu"
+    },
+    "19": {
+     "es": "C_B_UbattManu_req",
+     "original": "C_B_UbattManu_req"
+    },
+    "2": {
+     "es": "C_B_StressProtectionEnable",
+     "original": "C_B_StressProtectionEnable"
+    },
+    "20": {
+     "es": "C_D_InformOfSoc_max",
+     "original": "C_D_InformOfSoc_max"
+    },
+    "21": {
+     "es": "C_N_alt_ON_BACKUP",
+     "original": "C_N_alt_ON_BACKUP"
+    },
+    "22": {
+     "es": "C_N_alt_OFF_BACKUP",
+     "original": "C_N_alt_OFF_BACKUP"
+    },
+    "23": {
+     "es": "C_K_Ramp_BACKUP",
+     "original": "C_K_Ramp_BACKUP"
+    },
+    "24": {
+     "es": "C_TM_PmaxNul_BACKUP",
+     "original": "C_TM_PmaxNul_BACKUP"
+    },
+    "25": {
+     "es": "AllowedPowerGradient_DF",
+     "original": "AllowedPowerGradient_DF"
+    },
+    "26": {
+     "es": "AlternatorMaximumPower_DF",
+     "original": "AlternatorMaximumPower_DF"
+    },
+    "27": {
+     "es": "C_B_SmartKeyLess",
+     "original": "C_B_SmartKeyLess"
+    },
+    "28": {
+     "es": "C_B_GPL",
+     "original": "C_B_GPL"
+    },
+    "29": {
+     "es": "C_B_ActiveDiagTest",
+     "original": "C_B_ActiveDiagTest"
+    },
+    "3": {
+     "es": "C_B_StarterProtection",
+     "original": "C_B_StarterProtection"
+    },
+    "30": {
+     "es": "C_B_AirConditionning",
+     "original": "C_B_AirConditionning"
+    },
+    "31": {
+     "es": "C_B_HeadLampsWasher",
+     "original": "C_B_HeadLampsWasher"
+    },
+    "32": {
+     "es": "C_B_FogLamps",
+     "original": "C_B_FogLamps"
+    },
+    "33": {
+     "es": "C_B_AutomaticGearBox",
+     "original": "C_B_AutomaticGearBox"
+    },
+    "34": {
+     "es": "C_B_Battery_ECMAct",
+     "original": "C_B_Battery_ECMAct"
+    },
+    "35": {
+     "es": "C_B_Battery_ABSValve",
+     "original": "C_B_Battery_ABSValve"
+    },
+    "36": {
+     "es": "C_B_Battery_AT_LPG",
+     "original": "C_B_Battery_AT_LPG"
+    },
+    "37": {
+     "es": "C_B_Actuator3",
+     "original": "C_B_Actuator3"
+    },
+    "38": {
+     "es": "C_B_Defroster",
+     "original": "C_B_Defroster"
+    },
+    "39": {
+     "es": "C_B_NotColumnLocked",
+     "original": "C_B_NotColumnLocked"
+    },
+    "4": {
+     "es": "C_TM_LowSpeedPeriod_limit_max",
+     "original": "C_TM_LowSpeedPeriod_limit_max"
+    },
+    "40": {
+     "es": "C_B_DayTimeRunningLight",
+     "original": "C_B_DayTimeRunningLight"
+    },
+    "41": {
+     "es": "C_B_BatteryLamp",
+     "original": "C_B_BatteryLamp"
+    },
+    "42": {
+     "es": "C_TM_ECMRelaySwitchingTime",
+     "original": "C_TM_ECMRelaySwitchingTime"
+    },
+    "43": {
+     "es": "C_Teta_High",
+     "original": "C_Teta_High"
+    },
+    "44": {
+     "es": "C_Teta_Low",
+     "original": "C_Teta_Low"
+    },
+    "45": {
+     "es": "C_U_Batt_MAX",
+     "original": "C_U_Batt_MAX"
+    },
+    "46": {
+     "es": "C_U_Batt_MIN",
+     "original": "C_U_Batt_MIN"
+    },
+    "47": {
+     "es": "C_B_EnableVehicleRunning",
+     "original": "C_B_EnableVehicleRunning"
+    },
+    "48": {
+     "es": "C_TM_RampH01",
+     "original": "C_TM_RampH01"
+    },
+    "49": {
+     "es": "C_TM_RampH10",
+     "original": "C_TM_RampH10"
+    },
+    "5": {
+     "es": "C_TM_HighSpeedPeriod_limit_max",
+     "original": "C_TM_HighSpeedPeriod_limit_max"
+    },
+    "50": {
+     "es": "C_TM_RampH12",
+     "original": "C_TM_RampH12"
+    },
+    "51": {
+     "es": "C_TM_RampH21",
+     "original": "C_TM_RampH21"
+    },
+    "52": {
+     "es": "C_TM_RampH23",
+     "original": "C_TM_RampH23"
+    },
+    "53": {
+     "es": "C_TM_RampH32",
+     "original": "C_TM_RampH32"
+    },
+    "6": {
+     "es": "C_TM_LowSpeedWipingProtection",
+     "original": "C_TM_LowSpeedWipingProtection"
+    },
+    "7": {
+     "es": "C_TM_HighSpeedWipingProtection",
+     "original": "C_TM_HighSpeedWipingProtection"
+    },
+    "8": {
+     "es": "C_K_Gain_RotorCurrent",
+     "original": "C_K_Gain_RotorCurrent"
+    },
+    "9": {
+     "es": "C_K_Gain2_RotorCurrent",
+     "original": "C_K_Gain2_RotorCurrent"
+    }
+   }
+  },
+  "calib_Value": {
+   "ayuda": "",
+   "es": "calib_Value"
+  },
+  "id_Calibration": {
+   "ayuda": "",
+   "es": "id_Calibration"
+  },
+  "id_Code Idenficiation Diagnostic": {
+   "ayuda": "",
+   "comment": {
+    "es": "Valor: $48h",
+    "original": "Value: $48h"
+   },
+   "es": "Código de identificación de diagnóstico"
+  },
+  "id_CodeITG": {
+   "ayuda": "",
+   "comment": {
+    "es": "valor: 414",
+    "original": "value: 414"
+   },
+   "es": "id_CodeITG"
+  },
+  "id_HardwareConfig_OL": {
+   "ayuda": "",
+   "es": "id_HardwareConfig_OL"
+  },
+  "id_HardwareRelease": {
+   "ayuda": "",
+   "es": "id_HardwareRelease"
+  },
+  "id_Manufacture": {
+   "ayuda": "",
+   "es": "id_Manufacture",
+   "lists": {
+    "0": {
+     "es": "RENAULT",
+     "original": "RENAULT"
+    }
+   }
+  },
+  "id_Part Number": {
+   "ayuda": "",
+   "es": "Número de pieza"
+  },
+  "id_RENAULT_indice": {
+   "ayuda": "",
+   "es": "id_RENAULT_indice"
+  },
+  "id_Release": {
+   "ayuda": "",
+   "es": "id_Release"
+  },
+  "id_Software": {
+   "ayuda": "",
+   "es": "id_Software"
+  },
+  "id_Supplier_indice": {
+   "ayuda": "",
+   "es": "id_Supplier_indice"
+  },
+  "traceability_DistanceTotalizer": {
+   "ayuda": "",
+   "es": "traceability_DistanceTotalizer"
+  },
+  "traceability_ManufactureData (Day)": {
+   "ayuda": "",
+   "es": "Trazabilidad: datos de fabricación (día)"
+  },
+  "traceability_ManufactureData (Month)": {
+   "ayuda": "",
+   "es": "Trazabilidad: datos de fabricación (mes)"
+  },
+  "traceability_ManufactureData (Year)": {
+   "ayuda": "",
+   "es": "Trazabilidad: datos de fabricación (año)"
+  },
+  "traceability_SerialNumber (10digits)": {
+   "ayuda": "",
+   "es": "Trazabilidad: número de serie (10 dígitos)"
+  },
+  "write_traceability_ManufactureData (Day)": {
+   "ayuda": "",
+   "es": "Escritura de trazabilidad: datos de fabricación (día)"
+  },
+  "write_traceability_ManufactureData (Month)": {
+   "ayuda": "",
+   "es": "Escritura de trazabilidad: datos de fabricación (mes)"
+  },
+  "write_traceability_ManufactureData (Year)": {
+   "ayuda": "",
+   "es": "Escritura de trazabilidad: datos de fabricación (año)"
+  },
+  "write_traceability_SerialNumber (10digits)": {
+   "ayuda": "",
+   "es": "Escritura de trazabilidad: número de serie (10 dígitos)"
+  }
+ },
+ "ecuname": "USM 84 Phase 2 C5_4",
+ "labels": {
+  "Logical input": {
+   "es": "Entrada lógica"
+  },
+  "Read analogic input": {
+   "es": "Leer entrada analógica"
+  },
+  "Received": {
+   "es": "Recibido"
+  },
+  "Sent": {
+   "es": "Enviado"
+  },
+  "VSC Function": {
+   "es": "Función VSC"
+  }
+ },
+ "requests": {
+  "ClearDTC": {
+   "es": "Borrar códigos de falla (DTC)"
+  },
+  "ECUReset": {
+   "es": "Reinicio de la ECU"
+  },
+  "Fct Read VSC function status": {
+   "es": "Función: leer estado de la función VSC"
+  },
+  "Freeze Frame": {
+   "es": "Datos congelados (Freeze Frame)"
+  },
+  "Fuses and Open Circuitry Check": {
+   "es": "Verificación de fusibles y circuitos abiertos"
+  },
+  "Output Control": {
+   "es": "Control de actuadores"
+  },
+  "Read Alternator Diagnosis": {
+   "es": "Leer diagnóstico del alternador"
+  },
+  "Read Analogic Input": {
+   "es": "Leer entrada analógica"
+  },
+  "Read Battery Diagnosis": {
+   "es": "Leer diagnóstico de la batería"
+  },
+  "Read CAN Status": {
+   "es": "Leer estado del CAN"
+  },
+  "Read Configuration": {
+   "es": "Leer configuración"
+  },
+  "Read Input": {
+   "es": "Leer entrada"
+  },
+  "Read Last Access Date": {
+   "es": "Leer fecha del último acceso"
+  },
+  "Read Manufacture Data": {
+   "es": "Leer datos de fabricación"
+  },
+  "Read Mask DTC": {
+   "es": "Leer máscara de códigos de falla (DTC)"
+  },
+  "Read Received CAN Data": {
+   "es": "Leer datos CAN recibidos"
+  },
+  "Read Sent CAN Data": {
+   "es": "Leer datos CAN enviados"
+  },
+  "Read VIN": {
+   "es": "Leer VIN"
+  },
+  "ReadDTC": {
+   "es": "Leer códigos de falla (DTC)"
+  },
+  "Read_EM_Conf": {
+   "es": "Read_EM_Conf"
+  },
+  "Read_OC_Calib": {
+   "es": "Read_OC_Calib"
+  },
+  "Request CAN Diag OFF": {
+   "es": "Solicitud de diagnóstico CAN APAGADO"
+  },
+  "Request CAN Diag ON": {
+   "es": "Solicitud de diagnóstico CAN ENCENDIDO"
+  },
+  "Start Diagnostic Session": {
+   "es": "Iniciar sesión de diagnóstico"
+  },
+  "System Identification": {
+   "es": "Identificación del sistema"
+  },
+  "Tester Present No Receipt": {
+   "es": "Tester presente sin confirmación"
+  },
+  "Tester Present Receipt": {
+   "es": "Tester presente con confirmación"
+  },
+  "Traceability": {
+   "es": "Trazabilidad"
+  },
+  "Write Access Date": {
+   "es": "Escribir fecha de acceso"
+  },
+  "Write Alternator Voltage": {
+   "es": "Escribir tensión del alternador"
+  },
+  "Write Configuration": {
+   "es": "Escribir configuración"
+  },
+  "Write Manufacture Data": {
+   "es": "Escribir datos de fabricación"
+  },
+  "Write Mask DTC": {
+   "es": "Escribir máscara de DTC"
+  },
+  "Write Traceability": {
+   "es": "Escribir trazabilidad"
+  },
+  "Write VBAT": {
+   "es": "Escribir tensión de batería"
+  },
+  "Write VIN": {
+   "es": "Escribir VIN"
+  },
+  "Write_EM_Conf": {
+   "es": "Write_EM_Conf"
+  },
+  "Write_OC_Calib": {
+   "es": "Write_OC_Calib"
+  }
+ },
+ "screens": {
+  "CAN received data": {
+   "es": "Datos CAN recibidos"
+  },
+  "CAN sent data": {
+   "es": "Datos CAN enviados"
+  },
+  "CAN status": {
+   "es": "Estado del CAN"
+  },
+  "DTC and limphome Manager": {
+   "es": "Gestor de DTC y modo de emergencia"
+  },
+  "Identification": {
+   "es": "Identificación"
+  },
+  "Output Control": {
+   "es": "Control de actuadores"
+  },
+  "Read alternator diagnosis": {
+   "es": "Leer diagnóstico del alternador"
+  },
+  "Read analogic input": {
+   "es": "Leer entrada analógica"
+  },
+  "Read and write manufacture data": {
+   "es": "Leer y escribir datos de fabricación"
+  },
+  "Read battery diagnosis": {
+   "es": "Leer diagnóstico de la batería"
+  },
+  "Read other data": {
+   "es": "Leer otros datos"
+  },
+  "Read/Write configuration Engine": {
+   "es": "Lectura/escritura de configuración del motor"
+  },
+  "Read/Write configuration vehicul": {
+   "es": "Lectura/escritura de configuración del vehículo"
+  },
+  "Write traceability": {
+   "es": "Escribir trazabilidad"
+  }
+ }
+}

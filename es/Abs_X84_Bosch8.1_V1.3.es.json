@@ -1,0 +1,2786 @@
+{
+ "_meta": {
+  "funcname": {
+   "es": "",
+   "original": "ABS-VDC - ABS-ESP"
+  }
+ },
+ "buttons": {
+  "Arrêt d'urgence !!!": {
+   "es": "¡¡¡Parada de emergencia!!!"
+  },
+  "Arrêt du Test": {
+   "es": "Detención de la prueba"
+  },
+  "Ecriture": {
+   "es": "Escritura"
+  },
+  "Ecriture Date": {
+   "es": "Escritura de fecha"
+  },
+  "Ecriture de la variante véhicule": {
+   "es": "Escritura de la variante del vehículo"
+  },
+  "Ecriture du ProcessByte": {
+   "es": "Escritura del ProcessByte"
+  },
+  "Fin du comptage": {
+   "es": "Fin del conteo"
+  },
+  "Lancement de l'écriture": {
+   "es": "Inicio de la escritura"
+  },
+  "Lancement de la procedure phase 1": {
+   "es": "Inicio del procedimiento fase 1"
+  },
+  "Lancement de la procedure phase 2": {
+   "es": "Inicio del procedimiento fase 2"
+  },
+  "Lancement de la procedure phase 3": {
+   "es": "Inicio del procedimiento fase 3"
+  },
+  "Lancement de la procedure phase 4": {
+   "es": "Inicio del procedimiento fase 4"
+  },
+  "Lancement de la procédure": {
+   "es": "Inicio del procedimiento"
+  },
+  "Lancer l'activation": {
+   "es": "Iniciar la activación"
+  },
+  "Roue ARD": {
+   "es": "Rueda trasera derecha"
+  },
+  "Roue ARG": {
+   "es": "Rueda trasera izquierda"
+  },
+  "Roue AVD": {
+   "es": "Rueda delantera derecha"
+  },
+  "Roue AVG": {
+   "es": "Rueda delantera izquierda"
+  }
+ },
+ "categories": {
+  "Ecrans Usine + Après vente": {
+   "es": "Pantallas de fábrica + posventa"
+  }
+ },
+ "data": {
+  "Activation de la pompe": {
+   "ayuda": "",
+   "es": "Activación de la bomba",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Admission arrière droite": {
+   "ayuda": "",
+   "es": "Admisión trasera derecha",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Admission arrière gauche": {
+   "ayuda": "",
+   "es": "Admisión trasera izquierda",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Admission avant droite": {
+   "ayuda": "",
+   "es": "Admisión delantera derecha",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Admission avant gauche": {
+   "ayuda": "",
+   "es": "Admisión delantera izquierda",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Affectation": {
+   "ayuda": "",
+   "es": "Asignación",
+   "lists": {
+    "0": {
+     "es": "Para fábrica",
+     "original": "Pour usine"
+    },
+    "1": {
+     "es": "Para posventa",
+     "original": "Pour l'après-vente"
+    }
+   }
+  },
+  "Algorithme Serveur BB-Number": {
+   "ayuda": "",
+   "es": "Algoritmo servidor BB-Number"
+  },
+  "Algorithme Serveur Version Number": {
+   "ayuda": "",
+   "es": "Algoritmo servidor: número de versión"
+  },
+  "Algorithme Serveur Version Number 2": {
+   "ayuda": "",
+   "es": "Algoritmo servidor: número de versión 2"
+  },
+  "Algorithme Serveur Version Number 3et4": {
+   "ayuda": "",
+   "es": "Algoritmo servidor: número de versión 3 y 4"
+  },
+  "Alimentation": {
+   "ayuda": "",
+   "es": "Alimentación",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "Alimentation (Freeze)": {
+   "ayuda": "",
+   "es": "Alimentación (congelada)",
+   "unit": {
+    "es": "V",
+    "original": "V"
+   }
+  },
+  "Année": {
+   "ayuda": "",
+   "es": "Año",
+   "lists": {
+    "0": {
+     "es": "2000",
+     "original": "2000"
+    },
+    "1": {
+     "es": "2001",
+     "original": "2001"
+    },
+    "10": {
+     "es": "2010",
+     "original": "2010"
+    },
+    "11": {
+     "es": "2011",
+     "original": "2011"
+    },
+    "12": {
+     "es": "2012",
+     "original": "2012"
+    },
+    "13": {
+     "es": "2013",
+     "original": "2013"
+    },
+    "14": {
+     "es": "2014",
+     "original": "2014"
+    },
+    "15": {
+     "es": "2015",
+     "original": "2015"
+    },
+    "16": {
+     "es": "2016",
+     "original": "2016"
+    },
+    "17": {
+     "es": "2017",
+     "original": "2017"
+    },
+    "18": {
+     "es": "2018",
+     "original": "2018"
+    },
+    "19": {
+     "es": "2019",
+     "original": "2019"
+    },
+    "2": {
+     "es": "2002",
+     "original": "2002"
+    },
+    "20": {
+     "es": "2020",
+     "original": "2020"
+    },
+    "21": {
+     "es": "2021",
+     "original": "2021"
+    },
+    "22": {
+     "es": "2022",
+     "original": "2022"
+    },
+    "23": {
+     "es": "2023",
+     "original": "2023"
+    },
+    "24": {
+     "es": "2024",
+     "original": "2024"
+    },
+    "25": {
+     "es": "2025",
+     "original": "2025"
+    },
+    "26": {
+     "es": "2026",
+     "original": "2026"
+    },
+    "27": {
+     "es": "2027",
+     "original": "2027"
+    },
+    "28": {
+     "es": "2028",
+     "original": "2028"
+    },
+    "29": {
+     "es": "2029",
+     "original": "2029"
+    },
+    "3": {
+     "es": "2003",
+     "original": "2003"
+    },
+    "30": {
+     "es": "2030",
+     "original": "2030"
+    },
+    "31": {
+     "es": "2031",
+     "original": "2031"
+    },
+    "32": {
+     "es": "2032",
+     "original": "2032"
+    },
+    "33": {
+     "es": "2033",
+     "original": "2033"
+    },
+    "34": {
+     "es": "2034",
+     "original": "2034"
+    },
+    "35": {
+     "es": "2035",
+     "original": "2035"
+    },
+    "36": {
+     "es": "2036",
+     "original": "2036"
+    },
+    "37": {
+     "es": "2037",
+     "original": "2037"
+    },
+    "38": {
+     "es": "2038",
+     "original": "2038"
+    },
+    "39": {
+     "es": "2039",
+     "original": "2039"
+    },
+    "4": {
+     "es": "2004",
+     "original": "2004"
+    },
+    "40": {
+     "es": "2040",
+     "original": "2040"
+    },
+    "41": {
+     "es": "2041",
+     "original": "2041"
+    },
+    "42": {
+     "es": "2042",
+     "original": "2042"
+    },
+    "43": {
+     "es": "2043",
+     "original": "2043"
+    },
+    "44": {
+     "es": "2044",
+     "original": "2044"
+    },
+    "45": {
+     "es": "2045",
+     "original": "2045"
+    },
+    "46": {
+     "es": "2046",
+     "original": "2046"
+    },
+    "47": {
+     "es": "2047",
+     "original": "2047"
+    },
+    "48": {
+     "es": "2048",
+     "original": "2048"
+    },
+    "49": {
+     "es": "2049",
+     "original": "2049"
+    },
+    "5": {
+     "es": "2005",
+     "original": "2005"
+    },
+    "50": {
+     "es": "2050",
+     "original": "2050"
+    },
+    "6": {
+     "es": "2006",
+     "original": "2006"
+    },
+    "7": {
+     "es": "2007",
+     "original": "2007"
+    },
+    "8": {
+     "es": "2008",
+     "original": "2008"
+    },
+    "9": {
+     "es": "2009",
+     "original": "2009"
+    }
+   }
+  },
+  "Année de production du bloc": {
+   "ayuda": "",
+   "es": "Año de producción del bloque",
+   "lists": {
+    "0": {
+     "es": "2000",
+     "original": "2000"
+    },
+    "1": {
+     "es": "2001",
+     "original": "2001"
+    },
+    "10": {
+     "es": "2010",
+     "original": "2010"
+    },
+    "11": {
+     "es": "2011",
+     "original": "2011"
+    },
+    "12": {
+     "es": "2012",
+     "original": "2012"
+    },
+    "13": {
+     "es": "2013",
+     "original": "2013"
+    },
+    "14": {
+     "es": "2014",
+     "original": "2014"
+    },
+    "15": {
+     "es": "2015",
+     "original": "2015"
+    },
+    "16": {
+     "es": "2016",
+     "original": "2016"
+    },
+    "17": {
+     "es": "2017",
+     "original": "2017"
+    },
+    "18": {
+     "es": "2018",
+     "original": "2018"
+    },
+    "19": {
+     "es": "2019",
+     "original": "2019"
+    },
+    "2": {
+     "es": "2002",
+     "original": "2002"
+    },
+    "20": {
+     "es": "2020",
+     "original": "2020"
+    },
+    "21": {
+     "es": "2021",
+     "original": "2021"
+    },
+    "22": {
+     "es": "2022",
+     "original": "2022"
+    },
+    "23": {
+     "es": "2023",
+     "original": "2023"
+    },
+    "24": {
+     "es": "2024",
+     "original": "2024"
+    },
+    "25": {
+     "es": "2025",
+     "original": "2025"
+    },
+    "26": {
+     "es": "2026",
+     "original": "2026"
+    },
+    "27": {
+     "es": "2027",
+     "original": "2027"
+    },
+    "28": {
+     "es": "2028",
+     "original": "2028"
+    },
+    "29": {
+     "es": "2029",
+     "original": "2029"
+    },
+    "3": {
+     "es": "2003",
+     "original": "2003"
+    },
+    "30": {
+     "es": "2030",
+     "original": "2030"
+    },
+    "31": {
+     "es": "2031",
+     "original": "2031"
+    },
+    "32": {
+     "es": "2032",
+     "original": "2032"
+    },
+    "33": {
+     "es": "2033",
+     "original": "2033"
+    },
+    "34": {
+     "es": "2034",
+     "original": "2034"
+    },
+    "35": {
+     "es": "2035",
+     "original": "2035"
+    },
+    "36": {
+     "es": "2036",
+     "original": "2036"
+    },
+    "37": {
+     "es": "2037",
+     "original": "2037"
+    },
+    "38": {
+     "es": "2038",
+     "original": "2038"
+    },
+    "39": {
+     "es": "2039",
+     "original": "2039"
+    },
+    "4": {
+     "es": "2004",
+     "original": "2004"
+    },
+    "40": {
+     "es": "2040",
+     "original": "2040"
+    },
+    "41": {
+     "es": "2041",
+     "original": "2041"
+    },
+    "42": {
+     "es": "2042",
+     "original": "2042"
+    },
+    "43": {
+     "es": "2043",
+     "original": "2043"
+    },
+    "44": {
+     "es": "2044",
+     "original": "2044"
+    },
+    "45": {
+     "es": "2045",
+     "original": "2045"
+    },
+    "46": {
+     "es": "2046",
+     "original": "2046"
+    },
+    "47": {
+     "es": "2047",
+     "original": "2047"
+    },
+    "48": {
+     "es": "2048",
+     "original": "2048"
+    },
+    "49": {
+     "es": "2049",
+     "original": "2049"
+    },
+    "5": {
+     "es": "2005",
+     "original": "2005"
+    },
+    "50": {
+     "es": "2050",
+     "original": "2050"
+    },
+    "6": {
+     "es": "2006",
+     "original": "2006"
+    },
+    "7": {
+     "es": "2007",
+     "original": "2007"
+    },
+    "8": {
+     "es": "2008",
+     "original": "2008"
+    },
+    "9": {
+     "es": "2009",
+     "original": "2009"
+    }
+   }
+  },
+  "Autorisation remplissage RF": {
+   "ayuda": "",
+   "es": "Autorización de llenado del circuito de freno",
+   "lists": {
+    "0": {
+     "es": "Autorizado",
+     "original": "Autorisé"
+    },
+    "1": {
+     "es": "Prohibido",
+     "original": "Interdit"
+    }
+   }
+  },
+  "CRC": {
+   "ayuda": "",
+   "es": "CRC"
+  },
+  "Choix de la roue": {
+   "ayuda": "",
+   "es": "Elección de la rueda",
+   "lists": {
+    "1": {
+     "es": "Rueda delantera izquierda",
+     "original": "Roue avant gauche"
+    },
+    "2": {
+     "es": "Rueda delantera derecha",
+     "original": "Roue avant droite"
+    },
+    "3": {
+     "es": "Rueda trasera izquierda",
+     "original": "Roue arrière gauche"
+    },
+    "4": {
+     "es": "Rueda trasera derecha",
+     "original": "Roue arrière droite"
+    }
+   }
+  },
+  "Choix du processus d'activation": {
+   "ayuda": "",
+   "es": "Elección del proceso de activación",
+   "lists": {
+    "0": {
+     "es": "Inicio de un control temporal",
+     "original": "Lancement d'un contrôle temporaire"
+    },
+    "1": {
+     "es": "Solicitud de estado",
+     "original": "Demande de statut"
+    },
+    "17": {
+     "es": "Detención del control",
+     "original": "Arrêt du contrôle"
+    }
+   }
+  },
+  "Choix du temps d'activation": {
+   "ayuda": "",
+   "es": "Elección del tiempo de activación",
+   "lists": {
+    "125": {
+     "es": "10s",
+     "original": "10s"
+    },
+    "187": {
+     "es": "15s",
+     "original": "15s"
+    },
+    "250": {
+     "es": "20s",
+     "original": "20s"
+    },
+    "62": {
+     "es": "5s",
+     "original": "5s"
+    }
+   }
+  },
+  "Choix du temps d'activation EV/Pompe": {
+   "ayuda": "",
+   "es": "Elección del tiempo de activación de electroválvula/bomba",
+   "lists": {
+    "100": {
+     "es": "2s",
+     "original": "2s"
+    },
+    "150": {
+     "es": "3s",
+     "original": "3s"
+    },
+    "200": {
+     "es": "4s",
+     "original": "4s"
+    },
+    "250": {
+     "es": "5s",
+     "original": "5s"
+    },
+    "50": {
+     "es": "1s",
+     "original": "1s"
+    }
+   }
+  },
+  "Choix du type d'arrêt": {
+   "ayuda": "",
+   "es": "Elección del tipo de detención",
+   "lists": {
+    "128": {
+     "es": "Ahora",
+     "original": "Maintenant"
+    }
+   }
+  },
+  "Choix du type de réponse": {
+   "ayuda": "",
+   "es": "Elección del tipo de respuesta",
+   "lists": {
+    "1": {
+     "es": "Con respuesta",
+     "original": "Avec réponse"
+    },
+    "2": {
+     "es": "Sin respuesta",
+     "original": "Sans réponse"
+    }
+   }
+  },
+  "Circonférence Pneu Maximum": {
+   "ayuda": "",
+   "es": "Circunferencia máxima del neumático",
+   "unit": {
+    "es": "mm",
+    "original": "mm"
+   }
+  },
+  "Circonférence Pneu Minimum": {
+   "ayuda": "",
+   "es": "Circunferencia mínima del neumático",
+   "unit": {
+    "es": "mm",
+    "original": "mm"
+   }
+  },
+  "Circonférence pneu": {
+   "ayuda": "",
+   "es": "Circunferencia del neumático",
+   "unit": {
+    "es": "mm",
+    "original": "mm"
+   }
+  },
+  "Code ITG": {
+   "ayuda": "",
+   "es": "Código ITG"
+  },
+  "Code MPR": {
+   "ayuda": "",
+   "es": "Código MPR"
+  },
+  "Code VIN": {
+   "ayuda": "",
+   "es": "Código VIN"
+  },
+  "Code constructeur": {
+   "ayuda": "",
+   "es": "Código del fabricante",
+   "lists": {
+    "0": {
+     "es": "Renault",
+     "original": "Renault"
+    }
+   }
+  },
+  "Compteur": {
+   "ayuda": "",
+   "es": "Contador"
+  },
+  "Configuration Véhicule": {
+   "ayuda": "",
+   "comment": {
+    "es": "A codificar",
+    "original": "A coder"
+   },
+   "es": "Configuración del vehículo",
+   "lists": {
+    "1": {
+     "es": "(1) [Carrocería: BCELKSG] o bien [Carrocería: J / Motor: K4J, K4M o K9K]",
+     "original": "(1) [Caisse : BCELKSG] ou bien [Caisse : J / Moteur : K4J ou K4M ou K9K]"
+    },
+    "2": {
+     "es": "(2) [Carrocería: R] o bien [Carrocería: J / Motor: F4R, F9Q o M9R]",
+     "original": "(2) [Caisse : R] ou bien [Caisse : J / Moteur : F4R ou F9Q ou M9R]"
+    },
+    "255": {
+     "es": "Inválido (FFh)",
+     "original": "Invalide (FFh)"
+    }
+   }
+  },
+  "Current Failure": {
+   "ayuda": "",
+   "es": "Falla actual",
+   "lists": {
+    "0": {
+     "es": "No",
+     "original": "No"
+    },
+    "1": {
+     "es": "Sí",
+     "original": "Yes"
+    }
+   }
+  },
+  "Current ICC": {
+   "ayuda": "",
+   "comment": {
+    "es": "Ciclo de rodaje en curso",
+    "original": "Cycle de roulage en cours"
+   },
+   "es": "Corriente ICC"
+  },
+  "Cycle de roulage (Freeze)": {
+   "ayuda": "",
+   "comment": {
+    "es": "ICC",
+    "original": "ICC"
+   },
+   "es": "Ciclo de rodaje (congelado)"
+  },
+  "DTC Number (Freeze)": {
+   "ayuda": "",
+   "es": "Número de DTC (congelado)"
+  },
+  "Debug information 0": {
+   "ayuda": "",
+   "comment": {
+    "es": "Información de depuración 0",
+    "original": "Information de debug 0"
+   },
+   "es": "Información de depuración 0"
+  },
+  "Debug information 1": {
+   "ayuda": "",
+   "comment": {
+    "es": "Información de depuración 1",
+    "original": "Information de debug 1"
+   },
+   "es": "Información de depuración 1"
+  },
+  "DiagMuxOn (Freeze)": {
+   "ayuda": "",
+   "es": "Diagnóstico multiplexado encendido (congelado)",
+   "lists": {
+    "0": {
+     "es": "Diagnóstico multiplexado apagado (0)",
+     "original": "DiagMuxOff (0)"
+    },
+    "1": {
+     "es": "Diagnóstico multiplexado encendido (1)",
+     "original": "DiagMuxOn (1)"
+    }
+   }
+  },
+  "Dimension du pneumatique": {
+   "ayuda": "",
+   "comment": {
+    "es": "A codificar",
+    "original": "A coder"
+   },
+   "es": "Dimensión del neumático",
+   "lists": {
+    "21": {
+     "es": "225/45 R17 (M5)",
+     "original": "225/45 R17 (M5)"
+    },
+    "255": {
+     "es": "Valor inválido (FFh)",
+     "original": "Valeur invalide (FFh)"
+    },
+    "30": {
+     "es": "205/55 R16",
+     "original": "205/55 R16"
+    },
+    "36": {
+     "es": "195/65 R15",
+     "original": "195/65 R15"
+    },
+    "37": {
+     "es": "235/40 R18 (M5 chasis Sport)",
+     "original": "235/40 R18 (M5 châssis Sport)"
+    },
+    "40": {
+     "es": "225/40 R18 (M5)",
+     "original": "225/40 R18 (M5)"
+    },
+    "42": {
+     "es": "205/50 R17",
+     "original": "205/50 R17"
+    },
+    "68": {
+     "es": "205/60 R16",
+     "original": "205/60 R16"
+    },
+    "73": {
+     "es": "205/55 R17",
+     "original": "205/55 R17"
+    }
+   }
+  },
+  "Drive Cycle information": {
+   "ayuda": "",
+   "comment": {
+    "es": "Información sobre el ciclo de conducción",
+    "original": "Information sur le Drive Cycle"
+   },
+   "es": "Información del ciclo de conducción"
+  },
+  "Défaut de remplissage": {
+   "ayuda": "",
+   "es": "Falla de llenado",
+   "lists": {
+    "0": {
+     "es": "Sin fallas",
+     "original": "Aucun défaut"
+    },
+    "1": {
+     "es": "Falla interna del bloque",
+     "original": "Défaut interne au bloc"
+    },
+    "2": {
+     "es": "Falla externa al bloque",
+     "original": "Défaut externe au bloc"
+    }
+   }
+  },
+  "Echappement arrière droite": {
+   "ayuda": "",
+   "es": "Escape trasero derecho",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Echappement arrière gauche": {
+   "ayuda": "",
+   "es": "Escape trasero izquierdo",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Echappement avant droite": {
+   "ayuda": "",
+   "es": "Escape delantero derecho",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Echappement avant gauche": {
+   "ayuda": "",
+   "es": "Escape delantero izquierdo",
+   "lists": {
+    "0": {
+     "es": "Activo",
+     "original": "Active"
+    },
+    "1": {
+     "es": "Reposo",
+     "original": "Repos"
+    }
+   }
+  },
+  "Environment information": {
+   "ayuda": "",
+   "comment": {
+    "es": "Datos de contexto de la falla",
+    "original": "Données d'environnement de la faute"
+   },
+   "es": "Información de contexto"
+  },
+  "Etat ABS (Freeze)": {
+   "ayuda": "",
+   "es": "Estado del ABS (congelado)",
+   "lists": {
+    "0": {
+     "es": "ABS no está regulando",
+     "original": "ABS non en régulation"
+    },
+    "1": {
+     "es": "ABS en regulación",
+     "original": "ABS en régulation"
+    }
+   }
+  },
+  "Etat ABS et REF": {
+   "ayuda": "",
+   "es": "Estado del ABS y del reparto electrónico de frenado",
+   "lists": {
+    "0": {
+     "es": "ABS y REF no disponibles",
+     "original": "ABS et REF indisponibles"
+    },
+    "1": {
+     "es": "ABS no disponible, respaldo de REF disponible",
+     "original": "ABS indisponible, REF Backup disponible"
+    },
+    "2": {
+     "es": "ABS no disponible, REF disponible",
+     "original": "ABS indisponible, REF disponible"
+    },
+    "3": {
+     "es": "Respaldos de ABS y de REF disponibles",
+     "original": "ABS et REF Backup disponibles"
+    },
+    "4": {
+     "es": "Respaldo de ABS disponible, reparto electrónico de frenado (REF) disponible",
+     "original": "ABS Backup disponible, REF disponible"
+    },
+    "7": {
+     "es": "ABS y reparto electrónico de frenado (REF) disponibles",
+     "original": "ABS et REF disponibles"
+    }
+   }
+  },
+  "Etat REF (Freeze)": {
+   "ayuda": "",
+   "es": "Estado del reparto electrónico de frenado (congelado)",
+   "lists": {
+    "0": {
+     "es": "Reparto electrónico de frenado sin regular",
+     "original": "REF non en régulation"
+    },
+    "1": {
+     "es": "Reparto electrónico de frenado en regulación",
+     "original": "REF en régulation"
+    }
+   }
+  },
+  "Etat allumage automatique des warnings (Freeze)": {
+   "ayuda": "",
+   "es": "Estado del encendido automático de balizas (congelado)",
+   "lists": {
+    "0": {
+     "es": "no activado",
+     "original": "non activé"
+    },
+    "1": {
+     "es": "en activación",
+     "original": "en activation"
+    }
+   }
+  },
+  "Etat de l'arrêt de la routine": {
+   "ayuda": "",
+   "es": "Estado de la detención de la rutina",
+   "lists": {
+    "144": {
+     "es": "Rutina interrumpida por la herramienta de diagnóstico",
+     "original": "Routine interrompue par l'outil de diagnostic"
+    }
+   }
+  },
+  "Etat de la pédale de frein": {
+   "ayuda": "",
+   "es": "Estado del pedal de freno",
+   "lists": {
+    "0": {
+     "es": "Soltada",
+     "original": "Relâchée"
+    },
+    "1": {
+     "es": "Presionada",
+     "original": "Enfoncée"
+    },
+    "3": {
+     "es": "Inválido / En falla",
+     "original": "Invalide / En défaut"
+    }
+   }
+  },
+  "Etat de la pédale de frein (Freeze)": {
+   "ayuda": "",
+   "es": "Estado del pedal de freno (congelado)",
+   "lists": {
+    "0": {
+     "es": "Soltada",
+     "original": "Relâchée"
+    },
+    "1": {
+     "es": "Presionada",
+     "original": "Enfoncée"
+    }
+   }
+  },
+  "Etat de la routine": {
+   "ayuda": "",
+   "es": "Estado de la rutina",
+   "lists": {
+    "0": {
+     "es": "Rutina no activa",
+     "original": "Routine non active"
+    },
+    "1": {
+     "es": "Rutina en curso",
+     "original": "Routine en cours"
+    },
+    "128": {
+     "es": "Prueba lista",
+     "original": "Test prêt"
+    },
+    "132": {
+     "es": "Elección de rueda inválida",
+     "original": "Choix de la roue invalide"
+    },
+    "144": {
+     "es": "Rutina interrumpida por la herramienta de diagnóstico",
+     "original": "Routine interrompue par l'outil de diagnostic"
+    },
+    "16": {
+     "es": "Error de escritura",
+     "original": "Erreur d'écriture"
+    },
+    "2": {
+     "es": "Rutina terminada OK",
+     "original": "Routine terminée OK"
+    },
+    "4": {
+     "es": "Rutina terminada con error",
+     "original": "Routine terminée non OK"
+    },
+    "8": {
+     "es": "Rutina terminada con problema global",
+     "original": "Routine terminée et problème global"
+    }
+   }
+  },
+  "Etat de la sortie feux stop (Freeze)": {
+   "ayuda": "",
+   "comment": {
+    "es": "Estado de la activación del encendido de las luces de freno",
+    "original": "Etat de l'activation de l'allumage des feux stop"
+   },
+   "es": "Estado de la salida de luces de freno (congelado)",
+   "lists": {
+    "0": {
+     "es": "No activado",
+     "original": "Non activé"
+    },
+    "1": {
+     "es": "Activado",
+     "original": "Activé"
+    }
+   }
+  },
+  "Etat du bloc hydraulique": {
+   "ayuda": "",
+   "es": "Estado del bloque hidráulico",
+   "lists": {
+    "0": {
+     "es": "Todavía seco",
+     "original": "Encore sec"
+    },
+    "1": {
+     "es": "Húmedo",
+     "original": "Humide"
+    }
+   }
+  },
+  "Etat du circuit de frein": {
+   "ayuda": "",
+   "es": "Estado del circuito de freno",
+   "lists": {
+    "0": {
+     "es": "Incompletamente lleno",
+     "original": "Imconplètement rempli"
+    },
+    "1": {
+     "es": "Completamente lleno",
+     "original": "Complètement rempli"
+    }
+   }
+  },
+  "Etat du processus d'activation": {
+   "ayuda": "",
+   "es": "Estado del proceso de activación",
+   "lists": {
+    "1": {
+     "es": "Activación en curso",
+     "original": "Activation en cours"
+    },
+    "128": {
+     "es": "Problema durante la activación",
+     "original": "Problème en cours d'activation"
+    },
+    "129": {
+     "es": "Activación interrumpida",
+     "original": "Activation interrompue"
+    },
+    "130": {
+     "es": "Activación disponible",
+     "original": "Activation disponible"
+    },
+    "17": {
+     "es": "Activación detenida",
+     "original": "Activation arrêtée"
+    },
+    "2": {
+     "es": "Activación terminada",
+     "original": "Activation terminée"
+    }
+   }
+  },
+  "FFN": {
+   "ayuda": "",
+   "es": "FFN"
+  },
+  "Failure Path": {
+   "ayuda": "",
+   "comment": {
+    "es": "Ruta de la falla",
+    "original": "Chemin de la faute"
+   },
+   "es": "Ruta de la falla"
+  },
+  "Failure Type": {
+   "ayuda": "",
+   "comment": {
+    "es": "Tipo de falla",
+    "original": "Type de faute"
+   },
+   "es": "Tipo de falla"
+  },
+  "Fault ICC": {
+   "ayuda": "",
+   "comment": {
+    "es": "Ciclo de rodaje al aparecer la falla",
+    "original": "Cycle de roulage à l'apparition de la faute"
+   },
+   "es": "Falla ICC"
+  },
+  "Fault Location": {
+   "ayuda": "",
+   "comment": {
+    "es": "Número de la ubicación Bosch de la falla",
+    "original": "Numéro de la localisation Bosch de la faute"
+   },
+   "es": "Ubicación de la falla",
+   "lists": {
+    "1": {
+     "es": "Falla en la ubicación Bosch 1",
+     "original": "Faute à la localisation Bosch 1"
+    },
+    "2": {
+     "es": "Falla en la ubicación Bosch 2",
+     "original": "Faute à la localisation Bosch 2"
+    },
+    "3": {
+     "es": "Falla en la ubicación Bosch 3",
+     "original": "Faute à la localisation Bosch 3"
+    },
+    "4": {
+     "es": "Falla en la ubicación Bosch 4",
+     "original": "Faute à la localisation Bosch 4"
+    },
+    "5": {
+     "es": "Falla en la ubicación Bosch 5",
+     "original": "Faute à la localisation Bosch 5"
+    },
+    "6": {
+     "es": "Falla en la ubicación Bosch 6",
+     "original": "Faute à la localisation Bosch 6"
+    }
+   }
+  },
+  "FirstDTC": {
+   "ayuda": "",
+   "es": "Primer código de falla (DTC)",
+   "lists": {
+    "20495": {
+     "es": "Sensor de velocidad de rueda delantera derecha",
+     "original": "Capteur vitesse roue AvD"
+    },
+    "20511": {
+     "es": "Sensor de velocidad de rueda delantera izquierda",
+     "original": "Capteur vitesse roue AvG"
+    },
+    "20527": {
+     "es": "Sensor de velocidad de rueda trasera derecha",
+     "original": "Capteur vitesse roue ArD"
+    },
+    "20543": {
+     "es": "Sensor de velocidad de rueda trasera izquierda",
+     "original": "Capteur vitesse roue ArG"
+    },
+    "20545": {
+     "es": "Rueda fónica magnética multipolo delantera derecha",
+     "original": "Cible magnétique multipoles roue AvD"
+    },
+    "20546": {
+     "es": "Rueda fónica magnética multipolo delantera izquierda",
+     "original": "Cible magnétique multipoles roue AvG"
+    },
+    "20547": {
+     "es": "Rueda fónica magnética multipolo trasera derecha",
+     "original": "Cible magnétique multipoles roue ArD"
+    },
+    "20548": {
+     "es": "Rueda fónica magnética multipolo trasera izquierda",
+     "original": "Cible magnétique multipoles roue ArG"
+    },
+    "20550": {
+     "es": "Falla general de los sensores de velocidad de rueda",
+     "original": "Défaut général capteurs vitesses roues"
+    },
+    "20675": {
+     "es": "ECU (calculador)",
+     "original": "Calculateur"
+    },
+    "20678": {
+     "es": "Contactor del pedal de freno",
+     "original": "Contacteur pédale de frein"
+    },
+    "20684": {
+     "es": "Alimentación de la ECU",
+     "original": "Alimentation calculateur"
+    },
+    "20710": {
+     "es": "Red CAN",
+     "original": "Réseau CAN"
+    },
+    "20864": {
+     "es": "Control del motor",
+     "original": "Contrôle moteur"
+    }
+   }
+  },
+  "Historical Failure": {
+   "ayuda": "",
+   "es": "Falla histórica (memorizada)",
+   "lists": {
+    "0": {
+     "es": "No",
+     "original": "No"
+    },
+    "1": {
+     "es": "Sí",
+     "original": "Yes"
+    }
+   }
+  },
+  "Identificateur de diagnostic": {
+   "ayuda": "",
+   "es": "Identificador de diagnóstico",
+   "lists": {
+    "10": {
+     "es": "0Ah (ESP)",
+     "original": "0Ah (ESP)"
+    },
+    "11": {
+     "es": "0Bh (ESP)",
+     "original": "0Bh (ESP)"
+    },
+    "12": {
+     "es": "Sistema ABS F10",
+     "original": "Système ABS F10"
+    },
+    "13": {
+     "es": "Sistema ABS F05",
+     "original": "Système ABS F05"
+    },
+    "14": {
+     "es": "0Eh (ABS)",
+     "original": "0Eh (ABS)"
+    },
+    "15": {
+     "es": "0Fh (ABS)",
+     "original": "0Fh (ABS)"
+    },
+    "8": {
+     "es": "Sistema ESP F10",
+     "original": "Système ESP F10"
+    },
+    "9": {
+     "es": "Sistema ESP F05",
+     "original": "Système ESP F05"
+    }
+   }
+  },
+  "Jour": {
+   "ayuda": "",
+   "es": "Día",
+   "lists": {
+    "1": {
+     "es": "1",
+     "original": "1"
+    },
+    "10": {
+     "es": "10",
+     "original": "10"
+    },
+    "11": {
+     "es": "11",
+     "original": "11"
+    },
+    "12": {
+     "es": "12",
+     "original": "12"
+    },
+    "13": {
+     "es": "13",
+     "original": "13"
+    },
+    "14": {
+     "es": "14",
+     "original": "14"
+    },
+    "15": {
+     "es": "15",
+     "original": "15"
+    },
+    "16": {
+     "es": "16",
+     "original": "16"
+    },
+    "17": {
+     "es": "17",
+     "original": "17"
+    },
+    "18": {
+     "es": "18",
+     "original": "18"
+    },
+    "19": {
+     "es": "19",
+     "original": "19"
+    },
+    "2": {
+     "es": "2",
+     "original": "2"
+    },
+    "20": {
+     "es": "20",
+     "original": "20"
+    },
+    "21": {
+     "es": "21",
+     "original": "21"
+    },
+    "22": {
+     "es": "22",
+     "original": "22"
+    },
+    "23": {
+     "es": "23",
+     "original": "23"
+    },
+    "24": {
+     "es": "24",
+     "original": "24"
+    },
+    "25": {
+     "es": "25",
+     "original": "25"
+    },
+    "26": {
+     "es": "26",
+     "original": "26"
+    },
+    "27": {
+     "es": "27",
+     "original": "27"
+    },
+    "28": {
+     "es": "28",
+     "original": "28"
+    },
+    "29": {
+     "es": "29",
+     "original": "29"
+    },
+    "3": {
+     "es": "3",
+     "original": "3"
+    },
+    "30": {
+     "es": "30",
+     "original": "30"
+    },
+    "31": {
+     "es": "31",
+     "original": "31"
+    },
+    "4": {
+     "es": "4",
+     "original": "4"
+    },
+    "5": {
+     "es": "5",
+     "original": "5"
+    },
+    "6": {
+     "es": "6",
+     "original": "6"
+    },
+    "7": {
+     "es": "7",
+     "original": "7"
+    },
+    "8": {
+     "es": "8",
+     "original": "8"
+    },
+    "9": {
+     "es": "9",
+     "original": "9"
+    }
+   }
+  },
+  "Jour de production du bloc": {
+   "ayuda": "",
+   "es": "Día de producción del bloque",
+   "lists": {
+    "1": {
+     "es": "Lunes",
+     "original": "Lundi"
+    },
+    "2": {
+     "es": "Martes",
+     "original": "Mardi"
+    },
+    "3": {
+     "es": "Miércoles",
+     "original": "Mercredi"
+    },
+    "4": {
+     "es": "Jueves",
+     "original": "Jeudi"
+    },
+    "5": {
+     "es": "Viernes",
+     "original": "Vendredi"
+    },
+    "6": {
+     "es": "Sábado",
+     "original": "Samedi"
+    },
+    "7": {
+     "es": "Domingo",
+     "original": "Dimanche"
+    }
+   }
+  },
+  "Mois": {
+   "ayuda": "",
+   "es": "Mes",
+   "lists": {
+    "1": {
+     "es": "Enero",
+     "original": "Janvier"
+    },
+    "10": {
+     "es": "Octubre",
+     "original": "Octobre"
+    },
+    "11": {
+     "es": "Noviembre",
+     "original": "Novembre"
+    },
+    "12": {
+     "es": "Diciembre",
+     "original": "Décembre"
+    },
+    "2": {
+     "es": "Febrero",
+     "original": "Février"
+    },
+    "3": {
+     "es": "Marzo",
+     "original": "Mars"
+    },
+    "4": {
+     "es": "Abril",
+     "original": "Avril"
+    },
+    "5": {
+     "es": "Mayo",
+     "original": "Mai"
+    },
+    "6": {
+     "es": "Junio",
+     "original": "Juin"
+    },
+    "7": {
+     "es": "Julio",
+     "original": "Juillet"
+    },
+    "8": {
+     "es": "Agosto",
+     "original": "Août"
+    },
+    "9": {
+     "es": "Septiembre",
+     "original": "Septembre"
+    }
+   }
+  },
+  "MoreDTC": {
+   "ayuda": "",
+   "es": "Más códigos de falla (DTC)"
+  },
+  "NDTC": {
+   "ayuda": "",
+   "es": "Cantidad de códigos de falla (DTC)"
+  },
+  "Nom de la roue choisie": {
+   "ayuda": "",
+   "es": "Nombre de la rueda elegida",
+   "lists": {
+    "1": {
+     "es": "Rueda delantera izquierda",
+     "original": "Roue avant gauche"
+    },
+    "2": {
+     "es": "Rueda delantera derecha",
+     "original": "Roue avant droite"
+    },
+    "3": {
+     "es": "Rueda trasera izquierda",
+     "original": "Roue arrière gauche"
+    },
+    "4": {
+     "es": "Rueda trasera derecha",
+     "original": "Roue arrière droite"
+    }
+   }
+  },
+  "Nombre de dents": {
+   "ayuda": "",
+   "es": "Cantidad de dientes"
+  },
+  "Numéro de l'usine de production du bloc": {
+   "ayuda": "",
+   "es": "Número de la fábrica de producción del bloque",
+   "lists": {
+    "1": {
+     "es": "1 (Ansbach)",
+     "original": "1 (Ansbach)"
+    }
+   }
+  },
+  "Numéro de l'équipe de production du bloc": {
+   "ayuda": "",
+   "es": "Número del equipo de producción del bloque",
+   "lists": {
+    "0": {
+     "es": "1",
+     "original": "1"
+    },
+    "1": {
+     "es": "2",
+     "original": "2"
+    },
+    "2": {
+     "es": "3",
+     "original": "3"
+    }
+   }
+  },
+  "Numéro de la ligne de production du bloc": {
+   "ayuda": "",
+   "es": "Número de la línea de producción del bloque",
+   "lists": {
+    "0": {
+     "es": "1",
+     "original": "1"
+    },
+    "1": {
+     "es": "2",
+     "original": "2"
+    },
+    "2": {
+     "es": "3",
+     "original": "3"
+    },
+    "3": {
+     "es": "4",
+     "original": "4"
+    },
+    "4": {
+     "es": "5",
+     "original": "5"
+    },
+    "5": {
+     "es": "6",
+     "original": "6"
+    }
+   }
+  },
+  "Numéro du bloc  : 0 265": {
+   "ayuda": "",
+   "es": "Número del bloque: 0 265"
+  },
+  "Odomètre": {
+   "ayuda": "",
+   "es": "Odómetro",
+   "unit": {
+    "es": "cm",
+    "original": "cm"
+   }
+  },
+  "Phase de la purge après-vente": {
+   "ayuda": "",
+   "es": "Fase de la purga de posventa",
+   "lists": {
+    "1": {
+     "es": "Fase 1",
+     "original": "Phase 1"
+    },
+    "2": {
+     "es": "Fase 2",
+     "original": "Phase 2"
+    },
+    "3": {
+     "es": "Fase 3",
+     "original": "Phase 3"
+    },
+    "4": {
+     "es": "Fase 4",
+     "original": "Phase 4"
+    }
+   }
+  },
+  "ProcessByte Remplissage": {
+   "ayuda": "",
+   "es": "ProcessByte de llenado",
+   "lists": {
+    "0": {
+     "es": "ABS/ESP seco, llenado del circuito de freno autorizado",
+     "original": "ABS/ESP sec, remplissage RF autorisé"
+    },
+    "25": {
+     "es": "ABS/ESP para posventa",
+     "original": "ABS/ESP pour après-vente"
+    },
+    "49": {
+     "es": "ABS/ESP llenado (purgado)",
+     "original": "ABS/ESP rempli"
+    }
+   }
+  },
+  "Référence usine": {
+   "ayuda": "",
+   "comment": {
+    "es": "Referencia de fábrica del bloque del ABS",
+    "original": "Référence usine du bloc ABS"
+   },
+   "es": "Referencia de fábrica"
+  },
+  "Semaine de production du bloc": {
+   "ayuda": "",
+   "es": "Semana de producción del bloque"
+  },
+  "Session Name": {
+   "ayuda": "",
+   "es": "Nombre de sesión",
+   "lists": {
+    "129": {
+     "es": "Sesión por defecto - detener diagnóstico",
+     "original": "Session par défaut - Stop Diag"
+    },
+    "133": {
+     "es": "Sesión de reprogramación",
+     "original": "Session Reprogrammation"
+    },
+    "192": {
+     "es": "Sesión de posventa",
+     "original": "Session après Vente"
+    }
+   }
+  },
+  "Specific Fault": {
+   "ayuda": "",
+   "es": "Falla específica",
+   "lists": {
+    "1": {
+     "es": "Circuito abierto o cortocircuito a +batería o a masa (1h)",
+     "original": "Circuit ouvert ou court circuit au +Bat ou à la masse (1h)"
+    },
+    "12": {
+     "es": "Índice de neumático no seleccionado (Ch)",
+     "original": "Index pneu non sélectionné (Ch)"
+    },
+    "13": {
+     "es": "Problema mecánico o magnético en la rueda fónica (Dh)",
+     "original": "Pb Mécanique ou Magnétique sur la cible (Dh)"
+    },
+    "14": {
+     "es": "Montaje incorrecto (Eh)",
+     "original": "Montage incorrect (Eh)"
+    },
+    "4": {
+     "es": "Interferencia entre una o varias ruedas (4h)",
+     "original": "Interférence entre une ou plusieurs roues (4h)"
+    },
+    "5": {
+     "es": "Configuración del vehículo no seleccionada (5h)",
+     "original": "Config véhicule non sélectionnée (5h)"
+    },
+    "6": {
+     "es": "Configuración del vehículo no válida (6h)",
+     "original": "Config véhicule non valide (6h)"
+    },
+    "8": {
+     "es": "Diente faltante (8h)",
+     "original": "Dent manquante (8h)"
+    }
+   }
+  },
+  "Standard Fault": {
+   "ayuda": "",
+   "es": "Falla estándar",
+   "lists": {
+    "0": {
+     "es": "no utilizado",
+     "original": "non utilisé"
+    },
+    "1": {
+     "es": "Circuito abierto (1h)",
+     "original": "Circuit ouvert (1h)"
+    },
+    "10": {
+     "es": "Nivel bajo permanente (Ah)",
+     "original": "Niveau bas permanent (Ah)"
+    },
+    "11": {
+     "es": "Nivel alto permanente (Bh)",
+     "original": "Niveau haut permanent (Bh)"
+    },
+    "12": {
+     "es": "Líneas en cortocircuito (Ch)",
+     "original": "Lignes en court-circuit (Ch)"
+    },
+    "13": {
+     "es": "Anomalía electrónica interna (Dh)",
+     "original": "Anomalie éléctronique interne (Dh)"
+    },
+    "14": {
+     "es": "Anomalía de la red (Eh)",
+     "original": "Anomaly du réseau (Eh)"
+    },
+    "15": {
+     "es": "Diagnóstico erróneo (Fh)",
+     "original": "Diagnostique erroné (Fh)"
+    },
+    "16": {
+     "es": "Comunicación perturbada (10h)",
+     "original": "Communication perturbée (10h)"
+    },
+    "17": {
+     "es": "Microcortes (11h)",
+     "original": "Microcoupures (11h)"
+    },
+    "18": {
+     "es": "Tensión anormal (12h)",
+     "original": "Tension anormale (12h)"
+    },
+    "19": {
+     "es": "Valor fuera de rango (13h)",
+     "original": "Valeur en dehors de la plage (13h)"
+    },
+    "2": {
+     "es": "Cortocircuito a masa (2h)",
+     "original": "Court-circuit à la masse (2h)"
+    },
+    "20": {
+     "es": "Circuito abierto o cortocircuito a masa (14h)",
+     "original": "Circuit ouvert ou court-circuit à la masse (14h)"
+    },
+    "21": {
+     "es": "Circuito abierto o cortocircuito a +batería (15h)",
+     "original": "Circuit ouvert ou court-circuit au +Bat(15h)"
+    },
+    "22": {
+     "es": "Inicialización / configuración no válida (16h)",
+     "original": "Init / config non valide (16h)"
+    },
+    "23": {
+     "es": "Inicialización no válida (17h)",
+     "original": "Init non valide(17h)"
+    },
+    "24": {
+     "es": "Anomalía (18h)",
+     "original": "Anomalie (18h)"
+    },
+    "3": {
+     "es": "Cortocircuito a +batería (3h)",
+     "original": "Court-circuit au +bat (3h)"
+    },
+    "4": {
+     "es": "Parámetro en el límite bajo (4h)",
+     "original": "Param à la limite basse (4h)"
+    },
+    "5": {
+     "es": "Parámetro en el límite alto (5h)",
+     "original": "Param à la limite haute (5h)"
+    },
+    "6": {
+     "es": "Incoherencia, imposible (6h)",
+     "original": "Incohérence, impossible (6h)"
+    },
+    "7": {
+     "es": "Sin señal (7h)",
+     "original": "Pas de signal (7h)"
+    },
+    "8": {
+     "es": "Por debajo del umbral bajo (8h)",
+     "original": "En dessous du seuil bas (8h)"
+    },
+    "9": {
+     "es": "Por encima del umbral alto (9h)",
+     "original": "Au dessus du seuil haut (9h)"
+    }
+   }
+  },
+  "Store Condition": {
+   "ayuda": "",
+   "comment": {
+    "es": "Condición de memorización",
+    "original": "Condition de stockage"
+   },
+   "es": "Condición de memorización"
+  },
+  "Système Serveur": {
+   "ayuda": "",
+   "es": "Sistema servidor",
+   "lists": {
+    "19": {
+     "es": "Mars F10 SR1: BB28234",
+     "original": "Mars F10 SR1 : BB28234"
+    },
+    "2": {
+     "es": "Pluto C05 SR2: BB28031",
+     "original": "Pluto C05 SR2 : BB28031"
+    },
+    "20": {
+     "es": "Mars F10 SRx: BB28848 1_1",
+     "original": "Mars F10 SRx : BB28848 1_1"
+    },
+    "3": {
+     "es": "Pluto C05 SR3: BB28409",
+     "original": "Pluto C05 SR3 : BB28409"
+    },
+    "4": {
+     "es": "A definir",
+     "original": "A définir"
+    },
+    "5": {
+     "es": "Pluto C05 SR5: BB29140 1_1",
+     "original": "Pluto C05 SR5 : BB29140 1_1"
+    }
+   }
+  },
+  "Sélection du groupe de défaut": {
+   "ayuda": "",
+   "es": "Selección del grupo de fallas",
+   "lists": {
+    "255": {
+     "es": "Todos",
+     "original": "Tous"
+    },
+    "64": {
+     "es": "Falla de chasis",
+     "original": "Défaut Châssis"
+    }
+   }
+  },
+  "Temps depuis IgnOn (Freeze)": {
+   "ayuda": "",
+   "es": "Tiempo desde el contacto (congelado)",
+   "unit": {
+    "es": "s",
+    "original": "s"
+   }
+  },
+  "Traçabilité - ABS/ESP": {
+   "ayuda": "",
+   "es": "Trazabilidad - ABS/ESP"
+  },
+  "Traçabilité - Année de production du bloc": {
+   "ayuda": "",
+   "es": "Trazabilidad - año de producción del bloque"
+  },
+  "Traçabilité - Compteur": {
+   "ayuda": "",
+   "es": "Trazabilidad - contador"
+  },
+  "Traçabilité - Equipe": {
+   "ayuda": "",
+   "es": "Trazabilidad - equipo"
+  },
+  "Traçabilité - Jour de la semaine": {
+   "ayuda": "",
+   "es": "Trazabilidad - día de la semana",
+   "lists": {
+    "48": {
+     "es": "No conectado",
+     "original": "NC"
+    },
+    "49": {
+     "es": "Lunes",
+     "original": "Lundi"
+    },
+    "50": {
+     "es": "Martes",
+     "original": "Mardi"
+    },
+    "51": {
+     "es": "Miércoles",
+     "original": "Mercredi"
+    },
+    "52": {
+     "es": "Jueves",
+     "original": "Jeudi"
+    },
+    "53": {
+     "es": "Viernes",
+     "original": "Vendredi"
+    },
+    "54": {
+     "es": "Sábado",
+     "original": "Samedi"
+    },
+    "55": {
+     "es": "Domingo",
+     "original": "Dimanche"
+    }
+   }
+  },
+  "Traçabilité - Ligne de production du bloc": {
+   "ayuda": "",
+   "es": "Trazabilidad - línea de producción del bloque"
+  },
+  "Traçabilité - Semaine de production du bloc": {
+   "ayuda": "",
+   "es": "Trazabilidad - semana de producción del bloque"
+  },
+  "Traçabilité - Usine de production du bloc": {
+   "ayuda": "",
+   "es": "Trazabilidad - fábrica de producción del bloque"
+  },
+  "Traçabilité - libre": {
+   "ayuda": "",
+   "es": "Trazabilidad - libre"
+  },
+  "Type Of Fault": {
+   "ayuda": "",
+   "es": "Tipo de falla",
+   "lists": {
+    "0": {
+     "es": "Estándar",
+     "original": "Standard"
+    },
+    "1": {
+     "es": "Específico",
+     "original": "Specific"
+    }
+   }
+  },
+  "Valeur de la vitesse CAN à l'initialisation": {
+   "ayuda": "",
+   "comment": {
+    "es": "Valor de la velocidad CAN en la inicialización",
+    "original": "Valeur de la vitesse Can à l'initialisation"
+   },
+   "es": "Valor de la velocidad CAN en la inicialización",
+   "lists": {
+    "0": {
+     "es": "Velocidad nula (00h)",
+     "original": "Vitesse nulle (00h)"
+    },
+    "128": {
+     "es": "Valor de velocidad inicial no programado (80h)",
+     "original": "Valeur vitesse init non programmée (80h)"
+    },
+    "255": {
+     "es": "Velocidad inválida (FFh)",
+     "original": "Vitesse invalide (FFh)"
+    }
+   }
+  },
+  "Vitesse roue arrière droite": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda trasera derecha",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse roue arrière droite (Freeze)": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda trasera derecha (congelada)",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse roue arrière gauche": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda trasera izquierda",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse roue arrière gauche (Freeze)": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda trasera izquierda (congelada)",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse roue avant droite": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda delantera derecha",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse roue avant droite (Freeze)": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda delantera derecha (congelada)",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse roue avant gauche": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda delantera izquierda",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse roue avant gauche (Freeze)": {
+   "ayuda": "",
+   "es": "Velocidad de la rueda delantera izquierda (congelada)",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  },
+  "Vitesse véhicule": {
+   "ayuda": "",
+   "es": "Velocidad del vehículo",
+   "unit": {
+    "es": "km/h",
+    "original": "Km/H"
+   }
+  }
+ },
+ "ecuname": "Abs X84 Bosch8.1 V1.3",
+ "labels": {
+  "Activation des capteurs vitesse roue": {
+   "es": "Activación de los sensores de velocidad de rueda"
+  },
+  "Activation des électrovannes et de la pompe": {
+   "es": "Activación de las electroválvulas y la bomba"
+  },
+  "Allumage des warning": {
+   "es": "Encendido de las balizas"
+  },
+  "Arrêt d'urgence !!!": {
+   "es": "¡¡¡Parada de emergencia!!!"
+  },
+  "Arrêt du comptage": {
+   "es": "Detención del conteo"
+  },
+  "Arrêt du test": {
+   "es": "Detención de la prueba"
+  },
+  "Attention :": {
+   "es": "Atención:"
+  },
+  "Attention : L'utilisation trop fréquente de cette routine peut endommager les électrovannes.": {
+   "es": "Atención: el uso demasiado frecuente de esta rutina puede dañar las electroválvulas."
+  },
+  "Caisse : BCELKSG --> Variante 1": {
+   "es": "Carrocería: BCELKSG --> Variante 1"
+  },
+  "Caisse : J / Moteur : K4J ou K4M ou K9K --> Variante 1": {
+   "es": "Carrocería: J / Motor: K4J, K4M o K9K --> Variante 1"
+  },
+  "Caisse : J / Moteur F4R ou F9Q ou M9R --> Variante 2": {
+   "es": "Carrocería: J / Motor F4R, F9Q o M9R --> Variante 2"
+  },
+  "Caisse : R --> Variante 2": {
+   "es": "Carrocería: R --> Variante 2"
+  },
+  "Cette activation déclenche l'alimentation": {
+   "es": "Esta activación dispara la alimentación"
+  },
+  "Cette activation permet le contrôle": {
+   "es": "Esta activación permite el control"
+  },
+  "Cette routine dure environ 1 minute.": {
+   "es": "Esta rutina dura aproximadamente 1 minuto."
+  },
+  "Cette routine déclenche le comptage des pôles": {
+   "es": "Esta rutina dispara el conteo de polos"
+  },
+  "Cette routine est prévue pour valider": {
+   "es": "Esta rutina está prevista para validar"
+  },
+  "Cette routine permet d'effectuer une": {
+   "es": "Esta rutina permite efectuar una"
+  },
+  "Choix de la roue et lancement de la routine": {
+   "es": "Elección de la rueda e inicio de la rutina"
+  },
+  "Choix de la roue et lancement du test": {
+   "es": "Elección de la rueda e inicio de la prueba"
+  },
+  "Choix des électrovannes ABS": {
+   "es": "Elección de las electroválvulas del ABS"
+  },
+  "Code VIN et date d'intervention après vente": {
+   "es": "Código VIN y fecha de intervención de posventa"
+  },
+  "Config de la vitesse Can à l'init": {
+   "es": "Configuración de la velocidad CAN al inicio"
+  },
+  "Current ICC": {
+   "es": "Corriente ICC"
+  },
+  "DTC1": {
+   "es": "DTC1"
+  },
+  "DTC2": {
+   "es": "DTC2"
+  },
+  "DTC3": {
+   "es": "DTC3"
+  },
+  "DTC4": {
+   "es": "DTC4"
+  },
+  "DTC5": {
+   "es": "DTC5"
+  },
+  "DTC6": {
+   "es": "DTC6"
+  },
+  "Debug Info 0": {
+   "es": "Información de depuración 0"
+  },
+  "Debug Info 1": {
+   "es": "Información de depuración 1"
+  },
+  "Description du Test": {
+   "es": "Descripción de la prueba"
+  },
+  "Drive Cycle": {
+   "es": "Ciclo de conducción"
+  },
+  "Déroulement de la routine : Maintenir la pédale": {
+   "es": "Desarrollo de la rutina: mantener el pedal"
+  },
+  "Ecriture Date": {
+   "es": "Escritura de fecha"
+  },
+  "Ecriture code VIN": {
+   "es": "Escritura del código VIN"
+  },
+  "Ecriture d'un nouveau pneumatique": {
+   "es": "Escritura de un neumático nuevo"
+  },
+  "Ecriture de la config de la vitesse Can à l'init": {
+   "es": "Escritura de la configuración de velocidad CAN al inicio"
+  },
+  "Ecriture de la variante": {
+   "es": "Escritura de la variante"
+  },
+  "Ecriture du ProcessByte": {
+   "es": "Escritura del ProcessByte"
+  },
+  "Environment": {
+   "es": "Contexto"
+  },
+  "Etat d'avancement de l'activation": {
+   "es": "Estado de avance de la activación"
+  },
+  "Etat d'avancement du comptage": {
+   "es": "Estado de avance del conteo"
+  },
+  "Etat d'avancement du processus": {
+   "es": "Estado de avance del proceso"
+  },
+  "Etat d'avancement du test": {
+   "es": "Estado de avance de la prueba"
+  },
+  "Etat de l'activation": {
+   "es": "Estado de la activación"
+  },
+  "Etat du calculateur": {
+   "es": "Estado de la ECU"
+  },
+  "Failure Path": {
+   "es": "Ruta de la falla"
+  },
+  "Failure Type": {
+   "es": "Tipo de falla"
+  },
+  "Fault ICC": {
+   "es": "Falla ICC"
+  },
+  "Global": {
+   "es": "Global"
+  },
+  "Hardware": {
+   "es": "Hardware"
+  },
+  "Identification système": {
+   "es": "Identificación del sistema"
+  },
+  "Informations des pneumatiques": {
+   "es": "Información de los neumáticos"
+  },
+  "Informations sur le processus de remplissage": {
+   "es": "Información sobre el proceso de llenado"
+  },
+  "L'activation": {
+   "es": "La activación"
+  },
+  "L'activation déclenche l'allumage": {
+   "es": "La activación dispara el encendido"
+  },
+  "LIEN: page de Garde DDT2000 ----> PLAYER ---->IDENT+INFO---> VIN": {
+   "es": "ENLACE: página de inicio DDT2000 ----> PLAYER ----> IDENT+INFO ---> VIN"
+  },
+  "La modification de ce byte de config est": {
+   "es": "La modificación de este byte de configuración es"
+  },
+  "La modification du ProcessByte est": {
+   "es": "La modificación del ProcessByte es"
+  },
+  "Lancement de l'activation": {
+   "es": "Inicio de la activación"
+  },
+  "Lancement de la procédure": {
+   "es": "Inicio del procedimiento"
+  },
+  "Lancement de la procédure de remplissage usine.": {
+   "es": "Inicio del procedimiento de llenado de fábrica."
+  },
+  "Lancement de la purge après vente": {
+   "es": "Inicio de la purga de posventa"
+  },
+  "Lecture DTC Bosch": {
+   "es": "Lectura de DTC Bosch"
+  },
+  "Lecture Date": {
+   "es": "Lectura de fecha"
+  },
+  "Lecture Ecriture de la variante ABS": {
+   "es": "Lectura/escritura de la variante del ABS"
+  },
+  "Lecture code VIN": {
+   "es": "Lectura del código VIN"
+  },
+  "Lecture de la config de la vitesse Can à l'init": {
+   "es": "Lectura de la configuración de velocidad CAN al inicio"
+  },
+  "Lecture de la variante": {
+   "es": "Lectura de la variante"
+  },
+  "Lecture des informations des pneumatiques": {
+   "es": "Lectura de la información de los neumáticos"
+  },
+  "Lecture des informations globales": {
+   "es": "Lectura de la información global"
+  },
+  "Lecture du ProcessByte": {
+   "es": "Lectura del ProcessByte"
+  },
+  "Les autres roues sont bloquées durant le test.": {
+   "es": "Las otras ruedas quedan bloqueadas durante la prueba."
+  },
+  "Les informations circonférence des pneumatiques": {
+   "es": "La información de circunferencia de los neumáticos"
+  },
+  "Les informations modifiées": {
+   "es": "La información modificada"
+  },
+  "Note : lorsque cette valeur est configurée à autre que 00h, par défaut le système envoie durant son initialisation une vitesse véhicule à FFh sur le CAN.": {
+   "es": "Nota: cuando este valor se configura distinto de 00h, por defecto el sistema envía durante su inicialización una velocidad de vehículo FFh por el CAN."
+  },
+  "Phase 1 : Desserrer la vis de purge ArG.": {
+   "es": "Fase 1: aflojar el tornillo de purga trasero izquierdo."
+  },
+  "Phase 2 : Desserrer la vis de purge AvG.": {
+   "es": "Fase 2: aflojar el tornillo de purga delantero izquierdo."
+  },
+  "Phase 3 : Desserrer la vis de purge AvD.": {
+   "es": "Fase 3: aflojar el tornillo de purga delantero derecho."
+  },
+  "Phase 4 : Desserrer la vis de purge ArD.": {
+   "es": "Fase 4: aflojar el tornillo de purga trasero derecho."
+  },
+  "Pour l écriture du VIN, utiliser la page  DDT2000 qui calcule automatiquement le CRC": {
+   "es": "Para la escritura del VIN, usar la página DDT2000 que calcula automáticamente el CRC"
+  },
+  "Pour un bon fonctionnement mettre en mode rebouclé": {
+   "es": "Para un buen funcionamiento, poner en modo realimentado"
+  },
+  "Pour un bon fonctionnement, mettre en mode rebouclé.": {
+   "es": "Para un buen funcionamiento, poner en modo realimentado."
+  },
+  "Routine - Procédure de remplissage usine": {
+   "es": "Rutina - Procedimiento de llenado de fábrica"
+  },
+  "Routine de comptage des pôles": {
+   "es": "Rutina de conteo de polos"
+  },
+  "Routine de purge apès vente": {
+   "es": "Rutina de purga de posventa"
+  },
+  "Routine de test du circuit hydraulique": {
+   "es": "Rutina de prueba del circuito hidráulico"
+  },
+  "Résultat": {
+   "es": "Resultado"
+  },
+  "Software": {
+   "es": "Software"
+  },
+  "Sortie vitesse véhicule filaire": {
+   "es": "Salida de velocidad del vehículo por cable"
+  },
+  "Store Condition": {
+   "es": "Condición de memorización"
+  },
+  "Trame de traçabilité de l'ABS": {
+   "es": "Trama de trazabilidad del ABS"
+  },
+  "Utilisation d'un bloc sec uniquement!!!": {
+   "es": "¡¡¡Usar únicamente un bloque seco!!!"
+  },
+  "Vitesses Roues": {
+   "es": "Velocidades de las ruedas"
+  },
+  "affectation des voies hydrauliques.": {
+   "es": "asignación de las vías hidráulicas."
+  },
+  "d'un fonctionnement nominal de l'UCH).": {
+   "es": "de un funcionamiento nominal de la UCH)."
+  },
+  "d'un ou plusieurs actionneurs (électrovannes": {
+   "es": "de uno o varios actuadores (electroválvulas"
+  },
+  "de frein enfoncée et faire tourner à la main la": {
+   "es": "de freno pisado y girar a mano la"
+  },
+  "de la roue sélectionnée. Après un tour de roue": {
+   "es": "de la rueda seleccionada. Después de una vuelta de rueda"
+  },
+  "des capteurs vitesse roue. Durée 20s": {
+   "es": "de los sensores de velocidad de rueda. Duración: 20 s"
+  },
+  "des warning pendant 20 s (sous réserve": {
+   "es": "de las balizas durante 20 s (a reserva"
+  },
+  "déclenche la génération d'un signal (durée 20 s)": {
+   "es": "dispara la generación de una señal (duración 20 s)"
+  },
+  "et pomper sur la pédale de frein à la": {
+   "es": "y bombear el pedal de freno a la"
+  },
+  "et/ou pompe) indépendamment pendant 5 s maximum.": {
+   "es": "y/o bomba) independientemente durante 5 s como máximo."
+  },
+  "frequentiel (F=100Hz soit environ 70Km/h)": {
+   "es": "frecuencial (F=100 Hz, aproximadamente 70 km/h)"
+  },
+  "fréquence de 1 Hz.": {
+   "es": "frecuencia de 1 Hz."
+  },
+  "interdite aux personnes non autorisées": {
+   "es": "prohibida a personas no autorizadas"
+  },
+  "le nombre de pôles doit être égal à 96 (+/- 2).": {
+   "es": "la cantidad de polos debe ser igual a 96 (+/- 2)."
+  },
+  "ne sont mises à jour qu'après": {
+   "es": "solo se actualizan después de"
+  },
+  "purge après vente. Pour cela il faut :": {
+   "es": "purga de posventa. Para eso hay que:"
+  },
+  "respecter scrupuleusement l’ordre des phases": {
+   "es": "respetar estrictamente el orden de las fases"
+  },
+  "roue testée. Elle doit se bloquer et se débloquer.": {
+   "es": "rueda probada. Debe bloquearse y desbloquearse."
+  },
+  "sur la sortie filaire Vitesse véhicule.": {
+   "es": "en la salida por cable de velocidad del vehículo."
+  },
+  "une sortie du mode diagnostic": {
+   "es": "una salida del modo de diagnóstico"
+  }
+ },
+ "requests": {
+  "CDIFailure": {
+   "es": "Falla CDI"
+  },
+  "Copy Read - PartIdNumberFor Plant": {
+   "es": "Copia de lectura - número de identificación de pieza para fábrica"
+  },
+  "IO Control - BLAOutput": {
+   "es": "Control E/S - Salida BLA"
+  },
+  "IO Control - BLAOutput Status": {
+   "es": "Control E/S - Estado de la salida BLA"
+  },
+  "IO Control - HazardWarningRequest": {
+   "es": "Control E/S - Solicitud de balizas"
+  },
+  "IO Control - HazardWarningRequest Status": {
+   "es": "Control E/S - Estado de la solicitud de balizas"
+  },
+  "IO Control - VSOonWire": {
+   "es": "Control E/S - Salida de velocidad por cable"
+  },
+  "IO Control - VSOonWire Status": {
+   "es": "Control E/S - Estado de la salida de velocidad por cable"
+  },
+  "IO Control - ValvesAndPump": {
+   "es": "Control E/S - Electroválvulas y bomba"
+  },
+  "IO Control - ValvesAndPump Status": {
+   "es": "Control E/S - Estado de electroválvulas y bomba"
+  },
+  "IO Control - WheelSpeedOutput": {
+   "es": "Control E/S - Salida de velocidad de rueda"
+  },
+  "IO Control - WheelSpeedOutput Status": {
+   "es": "Control E/S - Estado de la salida de velocidad de rueda"
+  },
+  "Read - AfterSalesDate": {
+   "es": "Lectura - fecha de posventa"
+  },
+  "Read - BoschDTCLocation1": {
+   "es": "Lectura - ubicación Bosch de DTC 1"
+  },
+  "Read - BoschDTCLocation2": {
+   "es": "Lectura - ubicación Bosch de DTC 2"
+  },
+  "Read - BoschDTCLocation3": {
+   "es": "Lectura - ubicación Bosch de DTC 3"
+  },
+  "Read - BoschDTCLocation4": {
+   "es": "Lectura - ubicación Bosch de DTC 4"
+  },
+  "Read - BoschDTCLocation5": {
+   "es": "Lectura - ubicación Bosch de DTC 5"
+  },
+  "Read - BoschDTCLocation6": {
+   "es": "Lectura - ubicación Bosch de DTC 6"
+  },
+  "Read - CANVehicleSpeedInitialisationValue": {
+   "es": "Lectura - valor de inicialización de velocidad del vehículo por CAN"
+  },
+  "Read - ECUTraceability": {
+   "es": "Lectura - trazabilidad de la ECU"
+  },
+  "Read - FillingProcessByte": {
+   "es": "Lectura - byte del proceso de llenado"
+  },
+  "Read - FreezeFrame": {
+   "es": "Lectura - datos congelados (Freeze Frame)"
+  },
+  "Read - Odometer": {
+   "es": "Lectura - odómetro"
+  },
+  "Read - PartIdNumberFor Plant": {
+   "es": "Lectura - número de identificación de pieza para fábrica"
+  },
+  "Read - Speeds": {
+   "es": "Lectura - velocidades"
+  },
+  "Read - SystemIdentification": {
+   "es": "Lectura - identificación del sistema"
+  },
+  "Read - SystemStatus": {
+   "es": "Lectura - estado del sistema"
+  },
+  "Read - TachyIndex": {
+   "es": "Lectura - índice del tacómetro"
+  },
+  "Read - VIN": {
+   "es": "Lectura - VIN"
+  },
+  "Read - VehicleConfiguration": {
+   "es": "Lectura - configuración del vehículo"
+  },
+  "ReadDTC": {
+   "es": "Leer códigos de falla (DTC)"
+  },
+  "Routine - BleedingProcedure Part1 Start": {
+   "es": "Rutina - inicio de purga, parte 1"
+  },
+  "Routine - BleedingProcedure Part2 Start": {
+   "es": "Rutina - inicio de purga, parte 2"
+  },
+  "Routine - BleedingProcedure Part3 Start": {
+   "es": "Rutina - inicio de purga, parte 3"
+  },
+  "Routine - BleedingProcedure Part4 Start": {
+   "es": "Rutina - inicio de purga, parte 4"
+  },
+  "Routine - BleedingProcedure Status": {
+   "es": "Rutina - estado del procedimiento de purga"
+  },
+  "Routine - BleedingProcedure Stop": {
+   "es": "Rutina - detener procedimiento de purga"
+  },
+  "Routine - EvacAndFillProcedure Start": {
+   "es": "Rutina - inicio de vaciado y llenado"
+  },
+  "Routine - EvacAndFillProcedure Stop": {
+   "es": "Rutina - detener vaciado y llenado"
+  },
+  "Routine - HydraulicCircuitTest Status": {
+   "es": "Rutina - estado de la prueba del circuito hidráulico"
+  },
+  "Routine - HydraulicCircuitTest Stop": {
+   "es": "Rutina - detener prueba del circuito hidráulico"
+  },
+  "Routine - HydraulicCircuitTest_FL Start": {
+   "es": "Rutina - prueba hidráulica rueda delantera izquierda"
+  },
+  "Routine - HydraulicCircuitTest_FR Start": {
+   "es": "Rutina - prueba hidráulica rueda delantera derecha"
+  },
+  "Routine - HydraulicCircuitTest_RL Start": {
+   "es": "Rutina - prueba hidráulica rueda trasera izquierda"
+  },
+  "Routine - HydraulicCircuitTest_RR Start": {
+   "es": "Rutina - prueba hidráulica rueda trasera derecha"
+  },
+  "Routine - PolesCounting Emergency Stop": {
+   "es": "Rutina - parada de emergencia del conteo de polos"
+  },
+  "Routine - PolesCounting Status": {
+   "es": "Rutina - estado del conteo de polos"
+  },
+  "Routine - PolesCounting Stop": {
+   "es": "Rutina - detener conteo de polos"
+  },
+  "Routine - PolesCounting Stop Status": {
+   "es": "Rutina - estado de la detención del conteo de polos"
+  },
+  "Routine - PolesCounting_FL Start": {
+   "es": "Rutina - conteo de polos rueda delantera izquierda"
+  },
+  "Routine - PolesCounting_FR Start": {
+   "es": "Rutina - conteo de polos rueda delantera derecha"
+  },
+  "Routine - PolesCounting_RL Start": {
+   "es": "Rutina - conteo de polos rueda trasera izquierda"
+  },
+  "Routine - PolesCounting_RR Start": {
+   "es": "Rutina - conteo de polos rueda trasera derecha"
+  },
+  "Start Diagnostic Session": {
+   "es": "Iniciar sesión de diagnóstico"
+  },
+  "StartRoutine - EvacAndFillProcedure Status": {
+   "es": "Inicio de rutina - estado del vaciado y llenado"
+  },
+  "TesterPresent": {
+   "es": "Tester presente (mantener sesión)"
+  },
+  "Write - CANVehicleSpeedInitialisationValue": {
+   "es": "Escritura - valor de inicialización de velocidad del vehículo por CAN"
+  },
+  "Write - DateAfterSales": {
+   "es": "Escritura - fecha de posventa"
+  },
+  "Write - FillingProcessByte": {
+   "es": "Escritura - byte del proceso de llenado"
+  },
+  "Write - TachyIndex": {
+   "es": "Escritura - índice del tacómetro"
+  },
+  "Write - VIN": {
+   "es": "Escritura - VIN"
+  },
+  "Write - VehicleConfiguration": {
+   "es": "Escritura - configuración del vehículo"
+  }
+ },
+ "screens": {
+  "Configuration de l'init vitesse": {
+   "es": "Configuración del inicio de velocidad"
+  },
+  "IO - Activation des capteurs vitesse roue": {
+   "es": "E/S - Activación de los sensores de velocidad de rueda"
+  },
+  "IO - Activation des électrovannes et de la pompe": {
+   "es": "E/S - Activación de las electroválvulas y la bomba"
+  },
+  "IO - Allumage des warning": {
+   "es": "E/S - Encendido de las balizas"
+  },
+  "IO - Vitesse véhicule filaire": {
+   "es": "E/S - Velocidad del vehículo por cable"
+  },
+  "Lecture - DTC Bosch": {
+   "es": "Lectura - DTC Bosch"
+  },
+  "Lecture - Identification système": {
+   "es": "Lectura - Identificación del sistema"
+  },
+  "Lecture - Informations globales": {
+   "es": "Lectura - Información global"
+  },
+  "Lecture - Traçabilité": {
+   "es": "Lectura - Trazabilidad"
+  },
+  "Lecture Ecriture - Code VIN et date après vente": {
+   "es": "Lectura/escritura - Código VIN y fecha de posventa"
+  },
+  "Lecture Ecriture - Information pneumatique": {
+   "es": "Lectura/escritura - Información de neumáticos"
+  },
+  "Lecture Ecriture - ProcessByte": {
+   "es": "Lectura/escritura - ProcessByte"
+  },
+  "Lecture Ecriture - Variante ABS": {
+   "es": "Lectura/escritura - Variante del ABS"
+  },
+  "Routine - Comptage des pôles": {
+   "es": "Rutina - conteo de polos"
+  },
+  "Routine - Procédure de remplissage usine": {
+   "es": "Rutina - Procedimiento de llenado de fábrica"
+  },
+  "Routine - Purge après vente": {
+   "es": "Rutina - purga de posventa"
+  },
+  "Routine - Test du citcuit hydaulique": {
+   "es": "Rutina - prueba del circuito hidráulico"
+  }
+ }
+}

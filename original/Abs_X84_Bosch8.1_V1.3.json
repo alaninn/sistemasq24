@@ -1,0 +1,2338 @@
+{
+"obd": {
+	"baudrate": 500000, 
+	"protocol": "CAN", 
+	"recv_id": "760", 
+	"funcname": "ABS-VDC - ABS-ESP", 
+	"funcaddr": "01", 
+	"send_id": "740"
+}, 
+"devices": [
+	{
+	"dtc": 20511, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Capteur vitesse roue AvG"
+	}, 
+	{
+	"dtc": 20550, 
+	"devicedata": {
+		"Vitesse v\u00e9hicule": "0", 
+		"Vitesse roue avant gauche": "0", 
+		"Vitesse roue arri\u00e8re gauche": "0", 
+		"Vitesse roue avant droite": "0", 
+		"Vitesse roue arri\u00e8re droite": "0"
+	}, 
+	"dtctype": 0, 
+	"name": "D\u00e9faut g\u00e9n\u00e9ral capteurs vitesses roues"
+	}, 
+	{
+	"dtc": 20684, 
+	"devicedata": {
+		"Alimentation": "0"
+	}, 
+	"dtctype": 0, 
+	"name": "Alimentation calculateur"
+	}, 
+	{
+	"dtc": 20495, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Capteur vitesse roue AvD"
+	}, 
+	{
+	"dtc": 20678, 
+	"devicedata": {
+		"Etat de la p\u00e9dale de frein": "0"
+	}, 
+	"dtctype": 0, 
+	"name": "Contacteur p\u00e9dale de frein"
+	}, 
+	{
+	"dtc": 20675, 
+	"devicedata": {
+		"Mois": "0", 
+		"Dimension du pneumatique": "0", 
+		"Jour": "0", 
+		"Ann\u00e9e": "0", 
+		"Etat ABS et REF": "0"
+	}, 
+	"dtctype": 2, 
+	"name": "Calculateur"
+	}, 
+	{
+	"dtc": 20543, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Capteur vitesse roue ArG"
+	}, 
+	{
+	"dtc": 20527, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Capteur vitesse roue ArD"
+	}, 
+	{
+	"dtc": 20548, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Cible magn\u00e9tique multipoles roue ArG"
+	}, 
+	{
+	"dtc": 20547, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Cible magn\u00e9tique multipoles roue ArD"
+	}, 
+	{
+	"dtc": 20864, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "Contr\u00f4le moteur"
+	}, 
+	{
+	"dtc": 20710, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "R\u00e9seau CAN"
+	}, 
+	{
+	"dtc": 20546, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Cible magn\u00e9tique multipoles roue AvG"
+	}, 
+	{
+	"dtc": 20545, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Cible magn\u00e9tique multipoles roue AvD"
+	}
+], 
+"ecuname": "Abs X84 Bosch8.1 V1.3", 
+"autoidents": [
+	{
+	"diagversion": "15", 
+	"supplier": "037", 
+	"version": "0205", 
+	"soft": "966F"
+	}, 
+	{
+	"diagversion": "15", 
+	"supplier": "037", 
+	"version": "0207", 
+	"soft": "966F"
+	}, 
+	{
+	"diagversion": "15", 
+	"supplier": "037", 
+	"version": "0303", 
+	"soft": "9900"
+	}, 
+	{
+	"diagversion": "15", 
+	"supplier": "037", 
+	"version": "0400", 
+	"soft": "ED72"
+	}
+], 
+"endian": "Big", 
+"requests": [
+	{
+	"name": "Routine - HydraulicCircuitTest_FR Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31030002"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat de la routine": {
+		"firstbyte": 3
+		}, 
+		"Phase de la purge apr\u00e8s-vente": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 4, 
+	"sentbytes": "3105010100", 
+	"name": "Routine - BleedingProcedure Status"
+	}, 
+	{
+	"name": "IO Control - ValvesAndPump", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Echappement avant gauche": {
+		"bitoffset": 6, 
+		"firstbyte": 4
+		}, 
+		"Admission arri\u00e8re droite": {
+		"bitoffset": 1, 
+		"firstbyte": 4
+		}, 
+		"Echappement arri\u00e8re gauche": {
+		"bitoffset": 2, 
+		"firstbyte": 4
+		}, 
+		"Echappement arri\u00e8re droite": {
+		"firstbyte": 4
+		}, 
+		"Admission avant droite": {
+		"bitoffset": 5, 
+		"firstbyte": 4
+		}, 
+		"Choix du temps d'activation EV/Pompe": {
+		"firstbyte": 6
+		}, 
+		"Admission avant gauche": {
+		"bitoffset": 7, 
+		"firstbyte": 4
+		}, 
+		"Admission arri\u00e8re gauche": {
+		"bitoffset": 3, 
+		"firstbyte": 4
+		}, 
+		"Activation de la pompe": {
+		"bitoffset": 1, 
+		"firstbyte": 5
+		}, 
+		"Echappement avant droite": {
+		"bitoffset": 4, 
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "300100FFFFFA01F41601F401F4"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Dimension du pneumatique": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "2102", 
+	"name": "Read - TachyIndex"
+	}, 
+	{
+	"name": "Routine - BleedingProcedure Stop", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de l'arr\u00eat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Choix du type d'arr\u00eat": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "320580"
+	}, 
+	{
+	"name": "Write - VIN", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Code VIN": {
+		"firstbyte": 3
+		}, 
+		"CRC": {
+		"firstbyte": 20
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "3B8100000000000000000000000000000000000000"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Code VIN": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CRC": {
+		"ref": true, 
+		"firstbyte": 20
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 21, 
+	"sentbytes": "2181", 
+	"name": "Read - VIN"
+	}, 
+	{
+	"name": "Write - CANVehicleSpeedInitialisationValue", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Valeur de la vitesse CAN \u00e0 l'initialisation": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "3B0DFF"
+	}, 
+	{
+	"name": "Routine - PolesCounting_FR Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31010002"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "3104010A", 
+	"name": "StartRoutine - EvacAndFillProcedure Status"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "300300FA", 
+	"name": "IO Control - HazardWarningRequest"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "300301FA", 
+	"name": "IO Control - HazardWarningRequest Status"
+	}, 
+	{
+	"name": "Read - FreezeFrame", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Temps depuis IgnOn (Freeze)": {
+		"firstbyte": 4
+		}, 
+		"Etat de la p\u00e9dale de frein (Freeze)": {
+		"bitoffset": 2, 
+		"firstbyte": 11
+		}, 
+		"Alimentation (Freeze)": {
+		"firstbyte": 10
+		}, 
+		"DTC Number (Freeze)": {
+		"firstbyte": 16
+		}, 
+		"Etat allumage automatique des warnings (Freeze)": {
+		"bitoffset": 3, 
+		"firstbyte": 11
+		}, 
+		"Etat REF (Freeze)": {
+		"bitoffset": 1, 
+		"firstbyte": 11
+		}, 
+		"Vitesse roue avant droite (Freeze)": {
+		"firstbyte": 7
+		}, 
+		"Vitesse roue arri\u00e8re droite (Freeze)": {
+		"firstbyte": 9
+		}, 
+		"Vitesse roue avant gauche (Freeze)": {
+		"firstbyte": 6
+		}, 
+		"Vitesse roue arri\u00e8re gauche (Freeze)": {
+		"firstbyte": 8
+		}, 
+		"Etat ABS (Freeze)": {
+		"firstbyte": 11
+		}, 
+		"Etat de la sortie feux stop (Freeze)": {
+		"bitoffset": 7, 
+		"firstbyte": 11
+		}, 
+		"Cycle de roulage (Freeze)": {
+		"firstbyte": 3
+		}, 
+		"DiagMuxOn (Freeze)": {
+		"bitoffset": 3, 
+		"firstbyte": 14
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"FFN": {
+		"firstbyte": 2
+		}, 
+		"FirstDTC": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 17, 
+	"sentbytes": "1200040000"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "30050105", 
+	"name": "IO Control - BLAOutput Status"
+	}, 
+	{
+	"name": "Routine - PolesCounting Emergency Stop", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de l'arr\u00eat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Choix du type d'arr\u00eat": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "320180"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Circonf\u00e9rence Pneu Minimum": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Dimension du pneumatique": {
+		"firstbyte": 9
+		}, 
+		"Circonf\u00e9rence Pneu Maximum": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"Odom\u00e8tre": {
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"Circonf\u00e9rence pneu": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 11, 
+	"sentbytes": "2105", 
+	"name": "Read - Odometer"
+	}, 
+	{
+	"name": "Routine - PolesCounting Status", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Choix de la roue": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31010101"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Fault Location": {
+		"firstbyte": 3
+		}, 
+		"Environment information": {
+		"firstbyte": 18
+		}, 
+		"Drive Cycle information": {
+		"firstbyte": 8
+		}, 
+		"Fault ICC": {
+		"firstbyte": 22
+		}, 
+		"Store Condition": {
+		"firstbyte": 9
+		}, 
+		"Current ICC": {
+		"firstbyte": 4
+		}, 
+		"Debug information 0": {
+		"firstbyte": 10
+		}, 
+		"Debug information 1": {
+		"firstbyte": 14
+		}, 
+		"Failure Type": {
+		"firstbyte": 7
+		}, 
+		"Failure Path": {
+		"firstbyte": 6
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 23, 
+	"sentbytes": "2193", 
+	"name": "Read - BoschDTCLocation3"
+	}, 
+	{
+	"name": "IO Control - BLAOutput", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Choix du temps d'activation": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "300500FA"
+	}, 
+	{
+	"name": "Write - VehicleConfiguration", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Configuration V\u00e9hicule": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "3B0101"
+	}, 
+	{
+	"name": "TesterPresent", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Choix du type de r\u00e9ponse": {
+		"firstbyte": 2
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "3E02"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "300200FA", 
+	"name": "IO Control - VSOonWire"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Alimentation": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Etat de la p\u00e9dale de frein": {
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"Etat ABS et REF": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 4, 
+	"sentbytes": "2106", 
+	"name": "Read - SystemStatus"
+	}, 
+	{
+	"name": "Routine - PolesCounting Stop", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nombre de dents": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "310200"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Fault Location": {
+		"firstbyte": 3
+		}, 
+		"Environment information": {
+		"firstbyte": 18
+		}, 
+		"Drive Cycle information": {
+		"firstbyte": 8
+		}, 
+		"Fault ICC": {
+		"firstbyte": 22
+		}, 
+		"Store Condition": {
+		"firstbyte": 9
+		}, 
+		"Current ICC": {
+		"firstbyte": 4
+		}, 
+		"Debug information 0": {
+		"firstbyte": 10
+		}, 
+		"Debug information 1": {
+		"firstbyte": 14
+		}, 
+		"Failure Type": {
+		"firstbyte": 7
+		}, 
+		"Failure Path": {
+		"firstbyte": 6
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 23, 
+	"sentbytes": "2192", 
+	"name": "Read - BoschDTCLocation2"
+	}, 
+	{
+	"name": "IO Control - VSOonWire Status", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Choix du processus d'activation": {
+		"firstbyte": 3
+		}, 
+		"Choix du temps d'activation": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "300201FA"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Fault Location": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Environment information": {
+		"ref": true, 
+		"firstbyte": 18
+		}, 
+		"Drive Cycle information": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"Fault ICC": {
+		"ref": true, 
+		"firstbyte": 22
+		}, 
+		"Store Condition": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"Current ICC": {
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"Debug information 0": {
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"Debug information 1": {
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"Failure Type": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"Failure Path": {
+		"ref": true, 
+		"firstbyte": 6
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 23, 
+	"sentbytes": "2191", 
+	"name": "Read - BoschDTCLocation1"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Fault Location": {
+		"firstbyte": 3
+		}, 
+		"Environment information": {
+		"firstbyte": 18
+		}, 
+		"Drive Cycle information": {
+		"firstbyte": 8
+		}, 
+		"Fault ICC": {
+		"firstbyte": 22
+		}, 
+		"Store Condition": {
+		"firstbyte": 9
+		}, 
+		"Current ICC": {
+		"firstbyte": 4
+		}, 
+		"Debug information 0": {
+		"firstbyte": 10
+		}, 
+		"Debug information 1": {
+		"firstbyte": 14
+		}, 
+		"Failure Type": {
+		"firstbyte": 7
+		}, 
+		"Failure Path": {
+		"firstbyte": 6
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 23, 
+	"sentbytes": "2196", 
+	"name": "Read - BoschDTCLocation6"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Fault Location": {
+		"firstbyte": 3
+		}, 
+		"Environment information": {
+		"firstbyte": 18
+		}, 
+		"Drive Cycle information": {
+		"firstbyte": 8
+		}, 
+		"Fault ICC": {
+		"firstbyte": 22
+		}, 
+		"Store Condition": {
+		"firstbyte": 9
+		}, 
+		"Current ICC": {
+		"firstbyte": 4
+		}, 
+		"Debug information 0": {
+		"firstbyte": 10
+		}, 
+		"Debug information 1": {
+		"firstbyte": 14
+		}, 
+		"Failure Type": {
+		"firstbyte": 7
+		}, 
+		"Failure Path": {
+		"firstbyte": 6
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 23, 
+	"sentbytes": "2194", 
+	"name": "Read - BoschDTCLocation4"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Fault Location": {
+		"firstbyte": 3
+		}, 
+		"Environment information": {
+		"firstbyte": 18
+		}, 
+		"Drive Cycle information": {
+		"firstbyte": 8
+		}, 
+		"Fault ICC": {
+		"firstbyte": 22
+		}, 
+		"Store Condition": {
+		"firstbyte": 9
+		}, 
+		"Current ICC": {
+		"firstbyte": 4
+		}, 
+		"Debug information 0": {
+		"firstbyte": 10
+		}, 
+		"Debug information 1": {
+		"firstbyte": 14
+		}, 
+		"Failure Type": {
+		"firstbyte": 7
+		}, 
+		"Failure Path": {
+		"firstbyte": 6
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 23, 
+	"sentbytes": "2195", 
+	"name": "Read - BoschDTCLocation5"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat du bloc hydraulique": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Affectation": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Autorisation remplissage RF": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"D\u00e9faut de remplissage": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Etat du circuit de frein": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "2103", 
+	"name": "Read - FillingProcessByte"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Nombre de dents": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 4, 
+	"sentbytes": "310201", 
+	"name": "Routine - PolesCounting Stop Status"
+	}, 
+	{
+	"name": "Routine - BleedingProcedure Part4 Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de la routine": {
+		"firstbyte": 3
+		}, 
+		"Phase de la purge apr\u00e8s-vente": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "3105000404"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 4, 
+	"sentbytes": "31030101", 
+	"name": "Routine - HydraulicCircuitTest Status"
+	}, 
+	{
+	"name": "Routine - PolesCounting_FL Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31010001"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"R\u00e9f\u00e9rence usine": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 7, 
+	"sentbytes": "210B", 
+	"name": "Read - PartIdNumberFor Plant"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "300101FFFF0501F41601F401F4", 
+	"name": "IO Control - ValvesAndPump Status"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"R\u00e9f\u00e9rence usine": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 7, 
+	"sentbytes": "210B", 
+	"name": "Copy Read - PartIdNumberFor Plant"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "30040105", 
+	"name": "IO Control - WheelSpeedOutput Status"
+	}, 
+	{
+	"name": "ReadDTC", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Type Of Fault": {
+		"firstbyte": 5
+		}, 
+		"Standard Fault": {
+		"bitoffset": 3, 
+		"firstbyte": 5
+		}, 
+		"Historical Failure": {
+		"bitoffset": 1, 
+		"firstbyte": 5
+		}, 
+		"Current Failure": {
+		"bitoffset": 2, 
+		"firstbyte": 5
+		}, 
+		"FirstDTC": {
+		"firstbyte": 3
+		}, 
+		"Specific Fault": {
+		"bitoffset": 3, 
+		"firstbyte": 5
+		}, 
+		"NDTC": {
+		"firstbyte": 2
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"MoreDTC": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "17FF00", 
+	"shiftbytescount": 3
+	}, 
+	{
+	"name": "CDIFailure", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"S\u00e9lection du groupe de d\u00e9faut": {
+		"firstbyte": 2
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "14FF00"
+	}, 
+	{
+	"name": "Routine - BleedingProcedure Part3 Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de la routine": {
+		"firstbyte": 3
+		}, 
+		"Phase de la purge apr\u00e8s-vente": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "3105000304"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Tra\u00e7abilit\u00e9 - Ligne de production du bloc": {
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"Tra\u00e7abilit\u00e9 - ABS/ESP": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Tra\u00e7abilit\u00e9 - Equipe": {
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"Tra\u00e7abilit\u00e9 - Usine de production du bloc": {
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"Tra\u00e7abilit\u00e9 - Compteur": {
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"Tra\u00e7abilit\u00e9 - Ann\u00e9e de production du bloc": {
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"Tra\u00e7abilit\u00e9 - libre": {
+		"ref": true, 
+		"firstbyte": 18
+		}, 
+		"Tra\u00e7abilit\u00e9 - Jour de la semaine": {
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"Tra\u00e7abilit\u00e9 - Semaine de production du bloc": {
+		"ref": true, 
+		"firstbyte": 8
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 22, 
+	"sentbytes": "2184", 
+	"name": "Read - ECUTraceability"
+	}, 
+	{
+	"name": "Routine - BleedingProcedure Part1 Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de la routine": {
+		"firstbyte": 3
+		}, 
+		"Phase de la purge apr\u00e8s-vente": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "3105000100"
+	}, 
+	{
+	"name": "Routine - HydraulicCircuitTest_FL Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31030001"
+	}, 
+	{
+	"name": "Routine - EvacAndFillProcedure Stop", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de l'arr\u00eat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "320480"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Vitesse v\u00e9hicule": {
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"Vitesse roue avant gauche": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Vitesse roue arri\u00e8re gauche": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"Vitesse roue avant droite": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Vitesse roue arri\u00e8re droite": {
+		"ref": true, 
+		"firstbyte": 9
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 12, 
+	"sentbytes": "2104", 
+	"name": "Read - Speeds"
+	}, 
+	{
+	"name": "Routine - PolesCounting_RR Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31010004"
+	}, 
+	{
+	"name": "Routine - PolesCounting_RL Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31010003"
+	}, 
+	{
+	"name": "Routine - HydraulicCircuitTest_RR Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31030004"
+	}, 
+	{
+	"name": "Write - TachyIndex", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Dimension du pneumatique": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "3B0218"
+	}, 
+	{
+	"name": "Write - FillingProcessByte", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"ProcessByte Remplissage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "3B0300"
+	}, 
+	{
+	"name": "Start Diagnostic Session", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Session Name": {
+		"firstbyte": 2
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "10C0"
+	}, 
+	{
+	"name": "Routine - HydraulicCircuitTest Stop", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de l'arr\u00eat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "320380"
+	}, 
+	{
+	"name": "IO Control - WheelSpeedOutput", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Etat du processus d'activation": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Choix du temps d'activation": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "300400FA"
+	}, 
+	{
+	"name": "Routine - EvacAndFillProcedure Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3104005A"
+	}, 
+	{
+	"name": "Write - DateAfterSales", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Jour": {
+		"firstbyte": 5
+		}, 
+		"Mois": {
+		"firstbyte": 4
+		}, 
+		"Ann\u00e9e": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 1, 
+	"sentbytes": "3BB0010101"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Semaine de production du bloc": {
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"Syst\u00e8me Serveur": {
+		"ref": true, 
+		"firstbyte": 22
+		}, 
+		"Algorithme Serveur Version Number": {
+		"ref": true, 
+		"firstbyte": 19
+		}, 
+		"Code MPR": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Num\u00e9ro du bloc  : 0 265": {
+		"ref": true, 
+		"firstbyte": 23
+		}, 
+		"Algorithme Serveur Version Number 3et4": {
+		"ref": true, 
+		"firstbyte": 21
+		}, 
+		"Code ITG": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"Identificateur de diagnostic": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"Num\u00e9ro de la ligne de production du bloc": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"Jour de production du bloc": {
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"Num\u00e9ro de l'usine de production du bloc": {
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"Algorithme Serveur Version Number 2": {
+		"ref": true, 
+		"firstbyte": 20
+		}, 
+		"Ann\u00e9e de production du bloc": {
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"Num\u00e9ro de l'\u00e9quipe de production du bloc": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"Compteur": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"Algorithme Serveur BB-Number": {
+		"ref": true, 
+		"firstbyte": 17
+		}, 
+		"Code constructeur": {
+		"ref": true, 
+		"firstbyte": 26
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 26, 
+	"sentbytes": "2180", 
+	"name": "Read - SystemIdentification"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Configuration V\u00e9hicule": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "2101", 
+	"name": "Read - VehicleConfiguration"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Jour": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Mois": {
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"Ann\u00e9e": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 5, 
+	"sentbytes": "21B0", 
+	"name": "Read - AfterSalesDate"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Valeur de la vitesse CAN \u00e0 l'initialisation": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "210D", 
+	"name": "Read - CANVehicleSpeedInitialisationValue"
+	}, 
+	{
+	"name": "Routine - BleedingProcedure Part2 Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Etat de la routine": {
+		"firstbyte": 3
+		}, 
+		"Phase de la purge apr\u00e8s-vente": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "3105000200"
+	}, 
+	{
+	"name": "Routine - HydraulicCircuitTest_RL Start", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Nom de la roue choisie": {
+		"firstbyte": 4
+		}, 
+		"Etat de la routine": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "31030003"
+	}
+], 
+"data": {
+	"Valeur de la vitesse CAN \u00e0 l'initialisation": {
+	"comment": "Valeur de la vitesse Can \u00e0 l'initialisation", 
+	"lists": {
+		"0": "Vitesse nulle (00h)", 
+		"128": "Valeur vitesse init non programm\u00e9e (80h)", 
+		"255": "Vitesse invalide (FFh)"
+	}
+	}, 
+	"Alimentation": {
+	"scaled": true, 
+	"step": 0.08, 
+	"unit": "V", 
+	"format": "00.00"
+	}, 
+	"Ann\u00e9e": {
+	"lists": {
+		"0": "2000", 
+		"1": "2001", 
+		"2": "2002", 
+		"3": "2003", 
+		"4": "2004", 
+		"5": "2005", 
+		"6": "2006", 
+		"7": "2007", 
+		"8": "2008", 
+		"9": "2009", 
+		"10": "2010", 
+		"11": "2011", 
+		"12": "2012", 
+		"13": "2013", 
+		"14": "2014", 
+		"15": "2015", 
+		"16": "2016", 
+		"17": "2017", 
+		"18": "2018", 
+		"19": "2019", 
+		"20": "2020", 
+		"21": "2021", 
+		"22": "2022", 
+		"23": "2023", 
+		"24": "2024", 
+		"25": "2025", 
+		"26": "2026", 
+		"27": "2027", 
+		"28": "2028", 
+		"29": "2029", 
+		"30": "2030", 
+		"31": "2031", 
+		"32": "2032", 
+		"33": "2033", 
+		"34": "2034", 
+		"35": "2035", 
+		"36": "2036", 
+		"37": "2037", 
+		"38": "2038", 
+		"39": "2039", 
+		"40": "2040", 
+		"41": "2041", 
+		"42": "2042", 
+		"43": "2043", 
+		"44": "2044", 
+		"45": "2045", 
+		"46": "2046", 
+		"47": "2047", 
+		"48": "2048", 
+		"49": "2049", 
+		"50": "2050"
+	}
+	}, 
+	"Num\u00e9ro de la ligne de production du bloc": {
+	"bitscount": 3, 
+	"lists": {
+		"0": "1", 
+		"1": "2", 
+		"2": "3", 
+		"3": "4", 
+		"4": "5", 
+		"5": "6"
+	}
+	}, 
+	"Algorithme Serveur BB-Number": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"Temps depuis IgnOn (Freeze)": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "s", 
+	"format": "0000000"
+	}, 
+	"Tra\u00e7abilit\u00e9 - Jour de la semaine": {
+	"lists": {
+		"48": "NC", 
+		"49": "Lundi", 
+		"50": "Mardi", 
+		"51": "Mercredi", 
+		"52": "Jeudi", 
+		"53": "Vendredi", 
+		"54": "Samedi", 
+		"55": "Dimanche"
+	}
+	}, 
+	"Tra\u00e7abilit\u00e9 - Semaine de production du bloc": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Cycle de roulage (Freeze)": {
+	"scaled": true, 
+	"comment": "ICC"
+	}, 
+	"Identificateur de diagnostic": {
+	"lists": {
+		"8": "Syst\u00e8me ESP F10", 
+		"9": "Syst\u00e8me ESP F05", 
+		"10": "0Ah (ESP)", 
+		"11": "0Bh (ESP)", 
+		"12": "Syst\u00e8me ABS F10", 
+		"13": "Syst\u00e8me ABS F05", 
+		"14": "0Eh (ABS)", 
+		"15": "0Fh (ABS)"
+	}
+	}, 
+	"Historical Failure": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No", 
+		"1": "Yes"
+	}
+	}, 
+	"Current Failure": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No", 
+		"1": "Yes"
+	}
+	}, 
+	"Dimension du pneumatique": {
+	"comment": "A coder", 
+	"lists": {
+		"68": "205/60 R16", 
+		"37": "235/40 R18 (M5 ch\u00e2ssis Sport)", 
+		"40": "225/40 R18 (M5)", 
+		"73": "205/55 R17", 
+		"42": "205/50 R17", 
+		"21": "225/45 R17 (M5)", 
+		"36": "195/65 R15", 
+		"30": "205/55 R16", 
+		"255": "Valeur invalide (FFh)"
+	}
+	}, 
+	"Activation de la pompe": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"Etat de la routine": {
+	"lists": {
+		"0": "Routine non active", 
+		"1": "Routine en cours", 
+		"2": "Routine termin\u00e9e OK", 
+		"4": "Routine termin\u00e9e non OK", 
+		"8": "Routine termin\u00e9e et probl\u00e8me global", 
+		"128": "Test pr\u00eat", 
+		"16": "Erreur d'\u00e9criture", 
+		"144": "Routine interrompue par l'outil de diagnostic", 
+		"132": "Choix de la roue invalide"
+	}
+	}, 
+	"Etat du circuit de frein": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Imconpl\u00e8tement rempli", 
+		"1": "Compl\u00e8tement rempli"
+	}
+	}, 
+	"Alimentation (Freeze)": {
+	"scaled": true, 
+	"step": 0.08, 
+	"format": "00", 
+	"unit": "V", 
+	"offset": 7.0
+	}, 
+	"Etat du bloc hydraulique": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Encore sec", 
+		"1": "Humide"
+	}
+	}, 
+	"Echappement arri\u00e8re gauche": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"Drive Cycle information": {
+	"comment": "Information sur le Drive Cycle", 
+	"byte": true
+	}, 
+	"Etat allumage automatique des warnings (Freeze)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "non activ\u00e9", 
+		"1": "en activation"
+	}
+	}, 
+	"Tra\u00e7abilit\u00e9 - Usine de production du bloc": {
+	"byte": true, 
+	"bytesascii": true
+	}, 
+	"Admission avant gauche": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"Current ICC": {
+	"comment": "Cycle de roulage en cours", 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Code ITG": {
+	"bytesascii": true, 
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"Etat de la p\u00e9dale de frein": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Rel\u00e2ch\u00e9e", 
+		"1": "Enfonc\u00e9e", 
+		"3": "Invalide / En d\u00e9faut"
+	}
+	}, 
+	"Admission avant droite": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"Choix du processus d'activation": {
+	"lists": {
+		"0": "Lancement d'un contr\u00f4le temporaire", 
+		"1": "Demande de statut", 
+		"17": "Arr\u00eat du contr\u00f4le"
+	}
+	}, 
+	"Store Condition": {
+	"comment": "Condition de stockage", 
+	"byte": true
+	}, 
+	"Etat ABS (Freeze)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "ABS non en r\u00e9gulation", 
+		"1": "ABS en r\u00e9gulation"
+	}
+	}, 
+	"Compteur": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 13
+	}, 
+	"Tra\u00e7abilit\u00e9 - Ligne de production du bloc": {
+	"byte": true, 
+	"bytesascii": true
+	}, 
+	"Echappement avant gauche": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"Circonf\u00e9rence Pneu Maximum": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mm", 
+	"format": "0000"
+	}, 
+	"Ann\u00e9e de production du bloc": {
+	"lists": {
+		"0": "2000", 
+		"1": "2001", 
+		"2": "2002", 
+		"3": "2003", 
+		"4": "2004", 
+		"5": "2005", 
+		"6": "2006", 
+		"7": "2007", 
+		"8": "2008", 
+		"9": "2009", 
+		"10": "2010", 
+		"11": "2011", 
+		"12": "2012", 
+		"13": "2013", 
+		"14": "2014", 
+		"15": "2015", 
+		"16": "2016", 
+		"17": "2017", 
+		"18": "2018", 
+		"19": "2019", 
+		"20": "2020", 
+		"21": "2021", 
+		"22": "2022", 
+		"23": "2023", 
+		"24": "2024", 
+		"25": "2025", 
+		"26": "2026", 
+		"27": "2027", 
+		"28": "2028", 
+		"29": "2029", 
+		"30": "2030", 
+		"31": "2031", 
+		"32": "2032", 
+		"33": "2033", 
+		"34": "2034", 
+		"35": "2035", 
+		"36": "2036", 
+		"37": "2037", 
+		"38": "2038", 
+		"39": "2039", 
+		"40": "2040", 
+		"41": "2041", 
+		"42": "2042", 
+		"43": "2043", 
+		"44": "2044", 
+		"45": "2045", 
+		"46": "2046", 
+		"47": "2047", 
+		"48": "2048", 
+		"49": "2049", 
+		"50": "2050"
+	}
+	}, 
+	"Vitesse v\u00e9hicule": {
+	"divideby": 100.0, 
+	"bitscount": 16, 
+	"format": "000.00", 
+	"scaled": true, 
+	"bytescount": 2, 
+	"unit": "Km/H"
+	}, 
+	"Vitesse roue avant droite (Freeze)": {
+	"scaled": true, 
+	"unit": "Km/H", 
+	"format": "000.00"
+	}, 
+	"Vitesse roue avant gauche (Freeze)": {
+	"scaled": true, 
+	"unit": "Km/H", 
+	"format": "000.00"
+	}, 
+	"Odom\u00e8tre": {
+	"divideby": 10.0, 
+	"bitscount": 16, 
+	"format": "00000.00", 
+	"scaled": true, 
+	"bytescount": 2, 
+	"unit": "cm"
+	}, 
+	"Mois": {
+	"lists": {
+		"1": "Janvier", 
+		"2": "F\u00e9vrier", 
+		"3": "Mars", 
+		"4": "Avril", 
+		"5": "Mai", 
+		"6": "Juin", 
+		"7": "Juillet", 
+		"8": "Ao\u00fbt", 
+		"9": "Septembre", 
+		"10": "Octobre", 
+		"11": "Novembre", 
+		"12": "D\u00e9cembre"
+	}
+	}, 
+	"Algorithme Serveur Version Number": {
+	"scaled": true
+	}, 
+	"FFN": {
+	"scaled": true
+	}, 
+	"Session Name": {
+	"lists": {
+		"192": "Session apr\u00e8s Vente", 
+		"129": "Session par d\u00e9faut - Stop Diag", 
+		"133": "Session Reprogrammation"
+	}
+	}, 
+	"Jour de production du bloc": {
+	"bitscount": 3, 
+	"lists": {
+		"1": "Lundi", 
+		"2": "Mardi", 
+		"3": "Mercredi", 
+		"4": "Jeudi", 
+		"5": "Vendredi", 
+		"6": "Samedi", 
+		"7": "Dimanche"
+	}
+	}, 
+	"Vitesse roue avant droite": {
+	"divideby": 100.0, 
+	"bitscount": 16, 
+	"format": "000.00", 
+	"scaled": true, 
+	"bytescount": 2, 
+	"unit": "Km/H"
+	}, 
+	"Choix du type de r\u00e9ponse": {
+	"lists": {
+		"1": "Avec r\u00e9ponse", 
+		"2": "Sans r\u00e9ponse"
+	}
+	}, 
+	"Vitesse roue avant gauche": {
+	"divideby": 100.0, 
+	"bitscount": 16, 
+	"format": "000.00", 
+	"scaled": true, 
+	"bytescount": 2, 
+	"unit": "Km/H"
+	}, 
+	"MoreDTC": {
+	"scaled": true, 
+	"signed": true
+	}, 
+	"Fault Location": {
+	"comment": "Num\u00e9ro de la localisation Bosch de la faute", 
+	"lists": {
+		"1": "Faute \u00e0 la localisation Bosch 1", 
+		"2": "Faute \u00e0 la localisation Bosch 2", 
+		"3": "Faute \u00e0 la localisation Bosch 3", 
+		"4": "Faute \u00e0 la localisation Bosch 4", 
+		"5": "Faute \u00e0 la localisation Bosch 5", 
+		"6": "Faute \u00e0 la localisation Bosch 6"
+	}
+	}, 
+	"Code MPR": {
+	"bytescount": 5, 
+	"byte": true, 
+	"bitscount": 40
+	}, 
+	"Etat de l'arr\u00eat de la routine": {
+	"lists": {
+		"144": "Routine interrompue par l'outil de diagnostic"
+	}
+	}, 
+	"Etat REF (Freeze)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "REF non en r\u00e9gulation", 
+		"1": "REF en r\u00e9gulation"
+	}
+	}, 
+	"Code VIN": {
+	"bytesascii": true, 
+	"bytescount": 17, 
+	"byte": true, 
+	"bitscount": 136
+	}, 
+	"Num\u00e9ro de l'usine de production du bloc": {
+	"bitscount": 3, 
+	"lists": {
+		"1": "1 (Ansbach)"
+	}
+	}, 
+	"FirstDTC": {
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"lists": {
+		"20864": "Contr\u00f4le moteur", 
+		"20545": "Cible magn\u00e9tique multipoles roue AvD", 
+		"20546": "Cible magn\u00e9tique multipoles roue AvG", 
+		"20547": "Cible magn\u00e9tique multipoles roue ArD", 
+		"20548": "Cible magn\u00e9tique multipoles roue ArG", 
+		"20550": "D\u00e9faut g\u00e9n\u00e9ral capteurs vitesses roues", 
+		"20678": "Contacteur p\u00e9dale de frein", 
+		"20543": "Capteur vitesse roue ArG", 
+		"20684": "Alimentation calculateur", 
+		"20495": "Capteur vitesse roue AvD", 
+		"20675": "Calculateur", 
+		"20710": "R\u00e9seau CAN", 
+		"20527": "Capteur vitesse roue ArD", 
+		"20511": "Capteur vitesse roue AvG"
+	}
+	}, 
+	"Tra\u00e7abilit\u00e9 - Ann\u00e9e de production du bloc": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Affectation": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pour usine", 
+		"1": "Pour l'apr\u00e8s-vente"
+	}
+	}, 
+	"Semaine de production du bloc": {
+	"scaled": true
+	}, 
+	"Type Of Fault": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Standard", 
+		"1": "Specific"
+	}
+	}, 
+	"Failure Type": {
+	"comment": "Type de faute", 
+	"byte": true
+	}, 
+	"Jour": {
+	"lists": {
+		"1": "1", 
+		"2": "2", 
+		"3": "3", 
+		"4": "4", 
+		"5": "5", 
+		"6": "6", 
+		"7": "7", 
+		"8": "8", 
+		"9": "9", 
+		"10": "10", 
+		"11": "11", 
+		"12": "12", 
+		"13": "13", 
+		"14": "14", 
+		"15": "15", 
+		"16": "16", 
+		"17": "17", 
+		"18": "18", 
+		"19": "19", 
+		"20": "20", 
+		"21": "21", 
+		"22": "22", 
+		"23": "23", 
+		"24": "24", 
+		"25": "25", 
+		"26": "26", 
+		"27": "27", 
+		"28": "28", 
+		"29": "29", 
+		"30": "30", 
+		"31": "31"
+	}
+	}, 
+	"Circonf\u00e9rence pneu": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mm", 
+	"format": "0000"
+	}, 
+	"Choix de la roue": {
+	"lists": {
+		"1": "Roue avant gauche", 
+		"2": "Roue avant droite", 
+		"3": "Roue arri\u00e8re gauche", 
+		"4": "Roue arri\u00e8re droite"
+	}
+	}, 
+	"Admission arri\u00e8re droite": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"Phase de la purge apr\u00e8s-vente": {
+	"lists": {
+		"1": "Phase 1", 
+		"2": "Phase 2", 
+		"3": "Phase 3", 
+		"4": "Phase 4"
+	}
+	}, 
+	"Algorithme Serveur Version Number 3et4": {
+	"scaled": true, 
+	"format": "00"
+	}, 
+	"DTC Number (Freeze)": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Choix du type d'arr\u00eat": {
+	"lists": {
+		"128": "Maintenant"
+	}
+	}, 
+	"Nom de la roue choisie": {
+	"lists": {
+		"1": "Roue avant gauche", 
+		"2": "Roue avant droite", 
+		"3": "Roue arri\u00e8re gauche", 
+		"4": "Roue arri\u00e8re droite"
+	}
+	}, 
+	"Vitesse roue arri\u00e8re gauche": {
+	"divideby": 100.0, 
+	"bitscount": 16, 
+	"format": "000.00", 
+	"scaled": true, 
+	"bytescount": 2, 
+	"unit": "Km/H"
+	}, 
+	"Code constructeur": {
+	"lists": {
+		"0": "Renault"
+	}
+	}, 
+	"Choix du temps d'activation": {
+	"lists": {
+		"250": "20s", 
+		"187": "15s", 
+		"125": "10s", 
+		"62": "5s"
+	}
+	}, 
+	"Etat du processus d'activation": {
+	"lists": {
+		"128": "Probl\u00e8me en cours d'activation", 
+		"1": "Activation en cours", 
+		"2": "Activation termin\u00e9e", 
+		"129": "Activation interrompue", 
+		"130": "Activation disponible", 
+		"17": "Activation arr\u00eat\u00e9e"
+	}
+	}, 
+	"Configuration V\u00e9hicule": {
+	"comment": "A coder", 
+	"lists": {
+		"1": "(1) [Caisse : BCELKSG] ou bien [Caisse : J / Moteur : K4J ou K4M ou K9K]", 
+		"2": "(2) [Caisse : R] ou bien [Caisse : J / Moteur : F4R ou F9Q ou M9R]", 
+		"255": "Invalide (FFh)"
+	}
+	}, 
+	"CRC": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Etat ABS et REF": {
+	"bitscount": 3, 
+	"lists": {
+		"0": "ABS et REF indisponibles", 
+		"1": "ABS indisponible, REF Backup disponible", 
+		"2": "ABS indisponible, REF disponible", 
+		"3": "ABS et REF Backup disponibles", 
+		"4": "ABS Backup disponible, REF disponible", 
+		"7": "ABS et REF disponibles"
+	}
+	}, 
+	"Vitesse roue arri\u00e8re droite (Freeze)": {
+	"scaled": true, 
+	"unit": "Km/H", 
+	"format": "000.00"
+	}, 
+	"Failure Path": {
+	"comment": "Chemin de la faute", 
+	"byte": true
+	}, 
+	"Vitesse roue arri\u00e8re gauche (Freeze)": {
+	"scaled": true, 
+	"unit": "Km/H", 
+	"format": "000.00"
+	}, 
+	"Num\u00e9ro de l'\u00e9quipe de production du bloc": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "1", 
+		"1": "2", 
+		"2": "3"
+	}
+	}, 
+	"Specific Fault": {
+	"bitscount": 5, 
+	"lists": {
+		"1": "Circuit ouvert ou court circuit au +Bat ou \u00e0 la masse (1h)", 
+		"4": "Interf\u00e9rence entre une ou plusieurs roues (4h)", 
+		"5": "Config v\u00e9hicule non s\u00e9lectionn\u00e9e (5h)", 
+		"6": "Config v\u00e9hicule non valide (6h)", 
+		"8": "Dent manquante (8h)", 
+		"12": "Index pneu non s\u00e9lectionn\u00e9 (Ch)", 
+		"13": "Pb M\u00e9canique ou Magn\u00e9tique sur la cible (Dh)", 
+		"14": "Montage incorrect (Eh)"
+	}
+	}, 
+	"Syst\u00e8me Serveur": {
+	"lists": {
+		"2": "Pluto C05 SR2 : BB28031", 
+		"3": "Pluto C05 SR3 : BB28409", 
+		"4": "A d\u00e9finir", 
+		"5": "Pluto C05 SR5 : BB29140 1_1", 
+		"19": "Mars F10 SR1 : BB28234", 
+		"20": "Mars F10 SRx : BB28848 1_1"
+	}
+	}, 
+	"Environment information": {
+	"comment": "Donn\u00e9es d'environnement de la faute", 
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"Echappement arri\u00e8re droite": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"Algorithme Serveur Version Number 2": {
+	"scaled": true
+	}, 
+	"Admission arri\u00e8re gauche": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"D\u00e9faut de remplissage": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Aucun d\u00e9faut", 
+		"1": "D\u00e9faut interne au bloc", 
+		"2": "D\u00e9faut externe au bloc"
+	}
+	}, 
+	"Echappement avant droite": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Active", 
+		"1": "Repos"
+	}
+	}, 
+	"DiagMuxOn (Freeze)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "DiagMuxOff (0)", 
+		"1": "DiagMuxOn (1)"
+	}
+	}, 
+	"Circonf\u00e9rence Pneu Minimum": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mm", 
+	"format": "0000"
+	}, 
+	"Autorisation remplissage RF": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Autoris\u00e9", 
+		"1": "Interdit"
+	}
+	}, 
+	"Tra\u00e7abilit\u00e9 - libre": {
+	"byte": true, 
+	"bytesascii": true
+	}, 
+	"ProcessByte Remplissage": {
+	"lists": {
+		"0": "ABS/ESP sec, remplissage RF autoris\u00e9", 
+		"25": "ABS/ESP pour apr\u00e8s-vente", 
+		"49": "ABS/ESP rempli"
+	}
+	}, 
+	"Debug information 0": {
+	"comment": "Information de debug 0", 
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"Debug information 1": {
+	"comment": "Information de debug 1", 
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"Etat de la p\u00e9dale de frein (Freeze)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Rel\u00e2ch\u00e9e", 
+		"1": "Enfonc\u00e9e"
+	}
+	}, 
+	"Num\u00e9ro du bloc  : 0 265": {
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"Tra\u00e7abilit\u00e9 - Equipe": {
+	"byte": true, 
+	"bytesascii": true
+	}, 
+	"Tra\u00e7abilit\u00e9 - Compteur": {
+	"bytesascii": true, 
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"NDTC": {
+	"scaled": true
+	}, 
+	"Vitesse roue arri\u00e8re droite": {
+	"divideby": 100.0, 
+	"bitscount": 16, 
+	"format": "000.00", 
+	"scaled": true, 
+	"bytescount": 2, 
+	"unit": "Km/H"
+	}, 
+	"Tra\u00e7abilit\u00e9 - ABS/ESP": {
+	"bytesascii": true, 
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"Fault ICC": {
+	"comment": "Cycle de roulage \u00e0 l'apparition de la faute", 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Nombre de dents": {
+	"scaled": true, 
+	"format": "00"
+	}, 
+	"S\u00e9lection du groupe de d\u00e9faut": {
+	"lists": {
+		"64": "D\u00e9faut Ch\u00e2ssis", 
+		"255": "Tous"
+	}
+	}, 
+	"Choix du temps d'activation EV/Pompe": {
+	"lists": {
+		"200": "4s", 
+		"50": "1s", 
+		"100": "2s", 
+		"250": "5s", 
+		"150": "3s"
+	}
+	}, 
+	"Etat de la sortie feux stop (Freeze)": {
+	"comment": "Etat de l'activation de l'allumage des feux stop", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Non activ\u00e9", 
+		"1": "Activ\u00e9"
+	}
+	}, 
+	"Standard Fault": {
+	"bitscount": 5, 
+	"lists": {
+		"0": "non utilis\u00e9", 
+		"1": "Circuit ouvert (1h)", 
+		"2": "Court-circuit \u00e0 la masse (2h)", 
+		"3": "Court-circuit au +bat (3h)", 
+		"4": "Param \u00e0 la limite basse (4h)", 
+		"5": "Param \u00e0 la limite haute (5h)", 
+		"6": "Incoh\u00e9rence, impossible (6h)", 
+		"7": "Pas de signal (7h)", 
+		"8": "En dessous du seuil bas (8h)", 
+		"9": "Au dessus du seuil haut (9h)", 
+		"10": "Niveau bas permanent (Ah)", 
+		"11": "Niveau haut permanent (Bh)", 
+		"12": "Lignes en court-circuit (Ch)", 
+		"13": "Anomalie \u00e9l\u00e9ctronique interne (Dh)", 
+		"14": "Anomaly du r\u00e9seau (Eh)", 
+		"15": "Diagnostique erron\u00e9 (Fh)", 
+		"16": "Communication perturb\u00e9e (10h)", 
+		"17": "Microcoupures (11h)", 
+		"18": "Tension anormale (12h)", 
+		"19": "Valeur en dehors de la plage (13h)", 
+		"20": "Circuit ouvert ou court-circuit \u00e0 la masse (14h)", 
+		"21": "Circuit ouvert ou court-circuit au +Bat(15h)", 
+		"22": "Init / config non valide (16h)", 
+		"23": "Init non valide(17h)", 
+		"24": "Anomalie (18h)"
+	}
+	}, 
+	"R\u00e9f\u00e9rence usine": {
+	"comment": "R\u00e9f\u00e9rence usine du bloc ABS", 
+	"bytescount": 5, 
+	"byte": true, 
+	"bitscount": 40
+	}
+}
+}

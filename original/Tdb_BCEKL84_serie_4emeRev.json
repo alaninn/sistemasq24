@@ -1,0 +1,3317 @@
+{
+"obd": {
+	"baudrate": 10400, 
+	"protocol": "CAN", 
+	"recv_id": "763", 
+	"funcname": "Tableau de bord", 
+	"funcaddr": "51", 
+	"send_id": "743"
+}, 
+"devices": [
+	{
+	"dtc": 37891, 
+	"devicedata": {
+		"+Lanterne (CAN)": "0", 
+		"UPC absent": "0"
+	}, 
+	"dtctype": 0, 
+	"name": "Capteur Rh\u00e9ostat"
+	}, 
+	{
+	"dtc": 37889, 
+	"devicedata": {
+		"Mesure DeltaU": "0", 
+		"Niveau huile (circuit ouvert) m\u00e9mo": "0", 
+		"Mesure U1": "0", 
+		"Niveau huile (court-circuit) m\u00e9mo": "0", 
+		"Niveau huile (circuit ouvert)": "0", 
+		"Mesure U2": "0", 
+		"Niveau huile (court-circuit)": "0"
+	}, 
+	"dtctype": 0, 
+	"name": "Capteur Niveau Huile"
+	}, 
+	{
+	"dtc": 37890, 
+	"devicedata": {
+		"Carburant consomm\u00e9": "0", 
+		"L0": "0", 
+		"Jauge carburant (circuit ouvert) m\u00e9mo": "0", 
+		"Jauge carburant (circuit ouvert)": "0", 
+		"Jauge carburant (court-circuit)": "0", 
+		"L2": "0", 
+		"Jauge carburant (court-circuit) m\u00e9mo": "0", 
+		"L1": "0"
+	}, 
+	"dtctype": 0, 
+	"name": "Capteur Jauge Carburant"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {
+		"AIRBAG absent": "0", 
+		"UCH absent": "0", 
+		"ABS absent": "0", 
+		"Etat BUS": "0", 
+		"EPS absent": "0"
+	}, 
+	"dtctype": 4, 
+	"name": "Info g\u00e9n\u00e9rales"
+	}
+], 
+"ecuname": "Tdb_BCEKL84_serie_4emeRev", 
+"autoidents": [
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0401", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0602", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0402", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "VIS", 
+	"version": "0200", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "VIS", 
+	"version": "0300", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "VIS", 
+	"version": "0201", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "VIS", 
+	"version": "0400", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "VIS", 
+	"version": "0501", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0501", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0600", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0815", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "VIS", 
+	"version": "0500", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0700", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0900", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "085A", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "081F", 
+	"soft": "0008"
+	}, 
+	{
+	"diagversion": "4", 
+	"supplier": "ANC", 
+	"version": "0615", 
+	"soft": "0008"
+	}
+], 
+"endian": "Big", 
+"requests": [
+	{
+	"name": "Commande LCD SSPP/BVA", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Motif LCD": {
+		"firstbyte": 4
+		}, 
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30292000"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "312100", 
+	"name": "Routine START LOADER"
+	}, 
+	{
+	"name": "Lecture Entr\u00e9es analogiques", 
+	"replybytes": "6197", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Codage entr\u00e9e Led D\u00e9faut Airbag": {
+		"firstbyte": 11
+		}, 
+		"Codage entr\u00e9e Tension Rh\u00e9ostat": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"Codage entr\u00e9e Tension Batterie": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"Codage entr\u00e9e Led Airbag Passager": {
+		"firstbyte": 13
+		}, 
+		"Codage entr\u00e9e Niveau Huile": {
+		"firstbyte": 15
+		}, 
+		"Codage entr\u00e9e Niveau Carburant": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Codage entr\u00e9e Temp\u00e9rature": {
+		"firstbyte": 5
+		}
+	}, 
+	"minbytes": 16, 
+	"sentbytes": "2197"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Mode de diagnostic": {
+		"firstbyte": 2
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "1081", 
+	"name": "Ouverture de session par d\u00e9faut"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de bo\u00eete": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110400", 
+	"name": "Ecriture Config : Type de bo\u00eete"
+	}, 
+	{
+	"name": "Lecture VIN", 
+	"replybytes": "6181", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"VIN (CRC)": {
+		"ref": true, 
+		"firstbyte": 20
+		}, 
+		"VIN (Num\u00e9ro d'Identification)": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 21, 
+	"sentbytes": "2181"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Capacit\u00e9 du r\u00e9servoir (en litres)": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B11143C", 
+	"name": "Ecriture Param : Capacit\u00e9 du r\u00e9servoir"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de langue": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110100", 
+	"name": "Ecriture Config : Type de langue"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Mode de diagnostic": {
+		"firstbyte": 2
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "10C0", 
+	"name": "Ouverture de session chaine et A-V"
+	}, 
+	{
+	"name": "Commande Eclairage Afficheurs", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Consigne Eclairage Afficheurs": {
+		"firstbyte": 4
+		}, 
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30092000"
+	}, 
+	{
+	"name": "Lecture Odom\u00e8tres", 
+	"replybytes": "6195", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Odom\u00e8tre Total": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Odom\u00e8tre Partiel": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"Pr\u00e9compteur Partiel": {
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"Pr\u00e9compteur Total": {
+		"ref": true, 
+		"firstbyte": 6
+		}
+	}, 
+	"minbytes": 12, 
+	"sentbytes": "2195"
+	}, 
+	{
+	"name": "Output Control", 
+	"replybytes": "700000", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Output Control Status": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Eclairage Graphismes.mode": {
+		"firstbyte": 4
+		}, 
+		"Moteur TEMPERATURE EAU.mode": {
+		"firstbyte": 4
+		}, 
+		"LCD Principal.Motif LCD": {
+		"firstbyte": 4
+		}, 
+		"Aiguille TEMPERATURE EAU.mode": {
+		"firstbyte": 4
+		}, 
+		"Etat Sorties Moteurs.Etat des Sorties Moteurs": {
+		"firstbyte": 4
+		}, 
+		"Etat SORTIES.Etat Sorties": {
+		"firstbyte": 4
+		}, 
+		"Aiguille CARBURANT.mode": {
+		"firstbyte": 4
+		}, 
+		"Output Control Command": {
+		"firstbyte": 3
+		}, 
+		"LCD Principal.Message Display": {
+		"firstbyte": 4
+		}, 
+		"Aiguille VITESSE.mode": {
+		"firstbyte": 4
+		}, 
+		"Eclairage Afficheurs.mode": {
+		"firstbyte": 4
+		}, 
+		"SEGMENTS.mode": {
+		"firstbyte": 4
+		}, 
+		"PWM Graphismes.mode": {
+		"firstbyte": 4
+		}, 
+		"R\u00e9glage NH.R\u00e9glage Intensit\u00e9 NH": {
+		"firstbyte": 4
+		}, 
+		"Output Permanent Control List": {
+		"firstbyte": 2
+		}, 
+		"Moteur CARBURANT.mode": {
+		"firstbyte": 4
+		}, 
+		"Frequence BUZZER.mode": {
+		"firstbyte": 4
+		}, 
+		"LCD Principal.Contraste LCD Principal": {
+		"firstbyte": 4
+		}, 
+		"Moteur VITESSE.mode": {
+		"firstbyte": 4
+		}, 
+		"VOYANTS.mode": {
+		"firstbyte": 4
+		}, 
+		"Moteur COMPTE-TOURS.mode": {
+		"firstbyte": 4
+		}, 
+		"PWM Afficheurs.mode": {
+		"firstbyte": 4
+		}, 
+		"Aiguille COMPTE-TOURS.mode": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3000000000000000000000"
+	}, 
+	{
+	"name": "Lecture Param\u00e8tres NIVEAU d' HUILE", 
+	"replybytes": "6194", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Mesure DeltaU m\u00e9moris\u00e9e": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Mesure U1": {
+		"firstbyte": 8
+		}, 
+		"Mesure DeltaU": {
+		"firstbyte": 3
+		}, 
+		"R\u00e9glage Intensit\u00e9 NH": {
+		"firstbyte": 7
+		}, 
+		"Mesure U2": {
+		"firstbyte": 10
+		}
+	}, 
+	"minbytes": 11, 
+	"sentbytes": "2194"
+	}, 
+	{
+	"name": "Commande Eclairage Graphismes", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Consigne Eclairage Graphismes": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30082000"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Unit\u00e9 de distance": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110C00", 
+	"name": "Ecriture Config : Unit\u00e9 de distance ADAC"
+	}, 
+	{
+	"name": "Commande Afficheur PRINCIPAL", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30032000"
+	}, 
+	{
+	"name": "Lecture Configuration", 
+	"replybytes": "6111", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Autonomie de vidange": {
+		"ref": true, 
+		"firstbyte": 19
+		}, 
+		"Autonomie de vidange : Temps": {
+		"ref": true, 
+		"firstbyte": 20
+		}, 
+		"Option Loi auto-adaptative": {
+		"ref": true, 
+		"firstbyte": 21
+		}, 
+		"Pr\u00e9sence SSPP": {
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"Type de langue": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Pr\u00e9sence ESP": {
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"Prestation Survitesse Arabie": {
+		"ref": true, 
+		"firstbyte": 17
+		}, 
+		"Prestation RV/LV": {
+		"ref": true, 
+		"firstbyte": 16
+		}, 
+		"Type de bo\u00eete": {
+		"firstbyte": 6
+		}, 
+		"Unite temp\u00e9rature (TdB HG en lecture)": {
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"Type de carburation": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"Type sc\u00e9nario VSC": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"Type de carrosserie": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Unit\u00e9 de distance": {
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"Niveau d'alerte carburant": {
+		"ref": true, 
+		"firstbyte": 23
+		}, 
+		"Capacit\u00e9 du r\u00e9servoir (en litres)": {
+		"ref": true, 
+		"firstbyte": 22
+		}, 
+		"Type d'affichage ADAC": {
+		"ref": true, 
+		"firstbyte": 9
+		}
+	}, 
+	"minbytes": 25, 
+	"sentbytes": "2111"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3BB0010620", 
+	"name": "Ecriture Date Derni\u00e8re Intervention APV"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "310000", 
+	"name": "Local Identifiers de ROUTINES"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Etat Activation": {
+		"firstbyte": 2
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 1, 
+	"sentbytes": "8501", 
+	"name": "Contr\u00f4le des d\u00e9fauts"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "30000000", 
+	"name": "Local Identifiers de COMMANDE SORTIES"
+	}, 
+	{
+	"name": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+	"replybytes": "6182", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"R\u00e9f\u00e9rence version messagerie": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Compteur EPS absent": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 24
+		}, 
+		"maxi compteur UCH absent": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"Etat BUS": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"EPS absent": {
+		"ref": true, 
+		"firstbyte": 24
+		}, 
+		"UCH absent": {
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"Maxi compteur AIRBAG absent": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"Compteur ABS absent": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"MODULE MUET": {
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"Maxi Compteur ABS absent": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"Compteur \u00e9tat BUS": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Compteur MODULE MUET": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"ABS absent": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"AIRBAG absent": {
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"Cluster absent": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"Compteur UPC absent": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 26
+		}, 
+		"Compteur UCH absent": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"UPC absent": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Maxi compteur EPSabsent": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 24
+		}, 
+		"Maxi compteur MODULE MUET": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"Maxi compteur UPC absent": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 26
+		}, 
+		"Maxi compteur \u00e9tat  BUS": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Compteur AIRBAG absent": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 11
+		}
+	}, 
+	"minbytes": 31, 
+	"sentbytes": "2182"
+	}, 
+	{
+	"name": "Lecture Parametres moteur REGIME MOTEUR", 
+	"replybytes": "6190", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Position Moteur": {
+		"firstbyte": 5
+		}, 
+		"Vitesse Moteur": {
+		"firstbyte": 7
+		}, 
+		"Offset Moteur": {
+		"firstbyte": 8
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 8, 
+	"sentbytes": "2190"
+	}, 
+	{
+	"name": "Commande PWM Afficheurs", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"PWM LCD": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30262000"
+	}, 
+	{
+	"name": "Commande Etat SORTIES", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Etat Sorties": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "302C2000000000"
+	}, 
+	{
+	"name": "Lecture des d\u00e9fauts EEPROM", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 3, 
+	"sentbytes": "219A", 
+	"replybytes": "619A"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Prestation Survitesse Arabie": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110F00", 
+	"name": "Ecriture Config : Option Survitesse Arabie"
+	}, 
+	{
+	"name": "Commande Aiguille COMPTE-TOURS", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Consigne R\u00e9gime": {
+		"firstbyte": 4
+		}, 
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30052000"
+	}, 
+	{
+	"name": "Commande Aiguille CARBURANT", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Consigne Carburant": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30062000"
+	}, 
+	{
+	"name": "Commande BUZZER", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "300A2000"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "230000000001", 
+	"name": "ReadMemoryByAddress"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "310100", 
+	"name": "Routine Recalage L2"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Autonomie de vidange : Temps": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B111200", 
+	"name": "Ecriture Param : Autonomie de vidange Mois"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "312200", 
+	"name": "Routine Activation Mesure NH"
+	}, 
+	{
+	"name": "Commande PWM Graphismes", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"PWM Echelles": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30272000"
+	}, 
+	{
+	"name": "Commande VOYANTS", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Identificateur Voyant": {
+		"firstbyte": 4
+		}, 
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30012000"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Autonomie de vidange": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B111100", 
+	"name": "Ecriture Param : Autonomie de vidange Km"
+	}, 
+	{
+	"name": "Commande des ports en mode soudure", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "302D2000"
+	}, 
+	{
+	"name": "Commande Aiguille TEMPERATURE EAU", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Consigne Temp\u00e9rature": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30072000"
+	}, 
+	{
+	"name": "Lecture Temp\u00e9rature Interne", 
+	"replybytes": "619B", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Temp\u00e9rature Interne": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "219B"
+	}, 
+	{
+	"name": "Lecture Etat des sorties", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 6, 
+	"sentbytes": "2198", 
+	"replybytes": "6198"
+	}, 
+	{
+	"name": "ReadDTC", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Panne type": {
+		"bitoffset": 3, 
+		"firstbyte": 5
+		}, 
+		"Panne m\u00e9moris\u00e9e": {
+		"bitoffset": 1, 
+		"firstbyte": 5
+		}, 
+		"FirstDTC": {
+		"firstbyte": 3
+		}, 
+		"Panne pr\u00e9sente": {
+		"bitoffset": 2, 
+		"firstbyte": 5
+		}, 
+		"NDTC": {
+		"firstbyte": 2
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "17FF00", 
+	"shiftbytescount": 3
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"VIN (CRC)": {
+		"firstbyte": 20
+		}, 
+		"VIN (Num\u00e9ro d'Identification)": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B8101020304050607080910111213141516171819", 
+	"name": "Ecriture VIN"
+	}, 
+	{
+	"name": "Lecture des sorties PWM", 
+	"replybytes": "619C", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"PWM Echelles": {
+		"firstbyte": 4
+		}, 
+		"PWM LCD": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 4, 
+	"sentbytes": "219C"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"Seuil B": {
+		"firstbyte": 3
+		}, 
+		"K maj S1": {
+		"firstbyte": 4
+		}, 
+		"K maj S2": {
+		"firstbyte": 6
+		}, 
+		"Seuil H": {
+		"firstbyte": 2
+		}, 
+		"K min S1": {
+		"firstbyte": 5
+		}, 
+		"K min S2": {
+		"firstbyte": 7
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 7, 
+	"sentbytes": "23010000ED06", 
+	"name": "Lecture des param\u00e8tres jaugeage"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B00", 
+	"name": "Local Identifiers de ECRITURE"
+	}, 
+	{
+	"name": "Lecture Parametres moteur CARBURANT", 
+	"replybytes": "6192", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Position Moteur": {
+		"firstbyte": 5
+		}, 
+		"Vitesse Moteur": {
+		"firstbyte": 7
+		}, 
+		"Offset Moteur": {
+		"firstbyte": 8
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 8, 
+	"sentbytes": "2192"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Prestation RV/LV": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110E10", 
+	"name": "Ecriture Config : Option RV/LV"
+	}, 
+	{
+	"name": "Commande Moteur VITESSE", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3022200000"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de carrosserie": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110300", 
+	"name": "Ecriture Config : Type de carrosserie"
+	}, 
+	{
+	"name": "Commande SEGMENTS", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Identificateur Segment LCD SSPP/BVA": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30022000"
+	}, 
+	{
+	"name": "Commande Etat Sorties Moteurs", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat des Sorties Moteurs": {
+		"firstbyte": 4
+		}, 
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "302A200000000000000000"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "23010000F101", 
+	"name": "lecture K maj S2"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "23010000EF01", 
+	"name": "lecture K maj S1"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Avec ou sans r\u00e9ponse": {
+		"firstbyte": 2
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 1, 
+	"sentbytes": "3E01", 
+	"name": "TesterPresent (avec ou sans r\u00e9ponse)"
+	}, 
+	{
+	"name": "Lecture Valeurs Mesur\u00e9es", 
+	"replybytes": "6112", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Carburant consomm\u00e9": {
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"Carburant consomm\u00e9 GPL": {
+		"ref": true, 
+		"firstbyte": 29
+		}, 
+		"Mesure DeltaU": {
+		"ref": true, 
+		"firstbyte": 20
+		}, 
+		"D\u00e9bit carburant": {
+		"ref": true, 
+		"firstbyte": 17
+		}, 
+		"L0": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"Temp\u00e9rature ext\u00e9rieure (CAN)": {
+		"firstbyte": 28
+		}, 
+		"Mesure U1": {
+		"ref": true, 
+		"firstbyte": 18
+		}, 
+		"Mesure U2": {
+		"ref": true, 
+		"firstbyte": 22
+		}, 
+		"L1 GPL": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"L0 GPL": {
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"L2 GPL": {
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"L2": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Tension Rh\u00e9ostat": {
+		"firstbyte": 26
+		}, 
+		"L1": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Tension Batterie": {
+		"firstbyte": 24
+		}
+	}, 
+	"minbytes": 30, 
+	"sentbytes": "2112"
+	}, 
+	{
+	"name": "Lecture Parametres moteur VITESSE", 
+	"replybytes": "6191", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Position Moteur": {
+		"firstbyte": 5
+		}, 
+		"Vitesse Moteur": {
+		"firstbyte": 7
+		}, 
+		"Offset Moteur": {
+		"firstbyte": 8
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 8, 
+	"sentbytes": "2191"
+	}, 
+	{
+	"name": "Lecture des param\u00e8tres ADAC", 
+	"replybytes": "619D", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales"
+	], 
+	"receivebyte_dataitems": {
+		"Distance ADAC": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Temps ADAC": {
+		"ref": true, 
+		"firstbyte": 11
+		}
+	}, 
+	"minbytes": 14, 
+	"sentbytes": "219D"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type sc\u00e9nario VSC": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110600", 
+	"name": "Ecriture Config : Type de sc\u00e9nario VSC"
+	}, 
+	{
+	"name": "Commande LCD Principal", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Message Display": {
+		"firstbyte": 4
+		}, 
+		"Motif LCD": {
+		"firstbyte": 4
+		}, 
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Contraste LCD Principal": {
+		"firstbyte": 5
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3028200000"
+	}, 
+	{
+	"name": "Lecture Ports", 
+	"replybytes": "6196", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Etat des Ports": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 6, 
+	"sentbytes": "2196"
+	}, 
+	{
+	"name": "Commande Frequence BUZZER", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Fr\u00e9quence Buzzer": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3025200000"
+	}, 
+	{
+	"name": "Commande Moteur TEMPERATURE EAU", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3024200000"
+	}, 
+	{
+	"name": "Lecture Date Derni\u00e8re Intervention APV", 
+	"replybytes": "61B0", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Date \u00e0 lire": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 5, 
+	"sentbytes": "21B0"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Pr\u00e9sence SSPP": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110B10", 
+	"name": "Ecriture Config : Option SSPP"
+	}, 
+	{
+	"name": "Lecture Parametres moteur TEMPERATURE EAU", 
+	"replybytes": "6193", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Position Moteur": {
+		"firstbyte": 5
+		}, 
+		"Vitesse Moteur": {
+		"firstbyte": 7
+		}, 
+		"Offset Moteur": {
+		"firstbyte": 8
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 8, 
+	"sentbytes": "2193"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "23010000EE01", 
+	"name": "lecture limite basse carburant"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "23010000ED01", 
+	"name": "lecture limite haute carburant"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type d'affichage ADAC": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110700", 
+	"name": "Ecriture Config : Type d'affichage ADAC"
+	}, 
+	{
+	"name": "Commande Moteur CARBURANT", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3023200000"
+	}, 
+	{
+	"name": "Commande Moteur COMPTE-TOURS", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"Consigne Moteur": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3021200000"
+	}, 
+	{
+	"name": "Commande R\u00e9glage NH", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}, 
+		"R\u00e9glage Intensit\u00e9 NH": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "302B2000"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Mode de diagnostic": {
+		"firstbyte": 2
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "10FA", 
+	"name": "Ouverture de session fournisseur"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "3D0000000001", 
+	"name": "WriteMemoryByAddress"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Niveau d'alerte carburant": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B111506", 
+	"name": "Ecriture Param : Niveau d'alerte carburant"
+	}, 
+	{
+	"name": "Lecture Contraste LCD Principal", 
+	"replybytes": "6199", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"receivebyte_dataitems": {
+		"Contraste LCD Principal": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "2199"
+	}, 
+	{
+	"name": "Lecture Identification Calculateur", 
+	"replybytes": "6180", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Num\u00e9ro du logiciel": {
+		"firstbyte": 17
+		}, 
+		"Num\u00e9ro de version": {
+		"firstbyte": 19
+		}, 
+		"Num\u00e9ro de pi\u00e8ce MPR (en BCD)": {
+		"firstbyte": 3
+		}, 
+		"Code identification diagnostic": {
+		"firstbyte": 8
+		}, 
+		"Num\u00e9ro de calibration": {
+		"firstbyte": 21
+		}, 
+		"Num\u00e9ro de s\u00e9rie": {
+		"firstbyte": 23
+		}, 
+		"Num\u00e9ro de version LSB": {
+		"firstbyte": 20
+		}, 
+		"Code identification constructeur": {
+		"firstbyte": 26
+		}, 
+		"Num\u00e9ro fournisseur (code ITG)": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"Num\u00e9ro hardware (en BCD)": {
+		"firstbyte": 12
+		}
+	}, 
+	"minbytes": 26, 
+	"sentbytes": "2180"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "23010000F201", 
+	"name": "lecture K min S2"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de memoire": {
+		"firstbyte": 2
+		}, 
+		"Nombre d'octets": {
+		"firstbyte": 6
+		}, 
+		"Adresse en m\u00e9moire": {
+		"firstbyte": 3
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales", 
+		"engineering"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "23010000F001", 
+	"name": "lecture K min S1"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Type de carburation": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110500", 
+	"name": "Ecriture Config : Type de carburation"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Option Loi auto-adaptative": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B111300", 
+	"name": "Ecriture Config : Option Loi auto-adaptative"
+	}, 
+	{
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "310200", 
+	"name": "Routine RESTART TDB"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Pr\u00e9sence ESP": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 2, 
+	"sentbytes": "3B110A10", 
+	"name": "Ecriture Config : Option ESP"
+	}, 
+	{
+	"name": "Commande Aiguille VITESSE", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Status Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Consigne Vitesse": {
+		"firstbyte": 4
+		}, 
+		"Etat Pilotage": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30042000"
+	}, 
+	{
+	"name": "Demande identificateurs de LECTURE", 
+	"deny_sds": [], 
+	"minbytes": 5, 
+	"sentbytes": "2100", 
+	"replybytes": "6100"
+	}, 
+	{
+	"name": "Effacement des d\u00e9fauts", 
+	"deny_sds": [], 
+	"minbytes": 3, 
+	"sentbytes": "14FF00", 
+	"replybytes": "54FF00"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Mode de diagnostic": {
+		"firstbyte": 2
+		}
+	}, 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales"
+	], 
+	"minbytes": 2, 
+	"sentbytes": "1086", 
+	"name": "Ouverture de session d\u00e9veloppement"
+	}, 
+	{
+	"name": "Start Diagnostic Session", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"Session Name": {
+		"firstbyte": 2
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "10C0"
+	}, 
+	{
+	"name": "Lecture Etat des Entr\u00e9es/Sorties", 
+	"replybytes": "6110", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"Information capteur GNV/GNC (Ohms) CAN": {
+		"firstbyte": 14
+		}, 
+		"Jauge carburant (circuit ouvert) m\u00e9mo": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Jauge carburant (court-circuit)": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"APC (CAN)": {
+		"bitoffset": 3, 
+		"firstbyte": 4
+		}, 
+		"Jauge carburant (court-circuit) m\u00e9mo": {
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"Jauge carburant (circuit ouvert)": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"D\u00e9tection d\u00e9faut charge batterie (message) CAN": {
+		"bitoffset": 2, 
+		"firstbyte": 4
+		}, 
+		"Jauge carburant GPL (court-circuit)": {
+		"bitoffset": 6, 
+		"firstbyte": 6
+		}, 
+		"Etat information charge batterie (voyant) CAN": {
+		"bitoffset": 1, 
+		"firstbyte": 4
+		}, 
+		"+Lanterne (CAN)": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"Touche d\u00e9filement ADAC (CAN)": {
+		"firstbyte": 3
+		}, 
+		"Contact ceinture de s\u00e9curit\u00e9 conducteur (CAN)": {
+		"bitoffset": 3, 
+		"firstbyte": 3
+		}, 
+		"Information temp\u00e9rature moteur (\u00b0C) CAN": {
+		"firstbyte": 16
+		}, 
+		"Jauge GPL : absence d'information (CAN) m\u00e9mo": {
+		"bitoffset": 1, 
+		"firstbyte": 7
+		}, 
+		"Information capteur jauge GPL (Ohms) CAN": {
+		"firstbyte": 12
+		}, 
+		"D\u00e9tection d\u00e9faut pression huile (CAN)": {
+		"bitoffset": 6, 
+		"firstbyte": 3
+		}, 
+		"Feux brouillard AV (CAN)": {
+		"bitoffset": 7, 
+		"firstbyte": 4
+		}, 
+		"Information carburant consomm\u00e9 (mm3) CAN": {
+		"firstbyte": 17
+		}, 
+		"Etat mano contact pression huile": {
+		"bitoffset": 5, 
+		"firstbyte": 3
+		}, 
+		"Feux route (CAN)": {
+		"bitoffset": 6, 
+		"firstbyte": 4
+		}, 
+		"Jauge GPL : absence d'information (CAN)": {
+		"bitoffset": 2, 
+		"firstbyte": 7
+		}, 
+		"Niveau huile (circuit ouvert) m\u00e9mo": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Contact frein de parking": {
+		"bitoffset": 2, 
+		"firstbyte": 3
+		}, 
+		"Niveau huile (court-circuit) m\u00e9mo": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Niveau huile (circuit ouvert)": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Rh\u00e9ostat : \u00e9tat pr\u00e9sence \u00e0 partir URh\u00e9o (avec tol)": {
+		"bitoffset": 6, 
+		"firstbyte": 7
+		}, 
+		"T\u00b0 Eau : absence d'information (CAN)": {
+		"bitoffset": 4, 
+		"firstbyte": 7
+		}, 
+		"Feux brouillard AR (CAN)": {
+		"firstbyte": 5
+		}, 
+		"Incident frein (NIVOCOD)": {
+		"bitoffset": 7, 
+		"firstbyte": 3
+		}, 
+		"R\u00e9veil_TdB par UCC": {
+		"bitoffset": 5, 
+		"firstbyte": 7
+		}, 
+		"Jauge carburant GPL (court-circuit) m\u00e9mo": {
+		"bitoffset": 4, 
+		"firstbyte": 6
+		}, 
+		"R\u00e9gime moteur (tr/mn) CAN": {
+		"firstbyte": 8
+		}, 
+		"D\u00e9bitm\u00e8tre : absence d'information (CAN) m\u00e9mo": {
+		"bitoffset": 7, 
+		"firstbyte": 6
+		}, 
+		"D\u00e9bitm\u00e8tre : absence d'information (CAN)": {
+		"firstbyte": 7
+		}, 
+		"Jauge carburant GPL (circuit ouvert)": {
+		"bitoffset": 5, 
+		"firstbyte": 6
+		}, 
+		"Vitesse v\u00e9hicule (km/h) CAN": {
+		"firstbyte": 10
+		}, 
+		"T\u00b0 Eau : absence d'information (CAN) m\u00e9mo": {
+		"bitoffset": 3, 
+		"firstbyte": 7
+		}, 
+		"Jauge carburant GPL (circuit ouvert) m\u00e9mo": {
+		"bitoffset": 3, 
+		"firstbyte": 6
+		}, 
+		"Lave Glace": {
+		"firstbyte": 4
+		}, 
+		"Alerte ceinture de s\u00e9curit\u00e9 passager": {
+		"bitoffset": 4, 
+		"firstbyte": 3
+		}, 
+		"Niveau huile (court-circuit)": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Touche RAZ ODO": {
+		"bitoffset": 1, 
+		"firstbyte": 3
+		}, 
+		"Feux croisement (CAN)": {
+		"bitoffset": 5, 
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 17, 
+	"sentbytes": "2110"
+	}
+], 
+"data": {
+	"R\u00e9f\u00e9rence version messagerie": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"R\u00e9veil_TdB par UCC": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Absence de 12 Volts", 
+		"1": "Pr\u00e9sence 12V"
+	}
+	}, 
+	"R\u00e9glage Intensit\u00e9 NH": {
+	"scaled": true
+	}, 
+	"Moteur TEMPERATURE EAU.mode": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "MicroPas"
+	}, 
+	"Type de memoire": {
+	"lists": {
+		"0": "M\u00e9moire micro", 
+		"1": "M\u00e9moire EEPROM"
+	}
+	}, 
+	"EPS absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pr\u00e9sent", 
+		"1": "absent"
+	}
+	}, 
+	"D\u00e9tection d\u00e9faut charge batterie (message) CAN": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Conditions non remplies", 
+		"1": "Conditions remplies (contact ferm\u00e9 et r\u00e9gime>seuil et temps>seuil)"
+	}
+	}, 
+	"Tension Batterie": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "Volts"
+	}, 
+	"Panne pr\u00e9sente": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"Consigne Moteur": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "MicroPas"
+	}, 
+	"Maxi Compteur ABS absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "inf\u00e9rieur au max", 
+		"1": "Maximum atteint"
+	}
+	}, 
+	"Mesure DeltaU m\u00e9moris\u00e9e": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mV"
+	}, 
+	"Codage entr\u00e9e Tension Rh\u00e9ostat": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Contact ceinture de s\u00e9curit\u00e9 conducteur (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "ceinture attach\u00e9e", 
+		"1": "ceinture non attach\u00e9e"
+	}
+	}, 
+	"Output Control Command": {
+	"comment": "Testing output : Command enumeration", 
+	"lists": {
+		"32": "Start Permanent", 
+		"1": "Status", 
+		"17": "Stop"
+	}
+	}, 
+	"R\u00e9gime moteur (tr/mn) CAN": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 8.0, 
+	"bitscount": 16
+	}, 
+	"Aiguille VITESSE.mode": {
+	"scaled": true, 
+	"unit": "km/h"
+	}, 
+	"Temp\u00e9rature Interne": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "\u00b0C", 
+	"offset": -273.0
+	}, 
+	"K min S2": {
+	"scaled": true, 
+	"divideby": 10.0
+	}, 
+	"Feux brouillard AV (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Absent", 
+		"1": "Pr\u00e9sent"
+	}
+	}, 
+	"Code identification constructeur": {
+	"lists": {
+		"0": "Code constructeur par d\u00e9faut"
+	}
+	}, 
+	"Consigne Vitesse": {
+	"scaled": true, 
+	"unit": "km/h"
+	}, 
+	"PWM Graphismes.mode": {
+	"scaled": true
+	}, 
+	"Odom\u00e8tre Partiel": {
+	"scaled": true, 
+	"bytescount": 3, 
+	"divideby": 10.0, 
+	"bitscount": 24, 
+	"unit": "Km"
+	}, 
+	"Panne type": {
+	"bitscount": 5, 
+	"lists": {
+		"1": "Circuit ouvert", 
+		"2": "Court-circuit \u00e0 la masse", 
+		"3": "Court-circuit au +batterie", 
+		"4": "Param\u00e8tre en but\u00e9e mini", 
+		"5": "Param\u00e8tre en but\u00e9e maxi", 
+		"8": "En-dessous du seuil mini", 
+		"9": "Au-dessus du seuil maxi", 
+		"12": "Lignes en court-circuit", 
+		"13": "Anomalie \u00e9lectronique interne", 
+		"14": "Anomalie r\u00e9seau", 
+		"18": "Tension anormale", 
+		"19": "Valeur hors-limite"
+	}
+	}, 
+	"Carburant consomm\u00e9 GPL": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 10.0, 
+	"bitscount": 16, 
+	"unit": "Litres"
+	}, 
+	"Mesure DeltaU": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mV"
+	}, 
+	"Type de langue": {
+	"lists": {
+		"0": "Francais (par d\u00e9faut)", 
+		"80": "Hollandais", 
+		"16": "Anglais", 
+		"32": "Italien", 
+		"64": "Espagnol", 
+		"112": "Turc", 
+		"128": "R\u00e9serv\u00e9", 
+		"96": "Portugais", 
+		"48": "Allemand"
+	}
+	}, 
+	"Compteur UPC absent": {
+	"scaled": true, 
+	"bitscount": 6
+	}, 
+	"Consigne Eclairage Afficheurs": {
+	"scaled": true
+	}, 
+	"Niveau huile (court-circuit) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"Code identification diagnostic": {
+	"lists": {
+		"4": "Code Identification correct"
+	}
+	}, 
+	"Feux brouillard AR (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Absent", 
+		"1": "Pr\u00e9sent"
+	}
+	}, 
+	"Identificateur Segment LCD SSPP/BVA": {
+	"lists": {
+		"0": "Roue Avant Droite (Ext)", 
+		"1": "Porte Avant Droite", 
+		"2": "D Positif", 
+		"3": "P N\u00e9gatif", 
+		"4": "Digit Segment 3", 
+		"5": "Digit Segment 2", 
+		"6": "Porte Avant Gauche", 
+		"7": "Roue Avant Gauche (Ext)", 
+		"8": "Roue Avant Droite (Int)", 
+		"9": "Porte Arri\u00e8re Droite", 
+		"10": "D N\u00e9gatif", 
+		"11": "P Positif", 
+		"12": "Digit Segment 4", 
+		"13": "Digit Segment 6", 
+		"14": "Porte Arri\u00e8re Gauche", 
+		"15": "Roue Avant Gauche (Int)", 
+		"16": "N.U.", 
+		"17": "Roue Arri\u00e8re Droite (Ext)", 
+		"18": "N N\u00e9gatif", 
+		"19": "R Positif", 
+		"20": "Digit Segment 5", 
+		"21": "Digit Segment 1", 
+		"22": "Roue Arri\u00e8re Gauche (Ext)", 
+		"23": "Corps de V\u00e9hicule", 
+		"24": "N.U. 24", 
+		"25": "Roue Arri\u00e8re Droite (Int)", 
+		"26": "N Positif", 
+		"27": "R N\u00e9gatif", 
+		"28": "Digit Segment 0", 
+		"29": "Fl\u00e8che Auto/Manuel", 
+		"30": "Roue Arri\u00e8re Gauche (Int)", 
+		"31": "Coffre"
+	}
+	}, 
+	"Avec ou sans r\u00e9ponse": {
+	"lists": {
+		"1": "R\u00e9ponse demand\u00e9e", 
+		"2": "pas de r\u00e9ponse demand\u00e9e"
+	}
+	}, 
+	"UPC absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "pr\u00e9sent", 
+		"1": "absent"
+	}
+	}, 
+	"Aiguille CARBURANT.mode": {
+	"scaled": true, 
+	"unit": "Litres"
+	}, 
+	"K min S1": {
+	"scaled": true, 
+	"divideby": 10.0
+	}, 
+	"D\u00e9tection d\u00e9faut pression huile (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "conditions non remplies", 
+		"1": "conditions remplies (contact ferm\u00e9 et vitesse>seuil)"
+	}
+	}, 
+	"Codage entr\u00e9e Temp\u00e9rature": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Autonomie de vidange": {
+	"scaled": true, 
+	"unit": "Km x 1000"
+	}, 
+	"Maxi compteur UPC absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "inf\u00e9rieur au max", 
+		"1": "Maximum atteint"
+	}
+	}, 
+	"Niveau d'alerte carburant": {
+	"scaled": true, 
+	"unit": "Litres"
+	}, 
+	"Option Loi auto-adaptative": {
+	"lists": {
+		"0": "A d\u00e9finir"
+	}
+	}, 
+	"Output Control Status": {
+	"lists": {
+		"1": "Running", 
+		"2": "Stopped", 
+		"17": "Manually Stopped"
+	}
+	}, 
+	"Num\u00e9ro de s\u00e9rie": {
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"VOYANTS.mode": {
+	"lists": {
+		"0": "Service", 
+		"1": "Feux de Brouillard Avant", 
+		"2": "Airbag Passager", 
+		"3": "Stop", 
+		"4": "ABS", 
+		"5": "Feux de Route", 
+		"6": "Feux de Croisement", 
+		"7": "Feux de Brouillard Arri\u00e8re", 
+		"8": "ESP", 
+		"9": "Clignotant Gauche", 
+		"10": "RV", 
+		"11": "LV", 
+		"12": "Clignotant Droit", 
+		"13": "Ouvrant / Crevaison", 
+		"14": "Incident Frein", 
+		"15": "Ceinture Conducteur", 
+		"16": "Pression Huile", 
+		"17": "GPL", 
+		"18": "Mini Carburant", 
+		"19": "Charge Batterie", 
+		"20": "OBD", 
+		"21": "D\u00e9faut Airbag"
+	}
+	}, 
+	"Num\u00e9ro de calibration": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Etat SORTIES.Etat Sorties": {
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"Pr\u00e9compteur Total": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 10.0, 
+	"bitscount": 16, 
+	"unit": "m"
+	}, 
+	"Type de carburation": {
+	"lists": {
+		"0": "Essence (par d\u00e9faut)", 
+		"16": "Diesel", 
+		"32": "Bicarburation Essence/GPL", 
+		"48": "Bicarburation Essence/GNV"
+	}
+	}, 
+	"Message Display": {
+	"scaled": true
+	}, 
+	"Num\u00e9ro fournisseur (code ITG)": {
+	"bytesascii": true, 
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"Moteur VITESSE.mode": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "MicroPas"
+	}, 
+	"Jauge carburant (circuit ouvert) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"Eclairage Graphismes.mode": {
+	"scaled": true
+	}, 
+	"Nombre d'octets": {
+	"scaled": true, 
+	"comment": "Nombre d'octets"
+	}, 
+	"Aiguille TEMPERATURE EAU.mode": {
+	"scaled": true, 
+	"unit": "\u00b0C"
+	}, 
+	"Jauge carburant (court-circuit) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"VIN (Num\u00e9ro d'Identification)": {
+	"bytesascii": true, 
+	"bytescount": 17, 
+	"byte": true, 
+	"bitscount": 136
+	}, 
+	"Codage entr\u00e9e Niveau Carburant": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Capacit\u00e9 du r\u00e9servoir (en litres)": {
+	"scaled": true, 
+	"unit": "Litres"
+	}, 
+	"Information capteur GNV/GNC (Ohms) CAN": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"Status Pilotage": {
+	"lists": {
+		"1": "Pilotage en cours", 
+		"2": "Pilotage termin\u00e9", 
+		"17": "Pilotage arr\u00eat\u00e9"
+	}
+	}, 
+	"Session Name": {
+	"lists": {
+		"192": "contr\u00f4le en cha\u00eene et diagnostic apr\u00e8s-vente", 
+		"129": "par d\u00e9faut", 
+		"250": "Mode fournisseur", 
+		"134": "d\u00e9veloppement"
+	}
+	}, 
+	"Etat Activation": {
+	"lists": {
+		"1": "Avec", 
+		"2": "Sans"
+	}
+	}, 
+	"Mode de diagnostic": {
+	"lists": {
+		"192": "Session contr\u00f4le en cha\u00eene et diagnostic apr\u00e8s-vente", 
+		"129": "Session par d\u00e9faut", 
+		"250": "Session fournisseur", 
+		"134": "Session d\u00e9veloppement"
+	}
+	}, 
+	"Fr\u00e9quence Buzzer": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "Hz"
+	}, 
+	"Compteur MODULE MUET": {
+	"scaled": true, 
+	"bitscount": 6
+	}, 
+	"Etat mano contact pression huile": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Contact ouvert", 
+		"1": "Contact ferm\u00e9"
+	}
+	}, 
+	"ABS absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pr\u00e9sent", 
+		"1": "absent"
+	}
+	}, 
+	"Adresse en m\u00e9moire": {
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"Output Permanent Control List": {
+	"lists": {
+		"1": "VOYANTS", 
+		"2": "SEGMENTS", 
+		"3": "Afficheur PRINCIPAL", 
+		"4": "Aiguille VITESSE", 
+		"5": "Aiguille COMPTE-TOURS", 
+		"6": "Aiguille CARBURANT", 
+		"7": "Aiguille TEMPERATURE EAU", 
+		"8": "Eclairage Graphismes", 
+		"9": "Eclairage Afficheurs", 
+		"10": "BUZZER", 
+		"33": "Moteur COMPTE-TOURS", 
+		"34": "Moteur VITESSE", 
+		"35": "Moteur CARBURANT", 
+		"36": "Moteur TEMPERATURE EAU", 
+		"37": "Frequence BUZZER", 
+		"38": "PWM Afficheurs", 
+		"39": "PWM Graphismes", 
+		"40": "LCD Principal", 
+		"41": "LCD SSPP/BVA", 
+		"42": "Etat Sorties Moteurs", 
+		"43": "R\u00e9glage NH", 
+		"44": "Etat SORTIES", 
+		"45": "des ports en mode soudure"
+	}
+	}, 
+	"Autonomie de vidange : Temps": {
+	"scaled": true, 
+	"unit": "Mois"
+	}, 
+	"Position Moteur": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "MicroPas"
+	}, 
+	"Temp\u00e9rature ext\u00e9rieure (CAN)": {
+	"byte": true
+	}, 
+	"Etat des Sorties Moteurs": {
+	"bytescount": 8, 
+	"byte": true, 
+	"bitscount": 64
+	}, 
+	"Compteur UCH absent": {
+	"scaled": true, 
+	"bitscount": 6
+	}, 
+	"Mesure U1": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mV"
+	}, 
+	"Mesure U2": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mV"
+	}, 
+	"Identificateur Voyant": {
+	"lists": {
+		"0": "Service", 
+		"1": "Feux de Brouillard Avant", 
+		"2": "Airbag Passager", 
+		"3": "Stop", 
+		"4": "ABS", 
+		"5": "Feux de Route", 
+		"6": "Feux de Croisement", 
+		"7": "Feux de Brouillard Arri\u00e8re", 
+		"8": "ESP", 
+		"9": "Clignotant Gauche", 
+		"10": "RV", 
+		"11": "LV", 
+		"12": "Clignotant Droit", 
+		"13": "Ouvrant / Crevaison", 
+		"14": "Incident Frein", 
+		"15": "Ceinture Conducteur", 
+		"16": "Pression Huile", 
+		"17": "GPL", 
+		"18": "Mini Carburant", 
+		"19": "Charge Batterie", 
+		"20": "OBD", 
+		"21": "D\u00e9faut Airbag"
+	}
+	}, 
+	"D\u00e9bit carburant": {
+	"scaled": true, 
+	"unit": "Litres / Heure"
+	}, 
+	"FirstDTC": {
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"lists": {
+		"37889": "Capteur Niveau Huile", 
+		"37890": "Capteur Jauge Carburant", 
+		"37891": "Capteur Rh\u00e9ostat"
+	}
+	}, 
+	"Jauge carburant GPL (court-circuit) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"Num\u00e9ro hardware (en BCD)": {
+	"bytescount": 5, 
+	"byte": true, 
+	"bitscount": 40
+	}, 
+	"D\u00e9bitm\u00e8tre : absence d'information (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"T\u00b0 Eau : absence d'information (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"L1 GPL": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "litres"
+	}, 
+	"Panne m\u00e9moris\u00e9e": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"Pr\u00e9sence ESP": {
+	"lists": {
+		"0": "Sans", 
+		"16": "Avec (par d\u00e9faut)"
+	}
+	}, 
+	"Alerte ceinture de s\u00e9curit\u00e9 passager": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "pas d'alerte", 
+		"1": "alerte demand\u00e9e"
+	}
+	}, 
+	"Consigne Temp\u00e9rature": {
+	"scaled": true, 
+	"unit": "\u00b0C"
+	}, 
+	"Aiguille COMPTE-TOURS.mode": {
+	"scaled": true, 
+	"step": 100.0, 
+	"unit": "tr/mn"
+	}, 
+	"Compteur AIRBAG absent": {
+	"scaled": true, 
+	"bitscount": 6
+	}, 
+	"Codage entr\u00e9e Niveau Huile": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Unit\u00e9 de distance": {
+	"lists": {
+		"0": "Km (par d\u00e9faut)", 
+		"16": "Miles"
+	}
+	}, 
+	"L0": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "litres"
+	}, 
+	"Compteur EPS absent": {
+	"scaled": true, 
+	"bitscount": 6
+	}, 
+	"APC (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "APC absent", 
+		"1": "APC pr\u00e9sent"
+	}
+	}, 
+	"Etat BUS": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Bus ON", 
+		"1": "Bus OFF"
+	}
+	}, 
+	"LCD Principal.Motif LCD": {
+	"lists": {
+		"0": "Tout Eteint", 
+		"252": "Damier", 
+		"253": "Damier Inverse", 
+		"254": "R\u00e9glage Contraste", 
+		"255": "Tout Allum\u00e9"
+	}
+	}, 
+	"Contraste LCD Principal": {
+	"scaled": true
+	}, 
+	"UCH absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pr\u00e9sent", 
+		"1": "Absent"
+	}
+	}, 
+	"Compteur ABS absent": {
+	"scaled": true, 
+	"bitscount": 6
+	}, 
+	"VIN (CRC)": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Etat Pilotage": {
+	"lists": {
+		"32": "Actif", 
+		"1": "Status", 
+		"17": "Inactif"
+	}
+	}, 
+	"Consigne Eclairage Graphismes": {
+	"scaled": true
+	}, 
+	"Motif LCD": {
+	"lists": {
+		"0": "Tout Eteint", 
+		"252": "Damier", 
+		"253": "Damier Inverse", 
+		"254": "R\u00e9glage Contraste", 
+		"255": "Tout Allum\u00e9"
+	}
+	}, 
+	"Information temp\u00e9rature moteur (\u00b0C) CAN": {
+	"scaled": true, 
+	"offset": -40.0
+	}, 
+	"Eclairage Afficheurs.mode": {
+	"scaled": true
+	}, 
+	"Etat Sorties": {
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"Distance ADAC": {
+	"scaled": true, 
+	"bytescount": 4, 
+	"divideby": 5000.0, 
+	"bitscount": 31, 
+	"unit": "Km"
+	}, 
+	"Codage entr\u00e9e Led Airbag Passager": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Feux route (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Absent", 
+		"1": "Pr\u00e9sent"
+	}
+	}, 
+	"Num\u00e9ro de version": {
+	"scaled": true
+	}, 
+	"Codage entr\u00e9e Led D\u00e9faut Airbag": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Frequence BUZZER.mode": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "Hz"
+	}, 
+	"Num\u00e9ro du logiciel": {
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"lists": {
+		"8": "B84", 
+		"9": "J84"
+	}
+	}, 
+	"Contact frein de parking": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "frein desserr\u00e9", 
+		"1": "frein serr\u00e9"
+	}
+	}, 
+	"Odom\u00e8tre Total": {
+	"scaled": true, 
+	"bytescount": 3, 
+	"bitscount": 24, 
+	"unit": "Km"
+	}, 
+	"Niveau huile (circuit ouvert)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"L2 GPL": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "litres"
+	}, 
+	"Type d'affichage ADAC": {
+	"lists": {
+		"0": "Europe Litres / 100 Kms (par d\u00e9faut)", 
+		"16": "GB Miles / 1 Gallon", 
+		"32": "Br\u00e9sil Kms / 1 Litre"
+	}
+	}, 
+	"LCD Principal.Contraste LCD Principal": {
+	"scaled": true
+	}, 
+	"Pr\u00e9compteur Partiel": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 10.0, 
+	"bitscount": 16, 
+	"unit": "m"
+	}, 
+	"Jauge carburant GPL (circuit ouvert)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"Offset Moteur": {
+	"scaled": true, 
+	"unit": "MicroPas"
+	}, 
+	"Etat Sorties Moteurs.Etat des Sorties Moteurs": {
+	"bytescount": 8, 
+	"byte": true, 
+	"bitscount": 64
+	}, 
+	"Maxi compteur \u00e9tat  BUS": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Inf\u00e9rieur au maxi", 
+		"1": "Maximum atteint"
+	}
+	}, 
+	"PWM Afficheurs.mode": {
+	"scaled": true
+	}, 
+	"Pr\u00e9sence SSPP": {
+	"lists": {
+		"0": "Sans", 
+		"16": "Avec (par d\u00e9faut)"
+	}
+	}, 
+	"Jauge carburant GPL (circuit ouvert) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"Etat des Ports": {
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"Touche RAZ ODO": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "non activ\u00e9e", 
+		"1": "activ\u00e9e"
+	}
+	}, 
+	"PWM LCD": {
+	"scaled": true
+	}, 
+	"Jauge carburant GPL (court-circuit)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"Jauge carburant (circuit ouvert)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"Codage entr\u00e9e Tension Batterie": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"PWM Echelles": {
+	"scaled": true
+	}, 
+	"Jauge carburant (court-circuit)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"Type de carrosserie": {
+	"lists": {
+		"0": "B (par d\u00e9faut)", 
+		"16": "C", 
+		"32": "E", 
+		"64": "L", 
+		"48": "K"
+	}
+	}, 
+	"Maxi compteur AIRBAG absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "inf\u00e9rieur au max", 
+		"1": "Maximum atteint"
+	}
+	}, 
+	"Etat information charge batterie (voyant) CAN": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Contact ouvert", 
+		"1": "Contact ferm\u00e9"
+	}
+	}, 
+	"+Lanterne (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Absent", 
+		"1": "Pr\u00e9sent"
+	}
+	}, 
+	"Consigne R\u00e9gime": {
+	"scaled": true, 
+	"step": 100.0, 
+	"unit": "tr/mn"
+	}, 
+	"maxi compteur UCH absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "inf\u00e9rieur au max", 
+		"1": "Maximum atteint"
+	}
+	}, 
+	"Seuil B": {
+	"scaled": true, 
+	"unit": "Litres"
+	}, 
+	"Compteur \u00e9tat BUS": {
+	"scaled": true, 
+	"bitscount": 6
+	}, 
+	"Prestation Survitesse Arabie": {
+	"lists": {
+		"0": "Sans (par d\u00e9faut)", 
+		"16": "Avec"
+	}
+	}, 
+	"Seuil H": {
+	"scaled": true, 
+	"unit": "Litres"
+	}, 
+	"Consigne Carburant": {
+	"scaled": true, 
+	"unit": "Litres"
+	}, 
+	"LCD Principal.Message Display": {
+	"scaled": true
+	}, 
+	"L0 GPL": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "litres"
+	}, 
+	"Jauge GPL : absence d'information (CAN) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"Information capteur jauge GPL (Ohms) CAN": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"SEGMENTS.mode": {
+	"lists": {
+		"0": "Roue Avant Droite (Ext)", 
+		"1": "Porte Avant Droite", 
+		"2": "D Positif", 
+		"3": "P N\u00e9gatif", 
+		"4": "Digit Segment 3", 
+		"5": "Digit Segment 2", 
+		"6": "Porte Avant Gauche", 
+		"7": "Roue Avant Gauche (Ext)", 
+		"8": "Roue Avant Droite (Int)", 
+		"9": "Porte Arri\u00e8re Droite", 
+		"10": "D N\u00e9gatif", 
+		"11": "P Positif", 
+		"12": "Digit Segment 4", 
+		"13": "Digit Segment 6", 
+		"14": "Porte Arri\u00e8re Gauche", 
+		"15": "Roue Avant Gauche (Int)", 
+		"16": "N.U.", 
+		"17": "Roue Arri\u00e8re Droite (Ext)", 
+		"18": "N N\u00e9gatif", 
+		"19": "R Positif", 
+		"20": "Digit Segment 5", 
+		"21": "Digit Segment 1", 
+		"22": "Roue Arri\u00e8re Gauche (Ext)", 
+		"23": "Corps de V\u00e9hicule", 
+		"24": "N.U. 24", 
+		"25": "Roue Arri\u00e8re Droite (Int)", 
+		"26": "N Positif", 
+		"27": "R N\u00e9gatif", 
+		"28": "Digit Segment 0", 
+		"29": "Fl\u00e8che Auto/Manuel", 
+		"30": "Roue Arri\u00e8re Gauche (Int)", 
+		"31": "Coffre"
+	}
+	}, 
+	"MODULE MUET": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Module pr\u00e9sent", 
+		"1": "module muet"
+	}
+	}, 
+	"Information carburant consomm\u00e9 (mm3) CAN": {
+	"scaled": true, 
+	"step": 80.0
+	}, 
+	"Vitesse v\u00e9hicule (km/h) CAN": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 100.0, 
+	"bitscount": 16
+	}, 
+	"Vitesse Moteur": {
+	"scaled": true, 
+	"divideby": 16.0, 
+	"step": 125.0, 
+	"unit": "\u00b0/S"
+	}, 
+	"R\u00e9glage NH.R\u00e9glage Intensit\u00e9 NH": {
+	"scaled": true
+	}, 
+	"AIRBAG absent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pr\u00e9sent", 
+		"1": "Absent"
+	}
+	}, 
+	"Moteur CARBURANT.mode": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "MicroPas"
+	}, 
+	"Jauge GPL : absence d'information (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"Niveau huile (circuit ouvert) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"Cluster absent": {
+	"byte": true
+	}, 
+	"Num\u00e9ro de pi\u00e8ce MPR (en BCD)": {
+	"bytescount": 5, 
+	"byte": true, 
+	"bitscount": 40
+	}, 
+	"Rh\u00e9ostat : \u00e9tat pr\u00e9sence \u00e0 partir URh\u00e9o (avec tol)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Rh\u00e9ostat pr\u00e9sent", 
+		"1": "Rh\u00e9ostat absent"
+	}
+	}, 
+	"Type de bo\u00eete": {
+	"lists": {
+		"0": "BVA (par d\u00e9faut)", 
+		"16": "BVM", 
+		"32": "CVT"
+	}
+	}, 
+	"Maxi compteur EPSabsent": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "inf\u00e9rieur au max", 
+		"1": "Maximum atteint"
+	}
+	}, 
+	"L2": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "litres"
+	}, 
+	"Tension Rh\u00e9ostat": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "Volts"
+	}, 
+	"L1": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 1000.0, 
+	"bitscount": 16, 
+	"unit": "litres"
+	}, 
+	"NDTC": {
+	"scaled": true, 
+	"comment": "Nombre de pannes pour DDT2000"
+	}, 
+	"D\u00e9bitm\u00e8tre : absence d'information (CAN) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"Maxi compteur MODULE MUET": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Inf\u00e9rieur au maxi", 
+		"1": "Maximum atteint"
+	}
+	}, 
+	"Touche d\u00e9filement ADAC (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "non activ\u00e9e", 
+		"1": "activ\u00e9e"
+	}
+	}, 
+	"Prestation RV/LV": {
+	"lists": {
+		"0": "Sans", 
+		"16": "Avec (par d\u00e9faut)"
+	}
+	}, 
+	"Date \u00e0 lire": {
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"T\u00b0 Eau : absence d'information (CAN) m\u00e9mo": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Pas de panne m\u00e9moris\u00e9e", 
+		"1": "Panne m\u00e9moris\u00e9e"
+	}
+	}, 
+	"K maj S1": {
+	"scaled": true, 
+	"divideby": 10.0
+	}, 
+	"K maj S2": {
+	"scaled": true, 
+	"divideby": 10.0
+	}, 
+	"Moteur COMPTE-TOURS.mode": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "MicroPas"
+	}, 
+	"Lave Glace": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Contact ouvert", 
+		"1": "Contact ferm\u00e9 (niveau<minimum)"
+	}
+	}, 
+	"Incident frein (NIVOCOD)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Contact ouvert", 
+		"1": "Contact ferm\u00e9 (niveau<minimum)"
+	}
+	}, 
+	"Unite temp\u00e9rature (TdB HG en lecture)": {
+	"lists": {
+		"0": "\u00b0C (par d\u00e9faut)", 
+		"16": "\u00b0F"
+	}
+	}, 
+	"Type sc\u00e9nario VSC": {
+	"lists": {
+		"0": "VSC1 (par d\u00e9faut)", 
+		"16": "VSC2"
+	}
+	}, 
+	"Niveau huile (court-circuit)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Panne non pr\u00e9sente", 
+		"1": "Panne pr\u00e9sente"
+	}
+	}, 
+	"Temps ADAC": {
+	"scaled": true, 
+	"bytescount": 4, 
+	"divideby": 120.0, 
+	"bitscount": 31, 
+	"unit": "secondes"
+	}, 
+	"Num\u00e9ro de version LSB": {
+	"scaled": true
+	}, 
+	"Feux croisement (CAN)": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Absent", 
+		"1": "Pr\u00e9sent"
+	}
+	}, 
+	"Carburant consomm\u00e9": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"divideby": 10.0, 
+	"bitscount": 16, 
+	"unit": "Litres"
+	}
+}
+}

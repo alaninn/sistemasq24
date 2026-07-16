@@ -1,0 +1,11 @@
+# Dependencias minimalistas para Scanner Mégane II F4R
+# Sin PyQt5 (no se reutiliza la UI original)
+# Instala con: pip install -r requirements.txt
+
+pyserial==3.5
+pyusb
+fastapi
+uvicorn[standard]
+
+# Nota: [standard] instala wsproto y websockets para WebSocket en vivo
+# Si algo falla, instala con internet: pip install uvicorn[standard]

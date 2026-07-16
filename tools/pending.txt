@@ -1,0 +1,217 @@
+valeur Satellite frontal côté passager
+valeur Satellite latéral conducteur
+valeur Satellite latéral passager
+valeur Satellite latéral porte avant conducteur
+valeur Satellite latéral porte avant passager
+valeur d'accélération
+valeur d'apprentissage de la régulation ralenti
+valeur d'apprentissage du pied levé pédale
+valeur de X01
+valeur de X02
+valeur de X03
+valeur de X04
+valeur de X05
+valeur de X06
+valeur de X07
+valeur de X08
+valeur de X09
+valeur de X10
+valeur de X11
+valeur de X12
+valeur de X13
+valeur de X14
+valeur de X15
+valeur de X16
+valeur de X17
+valeur de X18
+valeur de X19
+valeur de X20
+valeur de X21
+valeur de X22
+valeur de X23
+valeur de X24
+valeur de X25
+valeur de X26
+valeur de X27
+valeur de X28
+valeur de X29
+valeur de X30
+valeur de X31
+valeur de X32
+valeur de X33
+valeur de X34
+valeur de X35
+valeur de X36
+valeur de X37
+valeur de X38
+valeur de X39
+valeur de X40
+valeur de X41
+valeur de X42
+valeur de X43
+valeur de X44
+valeur de X45
+valeur de X46
+valeur de X47
+valeur de X48
+valeur de X49
+valeur de X50
+valeur de X51
+valeur de X52
+valeur de X53
+valeur de X54
+valeur de X55
+valeur de X56
+valeur de X57
+valeur de X58
+valeur de X59
+valeur de X60
+valeur de X61
+valeur de correction de la régulation de richesse
+valeur de correction de régime ralenti pour l' après-vente
+valeur de l'accélération instantanée avant déclenchement  : X1
+valeur de l'accélération instantanée avant déclenchement  : X10
+valeur de l'accélération instantanée avant déclenchement  : X11
+valeur de l'accélération instantanée avant déclenchement  : X12
+valeur de l'accélération instantanée avant déclenchement  : X13
+valeur de l'accélération instantanée avant déclenchement  : X14
+valeur de l'accélération instantanée avant déclenchement  : X15
+valeur de l'accélération instantanée avant déclenchement  : X16
+valeur de l'accélération instantanée avant déclenchement  : X17
+valeur de l'accélération instantanée avant déclenchement  : X18
+valeur de l'accélération instantanée avant déclenchement  : X19
+valeur de l'accélération instantanée avant déclenchement  : X2
+valeur de l'accélération instantanée avant déclenchement  : X20
+valeur de l'accélération instantanée avant déclenchement  : X21
+valeur de l'accélération instantanée avant déclenchement  : X22
+valeur de l'accélération instantanée avant déclenchement  : X23
+valeur de l'accélération instantanée avant déclenchement  : X24
+valeur de l'accélération instantanée avant déclenchement  : X25
+valeur de l'accélération instantanée avant déclenchement  : X26
+valeur de l'accélération instantanée avant déclenchement  : X27
+valeur de l'accélération instantanée avant déclenchement  : X28
+valeur de l'accélération instantanée avant déclenchement  : X29
+valeur de l'accélération instantanée avant déclenchement  : X3
+valeur de l'accélération instantanée avant déclenchement  : X30
+valeur de l'accélération instantanée avant déclenchement  : X31
+valeur de l'accélération instantanée avant déclenchement  : X32
+valeur de l'accélération instantanée avant déclenchement  : X33
+valeur de l'accélération instantanée avant déclenchement  : X34
+valeur de l'accélération instantanée avant déclenchement  : X35
+valeur de l'accélération instantanée avant déclenchement  : X36
+valeur de l'accélération instantanée avant déclenchement  : X37
+valeur de l'accélération instantanée avant déclenchement  : X38
+valeur de l'accélération instantanée avant déclenchement  : X39
+valeur de l'accélération instantanée avant déclenchement  : X4
+valeur de l'accélération instantanée avant déclenchement  : X40
+valeur de l'accélération instantanée avant déclenchement  : X41
+valeur de l'accélération instantanée avant déclenchement  : X42
+valeur de l'accélération instantanée avant déclenchement  : X43
+valeur de l'accélération instantanée avant déclenchement  : X44
+valeur de l'accélération instantanée avant déclenchement  : X45
+valeur de l'accélération instantanée avant déclenchement  : X46
+valeur de l'accélération instantanée avant déclenchement  : X47
+valeur de l'accélération instantanée avant déclenchement  : X48
+valeur de l'accélération instantanée avant déclenchement  : X49
+valeur de l'accélération instantanée avant déclenchement  : X5
+valeur de l'accélération instantanée avant déclenchement  : X50
+valeur de l'accélération instantanée avant déclenchement  : X51
+valeur de l'accélération instantanée avant déclenchement  : X52
+valeur de l'accélération instantanée avant déclenchement  : X53
+valeur de l'accélération instantanée avant déclenchement  : X54
+valeur de l'accélération instantanée avant déclenchement  : X55
+valeur de l'accélération instantanée avant déclenchement  : X56
+valeur de l'accélération instantanée avant déclenchement  : X57
+valeur de l'accélération instantanée avant déclenchement  : X58
+valeur de l'accélération instantanée avant déclenchement  : X59
+valeur de l'accélération instantanée avant déclenchement  : X6
+valeur de l'accélération instantanée avant déclenchement  : X60
+valeur de l'accélération instantanée avant déclenchement  : X61
+valeur de l'accélération instantanée avant déclenchement  : X7
+valeur de l'accélération instantanée avant déclenchement  : X8
+valeur de l'accélération instantanée avant déclenchement  : X9
+valeur de la tension d'alimentation du calculateur
+valeur du CAN
+valeur hors plage
+valeur invalide
+valeur max de correction lente d'avance due au cliquetis ( max des cylindres )
+valeur max de l'impédance de la ligne de MàF programmée
+valeur max de l'impédance de la ligne de MàF à modifier
+valeur min de l'impédance de la ligne de MàF programmée
+valeur min de l'impédance de la ligne de MàF à modifier
+valeur par défaut
+valeur tension d'alimentation calculateur
+value: 414
+verrouillage des lignes de MàF
+verrouillage/deverrouillage lignes de MàF
+version SW
+version d'algorithme et de calibration de l'UCE
+vitesse du véhicule
+vitesse filtrée entre 300ms et 600ms avant entrée dans l'algo
+vitesse filtrée entre 600ms et 900ms avant entrée dans l'algo
+vitesse filtrée moins de 300ms avant entrée dans l'algo
+vitesse reçue entre 300ms et 600ms avant entrée dans l'algo
+vitesse reçue entre 600ms et 900ms avant entrée dans l'algo
+vitesse reçue moins de 300ms avant entrée dans l'algo
+voyant AIRBAG_OFF allumé
+voyant AIRBAG_ON allumé
+voyant défaut airbag allumé suite au diagnostic du système airbag par le calculateur
+voyant défaut airbag éteint
+véhicule X77
+véhicule X77 ou X85
+véhicule X84
+véhicule X85
+véhicule X95
+véhicule non équipé de RVLV
+véhicule???
+watts
+write_traceability_ManufactureData (Day)
+write_traceability_ManufactureData (Month)
+write_traceability_ManufactureData (Year)
+write_traceability_SerialNumber (10digits)
+°/S
+°/s
+°C (par défaut)
+µs
+Événement dent
+état connexion avec UCEMUX1 INJ
+état connexion avec UCEMUX10
+état connexion avec UCEMUX11
+état connexion avec UCEMUX12 GPL
+état connexion avec UCEMUX13
+état connexion avec UCEMUX14
+état connexion avec UCEMUX15
+état connexion avec UCEMUX16
+état connexion avec UCEMUX17
+état connexion avec UCEMUX18
+état connexion avec UCEMUX19
+état connexion avec UCEMUX2 ABS
+état connexion avec UCEMUX20
+état connexion avec UCEMUX21
+état connexion avec UCEMUX22
+état connexion avec UCEMUX23
+état connexion avec UCEMUX24
+état connexion avec UCEMUX3 TDB
+état connexion avec UCEMUX4 UCH
+état connexion avec UCEMUX5
+état connexion avec UCEMUX6
+état connexion avec UCEMUX7 ACC
+état connexion avec UCEMUX8 CLIM
+état connexion avec UCEMUX9 BVA
+état convertisseur
+état des entrées logiques n° 1
+état des entrées logiques n° 2
+état des pannes OBD n°1
+état des pannes OBD n°2
+état des pannes OBD n°3
+état des pannes OBD n°4
+état des pannes n° 1
+état des raccordements électriques n° 1
+état des raccordements électriques n° 2
+état des sorties n°1
+état des sorties n°2
+état des sorties n°3
+état des stratégies logicielles n° 1
+état des stratégies logicielles n° 2
+état sécurité de fonctionnement n° 1
+état sécurité de fonctionnement n° 2

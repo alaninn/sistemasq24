@@ -1,0 +1,229 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║        SCANNER MÉGANE II UNIVERSAL - GUÍA DE INSTALACIÓN                     ║
+║                                                                               ║
+║        Versión: 3.2                                                          ║
+║        Autor: Claude Code                                                    ║
+║        Última actualización: Julio 2026                                      ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ REQUISITOS DEL SISTEMA
+═════════════════════════════════════════════════════════════════════════════════
+
+HARDWARE:
+  • Computadora o Notebook con Windows 7 o superior (recomendado Windows 10+)
+  • Mínimo 200 MB de espacio libre en disco
+  • Adaptador OBD-II (ELM327, VLinker, etc.)
+  • Cable de conexión USB (incluido con adaptador)
+
+SOFTWARE:
+  • Python 3.8 o superior (se descarga automático si falta)
+  • Navegador web moderno (Chrome, Firefox, Edge, Safari)
+  • Conexión a Internet para descarga inicial (opcional: modo offline con wheels)
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ PASO 1: DESCARGAR
+═════════════════════════════════════════════════════════════════════════════════
+
+1. Descarga el archivo: megane2_scanner_installer.zip
+
+2. Extrae en una carpeta fácil de encontrar, por ejemplo:
+   • C:\megane2_scanner\  (recomendado)
+   • D:\descargas\megane2_scanner\
+   • O cualquier carpeta de tu preferencia
+
+   Verifica que contenga estos archivos:
+   ✓ install.bat
+   ✓ megane2_scanner_installer.zip
+   ✓ LEEME_INSTALACION.txt (este archivo)
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ PASO 2: INSTALAR
+═════════════════════════════════════════════════════════════════════════════════
+
+OPCIÓN A: Instalación automática (RECOMENDADO)
+
+  1. Abre la carpeta donde extrajiste los archivos
+  2. Haz DOBLE CLIC en: install.bat
+  3. Espera a que aparezca la ventana de terminal
+  4. Se descargarán e instalarán las dependencias automáticamente
+  5. Cuando termine, el scanner se abrirá automático en tu navegador
+  6. Se creará un acceso directo en tu Desktop
+
+OPCIÓN B: Instalación manual (si la automática falla)
+
+  1. Abre terminal (cmd.exe o PowerShell)
+  2. Navega a la carpeta descomprimida:
+     cd C:\megane2_scanner
+  3. Ejecuta estos comandos:
+     python -m venv .venv
+     .\.venv\Scripts\activate
+     pip install -r requirements.txt
+  4. Luego inicia el scanner:
+     python app/server.py
+  5. Abre en tu navegador: http://localhost:8000
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ PASO 3: USAR POR PRIMERA VEZ
+═════════════════════════════════════════════════════════════════════════════════
+
+PREPARAR EL AUTO:
+  1. Conecta el adaptador ELM327 al puerto OBD del auto
+     (Ubicado bajo el volante, lado izquierdo inferior)
+  2. Conecta el cable USB del adaptador a la computadora/notebook
+  3. Enciende el auto en modo "contacto" (sin arrancar el motor)
+
+USAR EL SCANNER:
+  1. El navegador se abre automático en: http://localhost:8000
+  2. Si no abre, escribe esta URL en tu navegador
+  3. Selecciona el modo de conexión:
+     • Simulación: prueba sin auto conectado
+     • Real: conecta al auto
+  4. Elige el puerto COM del adaptador (ej: COM3, COM4)
+  5. Haz clic en "Entrar"
+  6. El scanner detectará automáticamente:
+     • Marca del auto (Renault, VW, Audi, etc.)
+     • Módulos electrónicos (Motor, ABS, Airbag, etc.)
+     • Sensores disponibles
+  7. Comienza a diagnosticar:
+     • Tablero en vivo: ve sensores en tiempo real
+     • Analizador de Ondas: gráficos de sensores
+     • Códigos de Falla: lee DTCs
+     • Actuadores: controla sistemas del auto
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ SOLUCIÓN DE PROBLEMAS
+═════════════════════════════════════════════════════════════════════════════════
+
+❌ "Python no encontrado"
+   → Descarga Python 3.8+ desde https://www.python.org/
+   → Durante la instalación, MARCA: "Add Python to PATH"
+   → Reinicia la computadora después de instalar Python
+
+❌ "Error al extraer ZIP"
+   → Intenta extraer manualmente con:
+     • 7-Zip (https://www.7-zip.org/)
+     • WinRAR (https://www.rarlab.com/)
+   → O instala desde terminal (ver Opción B arriba)
+
+❌ "No se conecta al adaptador"
+   → Verifica que el ELM327 esté conectado y encendido
+   → Comprueba que el auto está en modo "contacto" (no arrancado)
+   → Intenta otro puerto COM
+   → Instala drivers del adaptador si es necesario
+
+❌ "El navegador no abre automático"
+   → Abre manualmente: http://localhost:8000
+   → Si la página no carga, espera 30 segundos e intenta de nuevo
+   → Verifica que no hay otra aplicación usando el puerto 8000
+
+❌ "Terminal se cierra rápidamente"
+   → Haz clic derecho en install.bat → Editar
+   → Reemplaza la última línea "exit /b 0" con "pause"
+   → Guarda y ejecuta de nuevo para ver el error
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ CARACTERÍSTICAS PRINCIPALES
+═════════════════════════════════════════════════════════════════════════════════
+
+✓ SCANNER UNIVERSAL
+  • Soporta Renault, Volkswagen, Audi, BMW, Mercedes, Toyota, Honda, y más
+  • Auto-detecta marca y modelo del auto
+  • Carga automáticamente definiciones de ECUs compatibles
+  • Funciona con cualquier adaptador ELM327
+
+✓ TABLERO EN VIVO
+  • Ve sensores del motor en tiempo real
+  • 16 sensores precargados (RPM, temperatura, presión, lambda, etc.)
+  • Personaliza qué sensores ver
+  • Gráficos dinámicos que se actualizan cada 100ms
+
+✓ ANALIZADOR DE ONDAS
+  • Gráficos profesionales con Chart.js
+  • Captura hasta 6 sensores simultáneamente
+  • Zoom y pan interactivo
+  • Exporta a CSV (Excel) o PNG (imagen)
+  • Detecta anomalías automáticas
+
+✓ LECTURA DE CÓDIGOS DE FALLA
+  • Lee todos los DTCs del auto
+  • Muestra descripción de cada código
+  • Borra códigos de forma segura
+  • Historial de fallas
+
+✓ CONTROL DE ACTUADORES
+  • Enciende/apaga luces, ventiladores, limpiaparabrisas
+  • Prueba sistemas sin tocar nada físicamente
+  • Útil para diagnosticar relés defectuosos
+
+✓ PROCEDIMIENTOS ESPECIALIZADOS
+  • Resetear aprendizajes del motor
+  • Purga de frenos asistida (ABS)
+  • Calibración de dirección
+  • Diagnosis de batería y alternador
+  • Y más...
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ ACTUALIZAR O DESINSTALAR
+═════════════════════════════════════════════════════════════════════════════════
+
+ACTUALIZAR A NUEVA VERSIÓN:
+  1. Descarga el nuevo archivo megane2_scanner_installer.zip
+  2. Extrae en la misma carpeta, reemplazando archivos
+  3. Ejecuta install.bat de nuevo
+  4. Los cambios se aplicarán automático
+
+DESINSTALAR:
+  1. Elimina la carpeta C:\megane2_scanner\ completamente
+  2. Elimina el acceso directo del Desktop
+  3. Listo (no deja archivos residuales)
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ SOPORTE Y CONTACTO
+═════════════════════════════════════════════════════════════════════════════════
+
+Si tienes problemas o sugerencias:
+
+📧 Email: reeberg.alan@gmail.com
+🐛 Reportar bugs: Describe qué hiciste y qué error obtuviste
+📚 Wiki: Consulta la documentación técnica en el proyecto
+💬 Preguntas: Contáctanos con detalles del sistema y del auto
+
+INFORMACIÓN TÉCNICA:
+  • Basado en DDT4All (cedricp/ddt4all)
+  • Framework: FastAPI + WebSocket
+  • Frontend: HTML/CSS/JavaScript + Chart.js
+  • Base de datos: 3,945+ archivos JSON de ECUs
+  • Licencia: GPL-3.0 (compatible con uso personal)
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ CONSEJOS Y BUENAS PRÁCTICAS
+═════════════════════════════════════════════════════════════════════════════════
+
+✓ Siempre borra DTCs después de reparar un problema
+✓ Anota los valores normales de sensores para comparar
+✓ Usa el Analizador de Ondas para ver comportamientos raros
+✓ Exporta datos (CSV) para análisis profundo
+✓ Realiza pruebas en modo Simulación antes de usar en auto real
+✓ Mantén el ELM327 en buenas condiciones
+✓ No desconectes el adaptador mientras escaneas
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ GRACIAS POR USAR SCANNER MÉGANE II UNIVERSAL
+═════════════════════════════════════════════════════════════════════════════════
+
+¡Disfruta diagnosticando tu auto con herramientas profesionales!
+
+Versión 3.2 - Julio 2026

@@ -1,0 +1,6166 @@
+{
+ "screens": {
+  "Lecture Ecriture - Variante ABS": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Configuration V\u00e9hicule", 
+     "request": "Write - VehicleConfiguration", 
+     "width": 2375, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 9000, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 600
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Attention :", 
+     "bbox": {
+      "width": 10080, 
+      "top": 5880, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ecriture de la variante", 
+     "bbox": {
+      "width": 9840, 
+      "top": 2760, 
+      "height": 3120, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lecture de la variante", 
+     "bbox": {
+      "width": 9840, 
+      "top": 960, 
+      "height": 1680, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Caisse : R --> Variante 2", 
+     "bbox": {
+      "width": 9000, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "1"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Les informations modifi\u00e9es", 
+     "bbox": {
+      "width": 10080, 
+      "top": 6120, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "ne sont mises \u00e0 jour qu'apr\u00e8s", 
+     "bbox": {
+      "width": 10080, 
+      "top": 6360, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "une sortie du mode diagnostic", 
+     "bbox": {
+      "width": 10080, 
+      "top": 6600, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Caisse : J / Moteur F4R ou F9Q ou M9R --> Variante 2", 
+     "bbox": {
+      "width": 9000, 
+      "top": 4800, 
+      "height": 240, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "1"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Caisse : BCELKSG --> Variante 1", 
+     "bbox": {
+      "width": 9000, 
+      "top": 3960, 
+      "height": 240, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "1"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Caisse : J / Moteur : K4J ou K4M ou K9K --> Variante 1", 
+     "bbox": {
+      "width": 9000, 
+      "top": 4200, 
+      "height": 240, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(15,15,15)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "1"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Lecture Ecriture de la variante ABS", 
+     "bbox": {
+      "width": 9000, 
+      "top": 240, 
+      "height": 480, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 14.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 6930, 
+   "buttons": [
+    {
+     "text": "Ecriture de la variante v\u00e9hicule", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write - VehicleConfiguration"
+      }
+     ], 
+     "uniquename": "Ecriture de la variante v\u00e9hicule_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 9039, 
+      "top": 5400, 
+      "height": 300, 
+      "left": 480
+     }
+    }
+   ], 
+   "width": 10290, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Configuration V\u00e9hicule", 
+     "request": "Read - VehicleConfiguration", 
+     "width": 2360, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 9000, 
+      "top": 1680, 
+      "height": 360, 
+      "left": 600
+     }
+    }
+   ]
+  }, 
+  "Lecture - DTC Bosch": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Fault ICC", 
+     "bbox": {
+      "width": 960, 
+      "top": 720, 
+      "height": 360, 
+      "left": 960
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "DTC2", 
+     "bbox": {
+      "width": 10560, 
+      "top": 1800, 
+      "height": 600, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "DTC3", 
+     "bbox": {
+      "width": 10560, 
+      "top": 2520, 
+      "height": 600, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "DTC4", 
+     "bbox": {
+      "width": 10560, 
+      "top": 3240, 
+      "height": 600, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "DTC5", 
+     "bbox": {
+      "width": 10560, 
+      "top": 3960, 
+      "height": 600, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "DTC6", 
+     "bbox": {
+      "width": 10560, 
+      "top": 4680, 
+      "height": 600, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "DTC1", 
+     "bbox": {
+      "width": 10560, 
+      "top": 1080, 
+      "height": 600, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Current ICC", 
+     "bbox": {
+      "width": 825, 
+      "top": 165, 
+      "height": 420, 
+      "left": 75
+     }, 
+     "fontcolor": "rgb(0,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "1", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Failure Path", 
+     "bbox": {
+      "width": 840, 
+      "top": 600, 
+      "height": 480, 
+      "left": 2040
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Failure Type", 
+     "bbox": {
+      "width": 720, 
+      "top": 600, 
+      "height": 480, 
+      "left": 3120
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Drive Cycle", 
+     "bbox": {
+      "width": 720, 
+      "top": 600, 
+      "height": 480, 
+      "left": 4200
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Store Condition", 
+     "bbox": {
+      "width": 840, 
+      "top": 600, 
+      "height": 480, 
+      "left": 5160
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Debug Info 0", 
+     "bbox": {
+      "width": 1320, 
+      "top": 720, 
+      "height": 360, 
+      "left": 6480
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Debug Info 1", 
+     "bbox": {
+      "width": 1320, 
+      "top": 720, 
+      "height": 360, 
+      "left": 7920
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Environment", 
+     "bbox": {
+      "width": 1200, 
+      "top": 720, 
+      "height": 360, 
+      "left": 9360
+     }, 
+     "fontcolor": "rgb(64,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "", 
+     "bbox": {
+      "width": 1800, 
+      "top": 120, 
+      "height": 480, 
+      "left": 45
+     }, 
+     "fontcolor": "rgb(0,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "1", 
+      "size": 8.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Lecture DTC Bosch", 
+     "bbox": {
+      "width": 10440, 
+      "top": 120, 
+      "height": 360, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 14.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5370, 
+   "buttons": [], 
+   "width": 10770, 
+   "displays": [
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "Current ICC", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 180, 
+      "height": 360, 
+      "left": 810
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Path", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 1920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Type", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 3000
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Drive Cycle information", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 4080
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Store Condition", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 0", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 1", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 7800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Environment information", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 9240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Fault ICC", 
+     "request": "Read - BoschDTCLocation1", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 840
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Path", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 1920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Type", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 3000
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Drive Cycle information", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 4080
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Store Condition", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 0", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 1", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 7800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Environment information", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 9240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Fault ICC", 
+     "request": "Read - BoschDTCLocation2", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 1920, 
+      "height": 360, 
+      "left": 840
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Path", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 1920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Type", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 3000
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Drive Cycle information", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 4080
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Store Condition", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 0", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 1", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 7800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Environment information", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 9240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Fault ICC", 
+     "request": "Read - BoschDTCLocation3", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 2640, 
+      "height": 360, 
+      "left": 840
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Path", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 1920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Type", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 3000
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Drive Cycle information", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 4080
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Store Condition", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 0", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 1", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 7800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Environment information", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 9240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Fault ICC", 
+     "request": "Read - BoschDTCLocation4", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 840
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Path", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 1920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Type", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 3000
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Drive Cycle information", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 4080
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Store Condition", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 0", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 1", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 7800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Environment information", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 9240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Fault ICC", 
+     "request": "Read - BoschDTCLocation5", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 840
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Path", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 1920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Failure Type", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 3000
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Drive Cycle information", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 4080
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Store Condition", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 0", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 6360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Debug information 1", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 7800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Environment information", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1320, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 9240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Fault ICC", 
+     "request": "Read - BoschDTCLocation6", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 960, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 840
+     }
+    }
+   ]
+  }, 
+  "IO - Allumage des warning": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Allumage des warning", 
+     "bbox": {
+      "width": 8400, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "des warning pendant 20 s (sous r\u00e9serve", 
+     "bbox": {
+      "width": 8400, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 8400, 
+      "top": 3240, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "d'un fonctionnement nominal de l'UCH).", 
+     "bbox": {
+      "width": 8400, 
+      "top": 4440, 
+      "height": 360, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat d'avancement de l'activation", 
+     "bbox": {
+      "width": 8400, 
+      "top": 2160, 
+      "height": 840, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "L'activation d\u00e9clenche l'allumage", 
+     "bbox": {
+      "width": 8400, 
+      "top": 3720, 
+      "height": 360, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lancement de l'activation", 
+     "bbox": {
+      "width": 8400, 
+      "top": 720, 
+      "height": 1200, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement, mettre en mode reboucl\u00e9.", 
+     "bbox": {
+      "width": 8400, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5490, 
+   "buttons": [
+    {
+     "text": "Lancer l'activation", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "IO Control - HazardWarningRequest"
+      }
+     ], 
+     "uniquename": "Lancer l'activation_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 1200, 
+      "height": 420, 
+      "left": 240
+     }
+    }
+   ], 
+   "width": 8610, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat du processus d'activation", 
+     "request": "IO Control - HazardWarningRequest Status", 
+     "width": 3575, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 2520, 
+      "height": 300, 
+      "left": 240
+     }
+    }
+   ]
+  }, 
+  "Lecture Ecriture - ProcessByte": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "ProcessByte Remplissage", 
+     "request": "Write - FillingProcessByte", 
+     "width": 2990, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8640, 
+      "top": 3480, 
+      "height": 300, 
+      "left": 240
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ecriture du ProcessByte", 
+     "bbox": {
+      "width": 8880, 
+      "top": 3000, 
+      "height": 1440, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Informations sur le processus de remplissage", 
+     "bbox": {
+      "width": 8880, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "interdite aux personnes non autoris\u00e9es", 
+     "bbox": {
+      "width": 8880, 
+      "top": 4800, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "La modification du ProcessByte est", 
+     "bbox": {
+      "width": 8880, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lecture du ProcessByte", 
+     "bbox": {
+      "width": 8880, 
+      "top": 600, 
+      "height": 2280, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5250, 
+   "buttons": [
+    {
+     "text": "Ecriture du ProcessByte", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write - FillingProcessByte"
+      }
+     ], 
+     "uniquename": "Ecriture du ProcessByte_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8640, 
+      "top": 3840, 
+      "height": 420, 
+      "left": 240
+     }
+    }
+   ], 
+   "width": 9090, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat du circuit de frein", 
+     "request": "Read - FillingProcessByte", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8520, 
+      "top": 960, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Autorisation remplissage RF", 
+     "request": "Read - FillingProcessByte", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8520, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat du bloc hydraulique", 
+     "request": "Read - FillingProcessByte", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8520, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "D\u00e9faut de remplissage", 
+     "request": "Read - FillingProcessByte", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8520, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Affectation", 
+     "request": "Read - FillingProcessByte", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8520, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 240
+     }
+    }
+   ]
+  }, 
+  "Routine - Test du citcuit hydaulique": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "affectation des voies hydrauliques.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 6000, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Arr\u00eat du test", 
+     "bbox": {
+      "width": 7560, 
+      "top": 3840, 
+      "height": 1320, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Cette routine est pr\u00e9vue pour valider", 
+     "bbox": {
+      "width": 7560, 
+      "top": 5640, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(128,128,255)", 
+     "text": "", 
+     "bbox": {
+      "width": 1200, 
+      "top": 1200, 
+      "height": 1440, 
+      "left": 3840
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "de frein enfonc\u00e9e et faire tourner \u00e0 la main la", 
+     "bbox": {
+      "width": 7560, 
+      "top": 6720, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "D\u00e9roulement de la routine : Maintenir la p\u00e9dale", 
+     "bbox": {
+      "width": 7560, 
+      "top": 6360, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 7560, 
+      "top": 5280, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat d'avancement du test", 
+     "bbox": {
+      "width": 7560, 
+      "top": 2880, 
+      "height": 840, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Les autres roues sont bloqu\u00e9es durant le test.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 7440, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement, mettre en mode reboucl\u00e9.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 7800, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "roue test\u00e9e. Elle doit se bloquer et se d\u00e9bloquer.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 7080, 
+      "height": 360, 
+      "left": 705
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Routine de test du circuit hydraulique", 
+     "bbox": {
+      "width": 8760, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "", 
+     "bbox": {
+      "width": 240, 
+      "top": 1080, 
+      "height": 135, 
+      "left": 4680
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "", 
+     "bbox": {
+      "width": 240, 
+      "top": 1080, 
+      "height": 135, 
+      "left": 3960
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Choix de la roue et lancement du test", 
+     "bbox": {
+      "width": 7560, 
+      "top": 720, 
+      "height": 2055, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 8250, 
+   "buttons": [
+    {
+     "text": "Arr\u00eat du Test", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - HydraulicCircuitTest Stop"
+      }
+     ], 
+     "uniquename": "Arr\u00eat du Test_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6600, 
+      "top": 4200, 
+      "height": 420, 
+      "left": 1185
+     }
+    }, 
+    {
+     "text": "Roue ARD", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - HydraulicCircuitTest_RR Start"
+      }
+     ], 
+     "uniquename": "Roue ARD_1", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1440, 
+      "top": 2130, 
+      "height": 390, 
+      "left": 4680
+     }
+    }, 
+    {
+     "text": "Roue ARG", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - HydraulicCircuitTest_RL Start"
+      }
+     ], 
+     "uniquename": "Roue ARG_2", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1437, 
+      "top": 2130, 
+      "height": 390, 
+      "left": 2760
+     }
+    }, 
+    {
+     "text": "Roue AVD", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - HydraulicCircuitTest_FR Start"
+      }
+     ], 
+     "uniquename": "Roue AVD_3", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1440, 
+      "top": 1320, 
+      "height": 420, 
+      "left": 4680
+     }
+    }, 
+    {
+     "text": "Roue AVG", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - HydraulicCircuitTest_FL Start"
+      }
+     ], 
+     "uniquename": "Roue AVG_4", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1437, 
+      "top": 1335, 
+      "height": 420, 
+      "left": 2778
+     }
+    }
+   ], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de la routine", 
+     "request": "Routine - HydraulicCircuitTest Status", 
+     "width": 2330, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7080, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 945
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de l'arr\u00eat de la routine", 
+     "request": "Routine - HydraulicCircuitTest Stop", 
+     "width": 2735, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7080, 
+      "top": 4680, 
+      "height": 300, 
+      "left": 945
+     }
+    }
+   ]
+  }, 
+  "IO - Activation des \u00e9lectrovannes et de la pompe": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Admission avant gauche", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Echappement avant gauche", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Admission arri\u00e8re gauche", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Echappement arri\u00e8re gauche", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Activation de la pompe", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 3395, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 3000, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Choix du temps d'activation EV/Pompe", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 5135, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Admission avant droite", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Echappement avant droite", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Admission arri\u00e8re droite", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Echappement arri\u00e8re droite", 
+     "request": "IO Control - ValvesAndPump", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 4800
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Activation des \u00e9lectrovannes et de la pompe", 
+     "bbox": {
+      "width": 9240, 
+      "top": 480, 
+      "height": 480, 
+      "left": -1680
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 11.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Cette activation permet le contr\u00f4le", 
+     "bbox": {
+      "width": 3962, 
+      "top": 6600, 
+      "height": 360, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Choix des \u00e9lectrovannes ABS", 
+     "bbox": {
+      "width": 8880, 
+      "top": 1200, 
+      "height": 2280, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 8880, 
+      "top": 6120, 
+      "height": 480, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "d'un ou plusieurs actionneurs (\u00e9lectrovannes", 
+     "bbox": {
+      "width": 5055, 
+      "top": 6600, 
+      "height": 360, 
+      "left": 4065
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "et/ou pompe) ind\u00e9pendamment pendant 5 s maximum.", 
+     "bbox": {
+      "width": 8880, 
+      "top": 6960, 
+      "height": 360, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat d'avancement de l'activation", 
+     "bbox": {
+      "width": 8880, 
+      "top": 5160, 
+      "height": 840, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lancement de l'activation", 
+     "bbox": {
+      "width": 8880, 
+      "top": 3600, 
+      "height": 1440, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,0,128)", 
+     "text": "Attention : L'utilisation trop fr\u00e9quente de cette routine peut endommager les \u00e9lectrovannes.", 
+     "bbox": {
+      "width": 3360, 
+      "top": 360, 
+      "height": 720, 
+      "left": 5760
+     }, 
+     "fontcolor": "rgb(255,255,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement, mettre en mode reboucl\u00e9.", 
+     "bbox": {
+      "width": 8880, 
+      "top": 7320, 
+      "height": 360, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 8100, 
+   "buttons": [
+    {
+     "text": "Lancer l'activation", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "IO Control - ValvesAndPump"
+      }
+     ], 
+     "uniquename": "Lancer l'activation_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8520, 
+      "top": 4440, 
+      "height": 420, 
+      "left": 480
+     }
+    }
+   ], 
+   "width": 9420, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat du processus d'activation", 
+     "request": "IO Control - ValvesAndPump Status", 
+     "width": 3035, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 5520, 
+      "height": 300, 
+      "left": 480
+     }
+    }
+   ]
+  }, 
+  "Routine - Proc\u00e9dure de remplissage usine": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Arr\u00eat d'urgence !!!", 
+     "bbox": {
+      "width": 7440, 
+      "top": 2520, 
+      "height": 840, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Attention :", 
+     "bbox": {
+      "width": 7440, 
+      "top": 5160, 
+      "height": 240, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 7440, 
+      "top": 3600, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lancement de la proc\u00e9dure", 
+     "bbox": {
+      "width": 7440, 
+      "top": 720, 
+      "height": 840, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lancement de la proc\u00e9dure de remplissage usine.", 
+     "bbox": {
+      "width": 7440, 
+      "top": 3960, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement, mettre en mode reboucl\u00e9.", 
+     "bbox": {
+      "width": 7440, 
+      "top": 4680, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Cette routine dure environ 1 minute.", 
+     "bbox": {
+      "width": 7440, 
+      "top": 4320, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Routine - Proc\u00e9dure de remplissage usine", 
+     "bbox": {
+      "width": 8760, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Utilisation d'un bloc sec uniquement!!!", 
+     "bbox": {
+      "width": 7440, 
+      "top": 5400, 
+      "height": 240, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat d'avancement du processus", 
+     "bbox": {
+      "width": 7440, 
+      "top": 1680, 
+      "height": 720, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5850, 
+   "buttons": [
+    {
+     "text": "Arr\u00eat d'urgence !!!", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - EvacAndFillProcedure Stop"
+      }
+     ], 
+     "uniquename": "Arr\u00eat d'urgence !!!_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2880, 
+      "height": 420, 
+      "left": 840
+     }
+    }, 
+    {
+     "text": "Lancement de la proc\u00e9dure", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - EvacAndFillProcedure Start"
+      }
+     ], 
+     "uniquename": "Lancement de la proc\u00e9dure_1", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 1080, 
+      "height": 420, 
+      "left": 840
+     }
+    }
+   ], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de la routine", 
+     "request": "StartRoutine - EvacAndFillProcedure Status", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 840
+     }
+    }
+   ]
+  }, 
+  "Routine - Purge apr\u00e8s vente": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Choix du type d'arr\u00eat", 
+     "request": "Routine - BleedingProcedure Stop", 
+     "width": 2270, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2880, 
+      "height": 360, 
+      "left": 960
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Arr\u00eat d'urgence !!!", 
+     "bbox": {
+      "width": 7560, 
+      "top": 3240, 
+      "height": 1080, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Cette routine permet d'effectuer une", 
+     "bbox": {
+      "width": 7560, 
+      "top": 4560, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 7560, 
+      "top": 4200, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "et pomper sur la p\u00e9dale de frein \u00e0 la ", 
+     "bbox": {
+      "width": 7560, 
+      "top": 5640, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat d'avancement du processus", 
+     "bbox": {
+      "width": 7560, 
+      "top": 2160, 
+      "height": 1080, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "fr\u00e9quence de 1 Hz.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 6000, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lancement de la purge apr\u00e8s vente", 
+     "bbox": {
+      "width": 7560, 
+      "top": 600, 
+      "height": 1560, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Phase 1 : Desserrer la vis de purge ArG.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 6360, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Phase 2 : Desserrer la vis de purge AvG.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 6720, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Phase 3 : Desserrer la vis de purge AvD.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 7080, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Phase 4 : Desserrer la vis de purge ArD.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 7440, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement, mettre en mode reboucl\u00e9.", 
+     "bbox": {
+      "width": 7560, 
+      "top": 7800, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "purge apr\u00e8s vente. Pour cela il faut :", 
+     "bbox": {
+      "width": 7560, 
+      "top": 4920, 
+      "height": 480, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "respecter scrupuleusement l\u2019ordre des phases", 
+     "bbox": {
+      "width": 7560, 
+      "top": 5280, 
+      "height": 360, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Routine de purge ap\u00e8s vente", 
+     "bbox": {
+      "width": 8760, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 8370, 
+   "buttons": [
+    {
+     "text": "Arr\u00eat d'urgence !!!", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - BleedingProcedure Stop"
+      }
+     ], 
+     "uniquename": "Arr\u00eat d'urgence !!!_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 7320, 
+      "top": 3600, 
+      "height": 420, 
+      "left": 840
+     }
+    }, 
+    {
+     "text": "Lancement de la procedure phase 1", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - BleedingProcedure Part1 Start"
+      }
+     ], 
+     "uniquename": "Lancement de la procedure phase 1_1", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 1080, 
+      "height": 420, 
+      "left": 840
+     }
+    }, 
+    {
+     "text": "Lancement de la procedure phase 2", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - BleedingProcedure Part2 Start"
+      }
+     ], 
+     "uniquename": "Lancement de la procedure phase 2_2", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 1560, 
+      "height": 420, 
+      "left": 840
+     }
+    }, 
+    {
+     "text": "Lancement de la procedure phase 3", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - BleedingProcedure Part3 Start"
+      }
+     ], 
+     "uniquename": "Lancement de la procedure phase 3_3", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 1080, 
+      "height": 420, 
+      "left": 4560
+     }
+    }, 
+    {
+     "text": "Lancement de la procedure phase 4", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - BleedingProcedure Part4 Start"
+      }
+     ], 
+     "uniquename": "Lancement de la procedure phase 4_4", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 1560, 
+      "height": 420, 
+      "left": 4560
+     }
+    }
+   ], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de la routine", 
+     "request": "Routine - BleedingProcedure Status", 
+     "width": 2255, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2520, 
+      "height": 300, 
+      "left": 960
+     }
+    }
+   ]
+  }, 
+  "Configuration de l'init vitesse": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Valeur de la vitesse CAN \u00e0 l'initialisation", 
+     "request": "Write - CANVehicleSpeedInitialisationValue", 
+     "width": 3935, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 3600, 
+      "height": 360, 
+      "left": 480
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ecriture de la config de la vitesse Can \u00e0 l'init", 
+     "bbox": {
+      "width": 8880, 
+      "top": 3000, 
+      "height": 2040, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Config de la vitesse Can \u00e0 l'init", 
+     "bbox": {
+      "width": 8880, 
+      "top": 120, 
+      "height": 720, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 14.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "interdite aux personnes non autoris\u00e9es", 
+     "bbox": {
+      "width": 8880, 
+      "top": 5520, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "La modification de ce byte de config est", 
+     "bbox": {
+      "width": 8880, 
+      "top": 5280, 
+      "height": 240, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Note : lorsque cette valeur est configur\u00e9e \u00e0 autre que 00h, par d\u00e9faut le syst\u00e8me envoie durant son initialisation une vitesse v\u00e9hicule \u00e0 FFh sur le CAN.", 
+     "bbox": {
+      "width": 8880, 
+      "top": 2160, 
+      "height": 600, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lecture de la config de la vitesse Can \u00e0 l'init", 
+     "bbox": {
+      "width": 8880, 
+      "top": 1080, 
+      "height": 1680, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5940, 
+   "buttons": [
+    {
+     "text": "Ecriture ", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write - CANVehicleSpeedInitialisationValue"
+      }
+     ], 
+     "uniquename": "Ecriture _0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8640, 
+      "top": 4200, 
+      "height": 420, 
+      "left": 240
+     }
+    }
+   ], 
+   "width": 9090, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Valeur de la vitesse CAN \u00e0 l'initialisation", 
+     "request": "Read - CANVehicleSpeedInitialisationValue", 
+     "width": 3935, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 1560, 
+      "height": 360, 
+      "left": 480
+     }
+    }
+   ]
+  }, 
+  "Lecture Ecriture - Information pneumatique": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Dimension du pneumatique", 
+     "request": "Write - TachyIndex", 
+     "width": 3425, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 3360, 
+      "height": 300, 
+      "left": 480
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Attention :", 
+     "bbox": {
+      "width": 8880, 
+      "top": 4320, 
+      "height": 240, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ecriture d'un nouveau pneumatique", 
+     "bbox": {
+      "width": 8880, 
+      "top": 3000, 
+      "height": 1189, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Informations des pneumatiques", 
+     "bbox": {
+      "width": 8880, 
+      "top": 120, 
+      "height": 480, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lecture des informations des pneumatiques", 
+     "bbox": {
+      "width": 8880, 
+      "top": 600, 
+      "height": 2280, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Les informations circonf\u00e9rence des pneumatiques", 
+     "bbox": {
+      "width": 8880, 
+      "top": 4560, 
+      "height": 240, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "ne sont mises \u00e0 jour qu'apr\u00e8s", 
+     "bbox": {
+      "width": 8880, 
+      "top": 4800, 
+      "height": 240, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "une sortie du mode diagnostic", 
+     "bbox": {
+      "width": 8880, 
+      "top": 5040, 
+      "height": 240, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(255,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5490, 
+   "buttons": [
+    {
+     "text": "Lancement de l'\u00e9criture", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write - TachyIndex"
+      }
+     ], 
+     "uniquename": "Lancement de l'\u00e9criture_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 3720, 
+      "height": 382, 
+      "left": 480
+     }
+    }
+   ], 
+   "width": 9450, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Circonf\u00e9rence pneu", 
+     "request": "Read - Odometer", 
+     "width": 3425, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 960, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Circonf\u00e9rence Pneu Minimum", 
+     "request": "Read - Odometer", 
+     "width": 3425, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Circonf\u00e9rence Pneu Maximum", 
+     "request": "Read - Odometer", 
+     "width": 3425, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Odom\u00e8tre", 
+     "request": "Read - Odometer", 
+     "width": 3425, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Dimension du pneumatique", 
+     "request": "Read - Odometer", 
+     "width": 3425, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 480
+     }
+    }
+   ]
+  }, 
+  "Lecture - Informations globales": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat du calculateur", 
+     "bbox": {
+      "width": 10320, 
+      "top": 1920, 
+      "height": 1560, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Lecture des informations globales", 
+     "bbox": {
+      "width": 10440, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Software", 
+     "bbox": {
+      "width": 10320, 
+      "top": 600, 
+      "height": 1200, 
+      "left": 225
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Vitesses Roues", 
+     "bbox": {
+      "width": 10320, 
+      "top": 3600, 
+      "height": 1560, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5370, 
+   "buttons": [], 
+   "width": 10770, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat ABS et REF", 
+     "request": "Read - SystemStatus", 
+     "width": 3260, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 9840, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de la p\u00e9dale de frein", 
+     "request": "Read - SystemStatus", 
+     "width": 3260, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 9840, 
+      "top": 3000, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Vitesse roue avant gauche", 
+     "request": "Read - Speeds", 
+     "width": 3245, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4920, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Vitesse roue arri\u00e8re gauche", 
+     "request": "Read - Speeds", 
+     "width": 3245, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4920, 
+      "top": 4320, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Odom\u00e8tre", 
+     "request": "Read - Odometer", 
+     "width": 3245, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4920, 
+      "top": 4680, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Vitesse roue avant droite", 
+     "request": "Read - Speeds", 
+     "width": 3245, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4920, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 5520
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Vitesse roue arri\u00e8re droite", 
+     "request": "Read - Speeds", 
+     "width": 3245, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4920, 
+      "top": 4320, 
+      "height": 300, 
+      "left": 5520
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Vitesse v\u00e9hicule", 
+     "request": "Read - Speeds", 
+     "width": 3245, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4920, 
+      "top": 4680, 
+      "height": 300, 
+      "left": 5520
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Alimentation", 
+     "request": "Read - SystemStatus", 
+     "width": 2165, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 6480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur BB-Number", 
+     "request": "Read - SystemIdentification", 
+     "width": 4670, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 5680, 
+      "top": 960, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur Version Number", 
+     "request": "Read - SystemIdentification", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 1080, 
+      "top": 960, 
+      "height": 300, 
+      "left": 6480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur Version Number 2", 
+     "request": "Read - SystemIdentification", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 1080, 
+      "top": 960, 
+      "height": 300, 
+      "left": 7800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur Version Number 3et4", 
+     "request": "Read - SystemIdentification", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 1080, 
+      "top": 960, 
+      "height": 300, 
+      "left": 9240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Syst\u00e8me Serveur", 
+     "request": "Read - SystemIdentification", 
+     "width": 4670, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 9840, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 480
+     }
+    }
+   ]
+  }, 
+  "Lecture Ecriture - Code VIN et date apr\u00e8s vente": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Jour", 
+     "request": "Write - DateAfterSales", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1080, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Mois", 
+     "request": "Write - DateAfterSales", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1440, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ann\u00e9e", 
+     "request": "Write - DateAfterSales", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1800, 
+      "height": 300, 
+      "left": 4920
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Code VIN et date d'intervention apr\u00e8s vente", 
+     "bbox": {
+      "width": 9000, 
+      "top": 240, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ecriture code VIN", 
+     "bbox": {
+      "width": 9000, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ecriture Date", 
+     "bbox": {
+      "width": 4440, 
+      "top": 720, 
+      "height": 1920, 
+      "left": 4680
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lecture code VIN", 
+     "bbox": {
+      "width": 9000, 
+      "top": 2760, 
+      "height": 1200, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lecture Date", 
+     "bbox": {
+      "width": 4440, 
+      "top": 720, 
+      "height": 1920, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,0,0)", 
+     "text": "Pour l \u00e9criture du VIN, utiliser la page  DDT2000 qui calcule automatiquement le CRC", 
+     "bbox": {
+      "width": 9000, 
+      "top": 4440, 
+      "height": 1320, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,255,255)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 18.0
+     }, 
+     "alignment": "0"
+    }, 
+    {
+     "color": "rgb(255,128,128)", 
+     "text": "LIEN: page de Garde DDT2000 ----> PLAYER ---->IDENT+INFO---> VIN", 
+     "bbox": {
+      "width": 9000, 
+      "top": 6000, 
+      "height": 1080, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(255,255,255)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 18.0
+     }, 
+     "alignment": "0"
+    }
+   ], 
+   "presend": [], 
+   "height": 7260, 
+   "buttons": [
+    {
+     "text": "Ecriture Date", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write - DateAfterSales"
+      }
+     ], 
+     "uniquename": "Ecriture Date_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 2160, 
+      "height": 300, 
+      "left": 4920
+     }
+    }
+   ], 
+   "width": 9660, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Code VIN", 
+     "request": "Read - VIN", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8680, 
+      "top": 3120, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Jour", 
+     "request": "Read - AfterSalesDate", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1080, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Mois", 
+     "request": "Read - AfterSalesDate", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ann\u00e9e", 
+     "request": "Read - AfterSalesDate", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "CRC", 
+     "request": "Read - VIN", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3480, 
+      "height": 300, 
+      "left": 4920
+     }
+    }
+   ]
+  }, 
+  "Routine - Comptage des p\u00f4les": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Arr\u00eat du comptage", 
+     "bbox": {
+      "width": 7440, 
+      "top": 4320, 
+      "height": 1320, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Cette routine d\u00e9clenche le comptage des p\u00f4les", 
+     "bbox": {
+      "width": 7440, 
+      "top": 7080, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(128,128,255)", 
+     "text": "", 
+     "bbox": {
+      "width": 1260, 
+      "top": 1260, 
+      "height": 1815, 
+      "left": 3720
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "de la roue s\u00e9lectionn\u00e9e. Apr\u00e8s un tour de roue", 
+     "bbox": {
+      "width": 7440, 
+      "top": 7440, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 7440, 
+      "top": 6720, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat d'avancement du comptage", 
+     "bbox": {
+      "width": 7440, 
+      "top": 3480, 
+      "height": 720, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "le nombre de p\u00f4les doit \u00eatre \u00e9gal \u00e0 96 (+/- 2).", 
+     "bbox": {
+      "width": 7440, 
+      "top": 7800, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement, mettre en mode reboucl\u00e9.", 
+     "bbox": {
+      "width": 7440, 
+      "top": 8160, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "R\u00e9sultat", 
+     "bbox": {
+      "width": 7440, 
+      "top": 5760, 
+      "height": 840, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Routine de comptage des p\u00f4les", 
+     "bbox": {
+      "width": 8760, 
+      "top": 135, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "", 
+     "bbox": {
+      "width": 270, 
+      "top": 1185, 
+      "height": 150, 
+      "left": 4575
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,128)", 
+     "text": "", 
+     "bbox": {
+      "width": 270, 
+      "top": 1185, 
+      "height": 165, 
+      "left": 3855
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Choix de la roue et lancement de la routine", 
+     "bbox": {
+      "width": 7440, 
+      "top": 720, 
+      "height": 2640, 
+      "left": 615
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 8610, 
+   "buttons": [
+    {
+     "text": "Fin du comptage", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - PolesCounting Stop"
+      }
+     ], 
+     "uniquename": "Fin du comptage_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 4680, 
+      "height": 420, 
+      "left": 720
+     }
+    }, 
+    {
+     "text": "Roue ARD", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - PolesCounting_RR Start"
+      }
+     ], 
+     "uniquename": "Roue ARD_1", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1395, 
+      "top": 2521, 
+      "height": 360, 
+      "left": 4710
+     }
+    }, 
+    {
+     "text": "Roue ARG", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - PolesCounting_RL Start"
+      }
+     ], 
+     "uniquename": "Roue ARG_2", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1380, 
+      "top": 2536, 
+      "height": 360, 
+      "left": 2610
+     }
+    }, 
+    {
+     "text": "Roue AVD", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - PolesCounting_FR Start"
+      }
+     ], 
+     "uniquename": "Roue AVD_3", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1395, 
+      "top": 1516, 
+      "height": 360, 
+      "left": 4710
+     }
+    }, 
+    {
+     "text": "Roue AVG", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Routine - PolesCounting_FL Start"
+      }
+     ], 
+     "uniquename": "Roue AVG_4", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 1380, 
+      "top": 1531, 
+      "height": 360, 
+      "left": 2610
+     }
+    }
+   ], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de la routine", 
+     "request": "Routine - PolesCounting Status", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7240, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de la routine", 
+     "request": "Routine - PolesCounting Stop", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 5160, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Nombre de dents", 
+     "request": "Routine - PolesCounting Stop", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 6120, 
+      "height": 300, 
+      "left": 720
+     }
+    }
+   ]
+  }, 
+  "Lecture - Tra\u00e7abilit\u00e9": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Trame de tra\u00e7abilit\u00e9 de l'ABS", 
+     "bbox": {
+      "width": 7080, 
+      "top": 480, 
+      "height": 3600, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 6000, 
+   "buttons": [], 
+   "width": 7740, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - ABS/ESP", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 960, 
+      "height": 322, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - Ann\u00e9e de production du bloc", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 1320, 
+      "height": 322, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - Semaine de production du bloc", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 1680, 
+      "height": 322, 
+      "left": 363
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - Jour de la semaine", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 2040, 
+      "height": 322, 
+      "left": 363
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - Usine de production du bloc", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 2400, 
+      "height": 322, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - Ligne de production du bloc", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 2760, 
+      "height": 322, 
+      "left": 363
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - Equipe", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 3120, 
+      "height": 322, 
+      "left": 363
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Tra\u00e7abilit\u00e9 - Compteur", 
+     "request": "Read - ECUTraceability", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6918, 
+      "top": 3480, 
+      "height": 322, 
+      "left": 360
+     }
+    }
+   ]
+  }, 
+  "IO - Activation des capteurs vitesse roue": {
+   "inputs": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Choix du temps d'activation", 
+     "request": "IO Control - WheelSpeedOutput", 
+     "width": 4790, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8640, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 360
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Activation des capteurs vitesse roue", 
+     "bbox": {
+      "width": 9240, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Cette activation d\u00e9clenche l'alimentation", 
+     "bbox": {
+      "width": 7560, 
+      "top": 3960, 
+      "height": 360, 
+      "left": 840
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "des capteurs vitesse roue. Dur\u00e9e 20s", 
+     "bbox": {
+      "width": 7560, 
+      "top": 4320, 
+      "height": 360, 
+      "left": 840
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 7560, 
+      "top": 3480, 
+      "height": 480, 
+      "left": 840
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat de l'activation", 
+     "bbox": {
+      "width": 8880, 
+      "top": 2520, 
+      "height": 840, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lancement de l'activation", 
+     "bbox": {
+      "width": 8880, 
+      "top": 720, 
+      "height": 1560, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement mettre en mode reboucl\u00e9", 
+     "bbox": {
+      "width": 7560, 
+      "top": 4680, 
+      "height": 360, 
+      "left": 840
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 6780, 
+   "buttons": [
+    {
+     "text": "Lancer l'activation", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "IO Control - WheelSpeedOutput"
+      }
+     ], 
+     "uniquename": "Lancer l'activation_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8400, 
+      "top": 1680, 
+      "height": 420, 
+      "left": 480
+     }
+    }
+   ], 
+   "width": 9540, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat du processus d'activation", 
+     "request": "IO Control - WheelSpeedOutput Status", 
+     "width": 3650, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8440, 
+      "top": 2880, 
+      "height": 300, 
+      "left": 480
+     }
+    }
+   ]
+  }, 
+  "Lecture - Identification syst\u00e8me": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Global", 
+     "bbox": {
+      "width": 8640, 
+      "top": 720, 
+      "height": 2400, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Hardware", 
+     "bbox": {
+      "width": 8640, 
+      "top": 4560, 
+      "height": 3240, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Identification syst\u00e8me", 
+     "bbox": {
+      "width": 8760, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Software", 
+     "bbox": {
+      "width": 8640, 
+      "top": 3240, 
+      "height": 1200, 
+      "left": 240
+     }, 
+     "fontcolor": "rgb(0,128,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 7980, 
+   "buttons": [], 
+   "width": 9090, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Code MPR", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Identificateur de diagnostic", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Code ITG", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Code constructeur", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur BB-Number", 
+     "request": "Read - SystemIdentification", 
+     "width": 3005, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Syst\u00e8me Serveur", 
+     "request": "Read - SystemIdentification", 
+     "width": 2990, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Num\u00e9ro du bloc  : 0 265", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 4920, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Num\u00e9ro de l'usine de production du bloc", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 5280, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Num\u00e9ro de la ligne de production du bloc", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 5640, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Num\u00e9ro de l'\u00e9quipe de production du bloc", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 6000, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Ann\u00e9e de production du bloc", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 6360, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Semaine de production du bloc", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 6720, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Jour de production du bloc", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 7080, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Compteur", 
+     "request": "Read - SystemIdentification", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8155, 
+      "top": 7440, 
+      "height": 300, 
+      "left": 480
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur Version Number", 
+     "request": "Read - SystemIdentification", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 1080, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur Version Number 2", 
+     "request": "Read - SystemIdentification", 
+     "width": 15, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 1080, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 6120
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Algorithme Serveur Version Number 3et4", 
+     "request": "Read - SystemIdentification", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 1080, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 7560
+     }
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "R\u00e9f\u00e9rence usine", 
+     "request": "Read - PartIdNumberFor Plant", 
+     "width": 4100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 480
+     }
+    }
+   ]
+  }, 
+  "IO - Vitesse v\u00e9hicule filaire": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "d\u00e9clenche la g\u00e9n\u00e9ration d'un signal (dur\u00e9e 20 s)", 
+     "bbox": {
+      "width": 7440, 
+      "top": 3720, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Description du Test", 
+     "bbox": {
+      "width": 7440, 
+      "top": 3000, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat d'avancement de l'activation", 
+     "bbox": {
+      "width": 8400, 
+      "top": 2040, 
+      "height": 840, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "frequentiel (F=100Hz soit environ 70Km/h)", 
+     "bbox": {
+      "width": 7440, 
+      "top": 4080, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "L'activation", 
+     "bbox": {
+      "width": 7440, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Lancement de l'activation", 
+     "bbox": {
+      "width": 8400, 
+      "top": 720, 
+      "height": 1200, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(0,128,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Pour un bon fonctionnement, mettre en mode reboucl\u00e9.", 
+     "bbox": {
+      "width": 7440, 
+      "top": 4800, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Sortie vitesse v\u00e9hicule filaire", 
+     "bbox": {
+      "width": 8400, 
+      "top": 120, 
+      "height": 480, 
+      "left": 120
+     }, 
+     "fontcolor": "rgb(64,128,128)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "sur la sortie filaire Vitesse v\u00e9hicule.", 
+     "bbox": {
+      "width": 7440, 
+      "top": 4440, 
+      "height": 360, 
+      "left": 600
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 5370, 
+   "buttons": [
+    {
+     "text": "Lancer l'activation", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "IO Control - VSOonWire"
+      }
+     ], 
+     "uniquename": "Lancer l'activation_0", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial", 
+      "italic": "1", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 1200, 
+      "height": 420, 
+      "left": 240
+     }
+    }
+   ], 
+   "width": 8610, 
+   "displays": [
+    {
+     "color": "rgb(223,223,223)", 
+     "text": "Etat du processus d'activation", 
+     "request": "IO Control - VSOonWire Status", 
+     "width": 3440, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "Arial Rounded MT Bold", 
+      "italic": "0", 
+      "size": 9.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 240
+     }
+    }
+   ]
+  }
+ }, 
+ "categories": {
+  "Ecrans Usine + Apr\u00e8s vente": [
+   "IO - Activation des \u00e9lectrovannes et de la pompe", 
+   "IO - Allumage des warning", 
+   "Lecture - Informations globales", 
+   "Lecture Ecriture - Code VIN et date apr\u00e8s vente", 
+   "Lecture Ecriture - Information pneumatique", 
+   "Lecture Ecriture - ProcessByte", 
+   "Routine - Comptage des p\u00f4les", 
+   "Routine - Proc\u00e9dure de remplissage usine", 
+   "Routine - Purge apr\u00e8s vente", 
+   "Routine - Test du citcuit hydaulique", 
+   "IO - Activation des capteurs vitesse roue", 
+   "Configuration de l'init vitesse", 
+   "Lecture Ecriture - Variante ABS", 
+   "Lecture - DTC Bosch", 
+   "Lecture - Identification syst\u00e8me", 
+   "IO - Vitesse v\u00e9hicule filaire", 
+   "Lecture - Tra\u00e7abilit\u00e9"
+  ]
+ }
+}

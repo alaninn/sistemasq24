@@ -1,0 +1,2826 @@
+{
+ "_meta": {
+  "funcname": {
+   "es": "",
+   "original": "Tableau de bord"
+  }
+ },
+ "buttons": {
+  "Ecriture Option ESP": {
+   "es": "Escritura de opción ESP"
+  },
+  "Ecriture Option RV\\LV": {
+   "es": "Escritura de opción regulador/limitador de velocidad"
+  },
+  "Ecriture Option SSPP": {
+   "es": "Escritura de opción SSPP (control de presión de neumáticos)"
+  },
+  "Ecriture Option Survitesse": {
+   "es": "Escritura de opción de alarma de sobrevelocidad"
+  },
+  "Ecriture Option loi autoadaptative": {
+   "es": "Escritura de opción de ley autoadaptativa"
+  },
+  "Ecriture Type boite": {
+   "es": "Escritura del tipo de caja"
+  },
+  "Ecriture Type carburation": {
+   "es": "Escritura del tipo de carburación"
+  },
+  "Ecriture Unité de distance": {
+   "es": "Escritura de la unidad de distancia"
+  },
+  "Ecriture VIN": {
+   "es": "Escritura del VIN"
+  },
+  "Ecriture carrosserie": {
+   "es": "Escritura del tipo de carrocería"
+  },
+  "Ecriture type VSC": {
+   "es": "Escritura del tipo VSC"
+  },
+  "Ecriture type affichage ADAC": {
+   "es": "Escritura del tipo de visualización de la computadora de a bordo"
+  },
+  "Ecriture type de langue": {
+   "es": "Escritura del idioma"
+  },
+  "Ecriture vidange Km": {
+   "es": "Escritura del intervalo de cambio de aceite (km)"
+  },
+  "Ecriture vidange temps": {
+   "es": "Escritura del intervalo de cambio de aceite (tiempo)"
+  },
+  "Prise en compte changements": {
+   "es": "Toma en cuenta de los cambios"
+  },
+  "RAZ défauts mémorisés": {
+   "es": "Borrado de fallas memorizadas"
+  },
+  "Recalage L2": {
+   "es": "Recalibración L2"
+  }
+ },
+ "categories": {
+  "Ecrans MAP": {
+   "es": "Pantallas de mapas"
+  },
+  "Ecrans ident et config": {
+   "es": "Pantallas de identificación y configuración"
+  },
+  "Ecrans étude": {
+   "es": "Pantallas de estudio"
+  }
+ },
+ "data": {
+  "+Lanterne (CAN)": {
+   "ayuda": "",
+   "es": "+Luces de posición (CAN)",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Absent"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Présent"
+    }
+   }
+  },
+  "ABS absent": {
+   "ayuda": "",
+   "es": "ABS ausente",
+   "lists": {
+    "0": {
+     "es": "Presente",
+     "original": "Présent"
+    },
+    "1": {
+     "es": "ausente",
+     "original": "absent"
+    }
+   }
+  },
+  "AIRBAG absent": {
+   "ayuda": "",
+   "es": "AIRBAG ausente",
+   "lists": {
+    "0": {
+     "es": "Presente",
+     "original": "Présent"
+    },
+    "1": {
+     "es": "Ausente",
+     "original": "Absent"
+    }
+   }
+  },
+  "APC (CAN)": {
+   "ayuda": "",
+   "es": "APC (+contacto, vía CAN)",
+   "lists": {
+    "0": {
+     "es": "APC (+contacto) ausente",
+     "original": "APC absent"
+    },
+    "1": {
+     "es": "APC (+contacto) presente",
+     "original": "APC présent"
+    }
+   }
+  },
+  "Adresse en mémoire": {
+   "ayuda": "",
+   "es": "Dirección en memoria"
+  },
+  "Aiguille CARBURANT.mode": {
+   "ayuda": "",
+   "es": "Aguja de COMBUSTIBLE.modo",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Aiguille COMPTE-TOURS.mode": {
+   "ayuda": "",
+   "es": "Aguja del CUENTAVUELTAS.modo",
+   "unit": {
+    "es": "rpm",
+    "original": "tr/mn"
+   }
+  },
+  "Aiguille TEMPERATURE EAU.mode": {
+   "ayuda": "",
+   "es": "Aguja de TEMPERATURA DE AGUA.modo",
+   "unit": {
+    "es": "°C",
+    "original": "°C"
+   }
+  },
+  "Aiguille VITESSE.mode": {
+   "ayuda": "",
+   "es": "Aguja de VELOCIDAD.modo",
+   "unit": {
+    "es": "km/h",
+    "original": "km/h"
+   }
+  },
+  "Alerte ceinture de sécurité passager": {
+   "ayuda": "",
+   "es": "Alerta de cinturón de seguridad del pasajero",
+   "lists": {
+    "0": {
+     "es": "sin alerta",
+     "original": "pas d'alerte"
+    },
+    "1": {
+     "es": "alerta solicitada",
+     "original": "alerte demandée"
+    }
+   }
+  },
+  "Autonomie de vidange": {
+   "ayuda": "",
+   "es": "Autonomía hasta el cambio de aceite",
+   "unit": {
+    "es": "km x 1000",
+    "original": "Km x 1000"
+   }
+  },
+  "Autonomie de vidange : Temps": {
+   "ayuda": "",
+   "es": "Autonomía hasta el cambio de aceite: tiempo",
+   "unit": {
+    "es": "Mes",
+    "original": "Mois"
+   }
+  },
+  "Avec ou sans réponse": {
+   "ayuda": "",
+   "es": "Con o sin respuesta",
+   "lists": {
+    "1": {
+     "es": "Respuesta solicitada",
+     "original": "Réponse demandée"
+    },
+    "2": {
+     "es": "sin respuesta solicitada",
+     "original": "pas de réponse demandée"
+    }
+   }
+  },
+  "Capacité du réservoir (en litres)": {
+   "ayuda": "",
+   "es": "Capacidad del tanque (en litros)",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Carburant consommé": {
+   "ayuda": "",
+   "es": "Combustible consumido",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Carburant consommé GPL": {
+   "ayuda": "",
+   "es": "Combustible GLP consumido",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Cluster absent": {
+   "ayuda": "",
+   "es": "Cuadro de instrumentos ausente"
+  },
+  "Codage entrée Led Airbag Passager": {
+   "ayuda": "",
+   "es": "Codificación de la entrada del LED de airbag del pasajero"
+  },
+  "Codage entrée Led Défaut Airbag": {
+   "ayuda": "",
+   "es": "Codificación de la entrada del LED de falla de airbag"
+  },
+  "Codage entrée Niveau Carburant": {
+   "ayuda": "",
+   "es": "Codificación de la entrada de nivel de combustible"
+  },
+  "Codage entrée Niveau Huile": {
+   "ayuda": "",
+   "es": "Codificación de la entrada de nivel de aceite"
+  },
+  "Codage entrée Température": {
+   "ayuda": "",
+   "es": "Codificación de la entrada de temperatura"
+  },
+  "Codage entrée Tension Batterie": {
+   "ayuda": "",
+   "es": "Codificación de la entrada de tensión de batería"
+  },
+  "Codage entrée Tension Rhéostat": {
+   "ayuda": "",
+   "es": "Codificación de la entrada de tensión del reóstato"
+  },
+  "Code identification constructeur": {
+   "ayuda": "",
+   "es": "Código de identificación del fabricante",
+   "lists": {
+    "0": {
+     "es": "Código del fabricante por defecto",
+     "original": "Code constructeur par défaut"
+    }
+   }
+  },
+  "Code identification diagnostic": {
+   "ayuda": "",
+   "es": "Código de identificación de diagnóstico",
+   "lists": {
+    "4": {
+     "es": "Código de identificación correcto",
+     "original": "Code Identification correct"
+    }
+   }
+  },
+  "Compteur ABS absent": {
+   "ayuda": "",
+   "es": "Contador: ABS ausente"
+  },
+  "Compteur AIRBAG absent": {
+   "ayuda": "",
+   "es": "Contador: AIRBAG ausente"
+  },
+  "Compteur EPS absent": {
+   "ayuda": "",
+   "es": "Contador: EPS ausente"
+  },
+  "Compteur MODULE MUET": {
+   "ayuda": "",
+   "es": "Contador: MÓDULO MUDO"
+  },
+  "Compteur UCH absent": {
+   "ayuda": "",
+   "es": "Contador: UCH ausente"
+  },
+  "Compteur UPC absent": {
+   "ayuda": "",
+   "es": "Contador: UPC ausente"
+  },
+  "Compteur état BUS": {
+   "ayuda": "",
+   "es": "Contador de estado del BUS"
+  },
+  "Consigne Carburant": {
+   "ayuda": "",
+   "es": "Consigna de combustible",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Consigne Eclairage Afficheurs": {
+   "ayuda": "",
+   "es": "Consigna de iluminación de las pantallas"
+  },
+  "Consigne Eclairage Graphismes": {
+   "ayuda": "",
+   "es": "Consigna de iluminación de los gráficos"
+  },
+  "Consigne Moteur": {
+   "ayuda": "",
+   "es": "Consigna del motor",
+   "unit": {
+    "es": "Micropasos",
+    "original": "MicroPas"
+   }
+  },
+  "Consigne Régime": {
+   "ayuda": "",
+   "es": "Consigna de régimen",
+   "unit": {
+    "es": "rpm",
+    "original": "tr/mn"
+   }
+  },
+  "Consigne Température": {
+   "ayuda": "",
+   "es": "Consigna de temperatura",
+   "unit": {
+    "es": "°C",
+    "original": "°C"
+   }
+  },
+  "Consigne Vitesse": {
+   "ayuda": "",
+   "es": "Consigna de velocidad",
+   "unit": {
+    "es": "km/h",
+    "original": "km/h"
+   }
+  },
+  "Contact ceinture de sécurité conducteur (CAN)": {
+   "ayuda": "",
+   "es": "Contacto del cinturón de seguridad del conductor (CAN)",
+   "lists": {
+    "0": {
+     "es": "cinturón abrochado",
+     "original": "ceinture attachée"
+    },
+    "1": {
+     "es": "cinturón no abrochado",
+     "original": "ceinture non attachée"
+    }
+   }
+  },
+  "Contact frein de parking": {
+   "ayuda": "",
+   "es": "Contacto del freno de mano",
+   "lists": {
+    "0": {
+     "es": "freno de mano liberado",
+     "original": "frein desserré"
+    },
+    "1": {
+     "es": "freno de mano puesto",
+     "original": "frein serré"
+    }
+   }
+  },
+  "Contraste LCD Principal": {
+   "ayuda": "",
+   "es": "Contraste del LCD principal"
+  },
+  "Date à lire": {
+   "ayuda": "",
+   "es": "Fecha a leer"
+  },
+  "Distance ADAC": {
+   "ayuda": "",
+   "es": "Distancia ADAC (computadora de a bordo)",
+   "unit": {
+    "es": "km",
+    "original": "Km"
+   }
+  },
+  "Débit carburant": {
+   "ayuda": "",
+   "es": "Caudal de combustible",
+   "unit": {
+    "es": "Litros / hora",
+    "original": "Litres / Heure"
+   }
+  },
+  "Débitmètre : absence d'information (CAN)": {
+   "ayuda": "",
+   "es": "Caudalímetro: ausencia de información (CAN)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Débitmètre : absence d'information (CAN) mémo": {
+   "ayuda": "",
+   "es": "Caudalímetro: ausencia de información (CAN) memorizada",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "Détection défaut charge batterie (message) CAN": {
+   "ayuda": "",
+   "es": "Detección de falla de carga de batería (mensaje CAN)",
+   "lists": {
+    "0": {
+     "es": "Condiciones no cumplidas",
+     "original": "Conditions non remplies"
+    },
+    "1": {
+     "es": "Condiciones cumplidas (contacto cerrado, régimen>umbral y tiempo>umbral)",
+     "original": "Conditions remplies (contact fermé et régime>seuil et temps>seuil)"
+    }
+   }
+  },
+  "Détection défaut pression huile (CAN)": {
+   "ayuda": "",
+   "es": "Detección de falla de presión de aceite (CAN)",
+   "lists": {
+    "0": {
+     "es": "condiciones no cumplidas",
+     "original": "conditions non remplies"
+    },
+    "1": {
+     "es": "condiciones cumplidas (contacto cerrado y velocidad>umbral)",
+     "original": "conditions remplies (contact fermé et vitesse>seuil)"
+    }
+   }
+  },
+  "EPS absent": {
+   "ayuda": "",
+   "es": "Dirección asistida (EPS) ausente",
+   "lists": {
+    "0": {
+     "es": "Presente",
+     "original": "Présent"
+    },
+    "1": {
+     "es": "ausente",
+     "original": "absent"
+    }
+   }
+  },
+  "Eclairage Afficheurs.mode": {
+   "ayuda": "",
+   "es": "Iluminación de las pantallas.modo"
+  },
+  "Eclairage Graphismes.mode": {
+   "ayuda": "",
+   "es": "Iluminación de los gráficos.modo"
+  },
+  "Etat Activation": {
+   "ayuda": "",
+   "es": "Estado de activación",
+   "lists": {
+    "1": {
+     "es": "Con",
+     "original": "Avec"
+    },
+    "2": {
+     "es": "Sin",
+     "original": "Sans"
+    }
+   }
+  },
+  "Etat BUS": {
+   "ayuda": "",
+   "es": "Estado del BUS",
+   "lists": {
+    "0": {
+     "es": "Bus encendido (Bus ON)",
+     "original": "Bus ON"
+    },
+    "1": {
+     "es": "Bus apagado (Bus OFF)",
+     "original": "Bus OFF"
+    }
+   }
+  },
+  "Etat Pilotage": {
+   "ayuda": "",
+   "es": "Estado del pilotaje",
+   "lists": {
+    "1": {
+     "es": "Estado",
+     "original": "Status"
+    },
+    "17": {
+     "es": "Inactivo",
+     "original": "Inactif"
+    },
+    "32": {
+     "es": "Activo",
+     "original": "Actif"
+    }
+   }
+  },
+  "Etat SORTIES.Etat Sorties": {
+   "ayuda": "",
+   "es": "Estado de SALIDAS.Estado de salidas"
+  },
+  "Etat Sorties": {
+   "ayuda": "",
+   "es": "Estado de salidas"
+  },
+  "Etat Sorties Moteurs.Etat des Sorties Moteurs": {
+   "ayuda": "",
+   "es": "Estado de salidas de motores.Estado de las salidas de motores"
+  },
+  "Etat des Ports": {
+   "ayuda": "",
+   "es": "Estado de los puertos"
+  },
+  "Etat des Sorties Moteurs": {
+   "ayuda": "",
+   "es": "Estado de las salidas de motores"
+  },
+  "Etat information charge batterie (voyant) CAN": {
+   "ayuda": "",
+   "es": "Estado de la información de carga de batería (testigo) CAN",
+   "lists": {
+    "0": {
+     "es": "Contacto abierto",
+     "original": "Contact ouvert"
+    },
+    "1": {
+     "es": "Contacto cerrado",
+     "original": "Contact fermé"
+    }
+   }
+  },
+  "Etat mano contact pression huile": {
+   "ayuda": "",
+   "es": "Estado del manocontacto de presión de aceite",
+   "lists": {
+    "0": {
+     "es": "Contacto abierto",
+     "original": "Contact ouvert"
+    },
+    "1": {
+     "es": "Contacto cerrado",
+     "original": "Contact fermé"
+    }
+   }
+  },
+  "Feux brouillard AR (CAN)": {
+   "ayuda": "",
+   "es": "Luces antiniebla traseras (CAN)",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Absent"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Présent"
+    }
+   }
+  },
+  "Feux brouillard AV (CAN)": {
+   "ayuda": "",
+   "es": "Luces antiniebla delanteras (CAN)",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Absent"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Présent"
+    }
+   }
+  },
+  "Feux croisement (CAN)": {
+   "ayuda": "",
+   "es": "Luces bajas (CAN)",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Absent"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Présent"
+    }
+   }
+  },
+  "Feux route (CAN)": {
+   "ayuda": "",
+   "es": "Luces altas (CAN)",
+   "lists": {
+    "0": {
+     "es": "Ausente",
+     "original": "Absent"
+    },
+    "1": {
+     "es": "Presente",
+     "original": "Présent"
+    }
+   }
+  },
+  "FirstDTC": {
+   "ayuda": "",
+   "es": "Primer código de falla (DTC)",
+   "lists": {
+    "37889": {
+     "es": "Sensor de nivel de aceite",
+     "original": "Capteur Niveau Huile"
+    },
+    "37890": {
+     "es": "Sensor del aforador de combustible",
+     "original": "Capteur Jauge Carburant"
+    },
+    "37891": {
+     "es": "Sensor del reóstato",
+     "original": "Capteur Rhéostat"
+    }
+   }
+  },
+  "Frequence BUZZER.mode": {
+   "ayuda": "",
+   "es": "Frecuencia del ZUMBADOR.modo",
+   "unit": {
+    "es": "Hz",
+    "original": "Hz"
+   }
+  },
+  "Fréquence Buzzer": {
+   "ayuda": "",
+   "es": "Frecuencia del zumbador",
+   "unit": {
+    "es": "Hz",
+    "original": "Hz"
+   }
+  },
+  "Identificateur Segment LCD SSPP/BVA": {
+   "ayuda": "",
+   "es": "Identificador de segmento del LCD SSPP/caja automática",
+   "lists": {
+    "0": {
+     "es": "Rueda delantera derecha (ext.)",
+     "original": "Roue Avant Droite (Ext)"
+    },
+    "1": {
+     "es": "Puerta delantera derecha",
+     "original": "Porte Avant Droite"
+    },
+    "10": {
+     "es": "D negativo",
+     "original": "D Négatif"
+    },
+    "11": {
+     "es": "P positivo",
+     "original": "P Positif"
+    },
+    "12": {
+     "es": "Segmento de dígito 4",
+     "original": "Digit Segment 4"
+    },
+    "13": {
+     "es": "Segmento de dígito 6",
+     "original": "Digit Segment 6"
+    },
+    "14": {
+     "es": "Puerta trasera izquierda",
+     "original": "Porte Arrière Gauche"
+    },
+    "15": {
+     "es": "Rueda delantera izquierda (int.)",
+     "original": "Roue Avant Gauche (Int)"
+    },
+    "16": {
+     "es": "No utilizado",
+     "original": "N.U."
+    },
+    "17": {
+     "es": "Rueda trasera derecha (ext.)",
+     "original": "Roue Arrière Droite (Ext)"
+    },
+    "18": {
+     "es": "N negativo",
+     "original": "N Négatif"
+    },
+    "19": {
+     "es": "R positivo",
+     "original": "R Positif"
+    },
+    "2": {
+     "es": "D positivo",
+     "original": "D Positif"
+    },
+    "20": {
+     "es": "Segmento de dígito 5",
+     "original": "Digit Segment 5"
+    },
+    "21": {
+     "es": "Segmento de dígito 1",
+     "original": "Digit Segment 1"
+    },
+    "22": {
+     "es": "Rueda trasera izquierda (ext.)",
+     "original": "Roue Arrière Gauche (Ext)"
+    },
+    "23": {
+     "es": "Carrocería del vehículo",
+     "original": "Corps de Véhicule"
+    },
+    "24": {
+     "es": "No utilizado 24",
+     "original": "N.U. 24"
+    },
+    "25": {
+     "es": "Rueda trasera derecha (int.)",
+     "original": "Roue Arrière Droite (Int)"
+    },
+    "26": {
+     "es": "N positivo",
+     "original": "N Positif"
+    },
+    "27": {
+     "es": "R negativo",
+     "original": "R Négatif"
+    },
+    "28": {
+     "es": "Segmento de dígito 0",
+     "original": "Digit Segment 0"
+    },
+    "29": {
+     "es": "Flecha Auto/Manual",
+     "original": "Flèche Auto/Manuel"
+    },
+    "3": {
+     "es": "P negativo",
+     "original": "P Négatif"
+    },
+    "30": {
+     "es": "Rueda trasera izquierda (int.)",
+     "original": "Roue Arrière Gauche (Int)"
+    },
+    "31": {
+     "es": "Baúl",
+     "original": "Coffre"
+    },
+    "4": {
+     "es": "Segmento de dígito 3",
+     "original": "Digit Segment 3"
+    },
+    "5": {
+     "es": "Segmento de dígito 2",
+     "original": "Digit Segment 2"
+    },
+    "6": {
+     "es": "Puerta delantera izquierda",
+     "original": "Porte Avant Gauche"
+    },
+    "7": {
+     "es": "Rueda delantera izquierda (ext.)",
+     "original": "Roue Avant Gauche (Ext)"
+    },
+    "8": {
+     "es": "Rueda delantera derecha (int.)",
+     "original": "Roue Avant Droite (Int)"
+    },
+    "9": {
+     "es": "Puerta trasera derecha",
+     "original": "Porte Arrière Droite"
+    }
+   }
+  },
+  "Identificateur Voyant": {
+   "ayuda": "",
+   "es": "Identificador de testigo",
+   "lists": {
+    "0": {
+     "es": "Servicio",
+     "original": "Service"
+    },
+    "1": {
+     "es": "Luces antiniebla delanteras",
+     "original": "Feux de Brouillard Avant"
+    },
+    "10": {
+     "es": "RV (regulador de velocidad)",
+     "original": "RV"
+    },
+    "11": {
+     "es": "LV (limitador de velocidad)",
+     "original": "LV"
+    },
+    "12": {
+     "es": "Luz de giro derecha",
+     "original": "Clignotant Droit"
+    },
+    "13": {
+     "es": "Apertura / Pinchazo",
+     "original": "Ouvrant / Crevaison"
+    },
+    "14": {
+     "es": "Incidente de freno",
+     "original": "Incident Frein"
+    },
+    "15": {
+     "es": "Cinturón del conductor",
+     "original": "Ceinture Conducteur"
+    },
+    "16": {
+     "es": "Presión de aceite",
+     "original": "Pression Huile"
+    },
+    "17": {
+     "es": "GLP (gas licuado)",
+     "original": "GPL"
+    },
+    "18": {
+     "es": "Mínimo de combustible",
+     "original": "Mini Carburant"
+    },
+    "19": {
+     "es": "Carga de batería",
+     "original": "Charge Batterie"
+    },
+    "2": {
+     "es": "Airbag del pasajero",
+     "original": "Airbag Passager"
+    },
+    "20": {
+     "es": "OBD",
+     "original": "OBD"
+    },
+    "21": {
+     "es": "Falla de airbag",
+     "original": "Défaut Airbag"
+    },
+    "3": {
+     "es": "Detener",
+     "original": "Stop"
+    },
+    "4": {
+     "es": "ABS",
+     "original": "ABS"
+    },
+    "5": {
+     "es": "Luces altas",
+     "original": "Feux de Route"
+    },
+    "6": {
+     "es": "Luces bajas",
+     "original": "Feux de Croisement"
+    },
+    "7": {
+     "es": "Luces antiniebla traseras",
+     "original": "Feux de Brouillard Arrière"
+    },
+    "8": {
+     "es": "ESP",
+     "original": "ESP"
+    },
+    "9": {
+     "es": "Luz de giro izquierda",
+     "original": "Clignotant Gauche"
+    }
+   }
+  },
+  "Incident frein (NIVOCOD)": {
+   "ayuda": "",
+   "es": "Incidente de freno (NIVOCOD)",
+   "lists": {
+    "0": {
+     "es": "Contacto abierto",
+     "original": "Contact ouvert"
+    },
+    "1": {
+     "es": "Contacto cerrado (nivel<mínimo)",
+     "original": "Contact fermé (niveau<minimum)"
+    }
+   }
+  },
+  "Information capteur GNV/GNC (Ohms) CAN": {
+   "ayuda": "",
+   "es": "Información del sensor de GNC (Ohms) CAN"
+  },
+  "Information capteur jauge GPL (Ohms) CAN": {
+   "ayuda": "",
+   "es": "Información del sensor del aforador de GLP (Ohms) CAN"
+  },
+  "Information carburant consommé (mm3) CAN": {
+   "ayuda": "",
+   "es": "Información de combustible consumido (mm³) CAN"
+  },
+  "Information température moteur (°C) CAN": {
+   "ayuda": "",
+   "es": "Información de temperatura del motor (°C) CAN"
+  },
+  "Jauge GPL : absence d'information (CAN)": {
+   "ayuda": "",
+   "es": "Aforador de GLP: ausencia de información (CAN)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Jauge GPL : absence d'information (CAN) mémo": {
+   "ayuda": "",
+   "es": "Aforador de GLP: ausencia de información (CAN) memorizada",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "Jauge carburant (circuit ouvert)": {
+   "ayuda": "",
+   "es": "Aforador de combustible (circuito abierto)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Jauge carburant (circuit ouvert) mémo": {
+   "ayuda": "",
+   "es": "Aforador de combustible (circuito abierto) memorizado",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "Jauge carburant (court-circuit)": {
+   "ayuda": "",
+   "es": "Aforador de combustible (cortocircuito)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Jauge carburant (court-circuit) mémo": {
+   "ayuda": "",
+   "es": "Aforador de combustible (cortocircuito) memorizado",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "Jauge carburant GPL (circuit ouvert)": {
+   "ayuda": "",
+   "es": "Aforador de GLP (circuito abierto)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Jauge carburant GPL (circuit ouvert) mémo": {
+   "ayuda": "",
+   "es": "Aforador de GLP (circuito abierto) memorizado",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "Jauge carburant GPL (court-circuit)": {
+   "ayuda": "",
+   "es": "Aforador de GLP (cortocircuito)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Jauge carburant GPL (court-circuit) mémo": {
+   "ayuda": "",
+   "es": "Aforador de GLP (cortocircuito) memorizado",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "K maj S1": {
+   "ayuda": "",
+   "es": "K mayúscula S1"
+  },
+  "K maj S2": {
+   "ayuda": "",
+   "es": "K mayúscula S2"
+  },
+  "K min S1": {
+   "ayuda": "",
+   "es": "K minúscula S1"
+  },
+  "K min S2": {
+   "ayuda": "",
+   "es": "K minúscula S2"
+  },
+  "L0": {
+   "ayuda": "",
+   "es": "L0",
+   "unit": {
+    "es": "litros",
+    "original": "litres"
+   }
+  },
+  "L0 GPL": {
+   "ayuda": "",
+   "es": "L0 GLP",
+   "unit": {
+    "es": "litros",
+    "original": "litres"
+   }
+  },
+  "L1": {
+   "ayuda": "",
+   "es": "L1",
+   "unit": {
+    "es": "litros",
+    "original": "litres"
+   }
+  },
+  "L1 GPL": {
+   "ayuda": "",
+   "es": "L1 GLP",
+   "unit": {
+    "es": "litros",
+    "original": "litres"
+   }
+  },
+  "L2": {
+   "ayuda": "",
+   "es": "L2",
+   "unit": {
+    "es": "litros",
+    "original": "litres"
+   }
+  },
+  "L2 GPL": {
+   "ayuda": "",
+   "es": "L2 GLP",
+   "unit": {
+    "es": "litros",
+    "original": "litres"
+   }
+  },
+  "LCD Principal.Contraste LCD Principal": {
+   "ayuda": "",
+   "es": "LCD principal.Contraste"
+  },
+  "LCD Principal.Message Display": {
+   "ayuda": "",
+   "es": "LCD principal.Mensaje mostrado"
+  },
+  "LCD Principal.Motif LCD": {
+   "ayuda": "",
+   "es": "LCD principal.Patrón del LCD",
+   "lists": {
+    "0": {
+     "es": "Todo apagado",
+     "original": "Tout Eteint"
+    },
+    "252": {
+     "es": "Damero (patrón de prueba)",
+     "original": "Damier"
+    },
+    "253": {
+     "es": "Damero invertido",
+     "original": "Damier Inverse"
+    },
+    "254": {
+     "es": "Ajuste de contraste",
+     "original": "Réglage Contraste"
+    },
+    "255": {
+     "es": "Todo encendido",
+     "original": "Tout Allumé"
+    }
+   }
+  },
+  "Lave Glace": {
+   "ayuda": "",
+   "es": "Lavaparabrisas",
+   "lists": {
+    "0": {
+     "es": "Contacto abierto",
+     "original": "Contact ouvert"
+    },
+    "1": {
+     "es": "Contacto cerrado (nivel<mínimo)",
+     "original": "Contact fermé (niveau<minimum)"
+    }
+   }
+  },
+  "MODULE MUET": {
+   "ayuda": "",
+   "es": "MÓDULO MUDO",
+   "lists": {
+    "0": {
+     "es": "Módulo presente",
+     "original": "Module présent"
+    },
+    "1": {
+     "es": "módulo mudo (sin respuesta)",
+     "original": "module muet"
+    }
+   }
+  },
+  "Maxi Compteur ABS absent": {
+   "ayuda": "",
+   "es": "Máximo del contador de ABS ausente",
+   "lists": {
+    "0": {
+     "es": "inferior al máximo",
+     "original": "inférieur au max"
+    },
+    "1": {
+     "es": "Máximo alcanzado",
+     "original": "Maximum atteint"
+    }
+   }
+  },
+  "Maxi compteur AIRBAG absent": {
+   "ayuda": "",
+   "es": "Máximo del contador de AIRBAG ausente",
+   "lists": {
+    "0": {
+     "es": "inferior al máximo",
+     "original": "inférieur au max"
+    },
+    "1": {
+     "es": "Máximo alcanzado",
+     "original": "Maximum atteint"
+    }
+   }
+  },
+  "Maxi compteur EPSabsent": {
+   "ayuda": "",
+   "es": "Máximo del contador de EPS ausente",
+   "lists": {
+    "0": {
+     "es": "inferior al máximo",
+     "original": "inférieur au max"
+    },
+    "1": {
+     "es": "Máximo alcanzado",
+     "original": "Maximum atteint"
+    }
+   }
+  },
+  "Maxi compteur MODULE MUET": {
+   "ayuda": "",
+   "es": "Máximo del contador de MÓDULO MUDO",
+   "lists": {
+    "0": {
+     "es": "Inferior al máximo",
+     "original": "Inférieur au maxi"
+    },
+    "1": {
+     "es": "Máximo alcanzado",
+     "original": "Maximum atteint"
+    }
+   }
+  },
+  "Maxi compteur UPC absent": {
+   "ayuda": "",
+   "es": "Máximo del contador de UPC ausente",
+   "lists": {
+    "0": {
+     "es": "inferior al máximo",
+     "original": "inférieur au max"
+    },
+    "1": {
+     "es": "Máximo alcanzado",
+     "original": "Maximum atteint"
+    }
+   }
+  },
+  "Maxi compteur état  BUS": {
+   "ayuda": "",
+   "es": "Máximo del contador de estado del BUS",
+   "lists": {
+    "0": {
+     "es": "Inferior al máximo",
+     "original": "Inférieur au maxi"
+    },
+    "1": {
+     "es": "Máximo alcanzado",
+     "original": "Maximum atteint"
+    }
+   }
+  },
+  "Message Display": {
+   "ayuda": "",
+   "es": "Mensaje mostrado"
+  },
+  "Mesure DeltaU": {
+   "ayuda": "",
+   "es": "Medición de delta de tensión",
+   "unit": {
+    "es": "mV",
+    "original": "mV"
+   }
+  },
+  "Mesure DeltaU mémorisée": {
+   "ayuda": "",
+   "es": "Medición de delta de tensión memorizada",
+   "unit": {
+    "es": "mV",
+    "original": "mV"
+   }
+  },
+  "Mesure U1": {
+   "ayuda": "",
+   "es": "Medición de tensión U1",
+   "unit": {
+    "es": "mV",
+    "original": "mV"
+   }
+  },
+  "Mesure U2": {
+   "ayuda": "",
+   "es": "Medición de tensión U2",
+   "unit": {
+    "es": "mV",
+    "original": "mV"
+   }
+  },
+  "Mode de diagnostic": {
+   "ayuda": "",
+   "es": "Modo de diagnóstico",
+   "lists": {
+    "129": {
+     "es": "Sesión por defecto",
+     "original": "Session par défaut"
+    },
+    "134": {
+     "es": "Sesión de desarrollo",
+     "original": "Session développement"
+    },
+    "192": {
+     "es": "Sesión de control en línea de montaje y diagnóstico de posventa",
+     "original": "Session contrôle en chaîne et diagnostic après-vente"
+    },
+    "250": {
+     "es": "Sesión de proveedor",
+     "original": "Session fournisseur"
+    }
+   }
+  },
+  "Moteur CARBURANT.mode": {
+   "ayuda": "",
+   "es": "Motor de la aguja de COMBUSTIBLE.modo",
+   "unit": {
+    "es": "Micropasos",
+    "original": "MicroPas"
+   }
+  },
+  "Moteur COMPTE-TOURS.mode": {
+   "ayuda": "",
+   "es": "Motor del CUENTAVUELTAS.modo",
+   "unit": {
+    "es": "Micropasos",
+    "original": "MicroPas"
+   }
+  },
+  "Moteur TEMPERATURE EAU.mode": {
+   "ayuda": "",
+   "es": "Motor de la aguja de TEMPERATURA DE AGUA.modo",
+   "unit": {
+    "es": "Micropasos",
+    "original": "MicroPas"
+   }
+  },
+  "Moteur VITESSE.mode": {
+   "ayuda": "",
+   "es": "Motor de la aguja de VELOCIDAD.modo",
+   "unit": {
+    "es": "Micropasos",
+    "original": "MicroPas"
+   }
+  },
+  "Motif LCD": {
+   "ayuda": "",
+   "es": "Patrón del LCD",
+   "lists": {
+    "0": {
+     "es": "Todo apagado",
+     "original": "Tout Eteint"
+    },
+    "252": {
+     "es": "Damero (patrón de prueba)",
+     "original": "Damier"
+    },
+    "253": {
+     "es": "Damero invertido",
+     "original": "Damier Inverse"
+    },
+    "254": {
+     "es": "Ajuste de contraste",
+     "original": "Réglage Contraste"
+    },
+    "255": {
+     "es": "Todo encendido",
+     "original": "Tout Allumé"
+    }
+   }
+  },
+  "NDTC": {
+   "ayuda": "",
+   "comment": {
+    "es": "Cantidad de averías para DDT2000",
+    "original": "Nombre de pannes pour DDT2000"
+   },
+   "es": "Cantidad de códigos de falla (DTC)"
+  },
+  "Niveau d'alerte carburant": {
+   "ayuda": "",
+   "es": "Nivel de alerta de combustible",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Niveau huile (circuit ouvert)": {
+   "ayuda": "",
+   "es": "Nivel de aceite (circuito abierto)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Niveau huile (circuit ouvert) mémo": {
+   "ayuda": "",
+   "es": "Nivel de aceite (circuito abierto) memorizado",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "Niveau huile (court-circuit)": {
+   "ayuda": "",
+   "es": "Nivel de aceite (cortocircuito)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "Niveau huile (court-circuit) mémo": {
+   "ayuda": "",
+   "es": "Nivel de aceite (cortocircuito) memorizado",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "Nombre d'octets": {
+   "ayuda": "",
+   "comment": {
+    "es": "Cantidad de bytes",
+    "original": "Nombre d'octets"
+   },
+   "es": "Cantidad de bytes"
+  },
+  "Numéro de calibration": {
+   "ayuda": "",
+   "es": "Número de calibración"
+  },
+  "Numéro de pièce MPR (en BCD)": {
+   "ayuda": "",
+   "es": "Número de pieza MPR (en BCD)"
+  },
+  "Numéro de série": {
+   "ayuda": "",
+   "es": "Número de serie"
+  },
+  "Numéro de version": {
+   "ayuda": "",
+   "es": "Número de versión"
+  },
+  "Numéro de version LSB": {
+   "ayuda": "",
+   "es": "Número de versión (byte bajo)"
+  },
+  "Numéro du logiciel": {
+   "ayuda": "",
+   "es": "Número del software",
+   "lists": {
+    "8": {
+     "es": "B84",
+     "original": "B84"
+    },
+    "9": {
+     "es": "J84 (Scénic II)",
+     "original": "J84"
+    }
+   }
+  },
+  "Numéro fournisseur (code ITG)": {
+   "ayuda": "",
+   "es": "Número del proveedor (código ITG)"
+  },
+  "Numéro hardware (en BCD)": {
+   "ayuda": "",
+   "es": "Número de hardware (en BCD)"
+  },
+  "Odomètre Partiel": {
+   "ayuda": "",
+   "es": "Odómetro parcial",
+   "unit": {
+    "es": "km",
+    "original": "Km"
+   }
+  },
+  "Odomètre Total": {
+   "ayuda": "",
+   "es": "Odómetro total",
+   "unit": {
+    "es": "km",
+    "original": "Km"
+   }
+  },
+  "Offset Moteur": {
+   "ayuda": "",
+   "es": "Offset del motor",
+   "unit": {
+    "es": "Micropasos",
+    "original": "MicroPas"
+   }
+  },
+  "Option Loi auto-adaptative": {
+   "ayuda": "",
+   "es": "Opción de ley autoadaptativa",
+   "lists": {
+    "0": {
+     "es": "A definir",
+     "original": "A définir"
+    }
+   }
+  },
+  "Output Control Command": {
+   "ayuda": "",
+   "comment": {
+    "es": "Prueba de actuador: enumeración de comandos",
+    "original": "Testing output : Command enumeration"
+   },
+   "es": "Comando de control de actuadores",
+   "lists": {
+    "1": {
+     "es": "Estado",
+     "original": "Status"
+    },
+    "17": {
+     "es": "Detener",
+     "original": "Stop"
+    },
+    "32": {
+     "es": "Iniciar permanente",
+     "original": "Start Permanent"
+    }
+   }
+  },
+  "Output Control Status": {
+   "ayuda": "",
+   "es": "Estado del control de actuadores",
+   "lists": {
+    "1": {
+     "es": "En ejecución",
+     "original": "Running"
+    },
+    "17": {
+     "es": "Detenido manualmente",
+     "original": "Manually Stopped"
+    },
+    "2": {
+     "es": "Detenido",
+     "original": "Stopped"
+    }
+   }
+  },
+  "Output Permanent Control List": {
+   "ayuda": "",
+   "es": "Lista de controles permanentes de actuadores",
+   "lists": {
+    "1": {
+     "es": "TESTIGOS",
+     "original": "VOYANTS"
+    },
+    "10": {
+     "es": "ZUMBADOR",
+     "original": "BUZZER"
+    },
+    "2": {
+     "es": "SEGMENTOS",
+     "original": "SEGMENTS"
+    },
+    "3": {
+     "es": "Pantalla PRINCIPAL",
+     "original": "Afficheur PRINCIPAL"
+    },
+    "33": {
+     "es": "Motor del CUENTAVUELTAS",
+     "original": "Moteur COMPTE-TOURS"
+    },
+    "34": {
+     "es": "Motor de la aguja de VELOCIDAD",
+     "original": "Moteur VITESSE"
+    },
+    "35": {
+     "es": "Motor de la aguja de COMBUSTIBLE",
+     "original": "Moteur CARBURANT"
+    },
+    "36": {
+     "es": "Motor de la aguja de TEMPERATURA DE AGUA",
+     "original": "Moteur TEMPERATURE EAU"
+    },
+    "37": {
+     "es": "Frecuencia del ZUMBADOR",
+     "original": "Frequence BUZZER"
+    },
+    "38": {
+     "es": "PWM de las pantallas",
+     "original": "PWM Afficheurs"
+    },
+    "39": {
+     "es": "PWM de los gráficos",
+     "original": "PWM Graphismes"
+    },
+    "4": {
+     "es": "Aguja de VELOCIDAD",
+     "original": "Aiguille VITESSE"
+    },
+    "40": {
+     "es": "LCD principal",
+     "original": "LCD Principal"
+    },
+    "41": {
+     "es": "LCD SSPP/caja automática",
+     "original": "LCD SSPP/BVA"
+    },
+    "42": {
+     "es": "Estado de salidas de motores",
+     "original": "Etat Sorties Moteurs"
+    },
+    "43": {
+     "es": "Ajuste del nivel de aceite",
+     "original": "Réglage NH"
+    },
+    "44": {
+     "es": "Estado de SALIDAS",
+     "original": "Etat SORTIES"
+    },
+    "45": {
+     "es": "de los puertos en modo soldadura",
+     "original": "des ports en mode soudure"
+    },
+    "5": {
+     "es": "Aguja del CUENTAVUELTAS",
+     "original": "Aiguille COMPTE-TOURS"
+    },
+    "6": {
+     "es": "Aguja de COMBUSTIBLE",
+     "original": "Aiguille CARBURANT"
+    },
+    "7": {
+     "es": "Aguja de TEMPERATURA DE AGUA",
+     "original": "Aiguille TEMPERATURE EAU"
+    },
+    "8": {
+     "es": "Iluminación de los gráficos",
+     "original": "Eclairage Graphismes"
+    },
+    "9": {
+     "es": "Iluminación de las pantallas",
+     "original": "Eclairage Afficheurs"
+    }
+   }
+  },
+  "PWM Afficheurs.mode": {
+   "ayuda": "",
+   "es": "PWM de las pantallas.modo"
+  },
+  "PWM Echelles": {
+   "ayuda": "",
+   "es": "PWM de las escalas"
+  },
+  "PWM Graphismes.mode": {
+   "ayuda": "",
+   "es": "PWM de los gráficos.modo"
+  },
+  "PWM LCD": {
+   "ayuda": "",
+   "es": "PWM del LCD"
+  },
+  "Panne mémorisée": {
+   "ayuda": "",
+   "es": "Avería memorizada"
+  },
+  "Panne présente": {
+   "ayuda": "",
+   "es": "Avería presente"
+  },
+  "Panne type": {
+   "ayuda": "",
+   "es": "Tipo de avería",
+   "lists": {
+    "1": {
+     "es": "Circuito abierto",
+     "original": "Circuit ouvert"
+    },
+    "12": {
+     "es": "Líneas en cortocircuito",
+     "original": "Lignes en court-circuit"
+    },
+    "13": {
+     "es": "Anomalía electrónica interna",
+     "original": "Anomalie électronique interne"
+    },
+    "14": {
+     "es": "Anomalía de red",
+     "original": "Anomalie réseau"
+    },
+    "18": {
+     "es": "Tensión anormal",
+     "original": "Tension anormale"
+    },
+    "19": {
+     "es": "Valor fuera de límite",
+     "original": "Valeur hors-limite"
+    },
+    "2": {
+     "es": "Cortocircuito a masa",
+     "original": "Court-circuit à la masse"
+    },
+    "3": {
+     "es": "Cortocircuito a +batería",
+     "original": "Court-circuit au +batterie"
+    },
+    "4": {
+     "es": "Parámetro en tope mínimo",
+     "original": "Paramètre en butée mini"
+    },
+    "5": {
+     "es": "Parámetro en tope máximo",
+     "original": "Paramètre en butée maxi"
+    },
+    "8": {
+     "es": "Por debajo del umbral mínimo",
+     "original": "En-dessous du seuil mini"
+    },
+    "9": {
+     "es": "Por encima del umbral máximo",
+     "original": "Au-dessus du seuil maxi"
+    }
+   }
+  },
+  "Position Moteur": {
+   "ayuda": "",
+   "es": "Posición del motor",
+   "unit": {
+    "es": "Micropasos",
+    "original": "MicroPas"
+   }
+  },
+  "Prestation RV/LV": {
+   "ayuda": "",
+   "es": "Prestación de regulador/limitador de velocidad",
+   "lists": {
+    "0": {
+     "es": "Sin",
+     "original": "Sans"
+    },
+    "16": {
+     "es": "Con (por defecto)",
+     "original": "Avec (par défaut)"
+    }
+   }
+  },
+  "Prestation Survitesse Arabie": {
+   "ayuda": "",
+   "es": "Prestación de alarma de sobrevelocidad (Arabia)",
+   "lists": {
+    "0": {
+     "es": "Sin (por defecto)",
+     "original": "Sans (par défaut)"
+    },
+    "16": {
+     "es": "Con",
+     "original": "Avec"
+    }
+   }
+  },
+  "Précompteur Partiel": {
+   "ayuda": "",
+   "es": "Precontador parcial",
+   "unit": {
+    "es": "m",
+    "original": "m"
+   }
+  },
+  "Précompteur Total": {
+   "ayuda": "",
+   "es": "Precontador total",
+   "unit": {
+    "es": "m",
+    "original": "m"
+   }
+  },
+  "Présence ESP": {
+   "ayuda": "",
+   "es": "Presencia de ESP",
+   "lists": {
+    "0": {
+     "es": "Sin",
+     "original": "Sans"
+    },
+    "16": {
+     "es": "Con (por defecto)",
+     "original": "Avec (par défaut)"
+    }
+   }
+  },
+  "Présence SSPP": {
+   "ayuda": "",
+   "es": "Presencia de SSPP (control de presión de neumáticos)",
+   "lists": {
+    "0": {
+     "es": "Sin",
+     "original": "Sans"
+    },
+    "16": {
+     "es": "Con (por defecto)",
+     "original": "Avec (par défaut)"
+    }
+   }
+  },
+  "Rhéostat : état présence à partir URhéo (avec tol)": {
+   "ayuda": "",
+   "es": "Reóstato: estado de presencia a partir de su tensión (con tolerancia)",
+   "lists": {
+    "0": {
+     "es": "Reóstato presente",
+     "original": "Rhéostat présent"
+    },
+    "1": {
+     "es": "Reóstato ausente",
+     "original": "Rhéostat absent"
+    }
+   }
+  },
+  "Référence version messagerie": {
+   "ayuda": "",
+   "es": "Referencia de la versión de mensajería"
+  },
+  "Régime moteur (tr/mn) CAN": {
+   "ayuda": "",
+   "es": "Régimen del motor (rpm) CAN"
+  },
+  "Réglage Intensité NH": {
+   "ayuda": "",
+   "es": "Ajuste de intensidad del nivel de aceite"
+  },
+  "Réglage NH.Réglage Intensité NH": {
+   "ayuda": "",
+   "es": "Ajuste del nivel de aceite.Intensidad"
+  },
+  "Réveil_TdB par UCC": {
+   "ayuda": "",
+   "es": "Despertar del tablero por la UCC",
+   "lists": {
+    "0": {
+     "es": "Ausencia de 12 voltios",
+     "original": "Absence de 12 Volts"
+    },
+    "1": {
+     "es": "Presencia de 12V",
+     "original": "Présence 12V"
+    }
+   }
+  },
+  "SEGMENTS.mode": {
+   "ayuda": "",
+   "es": "SEGMENTOS.modo",
+   "lists": {
+    "0": {
+     "es": "Rueda delantera derecha (ext.)",
+     "original": "Roue Avant Droite (Ext)"
+    },
+    "1": {
+     "es": "Puerta delantera derecha",
+     "original": "Porte Avant Droite"
+    },
+    "10": {
+     "es": "D negativo",
+     "original": "D Négatif"
+    },
+    "11": {
+     "es": "P positivo",
+     "original": "P Positif"
+    },
+    "12": {
+     "es": "Segmento de dígito 4",
+     "original": "Digit Segment 4"
+    },
+    "13": {
+     "es": "Segmento de dígito 6",
+     "original": "Digit Segment 6"
+    },
+    "14": {
+     "es": "Puerta trasera izquierda",
+     "original": "Porte Arrière Gauche"
+    },
+    "15": {
+     "es": "Rueda delantera izquierda (int.)",
+     "original": "Roue Avant Gauche (Int)"
+    },
+    "16": {
+     "es": "No utilizado",
+     "original": "N.U."
+    },
+    "17": {
+     "es": "Rueda trasera derecha (ext.)",
+     "original": "Roue Arrière Droite (Ext)"
+    },
+    "18": {
+     "es": "N negativo",
+     "original": "N Négatif"
+    },
+    "19": {
+     "es": "R positivo",
+     "original": "R Positif"
+    },
+    "2": {
+     "es": "D positivo",
+     "original": "D Positif"
+    },
+    "20": {
+     "es": "Segmento de dígito 5",
+     "original": "Digit Segment 5"
+    },
+    "21": {
+     "es": "Segmento de dígito 1",
+     "original": "Digit Segment 1"
+    },
+    "22": {
+     "es": "Rueda trasera izquierda (ext.)",
+     "original": "Roue Arrière Gauche (Ext)"
+    },
+    "23": {
+     "es": "Carrocería del vehículo",
+     "original": "Corps de Véhicule"
+    },
+    "24": {
+     "es": "No utilizado 24",
+     "original": "N.U. 24"
+    },
+    "25": {
+     "es": "Rueda trasera derecha (int.)",
+     "original": "Roue Arrière Droite (Int)"
+    },
+    "26": {
+     "es": "N positivo",
+     "original": "N Positif"
+    },
+    "27": {
+     "es": "R negativo",
+     "original": "R Négatif"
+    },
+    "28": {
+     "es": "Segmento de dígito 0",
+     "original": "Digit Segment 0"
+    },
+    "29": {
+     "es": "Flecha Auto/Manual",
+     "original": "Flèche Auto/Manuel"
+    },
+    "3": {
+     "es": "P negativo",
+     "original": "P Négatif"
+    },
+    "30": {
+     "es": "Rueda trasera izquierda (int.)",
+     "original": "Roue Arrière Gauche (Int)"
+    },
+    "31": {
+     "es": "Baúl",
+     "original": "Coffre"
+    },
+    "4": {
+     "es": "Segmento de dígito 3",
+     "original": "Digit Segment 3"
+    },
+    "5": {
+     "es": "Segmento de dígito 2",
+     "original": "Digit Segment 2"
+    },
+    "6": {
+     "es": "Puerta delantera izquierda",
+     "original": "Porte Avant Gauche"
+    },
+    "7": {
+     "es": "Rueda delantera izquierda (ext.)",
+     "original": "Roue Avant Gauche (Ext)"
+    },
+    "8": {
+     "es": "Rueda delantera derecha (int.)",
+     "original": "Roue Avant Droite (Int)"
+    },
+    "9": {
+     "es": "Puerta trasera derecha",
+     "original": "Porte Arrière Droite"
+    }
+   }
+  },
+  "Session Name": {
+   "ayuda": "",
+   "es": "Nombre de sesión",
+   "lists": {
+    "129": {
+     "es": "por defecto",
+     "original": "par défaut"
+    },
+    "134": {
+     "es": "desarrollo",
+     "original": "développement"
+    },
+    "192": {
+     "es": "control en línea de montaje y diagnóstico de posventa",
+     "original": "contrôle en chaîne et diagnostic après-vente"
+    },
+    "250": {
+     "es": "Modo de proveedor",
+     "original": "Mode fournisseur"
+    }
+   }
+  },
+  "Seuil B": {
+   "ayuda": "",
+   "es": "Umbral bajo",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Seuil H": {
+   "ayuda": "",
+   "es": "Umbral alto",
+   "unit": {
+    "es": "Litros",
+    "original": "Litres"
+   }
+  },
+  "Status Pilotage": {
+   "ayuda": "",
+   "es": "Estado del pilotaje",
+   "lists": {
+    "1": {
+     "es": "Pilotaje en curso",
+     "original": "Pilotage en cours"
+    },
+    "17": {
+     "es": "Pilotaje detenido",
+     "original": "Pilotage arrêté"
+    },
+    "2": {
+     "es": "Pilotaje terminado",
+     "original": "Pilotage terminé"
+    }
+   }
+  },
+  "Temps ADAC": {
+   "ayuda": "",
+   "es": "Tiempo de la computadora de a bordo",
+   "unit": {
+    "es": "segundos",
+    "original": "secondes"
+   }
+  },
+  "Température Interne": {
+   "ayuda": "",
+   "es": "Temperatura interna",
+   "unit": {
+    "es": "°C",
+    "original": "°C"
+   }
+  },
+  "Température extérieure (CAN)": {
+   "ayuda": "",
+   "es": "Temperatura exterior (CAN)"
+  },
+  "Tension Batterie": {
+   "ayuda": "",
+   "es": "Tensión de batería",
+   "unit": {
+    "es": "Voltios",
+    "original": "Volts"
+   }
+  },
+  "Tension Rhéostat": {
+   "ayuda": "",
+   "es": "Tensión del reóstato",
+   "unit": {
+    "es": "Voltios",
+    "original": "Volts"
+   }
+  },
+  "Touche RAZ ODO": {
+   "ayuda": "",
+   "es": "Tecla de puesta a cero del odómetro",
+   "lists": {
+    "0": {
+     "es": "no activada",
+     "original": "non activée"
+    },
+    "1": {
+     "es": "activada",
+     "original": "activée"
+    }
+   }
+  },
+  "Touche défilement ADAC (CAN)": {
+   "ayuda": "",
+   "es": "Tecla de desplazamiento de la computadora de a bordo (CAN)",
+   "lists": {
+    "0": {
+     "es": "no activada",
+     "original": "non activée"
+    },
+    "1": {
+     "es": "activada",
+     "original": "activée"
+    }
+   }
+  },
+  "Type d'affichage ADAC": {
+   "ayuda": "",
+   "es": "Tipo de visualización de la computadora de a bordo",
+   "lists": {
+    "0": {
+     "es": "Europa: litros / 100 km (por defecto)",
+     "original": "Europe Litres / 100 Kms (par défaut)"
+    },
+    "16": {
+     "es": "Reino Unido: millas por galón",
+     "original": "GB Miles / 1 Gallon"
+    },
+    "32": {
+     "es": "Brasil: km por litro",
+     "original": "Brésil Kms / 1 Litre"
+    }
+   }
+  },
+  "Type de boîte": {
+   "ayuda": "",
+   "es": "Tipo de caja",
+   "lists": {
+    "0": {
+     "es": "Caja automática (por defecto)",
+     "original": "BVA (par défaut)"
+    },
+    "16": {
+     "es": "Caja manual (BVM)",
+     "original": "BVM"
+    },
+    "32": {
+     "es": "Caja CVT (variador continuo)",
+     "original": "CVT"
+    }
+   }
+  },
+  "Type de carburation": {
+   "ayuda": "",
+   "es": "Tipo de carburación",
+   "lists": {
+    "0": {
+     "es": "Nafta (por defecto)",
+     "original": "Essence (par défaut)"
+    },
+    "16": {
+     "es": "Diésel",
+     "original": "Diesel"
+    },
+    "32": {
+     "es": "Bicombustible nafta/GLP",
+     "original": "Bicarburation Essence/GPL"
+    },
+    "48": {
+     "es": "Bicombustible nafta/GNC",
+     "original": "Bicarburation Essence/GNV"
+    }
+   }
+  },
+  "Type de carrosserie": {
+   "ayuda": "",
+   "es": "Tipo de carrocería",
+   "lists": {
+    "0": {
+     "es": "B (por defecto)",
+     "original": "B (par défaut)"
+    },
+    "16": {
+     "es": "C",
+     "original": "C"
+    },
+    "32": {
+     "es": "E",
+     "original": "E"
+    },
+    "48": {
+     "es": "K",
+     "original": "K"
+    },
+    "64": {
+     "es": "L",
+     "original": "L"
+    }
+   }
+  },
+  "Type de langue": {
+   "ayuda": "",
+   "es": "Idioma",
+   "lists": {
+    "0": {
+     "es": "Francés (por defecto)",
+     "original": "Francais (par défaut)"
+    },
+    "112": {
+     "es": "Turco",
+     "original": "Turc"
+    },
+    "128": {
+     "es": "Reservado",
+     "original": "Réservé"
+    },
+    "16": {
+     "es": "Inglés",
+     "original": "Anglais"
+    },
+    "32": {
+     "es": "Italiano",
+     "original": "Italien"
+    },
+    "48": {
+     "es": "Alemán",
+     "original": "Allemand"
+    },
+    "64": {
+     "es": "Español",
+     "original": "Espagnol"
+    },
+    "80": {
+     "es": "Neerlandés",
+     "original": "Hollandais"
+    },
+    "96": {
+     "es": "Portugués",
+     "original": "Portugais"
+    }
+   }
+  },
+  "Type de memoire": {
+   "ayuda": "",
+   "es": "Tipo de memoria",
+   "lists": {
+    "0": {
+     "es": "Memoria del microcontrolador",
+     "original": "Mémoire micro"
+    },
+    "1": {
+     "es": "Memoria EEPROM",
+     "original": "Mémoire EEPROM"
+    }
+   }
+  },
+  "Type scénario VSC": {
+   "ayuda": "",
+   "es": "Tipo de escenario VSC",
+   "lists": {
+    "0": {
+     "es": "VSC1 (por defecto)",
+     "original": "VSC1 (par défaut)"
+    },
+    "16": {
+     "es": "VSC2",
+     "original": "VSC2"
+    }
+   }
+  },
+  "T° Eau : absence d'information (CAN)": {
+   "ayuda": "",
+   "es": "Temperatura de agua: ausencia de información (CAN)",
+   "lists": {
+    "0": {
+     "es": "Avería no presente",
+     "original": "Panne non présente"
+    },
+    "1": {
+     "es": "Avería presente",
+     "original": "Panne présente"
+    }
+   }
+  },
+  "T° Eau : absence d'information (CAN) mémo": {
+   "ayuda": "",
+   "es": "Temperatura de agua: ausencia de información (CAN) memorizada",
+   "lists": {
+    "0": {
+     "es": "Sin avería memorizada",
+     "original": "Pas de panne mémorisée"
+    },
+    "1": {
+     "es": "Avería memorizada",
+     "original": "Panne mémorisée"
+    }
+   }
+  },
+  "UCH absent": {
+   "ayuda": "",
+   "es": "UCH ausente",
+   "lists": {
+    "0": {
+     "es": "Presente",
+     "original": "Présent"
+    },
+    "1": {
+     "es": "Ausente",
+     "original": "Absent"
+    }
+   }
+  },
+  "UPC absent": {
+   "ayuda": "",
+   "es": "UPC ausente",
+   "lists": {
+    "0": {
+     "es": "presente",
+     "original": "présent"
+    },
+    "1": {
+     "es": "ausente",
+     "original": "absent"
+    }
+   }
+  },
+  "Unite température (TdB HG en lecture)": {
+   "ayuda": "",
+   "es": "Unidad de temperatura (tablero de gama alta, en lectura)",
+   "lists": {
+    "0": {
+     "es": "°C (por defecto)",
+     "original": "°C (par défaut)"
+    },
+    "16": {
+     "es": "°F",
+     "original": "°F"
+    }
+   }
+  },
+  "Unité de distance": {
+   "ayuda": "",
+   "es": "Unidad de distancia",
+   "lists": {
+    "0": {
+     "es": "km (por defecto)",
+     "original": "Km (par défaut)"
+    },
+    "16": {
+     "es": "Millas",
+     "original": "Miles"
+    }
+   }
+  },
+  "VIN (CRC)": {
+   "ayuda": "",
+   "es": "VIN (CRC)"
+  },
+  "VIN (Numéro d'Identification)": {
+   "ayuda": "",
+   "es": "VIN (número de identificación del vehículo)"
+  },
+  "VOYANTS.mode": {
+   "ayuda": "",
+   "es": "TESTIGOS.modo",
+   "lists": {
+    "0": {
+     "es": "Servicio",
+     "original": "Service"
+    },
+    "1": {
+     "es": "Luces antiniebla delanteras",
+     "original": "Feux de Brouillard Avant"
+    },
+    "10": {
+     "es": "RV (regulador de velocidad)",
+     "original": "RV"
+    },
+    "11": {
+     "es": "LV (limitador de velocidad)",
+     "original": "LV"
+    },
+    "12": {
+     "es": "Luz de giro derecha",
+     "original": "Clignotant Droit"
+    },
+    "13": {
+     "es": "Apertura / Pinchazo",
+     "original": "Ouvrant / Crevaison"
+    },
+    "14": {
+     "es": "Incidente de freno",
+     "original": "Incident Frein"
+    },
+    "15": {
+     "es": "Cinturón del conductor",
+     "original": "Ceinture Conducteur"
+    },
+    "16": {
+     "es": "Presión de aceite",
+     "original": "Pression Huile"
+    },
+    "17": {
+     "es": "GLP (gas licuado)",
+     "original": "GPL"
+    },
+    "18": {
+     "es": "Mínimo de combustible",
+     "original": "Mini Carburant"
+    },
+    "19": {
+     "es": "Carga de batería",
+     "original": "Charge Batterie"
+    },
+    "2": {
+     "es": "Airbag del pasajero",
+     "original": "Airbag Passager"
+    },
+    "20": {
+     "es": "OBD",
+     "original": "OBD"
+    },
+    "21": {
+     "es": "Falla de airbag",
+     "original": "Défaut Airbag"
+    },
+    "3": {
+     "es": "Detener",
+     "original": "Stop"
+    },
+    "4": {
+     "es": "ABS",
+     "original": "ABS"
+    },
+    "5": {
+     "es": "Luces altas",
+     "original": "Feux de Route"
+    },
+    "6": {
+     "es": "Luces bajas",
+     "original": "Feux de Croisement"
+    },
+    "7": {
+     "es": "Luces antiniebla traseras",
+     "original": "Feux de Brouillard Arrière"
+    },
+    "8": {
+     "es": "ESP",
+     "original": "ESP"
+    },
+    "9": {
+     "es": "Luz de giro izquierda",
+     "original": "Clignotant Gauche"
+    }
+   }
+  },
+  "Vitesse Moteur": {
+   "ayuda": "",
+   "es": "Velocidad del motor",
+   "unit": {
+    "es": "°/s",
+    "original": "°/S"
+   }
+  },
+  "Vitesse véhicule (km/h) CAN": {
+   "ayuda": "",
+   "es": "Velocidad del vehículo (km/h) CAN"
+  },
+  "maxi compteur UCH absent": {
+   "ayuda": "",
+   "es": "máximo del contador de UCH ausente",
+   "lists": {
+    "0": {
+     "es": "inferior al máximo",
+     "original": "inférieur au max"
+    },
+    "1": {
+     "es": "Máximo alcanzado",
+     "original": "Maximum atteint"
+    }
+   }
+  }
+ },
+ "ecuname": "Tdb_BCEKL84_serie_4emeRev",
+ "labels": {
+  "IDENTIFICATION TABLEAU": {
+   "es": "IDENTIFICACIÓN DEL TABLERO"
+  }
+ },
+ "requests": {
+  "Commande Afficheur PRINCIPAL": {
+   "es": "Comando de la pantalla PRINCIPAL"
+  },
+  "Commande Aiguille CARBURANT": {
+   "es": "Comando de la aguja de COMBUSTIBLE"
+  },
+  "Commande Aiguille COMPTE-TOURS": {
+   "es": "Comando de la aguja del CUENTAVUELTAS"
+  },
+  "Commande Aiguille TEMPERATURE EAU": {
+   "es": "Comando de la aguja de TEMPERATURA DE AGUA"
+  },
+  "Commande Aiguille VITESSE": {
+   "es": "Comando de la aguja de VELOCIDAD"
+  },
+  "Commande BUZZER": {
+   "es": "Comando del ZUMBADOR"
+  },
+  "Commande Eclairage Afficheurs": {
+   "es": "Comando de iluminación de las pantallas"
+  },
+  "Commande Eclairage Graphismes": {
+   "es": "Comando de iluminación de los gráficos"
+  },
+  "Commande Etat SORTIES": {
+   "es": "Comando del estado de SALIDAS"
+  },
+  "Commande Etat Sorties Moteurs": {
+   "es": "Comando del estado de salidas de motores"
+  },
+  "Commande Frequence BUZZER": {
+   "es": "Comando de frecuencia del ZUMBADOR"
+  },
+  "Commande LCD Principal": {
+   "es": "Comando del LCD principal"
+  },
+  "Commande LCD SSPP/BVA": {
+   "es": "Comando del LCD SSPP/caja automática"
+  },
+  "Commande Moteur CARBURANT": {
+   "es": "Comando del motor de la aguja de COMBUSTIBLE"
+  },
+  "Commande Moteur COMPTE-TOURS": {
+   "es": "Comando del motor del CUENTAVUELTAS"
+  },
+  "Commande Moteur TEMPERATURE EAU": {
+   "es": "Comando del motor de TEMPERATURA DE AGUA"
+  },
+  "Commande Moteur VITESSE": {
+   "es": "Comando del motor de VELOCIDAD"
+  },
+  "Commande PWM Afficheurs": {
+   "es": "Comando PWM de las pantallas"
+  },
+  "Commande PWM Graphismes": {
+   "es": "Comando PWM de los gráficos"
+  },
+  "Commande Réglage NH": {
+   "es": "Comando de ajuste de nivel de aceite"
+  },
+  "Commande SEGMENTS": {
+   "es": "Comando de SEGMENTOS"
+  },
+  "Commande VOYANTS": {
+   "es": "Comando de TESTIGOS"
+  },
+  "Commande des ports en mode soudure": {
+   "es": "Comando de los puertos en modo soldadura"
+  },
+  "Contrôle des défauts": {
+   "es": "Control de fallas"
+  },
+  "Demande identificateurs de LECTURE": {
+   "es": "Solicitud de identificadores de LECTURA"
+  },
+  "Ecriture Config : Option ESP": {
+   "es": "Escritura de configuración: opción ESP"
+  },
+  "Ecriture Config : Option Loi auto-adaptative": {
+   "es": "Escritura de configuración: opción ley autoadaptativa"
+  },
+  "Ecriture Config : Option RV/LV": {
+   "es": "Escritura de configuración: opción regulador/limitador de velocidad"
+  },
+  "Ecriture Config : Option SSPP": {
+   "es": "Escritura de configuración: opción SSPP (control de presión de neumáticos)"
+  },
+  "Ecriture Config : Option Survitesse Arabie": {
+   "es": "Escritura de configuración: opción alarma de sobrevelocidad (Arabia)"
+  },
+  "Ecriture Config : Type d'affichage ADAC": {
+   "es": "Escritura de configuración: tipo de visualización de la computadora de a bordo"
+  },
+  "Ecriture Config : Type de boîte": {
+   "es": "Escritura de configuración: tipo de caja"
+  },
+  "Ecriture Config : Type de carburation": {
+   "es": "Escritura de configuración: tipo de carburación"
+  },
+  "Ecriture Config : Type de carrosserie": {
+   "es": "Escritura de configuración: tipo de carrocería"
+  },
+  "Ecriture Config : Type de langue": {
+   "es": "Escritura de configuración: idioma"
+  },
+  "Ecriture Config : Type de scénario VSC": {
+   "es": "Escritura de configuración: tipo de escenario VSC"
+  },
+  "Ecriture Config : Unité de distance ADAC": {
+   "es": "Escritura de configuración: unidad de distancia de la computadora de a bordo"
+  },
+  "Ecriture Date Dernière Intervention APV": {
+   "es": "Escritura de fecha de última intervención de posventa"
+  },
+  "Ecriture Param : Autonomie de vidange Km": {
+   "es": "Escritura de parámetro: autonomía hasta cambio de aceite (km)"
+  },
+  "Ecriture Param : Autonomie de vidange Mois": {
+   "es": "Escritura de parámetro: autonomía hasta cambio de aceite (meses)"
+  },
+  "Ecriture Param : Capacité du réservoir": {
+   "es": "Escritura de parámetro: capacidad del tanque"
+  },
+  "Ecriture Param : Niveau d'alerte carburant": {
+   "es": "Escritura de parámetro: nivel de alerta de combustible"
+  },
+  "Ecriture VIN": {
+   "es": "Escritura del VIN"
+  },
+  "Effacement des défauts": {
+   "es": "Borrado de fallas"
+  },
+  "Lecture Configuration": {
+   "es": "Lectura de configuración"
+  },
+  "Lecture Contraste LCD Principal": {
+   "es": "Lectura del contraste del LCD principal"
+  },
+  "Lecture Date Dernière Intervention APV": {
+   "es": "Lectura de fecha de última intervención de posventa"
+  },
+  "Lecture Données CAN Inter-systèmes": {
+   "es": "Lectura de datos CAN entre sistemas"
+  },
+  "Lecture Entrées analogiques": {
+   "es": "Lectura de entradas analógicas"
+  },
+  "Lecture Etat des Entrées/Sorties": {
+   "es": "Lectura del estado de entradas/salidas"
+  },
+  "Lecture Etat des sorties": {
+   "es": "Lectura del estado de las salidas"
+  },
+  "Lecture Identification Calculateur": {
+   "es": "Lectura de identificación de la ECU"
+  },
+  "Lecture Odomètres": {
+   "es": "Lectura de odómetros"
+  },
+  "Lecture Parametres moteur CARBURANT": {
+   "es": "Lectura de parámetros del motor de COMBUSTIBLE"
+  },
+  "Lecture Parametres moteur REGIME MOTEUR": {
+   "es": "Lectura de parámetros del motor de RÉGIMEN"
+  },
+  "Lecture Parametres moteur TEMPERATURE EAU": {
+   "es": "Lectura de parámetros del motor de TEMPERATURA DE AGUA"
+  },
+  "Lecture Parametres moteur VITESSE": {
+   "es": "Lectura de parámetros del motor de VELOCIDAD"
+  },
+  "Lecture Paramètres NIVEAU d' HUILE": {
+   "es": "Lectura de parámetros de NIVEL DE ACEITE"
+  },
+  "Lecture Ports": {
+   "es": "Lectura de puertos"
+  },
+  "Lecture Température Interne": {
+   "es": "Lectura de temperatura interna"
+  },
+  "Lecture VIN": {
+   "es": "Lectura del VIN"
+  },
+  "Lecture Valeurs Mesurées": {
+   "es": "Lectura de valores medidos"
+  },
+  "Lecture des défauts EEPROM": {
+   "es": "Lectura de las fallas de EEPROM"
+  },
+  "Lecture des paramètres ADAC": {
+   "es": "Lectura de los parámetros de la computadora de a bordo"
+  },
+  "Lecture des paramètres jaugeage": {
+   "es": "Lectura de los parámetros de aforo"
+  },
+  "Lecture des sorties PWM": {
+   "es": "Lectura de las salidas PWM"
+  },
+  "Local Identifiers de COMMANDE SORTIES": {
+   "es": "Identificadores locales de COMANDO DE SALIDAS"
+  },
+  "Local Identifiers de ECRITURE": {
+   "es": "Identificadores locales de ESCRITURA"
+  },
+  "Local Identifiers de ROUTINES": {
+   "es": "Identificadores locales de RUTINAS"
+  },
+  "Output Control": {
+   "es": "Control de actuadores"
+  },
+  "Ouverture de session chaine et A-V": {
+   "es": "Apertura de sesión de línea de montaje y posventa"
+  },
+  "Ouverture de session développement": {
+   "es": "Apertura de sesión de desarrollo"
+  },
+  "Ouverture de session fournisseur": {
+   "es": "Apertura de sesión de proveedor"
+  },
+  "Ouverture de session par défaut": {
+   "es": "Apertura de sesión por defecto"
+  },
+  "ReadDTC": {
+   "es": "Leer códigos de falla (DTC)"
+  },
+  "ReadMemoryByAddress": {
+   "es": "Leer memoria por dirección"
+  },
+  "Routine Activation Mesure NH": {
+   "es": "Rutina de activación de medición de nivel de aceite"
+  },
+  "Routine RESTART TDB": {
+   "es": "Rutina de REINICIO del tablero"
+  },
+  "Routine Recalage L2": {
+   "es": "Rutina de recalibración L2"
+  },
+  "Routine START LOADER": {
+   "es": "Rutina de INICIO del cargador"
+  },
+  "Start Diagnostic Session": {
+   "es": "Iniciar sesión de diagnóstico"
+  },
+  "TesterPresent (avec ou sans réponse)": {
+   "es": "Tester presente (con o sin respuesta)"
+  },
+  "WriteMemoryByAddress": {
+   "es": "Escribir memoria por dirección"
+  },
+  "lecture K maj S1": {
+   "es": "lectura de K mayúscula S1"
+  },
+  "lecture K maj S2": {
+   "es": "lectura de K mayúscula S2"
+  },
+  "lecture K min S1": {
+   "es": "lectura de K minúscula S1"
+  },
+  "lecture K min S2": {
+   "es": "lectura de K minúscula S2"
+  },
+  "lecture limite basse carburant": {
+   "es": "lectura del límite bajo de combustible"
+  },
+  "lecture limite haute carburant": {
+   "es": "lectura del límite alto de combustible"
+  }
+ },
+ "screens": {
+  "Ecriture Configuration": {
+   "es": "Escritura de configuración"
+  },
+  "Ecriture options": {
+   "es": "Escritura de opciones"
+  },
+  "Identification TdB": {
+   "es": "Identificación del tablero"
+  },
+  "Lecture Configuration et options": {
+   "es": "Lectura de configuración y opciones"
+  },
+  "Lecture défauts CAN": {
+   "es": "Lectura de fallas del CAN"
+  },
+  "Lecture info CAN": {
+   "es": "Lectura de información CAN"
+  },
+  "Lecture info filaire": {
+   "es": "Lectura de información por cable"
+  },
+  "Visualisation jaugeage": {
+   "es": "Visualización del aforo"
+  },
+  "pannes présente/mémo": {
+   "es": "averías presentes/memorizadas"
+  },
+  "paramètres jaugeage": {
+   "es": "parámetros de aforo"
+  }
+ }
+}

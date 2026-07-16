@@ -1,0 +1,3164 @@
+{
+ "screens": {
+  "Lecture info CAN": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Etat des Entr\u00e9es/Sorties"
+    }
+   ], 
+   "height": 6000, 
+   "buttons": [], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Rh\u00e9ostat : \u00e9tat pr\u00e9sence \u00e0 partir URh\u00e9o (avec tol)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4475, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8095, 
+      "top": -27450, 
+      "height": 330, 
+      "left": -9405
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "D\u00e9tection d\u00e9faut charge batterie (message) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4445, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 2520, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Alerte ceinture de s\u00e9curit\u00e9 passager", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4400, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8140, 
+      "top": 3690, 
+      "height": 300, 
+      "left": 135
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "D\u00e9tection d\u00e9faut pression huile (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4460, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8160, 
+      "top": 1710, 
+      "height": 300, 
+      "left": 150
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Etat information charge batterie (voyant) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4430, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8100, 
+      "top": 2115, 
+      "height": 300, 
+      "left": 150
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Contact ceinture de s\u00e9curit\u00e9 conducteur (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4370, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 3300, 
+      "height": 300, 
+      "left": 150
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Vitesse v\u00e9hicule (km/h) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4370, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8110, 
+      "top": 4425, 
+      "height": 300, 
+      "left": 165
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Information temp\u00e9rature moteur (\u00b0C) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4400, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8110, 
+      "top": 5220, 
+      "height": 300, 
+      "left": 165
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "APC (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4460, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8170, 
+      "top": 150, 
+      "height": 300, 
+      "left": 180
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "R\u00e9gime moteur (tr/mn) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4385, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8095, 
+      "top": 4830, 
+      "height": 300, 
+      "left": 180
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Touche d\u00e9filement ADAC (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4400, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8065, 
+      "top": 555, 
+      "height": 300, 
+      "left": 210
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Etat mano contact pression huile", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4340, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 8040, 
+      "top": 1200, 
+      "height": 330, 
+      "left": 240
+     }
+    }
+   ]
+  }, 
+  "Lecture Configuration et options": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Configuration"
+    }
+   ], 
+   "height": 6000, 
+   "buttons": [], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Option Loi auto-adaptative", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": -50640, 
+      "height": 300, 
+      "left": -174720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de carrosserie", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 240, 
+      "height": 300, 
+      "left": 0
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de bo\u00eete", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 600, 
+      "height": 300, 
+      "left": 0
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de carburation", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 960, 
+      "height": 300, 
+      "left": 0
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type sc\u00e9nario VSC", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 0
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Pr\u00e9sence SSPP", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Prestation Survitesse Arabie", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3720, 
+      "height": 480, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Unite temp\u00e9rature (TdB HG en lecture)", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 7320, 
+      "height": 480, 
+      "left": 3240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Prestation RV/LV", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 4560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Pr\u00e9sence ESP", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3720, 
+      "height": 300, 
+      "left": 4560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type d'affichage ADAC", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 240, 
+      "height": 300, 
+      "left": 5760
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Unit\u00e9 de distance", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 600, 
+      "height": 300, 
+      "left": 5760
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de langue", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1080, 
+      "height": 300, 
+      "left": 5760
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Autonomie de vidange", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1440, 
+      "height": 720, 
+      "left": 5760
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Autonomie de vidange : Temps", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 2280, 
+      "height": 480, 
+      "left": 5760
+     }
+    }
+   ]
+  }, 
+  "Lecture d\u00e9fauts CAN": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes"
+    }
+   ], 
+   "height": 6000, 
+   "buttons": [
+    {
+     "text": "RAZ d\u00e9fauts m\u00e9moris\u00e9s", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Effacement des d\u00e9fauts"
+      }, 
+      {
+       "Delay": "100", 
+       "RequestName": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes"
+      }
+     ], 
+     "uniquename": "RAZ d\u00e9fauts m\u00e9moris\u00e9s_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 10680, 
+      "top": 240, 
+      "height": 615, 
+      "left": 240
+     }
+    }
+   ], 
+   "width": 11730, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "EPS absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1385, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3240, 
+      "top": 3720, 
+      "height": 540, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "UCH absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1490, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3240, 
+      "top": 4440, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AIRBAG absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1490, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3240, 
+      "top": 5040, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "UPC absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1460, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3240, 
+      "top": 5640, 
+      "height": 300, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Etat BUS", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1415, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 1080, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "MODULE MUET", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1490, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "ABS absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1385, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 2880, 
+      "height": 660, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Compteur UCH absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1985, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3240, 
+      "top": 4440, 
+      "height": 360, 
+      "left": 3600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Compteur UPC absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3240, 
+      "top": 5640, 
+      "height": 300, 
+      "left": 3600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Compteur \u00e9tat BUS", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1880, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 960, 
+      "height": 480, 
+      "left": 3720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Compteur MODULE MUET", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1865, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 1560, 
+      "height": 600, 
+      "left": 3720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Compteur ABS absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1880, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 2880, 
+      "height": 600, 
+      "left": 3720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Compteur EPS absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1880, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 3600, 
+      "height": 660, 
+      "left": 3720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Compteur AIRBAG absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1865, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 4920, 
+      "height": 600, 
+      "left": 3720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Maxi compteur AIRBAG absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2240, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 4920, 
+      "height": 600, 
+      "left": 7320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Maxi compteur \u00e9tat  BUS", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 960, 
+      "height": 480, 
+      "left": 7560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Maxi compteur MODULE MUET", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 1560, 
+      "height": 600, 
+      "left": 7560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Maxi Compteur ABS absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 2880, 
+      "height": 540, 
+      "left": 7560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Maxi compteur EPSabsent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 1970, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 3600, 
+      "height": 600, 
+      "left": 7560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "maxi compteur UCH absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 4440, 
+      "height": 300, 
+      "left": 7560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Maxi compteur UPC absent", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 5640, 
+      "height": 300, 
+      "left": 7560
+     }
+    }
+   ]
+  }, 
+  "pannes pr\u00e9sente/m\u00e9mo": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Etat des Entr\u00e9es/Sorties"
+    }
+   ], 
+   "height": 5580, 
+   "buttons": [
+    {
+     "text": "RAZ d\u00e9fauts m\u00e9moris\u00e9s", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Effacement des d\u00e9fauts"
+      }, 
+      {
+       "Delay": "100", 
+       "RequestName": "Lecture Etat des Entr\u00e9es/Sorties"
+      }
+     ], 
+     "uniquename": "RAZ d\u00e9fauts m\u00e9moris\u00e9s_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 5985, 
+      "top": 285, 
+      "height": 615, 
+      "left": 5565
+     }
+    }
+   ], 
+   "width": 12375, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Niveau huile (court-circuit)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3170, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5095, 
+      "top": 1335, 
+      "height": 285, 
+      "left": 45
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant (circuit ouvert)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3185, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5115, 
+      "top": 1680, 
+      "height": 270, 
+      "left": 45
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant GPL (circuit ouvert)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5115, 
+      "top": 2370, 
+      "height": 330, 
+      "left": 45
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant (court-circuit)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3155, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5085, 
+      "top": 1995, 
+      "height": 315, 
+      "left": 75
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "D\u00e9bitm\u00e8tre : absence d'information (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3155, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5040, 
+      "top": 3120, 
+      "height": 540, 
+      "left": 90
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge GPL : absence d'information (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3155, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5070, 
+      "top": 3675, 
+      "height": 495, 
+      "left": 90
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Niveau huile (circuit ouvert)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3125, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5070, 
+      "top": 960, 
+      "height": 285, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant GPL (court-circuit)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3140, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5040, 
+      "top": 2760, 
+      "height": 315, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "T\u00b0 Eau : absence d'information (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3125, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5040, 
+      "top": 4200, 
+      "height": 480, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Rh\u00e9ostat : \u00e9tat pr\u00e9sence \u00e0 partir URh\u00e9o (avec tol)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3125, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5040, 
+      "top": 4800, 
+      "height": 480, 
+      "left": 1680
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "D\u00e9bitm\u00e8tre : absence d'information (CAN) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3875, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6280, 
+      "top": 3120, 
+      "height": 480, 
+      "left": 5280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge GPL : absence d'information (CAN) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3860, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6235, 
+      "top": 3675, 
+      "height": 510, 
+      "left": 5280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "T\u00b0 Eau : absence d'information (CAN) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3875, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6250, 
+      "top": 4260, 
+      "height": 465, 
+      "left": 5280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant GPL (court-circuit) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3830, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6265, 
+      "top": 2835, 
+      "height": 300, 
+      "left": 5310
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant (circuit ouvert) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3815, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6235, 
+      "top": 1695, 
+      "height": 330, 
+      "left": 5325
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant (court-circuit) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3815, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6235, 
+      "top": 2040, 
+      "height": 375, 
+      "left": 5325
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Jauge carburant GPL (circuit ouvert) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3800, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6220, 
+      "top": 2445, 
+      "height": 360, 
+      "left": 5340
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Niveau huile (circuit ouvert) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3785, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6205, 
+      "top": 990, 
+      "height": 345, 
+      "left": 5355
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Niveau huile (court-circuit) m\u00e9mo", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3770, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6190, 
+      "top": 1350, 
+      "height": 330, 
+      "left": 5370
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "+Lanterne (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 2075, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3840, 
+      "top": 4920, 
+      "height": 300, 
+      "left": 7080
+     }
+    }
+   ]
+  }, 
+  "Ecriture options": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Option Loi auto-adaptative", 
+     "request": "Ecriture Config : Option Loi auto-adaptative", 
+     "width": 3680, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6945, 
+      "top": 1095, 
+      "height": 360, 
+      "left": 75
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Autonomie de vidange : Temps", 
+     "request": "Ecriture Param : Autonomie de vidange Mois", 
+     "width": 3680, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6895, 
+      "top": 2220, 
+      "height": 300, 
+      "left": 75
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de langue", 
+     "request": "Ecriture Config : Type de langue", 
+     "width": 3710, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6940, 
+      "top": 2940, 
+      "height": 375, 
+      "left": 75
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Pr\u00e9sence ESP", 
+     "request": "Ecriture Config : Option ESP", 
+     "width": 3710, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6945, 
+      "top": 3360, 
+      "height": 360, 
+      "left": 75
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Pr\u00e9sence SSPP", 
+     "request": "Ecriture Config : Option SSPP", 
+     "width": 3710, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6880, 
+      "top": 4185, 
+      "height": 360, 
+      "left": 75
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Prestation RV/LV", 
+     "request": "Ecriture Config : Option RV/LV", 
+     "width": 3725, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6910, 
+      "top": 4590, 
+      "height": 375, 
+      "left": 75
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type d'affichage ADAC", 
+     "request": "Ecriture Config : Type d'affichage ADAC", 
+     "width": 3650, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6940, 
+      "top": 750, 
+      "height": 300, 
+      "left": 90
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Unit\u00e9 de distance", 
+     "request": "Ecriture Config : Unit\u00e9 de distance ADAC", 
+     "width": 3680, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6915, 
+      "top": 1860, 
+      "height": 300, 
+      "left": 90
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Autonomie de vidange", 
+     "request": "Ecriture Param : Autonomie de vidange Km", 
+     "width": 3680, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6925, 
+      "top": 2565, 
+      "height": 330, 
+      "left": 90
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type sc\u00e9nario VSC", 
+     "request": "Ecriture Config : Type de sc\u00e9nario VSC", 
+     "width": 3650, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6915, 
+      "top": 1500, 
+      "height": 300, 
+      "left": 105
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Prestation Survitesse Arabie", 
+     "request": "Ecriture Config : Option Survitesse Arabie", 
+     "width": 3680, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6915, 
+      "top": 3765, 
+      "height": 375, 
+      "left": 105
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Configuration"
+    }
+   ], 
+   "height": 8610, 
+   "buttons": [
+    {
+     "text": "Ecriture Option ESP", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "50", 
+       "RequestName": "Ecriture Config : Option ESP"
+      }
+     ], 
+     "uniquename": "Ecriture Option ESP_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3090, 
+      "top": 3345, 
+      "height": 360, 
+      "left": 7185
+     }
+    }, 
+    {
+     "text": "Ecriture Option loi autoadaptative", 
+     "messages": [
+      "Ecriture"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Config : Option Loi auto-adaptative"
+      }
+     ], 
+     "uniquename": "Ecriture Option loi autoadaptative_1", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3015, 
+      "top": 1050, 
+      "height": 345, 
+      "left": 7185
+     }
+    }, 
+    {
+     "text": "Ecriture Option RV\\LV", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Ecriture Config : Option RV/LV"
+      }
+     ], 
+     "uniquename": "Ecriture Option RV\\LV_2", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3045, 
+      "top": 4575, 
+      "height": 390, 
+      "left": 7215
+     }
+    }, 
+    {
+     "text": "Ecriture Option SSPP", 
+     "messages": [
+      "Ecriture pr\u00e9sence option SSPP"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Config : Option SSPP"
+      }
+     ], 
+     "uniquename": "Ecriture Option SSPP_3", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3045, 
+      "top": 4170, 
+      "height": 345, 
+      "left": 7215
+     }
+    }, 
+    {
+     "text": "Ecriture Option Survitesse", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "1400", 
+       "RequestName": "Ecriture Config : Option Survitesse Arabie"
+      }
+     ], 
+     "uniquename": "Ecriture Option Survitesse_4", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3060, 
+      "top": 3735, 
+      "height": 375, 
+      "left": 7200
+     }
+    }, 
+    {
+     "text": "Ecriture type affichage ADAC", 
+     "messages": [
+      "Ecriture type affichage ADAC"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Config : Type d'affichage ADAC"
+      }
+     ], 
+     "uniquename": "Ecriture type affichage ADAC_5", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3015, 
+      "top": 675, 
+      "height": 345, 
+      "left": 7170
+     }
+    }, 
+    {
+     "text": "Ecriture type de langue", 
+     "messages": [
+      "Ecriture type de langue"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Config : Type de langue"
+      }
+     ], 
+     "uniquename": "Ecriture type de langue_6", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3045, 
+      "top": 2932, 
+      "height": 345, 
+      "left": 7200
+     }
+    }, 
+    {
+     "text": "Ecriture type VSC", 
+     "messages": [
+      "Ecriture type VSC"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Config : Type de sc\u00e9nario VSC"
+      }
+     ], 
+     "uniquename": "Ecriture type VSC_7", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3015, 
+      "top": 1432, 
+      "height": 345, 
+      "left": 7185
+     }
+    }, 
+    {
+     "text": "Ecriture Unit\u00e9 de distance", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "400", 
+       "RequestName": "Ecriture Config : Unit\u00e9 de distance ADAC"
+      }
+     ], 
+     "uniquename": "Ecriture Unit\u00e9 de distance_8", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3030, 
+      "top": 1815, 
+      "height": 345, 
+      "left": 7185
+     }
+    }, 
+    {
+     "text": "Ecriture vidange Km", 
+     "messages": [
+      "Ecriture vidange en millier de Km"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Param : Autonomie de vidange Km"
+      }
+     ], 
+     "uniquename": "Ecriture vidange Km_9", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3045, 
+      "top": 2565, 
+      "height": 345, 
+      "left": 7185
+     }
+    }, 
+    {
+     "text": "Ecriture vidange temps", 
+     "messages": [
+      "Ecriture vidange en mois"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Param : Autonomie de vidange Mois"
+      }
+     ], 
+     "uniquename": "Ecriture vidange temps_10", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3045, 
+      "top": 2190, 
+      "height": 345, 
+      "left": 7185
+     }
+    }, 
+    {
+     "text": "Prise en compte changements", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Routine RESTART TDB"
+      }
+     ], 
+     "uniquename": "Prise en compte changements_11", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3975, 
+      "top": -45, 
+      "height": 705, 
+      "left": 2025
+     }
+    }
+   ], 
+   "width": 10335, 
+   "displays": []
+  }, 
+  "Ecriture Configuration": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de carburation", 
+     "request": "Ecriture Config : Type de carburation", 
+     "width": 2615, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5565, 
+      "top": 3510, 
+      "height": 300, 
+      "left": 225
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de carrosserie", 
+     "request": "Ecriture Config : Type de carrosserie", 
+     "width": 2555, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5425, 
+      "top": 2115, 
+      "height": 300, 
+      "left": 255
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Type de bo\u00eete", 
+     "request": "Ecriture Config : Type de bo\u00eete", 
+     "width": 2570, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5475, 
+      "top": 2805, 
+      "height": 300, 
+      "left": 255
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "VIN (Num\u00e9ro d'Identification)", 
+     "request": "Ecriture VIN", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6580, 
+      "top": 1125, 
+      "height": 300, 
+      "left": 630
+     }
+    }
+   ], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Configuration"
+    }
+   ], 
+   "height": 7905, 
+   "buttons": [
+    {
+     "text": "Ecriture carrosserie", 
+     "messages": [
+      "Ecriture type carrosserie"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Config : Type de carrosserie"
+      }
+     ], 
+     "uniquename": "Ecriture carrosserie_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 2070, 
+      "top": 2070, 
+      "height": 300, 
+      "left": 5700
+     }
+    }, 
+    {
+     "text": "Ecriture Type boite", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Ecriture Config : Type de bo\u00eete"
+      }
+     ], 
+     "uniquename": "Ecriture Type boite_1", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 2085, 
+      "top": 2812, 
+      "height": 285, 
+      "left": 5745
+     }
+    }, 
+    {
+     "text": "Ecriture Type carburation", 
+     "messages": [
+      "Ecriture type carburation"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture Config : Type de carburation"
+      }
+     ], 
+     "uniquename": "Ecriture Type carburation_2", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 2055, 
+      "top": 3480, 
+      "height": 330, 
+      "left": 5805
+     }
+    }, 
+    {
+     "text": "Ecriture VIN", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Ecriture VIN"
+      }
+     ], 
+     "uniquename": "Ecriture VIN_3", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 6570, 
+      "top": 1417, 
+      "height": 345, 
+      "left": 690
+     }
+    }, 
+    {
+     "text": "Prise en compte changements", 
+     "messages": [
+      "Ecriture ident"
+     ], 
+     "send": [
+      {
+       "Delay": "200", 
+       "RequestName": "Routine RESTART TDB"
+      }
+     ], 
+     "uniquename": "Prise en compte changements_4", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3975, 
+      "top": 75, 
+      "height": 705, 
+      "left": 1995
+     }
+    }
+   ], 
+   "width": 12000, 
+   "displays": []
+  }, 
+  "Visualisation jaugeage": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "600", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "200", 
+     "RequestName": "Lecture Valeurs Mesur\u00e9es"
+    }, 
+    {
+     "Delay": "500", 
+     "RequestName": "Lecture Etat des Entr\u00e9es/Sorties"
+    }, 
+    {
+     "Delay": "400", 
+     "RequestName": "Lecture des param\u00e8tres ADAC"
+    }, 
+    {
+     "Delay": "500", 
+     "RequestName": "Lecture Odom\u00e8tres"
+    }
+   ], 
+   "height": 6000, 
+   "buttons": [
+    {
+     "text": "Recalage L2", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "100", 
+       "RequestName": "Routine Recalage L2"
+      }
+     ], 
+     "uniquename": "Recalage L2_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 1200, 
+      "top": 240, 
+      "height": 660, 
+      "left": 3600
+     }
+    }
+   ], 
+   "width": 8970, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "L0", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 1085, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 120, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "L1", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 1100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 480, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "L2", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 1100, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 840, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Carburant consomm\u00e9", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 980, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3000, 
+      "top": 1320, 
+      "height": 765, 
+      "left": 240
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Odom\u00e8tre Total", 
+     "request": "Lecture Odom\u00e8tres", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 4200, 
+      "height": 300, 
+      "left": 600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Distance ADAC", 
+     "request": "Lecture des param\u00e8tres ADAC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 4680, 
+      "height": 360, 
+      "left": 600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Touche RAZ ODO", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 1970, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 5160, 
+      "height": 360, 
+      "left": 600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Information carburant consomm\u00e9 (mm3) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 3110, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5280, 
+      "top": 2160, 
+      "height": 480, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "D\u00e9bit carburant", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 3110, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5280, 
+      "top": 2760, 
+      "height": 360, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Information capteur GNV/GNC (Ohms) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4160, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3120, 
+      "height": 420, 
+      "left": 2520
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Information capteur jauge GPL (Ohms) CAN", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 4175, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3600, 
+      "height": 420, 
+      "left": 2520
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "L0 GPL", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 1445, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 120, 
+      "height": 300, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "L1 GPL", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 1445, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 480, 
+      "height": 300, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "L2 GPL", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 1475, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 840, 
+      "height": 300, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Carburant consomm\u00e9 GPL", 
+     "request": "Lecture Valeurs Mesur\u00e9es", 
+     "width": 1475, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3600, 
+      "top": 1200, 
+      "height": 720, 
+      "left": 5160
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Temps ADAC", 
+     "request": "Lecture des param\u00e8tres ADAC", 
+     "width": 2840, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4680, 
+      "height": 360, 
+      "left": 5520
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Touche d\u00e9filement ADAC (CAN)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 2870, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 5160, 
+      "height": 360, 
+      "left": 5520
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Odom\u00e8tre Partiel", 
+     "request": "Lecture Odom\u00e8tres", 
+     "width": 2750, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4560, 
+      "top": 4200, 
+      "height": 300, 
+      "left": 5640
+     }
+    }
+   ]
+  }, 
+  "param\u00e8tres jaugeage": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "500", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "200", 
+     "RequestName": "Lecture Configuration"
+    }, 
+    {
+     "Delay": "300", 
+     "RequestName": "Lecture des param\u00e8tres jaugeage"
+    }
+   ], 
+   "height": 6000, 
+   "buttons": [], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Capacit\u00e9 du r\u00e9servoir (en litres)", 
+     "request": "Lecture Configuration", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3360, 
+      "top": 360, 
+      "height": 825, 
+      "left": 600
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Seuil H", 
+     "request": "Lecture des param\u00e8tres jaugeage", 
+     "width": 1820, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 2400, 
+      "height": 600, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Seuil B", 
+     "request": "Lecture des param\u00e8tres jaugeage", 
+     "width": 1865, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3000, 
+      "top": 4200, 
+      "height": 600, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Niveau d'alerte carburant", 
+     "request": "Lecture Configuration", 
+     "width": 1820, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 5040, 
+      "height": 780, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "K maj S1", 
+     "request": "Lecture des param\u00e8tres jaugeage", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1440, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "K min S1", 
+     "request": "Lecture des param\u00e8tres jaugeage", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "K maj S2", 
+     "request": "Lecture des param\u00e8tres jaugeage", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "K min S2", 
+     "request": "Lecture des param\u00e8tres jaugeage", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3720, 
+      "height": 300, 
+      "left": 1320
+     }
+    }
+   ]
+  }, 
+  "Lecture info filaire": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Etat des Entr\u00e9es/Sorties"
+    }
+   ], 
+   "height": 4425, 
+   "buttons": [], 
+   "width": 11085, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "R\u00e9veil_TdB par UCC", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 2975, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5305, 
+      "top": 840, 
+      "height": 300, 
+      "left": 840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Touche RAZ ODO", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 2975, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5310, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 840
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Contact frein de parking", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 2975, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5310, 
+      "top": 2985, 
+      "height": 345, 
+      "left": 870
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Lave Glace", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 2930, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5265, 
+      "top": 2295, 
+      "height": 300, 
+      "left": 885
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Incident frein (NIVOCOD)", 
+     "request": "Lecture Etat des Entr\u00e9es/Sorties", 
+     "width": 2885, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5205, 
+      "top": 3690, 
+      "height": 300, 
+      "left": 990
+     }
+    }
+   ]
+  }, 
+  "Identification TdB": {
+   "inputs": [], 
+   "color": "rgb(255,255,255)", 
+   "labels": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "IDENTIFICATION TABLEAU", 
+     "bbox": {
+      "width": 6960, 
+      "top": 240, 
+      "height": 240, 
+      "left": 720
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [
+    {
+     "Delay": "0", 
+     "RequestName": "Ouverture de session fournisseur"
+    }, 
+    {
+     "Delay": "100", 
+     "RequestName": "Lecture Identification Calculateur"
+    }
+   ], 
+   "height": 6000, 
+   "buttons": [], 
+   "width": 10650, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro fournisseur (code ITG)", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2015, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5136, 
+      "top": 2445, 
+      "height": 495, 
+      "left": 705
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro hardware (en BCD)", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5136, 
+      "top": 3075, 
+      "height": 615, 
+      "left": 705
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro du logiciel", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5136, 
+      "top": 3795, 
+      "height": 300, 
+      "left": 705
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro de pi\u00e8ce MPR (en BCD)", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5136, 
+      "top": 1080, 
+      "height": 540, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Code identification diagnostic", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5136, 
+      "top": 1800, 
+      "height": 495, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "R\u00e9f\u00e9rence version messagerie", 
+     "request": "Lecture Donn\u00e9es CAN Inter-syst\u00e8mes", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 600, 
+      "height": 300, 
+      "left": 4440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro de version", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2015, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 2760, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 6000
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Code identification constructeur", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4359, 
+      "top": 2760, 
+      "height": 300, 
+      "left": 6000
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "VIN (Num\u00e9ro d'Identification)", 
+     "request": "Lecture VIN", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4350, 
+      "top": 3240, 
+      "height": 600, 
+      "left": 6000
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro de calibration", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4359, 
+      "top": 1710, 
+      "height": 300, 
+      "left": 6016
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro de s\u00e9rie", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 4359, 
+      "top": 2250, 
+      "height": 300, 
+      "left": 6016
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Num\u00e9ro de version LSB", 
+     "request": "Lecture Identification Calculateur", 
+     "width": 0, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 600, 
+      "top": 1200, 
+      "height": 360, 
+      "left": 8760
+     }
+    }
+   ]
+  }
+ }, 
+ "categories": {
+  "Ecrans MAP": [
+   "param\u00e8tres jaugeage", 
+   "Visualisation jaugeage"
+  ], 
+  "Ecrans \u00e9tude": [
+   "Lecture d\u00e9fauts CAN", 
+   "Lecture info CAN", 
+   "Lecture info filaire", 
+   "pannes pr\u00e9sente/m\u00e9mo"
+  ], 
+  "Ecrans ident et config": [
+   "Ecriture Configuration", 
+   "Ecriture options", 
+   "Identification TdB", 
+   "Lecture Configuration et options"
+  ]
+ }
+}

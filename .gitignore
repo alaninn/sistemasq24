@@ -1,0 +1,31 @@
+# === SISTEMASQ24 — archivos que NO se suben ===
+
+# Entorno virtual (se recrea solo con setup_y_correr.ps1 / install.bat)
+.venv/
+venv/
+env/
+
+# Base de datos de ECUs (se carga a mano, es pesada y no cambia entre pruebas)
+vendor/**/ecu.zip
+*.ecu.zip
+
+# Instalador y artefactos de build (pesados, se generan localmente)
+dist/
+build/
+*.spec
+
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs de sesión (datos de cada prueba)
+log/
+*.log
+
+# Sistema / temporales
+.DS_Store
+Thumbs.db
+scratchpad/
+*.tmp

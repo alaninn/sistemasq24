@@ -1,0 +1,3571 @@
+{
+"obd": {
+	"baudrate": 500000, 
+	"protocol": "CAN", 
+	"recv_id": "76D", 
+	"funcname": "UPC", 
+	"funcaddr": "27", 
+	"send_id": "74D"
+}, 
+"devices": [
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "LO_MOTOR-FAN-HI_RELAY"
+	}, 
+	{
+	"dtc": 37416, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Actuator 3"
+	}, 
+	{
+	"dtc": 37397, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Low beam LH"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "CAN_LOW_ECM"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "I_BATT_BUS_BAR"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "LI_NEUTRAL-SW"
+	}, 
+	{
+	"dtc": 37404, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "High Beam RH"
+	}, 
+	{
+	"dtc": 37414, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Ignition Reverse SW"
+	}, 
+	{
+	"dtc": 37411, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Ignition EPS/AIRBAG"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "CAN_LOW_CABIN"
+	}, 
+	{
+	"dtc": 37408, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Ignition Not column lock"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "CAN_HIGH_ECM"
+	}, 
+	{
+	"dtc": 37406, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Defroster"
+	}, 
+	{
+	"dtc": 37392, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "BSS : Alternator default"
+	}, 
+	{
+	"dtc": 37401, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "AC clutch"
+	}, 
+	{
+	"dtc": 37400, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Position Lights RH & Rear RH & Plate"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "SIGNAL-GROUND"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_FUEL_PUMP"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "POWER-GROUND"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_OIL-LEVEL-SENSOR-GND"
+	}, 
+	{
+	"dtc": 37399, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Position Lights LH & Rear LH"
+	}, 
+	{
+	"dtc": 37413, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Ignition Cabin"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "CAN_LOW_ABS"
+	}, 
+	{
+	"dtc": 37390, 
+	"devicedata": {}, 
+	"dtctype": 2, 
+	"name": "ECU failure"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_LIGHT-REVERSE_LAMP"
+	}, 
+	{
+	"dtc": 37410, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Ignition LPG"
+	}, 
+	{
+	"dtc": 37405, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Fog Lamps LH & RH"
+	}, 
+	{
+	"dtc": 37398, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Low beam RH & levelize"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_IGN_RELAY"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_IGN-COIL"
+	}, 
+	{
+	"dtc": 37409, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Ignition ECM safetyline"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_ACTUATOR4-CABIN"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_OIL-LEVEL-SENSOR"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "I_LIGHT-REVERSE-SW"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "ENERGY_BSS_DF"
+	}, 
+	{
+	"dtc": 37402, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "FR wiper"
+	}, 
+	{
+	"dtc": 37395, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "USM supply"
+	}, 
+	{
+	"dtc": 37391, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "BSS : Network default"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "LI_AUTO_STOP_WIPER"
+	}, 
+	{
+	"dtc": 37407, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "H/L Washer"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "LI_FUEL_PUMP-DRIVER"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_ACTUATOR2"
+	}, 
+	{
+	"dtc": 37393, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "BSS : Communication default"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_ACTUATOR1"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "CAN_HIGH_ABS"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "CAN_HIGH_CABIN"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_STARTER"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "LI_OIL-PRESSURE-SW"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_BAT_ECM"
+	}, 
+	{
+	"dtc": 37415, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Battery"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "I_OIL-LEVEL-SENSOR-GND"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "I_OIL-LEVEL-SENSOR"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_MOTOR_FAN-HI"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_DIESEL_FILTER-RELAY"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "LI_ECM-DRIVER"
+	}, 
+	{
+	"dtc": 37412, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "Ignition AT"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "O_MOTOR_FAN-LO"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "ENERGY_ALTERNATOR_SENSOR"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 4, 
+	"name": "F/L_ECM_USM_Supply"
+	}, 
+	{
+	"dtc": 0, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "I_DIESEL_FILTER-RELAY"
+	}, 
+	{
+	"dtc": 37403, 
+	"devicedata": {}, 
+	"dtctype": 3, 
+	"name": "High Beam LH"
+	}, 
+	{
+	"dtc": 37394, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Alternator unknown"
+	}, 
+	{
+	"dtc": 37417, 
+	"devicedata": {}, 
+	"dtctype": 0, 
+	"name": "Motor FAN"
+	}
+], 
+"ecuname": "USM 84 Phase 2 C5_4", 
+"autoidents": [
+	{
+	"diagversion": "72", 
+	"supplier": "414", 
+	"version": "4500", 
+	"soft": "00C5"
+	}, 
+	{
+	"diagversion": "72", 
+	"supplier": "414", 
+	"version": "5000", 
+	"soft": "00C5"
+	}
+], 
+"endian": "Big", 
+"requests": [
+	{
+	"name": "Tester Present Receipt", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "3E01", 
+	"replybytes": "7E"
+	}, 
+	{
+	"name": "ClearDTC", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"minbytes": 3, 
+	"sentbytes": "14FF00", 
+	"replybytes": "54FF00"
+	}, 
+	{
+	"name": "Fuses and Open Circuitry Check", 
+	"replybytes": "710100", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"minbytes": 3, 
+	"sentbytes": "3101"
+	}, 
+	{
+	"name": "Read Alternator Diagnosis", 
+	"replybytes": "6108", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"LRC": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"LCR Cut Off Speed": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"Alternator Failure Status": {
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"Alternator ECU Monitoring": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"DF Monitor": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"ACK of BSS": {
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"Irotor": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"Alternator Class": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"Voltage Regulation Target": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"Alternator Brand": {
+		"ref": true, 
+		"firstbyte": 7
+		}
+	}, 
+	"minbytes": 7, 
+	"sentbytes": "2108"
+	}, 
+	{
+	"name": "ECUReset", 
+	"replybytes": "5100", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"minbytes": 1, 
+	"sentbytes": "1101"
+	}, 
+	{
+	"name": "Read Last Access Date", 
+	"replybytes": "61B0", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"After_sales_last_access_Date": {
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 5, 
+	"sentbytes": "21B0"
+	}, 
+	{
+	"name": "Write Traceability", 
+	"replybytes": "7B06", 
+	"deny_sds": [], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"id_Part Number": {
+		"firstbyte": 19
+		}, 
+		"write_traceability_ManufactureData (Year)": {
+		"firstbyte": 7
+		}, 
+		"id_RENAULT_indice": {
+		"firstbyte": 29
+		}, 
+		"id_HardwareRelease": {
+		"firstbyte": 24
+		}, 
+		"write_traceability_ManufactureData (Month)": {
+		"firstbyte": 5
+		}, 
+		"write_traceability_ManufactureData (Day)": {
+		"firstbyte": 3
+		}, 
+		"write_traceability_SerialNumber (10digits)": {
+		"firstbyte": 9
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "3B06000000000000000000000000000000000000000000000000000000"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"EM_Calib_Name": {
+		"firstbyte": 3
+		}, 
+		"EM_Calib_Value": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [
+		"nosds"
+	], 
+	"minbytes": 1, 
+	"sentbytes": "3B0A000000", 
+	"name": "Write_EM_Conf"
+	}, 
+	{
+	"name": "Read Analogic Input", 
+	"replybytes": "6190", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales"
+	], 
+	"receivebyte_dataitems": {
+		"ENERGY_BATTERY_VOLTAGE_H": {
+		"firstbyte": 15
+		}, 
+		"VREF_ALTERNATOR_L": {
+		"firstbyte": 14
+		}, 
+		"ENERGY_BATTERY_VOLTAGE_L": {
+		"firstbyte": 16
+		}, 
+		"VREF_ALTERNATOR_H": {
+		"firstbyte": 13
+		}, 
+		"V_U_IN1_mes_H": {
+		"firstbyte": 3
+		}, 
+		"NeutralPosition_sens_status": {
+		"bitoffset": 3, 
+		"firstbyte": 17
+		}, 
+		"V_U_IN5_mes_L": {
+		"firstbyte": 12
+		}, 
+		"V_U_IN2_mes_H": {
+		"firstbyte": 5
+		}, 
+		"V_U_IN5_mes_H": {
+		"firstbyte": 11
+		}, 
+		"V_U_IN2_mes_L": {
+		"firstbyte": 6
+		}, 
+		"ReverseGear_sens_status": {
+		"bitoffset": 2, 
+		"firstbyte": 17
+		}, 
+		"OilPressureSwitch": {
+		"firstbyte": 17
+		}, 
+		"StopPosition_flt": {
+		"bitoffset": 4, 
+		"firstbyte": 17
+		}, 
+		"V_U_IN3_mes_L": {
+		"firstbyte": 8
+		}, 
+		"V_U_IN1_mes_L": {
+		"firstbyte": 4
+		}, 
+		"V_U_IN3_mes_H": {
+		"firstbyte": 7
+		}, 
+		"V_U_IN4_mes_H": {
+		"firstbyte": 9
+		}, 
+		"V_U_IN4_mes_L": {
+		"firstbyte": 10
+		}, 
+		"ReReadIgn_sens_status": {
+		"bitoffset": 1, 
+		"firstbyte": 17
+		}
+	}, 
+	"minbytes": 17, 
+	"sentbytes": "2190"
+	}, 
+	{
+	"name": "Write Manufacture Data", 
+	"replybytes": "7B93", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales"
+	], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"D10": {
+		"firstbyte": 12
+		}, 
+		"D8": {
+		"firstbyte": 10
+		}, 
+		"D9": {
+		"firstbyte": 11
+		}, 
+		"D6": {
+		"firstbyte": 8
+		}, 
+		"D7": {
+		"firstbyte": 9
+		}, 
+		"D4": {
+		"firstbyte": 6
+		}, 
+		"D5": {
+		"firstbyte": 7
+		}, 
+		"D2": {
+		"firstbyte": 4
+		}, 
+		"D3": {
+		"firstbyte": 5
+		}, 
+		"D1": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "3B9300000000000000000000"
+	}, 
+	{
+	"name": "Write Mask DTC", 
+	"replybytes": "7B05", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"MaskDTC": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "3B0500000000"
+	}, 
+	{
+	"name": "Read VIN", 
+	"replybytes": "6181", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"VIN": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"VIN CRC": {
+		"ref": true, 
+		"firstbyte": 20
+		}
+	}, 
+	"minbytes": 21, 
+	"sentbytes": "2181"
+	}, 
+	{
+	"name": "Write Access Date", 
+	"replybytes": "7BB0", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"After_sales_last_access_Date": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "3BB0000000"
+	}, 
+	{
+	"name": "Read Input", 
+	"replybytes": "6102", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"CAN_NeutralContact": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_FrontWiperStopPosition": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_OilPressureSwitch": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_IgnitionSupplyConfirmation": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_RearGearEngaged_84_UPC": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "2102"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"OC_Calib_Name": {
+		"firstbyte": 3
+		}, 
+		"OC_Calib_Value": {
+		"firstbyte": 4
+		}
+	}, 
+	"deny_sds": [
+		"nosds"
+	], 
+	"minbytes": 2, 
+	"sentbytes": "3B09000000", 
+	"name": "Write_OC_Calib"
+	}, 
+	{
+	"receivebyte_dataitems": {
+		"C_TM_UBattOffsetNul": {
+		"bitoffset": 1, 
+		"firstbyte": 17
+		}, 
+		"C_WINDOW_TIME_2": {
+		"firstbyte": 9
+		}, 
+		"C_Kp_TorqueLim_min": {
+		"bitoffset": 1, 
+		"firstbyte": 12
+		}, 
+		"C_R_Global": {
+		"bitoffset": 1, 
+		"firstbyte": 7
+		}, 
+		"C_U_OffsetMAX": {
+		"bitoffset": 3, 
+		"firstbyte": 3
+		}, 
+		"C_TM_Lestage_Alt_Voltage": {
+		"bitoffset": 3, 
+		"firstbyte": 18
+		}, 
+		"C_K_TauBattGainU0": {
+		"firstbyte": 6
+		}, 
+		"C_Tau_Battery": {
+		"firstbyte": 4
+		}, 
+		"C_Ki_TorqueLim_min": {
+		"bitoffset": 1, 
+		"firstbyte": 14
+		}, 
+		"C_Tau_Engine": {
+		"firstbyte": 5
+		}, 
+		"C_Ki_TorqueLim_max": {
+		"bitoffset": 1, 
+		"firstbyte": 13
+		}, 
+		"C_Kp_TorqueLim_max": {
+		"bitoffset": 1, 
+		"firstbyte": 11
+		}, 
+		"C_U_batt_VoltageNetwork_max": {
+		"bitoffset": 2, 
+		"firstbyte": 8
+		}, 
+		"C_dU_RampDetect_min": {
+		"bitoffset": 3, 
+		"firstbyte": 16
+		}, 
+		"C_dU_RampDetect_max": {
+		"bitoffset": 3, 
+		"firstbyte": 15
+		}
+	}, 
+	"deny_sds": [
+		"nosds"
+	], 
+	"minbytes": 18, 
+	"sentbytes": "210A", 
+	"name": "Read_EM_Conf"
+	}, 
+	{
+	"name": "Write VIN", 
+	"replybytes": "7B81", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"VIN": {
+		"firstbyte": 3
+		}, 
+		"VIN CRC": {
+		"firstbyte": 20
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "3B8100000000000000000000000000000000000000"
+	}, 
+	{
+	"name": "Read Manufacture Data", 
+	"replybytes": "6193", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales"
+	], 
+	"receivebyte_dataitems": {
+		"D10": {
+		"firstbyte": 12
+		}, 
+		"D8": {
+		"firstbyte": 10
+		}, 
+		"D9": {
+		"firstbyte": 11
+		}, 
+		"D6": {
+		"firstbyte": 8
+		}, 
+		"D7": {
+		"firstbyte": 9
+		}, 
+		"D4": {
+		"firstbyte": 6
+		}, 
+		"D5": {
+		"firstbyte": 7
+		}, 
+		"D2": {
+		"firstbyte": 4
+		}, 
+		"D3": {
+		"firstbyte": 5
+		}, 
+		"D1": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 12, 
+	"sentbytes": "2193"
+	}, 
+	{
+	"name": "Read Mask DTC", 
+	"replybytes": "6106", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"MaskDTC": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 6, 
+	"sentbytes": "2106"
+	}, 
+	{
+	"name": "Read Received CAN Data", 
+	"replybytes": "6105", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"CAN_ECM_EngineStatus": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"CAN_BCM_RearDefrostRequest": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_ECM_CrankingAuthorisation_ECM": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 16
+		}, 
+		"CAN_BCM_EngineCoolantTemp": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"CAN_ECM_AllowedPowerGradient": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"CAN_BCM_LowBeamRequest": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"CAN_ECM_EngineFanSpeedRequest": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"CAN_BCM_PositionLightsRequest": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"CAN_BCM_WakeUpSleepCommand": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_BCM_AbsoluteTimeSince1rstIgnition": {
+		"ref": true, 
+		"firstbyte": 18
+		}, 
+		"CAN_BCM_ElectricalPowerDrived": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_ECM_CrankingAuthorisation_ATviaECM": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 16
+		}, 
+		"CAN_BCM_FrontWipingRequest": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_BCM_ClutchSwitchMaximumTravel": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"CAN_BCM_WakeUpType": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"CAN_ECM_EngineRPM": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"CAN_brake_VehicleSpeed": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"CAN_ECM_CompressorActivation": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"CAN_BCM_StartingMode": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_ECM_AlternatorMaximumPower": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 16
+		}, 
+		"CAN_BCM_HighBeamRequest": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"CAN_BCM_CrankingAuthorization_Verlog": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"CAN_BCM_HeadLampsWasherSelection": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_BCM_HeadLampsWasherRequest": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_BCM_FrontFogLightsRequest": {
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"CAN_BCM_DistanceTotalizer": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 5
+		}
+	}, 
+	"minbytes": 20, 
+	"sentbytes": "2105"
+	}, 
+	{
+	"name": "Read Sent CAN Data", 
+	"replybytes": "6104", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"CAN_FrontWiperStatus": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_AlternatorLoad_84": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"CAN_FrontWiperProtection": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_BatteryVoltage": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"CAN_OilPressureSwitch": {
+		"bitoffset": 7, 
+		"firstbyte": 4
+		}, 
+		"CAN_ResetInfo_USM": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_BatteryLamp": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"CAN_IgnitionSupplyConfirmation": {
+		"bitoffset": 2, 
+		"firstbyte": 6
+		}, 
+		"CAN_NeutralContact": {
+		"bitoffset": 7, 
+		"firstbyte": 7
+		}, 
+		"CAN_FrontFogLightStatus": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_StarterStatus": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_PredictedMechanicalPowerByAlt": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"CAN_RearGearEngaged_84_UPC": {
+		"bitoffset": 5, 
+		"firstbyte": 7
+		}, 
+		"CAN_RotorCurrent_84": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"CAN_LowBeamStatus": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_USM_Refuse_to_Sleep": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"CAN_PositionLightsStatus": {
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_HealLampsWasherStatus": {
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"CAN_InstantMechanicalPowerByAlt": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"CAN_FrontWiperStopPosition": {
+		"bitoffset": 5, 
+		"firstbyte": 3
+		}, 
+		"CAN_HighBeamStatus": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"CAN_EngineFanSpeedStatus": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"CAN_RearDefrostStatus": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_APCLineStatus": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_ClimateCoolingStatus": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_AlternatorNumber": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"CAN_StarterStatus(copy)": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 8
+		}
+	}, 
+	"minbytes": 12, 
+	"sentbytes": "2104"
+	}, 
+	{
+	"name": "Freeze Frame", 
+	"replybytes": "52", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"traceability_DistanceTotalizer": {
+		"firstbyte": 3
+		}, 
+		"Freeze_Number": {
+		"firstbyte": 2
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"FFN": {
+		"firstbyte": 2
+		}, 
+		"FirstDTC": {
+		"firstbyte": 4
+		}
+	}, 
+	"minbytes": 5, 
+	"sentbytes": "1200040000"
+	}, 
+	{
+	"name": "Read Battery Diagnosis", 
+	"replybytes": "6107", 
+	"deny_sds": [], 
+	"receivebyte_dataitems": {
+		"V_K_LearningCounter_status": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"V_Temp_batt_MiniDem_est": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"V_TM_ParkingDuration": {
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"V_N_eng_2ndComp_m20_est": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"V_N_eng_2ndComp_est": {
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"V_Temp_batt_est": {
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"V_U_batt_NoLoad_est": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"V_B_EndOfLearning_status": {
+		"ref": true, 
+		"firstbyte": 10
+		}
+	}, 
+	"minbytes": 13, 
+	"sentbytes": "2107"
+	}, 
+	{
+	"name": "ReadDTC", 
+	"replybytes": "57", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"Historical Failure": {
+		"bitoffset": 1, 
+		"firstbyte": 5
+		}, 
+		"Current Failure": {
+		"bitoffset": 2, 
+		"firstbyte": 5
+		}, 
+		"FirstDTC": {
+		"firstbyte": 3
+		}, 
+		"NDTC": {
+		"firstbyte": 2
+		}, 
+		"Standard Fault": {
+		"bitoffset": 3, 
+		"firstbyte": 5
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "17FF00", 
+	"shiftbytescount": 3
+	}, 
+	{
+	"name": "System Identification", 
+	"replybytes": "6180", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"id_Supplier_indice": {
+		"ref": true, 
+		"firstbyte": 24
+		}, 
+		"id_RENAULT_indice": {
+		"ref": true, 
+		"firstbyte": 23
+		}, 
+		"id_Code Idenficiation Diagnostic": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"id_Part Number": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"id_Manufacture": {
+		"ref": true, 
+		"firstbyte": 26
+		}, 
+		"id_CodeITG": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"id_Release": {
+		"ref": true, 
+		"firstbyte": 19
+		}, 
+		"id_Calibration": {
+		"ref": true, 
+		"firstbyte": 21
+		}, 
+		"id_HardwareRelease": {
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"id_Software": {
+		"ref": true, 
+		"firstbyte": 17
+		}
+	}, 
+	"minbytes": 26, 
+	"sentbytes": "2180"
+	}, 
+	{
+	"name": "Read CAN Status", 
+	"replybytes": "6182FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFF", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"CAN_MessageSet_Ref": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"CAN_ECM_missing": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"CAN_BCM_missing": {
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"CAN_Brake_missing": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"CAN_Bus_OFF_parameter": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"CAN_Mute_parameter": {
+		"ref": true, 
+		"firstbyte": 6
+		}
+	}, 
+	"minbytes": 31, 
+	"sentbytes": "2182"
+	}, 
+	{
+	"name": "Write Alternator Voltage", 
+	"replybytes": "7B02", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"alternator_voltage_temp_ON": {
+		"firstbyte": 5
+		}, 
+		"alternator_activation_type": {
+		"firstbyte": 4
+		}, 
+		"alternator_voltage_value": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "3B02000000"
+	}, 
+	{
+	"deny_sds": [
+		"nosds"
+	], 
+	"name": "Tester Present No Receipt", 
+	"sentbytes": "3E02"
+	}, 
+	{
+	"name": "Fct Read VSC function status", 
+	"replybytes": "61C7", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"CAN_NeutralContact": {
+		"bitoffset": 4, 
+		"firstbyte": 3
+		}, 
+		"CAN_StarterStatus": {
+		"bitoffset": 6, 
+		"firstbyte": 3
+		}, 
+		"CAN_IgnitionSupplyConfirmation": {
+		"bitoffset": 2, 
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "21C7"
+	}, 
+	{
+	"name": "Read Configuration", 
+	"replybytes": "6101", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"C_TM_HighSpeedPeriod_limit_max": {
+		"ref": true, 
+		"firstbyte": 18
+		}, 
+		"C_B_NotColumnLocked": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"C_B_UbattManu_req": {
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"C_B_SmartKeyLess": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"C_TM_HighSpeedWipingProtection": {
+		"ref": true, 
+		"firstbyte": 20
+		}, 
+		"C_K_MotorType_Status": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"C_D_InformOfSoc_max": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"C_B_SuperSleepAddiction": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"C_K_Gain2_RotorCurrent": {
+		"ref": true, 
+		"firstbyte": 26
+		}, 
+		"C_B_Actuator3": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"C_TM_PmaxNul_BACKUP": {
+		"ref": true, 
+		"firstbyte": 8
+		}, 
+		"C_B_KmIllimited": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"C_B_FogLamps": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"AllowedPowerGradient_DF": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"C_U_batt_NoLoadTemp_min": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"C_TM_LowSpeedWipingProtection": {
+		"ref": true, 
+		"firstbyte": 22
+		}, 
+		"C_B_Defroster": {
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"AlternatorMaximumPower_DF": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"C_K_Ramp_BACKUP": {
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"C_B_Battery_ABSValve": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"C_N_alt_OFF_BACKUP": {
+		"ref": true, 
+		"firstbyte": 10
+		}, 
+		"C_B_AirConditionning": {
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"C_TM_RampH01": {
+		"ref": true, 
+		"firstbyte": 31
+		}, 
+		"C_B_StressProtectionEnable": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"C_TM_RampH23": {
+		"ref": true, 
+		"firstbyte": 35
+		}, 
+		"C_K_Gain_RotorCurrent": {
+		"ref": true, 
+		"firstbyte": 25
+		}, 
+		"C_B_SafetyLineEnable": {
+		"bitoffset": 5, 
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"C_U_alt_diag": {
+		"ref": true, 
+		"firstbyte": 13
+		}, 
+		"C_B_DayTimeRunningLight": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"C_TM_LowSpeedPeriod_limit_max": {
+		"ref": true, 
+		"firstbyte": 16
+		}, 
+		"C_B_SocInitInhib": {
+		"ref": true, 
+		"firstbyte": 4
+		}, 
+		"C_B_alt_BackUp": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"C_K_MechanicalRatio": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"C_B_Battery_AT_LPG": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"C_TM_ECMRelaySwitchingTime": {
+		"ref": true, 
+		"firstbyte": 24
+		}, 
+		"C_B_DefrostTimeoutEnable": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"C_Teta_High": {
+		"ref": true, 
+		"firstbyte": 27
+		}, 
+		"C_B_EnableVehicleRunning": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 15
+		}, 
+		"C_TM_RampH21": {
+		"ref": true, 
+		"firstbyte": 34
+		}, 
+		"C_B_BatteryLamp": {
+		"bitoffset": 2, 
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"C_B_DF_Regulation": {
+		"bitoffset": 6, 
+		"ref": true, 
+		"firstbyte": 6
+		}, 
+		"C_N_alt_ON_BACKUP": {
+		"ref": true, 
+		"firstbyte": 9
+		}, 
+		"C_B_GPL": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"C_B_Battery_ECMAct": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"C_B_HeadLampsWasher": {
+		"bitoffset": 1, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"C_U_batt_req_manu": {
+		"ref": true, 
+		"firstbyte": 11
+		}, 
+		"C_TM_RampH32": {
+		"ref": true, 
+		"firstbyte": 36
+		}, 
+		"C_B_StarterProtection": {
+		"bitoffset": 4, 
+		"ref": true, 
+		"firstbyte": 12
+		}, 
+		"C_Teta_Low": {
+		"ref": true, 
+		"firstbyte": 28
+		}, 
+		"C_B_AutomaticGearBox": {
+		"bitoffset": 3, 
+		"ref": true, 
+		"firstbyte": 14
+		}, 
+		"C_U_Batt_MAX": {
+		"ref": true, 
+		"firstbyte": 29
+		}, 
+		"C_U_Batt_MIN": {
+		"ref": true, 
+		"firstbyte": 30
+		}, 
+		"C_TM_RampH10": {
+		"ref": true, 
+		"firstbyte": 32
+		}, 
+		"C_B_ActiveDiagTest": {
+		"bitoffset": 7, 
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"C_TM_RampH12": {
+		"ref": true, 
+		"firstbyte": 33
+		}
+	}, 
+	"minbytes": 36, 
+	"sentbytes": "2101"
+	}, 
+	{
+	"name": "Request CAN Diag ON", 
+	"replybytes": "7B03", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"minbytes": 2, 
+	"sentbytes": "3B03"
+	}, 
+	{
+	"name": "Traceability", 
+	"replybytes": "6184", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"traceability_ManufactureData (Day)": {
+		"ref": true, 
+		"firstbyte": 3
+		}, 
+		"traceability_ManufactureData (Month)": {
+		"ref": true, 
+		"firstbyte": 5
+		}, 
+		"traceability_ManufactureData (Year)": {
+		"ref": true, 
+		"firstbyte": 7
+		}, 
+		"traceability_SerialNumber (10digits)": {
+		"ref": true, 
+		"firstbyte": 9
+		}
+	}, 
+	"minbytes": 22, 
+	"sentbytes": "2184"
+	}, 
+	{
+	"name": "Output Control", 
+	"replybytes": "700000", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Output Control Status": {
+		"firstbyte": 3
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Output Control.tempON": {
+		"firstbyte": 4
+		}, 
+		"Output Control Command": {
+		"firstbyte": 3
+		}, 
+		"Output Temporary Control List": {
+		"firstbyte": 2
+		}, 
+		"Output Permanent Control List": {
+		"firstbyte": 2
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "30000000"
+	}, 
+	{
+	"name": "Write VBAT", 
+	"replybytes": "7B92", 
+	"deny_sds": [
+		"nosds", 
+		"plant", 
+		"aftersales"
+	], 
+	"manualsend": true, 
+	"receivebyte_dataitems": {
+		"Vbat_answer": {
+		"firstbyte": 3
+		}, 
+		"Vbat_Result": {
+		"firstbyte": 4
+		}
+	}, 
+	"sendbyte_dataitems": {
+		"Vbat_Step": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 3, 
+	"sentbytes": "3B9200"
+	}, 
+	{
+	"sendbyte_dataitems": {
+		"Session Name": {
+		"firstbyte": 2
+		}
+	}, 
+	"deny_sds": [], 
+	"minbytes": 1, 
+	"sentbytes": "10C0", 
+	"name": "Start Diagnostic Session"
+	}, 
+	{
+	"name": "Read_OC_Calib", 
+	"replybytes": "6109", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"receivebyte_dataitems": {
+		"C_U_fuses_LPG": {
+		"firstbyte": 29
+		}, 
+		"C_U_fuses_IN1_threshold": {
+		"firstbyte": 55
+		}, 
+		"C_U_fuses_FrontWiper": {
+		"firstbyte": 37
+		}, 
+		"C_U_fuses_HB_RH": {
+		"firstbyte": 33
+		}, 
+		"C_U_2RelON_1RelOFF_MFan": {
+		"firstbyte": 17
+		}, 
+		"C_U_fuses_FF": {
+		"firstbyte": 43
+		}, 
+		"C_U_4RelON_1RelOFF_LB": {
+		"firstbyte": 9
+		}, 
+		"C_U_4RelON_1RelOFF_HB": {
+		"firstbyte": 3
+		}, 
+		"C_U_fuses_Position_RH": {
+		"firstbyte": 49
+		}, 
+		"C_U_fuses_LB_RH": {
+		"firstbyte": 39
+		}, 
+		"C_U_fuses_Defroster": {
+		"firstbyte": 53
+		}, 
+		"C_U_2RelON_1RelOFF_FFog": {
+		"firstbyte": 15
+		}, 
+		"C_U_fuses_AB_COL_BAT_N3": {
+		"firstbyte": 59
+		}, 
+		"C_U_fuses_Compressor": {
+		"firstbyte": 51
+		}, 
+		"C_U_fuses_BAT_N4": {
+		"firstbyte": 61
+		}, 
+		"C_U_fuses_LB_LH": {
+		"firstbyte": 41
+		}, 
+		"C_U_fuses_AT": {
+		"firstbyte": 27
+		}, 
+		"C_U_fuses_FAN": {
+		"firstbyte": 31
+		}, 
+		"C_U_4RelON_1RelOFF_RD": {
+		"firstbyte": 7
+		}, 
+		"C_U_4RelON_1RelOFF_PL": {
+		"firstbyte": 5
+		}, 
+		"C_U_fuses_AB_COL_BAT_N4": {
+		"firstbyte": 57
+		}, 
+		"C_U_fuses_Cabin": {
+		"firstbyte": 23
+		}, 
+		"C_U_fuses_BAT_N3": {
+		"firstbyte": 63
+		}, 
+		"C_U_fuses_AT_LPG": {
+		"firstbyte": 25
+		}, 
+		"C_U_fuses_Washer": {
+		"firstbyte": 45
+		}, 
+		"id_HardwareConfig_OL": {
+		"firstbyte": 65
+		}, 
+		"C_U_fuses_SafetyLine": {
+		"firstbyte": 21
+		}, 
+		"C_U_fuses_Reverse": {
+		"firstbyte": 19
+		}, 
+		"C_U_4RelON_1RelOFF_AC_N3": {
+		"firstbyte": 13
+		}, 
+		"C_U_4RelON_1RelOFF_AC_N4": {
+		"firstbyte": 11
+		}, 
+		"C_U_fuses_HB_LH": {
+		"firstbyte": 35
+		}, 
+		"C_U_fuses_Position_LH": {
+		"firstbyte": 47
+		}
+	}, 
+	"minbytes": 65, 
+	"sentbytes": "2109"
+	}, 
+	{
+	"name": "Write Configuration", 
+	"replybytes": "7B01", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"sendbyte_dataitems": {
+		"calib_Value": {
+		"firstbyte": 4
+		}, 
+		"calib_Name": {
+		"firstbyte": 3
+		}
+	}, 
+	"minbytes": 2, 
+	"sentbytes": "3B01000000"
+	}, 
+	{
+	"name": "Request CAN Diag OFF", 
+	"replybytes": "7B04", 
+	"deny_sds": [
+		"nosds"
+	], 
+	"manualsend": true, 
+	"minbytes": 2, 
+	"sentbytes": "3B04"
+	}
+], 
+"data": {
+	"V_K_LearningCounter_status": {
+	"scaled": true
+	}, 
+	"CAN_FrontWiperStatus": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "OFF", 
+		"1": "LS", 
+		"2": "HS", 
+		"3": "invalid"
+	}
+	}, 
+	"CAN_BCM_missing": {
+	"scaled": true
+	}, 
+	"C_U_fuses_IN1_threshold": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"id_Calibration": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"CAN_OilPressureSwitch": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Open", 
+		"1": "Closed"
+	}
+	}, 
+	"C_Ki_TorqueLim_min": {
+	"scaled": true, 
+	"step": 0.01, 
+	"bitscount": 7
+	}, 
+	"C_D_InformOfSoc_max": {
+	"scaled": true, 
+	"step": 10.0, 
+	"bitscount": 7, 
+	"unit": "Km"
+	}, 
+	"CAN_ResetInfo_USM": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No reset", 
+		"1": "Exit from reset"
+	}
+	}, 
+	"LCR Cut Off Speed": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Valid", 
+		"1": "No speed limit"
+	}
+	}, 
+	"C_B_Actuator3": {
+	"comment": "O_ACTUATOR3 (MN-03)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"ACK of BSS": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No problem", 
+		"1": "Problem"
+	}
+	}, 
+	"Alternator ECU Monitoring": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "NOMINAL_CONDITION", 
+		"1": "DEFAULT_PRESENT", 
+		"2": "DEFAULT_PRESENT_BUT_FROZEN", 
+		"3": "DEFAULT_CONFIRMED"
+	}
+	}, 
+	"Output Temporary Control List": {
+	"lists": {
+		"1": "High Beam", 
+		"2": "Low Beam", 
+		"3": "Position Lights", 
+		"4": "Fog Lamps", 
+		"5": "Air Conditioning", 
+		"6": "Wiper Low Speed", 
+		"7": "Wiper High Speed", 
+		"8": "Fan Unit Low Speed", 
+		"9": "Fan Unit High Speed", 
+		"10": "Defroster", 
+		"11": "HL washer RS", 
+		"12": "HL washer LS", 
+		"13": "IGN (40min control)", 
+		"14": "Neutral Position Switch", 
+		"15": "Oil Pressure Switch", 
+		"16": "Fan Unit Off"
+	}
+	}, 
+	"V_Temp_batt_MiniDem_est": {
+	"scaled": true, 
+	"unit": "\u00b0C", 
+	"signed": true, 
+	"offset": -40.0
+	}, 
+	"C_U_4RelON_1RelOFF_HB": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_BCM_AbsoluteTimeSince1rstIgnition": {
+	"scaled": true, 
+	"bytescount": 3, 
+	"bitscount": 24, 
+	"unit": "mn"
+	}, 
+	"Output Control Command": {
+	"lists": {
+		"0": "Start Temporary", 
+		"1": "Status", 
+		"128": "Reset timer $80", 
+		"17": "Stop", 
+		"32": "Start Permanent"
+	}
+	}, 
+	"ReverseGear_sens_status": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"Historical Failure": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No", 
+		"1": "Yes"
+	}
+	}, 
+	"C_U_fuses_BAT_N3": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_ECM_CrankingAuthorisation_ATviaECM": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Not allowed", 
+		"1": "Allowed", 
+		"2": "ManualGearBox", 
+		"3": "Unvalaible"
+	}
+	}, 
+	"CAN_BCM_FrontWipingRequest": {
+	"bitscount": 3, 
+	"lists": {
+		"0": "In Stop Position", 
+		"1": "Forced to Stop", 
+		"2": "One time low speed requested", 
+		"3": "One time high speed requested", 
+		"4": "Invalid", 
+		"5": "Reserved", 
+		"6": "Low Speed requested", 
+		"7": "High Speed requested"
+	}
+	}, 
+	"calib_Value": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_Tau_Engine": {
+	"scaled": true, 
+	"step": 5.0
+	}, 
+	"C_Ki_TorqueLim_max": {
+	"scaled": true, 
+	"step": 0.01, 
+	"bitscount": 7
+	}, 
+	"CAN_FrontFogLightStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"C_B_Battery_ECMAct": {
+	"comment": "O_BAT-ECM_ACT (MN-06)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"C_U_4RelON_1RelOFF_PL": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_TM_RampH01": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"C_B_StressProtectionEnable": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"CAN_ECM_CompressorActivation": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not Requested", 
+		"1": "Requested"
+	}
+	}, 
+	"C_B_Defroster": {
+	"comment": "O_RR_DEFROSTER (CM-04)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"Standard Fault": {
+	"bitscount": 5, 
+	"lists": {
+		"0": "No possible classification about the type of fault", 
+		"1": "Open circuit", 
+		"2": "Short circuit to ground", 
+		"3": "Short circuit at battery +", 
+		"6": "Incoherency, not plausible", 
+		"7": "No signal", 
+		"10": "Permanent Low Level", 
+		"11": "Permanent High Level", 
+		"12": "Lines short-circuited", 
+		"13": "Internal electronic anomaly", 
+		"16": "Disturbed communication"
+	}
+	}, 
+	"CAN_USM_Refuse_to_Sleep": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "reserved", 
+		"1": "Refuse_to_sleep", 
+		"2": "Ready_to_sleep", 
+		"3": "reserved2"
+	}
+	}, 
+	"C_B_GPL": {
+	"comment": "O_IGN_LPG (MN-04)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"C_B_Battery_AT_LPG": {
+	"comment": "O_BAT-AT-GEAR/LPG (MN-08)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"C_Teta_High": {
+	"scaled": true
+	}, 
+	"C_B_EnableVehicleRunning": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"VIN CRC": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_InstantMechanicalPowerByAlt": {
+	"scaled": true, 
+	"step": 40.0, 
+	"unit": "Watts"
+	}, 
+	"CAN_BCM_WakeUpType": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Customer", 
+		"1": "System"
+	}
+	}, 
+	"C_U_fuses_Reverse": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_AlternatorNumber": {
+	"bitscount": 4, 
+	"lists": {
+		"0": "invalid", 
+		"1": "Bosch KCB1 110A", 
+		"2": "VALEO TG11 110A", 
+		"3": "VALEO SG12 125A", 
+		"4": "BOSCH LIE8 150A", 
+		"5": "VALEO SG15L 160A", 
+		"6": "BOSCH LIE6 120A", 
+		"7": "VALEO TG15 150A", 
+		"8": "MELCO 8GM142 210A", 
+		"15": "Special type"
+	}
+	}, 
+	"CAN_EngineFanSpeedStatus": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Stopped", 
+		"1": "Low Speed", 
+		"2": "Middle Speed (not used in Renault)", 
+		"3": "High Speed"
+	}
+	}, 
+	"C_U_batt_req_manu": {
+	"scaled": true, 
+	"step": 0.1, 
+	"bitscount": 7, 
+	"unit": "V", 
+	"offset": 10.6
+	}, 
+	"CAN_BatteryVoltage": {
+	"scaled": true, 
+	"step": 0.0625, 
+	"unit": "V"
+	}, 
+	"C_B_DayTimeRunningLight": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"FFN": {
+	"scaled": true
+	}, 
+	"StopPosition_flt": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"C_Teta_Low": {
+	"scaled": true, 
+	"offset": -40.0
+	}, 
+	"C_U_fuses_Position_LH": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_TM_RampH10": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"V_U_batt_NoLoad_est": {
+	"scaled": true, 
+	"step": 0.0625, 
+	"bitscount": 6, 
+	"unit": "V", 
+	"offset": 10.0
+	}, 
+	"C_TM_RampH12": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"Voltage Regulation Target": {
+	"scaled": true, 
+	"step": 0.1, 
+	"bitscount": 6, 
+	"unit": "V", 
+	"offset": 10.0
+	}, 
+	"Alternator Brand": {
+	"bitscount": 3, 
+	"lists": {
+		"0": "BOSCH", 
+		"1": "VALEO", 
+		"5": "MELCO"
+	}
+	}, 
+	"ENERGY_BATTERY_VOLTAGE_H": {
+	"scaled": true
+	}, 
+	"C_TM_HighSpeedPeriod_limit_max": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"step": 0.1, 
+	"bitscount": 16, 
+	"unit": "ms"
+	}, 
+	"Output Control Status": {
+	"comment": "IO status", 
+	"lists": {
+		"1": "Running", 
+		"2": "Stopped", 
+		"17": "Manually Stopped"
+	}
+	}, 
+	"ENERGY_BATTERY_VOLTAGE_L": {
+	"scaled": true
+	}, 
+	"id_Software": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"id_Part Number": {
+	"bytescount": 5, 
+	"byte": true, 
+	"bitscount": 40
+	}, 
+	"CAN_ECM_CrankingAuthorisation_ECM": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Not allowed", 
+		"1": "Allowed", 
+		"2": "Cranking Stopped required", 
+		"3": "Cranking  not allowed: ECM failure"
+	}
+	}, 
+	"VIN": {
+	"bytesascii": true, 
+	"bytescount": 17, 
+	"byte": true, 
+	"bitscount": 136, 
+	"comment": "Default value: $FF"
+	}, 
+	"CAN_BCM_DistanceTotalizer": {
+	"scaled": true, 
+	"bytescount": 3, 
+	"bitscount": 20, 
+	"unit": "km"
+	}, 
+	"CAN_Bus_OFF_parameter": {
+	"scaled": true
+	}, 
+	"CAN_BCM_EngineCoolantTemp": {
+	"scaled": true, 
+	"comment": "$FF: invalid", 
+	"offset": -40.0
+	}, 
+	"C_TM_Lestage_Alt_Voltage": {
+	"scaled": true, 
+	"bitscount": 5
+	}, 
+	"C_K_MotorType_Status": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Diesel", 
+		"1": "Gasoline"
+	}
+	}, 
+	"V_U_IN4_mes_H": {
+	"scaled": true
+	}, 
+	"V_U_IN4_mes_L": {
+	"scaled": true
+	}, 
+	"C_TM_LowSpeedWipingProtection": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "s"
+	}, 
+	"C_U_fuses_HB_RH": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"VREF_ALTERNATOR_L": {
+	"scaled": true
+	}, 
+	"C_U_fuses_FF": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"VREF_ALTERNATOR_H": {
+	"scaled": true
+	}, 
+	"Session Name": {
+	"lists": {
+		"192": "After Sales Manufacture Session", 
+		"129": "Default Session", 
+		"196": "Clim Session", 
+		"133": "Programming Session for reprogrammable ECU", 
+		"134": "Engineering Session", 
+		"200": "VSC Session", 
+		"204": "Light Session", 
+		"207": "Wiper Session"
+	}
+	}, 
+	"C_U_fuses_Position_RH": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_BCM_ElectricalPowerDrived": {
+	"scaled": true, 
+	"step": 100.0, 
+	"unit": "Watts"
+	}, 
+	"CAN_NeutralContact": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Not reached", 
+		"1": "Reached", 
+		"2": "Vehicle not equipped", 
+		"3": "Invalid"
+	}
+	}, 
+	"C_K_TauBattGainU0": {
+	"scaled": true, 
+	"step": 0.05
+	}, 
+	"C_K_Gain_RotorCurrent": {
+	"scaled": true, 
+	"step": 0.01
+	}, 
+	"C_B_AutomaticGearBox": {
+	"comment": "O_IGN_AT (MN-13)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"C_Kp_TorqueLim_max": {
+	"scaled": true, 
+	"step": 0.01, 
+	"bitscount": 7
+	}, 
+	"C_U_4RelON_1RelOFF_RD": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_N_alt_OFF_BACKUP": {
+	"scaled": true, 
+	"step": 15.0, 
+	"unit": "Tr/min", 
+	"offset": 2000.0
+	}, 
+	"alternator_voltage_value": {
+	"scaled": true
+	}, 
+	"CAN_StarterStatus": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "OFF", 
+		"1": "Short relaxation", 
+		"2": "Long relaxation", 
+		"3": "ON"
+	}
+	}, 
+	"CAN_PredictedMechanicalPowerByAlt": {
+	"scaled": true, 
+	"comment": "$FF: invalid", 
+	"step": 40.0, 
+	"unit": "Watts"
+	}, 
+	"MaskDTC": {
+	"bytescount": 4, 
+	"byte": true, 
+	"bitscount": 32
+	}, 
+	"C_Kp_TorqueLim_min": {
+	"scaled": true, 
+	"step": 0.01, 
+	"bitscount": 7
+	}, 
+	"C_B_SafetyLineEnable": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "NO", 
+		"1": "YES"
+	}
+	}, 
+	"C_U_alt_diag": {
+	"scaled": true, 
+	"step": 0.1, 
+	"unit": "V", 
+	"offset": 10.0
+	}, 
+	"V_U_IN5_mes_L": {
+	"scaled": true
+	}, 
+	"C_TM_LowSpeedPeriod_limit_max": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"step": 0.1, 
+	"bitscount": 16, 
+	"unit": "ms"
+	}, 
+	"C_U_2RelON_1RelOFF_MFan": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"V_U_IN5_mes_H": {
+	"scaled": true
+	}, 
+	"C_U_OffsetMAX": {
+	"scaled": true, 
+	"step": 0.0625, 
+	"bitscount": 5, 
+	"unit": "V"
+	}, 
+	"FirstDTC": {
+	"comment": "Name of DTC", 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"lists": {
+		"37390": "ECU failure", 
+		"37391": "BSS : Network default", 
+		"37392": "BSS : Alternator default", 
+		"37393": "BSS : Communication default", 
+		"37394": "Alternator unknown", 
+		"37395": "USM supply", 
+		"37397": "Low beam LH", 
+		"37398": "Low beam RH & levelize", 
+		"37399": "Position Lights LH & Rear LH", 
+		"37400": "Position Lights RH & Rear RH & Plate", 
+		"37401": "AC clutch", 
+		"37402": "FR wiper", 
+		"37403": "High Beam LH", 
+		"37404": "High Beam RH", 
+		"37405": "Fog Lamps LH & RH", 
+		"37406": "Defroster", 
+		"37407": "H/L Washer", 
+		"37408": "Ignition Not column lock", 
+		"37409": "Ignition ECM safetyline", 
+		"37410": "Ignition LPG", 
+		"37411": "Ignition EPS/AIRBAG", 
+		"37412": "Ignition AT", 
+		"37413": "Ignition Cabin", 
+		"37414": "Ignition Reverse SW", 
+		"37415": "Battery", 
+		"37416": "Actuator 3", 
+		"37417": "Motor FAN"
+	}
+	}, 
+	"CAN_PositionLightsStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"CAN_HealLampsWasherStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"CAN_BCM_FrontFogLightsRequest": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not requested", 
+		"1": "Requested"
+	}
+	}, 
+	"C_B_Battery_ABSValve": {
+	"comment": "O_BAT-ABS_VALVES (CM-05)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"traceability_ManufactureData (Month)": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"LRC": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "0,2 s", 
+		"1": "5 s", 
+		"2": "10 s", 
+		"3": "15 s"
+	}
+	}, 
+	"CAN_StarterStatus(copy)": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "OFF", 
+		"1": "Short relaxation", 
+		"2": "Long relaxation", 
+		"3": "ON"
+	}
+	}, 
+	"CAN_FrontWiperStopPosition": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not Reached", 
+		"1": "Reached"
+	}
+	}, 
+	"write_traceability_ManufactureData (Year)": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"id_Code Idenficiation Diagnostic": {
+	"comment": "Value: $48h", 
+	"byte": true
+	}, 
+	"Alternator Failure Status": {
+	"bitscount": 3, 
+	"lists": {
+		"1": "F_ELEC", 
+		"2": "F_MEC", 
+		"4": "F_HT"
+	}
+	}, 
+	"NeutralPosition_sens_status": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"CAN_APCLineStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"CAN_Brake_missing": {
+	"scaled": true
+	}, 
+	"ReReadIgn_sens_status": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"C_U_fuses_Washer": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_U_Batt_MAX": {
+	"scaled": true, 
+	"step": 0.0625, 
+	"unit": "V"
+	}, 
+	"CAN_BCM_HeadLampsWasherSelection": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Left or High pressure", 
+		"1": "Right"
+	}
+	}, 
+	"C_U_Batt_MIN": {
+	"scaled": true, 
+	"step": 0.0625, 
+	"unit": "V"
+	}, 
+	"V_TM_ParkingDuration": {
+	"scaled": true, 
+	"bytescount": 3, 
+	"bitscount": 24, 
+	"unit": "min"
+	}, 
+	"Vbat_Step": {
+	"lists": {
+		"1": "Reading", 
+		"2": "Result"
+	}
+	}, 
+	"CAN_ECM_EngineStatus": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Stopped", 
+		"1": "Stalled", 
+		"2": "Running", 
+		"3": "Cranking"
+	}
+	}, 
+	"DF Monitor": {
+	"scaled": true, 
+	"step": 3.2, 
+	"bitscount": 5, 
+	"unit": "%"
+	}, 
+	"CAN_AlternatorLoad_84": {
+	"scaled": true, 
+	"comment": "$FF: invalid", 
+	"step": 0.390625
+	}, 
+	"D10": {
+	"byte": true
+	}, 
+	"C_B_NotColumnLocked": {
+	"comment": "O_IGN-NOT_COLUMN-LOCK (CN-10)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"CAN_BatteryLamp": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"C_U_fuses_LPG": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"V_U_IN3_mes_L": {
+	"scaled": true
+	}, 
+	"C_U_batt_NoLoadTemp_min": {
+	"scaled": true, 
+	"step": 0.1, 
+	"bitscount": 5, 
+	"unit": "V", 
+	"offset": 11.5
+	}, 
+	"V_N_eng_2ndComp_m20_est": {
+	"scaled": true, 
+	"unit": "Tr/min", 
+	"offset": 50.0
+	}, 
+	"Irotor": {
+	"scaled": true, 
+	"step": 0.25, 
+	"bitscount": 5, 
+	"unit": "A"
+	}, 
+	"CAN_ECM_AllowedPowerGradient": {
+	"scaled": true, 
+	"step": 40.0, 
+	"bitscount": 4, 
+	"unit": "W/s"
+	}, 
+	"id_HardwareRelease": {
+	"bytescount": 5, 
+	"byte": true, 
+	"bitscount": 40
+	}, 
+	"C_U_fuses_FrontWiper": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_B_SuperSleepAddiction": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No super sleep addiction", 
+		"1": "Super sleep addiction"
+	}
+	}, 
+	"CAN_BCM_RearDefrostRequest": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Not request", 
+		"1": "Reserved", 
+		"2": "Request by ECM", 
+		"3": "Request by customer"
+	}
+	}, 
+	"C_U_4RelON_1RelOFF_LB": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_MessageSet_Ref": {
+	"comment": "Value: 8410", 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"OC_Calib_Value": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"AllowedPowerGradient_DF": {
+	"scaled": true, 
+	"step": 40.0, 
+	"bitscount": 4, 
+	"unit": "W/s"
+	}, 
+	"traceability_ManufactureData (Year)": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"Current Failure": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No", 
+		"1": "Yes"
+	}
+	}, 
+	"NDTC": {
+	"scaled": true
+	}, 
+	"C_U_fuses_AB_COL_BAT_N3": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_Tau_Battery": {
+	"scaled": true, 
+	"step": 5.0
+	}, 
+	"Output Permanent Control List": {
+	"lists": {
+		"33": "High Beam (Lear)", 
+		"34": "Low Beam (Lear)", 
+		"35": "Position Lights (Lear)", 
+		"36": "Fog Lamps (Lear)", 
+		"37": "Air Conditioning (Lear)", 
+		"38": "Wiper Low Speed (Lear)", 
+		"39": "Wiper High Speed (Lear)", 
+		"40": "Fan Unit Low Speed (Lear)", 
+		"41": "Fan Unit High Speed external (Lear)", 
+		"42": "Fan Unit High Speed internal (Lear)", 
+		"43": "Defroster (Lear)", 
+		"44": "HL washer RS (Lear)", 
+		"45": "HL washer LS (Lear)", 
+		"46": "Starter (Lear)", 
+		"47": "ECLK (Lear)"
+	}
+	}, 
+	"C_U_fuses_AB_COL_BAT_N4": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_K_Ramp_BACKUP": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "0,2 Secondes", 
+		"1": "5 Secondes", 
+		"2": "10 Secondes", 
+		"3": "15 Secondes"
+	}
+	}, 
+	"C_U_fuses_HB_LH": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_BCM_ClutchSwitchMaximumTravel": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Not pressed", 
+		"1": "Pressed", 
+		"2": "Vehicle not equipped", 
+		"3": "Invalid"
+	}
+	}, 
+	"C_U_fuses_BAT_N4": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_TM_RampH21": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"Freeze_Number": {
+	"scaled": true
+	}, 
+	"C_TM_RampH23": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"alternator_activation_type": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "None", 
+		"1": "Temporary", 
+		"2": "Permanent", 
+		"3": "Reserved"
+	}
+	}, 
+	"id_Manufacture": {
+	"lists": {
+		"0": "RENAULT"
+	}
+	}, 
+	"C_TM_HighSpeedWipingProtection": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "ms"
+	}, 
+	"C_U_fuses_Cabin": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"V_U_IN2_mes_H": {
+	"scaled": true
+	}, 
+	"C_B_SocInitInhib": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "S0C function is not inhibited", 
+		"1": "SOC function is inhibited"
+	}
+	}, 
+	"CAN_BCM_StartingMode": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Engine stopped request", 
+		"1": "Reserved", 
+		"2": "Ignition request", 
+		"3": "Starting request"
+	}
+	}, 
+	"V_U_IN2_mes_L": {
+	"scaled": true
+	}, 
+	"CAN_ECM_AlternatorMaximumPower": {
+	"scaled": true, 
+	"step": 40.0, 
+	"unit": "watts"
+	}, 
+	"C_K_MechanicalRatio": {
+	"scaled": true, 
+	"step": 0.01, 
+	"offset": 1.5
+	}, 
+	"C_TM_ECMRelaySwitchingTime": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"traceability_ManufactureData (Day)": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"C_U_fuses_LB_RH": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"write_traceability_ManufactureData (Day)": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"C_B_BatteryLamp": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Energy management", 
+		"1": "Alternator sensor"
+	}
+	}, 
+	"C_B_DF_Regulation": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "ECM Ready", 
+		"1": "ECM not ready"
+	}
+	}, 
+	"id_Supplier_indice": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"alternator_voltage_temp_ON": {
+	"scaled": true, 
+	"comment": "Ton: Activation time (resolution:640 ms)"
+	}, 
+	"CAN_BCM_HighBeamRequest": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not requested", 
+		"1": "Requested"
+	}
+	}, 
+	"CAN_BCM_CrankingAuthorization_Verlog": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not allowed", 
+		"1": "Allowed"
+	}
+	}, 
+	"C_U_4RelON_1RelOFF_AC_N3": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_U_4RelON_1RelOFF_AC_N4": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"id_Release": {
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"CAN_HighBeamStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"Vbat_answer": {
+	"lists": {
+		"1": "Positive answer", 
+		"2": "Result calibration"
+	}
+	}, 
+	"C_U_fuses_AT": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_B_HeadLampsWasher": {
+	"comment": "O_WASHER left and right (CN-07 and CN-11)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"C_B_ActiveDiagTest": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "No activ diagnosis test", 
+		"1": "Activ diagnosis test ok"
+	}
+	}, 
+	"CAN_RearDefrostStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"D5": {
+	"byte": true
+	}, 
+	"C_TM_RampH32": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"After_sales_last_access_Date": {
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24
+	}, 
+	"CAN_BCM_LowBeamRequest": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not requested", 
+		"1": "Requested"
+	}
+	}, 
+	"CAN_FrontWiperProtection": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "No protection", 
+		"1": "LS protection", 
+		"2": "HS protection", 
+		"3": "Blocked protection"
+	}
+	}, 
+	"traceability_DistanceTotalizer": {
+	"scaled": true, 
+	"bytescount": 3, 
+	"bitscount": 20
+	}, 
+	"C_U_threshold_CO": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "mV"
+	}, 
+	"C_B_UbattManu_req": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Manual", 
+		"1": "Automatic"
+	}
+	}, 
+	"id_CodeITG": {
+	"bytesascii": true, 
+	"bytescount": 3, 
+	"byte": true, 
+	"bitscount": 24, 
+	"comment": "value: 414"
+	}, 
+	"C_B_SmartKeyLess": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Car without smart key less", 
+		"1": "Car with smart key less"
+	}
+	}, 
+	"Output Control.tempON": {
+	"scaled": true, 
+	"comment": "TempOn: Activation time (resolution:640 ms)"
+	}, 
+	"V_U_IN1_mes_H": {
+	"scaled": true
+	}, 
+	"CAN_ECM_EngineRPM": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"step": 0.125, 
+	"bitscount": 16, 
+	"unit": "tr/min"
+	}, 
+	"V_U_IN1_mes_L": {
+	"scaled": true
+	}, 
+	"CAN_ECM_EngineFanSpeedRequest": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Not requested", 
+		"1": "Low Speed requested", 
+		"2": "Middle Speed requested [Nissan]", 
+		"3": "High Speed requested"
+	}
+	}, 
+	"CAN_BCM_PositionLightsRequest": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not requested", 
+		"1": "Requested"
+	}
+	}, 
+	"C_K_Gain2_RotorCurrent": {
+	"scaled": true, 
+	"step": 0.1
+	}, 
+	"C_WINDOW_TIME_2": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_RotorCurrent_84": {
+	"scaled": true, 
+	"comment": "$FF: invalid", 
+	"step": 0.0472, 
+	"unit": "A"
+	}, 
+	"id_RENAULT_indice": {
+	"byte": true
+	}, 
+	"CAN_ECM_missing": {
+	"scaled": true
+	}, 
+	"CAN_IgnitionSupplyConfirmation": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"OC_Calib_Name": {
+	"lists": {
+		"0": "C_U_4RelON_1RelOFF_HB", 
+		"1": "C_U_4RelON_1RelOFF_PL", 
+		"2": "C_U_4RelON_1RelOFF_RD", 
+		"3": "C_U_4RelON_1RelOFF_LB", 
+		"4": "C_U_4RelON_1RelOFF_AC_N4", 
+		"5": "C_U_4RelON_1RelOFF_AC_N3", 
+		"6": "C_U_2RelON_1RelOFF_FFog", 
+		"7": "C_U_2RelON_1RelOFF_MFan", 
+		"8": "C_U_fuses_Reverse", 
+		"9": "C_U_fuses_SafetyLine", 
+		"10": "C_U_fuses_Cabin", 
+		"11": "C_U_fuses_AT_LPG", 
+		"12": "C_U_fuses_AT", 
+		"13": "C_U_fuses_LPG", 
+		"14": "C_U_fuses_FAN", 
+		"15": "C_U_fuses_HB_RH", 
+		"16": "C_U_fuses_HB_LH", 
+		"17": "C_U_fuses_FrontWiper", 
+		"18": "C_U_fuses_LB_RH", 
+		"19": "C_U_fuses_LB_LH", 
+		"20": "C_U_fuses_FF", 
+		"21": "C_U_fuses_Washer", 
+		"22": "C_U_fuses_Position_LH", 
+		"23": "C_U_fuses_Position_RH", 
+		"24": "C_U_fuses_Compressor", 
+		"25": "C_U_fuses_Defroster", 
+		"26": "C_U_fuses_IN1_threshold", 
+		"27": "C_U_fuses_AB_COL_BAT_N4", 
+		"28": "C_U_fuses_AB_COL_BAT_N3", 
+		"29": "C_U_fuses_BAT_N4", 
+		"30": "C_U_fuses_BAT_N3", 
+		"31": "id_HardwareConfig_OL"
+	}
+	}, 
+	"C_U_fuses_Defroster": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_U_2RelON_1RelOFF_FFog": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"OilPressureSwitch": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"C_U_fuses_Compressor": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"AlternatorMaximumPower_DF": {
+	"scaled": true, 
+	"step": 40.0, 
+	"unit": "W"
+	}, 
+	"CAN_brake_VehicleSpeed": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"step": 0.01, 
+	"bitscount": 16, 
+	"unit": "km/h"
+	}, 
+	"C_U_fuses_LB_LH": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_U_fuses_FAN": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_Mute_parameter": {
+	"scaled": true
+	}, 
+	"C_B_AirConditionning": {
+	"comment": "O_AC_CLUTCH (MN-10)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"C_TM_UBattOffsetNul": {
+	"scaled": true, 
+	"step": 60.0, 
+	"bitscount": 7
+	}, 
+	"calib_Name": {
+	"lists": {
+		"0": "C_K_MotorType_Status", 
+		"1": "C_K_MechanicalRatio", 
+		"2": "C_B_StressProtectionEnable", 
+		"3": "C_B_StarterProtection", 
+		"4": "C_TM_LowSpeedPeriod_limit_max", 
+		"5": "C_TM_HighSpeedPeriod_limit_max", 
+		"6": "C_TM_LowSpeedWipingProtection", 
+		"7": "C_TM_HighSpeedWipingProtection", 
+		"8": "C_K_Gain_RotorCurrent", 
+		"9": "C_K_Gain2_RotorCurrent", 
+		"10": "C_B_SafetyLineEnable", 
+		"11": "C_B_DefrostTimeoutEnable", 
+		"12": "C_U_batt_NoLoadTemp_min", 
+		"13": "C_B_KmIllimited", 
+		"14": "C_B_SocInitInhib", 
+		"15": "C_B_SuperSleepAddiction", 
+		"16": "C_B_alt_BackUp", 
+		"17": "C_B_DF_Regulation", 
+		"18": "C_U_batt_req_manu", 
+		"19": "C_B_UbattManu_req", 
+		"20": "C_D_InformOfSoc_max", 
+		"21": "C_N_alt_ON_BACKUP", 
+		"22": "C_N_alt_OFF_BACKUP", 
+		"23": "C_K_Ramp_BACKUP", 
+		"24": "C_TM_PmaxNul_BACKUP", 
+		"25": "AllowedPowerGradient_DF", 
+		"26": "AlternatorMaximumPower_DF", 
+		"27": "C_B_SmartKeyLess", 
+		"28": "C_B_GPL", 
+		"29": "C_B_ActiveDiagTest", 
+		"30": "C_B_AirConditionning", 
+		"31": "C_B_HeadLampsWasher", 
+		"32": "C_B_FogLamps", 
+		"33": "C_B_AutomaticGearBox", 
+		"34": "C_B_Battery_ECMAct", 
+		"35": "C_B_Battery_ABSValve", 
+		"36": "C_B_Battery_AT_LPG", 
+		"37": "C_B_Actuator3", 
+		"38": "C_B_Defroster", 
+		"39": "C_B_NotColumnLocked", 
+		"40": "C_B_DayTimeRunningLight", 
+		"41": "C_B_BatteryLamp", 
+		"42": "C_TM_ECMRelaySwitchingTime", 
+		"43": "C_Teta_High", 
+		"44": "C_Teta_Low", 
+		"45": "C_U_Batt_MAX", 
+		"46": "C_U_Batt_MIN", 
+		"47": "C_B_EnableVehicleRunning", 
+		"48": "C_TM_RampH01", 
+		"49": "C_TM_RampH10", 
+		"50": "C_TM_RampH12", 
+		"51": "C_TM_RampH21", 
+		"52": "C_TM_RampH23", 
+		"53": "C_TM_RampH32"
+	}
+	}, 
+	"CAN_RearGearEngaged_84_UPC": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "not engaged", 
+		"1": "engaged", 
+		"2": "reversed", 
+		"3": "invalid"
+	}
+	}, 
+	"CAN_LowBeamStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"C_R_Global": {
+	"scaled": true, 
+	"step": 0.1, 
+	"bitscount": 7
+	}, 
+	"D9": {
+	"byte": true
+	}, 
+	"Alternator Class": {
+	"bitscount": 5, 
+	"lists": {
+		"4": "90 A (BOSCH)", 
+		"8": "125 A (VALEO)", 
+		"9": "120 A (BOSCH)", 
+		"12": "110 A (VALEO)", 
+		"19": "210 A (MELCO)", 
+		"22": "150 A (BOSCH)", 
+		"24": "150 A (VALEO)"
+	}
+	}, 
+	"C_B_alt_BackUp": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not allowed", 
+		"1": "Allowed"
+	}
+	}, 
+	"V_B_EndOfLearning_status": {
+	"scaled": true, 
+	"bitscount": 1
+	}, 
+	"CAN_BCM_HeadLampsWasherRequest": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not requested", 
+		"1": "Requested"
+	}
+	}, 
+	"C_dU_RampDetect_max": {
+	"scaled": true, 
+	"step": 0.5, 
+	"bitscount": 5
+	}, 
+	"C_U_fuses_AT_LPG": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"V_U_IN3_mes_H": {
+	"scaled": true
+	}, 
+	"id_HardwareConfig_OL": {
+	"scaled": true
+	}, 
+	"C_dU_RampDetect_min": {
+	"scaled": true, 
+	"step": 0.5, 
+	"bitscount": 5, 
+	"offset": -10.0
+	}, 
+	"CAN_BCM_WakeUpSleepCommand": {
+	"bitscount": 2, 
+	"lists": {
+		"0": "Go to sleep", 
+		"1": "reserved", 
+		"2": "reserved2", 
+		"3": "Wake Up"
+	}
+	}, 
+	"V_Temp_batt_est": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16, 
+	"unit": "\u00b0C", 
+	"signed": true
+	}, 
+	"C_U_fuses_SafetyLine": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"C_N_alt_ON_BACKUP": {
+	"scaled": true, 
+	"step": 15.0, 
+	"unit": "Tr/min"
+	}, 
+	"Vbat_Result": {
+	"lists": {
+		"1": "Calibration done", 
+		"2": "Not calibrated"
+	}
+	}, 
+	"EM_Calib_Name": {
+	"lists": {
+		"0": "C_U_OffsetMAX", 
+		"1": "C_Tau_Battery", 
+		"2": "C_Tau_Engine", 
+		"3": "C_K_TauBattGainU0", 
+		"4": "C_R_Global", 
+		"5": "C_U_batt_VoltageNetwork_max", 
+		"6": "C_WINDOW_TIME_2", 
+		"7": "C_Kp_TorqueLim_max", 
+		"8": "C_Kp_TorqueLim_min", 
+		"9": "C_Ki_TorqueLim_max", 
+		"10": "C_Ki_TorqueLim_min", 
+		"11": "C_dU_RampDetect_max", 
+		"12": "C_dU_RampDetect_min", 
+		"13": "C_TM_UBattOffsetNul", 
+		"14": "C_TM_Lestage_Alt_Voltage"
+	}
+	}, 
+	"C_B_StarterProtection": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"C_U_batt_VoltageNetwork_max": {
+	"scaled": true, 
+	"step": 0.1, 
+	"bitscount": 6, 
+	"offset": 10.0
+	}, 
+	"EM_Calib_Value": {
+	"scaled": true, 
+	"bytescount": 2, 
+	"bitscount": 16
+	}, 
+	"CAN_ClimateCoolingStatus": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"D3": {
+	"byte": true
+	}, 
+	"traceability_SerialNumber (10digits)": {
+	"bytesascii": true, 
+	"bytescount": 10, 
+	"byte": true, 
+	"bitscount": 80
+	}, 
+	"C_TM_PmaxNul_BACKUP": {
+	"scaled": true, 
+	"step": 0.1, 
+	"unit": "s"
+	}, 
+	"V_N_eng_2ndComp_est": {
+	"scaled": true, 
+	"unit": "Tr/min", 
+	"offset": 50.0
+	}, 
+	"write_traceability_SerialNumber (10digits)": {
+	"bytesascii": true, 
+	"bytescount": 10, 
+	"byte": true, 
+	"bitscount": 80
+	}, 
+	"write_traceability_ManufactureData (Month)": {
+	"bytesascii": true, 
+	"bytescount": 2, 
+	"byte": true, 
+	"bitscount": 16
+	}, 
+	"D8": {
+	"byte": true
+	}, 
+	"C_B_KmIllimited": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "SOC function is inhibited after C_B_KmIllimited", 
+		"1": "SOC function is not inhibited after C_B_KmIllimited"
+	}
+	}, 
+	"D6": {
+	"byte": true
+	}, 
+	"D7": {
+	"byte": true
+	}, 
+	"D4": {
+	"byte": true
+	}, 
+	"C_B_DefrostTimeoutEnable": {
+	"bitscount": 1, 
+	"lists": {
+		"0": "OFF", 
+		"1": "ON"
+	}
+	}, 
+	"D2": {
+	"byte": true
+	}, 
+	"C_B_FogLamps": {
+	"comment": "O_LIGHT-FR-FOG-LAMPS LH and RH (AN-02 and AN-03)", 
+	"bitscount": 1, 
+	"lists": {
+		"0": "Not present", 
+		"1": "Present"
+	}
+	}, 
+	"D1": {
+	"byte": true
+	}
+}
+}

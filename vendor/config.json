@@ -1,0 +1,31 @@
+{
+ "lang": "es_ES",
+ "dark": false,
+ "socket_timeout": false,
+ "device_settings": {},
+ "auto_detect_devices": true,
+ "connection_timeout": 10,
+ "read_timeout": 5,
+ "max_reconnect_attempts": 3,
+ "preferred_device_order": [
+  "vlinker",
+  "vgate",
+  "derlek_usb_diag2",
+  "derlek_usb_diag3",
+  "obdlink",
+  "obdlink_ex",
+  "els27",
+  "elm327"
+ ],
+ "enable_device_validation": true,
+ "carlist_sort_mode": "code",
+ "doip_target_ip": "192.168.0.12",
+ "doip_target_port": 13400,
+ "doip_timeout": 5,
+ "doip_vehicle_announcement": true,
+ "doip_auto_reconnect": false,
+ "doip_preset": "Custom",
+ "doip_scan": false,
+ "last_selected_vehicle": null,
+ "last_opened_ecu": null
+}

@@ -1,0 +1,9 @@
+  Bouton reprendre appuyé -> Botón reanudar presionado
+  Bouton set et moins appuyé -> Botón set y menos presionado
+  Bouton set et plus appuyé -> Botón set y más presionado
+  Bouton suspendre appuyé -> Botón suspender presionado
+  Bruit moteur moyen dans la fenetre cliquetis -> Ruido medio del motor en la ventana de detonación
+  REQ ClearDiagInfor Init des DTC -> Borrar info de diagnóstico: inicialización de DTC
+  REQ ECUReset Reinit des Apprentissages -> Reinicio de la ECU: reinicialización de los aprendizajes
+  REQ Identification -> Identificación
+Los 6 archivos son JSON valido OK

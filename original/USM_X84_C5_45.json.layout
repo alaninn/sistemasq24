@@ -1,0 +1,5274 @@
+{
+ "screens": {
+  "CAN status": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 4620, 
+   "buttons": [
+    {
+     "text": "CAN Status", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read CAN Status"
+      }
+     ], 
+     "uniquename": "CAN Status_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 480, 
+      "height": 300, 
+      "left": 2100
+     }
+    }
+   ], 
+   "width": 8220, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_MessageSet_Ref", 
+     "request": "Read CAN Status", 
+     "width": 2450, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 1080, 
+      "height": 340, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_Bus_OFF_parameter", 
+     "request": "Read CAN Status", 
+     "width": 2450, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 1560, 
+      "height": 340, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_Mute_parameter", 
+     "request": "Read CAN Status", 
+     "width": 2450, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 2040, 
+      "height": 340, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_missing", 
+     "request": "Read CAN Status", 
+     "width": 2450, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 2520, 
+      "height": 340, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_Brake_missing", 
+     "request": "Read CAN Status", 
+     "width": 2450, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3000, 
+      "height": 340, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_missing", 
+     "request": "Read CAN Status", 
+     "width": 2450, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3480, 
+      "height": 340, 
+      "left": 1560
+     }
+    }
+   ]
+  }, 
+  "Read/Write configuration Engine": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "calib_Name", 
+     "request": "Write Configuration", 
+     "width": 1370, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 4320, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "calib_Value", 
+     "request": "Write Configuration", 
+     "width": 1355, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 4680, 
+      "height": 300, 
+      "left": 5040
+     }
+    }
+   ], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 5100, 
+   "buttons": [
+    {
+     "text": "Read Configuration", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read Configuration"
+      }
+     ], 
+     "uniquename": "Read Configuration_0", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 3480, 
+      "top": 120, 
+      "height": 300, 
+      "left": 3120
+     }
+    }, 
+    {
+     "text": "Write Configuration", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write Configuration"
+      }
+     ], 
+     "uniquename": "Write Configuration_1", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 2813, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 6480
+     }
+    }
+   ], 
+   "width": 10260, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_DF_Regulation", 
+     "request": "Read Configuration", 
+     "width": 3290, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_K_Gain_RotorCurrent", 
+     "request": "Read Configuration", 
+     "width": 3290, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_K_MechanicalRatio", 
+     "request": "Read Configuration", 
+     "width": 3275, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 600, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_K_MotorType_Status", 
+     "request": "Read Configuration", 
+     "width": 3275, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 960, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_K_Ramp_BACKUP", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 3120, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_N_alt_OFF_BACKUP", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 2760, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_N_alt_ON_BACKUP", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_PmaxNul_BACKUP", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 3480, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_K_Gain2_RotorCurrent", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_Teta_High", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 600, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_Teta_Low", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 960, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_U_Batt_MAX", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_U_Batt_MIN", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 4200, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_RampH01", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_RampH10", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_RampH12", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_RampH21", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_RampH23", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 2760, 
+      "height": 300, 
+      "left": 5040
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_RampH32", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4800, 
+      "top": 3120, 
+      "height": 300, 
+      "left": 5040
+     }
+    }
+   ]
+  }, 
+  "Output Control": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "alternator_voltage_value", 
+     "request": "Write Alternator Voltage", 
+     "width": 2720, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "alternator_activation_type", 
+     "request": "Write Alternator Voltage", 
+     "width": 2720, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "alternator_voltage_temp_ON", 
+     "request": "Write Alternator Voltage", 
+     "width": 2720, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 4080, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Output Temporary Control List", 
+     "request": "Output Control", 
+     "width": 2810, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 1080, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Output Permanent Control List", 
+     "request": "Output Control", 
+     "width": 2810, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Output Control Command", 
+     "request": "Output Control", 
+     "width": 2810, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Output Control.tempON", 
+     "request": "Output Control", 
+     "width": 2810, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 1800, 
+      "height": 300, 
+      "left": 1320
+     }
+    }
+   ], 
+   "color": "rgb(255,255,128)", 
+   "labels": [
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Sent", 
+     "bbox": {
+      "width": 5520, 
+      "top": 720, 
+      "height": 240, 
+      "left": 1320
+     }, 
+     "fontcolor": "rgb(128,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(207,207,207)", 
+     "text": "Received", 
+     "bbox": {
+      "width": 5520, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 1320
+     }, 
+     "fontcolor": "rgb(128,0,64)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 6780, 
+   "buttons": [
+    {
+     "text": "Output control", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Output Control"
+      }
+     ], 
+     "uniquename": "Output control_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 5565, 
+      "top": 270, 
+      "height": 330, 
+      "left": 1275
+     }
+    }, 
+    {
+     "text": "Write alternator voltage", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write Alternator Voltage"
+      }
+     ], 
+     "uniquename": "Write alternator voltage_1", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 3120, 
+      "height": 360, 
+      "left": 1320
+     }
+    }
+   ], 
+   "width": 9180, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Output Control Status", 
+     "request": "Output Control", 
+     "width": 2810, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 5520, 
+      "top": 2760, 
+      "height": 300, 
+      "left": 1320
+     }
+    }
+   ]
+  }, 
+  "Read alternator diagnosis": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 6000, 
+   "buttons": [
+    {
+     "text": "Read alternator diagnosis", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read Alternator Diagnosis"
+      }
+     ], 
+     "uniquename": "Read alternator diagnosis_0", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 480, 
+      "height": 360, 
+      "left": 2280
+     }
+    }
+   ], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "LRC", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 3720, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Voltage Regulation Target", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 4440, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Alternator Failure Status", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "DF Monitor", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 3000, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Irotor", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 3360, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "ACK of BSS", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "LCR Cut Off Speed", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 4080, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Alternator ECU Monitoring", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Alternator Brand", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Alternator Class", 
+     "request": "Read Alternator Diagnosis", 
+     "width": 2705, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 2280
+     }
+    }
+   ]
+  }, 
+  "CAN received data": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 6900, 
+   "buttons": [
+    {
+     "text": "CAN received data", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read Received CAN Data"
+      }
+     ], 
+     "uniquename": "CAN received data_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4200, 
+      "top": 0, 
+      "height": 300, 
+      "left": 2640
+     }
+    }
+   ], 
+   "width": 8940, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_StartingMode", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 5880, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_RearDefrostRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 5640, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_WakeUpSleepCommand", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 1080, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_FrontWipingRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 4200, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_HeadLampsWasherRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 4440, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_HeadLampsWasherSelection", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 4680, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_ElectricalPowerDrived", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2760, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_ClutchSwitchMaximumTravel", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 1320, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_CrankingAuthorization_Verlog", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 1800, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_DistanceTotalizer", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2520, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_AbsoluteTimeSince1rstIgnition", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 360, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_WakeUpType", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 6360, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_PositionLightsRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 5400, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_LowBeamRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 5160, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_HighBeamRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 4920, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_FrontFogLightsRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 3960, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BCM_EngineCoolantTemp", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 3000, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_brake_VehicleSpeed", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 6120, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_EngineFanSpeedRequest", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 3240, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_EngineStatus", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 3720, 
+      "height": 276, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_CompressorActivation", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 1560, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_EngineRPM", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 3480, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_AllowedPowerGradient", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 600, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_CrankingAuthorisation_ATviaECM", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2040, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_CrankingAuthorisation_ECM", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 2280, 
+      "height": 279, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ECM_AlternatorMaximumPower", 
+     "request": "Read Received CAN Data", 
+     "width": 3500, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 7200, 
+      "top": 840, 
+      "height": 279, 
+      "left": 1320
+     }
+    }
+   ]
+  }, 
+  "Read analogic input": {
+   "inputs": [], 
+   "color": "rgb(0,128,192)", 
+   "labels": [
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "Read analogic input", 
+     "bbox": {
+      "width": 3600, 
+      "top": 240, 
+      "height": 600, 
+      "left": 2400
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 6780, 
+   "buttons": [], 
+   "width": 9000, 
+   "displays": [
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN1_mes_H", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 600, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN1_mes_L", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 900, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN2_mes_H", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN2_mes_L", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 1500, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN3_mes_H", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 1800, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN3_mes_L", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 2100, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN4_mes_H", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN4_mes_L", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 2700, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN5_mes_H", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3000, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "V_U_IN5_mes_L", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3300, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "VREF_ALTERNATOR_H", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "VREF_ALTERNATOR_L", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 3900, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "ENERGY_BATTERY_VOLTAGE_H", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 4200, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "ENERGY_BATTERY_VOLTAGE_L", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 4500, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "OilPressureSwitch", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 4800, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "ReReadIgn_sens_status", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 5100, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "ReverseGear_sens_status", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 5400, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "NeutralPosition_sens_status", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 5700, 
+      "height": 300, 
+      "left": 1560
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "StopPosition_flt", 
+     "request": "Read Analogic Input", 
+     "width": 3200, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5880, 
+      "top": 6000, 
+      "height": 300, 
+      "left": 1560
+     }
+    }
+   ]
+  }, 
+  "Read battery diagnosis": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 4860, 
+   "buttons": [
+    {
+     "text": "Read battery diagnosis", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read Battery Diagnosis"
+      }
+     ], 
+     "uniquename": "Read battery diagnosis_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 840, 
+      "height": 360, 
+      "left": 2160
+     }
+    }
+   ], 
+   "width": 8820, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_U_batt_NoLoad_est", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2885, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 2190
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_TM_ParkingDuration", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2885, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 2190
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_Temp_batt_MiniDem_est", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2870, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 2880, 
+      "height": 300, 
+      "left": 2190
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_N_eng_2ndComp_m20_est", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2870, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 2520, 
+      "height": 300, 
+      "left": 2190
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_K_LearningCounter_status", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2855, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 1800, 
+      "height": 300, 
+      "left": 2190
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_B_EndOfLearning_status", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2855, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 1440, 
+      "height": 300, 
+      "left": 2190
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_N_eng_2ndComp_est", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2855, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 2160, 
+      "height": 300, 
+      "left": 2190
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "V_Temp_batt_est", 
+     "request": "Read Battery Diagnosis", 
+     "width": 2870, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 2190
+     }
+    }
+   ]
+  }, 
+  "Read other data": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [
+    {
+     "color": "rgb(172,240,183)", 
+     "text": "Logical input", 
+     "bbox": {
+      "width": 4440, 
+      "top": 480, 
+      "height": 300, 
+      "left": 2280
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }, 
+    {
+     "color": "rgb(172,240,183)", 
+     "text": "VSC Function", 
+     "bbox": {
+      "width": 4440, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 2280
+     }, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "alignment": "2"
+    }
+   ], 
+   "presend": [], 
+   "height": 4860, 
+   "buttons": [
+    {
+     "text": "Read other data", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Fct Read VSC function status"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Read Input"
+      }
+     ], 
+     "uniquename": "Read other data_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 120, 
+      "height": 300, 
+      "left": 2280
+     }
+    }
+   ], 
+   "width": 8220, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_OilPressureSwitch", 
+     "request": "Read Input", 
+     "width": 3095, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6000, 
+      "top": 840, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_FrontWiperStopPosition", 
+     "request": "Read Input", 
+     "width": 3095, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6000, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_RearGearEngaged_84_UPC", 
+     "request": "Read Input", 
+     "width": 3095, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6000, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_NeutralContact", 
+     "request": "Read Input", 
+     "width": 3095, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6000, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_IgnitionSupplyConfirmation", 
+     "request": "Fct Read VSC function status", 
+     "width": 3035, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6000, 
+      "top": 2760, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_NeutralContact", 
+     "request": "Fct Read VSC function status", 
+     "width": 3035, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6000, 
+      "top": 3120, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_StarterStatus", 
+     "request": "Fct Read VSC function status", 
+     "width": 3035, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6000, 
+      "top": 3480, 
+      "height": 300, 
+      "left": 1440
+     }
+    }
+   ]
+  }, 
+  "Read/Write configuration vehicul": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "calib_Name", 
+     "request": "Write Configuration", 
+     "width": 1370, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 5520, 
+      "height": 300, 
+      "left": 2400
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "calib_Value", 
+     "request": "Write Configuration", 
+     "width": 1355, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 5880, 
+      "height": 300, 
+      "left": 2400
+     }
+    }
+   ], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 6540, 
+   "buttons": [
+    {
+     "text": "Read Configuration", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read Configuration"
+      }
+     ], 
+     "uniquename": "Read Configuration_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 3480, 
+      "top": 120, 
+      "height": 300, 
+      "left": 3240
+     }
+    }, 
+    {
+     "text": "Write Configuration", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write Configuration"
+      }
+     ], 
+     "uniquename": "Write Configuration_1", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 2813, 
+      "top": 5160, 
+      "height": 300, 
+      "left": 3600
+     }
+    }
+   ], 
+   "width": 9900, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AllowedPowerGradient_DF", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 480, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "AlternatorMaximumPower_DF", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 720, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_ActiveDiagTest", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 960, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_Actuator3", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_AirConditionning", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1440, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_alt_BackUp", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_AutomaticGearBox", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_Battery_ABSValve", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2160, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_Battery_AT_LPG", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_Battery_ECMAct", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_BatteryLamp", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2880, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_DayTimeRunningLight", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3120, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_EnableVehicleRunning", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3360, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_Defroster", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_DefrostTimeoutEnable", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_FogLamps", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4080, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_GPL", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4320, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_HeadLampsWasher", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4560, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_KmIllimited", 
+     "request": "Read Configuration", 
+     "width": 2675, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4800, 
+      "height": 300, 
+      "left": 120
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_NotColumnLocked", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4125, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_SafetyLineEnable", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4395, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_SmartKeyLess", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 4635, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_SocInitInhib", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 480, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_StarterProtection", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 720, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_StressProtectionEnable", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 960, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_SuperSleepAddiction", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1200, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_B_UbattManu_req", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1440, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_D_InformOfSoc_max", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1680, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_ECMRelaySwitchingTime", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_HighSpeedPeriod_limit_max", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2160, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_HighSpeedWipingProtection", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2400, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_LowSpeedPeriod_limit_max", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_LowSpeedWipingProtection", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 2880, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_TM_PmaxNul_BACKUP", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3120, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_U_alt_diag", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3360, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_U_batt_NoLoadTemp_min", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3600, 
+      "height": 300, 
+      "left": 4920
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "C_U_batt_req_manu", 
+     "request": "Read Configuration", 
+     "width": 3305, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4680, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 4920
+     }
+    }
+   ]
+  }, 
+  "DTC and limphome Manager": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "MaskDTC", 
+     "request": "Write Mask DTC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "FFN", 
+     "request": "Freeze Frame", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 4200, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "FirstDTC", 
+     "request": "Freeze Frame", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3120, 
+      "height": 300, 
+      "left": 4800
+     }
+    }
+   ], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 7380, 
+   "buttons": [
+    {
+     "text": "Clear DTC", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "ClearDTC"
+      }
+     ], 
+     "uniquename": "Clear DTC_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 3600, 
+      "height": 240, 
+      "left": 360
+     }
+    }, 
+    {
+     "text": "Mode degrade OFF", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Request CAN Diag OFF"
+      }
+     ], 
+     "uniquename": "Mode degrade OFF_1", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 5040, 
+      "height": 240, 
+      "left": 2520
+     }
+    }, 
+    {
+     "text": "Mode degrade ON", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Request CAN Diag ON"
+      }
+     ], 
+     "uniquename": "Mode degrade ON_2", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4080, 
+      "top": 4680, 
+      "height": 240, 
+      "left": 2520
+     }
+    }, 
+    {
+     "text": "Read Mask DTC", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read Mask DTC"
+      }
+     ], 
+     "uniquename": "Read Mask DTC_3", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 1200, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "text": "Read DTC", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "ReadDTC"
+      }
+     ], 
+     "uniquename": "Read DTC_4", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 1200, 
+      "height": 240, 
+      "left": 360
+     }
+    }, 
+    {
+     "text": "Freeze frame", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Freeze Frame"
+      }
+     ], 
+     "uniquename": "Freeze frame_5", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 2760, 
+      "height": 240, 
+      "left": 4800
+     }
+    }, 
+    {
+     "text": "ECU reset", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "ECUReset"
+      }
+     ], 
+     "uniquename": "ECU reset_6", 
+     "font": {
+      "bold": "1", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 240, 
+      "height": 240, 
+      "left": 2280
+     }
+    }, 
+    {
+     "text": "Fuses and Open Circuitry Check", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "1000", 
+       "RequestName": "Fuses and Open Circuitry Check"
+      }
+     ], 
+     "uniquename": "Fuses and Open Circuitry Check_7", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 720, 
+      "height": 240, 
+      "left": 360
+     }
+    }, 
+    {
+     "text": "Write MasK DTC", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "100", 
+       "RequestName": "Write Mask DTC"
+      }
+     ], 
+     "uniquename": "Write MasK DTC_8", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3960, 
+      "top": 1920, 
+      "height": 240, 
+      "left": 4800
+     }
+    }
+   ], 
+   "width": 10020, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Freeze_Number", 
+     "request": "Freeze Frame", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3840, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "traceability_DistanceTotalizer", 
+     "request": "Freeze Frame", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3480, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "MaskDTC", 
+     "request": "Read Mask DTC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 4800
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "NDTC", 
+     "request": "ReadDTC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "FirstDTC", 
+     "request": "ReadDTC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 1920, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Historical Failure", 
+     "request": "ReadDTC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Current Failure", 
+     "request": "ReadDTC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 2640, 
+      "height": 300, 
+      "left": 360
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "Standard Fault", 
+     "request": "ReadDTC", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 4000, 
+      "top": 3000, 
+      "height": 300, 
+      "left": 360
+     }
+    }
+   ]
+  }, 
+  "CAN sent data": {
+   "inputs": [], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 7020, 
+   "buttons": [
+    {
+     "text": "CAN sent data", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Read Sent CAN Data"
+      }
+     ], 
+     "uniquename": "CAN sent data_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4065, 
+      "top": 0, 
+      "height": 300, 
+      "left": 2520
+     }
+    }
+   ], 
+   "width": 8460, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_AlternatorLoad_84", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 360, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_AlternatorNumber", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 600, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_APCLineStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 840, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BatteryLamp", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 1080, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_BatteryVoltage", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 1320, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ClimateCoolingStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_EngineFanSpeedStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 1800, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_FrontFogLightStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 2040, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_FrontWiperProtection", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 2280, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_FrontWiperStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 2520, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_FrontWiperStopPosition", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 2760, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_HealLampsWasherStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 3000, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_HighBeamStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 3960, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_IgnitionSupplyConfirmation", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_InstantMechanicalPowerByAlt", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 3480, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_LowBeamStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 3720, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_NeutralContact", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 4200, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_OilPressureSwitch", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 4440, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_PositionLightsStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 4680, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_PredictedMechanicalPowerByAlt", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 4920, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_RearDefrostStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 5160, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_RearGearEngaged_84_UPC", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 5400, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_ResetInfo_USM", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 5640, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_RotorCurrent_84", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 5880, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_StarterStatus", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 6120, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_StarterStatus(copy)", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 6360, 
+      "height": 300, 
+      "left": 720
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "CAN_USM_Refuse_to_Sleep", 
+     "request": "Read Sent CAN Data", 
+     "width": 4115, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6960, 
+      "top": 6600, 
+      "height": 300, 
+      "left": 720
+     }
+    }
+   ]
+  }, 
+  "Identification": {
+   "inputs": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "After_sales_last_access_Date", 
+     "request": "Write Access Date", 
+     "width": 2975, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 6600, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "VIN", 
+     "request": "Write VIN", 
+     "width": 3005, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 7560, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "VIN CRC", 
+     "request": "Write VIN", 
+     "width": 3005, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 7800, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "write_traceability_ManufactureData (Day)", 
+     "request": "Write Traceability", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 8760, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "write_traceability_ManufactureData (Month)", 
+     "request": "Write Traceability", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 7.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 9000, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "write_traceability_ManufactureData (Year)", 
+     "request": "Write Traceability", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 7.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 9240, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "write_traceability_SerialNumber (10digits)", 
+     "request": "Write Traceability", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 9480, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Part Number", 
+     "request": "Write Traceability", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 9720, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_HardwareRelease", 
+     "request": "Write Traceability", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 9960, 
+      "height": 300, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_RENAULT_indice", 
+     "request": "Write Traceability", 
+     "width": 3080, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 10200, 
+      "height": 300, 
+      "left": 1080
+     }
+    }
+   ], 
+   "color": "rgb(255,255,128)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 10980, 
+   "buttons": [
+    {
+     "text": "Identification", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "System Identification"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Traceability"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Read VIN"
+      }, 
+      {
+       "Delay": "0", 
+       "RequestName": "Read Last Access Date"
+      }
+     ], 
+     "uniquename": "Identification_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 120, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "text": "Write last access date", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write Access Date"
+      }
+     ], 
+     "uniquename": "Write last access date_1", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 6120, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "text": "Write VIN", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write VIN"
+      }
+     ], 
+     "uniquename": "Write VIN_2", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 7080, 
+      "height": 300, 
+      "left": 2280
+     }
+    }, 
+    {
+     "text": "Write Traceability", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write Traceability"
+      }
+     ], 
+     "uniquename": "Write Traceability_3", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 4440, 
+      "top": 8280, 
+      "height": 300, 
+      "left": 2400
+     }
+    }
+   ], 
+   "width": 8220, 
+   "displays": [
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "VIN", 
+     "request": "Read VIN", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 3600, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "VIN CRC", 
+     "request": "Read VIN", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 3912, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "After_sales_last_access_Date", 
+     "request": "Read Last Access Date", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 4848, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Part Number", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 480, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Code Idenficiation Diagnostic", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 792, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_CodeITG", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 1104, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_HardwareRelease", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 1416, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Software", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 1728, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Release", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 2040, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Calibration", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 2352, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_RENAULT_indice", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 2664, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Supplier_indice", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 2976, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "id_Manufacture", 
+     "request": "System Identification", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 3288, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "traceability_ManufactureData (Day)", 
+     "request": "Traceability", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 4536, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "traceability_ManufactureData (Month)", 
+     "request": "Traceability", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 4848, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "traceability_ManufactureData (Year)", 
+     "request": "Traceability", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 5160, 
+      "height": 312, 
+      "left": 1080
+     }
+    }, 
+    {
+     "color": "rgb(255,255,255)", 
+     "text": "traceability_SerialNumber (10digits)", 
+     "request": "Traceability", 
+     "width": 2960, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 8.0
+     }, 
+     "rect": {
+      "width": 6840, 
+      "top": 5472, 
+      "height": 312, 
+      "left": 1080
+     }
+    }
+   ]
+  }, 
+  "Read and write manufacture data": {
+   "inputs": [
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D1", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 960, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D2", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 1260, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D3", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 1560, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D4", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 1860, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D5", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 2160, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D6", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 2460, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D7", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 2760, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D8", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 3060, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D9", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 3360, 
+      "height": 300, 
+      "left": 1440
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "D10", 
+     "request": "Write Manufacture Data", 
+     "width": 2000, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 5640, 
+      "top": 3660, 
+      "height": 300, 
+      "left": 1440
+     }
+    }
+   ], 
+   "color": "rgb(0,128,192)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 6000, 
+   "buttons": [
+    {
+     "text": "Write manufacture data", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write Manufacture Data"
+      }
+     ], 
+     "uniquename": "Write manufacture data_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3120, 
+      "top": 360, 
+      "height": 300, 
+      "left": 2760
+     }
+    }
+   ], 
+   "width": 9000, 
+   "displays": []
+  }, 
+  "Write traceability": {
+   "inputs": [
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "id_Part Number", 
+     "request": "Write Traceability", 
+     "width": 3170, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6360, 
+      "top": 2880, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "id_HardwareRelease", 
+     "request": "Write Traceability", 
+     "width": 3170, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6360, 
+      "top": 2520, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "id_RENAULT_indice", 
+     "request": "Write Traceability", 
+     "width": 3800, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6360, 
+      "top": 3240, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "write_traceability_ManufactureData (Day)", 
+     "request": "Write Traceability", 
+     "width": 3800, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6360, 
+      "top": 1800, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "write_traceability_ManufactureData (Month)", 
+     "request": "Write Traceability", 
+     "width": 3800, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6360, 
+      "top": 2160, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "write_traceability_ManufactureData (Year)", 
+     "request": "Write Traceability", 
+     "width": 3800, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6360, 
+      "top": 2520, 
+      "height": 300, 
+      "left": 1320
+     }
+    }, 
+    {
+     "color": "rgb(192,192,192)", 
+     "text": "write_traceability_SerialNumber (10digits)", 
+     "request": "Write Traceability", 
+     "width": 3800, 
+     "fontcolor": "rgb(0,0,0)", 
+     "font": {
+      "bold": "0", 
+      "name": "Arial", 
+      "italic": "0", 
+      "size": 10.0
+     }, 
+     "rect": {
+      "width": 6360, 
+      "top": 2880, 
+      "height": 300, 
+      "left": 1320
+     }
+    }
+   ], 
+   "color": "rgb(0,128,192)", 
+   "labels": [], 
+   "presend": [], 
+   "height": 6000, 
+   "buttons": [
+    {
+     "text": "Write traceability", 
+     "messages": [
+      ""
+     ], 
+     "send": [
+      {
+       "Delay": "0", 
+       "RequestName": "Write Traceability"
+      }
+     ], 
+     "uniquename": "Write traceability_0", 
+     "font": {
+      "bold": "0", 
+      "name": "MS Sans Serif", 
+      "italic": "0", 
+      "size": 8.25
+     }, 
+     "rect": {
+      "width": 3525, 
+      "top": 960, 
+      "height": 300, 
+      "left": 2737
+     }
+    }
+   ], 
+   "width": 9000, 
+   "displays": []
+  }
+ }, 
+ "categories": {
+  "Supplier": [
+   "Read analogic input", 
+   "Read and write manufacture data", 
+   "Write traceability"
+  ], 
+  "AfterSales & Manufacture": [
+   "DTC and limphome Manager", 
+   "Output Control", 
+   "Identification", 
+   "CAN status", 
+   "CAN received data", 
+   "CAN sent data", 
+   "Read other data", 
+   "Read/Write configuration vehicul", 
+   "Read battery diagnosis", 
+   "Read alternator diagnosis", 
+   "Read/Write configuration Engine"
+  ]
+ }
+}
