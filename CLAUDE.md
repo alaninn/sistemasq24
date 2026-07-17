@@ -10,10 +10,20 @@ Cada vez que se modifica algo del sistema (código, fix, feature), SIEMPRE:
 El usuario borra y re-descarga la carpeta en su notebook para probar, así que **el repo
 siempre debe tener la última versión funcional**.
 
+## Flujo de logs (IMPORTANTE)
+El usuario prueba en la notebook (en el auto), y con el botón **"☁ Subir logs"** sube los
+logs a GitHub (endpoint `POST /api/logs/subir` → los copia a `debug-logs/` y hace commit +
+push a `main`). Después vuelve y me dice **"revisá los logs desde acá"**: eso significa que
+yo debo hacer `git pull` y **leer los archivos de `debug-logs/`** (los `sesion_*.txt`) para
+depurar. Esto es **temporal** (solo mientras debuggeamos); después se saca el push automático
+y quedan solo en una carpeta local `log/`.
+
 ## Qué NO se sube (ya en `.gitignore`)
-- `vendor/**/ecu.zip` — la base de ECUs (142 MB); el usuario la carga a mano.
 - `dist/` — el instalador (artefacto pesado).
-- `.venv/`, `__pycache__/`, `log/` — entorno, cache y logs.
+- `.venv/`, `__pycache__/`, `log/` — entorno, cache y logs de sesión locales.
+- `ecu.zip` NO se sube entero (142 MB > límite de GitHub); se sube **partido** en
+  `vendor/sistemasq24/ecu.zip.part*` (cada parte <100 MB) y `run.py` lo re-arma solo al
+  arrancar si falta. `debug-logs/` SÍ se sube (logs de prueba para revisar).
 
 ## Arquitectura (resumen)
 - **Backend**: `app/server.py` (FastAPI + WebSocket), `app/ecu_registry.py` (perfiles de ECU

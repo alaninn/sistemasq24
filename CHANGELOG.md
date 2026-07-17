@@ -7,6 +7,38 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-17] — Actuadores, analizador de ondas pro, auto-guardado y subida de logs
+
+### Actuadores — AHORA ENCIENDEN
+- Bug encontrado: el comando de servicio 30 mandaba `Output Control.tempON` en **0**, así
+  que la ECU aceptaba el comando pero la salida no se energizaba. Ese byte (que enciende/
+  mantiene la salida) es un dato "scaled" → se pasa en **decimal**. Ahora se manda `255`
+  (`30 05 00 FF` para el A/C). Stop = `30 05 11 00`.
+- **Keep-alive**: los actuadores encendidos se re-envían periódicamente (el "Start
+  Temporary" expira solo), así la salida se mantiene activa hasta apagarla. Se corta al
+  apagar o desconectar.
+
+### Analizador de ondas — mejoras
+- **Zoom** con la rueda del mouse + desplazar arrastrando (plugin `chartjs-plugin-zoom`
+  vendorizado local, offline) + botón "Reset zoom".
+- **Números más grandes** en ejes y leyenda.
+- **Estadísticas por gráfico** (ya no se mezclan): en modo separado van en cada tarjeta;
+  en modo solapado, tabla compacta por sensor (Actual/Min/Max/Prom/Hz).
+- **Pantalla completa** y modos "separado" (de a uno) / "solapado" (unidos).
+
+### Logs
+- **Auto-guardado**: la grabación se vuelca a disco cada ~3 s, así aunque se cierre el
+  navegador sin tocar "Finalizar" **no se pierde nada**.
+- **Botón "☁ Subir logs"** + endpoint `POST /api/logs/subir`: copia los logs a
+  `debug-logs/` y los sube a GitHub (temporal, para debug). Ver "flujo de logs" en CLAUDE.md.
+
+### GitHub
+- **ecu.zip subido partido** (`vendor/sistemasq24/ecu.zip.part00/01`, <100 MB c/u); `run.py`
+  lo re-arma solo al arrancar. Así queda guardado y descargable sin superar el límite de
+  GitHub.
+
+---
+
 ## [2026-07-16] — Primera versión funcional en GitHub
 
 ### Arquitectura: scanner adaptativo por vehículo

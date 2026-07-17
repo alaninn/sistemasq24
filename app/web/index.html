@@ -515,9 +515,12 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
 .vehiculos-grid .info-item{display:flex;justify-content:space-between;padding:4px 0}
 .vehiculos-grid .estado{background:rgba(74,222,128,.15);color:var(--green);padding:8px 12px;border-radius:6px;font-size:12px;text-align:center;font-weight:500}
 
+.ondas-fs{background:var(--bg);padding:24px;overflow:auto}
+.ondas-fs canvas{max-height:none}
 .hidden{display:none!important}
 </style>
 <script src="/static/chart.umd.js"></script>
+<script src="/static/chartjs-plugin-zoom.umd.min.js"></script>
 </head>
 <body>
 
@@ -558,6 +561,7 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
     <div class="spacer"></div>
     <button class="rec-btn" id="recBtn" onclick="toggleGrabar()">
       <span class="rec-dot"></span><span id="recTxt">Grabar sesión</span></button>
+    <button class="rec-btn" id="subirLogsBtn" onclick="subirLogs()" title="Subir los logs grabados a GitHub (temporal, para debug)">☁ Subir logs</button>
     <div class="pill" id="connPill"><span class="dot"></span><span id="connTxt">—</span></div>
     <div class="danger-toggle" id="dangerToggle" onclick="toggleDanger()">
       <span class="lbl">Modo avanzado</span>
@@ -782,6 +786,8 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
         </div>
         <button class="chip" id="ondas-modo-btn" onclick="toggleOndasModo()">🔲 Separar gráficos</button>
         <button class="chip" id="ondas-captura-btn" onclick="toggleOndasCaptura()">▶ Iniciar captura</button>
+        <button class="chip" onclick="resetOndasZoom()" title="Restablecer zoom">🔍 Reset zoom</button>
+        <button class="chip" onclick="toggleOndasFullscreen()" title="Pantalla completa">⛶ Pantalla completa</button>
         <button class="chip" onclick="downloadOndasCSV()">📥 CSV</button>
         <button class="chip" onclick="clearOndasBuffer()">🗑 Limpiar</button>
         <label style="display:flex;align-items:center;gap:8px">
@@ -789,17 +795,11 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
           Pausar
         </label>
       </div>
+      <div style="font-size:11px;color:var(--ink-dim);margin-bottom:8px">💡 Rueda del mouse = zoom · arrastrar = desplazar · "Separar gráficos" para verlos de a uno.</div>
       <div id="ondas-picker" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;max-height:130px;overflow:auto"></div>
       <div id="ondas-sensores-multiples" style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap"></div>
       <div id="ondas-charts"></div>
-      <div id="ondas-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;font-size:13px;margin-top:12px">
-        <div><b>Muestras:</b> <span id="ondas-samples">0</span></div>
-        <div><b>Frecuencia:</b> <span id="ondas-freq">0 Hz</span></div>
-        <div><b>Promedio:</b> <span id="ondas-avg">—</span></div>
-        <div><b>Min:</b> <span id="ondas-min">—</span></div>
-        <div><b>Max:</b> <span id="ondas-max">—</span></div>
-        <div><b>Actual:</b> <span id="ondas-actual">—</span></div>
-      </div>
+      <div id="ondas-stats" style="margin-top:12px"></div>
     </section>
 
     <!-- VISTA: SELECCIONAR VEHÍCULO RENAULT -->
@@ -1868,6 +1868,20 @@ async function readScreen(auto){
   if(!auto) toast('Valores actualizados','ok');
 }
 
+/* ============================ SUBIR LOGS A GITHUB (temporal, debug) ============================ */
+async function subirLogs(){
+  const btn=document.getElementById('subirLogsBtn');
+  const txt=btn.textContent;
+  btn.disabled=true; btn.textContent='☁ Subiendo…';
+  try{
+    const r=await fetch(API+'/api/logs/subir',{method:'POST'});
+    const j=await r.json();
+    if(j.ok) toast('☁ '+(j.mensaje||'Logs subidos a GitHub'),'ok');
+    else toast('⚠ '+(j.error||'No se pudieron subir'),'err');
+  }catch(e){ toast('Error subiendo logs','err'); }
+  btn.disabled=false; btn.textContent=txt;
+}
+
 /* ============================ GRABAR SESIÓN ============================ */
 async function toggleGrabar(){
   if(!ST.grabando){
@@ -2139,13 +2153,26 @@ function _destroyOndasCharts(){
 }
 function _ondasSig(){ return ONDAS.modo + '|' + ONDAS.sensoresActivos.join(','); }
 function _ondasOpciones(){
+  const zoom = window.Chart && Chart.registry && Chart.registry.plugins.get('zoom');
+  const plugins = {
+    legend:{display:ONDAS.modo==='solapado', position:'top',
+            labels:{color:'#e8eef4', font:{size:14}, boxWidth:14, padding:12}},
+  };
+  if(zoom){
+    plugins.zoom = {
+      zoom:{ wheel:{enabled:true}, pinch:{enabled:true}, drag:{enabled:false}, mode:'xy' },
+      pan:{ enabled:true, mode:'xy' },
+    };
+  }
   return {
     responsive:true, maintainAspectRatio:false, animation:false,
-    interaction:{mode:'index',intersect:false},
-    plugins:{legend:{display:ONDAS.modo==='solapado',position:'top',labels:{color:'#e8eef4',font:{size:12}}}},
+    interaction:{mode:'index', intersect:false},
+    plugins,
     scales:{
-      x:{type:'linear',title:{display:true,text:'Tiempo (s)',color:'#8ea0b2'},ticks:{color:'#8ea0b2'},grid:{color:'#243040'}},
-      y:{title:{display:true,text:'Valor',color:'#8ea0b2'},ticks:{color:'#8ea0b2'},grid:{color:'#243040'}},
+      x:{type:'linear', title:{display:true, text:'Tiempo (s)', color:'#a9b7c6', font:{size:14}},
+         ticks:{color:'#c3cede', font:{size:13}}, grid:{color:'#2a3644'}},
+      y:{title:{display:true, text:'Valor', color:'#a9b7c6', font:{size:14}},
+         ticks:{color:'#c3cede', font:{size:13}}, grid:{color:'#2a3644'}},
     }
   };
 }
@@ -2184,8 +2211,9 @@ function updateOndasChart(){
         ONDAS.sensoresActivos.map((id,idx) => {
           const m = ST.paramMeta[id]; const color = ONDAS.colors[idx%ONDAS.colors.length];
           return `<div style="background:var(--panel2);border:1px solid var(--line2);border-radius:8px;padding:10px">
-            <div style="font-size:12px;font-weight:600;margin-bottom:6px;color:${color}">${esc(m?m.etiqueta:id)}</div>
-            <div style="position:relative;height:200px"><canvas id="ondas-c-${cssId(id)}"></canvas></div>
+            <div style="font-size:14px;font-weight:600;margin-bottom:6px;color:${color}">${esc(m?m.etiqueta:id)}${m&&m.unidad?` <span style="color:var(--ink-dim);font-weight:400">(${esc(m.unidad)})</span>`:''}</div>
+            <div style="position:relative;height:220px"><canvas id="ondas-c-${cssId(id)}"></canvas></div>
+            <div id="ondas-st-${cssId(id)}" style="font-size:12px;color:var(--ink-dim);margin-top:8px"></div>
           </div>`;
         }).join('') + '</div>';
       ONDAS.sensoresActivos.forEach((id,idx) => {
@@ -2215,31 +2243,73 @@ function updateOndasChart(){
   }
 }
 
-function updateOndasStats(){
-  let allVals = [];
-  ONDAS.sensoresActivos.forEach(id => {
-    allVals.push(...(ONDAS.buffers[id] || []).map(p => p.valor));
-  });
-  const min = allVals.length > 0 ? Math.min(...allVals) : 0;
-  const max = allVals.length > 0 ? Math.max(...allVals) : 0;
-  const avg = allVals.length > 0 ? allVals.reduce((a,b)=>a+b,0)/allVals.length : 0;
-  const actual = ONDAS.sensoresActivos.length > 0 && ONDAS.buffers[ONDAS.sensoresActivos[0]]?.length > 0
-    ? ONDAS.buffers[ONDAS.sensoresActivos[0]][ONDAS.buffers[ONDAS.sensoresActivos[0]].length-1].valor
-    : 0;
-  const buf0 = ONDAS.buffers[ONDAS.sensoresActivos[0]] || [];
-  let freq = 0;
-  if(buf0.length > 1){
-    const dt = (buf0[buf0.length-1].t - buf0[0].t) / 1000;
-    if(dt > 0) freq = (buf0.length / dt).toFixed(1);
-  }
-
-  document.getElementById('ondas-min').textContent = min.toFixed(2);
-  document.getElementById('ondas-max').textContent = max.toFixed(2);
-  document.getElementById('ondas-avg').textContent = avg.toFixed(2);
-  document.getElementById('ondas-actual').textContent = actual.toFixed(2);
-  document.getElementById('ondas-samples').textContent = allVals.length;
-  document.getElementById('ondas-freq').textContent = freq + ' Hz';
+function _ondasFmt(v){
+  if(v===undefined||v===null||isNaN(v)) return '—';
+  return Math.abs(v)>=100 ? v.toFixed(0) : v.toFixed(2);
 }
+function _ondasStatsDe(id){
+  const buf = ONDAS.buffers[id]||[];
+  if(!buf.length) return null;
+  const vals = buf.map(p=>p.valor);
+  let freq = 0;
+  if(buf.length>1){ const dt=(buf[buf.length-1].t-buf[0].t)/1000; if(dt>0) freq=buf.length/dt; }
+  return {
+    n: vals.length, actual: vals[vals.length-1],
+    min: Math.min(...vals), max: Math.max(...vals),
+    avg: vals.reduce((a,b)=>a+b,0)/vals.length, freq,
+  };
+}
+// Estadísticas POR sensor (no mezcladas). En "separado" van en cada tarjeta;
+// en "solapado" van como tabla compacta debajo del gráfico.
+function updateOndasStats(){
+  const box = document.getElementById('ondas-stats');
+  if(ONDAS.modo==='separado'){
+    if(box) box.innerHTML='';
+    ONDAS.sensoresActivos.forEach(id=>{
+      const el=document.getElementById('ondas-st-'+cssId(id)); if(!el) return;
+      const s=_ondasStatsDe(id); const m=ST.paramMeta[id]; const u=(m&&m.unidad)?' '+m.unidad:'';
+      el.innerHTML = s
+        ? `Actual <b style="color:var(--ink)">${_ondasFmt(s.actual)}${esc(u)}</b> · Min ${_ondasFmt(s.min)} · Max ${_ondasFmt(s.max)} · Prom ${_ondasFmt(s.avg)} · ${s.freq.toFixed(1)} Hz · ${s.n} m.`
+        : 'esperando datos…';
+    });
+    return;
+  }
+  if(!box) return;
+  if(ONDAS.sensoresActivos.length===0){ box.innerHTML=''; return; }
+  let html='<table style="width:100%;border-collapse:collapse;font-size:13px">'
+    +'<thead><tr style="color:var(--ink-dim);text-align:left">'
+    +'<th style="padding:5px 8px">Sensor</th><th>Actual</th><th>Min</th><th>Max</th><th>Prom</th><th>Hz</th></tr></thead><tbody>';
+  ONDAS.sensoresActivos.forEach((id,idx)=>{
+    const s=_ondasStatsDe(id); const m=ST.paramMeta[id];
+    const color=ONDAS.colors[idx%ONDAS.colors.length]; const u=(m&&m.unidad)?' '+m.unidad:'';
+    html+=`<tr style="border-top:1px solid var(--line)"><td style="padding:5px 8px">`
+      +`<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${color};margin-right:7px"></span>${esc(m?m.etiqueta:id)}</td>`;
+    html+= s ? `<td><b>${_ondasFmt(s.actual)}${esc(u)}</b></td><td>${_ondasFmt(s.min)}</td><td>${_ondasFmt(s.max)}</td><td>${_ondasFmt(s.avg)}</td><td>${s.freq.toFixed(1)}</td>`
+             : '<td colspan="5" style="color:var(--ink-dim)">esperando datos…</td>';
+    html+='</tr>';
+  });
+  box.innerHTML = html+'</tbody></table>';
+}
+
+function resetOndasZoom(){
+  Object.values(ONDAS.charts).forEach(c=>{ try{ c.resetZoom && c.resetZoom(); }catch(e){} });
+}
+function toggleOndasFullscreen(){
+  const el = document.getElementById('ondas-charts');
+  if(!el) return;
+  if(!document.fullscreenElement){
+    el.classList.add('ondas-fs');
+    (el.requestFullscreen||el.webkitRequestFullscreen||function(){}).call(el);
+  } else {
+    (document.exitFullscreen||document.webkitExitFullscreen||function(){}).call(document);
+  }
+}
+document.addEventListener('fullscreenchange',()=>{
+  const el=document.getElementById('ondas-charts');
+  if(el && !document.fullscreenElement) el.classList.remove('ondas-fs');
+  // Chart.js se redimensiona solo (responsive), pero forzamos por las dudas.
+  setTimeout(()=>Object.values(ONDAS.charts).forEach(c=>{try{c.resize();}catch(e){}}),150);
+});
 
 function downloadOndasCSV(){
   if(ONDAS.sensoresActivos.length === 0) return;

@@ -70,6 +70,9 @@ class Estado:
         # progreso de la autodetección (para mostrar barra + dirección en curso)
         self.deteccion = {"corriendo": False, "actual": 0, "total": 0,
                           "addr": "", "n": 0, "terminado": False, "resultado": None}
+        # actuadores encendidos: {"ecu|id": {"ecu","id"}}. Se re-envían periódicamente
+        # (keep-alive) porque el "Start Temporary" del servicio 30 expira solo.
+        self.actuadores_activos = {}
 
     @property
     def modo_peligroso(self):
@@ -435,6 +438,52 @@ def api_grabar_estado():
     return slog.estado()
 
 
+@app.post("/api/logs/subir")
+def api_logs_subir():
+    """(TEMPORAL — solo para debug) Copia los logs de `log/` a `debug-logs/` y los sube
+    a GitHub, para poder revisarlos desde otra máquina. Se sacará cuando terminemos de
+    depurar. Ver CLAUDE.md ('flujo de logs')."""
+    import subprocess
+    import shutil
+    from datetime import datetime as _dt
+    # Volcar la sesión actual si está grabando, para no perder los últimos eventos.
+    try:
+        if slog.activo:
+            slog._guardar()
+    except Exception:
+        pass
+    repo = APP_DIR.parent                      # megane2_f4r/ (raíz del repo git)
+    log_dir = repo / "log"
+    dest = repo / "debug-logs"
+    dest.mkdir(exist_ok=True)
+    copiados = []
+    if log_dir.exists():
+        for f in sorted(log_dir.glob("sesion_*")):
+            try:
+                shutil.copy2(f, dest / f.name)
+                copiados.append(f.name)
+            except Exception:
+                pass
+    if not copiados:
+        return {"ok": False, "error": "Todavía no hay logs para subir."}
+
+    def git(*args):
+        return subprocess.run(["git", *args], cwd=str(repo), capture_output=True,
+                              text=True, timeout=180)
+    try:
+        git("add", "debug-logs")
+        git("commit", "-m", "logs de prueba " + _dt.now().strftime("%Y-%m-%d %H:%M"))
+        push = git("push", "origin", "main")
+        if push.returncode != 0:
+            return {"ok": False, "archivos": copiados,
+                    "error": "Se guardaron en debug-logs/ pero falló el push a GitHub: "
+                             + (push.stderr or push.stdout or "").strip()[:400]}
+    except Exception as e:
+        return {"ok": False, "archivos": copiados, "error": f"Error ejecutando git: {e}"}
+    return {"ok": True, "archivos": copiados,
+            "mensaje": f"{len(copiados)} log(s) subidos a GitHub en la carpeta debug-logs/."}
+
+
 @app.post("/api/captura-automatica/toggle")
 def api_captura_toggle():
     """Activa/desactiva captura automática en TODAS las pantallas."""
@@ -499,6 +548,7 @@ def api_desconectar():
         estado.modo = "desconectado"
         estado.ecu_activa = None
         estado.vehiculo_seleccionado = None
+        estado.actuadores_activos = {}   # cortar el keep-alive de actuadores
         # Descargar el auto activo: al desconectar no debe quedar ningún perfil cargado.
         estado.registro.reset()
     slog.log("CONEXION", "Desconectado del auto")
@@ -909,6 +959,13 @@ def api_actuador(req: ActuadorReq):
         slog.log_actuador(req.ecu, f"ID{req.actuador_id}", log_detalle, r.get("ok", False))
     except Exception:
         pass
+    # Mantener registro de actuadores encendidos para el keep-alive (re-envío).
+    key = f"{req.ecu}|{req.actuador_id}"
+    with ESTADO_LOCK:
+        if r.get("ok") and req.encender:
+            estado.actuadores_activos[key] = {"ecu": req.ecu, "id": req.actuador_id}
+        else:
+            estado.actuadores_activos.pop(key, None)
     if not r.get("ok"):
         return JSONResponse({"error": r.get("error", "No se pudo activar"), "detalle": str(r)}, status_code=500)
     return r
@@ -1325,9 +1382,37 @@ async def ws_vivo(ws: WebSocket):
 # ----------------------------------------------------------------------------
 async def _tester_present_loop():
     while True:
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(1.2)
         if not (estado.conectado and estado.modo == "real" and options.elm is not None):
             continue
+
+        # Si hay actuadores encendidos, re-enviar su comando (keep-alive): el
+        # "Start Temporary" del servicio 30 expira solo, así que hay que refrescarlo
+        # para que la salida siga activa. Esto también mantiene viva la sesión.
+        activos = None
+        with ESTADO_LOCK:
+            if estado.actuadores_activos:
+                activos = list(estado.actuadores_activos.values())
+
+        if activos:
+            def _refrescar_actuadores():
+                with ELM_LOCK:
+                    for a in activos:
+                        try:
+                            tecu = estado.registro.get(a["ecu"])
+                            if tecu is None:
+                                continue
+                            _seleccionar_ecu(a["ecu"])
+                            tecu.activate_actuator(a["id"], on=True)
+                        except Exception:
+                            pass
+                    _marcar_actividad()
+            try:
+                await asyncio.get_event_loop().run_in_executor(None, _refrescar_actuadores)
+            except Exception:
+                pass
+            continue
+
         if time.time() - estado.ultima_actividad < 1.4:
             continue
 

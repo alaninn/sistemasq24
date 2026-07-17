@@ -24,6 +24,28 @@ for _cand in [
         sys.path.insert(0, str(_cand))
         break
 
+
+def _armar_ecu_zip():
+    """Re-arma vendor/sistemasq24/ecu.zip desde sus partes (ecu.zip.part*) si falta.
+    El zip (142 MB) se sube a GitHub partido en piezas <100 MB; acá se reconstruye solo."""
+    vendor = APP_DIR.parent / "vendor" / "sistemasq24"
+    zip_final = vendor / "ecu.zip"
+    if zip_final.exists():
+        return
+    partes = sorted(vendor.glob("ecu.zip.part*"))
+    if not partes:
+        return  # sin partes ni zip: el F4R igual funciona (usa original/)
+    try:
+        with open(zip_final, "wb") as out:
+            for p in partes:
+                out.write(p.read_bytes())
+        print(f"  ecu.zip re-armado desde {len(partes)} partes.")
+    except Exception as e:
+        print(f"  (aviso: no se pudo armar ecu.zip: {e})")
+
+
+_armar_ecu_zip()
+
 HOST = "127.0.0.1"
 PORT = 8073
 URL = f"http://{HOST}:{PORT}/"

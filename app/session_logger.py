@@ -29,6 +29,8 @@ class SessionLogger:
         self.eventos = []
         self.inicio = None
         self.nombre = None
+        self._last_save = 0.0
+        self.autosave_seg = 3.0   # cada cuánto se vuelca a disco automáticamente
 
     # ---- control ----
     def start(self, contexto=None):
@@ -69,6 +71,15 @@ class SessionLogger:
             "mensaje": mensaje,
             "detalle": detalle if detalle is not None else {},
         })
+        # Auto-guardado: si pasaron >autosave_seg desde el último volcado, escribir a
+        # disco. Así, aunque el usuario cierre el navegador sin tocar "Finalizar", el
+        # archivo queda con todo lo capturado hasta el último volcado (no se pierde nada).
+        if t - self._last_save > self.autosave_seg:
+            self._last_save = t
+            try:
+                self._guardar()
+            except Exception:
+                pass
 
     def log_elm(self, comando, respuesta, contexto=""):
         """Registra un comando crudo ELM y su respuesta."""

@@ -547,13 +547,21 @@ class TranslatedECU:
         req = self._output_request()
         if req is None:
             return {"ok": False, "error": "Esta computadora no permite activar actuadores"}
+        id_hex = hex(int(actuator_id))[2:].upper().zfill(2)
         if on:
             inputs = {
-                "Output Control Command": "00",                      # iniciar temporal
-                "Output Temporary Control List": hex(int(actuator_id))[2:].upper().zfill(2),
+                "Output Control Command": "00",              # 00 = Start Temporary
+                "Output Temporary Control List": id_hex,     # qué salida (enum, hex)
+                # tempON: byte que ENCIENDE/mantiene la salida. Es un dato "scaled",
+                # así que se pasa en DECIMAL (no hex). En 0 la ECU acepta el comando
+                # pero NO enciende (ese era el bug). 255 = duración máxima.
+                "Output Control.tempON": "255",
             }
         else:
-            inputs = {"Output Control Command": "11"}                # detener (0x11 = 17)
+            inputs = {                                       # 11 (hex) = 17 = Stop
+                "Output Control Command": "11",
+                "Output Temporary Control List": id_hex,
+            }
         # Los actuadores (servicio 30) necesitan la sesión SIEMPRE abierta y activa.
         if not self.ensure_session(force=True):
             return {"ok": False, "error": "No se pudo abrir sesión diagnóstica"}
