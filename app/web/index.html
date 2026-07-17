@@ -515,6 +515,19 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
 .vehiculos-grid .info-item{display:flex;justify-content:space-between;padding:4px 0}
 .vehiculos-grid .estado{background:rgba(74,222,128,.15);color:var(--green);padding:8px 12px;border-radius:6px;font-size:12px;text-align:center;font-weight:500}
 
+.uni-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.uni-card{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:22px}
+.uni-card h3{margin:6px 0 2px;font-size:19px}
+.uni-card .uni-ico{font-size:38px;line-height:1}
+.uni-card .uni-sub{font-size:12px;color:var(--ink-dim);margin-bottom:12px}
+.uni-card p{font-size:13.5px;color:var(--ink-dim);line-height:1.6;margin:0 0 16px}
+.uni-btn{width:100%;padding:12px;border:none;border-radius:9px;background:var(--cyan);color:#04121a;font-weight:700;cursor:pointer;transition:.2s;font-size:14px}
+.uni-btn:hover{filter:brightness(1.08)}
+.uni-btn.alt{background:var(--green)}
+.uni-btn:disabled{opacity:.5;cursor:default}
+.obd-quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.obd-quick button{flex:1;min-width:120px;padding:10px;border:1px solid var(--line2);background:var(--panel2);color:var(--ink);border-radius:8px;cursor:pointer;font-size:13px}
+.obd-quick button:hover{border-color:var(--cyan)}
 .ondas-fs{background:var(--bg);padding:24px;overflow:auto}
 .ondas-fs canvas{max-height:none}
 .hidden{display:none!important}
@@ -646,27 +659,36 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       <div id="dtcContent"></div>
     </section>
 
-    <!-- VISTA: ESCANEAR UNIVERSAL (CUALQUIER AUTO) -->
+    <!-- VISTA: SCANNER UNIVERSAL (CUALQUIER AUTO) -->
     <section class="view hidden" id="view-scan-universal">
       <div class="view-head">
         <div>
           <div class="eyebrow">Scanner universal</div>
           <h2>Escanear cualquier vehículo</h2>
-          <div class="desc">Escanea ECUs de CUALQUIER auto (Renault, VW, Audi, BMW, etc.) y busca automaticamente si tenemos definiciones compatibles en nuestra base de datos (3.945+ ECUs cargadas).</div>
+          <div class="desc">Dos formas de leer un auto que no sea el Mégane F4R: el modo <b>genérico OBD-II</b> (anda en cualquier marca) o la <b>detección Renault completa</b> (todos los módulos, si está en la base).</div>
         </div>
       </div>
-      <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
-        <button class="chip" id="btnEscanearUni" onclick="escanearUniversal()">🔍 Escanear ahora</button>
-        <div id="scanProgress" style="display:none;flex:1;min-width:200px">
-          <div style="font-size:12px;color:var(--ink-dim)">Escaneando…</div>
-          <div style="height:4px;background:var(--line);border-radius:2px;margin-top:4px">
-            <div id="scanBar" style="height:100%;background:var(--cyan);width:0%;transition:width 0.3s;border-radius:2px"></div>
-          </div>
+
+      <div class="uni-cards">
+        <!-- MODO GENÉRICO OBD-II -->
+        <div class="uni-card">
+          <div class="uni-ico">🌐</div>
+          <h3>Genérico OBD-II</h3>
+          <div class="uni-sub">Cualquier marca · estándar mundial</div>
+          <p>Lee <b>códigos de falla</b> y los <b>sensores estándar del motor</b> (RPM, temperaturas, MAP, sonda lambda, velocidad…) de <b>cualquier auto</b> compatible con OBD-II, sin necesitar la base de ECUs. Igual que un scanner genérico.</p>
+          <button class="uni-btn" id="btnObd" onclick="conectarGenerico()">🌐 Conectar en modo genérico</button>
+          <div id="obdResults"></div>
         </div>
-      </div>
-      <div id="scanResults" style="background:var(--panel);border-radius:8px;padding:16px;border:1px solid var(--line)">
-        <div style="color:var(--ink-dim);text-align:center;padding:40px">
-          📡 Conecta un auto y toca "Escanear ahora" para detectar sus ECUs y encontrar compatibilidad
+
+        <!-- DETECCIÓN RENAULT COMPLETA -->
+        <div class="uni-card">
+          <div class="uni-ico">🔍</div>
+          <h3>Detección completa</h3>
+          <div class="uni-sub">Renault · todos los módulos</div>
+          <p>Escanea las computadoras del auto y las busca en nuestra base (+1900 ECUs). Si está, carga <b>todos los módulos</b> (ABS, airbag, tablero…) con sus sensores, actuadores y pantallas.</p>
+          <button class="uni-btn alt" id="btnEscanearUni" onclick="escanearUniversal()">🔍 Detectar ECUs</button>
+          <div id="scanProgress" style="display:none"></div>
+          <div id="scanResults"></div>
         </div>
       </div>
     </section>
@@ -1402,6 +1424,12 @@ async function ensureParams(){
 function _autoSelectDefault(){
   // Los sensores precargados a mano son del Mégane F4R: solo aplican en perfil curado.
   // Asume que los parámetros ya fueron cargados (ensureParams) por el llamador.
+  if(ST.perfil==='generico'){
+    // OBD-II genérico: son pocos sensores y todos útiles → mostrarlos todos.
+    for(const id in ST.paramMeta) ST.selected.add(id);
+    localStorage.setItem('meg_sel',JSON.stringify([...ST.selected]));
+    return;
+  }
   if(ST.perfil!=='f4r'){
     // Auto detectado: arrancar con hasta 12 sensores ÚTILES del vehículo detectado.
     let n=0;
@@ -2572,6 +2600,37 @@ function _pintarDeteccion(resEl, j){
     </div>`;
   resEl.innerHTML = html;
   toast(`✅ ${j.total} ECUs detectadas — ${j.vehiculo}`,'ok');
+}
+
+// Modo OBD-II genérico: conecta a cualquier auto por el estándar mundial.
+async function conectarGenerico(){
+  if(!ST.conectado){ toast('Conecta el auto primero','warn'); return; }
+  const btn=document.getElementById('btnObd');
+  const box=document.getElementById('obdResults');
+  btn.disabled=true; const t=btn.textContent; btn.textContent='🌐 Conectando…';
+  box.innerHTML='<div style="color:var(--ink-dim);font-size:13px;margin-top:12px">Leyendo qué sensores y códigos soporta el auto…</div>';
+  try{
+    const r=await fetch(API+'/api/obd/conectar',{method:'POST'});
+    const j=await r.json();
+    btn.disabled=false; btn.textContent=t;
+    if(!j.ok){ toast(j.error||'No se pudo conectar','err'); box.innerHTML=`<div class="error" style="margin-top:12px">${esc(j.error||'Error')}</div>`; return; }
+    await recargarPerfilActivo();
+    await ensureParams();
+    _autoSelectDefault();
+    box.innerHTML=`
+      <div style="margin-top:14px;padding:12px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px">
+        <div style="font-weight:600">✓ Conectado en modo genérico</div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:4px">
+          ${j.vin?`VIN: <b>${esc(j.vin)}</b> · `:''}${j.sensores} sensores estándar disponibles.
+        </div>
+        <div class="obd-quick">
+          <button onclick="go('dash')">📟 Tablero en vivo</button>
+          <button onclick="go('ondas')">📈 Analizador de ondas</button>
+          <button onclick="go('dtc')">🚨 Códigos de falla</button>
+        </div>
+      </div>`;
+    toast('🌐 Modo OBD-II genérico activo — '+j.sensores+' sensores','ok');
+  }catch(e){ btn.disabled=false; btn.textContent=t; toast('Error conectando','err'); }
 }
 
 async function escanearUniversal(){

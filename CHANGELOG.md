@@ -7,6 +7,23 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-17] — Scanner OBD-II GENÉRICO (funciona en cualquier auto)
+
+### Nuevo módulo: OBD-II genérico (`app/obd_generico.py`)
+- Lee **cualquier auto** por el estándar mundial SAE J1979 (como ScanMaster/Torque), **sin
+  necesitar el ecu.zip**: sensores estándar del Modo 01 (RPM, temps, MAP, MAF, sonda lambda,
+  velocidad, batería, avance, mariposa…), **DTC** genéricos (Modo 03/07 + borrar 04), y **VIN**
+  (Modo 09). Escanea qué PIDs soporta el auto (Modo 01 PID 00/20/40).
+- Se integra como un **perfil más** del registry (`generico`), imitando la interfaz de
+  `TranslatedECU`, así el **tablero en vivo, el analizador de ondas y la lectura de DTC ya
+  existentes funcionan sin duplicar nada**.
+- Dirección funcional de broadcast OBD `7DF`.
+- Frontend: la vista **Scanner Universal** ahora ofrece 2 vías — "Genérico OBD-II" (cualquier
+  marca) y "Detección Renault completa" (todos los módulos vía ecu.zip). Endpoint
+  `POST /api/obd/conectar`.
+
+---
+
 ## [2026-07-17] — Actuadores, analizador de ondas pro, auto-guardado y subida de logs
 
 ### Actuadores — AHORA ENCIENDEN

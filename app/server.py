@@ -1236,12 +1236,50 @@ def api_ecu_database_info():
 
 @app.get("/api/perfil")
 def api_perfil():
-    """Perfil de ECUs activo: 'f4r' (curado) o 'detectado'."""
+    """Perfil de ECUs activo: 'ninguno' | 'f4r' | 'detectado' | 'generico'."""
     return {
         "perfil": estado.registro.perfil,
         "vehiculo": estado.registro.vehiculo,
         "curado": estado.registro.perfil == "f4r",
+        "generico": estado.registro.perfil == "generico",
         "ecus": [i["id"] for i in estado.registro.list()],
+    }
+
+
+@app.post("/api/obd/conectar")
+def api_obd_conectar():
+    """Activa el modo OBD-II GENÉRICO: funciona en cualquier auto sin la base de ECUs.
+    Escanea qué PIDs (sensores) soporta el auto y lee el VIN."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    with ESTADO_LOCK:
+        obd = estado.registro.load_generico()
+        estado.vehiculo_seleccionado = "generico"
+        estado.ecu_activa = None
+    vin = None
+    soportados = []
+    with ELM_LOCK:
+        _marcar_actividad()
+        try:
+            _seleccionar_ecu("obd")   # setea el direccionamiento funcional 7DF
+        except Exception:
+            pass
+        try:
+            soportados = sorted(obd.escanear_soportados())
+        except Exception as e:
+            slog.log("OBD", f"Error escaneando PIDs: {e}", {})
+        try:
+            vin = obd.leer_vin()
+        except Exception:
+            pass
+    slog.log("OBD", "Modo OBD-II genérico activado",
+             {"pids_soportados": len(soportados), "vin": vin})
+    return {
+        "ok": True,
+        "vehiculo": "OBD-II Genérico",
+        "vin": vin,
+        "sensores": len(obd.readable_params()),
+        "pids_soportados": soportados,
     }
 
 

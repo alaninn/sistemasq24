@@ -750,6 +750,16 @@ class Registry:
         self.perfil = "f4r"
         self.vehiculo = "Mégane II F4R"
 
+    def load_generico(self):
+        """Carga el perfil OBD-II GENÉRICO (funciona en cualquier auto, sin ecu.zip)."""
+        from obd_generico import get_obd
+        obd = get_obd()
+        self.ecus = {"obd": obd}
+        self._orden = ["obd"]
+        self.perfil = "generico"
+        self.vehiculo = "OBD-II Genérico"
+        return obd
+
     def load_detectado(self, matches, vehiculo="Auto detectado"):
         """Arma el perfil activo desde ECUs del ecu.zip.
         matches = [{'ecu_id','archivo','icon','nombre'}, ...] donde 'archivo' es el
