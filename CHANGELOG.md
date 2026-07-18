@@ -7,6 +7,24 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-18] — Autodetección KWP2000 (módulos viejos, no solo CAN)
+
+- El escáner ahora también sondea protocolo **KWP2000** (26 direcciones únicas, 198 ECUs
+  de la base) además de CAN, cubriendo módulos más viejos de un solo hilo (ABS/airbag de
+  generaciones anteriores, comunes en autos como la Kangoo 2). Portado fielmente de
+  `scan_kwp`/`check_ecu` de ddt4all: sesión `10C0` + lectura de identificación (servicio 21,
+  LID 0x80) por dirección, con la misma conversión de bytes que ddt4all.
+- A diferencia de CAN, la dirección corta de `db.json` **es** la dirección KWP real (no
+  necesita traducción vía `dnat`), así que no hizo falta un archivo de direcciones aparte.
+- Validado con datos de simulación portados de ddt4all: matcheó una ECU **real** de la base
+  (`EDC_15C_C..._IMA_evol1.json`, motor) que antes no se detectaba — confirma que la
+  codificación decimal de `diagversion` es consistente con cómo está guardado `db.json`.
+- Progreso combinado (CAN primero, después KWP) en la misma barra.
+- **Pendiente (bajo impacto):** protocolo ISO8 — solo 21 ECUs (~1% de la base), autos muy
+  viejos pre-CAN. Se deja para más adelante.
+
+---
+
 ## [2026-07-18] — Subir logs por API de GitHub (funciona desde la notebook)
 
 - La subida de logs fallaba en la notebook porque el git CLI necesita `.git` + credenciales

@@ -57,17 +57,21 @@ class SQ24Scanner:
     def __init__(self):
         self.targets = []          # lista de EcuIdent
         self.pares_can = []        # [{send, recv}, ...] direcciones CAN reales a sondear
+        self.addrs_kwp = []        # direcciones KWP2000 a sondear (byte único, ej '7A')
+        self.addrs_iso8 = []       # direcciones ISO8 a sondear
         self._cargado = False
 
     # ---------------------------------------------------------------- base
     def cargar_indice(self):
-        """Carga db.json del ecu.zip (targets) y la tabla de pares CAN a sondear."""
+        """Carga db.json del ecu.zip (targets) y las direcciones a sondear (CAN/KWP/ISO8)."""
         if self._cargado:
             return True
         if not ZIP_PATH.exists():
             return False
         with zipfile.ZipFile(ZIP_PATH, "r") as zf:
             db = json.loads(zf.read("db.json"))
+        kwp = set()
+        iso8 = set()
         for href, tv in db.items():
             proto = tv.get("protocol", "")
             addr = tv.get("address", "")
@@ -84,6 +88,15 @@ class SQ24Scanner:
                         ai.get("diagnostic_version", ""), ai.get("supplier_code", ""),
                         ai.get("soft_version", ""), ai.get("version", ""),
                         ecuname, group, href, proto, projects, addr, True))
+            # KWP2000/ISO8: a diferencia de CAN, la dirección corta de db.json ES la
+            # dirección real que se usa para direccionar (AT SH 81 <addr> F1), no hace
+            # falta traducirla — no depende de la tabla dnat (vacía).
+            if proto == "KWP2000" and addr not in ("00", "FF", ""):
+                kwp.add(addr)
+            elif proto == "ISO8" and addr not in ("00", "FF", ""):
+                iso8.add(addr)
+        self.addrs_kwp = sorted(kwp)
+        self.addrs_iso8 = sorted(iso8)
         # Pares CAN reales (send_id/recv_id) — precomputados desde los archivos de ECU.
         try:
             self.pares_can = json.loads(PARES_CAN_PATH.read_text(encoding="utf-8"))
@@ -93,11 +106,11 @@ class SQ24Scanner:
         return True
 
     # ---------------------------------------------------------------- match
-    def _match(self, diagversion, supplier, soft, version, addr):
+    def _match(self, diagversion, supplier, soft, version, addr, protocolos=("CAN",)):
         """Devuelve el mejor EcuIdent para una identificación leída, o None."""
         aprox = []
         for t in self.targets:
-            if t.protocol != "CAN":
+            if t.protocol not in protocolos:
                 continue
             try:
                 if t.checkWith(diagversion, supplier, soft, version, addr):
@@ -183,6 +196,46 @@ class SQ24Scanner:
             except Exception:
                 pass
 
+    # ---------------------------------------------------------------- probe KWP2000
+    def _identificar_kwp(self, addr):
+        """Lee la identificación de una ECU KWP2000 en `addr` (protocolo de ddt4all
+        `scan_kwp`): una sola lectura de identificación (servicio 21, LID 0x80),
+        con la sesión 10C0 ya abierta. Devuelve (diagversion, supplier, soft, version)
+        o None si no responde."""
+        if options.simulation_mode:
+            resp = _SIM_RESP_KWP.get(addr)
+        else:
+            elm = options.elm
+            if elm is None:
+                return None
+            try:
+                if not elm.set_iso_addr(addr, {"idTx": "", "idRx": "", "ecuname": "SCAN",
+                                                "protocol": "KWP2000"}):
+                    return None
+                elm.start_session_iso("10C0")
+                resp = elm.request(req="2180", positive="61", cache=True)
+            except Exception:
+                return None
+        if not resp or len(resp) <= 20:
+            return None
+        r = resp.replace(" ", "")
+        try:
+            if len(resp) > 59:
+                # formato largo (ver ddt4all check_ecu): offsets sobre la cadena
+                # "XX XX XX ..." (con espacios), no sobre los bytes crudos.
+                diagversion = str(int(resp[21:23], 16))
+                supplier = bytes.fromhex(resp[24:32].replace(" ", "")).decode("utf-8", "ignore")
+                soft = resp[48:53].replace(" ", "")
+                version = resp[54:59].replace(" ", "")
+            else:
+                diagversion = str(int(resp[6:8], 16))
+                supplier = bytes.fromhex(resp[9:17].replace(" ", "")).decode("utf-8", "ignore")
+                soft = resp[18:26].replace(" ", "")
+                version = resp[27:35].replace(" ", "")
+        except (ValueError, IndexError):
+            return None
+        return diagversion, supplier, soft, version
+
     # ---------------------------------------------------------------- escaneo
     def escanear(self, canline=0, progress_cb=None):
         """Recorre las direcciones CAN, identifica y matchea. Devuelve lista de
@@ -209,16 +262,23 @@ class SQ24Scanner:
         # unas direcciones cortas canned.
         if options.simulation_mode:
             pares = [{"send": a, "recv": a} for a in ["26", "13", "62", "01", "04"]]
+            addrs_kwp = ["02", "7A", "26"]
         else:
             pares = self.pares_can or [{"send": "7E0", "recv": "7E8"}]
-        total = len(pares)
+            addrs_kwp = self.addrs_kwp
+
+        total = len(pares) + len(addrs_kwp)
         detectadas = []
         vistos = set()
+        paso = 0
+
+        # --- Pasada 1: CAN ---
         for i, par in enumerate(pares):
             send = par.get("send"); recv = par.get("recv")
             addr = send  # etiqueta/dirección para el match y el progreso
+            paso += 1
             if progress_cb:
-                try: progress_cb(i + 1, total, f"{send}/{recv}", len(detectadas))
+                try: progress_cb(paso, total, f"CAN {send}/{recv}", len(detectadas))
                 except Exception: pass
             if not send or send in ("00", "FF"):
                 continue
@@ -232,24 +292,26 @@ class SQ24Scanner:
             ident = self._identificar(addr)
             if ident is None:
                 continue
-            t = self._match(*ident, addr)
-            if t is None:
-                continue
-            if t.href in vistos:
-                continue
-            vistos.add(t.href)
-            ecu_id, icon, nombre = _slot_para_grupo(t.group, i)
-            # evitar colisión de ecu_id (dos motores, etc.)
-            base_id = ecu_id
-            k = 2
-            while ecu_id in [d["ecu_id"] for d in detectadas]:
-                ecu_id = f"{base_id}{k}"
-                k += 1
-            detectadas.append({
-                "ecu_id": ecu_id, "archivo": t.href, "icon": icon,
-                "nombre": nombre, "group": t.group,
-                "projects": t.projects, "addr": addr, "ecuname": t.name,
-            })
+            t = self._match(*ident, addr, protocolos=("CAN",))
+            self._agregar_si_nuevo(t, detectadas, vistos, addr, i)
+
+        # --- Pasada 2: KWP2000 (módulos viejos de un solo hilo, no-CAN) ---
+        if addrs_kwp:
+            if not options.simulation_mode and elm is not None:
+                try:
+                    elm.init_iso()
+                except Exception:
+                    addrs_kwp = []  # sin init_iso no tiene sentido intentar
+            for j, addr in enumerate(addrs_kwp):
+                paso += 1
+                if progress_cb:
+                    try: progress_cb(paso, total, f"KWP {addr}", len(detectadas))
+                    except Exception: pass
+                ident = self._identificar_kwp(addr)
+                if ident is None:
+                    continue
+                t = self._match(*ident, addr, protocolos=("KWP2000",))
+                self._agregar_si_nuevo(t, detectadas, vistos, addr, len(pares) + j)
 
         if not options.simulation_mode and elm is not None:
             try:
@@ -262,6 +324,24 @@ class SQ24Scanner:
         vehiculo = self._deducir_vehiculo(detectadas)
         return {"ok": True, "detectadas": detectadas, "vehiculo": vehiculo,
                 "total": len(detectadas)}
+
+    def _agregar_si_nuevo(self, t, detectadas, vistos, addr, indice):
+        """Si `t` (EcuIdent matcheado) es nuevo, lo agrega a `detectadas` con un
+        ecu_id único (evita colisiones, ej. dos motores)."""
+        if t is None or t.href in vistos:
+            return
+        vistos.add(t.href)
+        ecu_id, icon, nombre = _slot_para_grupo(t.group, indice)
+        base_id = ecu_id
+        k = 2
+        while ecu_id in [d["ecu_id"] for d in detectadas]:
+            ecu_id = f"{base_id}{k}"
+            k += 1
+        detectadas.append({
+            "ecu_id": ecu_id, "archivo": t.href, "icon": icon,
+            "nombre": nombre, "group": t.group,
+            "projects": t.projects, "addr": addr, "ecuname": t.name,
+        })
 
     def _deducir_vehiculo(self, detectadas):
         """Deduce el nombre del vehículo por el 'project' más común entre las ECUs."""
@@ -308,4 +388,12 @@ _SIM_RESP = {
     ("04", "22F18A"): "62 F1 8A 56 69 73 74 65 6F 6E 5F 4E 61 6D 65 73 74 6F 76 6F 5F 30 39 36 20",
     ("04", "22F194"): "62 F1 94 56 30 36 30 32 F1 94 56 30 36",
     ("04", "22F195"): "62 F1 95 56 30 36 30 32 F1 95 56 30 36",
+}
+
+# Respuestas KWP2000 simuladas (portadas de scan_kwp de ddt4all) para probar el pipeline
+# de módulos viejos de un solo hilo sin auto conectado.
+_SIM_RESP_KWP = {
+    "02": "61 80 77 00 31 38 31 04 41 42 45 E3 17 03 00 38 00 07 00 00 00 00 09 11 12 00",
+    "7A": "61 80 82 00 23 66 18 14 30 33 37 82 00 08 53 86 00 CB A4 00 70 06 3C 02 B1 A4",
+    "26": "61 80 82 00 03 27 76 00 32 31 33 11 01 10 30 08 00 66 00 00 00 41 06 01 F1 38",
 }
