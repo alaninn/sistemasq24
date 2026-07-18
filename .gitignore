@@ -24,6 +24,9 @@ __pycache__/
 log/
 *.log
 
+# Token de GitHub para subir logs (SECRETO — nunca se sube)
+github_token.txt
+
 # Sistema / temporales
 .DS_Store
 Thumbs.db

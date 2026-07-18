@@ -438,13 +438,29 @@ def api_grabar_estado():
     return slog.estado()
 
 
+GITHUB_REPO = "alaninn/sistemasq24"   # owner/repo para la API de subida de logs
+
+
+def _github_token():
+    """Token de GitHub para subir logs por API: de github_token.txt o env GITHUB_TOKEN."""
+    import os
+    tf = APP_DIR.parent / "github_token.txt"
+    if tf.exists():
+        t = tf.read_text(encoding="utf-8").strip()
+        if t:
+            return t
+    return os.environ.get("GITHUB_TOKEN", "").strip() or None
+
+
 @app.post("/api/logs/subir")
 def api_logs_subir():
-    """(TEMPORAL — solo para debug) Copia los logs de `log/` a `debug-logs/` y los sube
-    a GitHub, para poder revisarlos desde otra máquina. Se sacará cuando terminemos de
-    depurar. Ver CLAUDE.md ('flujo de logs')."""
-    import subprocess
-    import shutil
+    """(TEMPORAL — solo para debug) Sube los logs a GitHub (carpeta debug-logs/) para
+    revisarlos desde otra máquina. Usa la API de GitHub con token (funciona sin git ni
+    .git, ideal para la notebook); si no hay token, cae al git CLI (esta PC).
+    Ver CLAUDE.md ('flujo de logs')."""
+    import base64
+    import json as _json
+    import urllib.request
     from datetime import datetime as _dt
     # Volcar la sesión actual si está grabando, para no perder los últimos eventos.
     try:
@@ -452,36 +468,77 @@ def api_logs_subir():
             slog._guardar()
     except Exception:
         pass
-    repo = APP_DIR.parent                      # megane2_f4r/ (raíz del repo git)
+    repo = APP_DIR.parent
     log_dir = repo / "log"
+    txts = sorted(log_dir.glob("sesion_*.txt")) if log_dir.exists() else []
+    if not txts:
+        return {"ok": False, "error": "Todavía no hay logs para subir."}
+
+    token = _github_token()
+    if token:
+        # --- Subida por API de GitHub (Contents API) — no necesita git ---
+        subidos, errores = [], []
+        for f in txts:
+            try:
+                contenido = base64.b64encode(f.read_bytes()).decode("ascii")
+                url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/debug-logs/{f.name}"
+                # ¿ya existe? (para actualizar necesita el sha)
+                sha = None
+                try:
+                    req = urllib.request.Request(url, headers={
+                        "Authorization": f"token {token}",
+                        "Accept": "application/vnd.github+json", "User-Agent": "sq24"})
+                    sha = _json.load(urllib.request.urlopen(req)).get("sha")
+                except Exception:
+                    sha = None
+                body = {"message": "log " + f.name, "content": contenido, "branch": "main"}
+                if sha:
+                    body["sha"] = sha
+                req = urllib.request.Request(url, method="PUT",
+                    data=_json.dumps(body).encode("utf-8"),
+                    headers={"Authorization": f"token {token}",
+                             "Accept": "application/vnd.github+json",
+                             "Content-Type": "application/json", "User-Agent": "sq24"})
+                urllib.request.urlopen(req, timeout=60)
+                subidos.append(f.name)
+            except Exception as e:
+                errores.append(f"{f.name}: {e}")
+        if subidos:
+            msg = f"{len(subidos)} log(s) subidos a GitHub (debug-logs/)."
+            if errores:
+                msg += f" ({len(errores)} fallaron)"
+            return {"ok": True, "archivos": subidos, "mensaje": msg, "errores": errores}
+        return {"ok": False, "error": "No se pudo subir por la API: " + "; ".join(errores)[:400]}
+
+    # --- Fallback: git CLI (solo si esta máquina tiene el repo clonado + credenciales) ---
+    import subprocess
+    import shutil
     dest = repo / "debug-logs"
     dest.mkdir(exist_ok=True)
     copiados = []
-    if log_dir.exists():
-        for f in sorted(log_dir.glob("sesion_*")):
-            try:
-                shutil.copy2(f, dest / f.name)
-                copiados.append(f.name)
-            except Exception:
-                pass
-    if not copiados:
-        return {"ok": False, "error": "Todavía no hay logs para subir."}
+    for f in txts + (list(log_dir.glob("sesion_*.json")) if log_dir.exists() else []):
+        try:
+            shutil.copy2(f, dest / f.name); copiados.append(f.name)
+        except Exception:
+            pass
 
-    def git(*args):
-        return subprocess.run(["git", *args], cwd=str(repo), capture_output=True,
-                              text=True, timeout=180)
+    def git(*a):
+        return subprocess.run(["git", *a], cwd=str(repo), capture_output=True, text=True, timeout=180)
     try:
         git("add", "debug-logs")
         git("commit", "-m", "logs de prueba " + _dt.now().strftime("%Y-%m-%d %H:%M"))
         push = git("push", "origin", "main")
         if push.returncode != 0:
             return {"ok": False, "archivos": copiados,
-                    "error": "Se guardaron en debug-logs/ pero falló el push a GitHub: "
-                             + (push.stderr or push.stdout or "").strip()[:400]}
+                    "error": "No hay token de GitHub y el git push falló (¿la notebook no "
+                             "tiene el repo clonado ni credenciales?). Poné un token en "
+                             "github_token.txt. Detalle: " + (push.stderr or push.stdout or "").strip()[:300]}
+    except FileNotFoundError:
+        return {"ok": False, "error": "No hay token en github_token.txt y git no está instalado. "
+                "Creá un token de GitHub y guardalo en github_token.txt (ver LEEME)."}
     except Exception as e:
-        return {"ok": False, "archivos": copiados, "error": f"Error ejecutando git: {e}"}
-    return {"ok": True, "archivos": copiados,
-            "mensaje": f"{len(copiados)} log(s) subidos a GitHub en la carpeta debug-logs/."}
+        return {"ok": False, "error": f"Error subiendo logs: {e}"}
+    return {"ok": True, "archivos": copiados, "mensaje": f"{len(copiados)} log(s) subidos a GitHub."}
 
 
 @app.post("/api/captura-automatica/toggle")

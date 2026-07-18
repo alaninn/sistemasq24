@@ -12,11 +12,16 @@ siempre debe tener la última versión funcional**.
 
 ## Flujo de logs (IMPORTANTE)
 El usuario prueba en la notebook (en el auto), y con el botón **"☁ Subir logs"** sube los
-logs a GitHub (endpoint `POST /api/logs/subir` → los copia a `debug-logs/` y hace commit +
-push a `main`). Después vuelve y me dice **"revisá los logs desde acá"**: eso significa que
-yo debo hacer `git pull` y **leer los archivos de `debug-logs/`** (los `sesion_*.txt`) para
-depurar. Esto es **temporal** (solo mientras debuggeamos); después se saca el push automático
-y quedan solo en una carpeta local `log/`.
+logs a GitHub, a la carpeta `debug-logs/`. El endpoint `POST /api/logs/subir` sube por la
+**API de GitHub con un token** (`github_token.txt` en la raíz, o env `GITHUB_TOKEN`) — así
+funciona **sin git ni .git** en la notebook (que bajó el ZIP). Si no hay token, cae al git
+CLI (solo sirve en una PC con el repo clonado + credenciales).
+- **Setup del token (una vez por notebook):** crear un Personal Access Token en GitHub con
+  permiso de escritura de contenido del repo, y guardarlo en `megane2_f4r/github_token.txt`.
+  Ese archivo está gitignoreado (nunca se sube).
+Cuando el usuario dice **"revisá los logs desde acá"**: hago `git pull` y **leo los
+`sesion_*.txt` de `debug-logs/`** (tienen fecha en el nombre) para depurar. Es **temporal**;
+después se saca y quedan solo en `log/` local.
 
 ## Qué NO se sube (ya en `.gitignore`)
 - `dist/` — el instalador (artefacto pesado).

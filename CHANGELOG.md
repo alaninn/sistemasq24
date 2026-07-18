@@ -7,6 +7,18 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-18] — Subir logs por API de GitHub (funciona desde la notebook)
+
+- La subida de logs fallaba en la notebook porque el git CLI necesita `.git` + credenciales
+  (la notebook bajó el ZIP, no un clone). Ahora `POST /api/logs/subir` sube por la **API de
+  GitHub con un token** (`github_token.txt` o env `GITHUB_TOKEN`) → funciona sin git. Si no
+  hay token, cae al git CLI (esta PC) con mensaje claro. `github_token.txt` está gitignoreado.
+- Revisión de logs del 17/07 (notebook "omar", COM3): actuadores **funcionan** (respuestas
+  positivas `70 02 01` con el fix de tempON), OBD genérico **funciona** (39 PIDs, DTC real
+  P0301), autodetección fallaba (confirma el bug de direccionamiento CAN ya corregido).
+
+---
+
 ## [2026-07-18] — FIX autodetección (direccionamiento CAN) + menú por perfil
 
 ### Autodetección: ahora SÍ encuentra otros autos (ej. Kangoo 2)
