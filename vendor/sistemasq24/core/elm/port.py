@@ -125,7 +125,14 @@ class Port:
                 serial_params['rtscts'] = False
                 serial_params['dsrdtr'] = False
 
-            self.hdr = serial.Serial(**serial_params)
+            # Si el "puerto" es una URL (socket:// para ELM327 WiFi o el emulador TCP,
+            # rfc2217://, etc.) se abre con serial_for_url; si no, un puerto COM normal.
+            _port_name = serial_params.pop('port')
+            if isinstance(_port_name, str) and '://' in _port_name:
+                serial_params.pop('exclusive', None)
+                self.hdr = serial.serial_for_url(_port_name, **serial_params)
+            else:
+                self.hdr = serial.Serial(port=_port_name, **serial_params)
 
             # Flush buffers to ensure clean start
             self.hdr.reset_input_buffer()

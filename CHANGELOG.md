@@ -7,6 +7,28 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-18] — Descripciones de DTC + soporte WiFi/emulador (investigación GitHub)
+
+### Descripciones de códigos de falla (DTC)
+- Nuevo `app/dtc_db.py`: descripciones **en español** de los DTC genéricos (SAE J2012),
+  **curadas a mano y verificadas** (107 códigos comunes + fallback por familia/letra). Se
+  descartaron las bases scrapeadas de GitHub (ej. mytrile) porque tenían descripciones
+  **incorrectas** (P0300, P0420, P0133… mal). Ahora el modo OBD-II genérico muestra qué
+  significa cada código, y el F4R/enhanced la usa como fallback.
+
+### Adaptadores WiFi + emulador para probar sin auto
+- La conexión ahora acepta puertos tipo URL (`socket://…`): habilita **adaptadores ELM327
+  WiFi** (`socket://ip:puerto`) además de USB. En el gate hay opción de "puerto manual".
+- `tools/emulador_elm.bat`: levanta el emulador ELM327 (paquete `ELM327-emulator`) en TCP
+  (`socket://localhost:35000`) para **probar el scanner sin hardware** (útil para debug del
+  modo genérico). Doc en CLAUDE.md.
+
+### Investigación (repos GitHub útiles)
+- Revisado `iDoka/awesome-canbus` + búsqueda de bases OBD-II. Referencias anotadas para más
+  adelante: `renault/cananalyze` (oficial Renault), `pylessard/python-udsoncan`, `OBDb`.
+
+---
+
 ## [2026-07-17] — Scanner OBD-II GENÉRICO (funciona en cualquier auto)
 
 ### Nuevo módulo: OBD-II genérico (`app/obd_generico.py`)

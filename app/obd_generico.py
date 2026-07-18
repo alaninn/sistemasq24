@@ -63,6 +63,7 @@ PRECARGADOS = ["0C", "05", "0F", "0B", "10", "0D", "11", "0E", "42", "14", "04",
 
 # Códigos de respuesta negativa (para mensajes claros)
 from ecu_registry import dtc_estandar, NRC  # reutilizamos el decodificador de DTC
+from dtc_db import describir as describir_dtc  # descripciones en español de los DTC
 
 
 class _FakeEcu:
@@ -221,7 +222,7 @@ class ObdGenerico:
             for cod in self._parse_dtcs(resp, modo):
                 dtcs.append({
                     "codigo": cod, "codigo_raw": None,
-                    "descripcion": "Código genérico OBD-II",
+                    "descripcion": describir_dtc(cod),
                     "detalle": None,
                     "presente": tipo == "almacenado",
                     "memorizada": tipo == "pendiente",

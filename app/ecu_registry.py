@@ -481,6 +481,10 @@ class TranslatedECU:
                         codigo_raw = vhex.upper()
 
             codigo_std = dtc_estandar(codigo_raw)
+            # Si la ECU no trae descripción, usar la base genérica de DTC (SAE J2012).
+            if not descripcion and codigo_std:
+                from dtc_db import describir as _describir
+                descripcion = _describir(codigo_std)
             dtcs.append({
                 "codigo": codigo_std or (("0x" + codigo_raw) if codigo_raw else "—"),
                 "codigo_raw": ("0x" + codigo_raw) if codigo_raw else None,

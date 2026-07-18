@@ -35,6 +35,20 @@ y quedan solo en una carpeta local `log/`.
 - **Arrancar/probar en simulación**: `options.simulation_mode = True`, luego levantar
   `server:app` con uvicorn. Verificar el JS con `node --check`.
 
+## Probar SIN auto real (emulador ELM327)
+- `tools/emulador_elm.bat` levanta el emulador ELM327 (paquete `ELM327-emulator`) en modo TCP
+  en `socket://localhost:35000`. En el scanner: "Conectar al auto" → puerto → "Escribir puerto
+  manual" → `socket://localhost:35000`. Sirve para probar el modo OBD-II genérico y el flujo
+  real sin hardware.
+- La conexión ahora acepta puertos tipo URL (`socket://…`), lo que también habilita
+  **adaptadores ELM327 WiFi** (`socket://192.168.0.10:35000`), no solo USB.
+- Para probar SOLO la lógica del software sin ELM, sigue estando `options.simulation_mode`.
+
+## Base de descripciones de DTC
+- `app/dtc_db.py` — descripciones en español de los DTC genéricos (SAE J2012) curadas a mano.
+  `describir(codigo)` da match exacto → familia → letra. La usan el modo OBD-II genérico y,
+  como fallback, la lectura de DTC del F4R/enhanced cuando la ECU no trae descripción.
+
 ## Verificación mínima antes de pushear
 - `node --check` del script grande de `index.html` (sin errores de sintaxis).
 - Importar `server` en modo simulación sin errores.

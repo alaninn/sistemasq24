@@ -604,7 +604,9 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
 
     <div class="gate-field hidden" id="portField">
       <label>Puerto del adaptador</label>
-      <select id="portSel"><option>Buscando puertos…</option></select>
+      <select id="portSel" onchange="onPortSel()"><option>Buscando puertos…</option></select>
+      <input id="portManual" class="hidden" placeholder="socket://192.168.0.10:35000 (WiFi) o socket://localhost:35000 (emulador)"
+             style="margin-top:8px;width:100%;padding:8px 10px;border-radius:6px;border:1px solid var(--line2);background:var(--panel);color:var(--ink);font-family:var(--mono);font-size:12px">
     </div>
 
     <button class="gate-btn" id="gateBtn" onclick="doConnect()">Entrar</button>
@@ -1012,11 +1014,21 @@ async function loadPorts(){
     if(!j.puertos.length){sel.innerHTML='<option value="">No se encontraron puertos</option>';return;}
     j.puertos.forEach(p=>{const o=document.createElement('option');o.value=p.puerto;o.textContent=p.descripcion||p.puerto;sel.appendChild(o);});
   }catch(e){sel.innerHTML='<option value="">Error al listar puertos</option>';}
+  // Opción para adaptador WiFi o emulador (puerto tipo socket://).
+  const om=document.createElement('option'); om.value='__manual__'; om.textContent='✏️ Escribir puerto manual (WiFi / emulador)…'; sel.appendChild(om);
+}
+function onPortSel(){
+  const manual=document.getElementById('portSel').value==='__manual__';
+  document.getElementById('portManual').classList.toggle('hidden',!manual);
 }
 async function doConnect(){
   const btn=document.getElementById('gateBtn'); btn.disabled=true; btn.textContent='Conectando…';
   const body={modo:pendingMode};
-  if(pendingMode==='real'){ body.puerto=document.getElementById('portSel').value; body.adaptador='ELM327'; }
+  if(pendingMode==='real'){
+    let p=document.getElementById('portSel').value;
+    if(p==='__manual__') p=document.getElementById('portManual').value.trim();
+    body.puerto=p; body.adaptador='ELM327';
+  }
   try{
     const r=await fetch(API+'/api/conectar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const j=await r.json();
