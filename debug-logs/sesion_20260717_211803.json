@@ -1,0 +1,1718 @@
+{
+ "nombre": "sesion_20260717_211803",
+ "eventos": [
+  {
+   "t": "21:18:03.633",
+   "seg": 0.0,
+   "tipo": "SESION",
+   "mensaje": "Inicio de grabación",
+   "detalle": {
+    "modo": "real",
+    "puerto": "COM3",
+    "conectado": true
+   }
+  },
+  {
+   "t": "21:18:03.634",
+   "seg": 0.0,
+   "tipo": "EQUIPO",
+   "mensaje": "Información del equipo",
+   "detalle": {
+    "sistema": "Windows 10",
+    "version": "10.0.26200",
+    "maquina": "AMD64",
+    "python": "3.11.9",
+    "nodo": "omar",
+    "fecha": "2026-07-17 21:18:03"
+   }
+  },
+  {
+   "t": "21:18:04.429",
+   "seg": 0.8,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C1 00 7B 0E 90 06 02 FD 02 F0 00 00 00 00 00 4E 0C 03 00 01 9C 00 00 00 ",
+    "ms": 48.5
+   }
+  },
+  {
+   "t": "21:18:04.493",
+   "seg": 0.86,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 0A 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 64.1
+   }
+  },
+  {
+   "t": "21:18:04.540",
+   "seg": 0.91,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 49 00 00 00 00 00 00 4B 00 00 00 00 00 00 32 AC 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 47.2
+   }
+  },
+  {
+   "t": "21:18:04.588",
+   "seg": 0.96,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 C9 00 00 00 00 00 EF 79 6A A7 2E D5 83 49 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:04.588",
+   "seg": 0.96,
+   "tipo": "SENSORES",
+   "mensaje": "Lectura en vivo (motor)",
+   "detalle": {
+    "Tensión de batería medida": "14.18 V",
+    "Avance de encendido": "5.62 °V (grados de cigüeñal)",
+    "Temperatura del agua medida": "88.75 °C",
+    "Consigna de ciclo de trabajo (RCO) del comando de la wastegate": "1.17 %",
+    "Régimen del motor (RPM)": "765 tr/min",
+    "Temperatura del aire medida": "36.88 °C",
+    "Velocidad del vehículo": "0 km/h",
+    "Corrección del régimen de ralentí de posventa": "0 tr/min",
+    "Presión de sobrealimentación (turbo)": "103.00 mbar",
+    "Depresión altimétrica (presión atmosférica)": "22.20 mbar",
+    "Presión absoluta del colector medida": "318.52 mbar",
+    "Régimen de consigna de la regulación del ralentí": "752 tr/min",
+    "Presión del aire acondicionado": "0.00 bar",
+    "Valor máximo de corrección lenta del avance por detonación": "4.50 °V (grados de cigüeñal)",
+    "Tope inferior de mariposa, sensor 2": "0.45 V",
+    "Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada": "18.77 %",
+    "Valor aprendido de posición de emergencia de la mariposa, pista 1": "0.94 V",
+    "Caudal de aire del motor evaluado": "10",
+    "Valor aprendido de posición de emergencia de la mariposa, pista 2": "0.92 V",
+    "Valor aprendido del tope superior de la mariposa": "87.98 %",
+    "Tope superior de mariposa, sensor 1": "4.40 V",
+    "Valor aprendido de pie levantado del pedal": "14.84 %",
+    "Consigna de posición corregida de la mariposa motorizada": "1.66 %",
+    "Tope inferior de mariposa, sensor 1": "0.47 V",
+    "Posición de la mariposa transmitida a la aplicación": "11.34 %",
+    "Posición de mariposa medida, pista 2, tras filtrado": "10.95 %",
+    "Tope inferior de la mariposa con offset": "9.68 %",
+    "Posición del pedal pista 1 después del filtrado": "14.86 %",
+    "Tope superior de mariposa, sensor 2": "4.40 V",
+    "Posición del pedal medida, pista 2": "0.35 V",
+    "Posición del pedal medida, pista 1": "0.74 V",
+    "Tensión del potenciómetro 2": "0.55 V",
+    "Tensión del potenciómetro 1": "0.57 V",
+    "Posición del pedal pista 2 después del filtrado": "7.04 %",
+    "Valor aprendido del tope inferior de la mariposa": "9.38 %",
+    "Posición de mariposa medida, pista 1, tras filtrado": "11.34 %",
+    "Valor corregido de posición de la mariposa motorizada": "1.95 %",
+    "Posición del pedal medida": "14.84 %",
+    "Período medio de la sonda anterior": "0 ms",
+    "Actividad medida de la sonda lambda posterior": "0",
+    "Cantidad de conmutaciones falsas de la sonda anterior": "0",
+    "Tensión de la sonda lambda anterior": "712.48 mV",
+    "Ruido medio del motor en la ventana de detonación": "12972",
+    "Resistencia de calefacción de la sonda anterior": "0.00 Ohms",
+    "Configuración del variador de distribución (VVT)": "VVT encendido / apagado",
+    "Tensión de la sonda lambda posterior": "732.00 mV",
+    "Contador de detonaciones (cascabeleo), cilindro 4": "2477",
+    "Resistencia de calefacción de la sonda posterior": "0.00 Ohms",
+    "Contador de detonaciones (cascabeleo), cilindro 2": "2029",
+    "Contador de detonaciones (cascabeleo), cilindro 3": "489",
+    "Contador de detonaciones (cascabeleo), cilindro 1": "3659",
+    "Offset de aprendizaje de la regulación de riqueza": "41.57 %",
+    "Consigna de ciclo de trabajo (RCO) del comando del VVT": "0 %",
+    "Ganancia de aprendizaje de la regulación de riqueza": "65.49 %",
+    "Valor de aprendizaje de la regulación del ralentí": "-6.46 %",
+    "Corrección adaptativa de la 2.ª zona de presión": "0.003968000000000416 %",
+    "Ángulo relativo final del VVT de admisión": "0.00 °",
+    "Corrección adaptativa de la 5.ª zona de presión": "0.003968000000000416 %",
+    "Corrección adaptativa de la 3.ª zona de presión": "0.003968000000000416 %",
+    "Desfase continuo del VVT medido": "0.00 °",
+    "Desfase continuo del VVT medido (sin modo degradado)": "0.00 °",
+    "Corrección adaptativa de la 1.ª zona de presión": "0.003968000000000416 %",
+    "Factor de enriquecimiento de la regulación de riqueza": "51.29 %",
+    "Ciclo de trabajo (RCO) teórico de la regulación del ralentí": "18.30 %",
+    "Ciclo de trabajo (RCO) de la purga del cánister": "0.00 %",
+    "Offset medio de doble lazo para el diagnóstico": "0",
+    "Offset medio máximo de doble lazo para el diagnóstico del lado rico": "0",
+    "Corrección adaptativa de la 4.ª zona de presión": "0.003968000000000416 %",
+    "Tiempo de inyección real": "2852.00 µs",
+    "Offset medio mínimo de doble lazo para el diagnóstico del lado pobre": "0"
+   }
+  },
+  {
+   "t": "21:18:04.637",
+   "seg": 1.0,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 48.3
+   }
+  },
+  {
+   "t": "21:18:04.812",
+   "seg": 1.18,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C1 00 7B 0E 75 06 03 00 02 F0 00 00 00 00 00 49 0C 03 00 01 9C 00 00 00 ",
+    "ms": 48.1
+   }
+  },
+  {
+   "t": "21:18:04.859",
+   "seg": 1.23,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 47.8
+   }
+  },
+  {
+   "t": "21:18:04.891",
+   "seg": 1.26,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 44 00 00 00 00 00 00 4B 00 00 00 00 00 00 33 A6 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 31.8
+   }
+  },
+  {
+   "t": "21:18:04.939",
+   "seg": 1.31,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 BB 00 00 00 00 00 EF 81 6A A7 2E 13 83 3F 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 48.0
+   }
+  },
+  {
+   "t": "21:18:05.131",
+   "seg": 1.5,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C2 00 7B 0E 8A 06 02 FC 02 F0 00 00 00 00 00 51 0C 03 00 01 9C 00 00 00 ",
+    "ms": 33.2
+   }
+  },
+  {
+   "t": "21:18:05.178",
+   "seg": 1.55,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 47.5
+   }
+  },
+  {
+   "t": "21:18:05.212",
+   "seg": 1.58,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 09 00 00 00 00 00 00 4C 00 00 00 00 00 00 3C 5A 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 32.8
+   }
+  },
+  {
+   "t": "21:18:05.259",
+   "seg": 1.63,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 D2 00 00 00 00 00 EF 81 6A A7 2E 0B 83 1E 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 46.5
+   }
+  },
+  {
+   "t": "21:18:05.451",
+   "seg": 1.82,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C2 00 7B 0E 8A 06 02 FB 02 F0 00 00 00 00 00 51 0C 03 00 01 9C 00 00 00 ",
+    "ms": 37.1
+   }
+  },
+  {
+   "t": "21:18:05.498",
+   "seg": 1.87,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 46.7
+   }
+  },
+  {
+   "t": "21:18:05.546",
+   "seg": 1.91,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 0A 00 00 00 00 00 00 4C 00 00 00 00 00 00 2E 35 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 47.6
+   }
+  },
+  {
+   "t": "21:18:05.594",
+   "seg": 1.96,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 D2 00 00 00 00 00 EF 81 6A A7 2E 74 83 02 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:05.786",
+   "seg": 2.15,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C2 00 7B 0E 85 06 02 FB 02 F0 00 00 00 00 00 4F 0C 03 00 01 9C 00 00 00 ",
+    "ms": 35.2
+   }
+  },
+  {
+   "t": "21:18:05.834",
+   "seg": 2.2,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:05.868",
+   "seg": 2.23,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 0A 00 00 00 00 00 00 49 00 00 00 00 00 00 39 D4 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 33.4
+   }
+  },
+  {
+   "t": "21:18:05.914",
+   "seg": 2.28,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 D4 00 00 00 00 00 EF 81 6A A7 2D F5 82 F6 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 46.6
+   }
+  },
+  {
+   "t": "21:18:06.090",
+   "seg": 2.46,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C0 00 7B 0E 90 06 02 FB 02 F0 00 00 00 00 00 4F 0C 03 00 01 9C 00 00 00 ",
+    "ms": 27.1
+   }
+  },
+  {
+   "t": "21:18:06.139",
+   "seg": 2.51,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 48.6
+   }
+  },
+  {
+   "t": "21:18:06.169",
+   "seg": 2.54,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 09 00 00 00 00 00 00 48 00 00 00 00 00 00 40 27 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 30.4
+   }
+  },
+  {
+   "t": "21:18:06.218",
+   "seg": 2.58,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 DB 00 00 00 00 00 EF 81 6A A7 2C EB 83 00 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 46.8
+   }
+  },
+  {
+   "t": "21:18:06.408",
+   "seg": 2.78,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C1 00 7B 0E 70 06 02 FD 02 F0 00 00 00 00 00 4E 0C 03 00 01 9C 00 00 00 ",
+    "ms": 29.0
+   }
+  },
+  {
+   "t": "21:18:06.457",
+   "seg": 2.82,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1B 18 E1 30 1D 1B 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 48.4
+   }
+  },
+  {
+   "t": "21:18:06.489",
+   "seg": 2.86,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 48 00 00 00 00 00 00 46 00 00 00 00 00 00 53 11 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 32.1
+   }
+  },
+  {
+   "t": "21:18:06.536",
+   "seg": 2.9,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 C0 00 00 00 00 00 EF 81 6A A7 2E 1D 83 09 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 47.6
+   }
+  },
+  {
+   "t": "21:18:06.728",
+   "seg": 3.1,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C2 00 7B 0E 6A 06 02 FE 02 F0 00 00 00 00 00 53 0C 03 00 01 9C 00 00 00 ",
+    "ms": 35.1
+   }
+  },
+  {
+   "t": "21:18:06.776",
+   "seg": 3.14,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1B 18 E1 30 1D 1B 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 44.8
+   }
+  },
+  {
+   "t": "21:18:06.807",
+   "seg": 3.17,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 21 00 00 00 00 00 00 47 00 00 00 00 00 00 51 AD 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 30.1
+   }
+  },
+  {
+   "t": "21:18:06.856",
+   "seg": 3.22,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 C6 00 00 00 00 00 EF 81 6A A7 2D 14 82 FB 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 49.0
+   }
+  },
+  {
+   "t": "21:18:06.856",
+   "seg": 3.22,
+   "tipo": "SENSORES",
+   "mensaje": "Lectura en vivo (motor)",
+   "detalle": {
+    "Tensión de batería medida": "14.21 V",
+    "Avance de encendido": "7.50 °V (grados de cigüeñal)",
+    "Temperatura del agua medida": "88.75 °C",
+    "Consigna de ciclo de trabajo (RCO) del comando de la wastegate": "1.17 %",
+    "Régimen del motor (RPM)": "766 tr/min",
+    "Temperatura del aire medida": "36.88 °C",
+    "Velocidad del vehículo": "0 km/h",
+    "Corrección del régimen de ralentí de posventa": "0 tr/min",
+    "Presión de sobrealimentación (turbo)": "103.00 mbar",
+    "Depresión altimétrica (presión atmosférica)": "22.20 mbar",
+    "Presión absoluta del colector medida": "316.33 mbar",
+    "Régimen de consigna de la regulación del ralentí": "752 tr/min",
+    "Presión del aire acondicionado": "0.00 bar",
+    "Valor máximo de corrección lenta del avance por detonación": "4.50 °V (grados de cigüeñal)",
+    "Tope inferior de mariposa, sensor 2": "0.45 V",
+    "Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada": "18.77 %",
+    "Valor aprendido de posición de emergencia de la mariposa, pista 1": "0.94 V",
+    "Caudal de aire del motor evaluado": "9",
+    "Valor aprendido de posición de emergencia de la mariposa, pista 2": "0.92 V",
+    "Valor aprendido del tope superior de la mariposa": "87.98 %",
+    "Tope superior de mariposa, sensor 1": "4.40 V",
+    "Valor aprendido de pie levantado del pedal": "14.84 %",
+    "Consigna de posición corregida de la mariposa motorizada": "1.66 %",
+    "Tope inferior de mariposa, sensor 1": "0.47 V",
+    "Posición de la mariposa transmitida a la aplicación": "11.34 %",
+    "Posición de mariposa medida, pista 2, tras filtrado": "10.56 %",
+    "Tope inferior de la mariposa con offset": "9.68 %",
+    "Posición del pedal pista 1 después del filtrado": "14.86 %",
+    "Tope superior de mariposa, sensor 2": "4.40 V",
+    "Posición del pedal medida, pista 2": "0.35 V",
+    "Posición del pedal medida, pista 1": "0.74 V",
+    "Tensión del potenciómetro 2": "0.53 V",
+    "Tensión del potenciómetro 1": "0.57 V",
+    "Posición del pedal pista 2 después del filtrado": "7.04 %",
+    "Valor aprendido del tope inferior de la mariposa": "9.38 %",
+    "Posición de mariposa medida, pista 1, tras filtrado": "11.34 %",
+    "Valor corregido de posición de la mariposa motorizada": "1.95 %",
+    "Posición del pedal medida": "14.84 %",
+    "Período medio de la sonda anterior": "0 ms",
+    "Actividad medida de la sonda lambda posterior": "0",
+    "Cantidad de conmutaciones falsas de la sonda anterior": "0",
+    "Tensión de la sonda lambda anterior": "322.08 mV",
+    "Ruido medio del motor en la ventana de detonación": "20909",
+    "Resistencia de calefacción de la sonda anterior": "0.00 Ohms",
+    "Configuración del variador de distribución (VVT)": "VVT encendido / apagado",
+    "Tensión de la sonda lambda posterior": "692.96 mV",
+    "Contador de detonaciones (cascabeleo), cilindro 4": "2477",
+    "Resistencia de calefacción de la sonda posterior": "0.00 Ohms",
+    "Contador de detonaciones (cascabeleo), cilindro 2": "2029",
+    "Contador de detonaciones (cascabeleo), cilindro 3": "489",
+    "Contador de detonaciones (cascabeleo), cilindro 1": "3659",
+    "Offset de aprendizaje de la regulación de riqueza": "41.57 %",
+    "Consigna de ciclo de trabajo (RCO) del comando del VVT": "0 %",
+    "Ganancia de aprendizaje de la regulación de riqueza": "65.49 %",
+    "Valor de aprendizaje de la regulación del ralentí": "-6.44 %",
+    "Corrección adaptativa de la 2.ª zona de presión": "0.003968000000000416 %",
+    "Ángulo relativo final del VVT de admisión": "0.00 °",
+    "Corrección adaptativa de la 5.ª zona de presión": "0.003968000000000416 %",
+    "Corrección adaptativa de la 3.ª zona de presión": "0.003968000000000416 %",
+    "Desfase continuo del VVT medido": "0.00 °",
+    "Desfase continuo del VVT medido (sin modo degradado)": "0.00 °",
+    "Corrección adaptativa de la 1.ª zona de presión": "0.003968000000000416 %",
+    "Factor de enriquecimiento de la regulación de riqueza": "51.17 %",
+    "Ciclo de trabajo (RCO) teórico de la regulación del ralentí": "17.61 %",
+    "Ciclo de trabajo (RCO) de la purga del cánister": "0.00 %",
+    "Offset medio de doble lazo para el diagnóstico": "0",
+    "Offset medio máximo de doble lazo para el diagnóstico del lado rico": "0",
+    "Corrección adaptativa de la 4.ª zona de presión": "0.003968000000000416 %",
+    "Tiempo de inyección real": "2840.00 µs",
+    "Offset medio mínimo de doble lazo para el diagnóstico del lado pobre": "0"
+   }
+  },
+  {
+   "t": "21:18:07.048",
+   "seg": 3.42,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C1 00 7B 0E 7A 06 02 FB 02 F0 00 00 00 00 00 51 0C 03 00 01 9C 00 00 00 ",
+    "ms": 36.4
+   }
+  },
+  {
+   "t": "21:18:07.096",
+   "seg": 3.46,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 48.3
+   }
+  },
+  {
+   "t": "21:18:07.127",
+   "seg": 3.49,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 09 00 00 00 00 00 00 4A 00 00 00 00 00 00 4D 73 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 29.6
+   }
+  },
+  {
+   "t": "21:18:07.175",
+   "seg": 3.54,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 CE 00 00 00 00 00 EF 81 6A A7 2D 84 82 E9 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 48.3
+   }
+  },
+  {
+   "t": "21:18:07.367",
+   "seg": 3.73,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": "61 A0 C3 00 7B 0E 80 06 02 F8 02 F0 00 00 00 00 00 4E 0C 03 00 01 9C 00 00 00 ",
+    "ms": 38.6
+   }
+  },
+  {
+   "t": "21:18:07.416",
+   "seg": 3.78,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": "61 A2 1D 1D 1B 18 E1 30 1D 1B 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 ",
+    "ms": 48.5
+   }
+  },
+  {
+   "t": "21:18:07.447",
+   "seg": 3.81,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": "61 A4 0D 00 00 00 00 00 00 4A 00 00 00 00 00 00 44 EC 01 0E 4B 07 ED 01 E9 09 AD ",
+    "ms": 30.2
+   }
+  },
+  {
+   "t": "21:18:07.495",
+   "seg": 3.86,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": "61 A3 02 CE 00 00 00 00 00 EF 81 6A A7 2D E7 82 DC 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 ",
+    "ms": 46.3
+   }
+  },
+  {
+   "t": "21:18:09.268",
+   "seg": 5.63,
+   "tipo": "ECU",
+   "mensaje": "Acceso a módulo",
+   "detalle": {
+    "ecu": "uch",
+    "nombre": "Caja de conexiones (UCH/USM)",
+    "tx": "74D",
+    "rx": "76D"
+   }
+  },
+  {
+   "t": "21:18:12.000",
+   "seg": 8.37,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 1070.6
+   }
+  },
+  {
+   "t": "21:18:12.002",
+   "seg": 8.37,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID2",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID2",
+    "valores": {
+     "accion": "encender"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:13.070",
+   "seg": 9.44,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 1067.2
+   }
+  },
+  {
+   "t": "21:18:15.402",
+   "seg": 11.77,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 63.5
+   }
+  },
+  {
+   "t": "21:18:16.727",
+   "seg": 13.09,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 62.5
+   }
+  },
+  {
+   "t": "21:18:18.053",
+   "seg": 14.42,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 63.8
+   }
+  },
+  {
+   "t": "21:18:19.363",
+   "seg": 15.73,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.9
+   }
+  },
+  {
+   "t": "21:18:20.625",
+   "seg": 16.99,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 11 00",
+    "respuesta": "70 02 11 ",
+    "ms": 79.2
+   }
+  },
+  {
+   "t": "21:18:20.625",
+   "seg": 16.99,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID2",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID2",
+    "valores": {
+     "accion": "apagar"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:20.769",
+   "seg": 17.14,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 79.8
+   }
+  },
+  {
+   "t": "21:18:23.197",
+   "seg": 19.56,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 59.7
+   }
+  },
+  {
+   "t": "21:18:24.634",
+   "seg": 21.0,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:24.634",
+   "seg": 21.0,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID2",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID2",
+    "valores": {
+     "accion": "encender"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:25.721",
+   "seg": 22.09,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 63.7
+   }
+  },
+  {
+   "t": "21:18:27.031",
+   "seg": 23.4,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.3
+   }
+  },
+  {
+   "t": "21:18:28.340",
+   "seg": 24.71,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 46.9
+   }
+  },
+  {
+   "t": "21:18:29.682",
+   "seg": 26.05,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 63.0
+   }
+  },
+  {
+   "t": "21:18:29.794",
+   "seg": 26.16,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 11 00",
+    "respuesta": "70 02 11 ",
+    "ms": 64.8
+   }
+  },
+  {
+   "t": "21:18:29.794",
+   "seg": 26.16,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID2",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID2",
+    "valores": {
+     "accion": "apagar"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:31.823",
+   "seg": 28.19,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 65.1
+   }
+  },
+  {
+   "t": "21:18:31.827",
+   "seg": 28.19,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID3",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID3",
+    "valores": {
+     "accion": "encender"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:32.189",
+   "seg": 28.56,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:33.484",
+   "seg": 29.85,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.5
+   }
+  },
+  {
+   "t": "21:18:34.794",
+   "seg": 31.16,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.0
+   }
+  },
+  {
+   "t": "21:18:34.937",
+   "seg": 31.3,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.2
+   }
+  },
+  {
+   "t": "21:18:34.940",
+   "seg": 31.31,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID2",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID2",
+    "valores": {
+     "accion": "encender"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:36.087",
+   "seg": 32.45,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:36.182",
+   "seg": 32.55,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.5
+   }
+  },
+  {
+   "t": "21:18:37.493",
+   "seg": 33.86,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.0
+   }
+  },
+  {
+   "t": "21:18:37.589",
+   "seg": 33.96,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:38.898",
+   "seg": 35.27,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 47.5
+   }
+  },
+  {
+   "t": "21:18:38.994",
+   "seg": 35.36,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.9
+   }
+  },
+  {
+   "t": "21:18:40.289",
+   "seg": 36.66,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.9
+   }
+  },
+  {
+   "t": "21:18:40.383",
+   "seg": 36.75,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 46.8
+   }
+  },
+  {
+   "t": "21:18:41.661",
+   "seg": 38.03,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.0
+   }
+  },
+  {
+   "t": "21:18:41.757",
+   "seg": 38.12,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.6
+   }
+  },
+  {
+   "t": "21:18:42.588",
+   "seg": 38.95,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 47.7
+   }
+  },
+  {
+   "t": "21:18:42.588",
+   "seg": 38.95,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID1",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID1",
+    "valores": {
+     "accion": "encender"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:43.052",
+   "seg": 39.42,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.1
+   }
+  },
+  {
+   "t": "21:18:43.147",
+   "seg": 39.51,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.9
+   }
+  },
+  {
+   "t": "21:18:43.242",
+   "seg": 39.61,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 47.8
+   }
+  },
+  {
+   "t": "21:18:44.537",
+   "seg": 40.9,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 47.4
+   }
+  },
+  {
+   "t": "21:18:44.633",
+   "seg": 41.0,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.8
+   }
+  },
+  {
+   "t": "21:18:44.728",
+   "seg": 41.1,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 47.2
+   }
+  },
+  {
+   "t": "21:18:46.022",
+   "seg": 42.39,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 47.6
+   }
+  },
+  {
+   "t": "21:18:46.118",
+   "seg": 42.48,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.4
+   }
+  },
+  {
+   "t": "21:18:46.213",
+   "seg": 42.58,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 47.1
+   }
+  },
+  {
+   "t": "21:18:47.523",
+   "seg": 43.89,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 47.9
+   }
+  },
+  {
+   "t": "21:18:47.619",
+   "seg": 43.99,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.0
+   }
+  },
+  {
+   "t": "21:18:47.715",
+   "seg": 44.08,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 47.7
+   }
+  },
+  {
+   "t": "21:18:48.994",
+   "seg": 45.36,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.6
+   }
+  },
+  {
+   "t": "21:18:49.090",
+   "seg": 45.46,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.6
+   }
+  },
+  {
+   "t": "21:18:49.184",
+   "seg": 45.55,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 46.9
+   }
+  },
+  {
+   "t": "21:18:50.479",
+   "seg": 46.85,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.5
+   }
+  },
+  {
+   "t": "21:18:50.575",
+   "seg": 46.94,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.5
+   }
+  },
+  {
+   "t": "21:18:50.671",
+   "seg": 47.04,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 48.6
+   }
+  },
+  {
+   "t": "21:18:51.964",
+   "seg": 48.33,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 48.1
+   }
+  },
+  {
+   "t": "21:18:52.062",
+   "seg": 48.43,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 49.7
+   }
+  },
+  {
+   "t": "21:18:52.157",
+   "seg": 48.52,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 49.7
+   }
+  },
+  {
+   "t": "21:18:53.450",
+   "seg": 49.82,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 47.8
+   }
+  },
+  {
+   "t": "21:18:53.545",
+   "seg": 49.91,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.3
+   }
+  },
+  {
+   "t": "21:18:53.641",
+   "seg": 50.01,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 00 FF",
+    "respuesta": "70 01 01 ",
+    "ms": 47.0
+   }
+  },
+  {
+   "t": "21:18:53.802",
+   "seg": 50.17,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 01 11 00",
+    "respuesta": "70 01 11 ",
+    "ms": 48.8
+   }
+  },
+  {
+   "t": "21:18:53.802",
+   "seg": 50.17,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID1",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID1",
+    "valores": {
+     "accion": "apagar"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:54.935",
+   "seg": 51.3,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 47.9
+   }
+  },
+  {
+   "t": "21:18:55.031",
+   "seg": 51.4,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 47.7
+   }
+  },
+  {
+   "t": "21:18:56.309",
+   "seg": 52.68,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 47.2
+   }
+  },
+  {
+   "t": "21:18:56.405",
+   "seg": 52.77,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 00 FF",
+    "respuesta": "70 02 01 ",
+    "ms": 48.2
+   }
+  },
+  {
+   "t": "21:18:56.852",
+   "seg": 53.22,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 02 11 00",
+    "respuesta": "70 02 11 ",
+    "ms": 46.9
+   }
+  },
+  {
+   "t": "21:18:56.852",
+   "seg": 53.22,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID2",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID2",
+    "valores": {
+     "accion": "apagar"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:18:57.700",
+   "seg": 54.07,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 00 FF",
+    "respuesta": "70 03 01 ",
+    "ms": 33.1
+   }
+  },
+  {
+   "t": "21:18:58.865",
+   "seg": 55.23,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 03 11 00",
+    "respuesta": "70 03 11 ",
+    "ms": 47.9
+   }
+  },
+  {
+   "t": "21:18:58.865",
+   "seg": 55.23,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID3",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID3",
+    "valores": {
+     "accion": "apagar"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:19:01.373",
+   "seg": 57.74,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 37.1
+   }
+  },
+  {
+   "t": "21:19:03.833",
+   "seg": 60.2,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 47.8
+   }
+  },
+  {
+   "t": "21:19:06.276",
+   "seg": 62.64,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 40.5
+   }
+  },
+  {
+   "t": "21:19:08.737",
+   "seg": 65.1,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 45.7
+   }
+  },
+  {
+   "t": "21:19:11.197",
+   "seg": 67.56,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 40.8
+   }
+  },
+  {
+   "t": "21:19:13.672",
+   "seg": 70.04,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 49.2
+   }
+  },
+  {
+   "t": "21:19:16.148",
+   "seg": 72.52,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 46.5
+   }
+  },
+  {
+   "t": "21:19:18.624",
+   "seg": 74.99,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 50.8
+   }
+  },
+  {
+   "t": "21:19:21.083",
+   "seg": 77.45,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 50.5
+   }
+  },
+  {
+   "t": "21:19:23.527",
+   "seg": 79.89,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 42.9
+   }
+  },
+  {
+   "t": "21:19:23.672",
+   "seg": 80.04,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 06 00 FF",
+    "respuesta": "70 06 01 ",
+    "ms": 49.0
+   }
+  },
+  {
+   "t": "21:19:23.672",
+   "seg": 80.04,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID6",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID6",
+    "valores": {
+     "accion": "encender"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:19:24.822",
+   "seg": 81.19,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 06 00 FF",
+    "respuesta": "70 06 01 ",
+    "ms": 49.3
+   }
+  },
+  {
+   "t": "21:19:25.348",
+   "seg": 81.71,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "30 06 11 00",
+    "respuesta": "70 06 11 ",
+    "ms": 46.7
+   }
+  },
+  {
+   "t": "21:19:25.348",
+   "seg": 81.71,
+   "tipo": "ACTUADOR",
+   "mensaje": "uch → ID6",
+   "detalle": {
+    "ecu": "uch",
+    "actuador": "ID6",
+    "valores": {
+     "accion": "apagar"
+    },
+    "exito": true
+   }
+  },
+  {
+   "t": "21:19:27.282",
+   "seg": 83.65,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 50.4
+   }
+  },
+  {
+   "t": "21:19:29.741",
+   "seg": 86.11,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 52.1
+   }
+  },
+  {
+   "t": "21:19:32.185",
+   "seg": 88.55,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 38.5
+   }
+  },
+  {
+   "t": "21:19:34.645",
+   "seg": 91.01,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 38.9
+   }
+  },
+  {
+   "t": "21:19:36.018",
+   "seg": 92.39,
+   "tipo": "ECU",
+   "mensaje": "Acceso a módulo",
+   "detalle": {
+    "ecu": "motor",
+    "nombre": "Motor / Inyección (F4R)",
+    "tx": "7E0",
+    "rx": "7E8"
+   }
+  },
+  {
+   "t": "21:19:37.273",
+   "seg": 93.64,
+   "tipo": "SESION",
+   "mensaje": "Fin de grabación",
+   "detalle": {
+    "eventos": 139
+   }
+  }
+ ]
+}

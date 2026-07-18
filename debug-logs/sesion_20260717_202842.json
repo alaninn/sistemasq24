@@ -1,0 +1,699 @@
+{
+ "nombre": "sesion_20260717_202842",
+ "eventos": [
+  {
+   "t": "20:28:42.229",
+   "seg": 0.0,
+   "tipo": "SESION",
+   "mensaje": "Inicio de grabación",
+   "detalle": {
+    "modo": "real",
+    "puerto": "COM3",
+    "conectado": true
+   }
+  },
+  {
+   "t": "20:28:42.231",
+   "seg": 0.0,
+   "tipo": "EQUIPO",
+   "mensaje": "Información del equipo",
+   "detalle": {
+    "sistema": "Windows 10",
+    "version": "10.0.26200",
+    "maquina": "AMD64",
+    "python": "3.11.9",
+    "nodo": "omar",
+    "fecha": "2026-07-17 20:28:42"
+   }
+  },
+  {
+   "t": "20:28:42.237",
+   "seg": 0.01,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.8
+   }
+  },
+  {
+   "t": "20:28:42.270",
+   "seg": 0.04,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:42.302",
+   "seg": 0.07,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 32.2
+   }
+  },
+  {
+   "t": "20:28:42.335",
+   "seg": 0.11,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:42.525",
+   "seg": 0.3,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 32.7
+   }
+  },
+  {
+   "t": "20:28:42.557",
+   "seg": 0.33,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:42.588",
+   "seg": 0.36,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.4
+   }
+  },
+  {
+   "t": "20:28:42.621",
+   "seg": 0.39,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:42.652",
+   "seg": 0.42,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.1
+   }
+  },
+  {
+   "t": "20:28:42.685",
+   "seg": 0.46,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:42.718",
+   "seg": 0.49,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 33.0
+   }
+  },
+  {
+   "t": "20:28:42.749",
+   "seg": 0.52,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:42.959",
+   "seg": 0.73,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 43.2
+   }
+  },
+  {
+   "t": "20:28:43.015",
+   "seg": 0.79,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.059",
+   "seg": 0.83,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 43.8
+   }
+  },
+  {
+   "t": "20:28:43.085",
+   "seg": 0.86,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.128",
+   "seg": 0.9,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 42.2
+   }
+  },
+  {
+   "t": "20:28:43.170",
+   "seg": 0.94,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.198",
+   "seg": 0.97,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 27.7
+   }
+  },
+  {
+   "t": "20:28:43.236",
+   "seg": 1.01,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.419",
+   "seg": 1.19,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 24.8
+   }
+  },
+  {
+   "t": "20:28:43.452",
+   "seg": 1.22,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.483",
+   "seg": 1.25,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.1
+   }
+  },
+  {
+   "t": "20:28:43.516",
+   "seg": 1.29,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.547",
+   "seg": 1.32,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 30.8
+   }
+  },
+  {
+   "t": "20:28:43.580",
+   "seg": 1.35,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.612",
+   "seg": 1.38,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 32.0
+   }
+  },
+  {
+   "t": "20:28:43.644",
+   "seg": 1.41,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.819",
+   "seg": 1.59,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 25.6
+   }
+  },
+  {
+   "t": "20:28:43.850",
+   "seg": 1.62,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.883",
+   "seg": 1.65,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 32.4
+   }
+  },
+  {
+   "t": "20:28:43.914",
+   "seg": 1.68,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:43.947",
+   "seg": 1.72,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 33.2
+   }
+  },
+  {
+   "t": "20:28:43.979",
+   "seg": 1.75,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.011",
+   "seg": 1.78,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.0
+   }
+  },
+  {
+   "t": "20:28:44.043",
+   "seg": 1.81,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.235",
+   "seg": 2.01,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 24.5
+   }
+  },
+  {
+   "t": "20:28:44.267",
+   "seg": 2.04,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.299",
+   "seg": 2.07,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.9
+   }
+  },
+  {
+   "t": "20:28:44.330",
+   "seg": 2.1,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.366",
+   "seg": 2.14,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 36.5
+   }
+  },
+  {
+   "t": "20:28:44.393",
+   "seg": 2.16,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.426",
+   "seg": 2.2,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 32.4
+   }
+  },
+  {
+   "t": "20:28:44.461",
+   "seg": 2.23,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.634",
+   "seg": 2.4,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 24.6
+   }
+  },
+  {
+   "t": "20:28:44.665",
+   "seg": 2.44,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.698",
+   "seg": 2.47,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 33.0
+   }
+  },
+  {
+   "t": "20:28:44.730",
+   "seg": 2.5,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.762",
+   "seg": 2.53,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.2
+   }
+  },
+  {
+   "t": "20:28:44.793",
+   "seg": 2.56,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:44.824",
+   "seg": 2.59,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 31.0
+   }
+  },
+  {
+   "t": "20:28:44.841",
+   "seg": 2.61,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:45.034",
+   "seg": 2.8,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 33.3
+   }
+  },
+  {
+   "t": "20:28:45.065",
+   "seg": 2.84,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A0",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:45.097",
+   "seg": 2.87,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 32.1
+   }
+  },
+  {
+   "t": "20:28:45.134",
+   "seg": 2.9,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A2",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:45.204",
+   "seg": 2.97,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 69.6
+   }
+  },
+  {
+   "t": "20:28:45.240",
+   "seg": 3.01,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A4",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:45.293",
+   "seg": 3.06,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 39.2
+   }
+  },
+  {
+   "t": "20:28:45.323",
+   "seg": 3.09,
+   "tipo": "ELM",
+   "mensaje": "diag",
+   "detalle": {
+    "envio": "21 A3",
+    "respuesta": ":12:NR: SubFunction Not Supported ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "20:28:45.367",
+   "seg": 3.14,
+   "tipo": "SESION",
+   "mensaje": "Fin de grabación",
+   "detalle": {
+    "eventos": 62
+   }
+  }
+ ]
+}

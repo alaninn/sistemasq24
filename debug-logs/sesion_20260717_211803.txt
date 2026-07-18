@@ -1,0 +1,756 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260717_211803
+==================================================================
+
+[21:18:03.633] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[21:18:03.634] (+   0.0s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-17 21:18:03
+
+[21:18:04.429] (+   0.8s) ELM      diag
+           → envío:     21 A0  (48.5 ms)
+           → respuesta: 61 A0 C1 00 7B 0E 90 06 02 FD 02 F0 00 00 00 00 00 4E 0C 03 00 01 9C 00 00 00 
+
+[21:18:04.493] (+  0.86s) ELM      diag
+           → envío:     21 A2  (64.1 ms)
+           → respuesta: 61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 0A 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:04.540] (+  0.91s) ELM      diag
+           → envío:     21 A4  (47.2 ms)
+           → respuesta: 61 A4 49 00 00 00 00 00 00 4B 00 00 00 00 00 00 32 AC 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:04.588] (+  0.96s) ELM      diag
+           → envío:     21 A3  (48.2 ms)
+           → respuesta: 61 A3 02 C9 00 00 00 00 00 EF 79 6A A7 2E D5 83 49 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:04.588] (+  0.96s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 14.18 V
+           · Avance de encendido: 5.62 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 88.75 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 765 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 22.20 mbar
+           · Presión absoluta del colector medida: 318.52 mbar
+           · Régimen de consigna de la regulación del ralentí: 752 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 4.50 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 10
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 1.66 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.34 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.95 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.55 V
+           · Tensión del potenciómetro 1: 0.57 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.34 %
+           · Valor corregido de posición de la mariposa motorizada: 1.95 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 712.48 mV
+           · Ruido medio del motor en la ventana de detonación: 12972
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 732.00 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2477
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2029
+           · Contador de detonaciones (cascabeleo), cilindro 3: 489
+           · Contador de detonaciones (cascabeleo), cilindro 1: 3659
+           · Offset de aprendizaje de la regulación de riqueza: 41.57 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 65.49 %
+           · Valor de aprendizaje de la regulación del ralentí: -6.46 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 51.29 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 18.30 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 2852.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+
+[21:18:04.637] (+   1.0s) ELM      keep-alive
+           → envío:     3E00  (48.3 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:18:04.812] (+  1.18s) ELM      diag
+           → envío:     21 A0  (48.1 ms)
+           → respuesta: 61 A0 C1 00 7B 0E 75 06 03 00 02 F0 00 00 00 00 00 49 0C 03 00 01 9C 00 00 00 
+
+[21:18:04.859] (+  1.23s) ELM      diag
+           → envío:     21 A2  (47.8 ms)
+           → respuesta: 61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:04.891] (+  1.26s) ELM      diag
+           → envío:     21 A4  (31.8 ms)
+           → respuesta: 61 A4 44 00 00 00 00 00 00 4B 00 00 00 00 00 00 33 A6 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:04.939] (+  1.31s) ELM      diag
+           → envío:     21 A3  (48.0 ms)
+           → respuesta: 61 A3 02 BB 00 00 00 00 00 EF 81 6A A7 2E 13 83 3F 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:05.131] (+   1.5s) ELM      diag
+           → envío:     21 A0  (33.2 ms)
+           → respuesta: 61 A0 C2 00 7B 0E 8A 06 02 FC 02 F0 00 00 00 00 00 51 0C 03 00 01 9C 00 00 00 
+
+[21:18:05.178] (+  1.55s) ELM      diag
+           → envío:     21 A2  (47.5 ms)
+           → respuesta: 61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:05.212] (+  1.58s) ELM      diag
+           → envío:     21 A4  (32.8 ms)
+           → respuesta: 61 A4 09 00 00 00 00 00 00 4C 00 00 00 00 00 00 3C 5A 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:05.259] (+  1.63s) ELM      diag
+           → envío:     21 A3  (46.5 ms)
+           → respuesta: 61 A3 02 D2 00 00 00 00 00 EF 81 6A A7 2E 0B 83 1E 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:05.451] (+  1.82s) ELM      diag
+           → envío:     21 A0  (37.1 ms)
+           → respuesta: 61 A0 C2 00 7B 0E 8A 06 02 FB 02 F0 00 00 00 00 00 51 0C 03 00 01 9C 00 00 00 
+
+[21:18:05.498] (+  1.87s) ELM      diag
+           → envío:     21 A2  (46.7 ms)
+           → respuesta: 61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:05.546] (+  1.91s) ELM      diag
+           → envío:     21 A4  (47.6 ms)
+           → respuesta: 61 A4 0A 00 00 00 00 00 00 4C 00 00 00 00 00 00 2E 35 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:05.594] (+  1.96s) ELM      diag
+           → envío:     21 A3  (48.2 ms)
+           → respuesta: 61 A3 02 D2 00 00 00 00 00 EF 81 6A A7 2E 74 83 02 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:05.786] (+  2.15s) ELM      diag
+           → envío:     21 A0  (35.2 ms)
+           → respuesta: 61 A0 C2 00 7B 0E 85 06 02 FB 02 F0 00 00 00 00 00 4F 0C 03 00 01 9C 00 00 00 
+
+[21:18:05.834] (+   2.2s) ELM      diag
+           → envío:     21 A2  (48.2 ms)
+           → respuesta: 61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:05.868] (+  2.23s) ELM      diag
+           → envío:     21 A4  (33.4 ms)
+           → respuesta: 61 A4 0A 00 00 00 00 00 00 49 00 00 00 00 00 00 39 D4 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:05.914] (+  2.28s) ELM      diag
+           → envío:     21 A3  (46.6 ms)
+           → respuesta: 61 A3 02 D4 00 00 00 00 00 EF 81 6A A7 2D F5 82 F6 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:06.090] (+  2.46s) ELM      diag
+           → envío:     21 A0  (27.1 ms)
+           → respuesta: 61 A0 C0 00 7B 0E 90 06 02 FB 02 F0 00 00 00 00 00 4F 0C 03 00 01 9C 00 00 00 
+
+[21:18:06.139] (+  2.51s) ELM      diag
+           → envío:     21 A2  (48.6 ms)
+           → respuesta: 61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:06.169] (+  2.54s) ELM      diag
+           → envío:     21 A4  (30.4 ms)
+           → respuesta: 61 A4 09 00 00 00 00 00 00 48 00 00 00 00 00 00 40 27 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:06.218] (+  2.58s) ELM      diag
+           → envío:     21 A3  (46.8 ms)
+           → respuesta: 61 A3 02 DB 00 00 00 00 00 EF 81 6A A7 2C EB 83 00 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:06.408] (+  2.78s) ELM      diag
+           → envío:     21 A0  (29.0 ms)
+           → respuesta: 61 A0 C1 00 7B 0E 70 06 02 FD 02 F0 00 00 00 00 00 4E 0C 03 00 01 9C 00 00 00 
+
+[21:18:06.457] (+  2.82s) ELM      diag
+           → envío:     21 A2  (48.4 ms)
+           → respuesta: 61 A2 1D 1D 1B 18 E1 30 1D 1B 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:06.489] (+  2.86s) ELM      diag
+           → envío:     21 A4  (32.1 ms)
+           → respuesta: 61 A4 48 00 00 00 00 00 00 46 00 00 00 00 00 00 53 11 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:06.536] (+   2.9s) ELM      diag
+           → envío:     21 A3  (47.6 ms)
+           → respuesta: 61 A3 02 C0 00 00 00 00 00 EF 81 6A A7 2E 1D 83 09 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:06.728] (+   3.1s) ELM      diag
+           → envío:     21 A0  (35.1 ms)
+           → respuesta: 61 A0 C2 00 7B 0E 6A 06 02 FE 02 F0 00 00 00 00 00 53 0C 03 00 01 9C 00 00 00 
+
+[21:18:06.776] (+  3.14s) ELM      diag
+           → envío:     21 A2  (44.8 ms)
+           → respuesta: 61 A2 1D 1D 1B 18 E1 30 1D 1B 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:06.807] (+  3.17s) ELM      diag
+           → envío:     21 A4  (30.1 ms)
+           → respuesta: 61 A4 21 00 00 00 00 00 00 47 00 00 00 00 00 00 51 AD 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:06.856] (+  3.22s) ELM      diag
+           → envío:     21 A3  (49.0 ms)
+           → respuesta: 61 A3 02 C6 00 00 00 00 00 EF 81 6A A7 2D 14 82 FB 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:06.856] (+  3.22s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 14.21 V
+           · Avance de encendido: 7.50 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 88.75 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 766 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 22.20 mbar
+           · Presión absoluta del colector medida: 316.33 mbar
+           · Régimen de consigna de la regulación del ralentí: 752 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 4.50 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 9
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 1.66 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.34 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.56 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.53 V
+           · Tensión del potenciómetro 1: 0.57 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.34 %
+           · Valor corregido de posición de la mariposa motorizada: 1.95 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 322.08 mV
+           · Ruido medio del motor en la ventana de detonación: 20909
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 692.96 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2477
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2029
+           · Contador de detonaciones (cascabeleo), cilindro 3: 489
+           · Contador de detonaciones (cascabeleo), cilindro 1: 3659
+           · Offset de aprendizaje de la regulación de riqueza: 41.57 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 65.49 %
+           · Valor de aprendizaje de la regulación del ralentí: -6.44 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 51.17 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 17.61 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 2840.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+
+[21:18:07.048] (+  3.42s) ELM      diag
+           → envío:     21 A0  (36.4 ms)
+           → respuesta: 61 A0 C1 00 7B 0E 7A 06 02 FB 02 F0 00 00 00 00 00 51 0C 03 00 01 9C 00 00 00 
+
+[21:18:07.096] (+  3.46s) ELM      diag
+           → envío:     21 A2  (48.3 ms)
+           → respuesta: 61 A2 1D 1D 1C 18 E1 30 1D 1C 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:07.127] (+  3.49s) ELM      diag
+           → envío:     21 A4  (29.6 ms)
+           → respuesta: 61 A4 09 00 00 00 00 00 00 4A 00 00 00 00 00 00 4D 73 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:07.175] (+  3.54s) ELM      diag
+           → envío:     21 A3  (48.3 ms)
+           → respuesta: 61 A3 02 CE 00 00 00 00 00 EF 81 6A A7 2D 84 82 E9 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:07.367] (+  3.73s) ELM      diag
+           → envío:     21 A0  (38.6 ms)
+           → respuesta: 61 A0 C3 00 7B 0E 80 06 02 F8 02 F0 00 00 00 00 00 4E 0C 03 00 01 9C 00 00 00 
+
+[21:18:07.416] (+  3.78s) ELM      diag
+           → envío:     21 A2  (48.5 ms)
+           → respuesta: 61 A2 1D 1D 1B 18 E1 30 1D 1B 00 26 26 12 26 00 00 09 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 00 00 11 30 2F 26 12 
+
+[21:18:07.447] (+  3.81s) ELM      diag
+           → envío:     21 A4  (30.2 ms)
+           → respuesta: 61 A4 0D 00 00 00 00 00 00 4A 00 00 00 00 00 00 44 EC 01 0E 4B 07 ED 01 E9 09 AD 
+
+[21:18:07.495] (+  3.86s) ELM      diag
+           → envío:     21 A3  (46.3 ms)
+           → respuesta: 61 A3 02 CE 00 00 00 00 00 EF 81 6A A7 2D E7 82 DC 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[21:18:09.268] (+  5.63s) ECU      Acceso a módulo
+           · ecu: uch
+           · nombre: Caja de conexiones (UCH/USM)
+           · tx: 74D
+           · rx: 76D
+
+[21:18:12.000] (+  8.37s) ELM      diag
+           → envío:     30 02 00 FF  (1070.6 ms)
+           → respuesta: 70 02 01 
+
+[21:18:12.002] (+  8.37s) ACTUADOR uch → ID2
+           · ecu: uch
+           · actuador: ID2
+           {
+            "accion": "encender"
+           }
+           · exito: True
+
+[21:18:13.070] (+  9.44s) ELM      keep-alive
+           → envío:     3E00  (1067.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:18:15.402] (+ 11.77s) ELM      diag
+           → envío:     30 02 00 FF  (63.5 ms)
+           → respuesta: 70 02 01 
+
+[21:18:16.727] (+ 13.09s) ELM      diag
+           → envío:     30 02 00 FF  (62.5 ms)
+           → respuesta: 70 02 01 
+
+[21:18:18.053] (+ 14.42s) ELM      diag
+           → envío:     30 02 00 FF  (63.8 ms)
+           → respuesta: 70 02 01 
+
+[21:18:19.363] (+ 15.73s) ELM      diag
+           → envío:     30 02 00 FF  (48.9 ms)
+           → respuesta: 70 02 01 
+
+[21:18:20.625] (+ 16.99s) ELM      diag
+           → envío:     30 02 11 00  (79.2 ms)
+           → respuesta: 70 02 11 
+
+[21:18:20.625] (+ 16.99s) ACTUADOR uch → ID2
+           · ecu: uch
+           · actuador: ID2
+           {
+            "accion": "apagar"
+           }
+           · exito: True
+
+[21:18:20.769] (+ 17.14s) ELM      diag
+           → envío:     30 02 00 FF  (79.8 ms)
+           → respuesta: 70 02 01 
+
+[21:18:23.197] (+ 19.56s) ELM      keep-alive
+           → envío:     3E00  (59.7 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:18:24.634] (+  21.0s) ELM      diag
+           → envío:     30 02 00 FF  (48.2 ms)
+           → respuesta: 70 02 01 
+
+[21:18:24.634] (+  21.0s) ACTUADOR uch → ID2
+           · ecu: uch
+           · actuador: ID2
+           {
+            "accion": "encender"
+           }
+           · exito: True
+
+[21:18:25.721] (+ 22.09s) ELM      diag
+           → envío:     30 02 00 FF  (63.7 ms)
+           → respuesta: 70 02 01 
+
+[21:18:27.031] (+  23.4s) ELM      diag
+           → envío:     30 02 00 FF  (48.3 ms)
+           → respuesta: 70 02 01 
+
+[21:18:28.340] (+ 24.71s) ELM      diag
+           → envío:     30 02 00 FF  (46.9 ms)
+           → respuesta: 70 02 01 
+
+[21:18:29.682] (+ 26.05s) ELM      diag
+           → envío:     30 02 00 FF  (63.0 ms)
+           → respuesta: 70 02 01 
+
+[21:18:29.794] (+ 26.16s) ELM      diag
+           → envío:     30 02 11 00  (64.8 ms)
+           → respuesta: 70 02 11 
+
+[21:18:29.794] (+ 26.16s) ACTUADOR uch → ID2
+           · ecu: uch
+           · actuador: ID2
+           {
+            "accion": "apagar"
+           }
+           · exito: True
+
+[21:18:31.823] (+ 28.19s) ELM      diag
+           → envío:     30 03 00 FF  (65.1 ms)
+           → respuesta: 70 03 01 
+
+[21:18:31.827] (+ 28.19s) ACTUADOR uch → ID3
+           · ecu: uch
+           · actuador: ID3
+           {
+            "accion": "encender"
+           }
+           · exito: True
+
+[21:18:32.189] (+ 28.56s) ELM      diag
+           → envío:     30 03 00 FF  (48.2 ms)
+           → respuesta: 70 03 01 
+
+[21:18:33.484] (+ 29.85s) ELM      diag
+           → envío:     30 03 00 FF  (48.5 ms)
+           → respuesta: 70 03 01 
+
+[21:18:34.794] (+ 31.16s) ELM      diag
+           → envío:     30 03 00 FF  (48.0 ms)
+           → respuesta: 70 03 01 
+
+[21:18:34.937] (+  31.3s) ELM      diag
+           → envío:     30 02 00 FF  (47.2 ms)
+           → respuesta: 70 02 01 
+
+[21:18:34.940] (+ 31.31s) ACTUADOR uch → ID2
+           · ecu: uch
+           · actuador: ID2
+           {
+            "accion": "encender"
+           }
+           · exito: True
+
+[21:18:36.087] (+ 32.45s) ELM      diag
+           → envío:     30 03 00 FF  (48.2 ms)
+           → respuesta: 70 03 01 
+
+[21:18:36.182] (+ 32.55s) ELM      diag
+           → envío:     30 02 00 FF  (47.5 ms)
+           → respuesta: 70 02 01 
+
+[21:18:37.493] (+ 33.86s) ELM      diag
+           → envío:     30 03 00 FF  (48.0 ms)
+           → respuesta: 70 03 01 
+
+[21:18:37.589] (+ 33.96s) ELM      diag
+           → envío:     30 02 00 FF  (48.2 ms)
+           → respuesta: 70 02 01 
+
+[21:18:38.898] (+ 35.27s) ELM      diag
+           → envío:     30 03 00 FF  (47.5 ms)
+           → respuesta: 70 03 01 
+
+[21:18:38.994] (+ 35.36s) ELM      diag
+           → envío:     30 02 00 FF  (47.9 ms)
+           → respuesta: 70 02 01 
+
+[21:18:40.289] (+ 36.66s) ELM      diag
+           → envío:     30 03 00 FF  (48.9 ms)
+           → respuesta: 70 03 01 
+
+[21:18:40.383] (+ 36.75s) ELM      diag
+           → envío:     30 02 00 FF  (46.8 ms)
+           → respuesta: 70 02 01 
+
+[21:18:41.661] (+ 38.03s) ELM      diag
+           → envío:     30 03 00 FF  (48.0 ms)
+           → respuesta: 70 03 01 
+
+[21:18:41.757] (+ 38.12s) ELM      diag
+           → envío:     30 02 00 FF  (47.6 ms)
+           → respuesta: 70 02 01 
+
+[21:18:42.588] (+ 38.95s) ELM      diag
+           → envío:     30 01 00 FF  (47.7 ms)
+           → respuesta: 70 01 01 
+
+[21:18:42.588] (+ 38.95s) ACTUADOR uch → ID1
+           · ecu: uch
+           · actuador: ID1
+           {
+            "accion": "encender"
+           }
+           · exito: True
+
+[21:18:43.052] (+ 39.42s) ELM      diag
+           → envío:     30 03 00 FF  (48.1 ms)
+           → respuesta: 70 03 01 
+
+[21:18:43.147] (+ 39.51s) ELM      diag
+           → envío:     30 02 00 FF  (48.9 ms)
+           → respuesta: 70 02 01 
+
+[21:18:43.242] (+ 39.61s) ELM      diag
+           → envío:     30 01 00 FF  (47.8 ms)
+           → respuesta: 70 01 01 
+
+[21:18:44.537] (+  40.9s) ELM      diag
+           → envío:     30 03 00 FF  (47.4 ms)
+           → respuesta: 70 03 01 
+
+[21:18:44.633] (+  41.0s) ELM      diag
+           → envío:     30 02 00 FF  (48.8 ms)
+           → respuesta: 70 02 01 
+
+[21:18:44.728] (+  41.1s) ELM      diag
+           → envío:     30 01 00 FF  (47.2 ms)
+           → respuesta: 70 01 01 
+
+[21:18:46.022] (+ 42.39s) ELM      diag
+           → envío:     30 03 00 FF  (47.6 ms)
+           → respuesta: 70 03 01 
+
+[21:18:46.118] (+ 42.48s) ELM      diag
+           → envío:     30 02 00 FF  (47.4 ms)
+           → respuesta: 70 02 01 
+
+[21:18:46.213] (+ 42.58s) ELM      diag
+           → envío:     30 01 00 FF  (47.1 ms)
+           → respuesta: 70 01 01 
+
+[21:18:47.523] (+ 43.89s) ELM      diag
+           → envío:     30 03 00 FF  (47.9 ms)
+           → respuesta: 70 03 01 
+
+[21:18:47.619] (+ 43.99s) ELM      diag
+           → envío:     30 02 00 FF  (47.0 ms)
+           → respuesta: 70 02 01 
+
+[21:18:47.715] (+ 44.08s) ELM      diag
+           → envío:     30 01 00 FF  (47.7 ms)
+           → respuesta: 70 01 01 
+
+[21:18:48.994] (+ 45.36s) ELM      diag
+           → envío:     30 03 00 FF  (48.6 ms)
+           → respuesta: 70 03 01 
+
+[21:18:49.090] (+ 45.46s) ELM      diag
+           → envío:     30 02 00 FF  (48.6 ms)
+           → respuesta: 70 02 01 
+
+[21:18:49.184] (+ 45.55s) ELM      diag
+           → envío:     30 01 00 FF  (46.9 ms)
+           → respuesta: 70 01 01 
+
+[21:18:50.479] (+ 46.85s) ELM      diag
+           → envío:     30 03 00 FF  (48.5 ms)
+           → respuesta: 70 03 01 
+
+[21:18:50.575] (+ 46.94s) ELM      diag
+           → envío:     30 02 00 FF  (48.5 ms)
+           → respuesta: 70 02 01 
+
+[21:18:50.671] (+ 47.04s) ELM      diag
+           → envío:     30 01 00 FF  (48.6 ms)
+           → respuesta: 70 01 01 
+
+[21:18:51.964] (+ 48.33s) ELM      diag
+           → envío:     30 03 00 FF  (48.1 ms)
+           → respuesta: 70 03 01 
+
+[21:18:52.062] (+ 48.43s) ELM      diag
+           → envío:     30 02 00 FF  (49.7 ms)
+           → respuesta: 70 02 01 
+
+[21:18:52.157] (+ 48.52s) ELM      diag
+           → envío:     30 01 00 FF  (49.7 ms)
+           → respuesta: 70 01 01 
+
+[21:18:53.450] (+ 49.82s) ELM      diag
+           → envío:     30 03 00 FF  (47.8 ms)
+           → respuesta: 70 03 01 
+
+[21:18:53.545] (+ 49.91s) ELM      diag
+           → envío:     30 02 00 FF  (47.3 ms)
+           → respuesta: 70 02 01 
+
+[21:18:53.641] (+ 50.01s) ELM      diag
+           → envío:     30 01 00 FF  (47.0 ms)
+           → respuesta: 70 01 01 
+
+[21:18:53.802] (+ 50.17s) ELM      diag
+           → envío:     30 01 11 00  (48.8 ms)
+           → respuesta: 70 01 11 
+
+[21:18:53.802] (+ 50.17s) ACTUADOR uch → ID1
+           · ecu: uch
+           · actuador: ID1
+           {
+            "accion": "apagar"
+           }
+           · exito: True
+
+[21:18:54.935] (+  51.3s) ELM      diag
+           → envío:     30 03 00 FF  (47.9 ms)
+           → respuesta: 70 03 01 
+
+[21:18:55.031] (+  51.4s) ELM      diag
+           → envío:     30 02 00 FF  (47.7 ms)
+           → respuesta: 70 02 01 
+
+[21:18:56.309] (+ 52.68s) ELM      diag
+           → envío:     30 03 00 FF  (47.2 ms)
+           → respuesta: 70 03 01 
+
+[21:18:56.405] (+ 52.77s) ELM      diag
+           → envío:     30 02 00 FF  (48.2 ms)
+           → respuesta: 70 02 01 
+
+[21:18:56.852] (+ 53.22s) ELM      diag
+           → envío:     30 02 11 00  (46.9 ms)
+           → respuesta: 70 02 11 
+
+[21:18:56.852] (+ 53.22s) ACTUADOR uch → ID2
+           · ecu: uch
+           · actuador: ID2
+           {
+            "accion": "apagar"
+           }
+           · exito: True
+
+[21:18:57.700] (+ 54.07s) ELM      diag
+           → envío:     30 03 00 FF  (33.1 ms)
+           → respuesta: 70 03 01 
+
+[21:18:58.865] (+ 55.23s) ELM      diag
+           → envío:     30 03 11 00  (47.9 ms)
+           → respuesta: 70 03 11 
+
+[21:18:58.865] (+ 55.23s) ACTUADOR uch → ID3
+           · ecu: uch
+           · actuador: ID3
+           {
+            "accion": "apagar"
+           }
+           · exito: True
+
+[21:19:01.373] (+ 57.74s) ELM      keep-alive
+           → envío:     3E00  (37.1 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:03.833] (+  60.2s) ELM      keep-alive
+           → envío:     3E00  (47.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:06.276] (+ 62.64s) ELM      keep-alive
+           → envío:     3E00  (40.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:08.737] (+  65.1s) ELM      keep-alive
+           → envío:     3E00  (45.7 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:11.197] (+ 67.56s) ELM      keep-alive
+           → envío:     3E00  (40.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:13.672] (+ 70.04s) ELM      keep-alive
+           → envío:     3E00  (49.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:16.148] (+ 72.52s) ELM      keep-alive
+           → envío:     3E00  (46.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:18.624] (+ 74.99s) ELM      keep-alive
+           → envío:     3E00  (50.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:21.083] (+ 77.45s) ELM      keep-alive
+           → envío:     3E00  (50.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:23.527] (+ 79.89s) ELM      keep-alive
+           → envío:     3E00  (42.9 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:23.672] (+ 80.04s) ELM      diag
+           → envío:     30 06 00 FF  (49.0 ms)
+           → respuesta: 70 06 01 
+
+[21:19:23.672] (+ 80.04s) ACTUADOR uch → ID6
+           · ecu: uch
+           · actuador: ID6
+           {
+            "accion": "encender"
+           }
+           · exito: True
+
+[21:19:24.822] (+ 81.19s) ELM      diag
+           → envío:     30 06 00 FF  (49.3 ms)
+           → respuesta: 70 06 01 
+
+[21:19:25.348] (+ 81.71s) ELM      diag
+           → envío:     30 06 11 00  (46.7 ms)
+           → respuesta: 70 06 11 
+
+[21:19:25.348] (+ 81.71s) ACTUADOR uch → ID6
+           · ecu: uch
+           · actuador: ID6
+           {
+            "accion": "apagar"
+           }
+           · exito: True
+
+[21:19:27.282] (+ 83.65s) ELM      keep-alive
+           → envío:     3E00  (50.4 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:29.741] (+ 86.11s) ELM      keep-alive
+           → envío:     3E00  (52.1 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:32.185] (+ 88.55s) ELM      keep-alive
+           → envío:     3E00  (38.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:34.645] (+ 91.01s) ELM      keep-alive
+           → envío:     3E00  (38.9 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[21:19:36.018] (+ 92.39s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[21:19:37.273] (+ 93.64s) SESION   Fin de grabación
+           · eventos: 139

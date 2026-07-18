@@ -1,0 +1,260 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260717_202842
+==================================================================
+
+[20:28:42.229] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[20:28:42.231] (+   0.0s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-17 20:28:42
+
+[20:28:42.237] (+  0.01s) ELM      diag
+           → envío:     21 A4  (31.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.270] (+  0.04s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.302] (+  0.07s) ELM      diag
+           → envío:     21 A3  (32.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.335] (+  0.11s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.525] (+   0.3s) ELM      diag
+           → envío:     21 A0  (32.7 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.557] (+  0.33s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.588] (+  0.36s) ELM      diag
+           → envío:     21 A2  (31.4 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.621] (+  0.39s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.652] (+  0.42s) ELM      diag
+           → envío:     21 A4  (31.1 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.685] (+  0.46s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.718] (+  0.49s) ELM      diag
+           → envío:     21 A3  (33.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.749] (+  0.52s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:42.959] (+  0.73s) ELM      diag
+           → envío:     21 A0  (43.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.015] (+  0.79s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.059] (+  0.83s) ELM      diag
+           → envío:     21 A2  (43.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.085] (+  0.86s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.128] (+   0.9s) ELM      diag
+           → envío:     21 A4  (42.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.170] (+  0.94s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.198] (+  0.97s) ELM      diag
+           → envío:     21 A3  (27.7 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.236] (+  1.01s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.419] (+  1.19s) ELM      diag
+           → envío:     21 A0  (24.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.452] (+  1.22s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.483] (+  1.25s) ELM      diag
+           → envío:     21 A2  (31.1 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.516] (+  1.29s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.547] (+  1.32s) ELM      diag
+           → envío:     21 A4  (30.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.580] (+  1.35s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.612] (+  1.38s) ELM      diag
+           → envío:     21 A3  (32.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.644] (+  1.41s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.819] (+  1.59s) ELM      diag
+           → envío:     21 A0  (25.6 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.850] (+  1.62s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.883] (+  1.65s) ELM      diag
+           → envío:     21 A2  (32.4 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.914] (+  1.68s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.947] (+  1.72s) ELM      diag
+           → envío:     21 A4  (33.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:43.979] (+  1.75s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.011] (+  1.78s) ELM      diag
+           → envío:     21 A3  (31.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.043] (+  1.81s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.235] (+  2.01s) ELM      diag
+           → envío:     21 A0  (24.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.267] (+  2.04s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.299] (+  2.07s) ELM      diag
+           → envío:     21 A2  (31.9 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.330] (+   2.1s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.366] (+  2.14s) ELM      diag
+           → envío:     21 A4  (36.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.393] (+  2.16s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.426] (+   2.2s) ELM      diag
+           → envío:     21 A3  (32.4 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.461] (+  2.23s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.634] (+   2.4s) ELM      diag
+           → envío:     21 A0  (24.6 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.665] (+  2.44s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.698] (+  2.47s) ELM      diag
+           → envío:     21 A2  (33.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.730] (+   2.5s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.762] (+  2.53s) ELM      diag
+           → envío:     21 A4  (31.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.793] (+  2.56s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.824] (+  2.59s) ELM      diag
+           → envío:     21 A3  (31.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:44.841] (+  2.61s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.034] (+   2.8s) ELM      diag
+           → envío:     21 A0  (33.3 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.065] (+  2.84s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.097] (+  2.87s) ELM      diag
+           → envío:     21 A2  (32.1 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.134] (+   2.9s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.204] (+  2.97s) ELM      diag
+           → envío:     21 A4  (69.6 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.240] (+  3.01s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.293] (+  3.06s) ELM      diag
+           → envío:     21 A3  (39.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.323] (+  3.09s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:28:45.367] (+  3.14s) SESION   Fin de grabación
+           · eventos: 62
