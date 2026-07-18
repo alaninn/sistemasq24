@@ -23,6 +23,18 @@ Repo: https://github.com/alaninn/sistemasq24
 - **Pendiente (bajo impacto):** protocolo ISO8 — solo 21 ECUs (~1% de la base), autos muy
   viejos pre-CAN. Se deja para más adelante.
 
+### Fix (agente de revisión encontró 2 bugs invisibles en simulación, reales en auto)
+- **Caché de `elm.request` por comando, no por dirección**: el sondeo KWP usaba
+  `cache=True` con el mismo comando `"2180"` para todas las direcciones → en el auto real,
+  después de la primera ECU que respondiera, **todas las siguientes habrían recibido la
+  misma respuesta cacheada** (misidentificación total del resto). Fix: `cache=False` +
+  `elm.clear_cache()` antes de cada sondeo (igual que ya hacía el path CAN).
+- **Faltaba `options.opt_si = True`**: sin ese flag, `set_iso_addr` salta el slow-init
+  (5 baudios) y usa fast-init por defecto — las ECU KWP2000 monopoint viejas (el target
+  de esta feature) probablemente no habrían direccionado en el auto real. Agregado.
+- Ajustado el cálculo de `total` del progreso si `init_iso()` falla (evita que la barra
+  quede trabada por debajo del 100%). Limpieza de una variable muerta.
+
 ---
 
 ## [2026-07-18] — Subir logs por API de GitHub (funciona desde la notebook)

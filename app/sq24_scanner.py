@@ -209,16 +209,23 @@ class SQ24Scanner:
             if elm is None:
                 return None
             try:
+                # opt_si fuerza slow-init (5 baudios) en set_iso_addr; sin esto, ECU
+                # KWP2000 monopoint viejas (justo el target de este escaneo) no
+                # direccionan porque set_iso_addr cae a fast-init por defecto.
+                options.opt_si = True
                 if not elm.set_iso_addr(addr, {"idTx": "", "idRx": "", "ecuname": "SCAN",
                                                 "protocol": "KWP2000"}):
                     return None
                 elm.start_session_iso("10C0")
-                resp = elm.request(req="2180", positive="61", cache=True)
+                # cache=False: la caché de elm.request() es por comando ("2180"), NO por
+                # dirección — con cache=True, después de la primera ECU que responda,
+                # TODAS las direcciones siguientes recibirían la misma respuesta cacheada.
+                elm.clear_cache()
+                resp = elm.request(req="2180", positive="61", cache=False)
             except Exception:
                 return None
         if not resp or len(resp) <= 20:
             return None
-        r = resp.replace(" ", "")
         try:
             if len(resp) > 59:
                 # formato largo (ver ddt4all check_ecu): offsets sobre la cadena
@@ -301,7 +308,8 @@ class SQ24Scanner:
                 try:
                     elm.init_iso()
                 except Exception:
-                    addrs_kwp = []  # sin init_iso no tiene sentido intentar
+                    total -= len(addrs_kwp)   # ajustar el total: no vamos a sondear KWP
+                    addrs_kwp = []             # sin init_iso no tiene sentido intentar
             for j, addr in enumerate(addrs_kwp):
                 paso += 1
                 if progress_cb:
