@@ -48,30 +48,32 @@ def _slot_para_grupo(group, indice):
     return f"{slug}_{indice}", "🧩", (group or "Módulo")
 
 
+# Pares CAN (send_id, recv_id) reales de TODAS las ECUs de la base — se sondean estos,
+# no las direcciones cortas (que necesitarían la tabla dnat, que está vacía).
+PARES_CAN_PATH = BASE / "app" / "direcciones_can.json"
+
+
 class SQ24Scanner:
     def __init__(self):
         self.targets = []          # lista de EcuIdent
-        self.addresses_can = []    # direcciones CAN únicas a sondear
+        self.pares_can = []        # [{send, recv}, ...] direcciones CAN reales a sondear
         self._cargado = False
 
     # ---------------------------------------------------------------- base
     def cargar_indice(self):
-        """Carga db.json del ecu.zip y arma la lista de targets (EcuIdent)."""
+        """Carga db.json del ecu.zip (targets) y la tabla de pares CAN a sondear."""
         if self._cargado:
             return True
         if not ZIP_PATH.exists():
             return False
         with zipfile.ZipFile(ZIP_PATH, "r") as zf:
             db = json.loads(zf.read("db.json"))
-        addrs = set()
         for href, tv in db.items():
             proto = tv.get("protocol", "")
             addr = tv.get("address", "")
             group = tv.get("group", "")
             projects = tv.get("projects", [])
             ecuname = tv.get("ecuname", href)
-            if "CAN" in proto and addr not in ("00", "FF", ""):
-                addrs.add(addr)
             autoidents = tv.get("autoidents", [])
             if not autoidents:
                 self.targets.append(EcuIdent("", "", "", "", ecuname, group, href,
@@ -82,7 +84,11 @@ class SQ24Scanner:
                         ai.get("diagnostic_version", ""), ai.get("supplier_code", ""),
                         ai.get("soft_version", ""), ai.get("version", ""),
                         ecuname, group, href, proto, projects, addr, True))
-        self.addresses_can = sorted(addrs)
+        # Pares CAN reales (send_id/recv_id) — precomputados desde los archivos de ECU.
+        try:
+            self.pares_can = json.loads(PARES_CAN_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            self.pares_can = [{"send": "7E0", "recv": "7E8"}]   # al menos el motor OBD
         self._cargado = True
         return True
 
@@ -199,22 +205,28 @@ class SQ24Scanner:
             except Exception:
                 pass
 
-        addrs = self.addresses_can if not options.simulation_mode else ["26", "13", "62", "01", "04"]
-        total = len(addrs)
+        # En el auto real sondeamos los PARES CAN reales (send/recv). En simulación,
+        # unas direcciones cortas canned.
+        if options.simulation_mode:
+            pares = [{"send": a, "recv": a} for a in ["26", "13", "62", "01", "04"]]
+        else:
+            pares = self.pares_can or [{"send": "7E0", "recv": "7E8"}]
+        total = len(pares)
         detectadas = []
         vistos = set()
-        for i, addr in enumerate(addrs):
+        for i, par in enumerate(pares):
+            send = par.get("send"); recv = par.get("recv")
+            addr = send  # etiqueta/dirección para el match y el progreso
             if progress_cb:
-                try: progress_cb(i + 1, total, addr, len(detectadas))
+                try: progress_cb(i + 1, total, f"{send}/{recv}", len(detectadas))
                 except Exception: pass
-            if addr in ("00", "FF"):
+            if not send or send in ("00", "FF"):
                 continue
             if not options.simulation_mode:
                 try:
-                    # init_can() ya se llamó una vez antes del loop; set_can_addr
-                    # reconfigura el protocolo por dirección, así que no hace falta
-                    # re-inicializar en cada vuelta (solo agrega latencia).
-                    elm.set_can_addr(addr, {"ecuname": "SCAN"}, canline)
+                    # Direccionar con los IDs CAN REALES (idTx/idRx), como hace el F4R.
+                    # (La tabla dnat de direcciones cortas está vacía, no sirve.)
+                    elm.set_can_addr(send, {"idTx": send, "idRx": recv, "ecuname": "SCAN"}, canline)
                 except Exception:
                     continue
             ident = self._identificar(addr)

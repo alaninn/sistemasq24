@@ -1230,7 +1230,7 @@ def api_ecu_database_info():
     sc.cargar_indice()
     return {
         "total_targets": len(sc.targets),
-        "direcciones_can": len(sc.addresses_can),
+        "direcciones_can": len(sc.pares_can),
     }
 
 

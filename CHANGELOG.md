@@ -7,6 +7,26 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-18] — FIX autodetección (direccionamiento CAN) + menú por perfil
+
+### Autodetección: ahora SÍ encuentra otros autos (ej. Kangoo 2)
+- **Bug raíz**: el escáner direccionaba por las direcciones cortas de `db.json`, que
+  necesitan la tabla `dnat`/`snat` para mapear a IDs CAN — y esa tabla está **VACÍA** en el
+  código. Resultado: `TXa='undefined'` → no direccionaba NINGUNA ECU en el auto real (en
+  simulación andaba por respuestas canned). Por eso no detectaba la Kangoo (ni nada).
+- **Fix**: se sondean los **121 pares CAN reales** (`send_id`/`recv_id`) de todas las ECUs de
+  la base (precomputados en `app/direcciones_can.json`), pasando los IDs directos a
+  `set_can_addr` (igual que hace el F4R). Ahora detecta los módulos CAN de cualquier auto de
+  la base (motor, ABS, clima, dirección, airbag…). *Pendiente: KWP2000/ISO (198+21 ECUs)
+  para módulos viejos que no son CAN.*
+
+### Menú lateral por perfil
+- El menú ya no muestra opciones que no aplican al auto activo: **Procedimientos** y
+  **Memoria** solo en F4R; **Actuadores/Módulos/Escanear** en F4R y detectado; en **OBD
+  genérico** solo lo que tiene sentido (Tablero, Ondas, DTC, Sensores, etc.).
+
+---
+
 ## [2026-07-18] — Descripciones de DTC + soporte WiFi/emulador (investigación GitHub)
 
 ### Descripciones de códigos de falla (DTC)

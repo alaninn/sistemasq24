@@ -2725,18 +2725,19 @@ async function cargarEcusCompatibles(){
 
 /* ============================ MENÚ DINÁMICO ============================ */
 // Menú lateral único: siempre completo fuera del Gateway
+// perf: en qué perfiles aparece cada opción (si no está, aparece en todos).
 const MENU_COMPLETO = [
   {view:'dash',ico:'📟',txt:'Tablero en vivo'},
   {view:'ondas',ico:'📈',txt:'Analizador de Ondas'},
   {view:'dtc',ico:'🚨',txt:'Códigos de falla'},
   {view:'sensores',ico:'🎚️',txt:'Elegir sensores'},
-  {view:'ecus',ico:'🧩',txt:'Módulos (ECU)'},
-  {view:'escanear',ico:'📡',txt:'Escanear Auto'},
-  {view:'proc',ico:'🛠️',txt:'Procedimientos'},
-  {view:'actuadores',ico:'🎛️',txt:'Actuadores'},
+  {view:'ecus',ico:'🧩',txt:'Módulos (ECU)', perf:['f4r','detectado']},
+  {view:'escanear',ico:'📡',txt:'Escanear Auto', perf:['f4r','detectado']},
+  {view:'proc',ico:'🛠️',txt:'Procedimientos', perf:['f4r']},
+  {view:'actuadores',ico:'🎛️',txt:'Actuadores', perf:['f4r','detectado']},
+  {view:'memoria',ico:'🧠',txt:'Memoria (avanzado)', perf:['f4r']},
   {view:'scan-universal',ico:'🔍',txt:'Scanner Universal'},
   {view:'vehiculo',ico:'🚗',txt:'Seleccionar Vehículo'},
-  {view:'memoria',ico:'🧠',txt:'Memoria (avanzado)'},
   {view:'adaptador',ico:'🔌',txt:'Adaptador'},
 ];
 
@@ -2750,10 +2751,11 @@ const MENU_ENFOCADO = {
 };
 
 function updateMenu(v){
-  // Con un auto cargado (seleccionado o detectado) → menú de diagnóstico completo.
+  // Con un auto cargado → menú completo, PERO filtrando lo que no aplica al perfil
+  // (ej. en OBD genérico no hay Procedimientos/Actuadores/Memoria).
   // Sin auto → solo la opción de la tarjeta que se clickeó en el gateway.
   if(hayAuto()){
-    renderMenu(MENU_COMPLETO);
+    renderMenu(MENU_COMPLETO.filter(it => !it.perf || it.perf.includes(ST.perfil)));
   } else {
     renderMenu(MENU_ENFOCADO[v] || []);
   }
