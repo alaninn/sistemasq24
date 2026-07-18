@@ -515,19 +515,66 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
 .vehiculos-grid .info-item{display:flex;justify-content:space-between;padding:4px 0}
 .vehiculos-grid .estado{background:rgba(74,222,128,.15);color:var(--green);padding:8px 12px;border-radius:6px;font-size:12px;text-align:center;font-weight:500}
 
-.uni-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-.uni-card{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:22px}
-.uni-card h3{margin:6px 0 2px;font-size:19px}
-.uni-card .uni-ico{font-size:38px;line-height:1}
-.uni-card .uni-sub{font-size:12px;color:var(--ink-dim);margin-bottom:12px}
-.uni-card p{font-size:13.5px;color:var(--ink-dim);line-height:1.6;margin:0 0 16px}
-.uni-btn{width:100%;padding:12px;border:none;border-radius:9px;background:var(--cyan);color:#04121a;font-weight:700;cursor:pointer;transition:.2s;font-size:14px}
-.uni-btn:hover{filter:brightness(1.08)}
-.uni-btn.alt{background:var(--green)}
-.uni-btn:disabled{opacity:.5;cursor:default}
-.obd-quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.obd-quick button{flex:1;min-width:120px;padding:10px;border:1px solid var(--line2);background:var(--panel2);color:var(--ink);border-radius:8px;cursor:pointer;font-size:13px}
-.obd-quick button:hover{border-color:var(--cyan)}
+.uni-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:start}
+.uni-card{
+  --acc:var(--cyan);--acc-rgb:47,212,212;
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--panel2) 0%,var(--panel) 60%);
+  border:1px solid var(--line2);border-radius:16px;padding:26px 26px 24px;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.uni-card.acc-green{--acc:var(--green);--acc-rgb:74,222,128}
+.uni-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,rgba(var(--acc-rgb),.95),rgba(var(--acc-rgb),.25) 55%,transparent);
+}
+.uni-card::after{
+  content:"";position:absolute;top:-70px;right:-70px;width:210px;height:210px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(var(--acc-rgb),.1),transparent 72%);
+  pointer-events:none;
+}
+.uni-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(var(--acc-rgb),.45);
+  box-shadow:0 14px 34px rgba(0,0,0,.4),0 0 0 1px rgba(var(--acc-rgb),.12),0 0 26px rgba(var(--acc-rgb),.08);
+}
+.uni-card h3{margin:0 0 4px;font-size:20px;font-weight:700;letter-spacing:-.01em}
+.uni-card .uni-ico{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:58px;height:58px;font-size:28px;line-height:1;border-radius:14px;
+  background:rgba(var(--acc-rgb),.1);
+  border:1px solid rgba(var(--acc-rgb),.28);
+  box-shadow:inset 0 0 18px rgba(var(--acc-rgb),.07);
+  margin-bottom:16px;
+}
+.uni-card .uni-sub{
+  display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--acc);background:rgba(var(--acc-rgb),.08);border:1px solid rgba(var(--acc-rgb),.2);
+  padding:4px 10px;border-radius:999px;margin-bottom:14px;
+}
+.uni-card p{font-size:13.5px;color:var(--ink-dim);line-height:1.7;margin:0 0 20px}
+.uni-btn{
+  width:100%;padding:13px 16px;border:none;border-radius:10px;
+  background:var(--cyan);color:#04121a;font-weight:700;font-size:14px;letter-spacing:.01em;
+  cursor:pointer;transition:filter .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 5px 18px rgba(47,212,212,.22);
+}
+.uni-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 8px 24px rgba(47,212,212,.32)}
+.uni-btn:active{transform:translateY(0);filter:brightness(.96)}
+.uni-btn.alt{background:var(--green);box-shadow:0 5px 18px rgba(74,222,128,.22)}
+.uni-btn.alt:hover{box-shadow:0 8px 24px rgba(74,222,128,.32)}
+.uni-btn:disabled{opacity:.5;cursor:default;transform:none;box-shadow:none}
+.obd-quick{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.obd-quick button{
+  flex:1;min-width:120px;padding:10px 12px;
+  border:1px solid var(--line2);background:var(--panel2);color:var(--ink);
+  border-radius:9px;cursor:pointer;font-size:13px;font-weight:500;
+  transition:border-color .2s,background .2s,transform .15s,box-shadow .2s;
+}
+.obd-quick button:hover{
+  border-color:rgba(47,212,212,.55);background:rgba(47,212,212,.08);
+  transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
 .ondas-fs{background:var(--bg);padding:24px;overflow:auto}
 .ondas-fs canvas{max-height:none}
 .hidden{display:none!important}
@@ -669,22 +716,22 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
         </div>
       </div>
 
-      <div class="uni-cards">
+      <div class="uni-cards" style="margin-top:6px">
         <!-- MODO GENÉRICO OBD-II -->
         <div class="uni-card">
           <div class="uni-ico">🌐</div>
           <h3>Genérico OBD-II</h3>
-          <div class="uni-sub">Cualquier marca · estándar mundial</div>
+          <div class="uni-sub">Cualquier marca · Estándar mundial</div>
           <p>Lee <b>códigos de falla</b> y los <b>sensores estándar del motor</b> (RPM, temperaturas, MAP, sonda lambda, velocidad…) de <b>cualquier auto</b> compatible con OBD-II, sin necesitar la base de ECUs. Igual que un scanner genérico.</p>
           <button class="uni-btn" id="btnObd" onclick="conectarGenerico()">🌐 Conectar en modo genérico</button>
           <div id="obdResults"></div>
         </div>
 
         <!-- DETECCIÓN RENAULT COMPLETA -->
-        <div class="uni-card">
+        <div class="uni-card acc-green">
           <div class="uni-ico">🔍</div>
           <h3>Detección completa</h3>
-          <div class="uni-sub">Renault · todos los módulos</div>
+          <div class="uni-sub">Renault · Todos los módulos</div>
           <p>Escanea las computadoras del auto y las busca en nuestra base (+1900 ECUs). Si está, carga <b>todos los módulos</b> (ABS, airbag, tablero…) con sus sensores, actuadores y pantallas.</p>
           <button class="uni-btn alt" id="btnEscanearUni" onclick="escanearUniversal()">🔍 Detectar ECUs</button>
           <div id="scanProgress" style="display:none"></div>
