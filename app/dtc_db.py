@@ -5,9 +5,167 @@ Curado a mano a partir de la norma SAE J2012 (los códigos genéricos P0/C0/B0/U
 más comunes). Se usa para explicar los DTC que lee el scanner cuando la ECU no
 trae su propia descripción (sobre todo en el modo OBD-II genérico).
 
-`describir(codigo)` devuelve la descripción: match exacto → fallback por familia
-→ genérico por letra. Nunca falla; si no lo conoce, describe la categoría.
+`describir(codigo)` devuelve la descripción por orden de calidad:
+  1. `DESCRIPCIONES` — ~107 códigos curados a mano en español perfecto (los de taller).
+  2. `dtc_generico.json` — base completa (~9400 códigos SAE J2012, de Wal33D/dtc-database,
+     MIT) traducida al español por términos (buena, no siempre perfectamente gramatical).
+  3. fallback por familia → por letra.
+Nunca falla; si no conoce el código, describe la categoría.
 """
+import json
+import re
+from functools import lru_cache
+from pathlib import Path
+
+_GENERICO_PATH = Path(__file__).resolve().parent / "dtc_generico.json"
+try:
+    _GENERICO_EN = json.loads(_GENERICO_PATH.read_text(encoding="utf-8"))
+except Exception:
+    _GENERICO_EN = {}
+
+# Traductor por términos del vocabulario OBD (muy formulaico). Se aplica sobre el texto en
+# minúsculas, frases largas primero para no romper las cortas. No busca gramática perfecta:
+# busca que un mecánico entienda el código aunque no esté en la lista curada.
+_TERMINOS = [
+    # --- frases largas (multi-palabra) ---
+    ("random/multiple cylinder misfire detected", "fallo de encendido aleatorio/múltiple detectado"),
+    ("catalyst system efficiency below threshold", "eficiencia del catalizador por debajo del umbral"),
+    ("high speed can communication bus", "bus CAN de alta velocidad"),
+    ("medium speed can communication bus", "bus CAN de media velocidad"),
+    ("low speed can communication bus", "bus CAN de baja velocidad"),
+    ("can communication bus", "bus de comunicación CAN"),
+    ("communication bus", "bus de comunicación"),
+    ("lost communication with", "pérdida de comunicación con"),
+    ("mass or volume air flow", "caudal másico o volumétrico de aire"),
+    ("manifold absolute pressure", "presión absoluta del colector"),
+    ("barometric pressure", "presión barométrica"),
+    ("engine coolant temperature", "temperatura del refrigerante del motor"),
+    ("intake air temperature", "temperatura del aire de admisión"),
+    ("ambient air temperature", "temperatura del aire ambiente"),
+    ("fuel rail pressure", "presión del riel de combustible"),
+    ("fuel volume regulator", "regulador de caudal de combustible"),
+    ("crankshaft position", "posición del cigüeñal"),
+    ("camshaft position", "posición del árbol de levas"),
+    ("accelerator pedal position", "posición del pedal del acelerador"),
+    ("throttle/pedal position", "posición de mariposa/pedal"),
+    ("throttle position", "posición de la mariposa"),
+    ("throttle actuator control", "control del actuador de mariposa"),
+    ("throttle body", "cuerpo de mariposa"),
+    ("misfire detected", "fallo de encendido detectado"),
+    ("cylinder misfire", "fallo de encendido en cilindro"),
+    ("system too lean", "sistema demasiado pobre"),
+    ("system too rich", "sistema demasiado rico"),
+    ("fuel trim", "ajuste de combustible"),
+    ("air fuel ratio", "relación aire/combustible"),
+    ("heated oxygen sensor", "sonda lambda (calefaccionada)"),
+    ("oxygen sensor", "sonda lambda"),
+    ("o2 sensor", "sonda lambda"),
+    ("evaporative emission", "emisión evaporativa (EVAP)"),
+    ("exhaust gas recirculation", "recirculación de gases de escape (EGR)"),
+    ("secondary air injection", "inyección de aire secundario"),
+    ("vehicle speed sensor", "sensor de velocidad del vehículo"),
+    ("vehicle speed", "velocidad del vehículo"),
+    ("idle air control", "control de aire de ralentí"),
+    ("idle control system", "sistema de control de ralentí"),
+    ("engine oil temperature", "temperatura del aceite del motor"),
+    ("engine oil pressure", "presión del aceite del motor"),
+    ("turbocharger/supercharger", "turbo/compresor"),
+    ("turbocharger", "turbocompresor"),
+    ("boost pressure", "presión de sobrealimentación"),
+    ("wastegate", "válvula de descarga (wastegate)"),
+    ("knock sensor", "sensor de detonación (knock)"),
+    ("ignition coil", "bobina de encendido"),
+    ("glow plug", "bujía incandescente"),
+    ("fuel pump", "bomba de combustible"),
+    ("fuel injector", "inyector de combustible"),
+    ("cooling fan", "electroventilador"),
+    ("transmission control", "control de la transmisión"),
+    ("torque converter", "convertidor de par"),
+    ("control module", "módulo de control"),
+    ("control circuit/open", "circuito de control/abierto"),
+    ("control circuit", "circuito de control"),
+    ("sensor circuit", "circuito del sensor"),
+    ("circuit/open", "circuito/abierto"),
+    ("range/performance", "rango/rendimiento"),
+    ("intermittent/erratic", "intermitente/errático"),
+    ("open circuit", "circuito abierto"),
+    ("short to ground", "cortocircuito a masa"),
+    ("short to battery", "cortocircuito a positivo"),
+    ("high input", "señal alta"),
+    ("low input", "señal baja"),
+    ("circuit high", "circuito — señal alta"),
+    ("circuit low", "circuito — señal baja"),
+    ("out of range", "fuera de rango"),
+    ("not plausible", "no plausible"),
+    ("signal", "señal"),
+    ("performance", "rendimiento"),
+    # --- palabras sueltas ---
+    ("circuit", "circuito"), ("sensor", "sensor"), ("control", "control"),
+    ("high", "alta"), ("low", "baja"), ("bank", "banco"), ("module", "módulo"),
+    ("battery", "batería"), ("position", "posición"), ("temperature", "temperatura"),
+    ("pressure", "presión"), ("fuel", "combustible"), ("cylinder", "cilindro"),
+    ("voltage", "tensión"), ("valve", "válvula"), ("communication", "comunicación"),
+    ("system", "sistema"), ("lost", "pérdida"), ("coolant", "refrigerante"),
+    ("actuator", "actuador"), ("pump", "bomba"), ("current", "corriente"),
+    ("data", "datos"), ("invalid", "inválido"), ("received", "recibido"),
+    ("exhaust", "escape"), ("solenoid", "solenoide"), ("stuck", "atascado"),
+    ("engine", "motor"), ("transmission", "transmisión"), ("shift", "cambio"),
+    ("injector", "inyector"), ("heater", "calefactor"), ("brake", "freno"),
+    ("camshaft", "árbol de levas"), ("crankshaft", "cigüeñal"), ("intake", "admisión"),
+    ("clutch", "embrague"), ("speed", "velocidad"), ("switch", "interruptor"),
+    ("phase", "fase"), ("injection", "inyección"), ("power", "alimentación"),
+    ("malfunction", "falla"), ("open", "abierto"), ("short", "cortocircuito"),
+    ("ground", "masa"), ("relay", "relé"), ("motor", "motor"), ("valve", "válvula"),
+    ("throttle", "mariposa"), ("pedal", "pedal"), ("catalyst", "catalizador"),
+    ("misfire", "fallo de encendido"), ("lean", "pobre"), ("rich", "rico"),
+    ("threshold", "umbral"), ("efficiency", "eficiencia"), ("flow", "flujo"),
+    ("mass", "masa"), ("air", "aire"), ("intermittent", "intermitente"),
+    ("erratic", "errático"), ("stuck open", "atascada abierta"), ("stuck closed", "atascada cerrada"),
+    ("too", "demasiado"), ("detected", "detectado"), ("input", "entrada"),
+    ("output", "salida"), ("circuit", "circuito"), ("with", "con"), ("from", "de"),
+    ("range", "rango"), ("bank 1", "banco 1"), ("bank 2", "banco 2"),
+    ("cooling", "refrigeración"), ("level", "nivel"), ("supply", "alimentación"),
+    ("reference", "referencia"), ("charging", "carga"), ("charge", "carga"),
+    ("timing", "sincronización"), ("advance", "avance"), ("torque", "par"),
+    ("transmission", "transmisión"), ("wheel", "rueda"), ("steering", "dirección"),
+    ("airbag", "airbag"), ("door", "puerta"), ("window", "ventanilla"),
+    ("lamp", "luz"), ("light", "luz"), ("horn", "bocina"), ("seat", "asiento"),
+    ("correlation", "correlación"), ("plausibility", "plausibilidad"),
+    # --- posiciones / lados ---
+    ("right front", "delantero derecho"), ("left front", "delantero izquierdo"),
+    ("right rear", "trasero derecho"), ("left rear", "trasero izquierdo"),
+    ("front", "delantero"), ("rear", "trasero"), ("right", "derecho"), ("left", "izquierdo"),
+    ("upstream", "aguas arriba (pre-cat)"), ("downstream", "aguas abajo (post-cat)"),
+    # --- estados / condiciones ---
+    ("over-advanced", "muy adelantado"), ("over-retarded", "muy atrasado"),
+    ("overboost condition", "condición de sobrepresión"), ("overboost", "sobrepresión"),
+    ("underboost", "baja presión (underboost)"), ("biased", "desviado"),
+    ("commanded", "comandado"), ("requested", "solicitado"), ("closed", "cerrado"),
+    ("condition", "condición"), ("boost control", "control de sobrealimentación"),
+    ("boost", "sobrealimentación"), ("deployment", "despliegue"), ("stage", "etapa"),
+    ("driver", "conductor"), ("passenger", "acompañante"), ("off", "desconectado"),
+    ("incorrect", "incorrecto"), ("mismatch", "no coincide"), ("failure", "falla"),
+    ("excessive", "excesivo"), ("insufficient", "insuficiente"), ("slow response", "respuesta lenta"),
+    ("no activity", "sin actividad"), ("inactive", "inactivo"), ("active", "activo"),
+    ("regulator", "regulador"), ("thermostat", "termostato"), ("purge", "purga"),
+    ("vent", "ventilación"), ("leak", "fuga"), ("small leak", "fuga pequeña"),
+    ("large leak", "fuga grande"), ("gross leak", "fuga grande"),
+    ("reductant", "reductor (AdBlue)"), ("particulate filter", "filtro de partículas"),
+    ("glow", "incandescencia"), ("preheat", "precalentamiento"), ("water in fuel", "agua en el combustible"),
+    ("engine speed", "régimen del motor"), ("output speed", "velocidad de salida"),
+    ("input speed", "velocidad de entrada"), ("gear", "marcha"), ("solenoid valve", "electroválvula"),
+    ("fuel rail", "riel de combustible"), ("rail", "riel"), (" or ", " o "), (" and ", " y "),
+    ("column", "columna"), ("knee", "rodilla"), ("bolster", "soporte"),
+    ("collapsible", "colapsable"), ("seat belt", "cinturón de seguridad"), ("buckle", "hebilla"),
+    ("occupant", "ocupante"), ("restraint", "sujeción"), ("side", "lateral"),
+    ("performance or incorrect operation", "rendimiento u operación incorrecta"),
+    ("below threshold", "por debajo del umbral"), ("above threshold", "por encima del umbral"),
+    ("below", "por debajo de"), ("above", "por encima de"), ("threshold", "umbral"),
+    ("efficiency", "eficiencia"), ("particulate filter", "filtro de partículas"),
+]
+
+# Precompilar reemplazos (con límites de palabra donde tiene sentido).
+_TERMINOS_COMP = [(re.compile(r"\b" + re.escape(en) + r"\b", re.I), es) for en, es in _TERMINOS]
 
 # Códigos genéricos más comunes (verificados). No pretende ser exhaustivo:
 # cubre lo que realmente aparece en un taller. Se puede ampliar.
@@ -155,15 +313,36 @@ _LETRAS = {
 }
 
 
+@lru_cache(maxsize=4096)
+def _traducir(en):
+    """Traduce una descripción DTC del inglés al español por términos."""
+    t = " " + en.strip() + " "
+    for rx, es in _TERMINOS_COMP:
+        t = rx.sub(es, t)
+    t = t.strip()
+    return t[:1].upper() + t[1:] if t else en
+
+
 def describir(codigo):
     """Descripción en español de un DTC. Nunca devuelve vacío."""
     if not codigo:
         return "Código de falla desconocido"
     c = str(codigo).strip().upper()
+    # 1) curados a mano (español perfecto, los de taller)
     if c in DESCRIPCIONES:
         return DESCRIPCIONES[c]
-    # fallback por familia (prefijos más largos primero)
+    # 2) base completa (~9400) traducida por términos
+    en = _GENERICO_EN.get(c)
+    if en:
+        return _traducir(en)
+    # 3) fallback por familia (prefijos más largos primero)
     for pref in sorted(_FAMILIAS, key=len, reverse=True):
         if c.startswith(pref):
             return _FAMILIAS[pref] + f" (código {c})"
     return _LETRAS.get(c[:1], "Código de falla") + f" (código {c})"
+
+
+def es_conocido(codigo):
+    """True si el código está en la base curada o en la genérica (no es solo fallback)."""
+    c = str(codigo or "").strip().upper()
+    return c in DESCRIPCIONES or c in _GENERICO_EN

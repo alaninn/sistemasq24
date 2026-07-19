@@ -7,6 +7,26 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — Base de DTC genéricos ampliada 107 → ~9.500 (SAE J2012 completa, en español)
+
+Roadmap de investigación en GitHub, punto #1 y #2 (DTCs).
+- **`app/dtc_generico.json`** (NUEVO) — base completa de **9.415 códigos** OBD-II genéricos
+  (P/B/C/U) importada de `Wal33D/dtc-database` (MIT, verificada: P0300/P0420/P0171 correctos).
+- **`app/dtc_db.py`** — `describir()` ahora resuelve por calidad: (1) los **107 curados a mano**
+  en español perfecto (los de taller), (2) la base completa **traducida al español por un
+  traductor de términos** del vocabulario OBD (muy formulaico: circuit→circuito, bank→banco,
+  range/performance→rango/rendimiento, misfire→fallo de encendido, etc.), (3) fallback por
+  familia → letra. Nuevo `es_conocido(codigo)`.
+  - Honestidad: los códigos comunes quedan en español perfecto; la cola larga (~9.400) queda
+    en español entendible pero no siempre perfectamente gramatical (traducción automática por
+    términos). Es un salto enorme de cobertura sin depender de datasets mal alineados.
+- **DTCs propietarios Renault (#2) — hallazgo:** NO existe una tabla plana `P1xxx→texto` que
+  extraer del `ecu.zip`. En las ECU Renault las fallas propietarias son **flags de 1 bit con
+  nombre** (dataitem `{0:OK, 1:Panne}`, ej. "Panne présente Piste 1 potentiomètre pédale…"):
+  la descripción ya está en el nombre y se muestra al leer ese request (y el F4R tiene su
+  traducción curada en `es/`). Los pocos propietarios en formato estándar (59 códigos B1/C1)
+  ya quedaron cubiertos por la base genérica. No se fabricó una tabla falsa.
+
 ## [2026-07-19] — NUEVO módulo: Ensayo de Aceleración (motor EN MOVIMIENTO, ~50/100 m)
 
 Módulo hermano del Chequeo General, pero al revés: en vez de medir el auto DETENIDO subiendo
