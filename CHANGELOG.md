@@ -7,6 +7,16 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — Analizador de ondas: grabar y REPRODUCIR sesiones (record/replay)
+
+Roadmap de investigación en GitHub, punto #5 (idea de AndrOBD). El export CSV ya existía
+(tablero y ondas); lo nuevo es el **replay visual**:
+- **`app/web/index.html`** — botones **💾 Guardar** y **📂 Reproducir** en el analizador de
+  ondas. "Guardar" vuelca los buffers + metadata (etiquetas/unidades) a un `.json`;
+  "Reproducir" abre esa grabación, inyecta la metadata (aunque sea de otro auto), carga las
+  ondas y las muestra con zoom para revisarlas **sin el auto**. Banner de replay + salir.
+  Iniciar captura en vivo sale del replay automáticamente.
+
 ## [2026-07-19] — OBD-II genérico: Freeze Frame + Monitores (readiness) + VIN decodificado offline
 
 Roadmap de investigación en GitHub, puntos #3 y #4 (features nuevas del scanner genérico).

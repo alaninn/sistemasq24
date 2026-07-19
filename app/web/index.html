@@ -884,6 +884,9 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
         <button class="chip" onclick="resetOndasZoom()" title="Restablecer zoom">🔍 Reset zoom</button>
         <button class="chip" onclick="toggleOndasFullscreen()" title="Pantalla completa">⛶ Pantalla completa</button>
         <button class="chip" onclick="downloadOndasCSV()">📥 CSV</button>
+        <button class="chip" onclick="guardarGrabacionOndas()" title="Guardar esta grabación a un archivo para revisarla después">💾 Guardar</button>
+        <button class="chip" onclick="document.getElementById('ondas-replay-file').click()" title="Abrir una grabación guardada y reproducirla">📂 Reproducir</button>
+        <input type="file" id="ondas-replay-file" accept=".json,.sq24rec" style="display:none" onchange="cargarGrabacionOndas(this.files[0]);this.value=''">
         <button class="chip" onclick="clearOndasBuffer()">🗑 Limpiar</button>
         <label style="display:flex;align-items:center;gap:8px">
           <input type="checkbox" id="ondas-paused" onchange="toggleOndasPause()">
@@ -2514,6 +2517,7 @@ function _suscribirOndas(){
 
 function toggleOndasCaptura(){
   if(ONDAS.sensoresActivos.length === 0){ toast('Agregá al menos un sensor','warn'); return; }
+  if(ONDAS.replay){ ONDAS.replay=false; document.getElementById('ondas-replay-banner')?.remove(); }
   ONDAS.capturando = !ONDAS.capturando;
   ONDAS.pausado = false;
   document.getElementById('ondas-paused').checked = false;
@@ -2605,6 +2609,63 @@ function _ondasDataset(sensorId, idx){
     borderWidth: 2, tension: 0.35, fill: true, pointRadius: 0, pointHoverRadius: 4,
     showLine: true,   // en type:'scatter' hay que pedir la línea explícitamente (si no, no dibuja la onda)
   };
+}
+
+// --- Record/Replay: guardar la grabación de ondas y reproducirla después ---
+function guardarGrabacionOndas(){
+  const ids=ONDAS.sensoresActivos.filter(id=>(ONDAS.buffers[id]||[]).length);
+  if(!ids.length){ toast('No hay datos grabados para guardar','err'); return; }
+  const rec={
+    formato:'sq24-ondas', version:1,
+    fecha:new Date().toISOString(),
+    vehiculo:(ST.perfilActivo&&ST.perfilActivo.vehiculo)||'',
+    sensores:ids.map(id=>{const m=ST.paramMeta[id]||{}; return {id, etiqueta:m.etiqueta||id, unidad:m.unidad||''};}),
+    buffers:Object.fromEntries(ids.map(id=>[id, ONDAS.buffers[id]])),
+  };
+  const blob=new Blob([JSON.stringify(rec)],{type:'application/json'});
+  const a=document.createElement('a');
+  const fecha=new Date().toISOString().slice(0,19).replace(/[T:]/g,'-');
+  a.href=URL.createObjectURL(blob); a.download=`ondas_${fecha}.json`; a.click();
+  toast('💾 Grabación guardada — abrila con 📂 Reproducir cuando quieras','ok');
+}
+
+async function cargarGrabacionOndas(file){
+  if(!file) return;
+  let rec;
+  try{ rec=JSON.parse(await file.text()); }
+  catch(e){ toast('El archivo no es una grabación válida','err'); return; }
+  if(rec.formato!=='sq24-ondas' || !rec.buffers){ toast('No es una grabación de ondas de SISTEMASQ24','err'); return; }
+  // frenar captura en vivo para no pisar la reproducción
+  if(ONDAS.capturando){ try{ toggleOndasCaptura(); }catch(e){} }
+  ONDAS.replay=true;
+  // inyectar metadata de los sensores grabados (por si es de otro auto/perfil)
+  (rec.sensores||[]).forEach(s=>{ ST.paramMeta[s.id]={etiqueta:s.etiqueta,unidad:s.unidad}; });
+  ONDAS.sensoresActivos=(rec.sensores||[]).map(s=>s.id).filter(id=>rec.buffers[id]);
+  ONDAS.buffers={};
+  ONDAS.sensoresActivos.forEach(id=>{ ONDAS.buffers[id]=rec.buffers[id]||[]; });
+  ONDAS._sig='';           // forzar reconstrucción de los charts
+  renderOndasChips();
+  updateOndasChart();
+  const dur=_ondasDuracion();
+  document.getElementById('ondas-replay-banner')?.remove();
+  const banner=document.createElement('div');
+  banner.id='ondas-replay-banner';
+  banner.style.cssText='margin-bottom:10px;padding:8px 12px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.4);border-radius:8px;font-size:13px;display:flex;justify-content:space-between;align-items:center';
+  banner.innerHTML=`<span>▶️ Reproduciendo grabación${rec.vehiculo?` de <b>${esc(rec.vehiculo)}</b>`:''} · ${ONDAS.sensoresActivos.length} sensores · ${dur}${rec.fecha?` · ${esc(new Date(rec.fecha).toLocaleString())}`:''}</span><button class="chip" onclick="salirReplayOndas()">✕ Salir del replay</button>`;
+  const host=document.getElementById('ondas-charts');
+  host.parentNode.insertBefore(banner,host);
+  toast('▶️ Grabación cargada — usá la rueda para hacer zoom','ok');
+}
+function _ondasDuracion(){
+  let max=0;
+  Object.values(ONDAS.buffers).forEach(b=>{ if(b&&b.length){ const d=(b[b.length-1].t-b[0].t)/1000; if(d>max)max=d; }});
+  return max?`${max.toFixed(1)} s`:'';
+}
+function salirReplayOndas(){
+  ONDAS.replay=false;
+  document.getElementById('ondas-replay-banner')?.remove();
+  clearOndasBuffer();
+  toast('Saliste del modo reproducción','ok');
 }
 
 function updateOndasChart(){
