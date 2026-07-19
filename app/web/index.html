@@ -3019,9 +3019,77 @@ async function conectarGenerico(){
           <button onclick="go('ondas')">📈 Analizador de ondas</button>
           <button onclick="go('dtc')">🚨 Códigos de falla</button>
         </div>
+        <div class="obd-quick" style="margin-top:8px">
+          <button onclick="verFreezeFrame()">📸 Freeze Frame</button>
+          <button onclick="verReadiness()">✅ Monitores (readiness)</button>
+          <button onclick="verVin()">🔎 VIN decodificado</button>
+        </div>
       </div>`;
     toast('🌐 Modo OBD-II genérico activo — '+j.sensores+' sensores','ok');
   }catch(e){ btn.disabled=false; btn.textContent=t; toast('Error conectando','err'); }
+}
+
+// --- Freeze Frame: foto de sensores cuando saltó el DTC ---
+async function verFreezeFrame(){
+  modal(`<h3 style="margin:0 0 10px">📸 Freeze Frame</h3><div style="color:var(--ink-dim);font-size:13px">Leyendo el cuadro congelado…</div>`);
+  try{
+    const j=await (await fetch(API+'/api/obd/freeze-frame')).json();
+    if(j.error){ modal(`<h3>📸 Freeze Frame</h3><div class="error">${esc(j.error)}</div><div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); return; }
+    if(!j.disponible){ modal(`<h3>📸 Freeze Frame</h3><div style="color:var(--ink-dim);margin:10px 0">El auto no tiene un freeze frame guardado (no hay DTC confirmado con foto).</div><div style="text-align:right"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); return; }
+    let filas=(j.sensores||[]).map(s=>`<tr><td>${esc(s.dato)}</td><td style="text-align:right"><b>${esc(s.valor)}</b> <span style="color:var(--ink-dim)">${esc(s.unidad||'')}</span></td></tr>`).join('');
+    modal(`
+      <h3 style="margin:0 0 4px">📸 Freeze Frame</h3>
+      <div style="color:var(--ink-dim);font-size:13px;margin-bottom:10px">Estado de los sensores en el instante exacto en que se registró la falla${j.dtc?` <b style="color:var(--amber)">${esc(j.dtc)}</b>`:''}${j.dtc_descripcion?` — ${esc(j.dtc_descripcion)}`:''}.</div>
+      <div style="max-height:50vh;overflow:auto"><table style="width:100%;font-size:13px;border-collapse:collapse">${filas}</table></div>
+      <div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`);
+  }catch(e){ modal(`<h3>📸 Freeze Frame</h3><div class="error">No se pudo leer.</div><div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); }
+}
+
+// --- Readiness: monitores de emisiones + MIL ---
+async function verReadiness(){
+  modal(`<h3 style="margin:0 0 10px">✅ Monitores (readiness)</h3><div style="color:var(--ink-dim);font-size:13px">Consultando…</div>`);
+  try{
+    const j=await (await fetch(API+'/api/obd/readiness')).json();
+    if(j.error||!j.disponible){ modal(`<h3>✅ Monitores</h3><div style="color:var(--ink-dim);margin:10px 0">${esc(j.error||'El auto no reportó estado de monitores.')}</div><div style="text-align:right"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); return; }
+    const pill=(m)=>`<tr><td>${esc(m.nombre)}</td><td style="text-align:right">${m.listo?'<span style="color:var(--green)">✓ Listo</span>':'<span style="color:var(--amber)">⧗ Incompleto</span>'}</td></tr>`;
+    const cont=(j.continuos||[]).map(pill).join('');
+    const noc=(j.no_continuos||[]).map(pill).join('');
+    modal(`
+      <h3 style="margin:0 0 8px">✅ Monitores de emisiones (readiness)</h3>
+      <div style="display:flex;gap:14px;margin-bottom:12px">
+        <div style="padding:8px 14px;border-radius:8px;background:${j.mil_encendido?'rgba(255,107,107,.15)':'rgba(74,222,128,.12)'}">
+          <b style="color:${j.mil_encendido?'var(--red)':'var(--green)'}">${j.mil_encendido?'🔴 Testigo MIL encendido':'🟢 Testigo MIL apagado'}</b>
+          <div style="font-size:12px;color:var(--ink-dim)">${j.dtc_count} código(s) confirmado(s)</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--ink-dim);margin-bottom:4px">Continuos</div>
+      <table style="width:100%;font-size:13px;border-collapse:collapse;margin-bottom:10px">${cont}</table>
+      <div style="font-size:12px;color:var(--ink-dim);margin-bottom:4px">No continuos (soportados)</div>
+      <table style="width:100%;font-size:13px;border-collapse:collapse">${noc}</table>
+      <div style="font-size:12px;color:var(--ink-dim);margin-top:10px">💡 "Listo" = el monitor completó su autochequeo. Si están todos listos y sin MIL, el auto pasaría una VTV/revisión de emisiones.</div>
+      <div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`);
+  }catch(e){ modal(`<h3>✅ Monitores</h3><div class="error">No se pudo leer.</div><div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); }
+}
+
+// --- VIN decodificado offline ---
+async function verVin(){
+  modal(`<h3 style="margin:0 0 10px">🔎 VIN</h3><div style="color:var(--ink-dim);font-size:13px">Leyendo y decodificando…</div>`);
+  try{
+    const j=await (await fetch(API+'/api/obd/vin')).json();
+    if(j.error){ modal(`<h3>🔎 VIN</h3><div class="error">${esc(j.error)}</div><div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); return; }
+    const d=j.decodificado||{};
+    if(!j.vin){ modal(`<h3>🔎 VIN</h3><div style="color:var(--ink-dim);margin:10px 0">El auto no devolvió el VIN por OBD.</div><div style="text-align:right"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); return; }
+    const row=(k,v)=>v?`<tr><td style="color:var(--ink-dim)">${k}</td><td style="text-align:right"><b>${esc(v)}</b></td></tr>`:'';
+    modal(`
+      <h3 style="margin:0 0 4px">🔎 VIN decodificado</h3>
+      <div style="font-family:monospace;font-size:18px;letter-spacing:2px;margin:8px 0;color:var(--cyan)">${esc(j.vin)}</div>
+      <table style="width:100%;font-size:13px;border-collapse:collapse">
+        ${row('Fabricante',d.fabricante)}${row('Región',d.region)}${row('Año de modelo',d.anio_modelo)}${row('Código de fábrica (WMI)',d.wmi)}${row('Planta',d.planta)}
+        ${d.valido===false?'<tr><td colspan=2 style="color:var(--amber);font-size:12px">⚠ El VIN no tiene el formato estándar de 17 caracteres.</td></tr>':''}
+      </table>
+      <div style="font-size:12px;color:var(--ink-dim);margin-top:10px">Decodificado 100% offline (ISO 3779/3780). El fabricante y el año salen del propio VIN; el modelo exacto no está codificado en el estándar.</div>
+      <div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`);
+  }catch(e){ modal(`<h3>🔎 VIN</h3><div class="error">No se pudo leer.</div><div style="text-align:right;margin-top:12px"><button class="chip" onclick="closeModal()">Cerrar</button></div>`); }
 }
 
 async function escanearUniversal(){

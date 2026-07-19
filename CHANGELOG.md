@@ -7,6 +7,24 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — OBD-II genérico: Freeze Frame + Monitores (readiness) + VIN decodificado offline
+
+Roadmap de investigación en GitHub, puntos #3 y #4 (features nuevas del scanner genérico).
+- **Freeze Frame (Modo 02)** — `obd_generico.leer_freeze_frame()`: lee el DTC que disparó la
+  falla y la **foto de los sensores en ese instante** (RPM, carga, temp, MAP, fuel trims,
+  velocidad, etc.). Es lo más pedido en un scan y no lo teníamos.
+- **Monitores de emisiones / readiness (Modo 01 PID 01)** — `leer_readiness()`: estado del
+  testigo **MIL**, nº de DTC confirmados, y los monitores continuos/no-continuos con
+  "Listo/Incompleto" (sirve para saber si el auto pasaría una VTV de emisiones).
+- **Decodificador de VIN offline (ISO 3779/3780)** — `decodificar_vin()`: del VIN saca
+  **fabricante (tabla WMI, foco Alianza + comunes), región y año de modelo**, 100% sin
+  internet. Endpoint que además lee el VIN por Modo 09.
+- **`app/server.py`** — endpoints `/api/obd/{freeze-frame,readiness,vin}`.
+- **`app/web/index.html`** — 3 botones nuevos en el panel del modo genérico (📸 Freeze Frame,
+  ✅ Monitores, 🔎 VIN decodificado) con sus modales.
+- Verificado en simulación: freeze frame (13 sensores + P0133), readiness (MIL + monitores),
+  VIN (Renault/Dacia/Nissan bien decodificados). `node --check` OK, `import server` OK.
+
 ## [2026-07-19] — Base de DTC genéricos ampliada 107 → ~9.500 (SAE J2012 completa, en español)
 
 Roadmap de investigación en GitHub, punto #1 y #2 (DTCs).

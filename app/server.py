@@ -1361,6 +1361,64 @@ def api_obd_conectar():
     }
 
 
+@app.get("/api/obd/freeze-frame")
+def api_obd_freeze_frame():
+    """Freeze frame (cuadro congelado): sensores en el instante que saltó el DTC (Modo 02)."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    from obd_generico import get_obd
+    obd = get_obd()
+    with ELM_LOCK:
+        _marcar_actividad()
+        try:
+            _seleccionar_ecu("obd")
+        except Exception:
+            pass
+        try:
+            return obd.leer_freeze_frame()
+        except Exception as e:
+            return JSONResponse({"error": f"Error leyendo freeze frame: {e}"}, status_code=500)
+
+
+@app.get("/api/obd/readiness")
+def api_obd_readiness():
+    """Estado de los monitores de emisiones (I/M readiness) + testigo MIL."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    from obd_generico import get_obd
+    obd = get_obd()
+    with ELM_LOCK:
+        _marcar_actividad()
+        try:
+            _seleccionar_ecu("obd")
+        except Exception:
+            pass
+        try:
+            return obd.leer_readiness()
+        except Exception as e:
+            return JSONResponse({"error": f"Error leyendo readiness: {e}"}, status_code=500)
+
+
+@app.get("/api/obd/vin")
+def api_obd_vin():
+    """Lee el VIN y lo decodifica offline (país/fabricante/año), sin internet."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    from obd_generico import get_obd
+    obd = get_obd()
+    with ELM_LOCK:
+        _marcar_actividad()
+        try:
+            _seleccionar_ecu("obd")
+        except Exception:
+            pass
+        try:
+            vin = obd.leer_vin() if not options.simulation_mode else "VF1BB000000000000"
+            return {"vin": vin, "decodificado": obd.decodificar_vin(vin)}
+        except Exception as e:
+            return JSONResponse({"error": f"Error leyendo VIN: {e}"}, status_code=500)
+
+
 def _construir_resultado_deteccion(res):
     """Carga el perfil detectado y arma el JSON de respuesta."""
     detectadas = res.get("detectadas", [])

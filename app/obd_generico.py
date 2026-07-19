@@ -302,6 +302,111 @@ class ObdGenerico:
         except Exception:
             return None
 
+    def decodificar_vin(self, vin=None):
+        """Decodifica el VIN offline: país/región, fabricante (WMI) y año de modelo.
+        No necesita internet; usa tablas estándar ISO 3779/3780."""
+        if vin is None:
+            vin = self.leer_vin() if not options.simulation_mode else "VF1BB000000000000"
+        return decodificar_vin(vin)
+
+    # ---- Freeze Frame (Modo 02): foto de los sensores cuando saltó el DTC ----
+    def leer_freeze_frame(self):
+        """Lee el freeze frame (cuadro congelado): el DTC que lo disparó + los sensores
+        clave en el instante de la falla. Frame 00 (el más reciente)."""
+        # 1) DTC que originó el freeze frame (Modo 02 PID 02)
+        dtc = None
+        resp = self._enviar("020200")
+        if resp:
+            partes = [p for p in resp.strip().split() if len(p) == 2]
+            for i in range(len(partes) - 1):
+                if partes[i].upper() == "42" and partes[i + 1].upper() == "02":
+                    raw = (partes[i + 3] + partes[i + 4]).upper() if len(partes) > i + 4 else ""
+                    if raw and raw != "0000":
+                        dtc = dtc_estandar(raw)
+                    break
+        # 2) sensores clave en el momento de la falla (mismas fórmulas, eco '42')
+        pids_ff = ["04", "05", "06", "07", "0B", "0C", "0D", "0E", "0F", "10", "11", "2F", "42"]
+        sensores = []
+        for pid in pids_ff:
+            info = PIDS.get(pid)
+            if info is None:
+                continue
+            nombre, unidad, nbytes, formula = info
+            r = self._enviar("02" + pid + "00")
+            if not r:
+                continue
+            datos = self._parse_freeze(r, pid, nbytes)
+            if datos is None:
+                continue
+            try:
+                valor = formula(datos)
+            except Exception:
+                valor = None
+            if valor is not None:
+                sensores.append({"dato": nombre, "valor": valor, "unidad": unidad})
+        disponible = dtc is not None or bool(sensores)
+        return {
+            "disponible": disponible,
+            "dtc": dtc,
+            "dtc_descripcion": describir_dtc(dtc) if dtc else None,
+            "sensores": sensores,
+        }
+
+    def _parse_freeze(self, resp, pid, nbytes):
+        """Extrae los bytes de una respuesta Modo 02 '42 <pid> <frame> <datos...>'."""
+        partes = resp.strip().split()
+        for i in range(len(partes) - 2):
+            if partes[i].upper() == "42" and partes[i + 1].upper() == pid.upper():
+                try:
+                    # tras 42 <pid> <frame(00)> vienen los datos
+                    return [int(b, 16) for b in partes[i + 3:i + 3 + nbytes]]
+                except ValueError:
+                    return None
+        return None
+
+    # ---- Readiness / monitores (Modo 01 PID 01) ----
+    def leer_readiness(self):
+        """Estado de los monitores de emisiones (I/M readiness) y del testigo MIL."""
+        resp = self._enviar("0101")
+        if not resp:
+            return {"disponible": False}
+        partes = resp.strip().split()
+        idx = None
+        for i in range(len(partes) - 1):
+            if partes[i].upper() == "41" and partes[i + 1].upper() == "01":
+                idx = i + 2
+                break
+        if idx is None or len(partes) < idx + 4:
+            return {"disponible": False}
+        try:
+            A, B, C, D = [int(partes[idx + k], 16) for k in range(4)]
+        except ValueError:
+            return {"disponible": False}
+        mil = bool(A & 0x80)
+        n_dtc = A & 0x7F
+        # monitores continuos (byte B, bits bajos = soportado, altos = incompleto)
+        continuos = [
+            ("Fallo de encendido (misfire)", B & 0x01, B & 0x10),
+            ("Sistema de combustible", B & 0x02, B & 0x20),
+            ("Componentes (comprehensive)", B & 0x04, B & 0x40),
+        ]
+        # monitores no continuos (C = soportado, D = incompleto), orden estándar gasolina
+        nombres_nc = ["Catalizador", "Catalizador calefaccionado", "Sistema evaporativo (EVAP)",
+                      "Aire secundario", "A/C (refrigerante)", "Sonda lambda (O2)",
+                      "Calefactor de sonda lambda", "EGR / VVT"]
+        no_continuos = []
+        for k, nombre in enumerate(nombres_nc):
+            sop = C & (1 << k)
+            inc = D & (1 << k)
+            no_continuos.append({"nombre": nombre, "soportado": bool(sop), "listo": bool(sop and not inc)})
+        def _fmt(lst):
+            return [{"nombre": n, "soportado": bool(s), "listo": bool(s and not i)} for n, s, i in lst]
+        return {
+            "disponible": True, "mil_encendido": mil, "dtc_count": n_dtc,
+            "continuos": _fmt(continuos),
+            "no_continuos": [m for m in no_continuos if m["soportado"]],
+        }
+
     # ---- compatibilidad con la interfaz (no aplican al OBD genérico) ----
     def is_dangerous(self, request_name):
         return False
@@ -320,11 +425,97 @@ class ObdGenerico:
         return {"presente": True, "identificacion": {"VIN": vin} if vin else {}}
 
 
+# --------------------------------------------------------------------------
+# Decodificador de VIN offline (ISO 3779/3780) — sin internet, sin base externa
+# --------------------------------------------------------------------------
+# Región/país por el 1er carácter (WMI[0]).
+_VIN_REGION = {
+    tuple("ABCDEFGH"): "África", tuple("JKLMNPR"): "Asia",
+    tuple("STUVWXYZ"): "Europa", tuple("123456789"): "América del Norte",
+    tuple("0"): "Oceanía",
+}
+# Fabricante por los primeros 2-3 caracteres (WMI). Foco en la Alianza + comunes.
+_VIN_WMI = {
+    "VF1": "Renault", "VF2": "Renault (utilitarios)", "VF3": "Peugeot", "VF7": "Citroën",
+    "VNV": "Renault/Nissan", "93Y": "Renault (Brasil)", "8A1": "Renault (Argentina)",
+    "93U": "Renault (Brasil)", "UU1": "Dacia", "UU2": "Dacia", "VSY": "Dacia (Ford Iberia)",
+    "VNE": "Nissan (España)", "VWA": "Volkswagen", "WVW": "Volkswagen", "WV1": "VW (comercial)",
+    "1N4": "Nissan (EE.UU.)", "JN1": "Nissan (Japón)", "JN6": "Nissan (Japón)",
+    "SJN": "Nissan (Reino Unido)", "3N1": "Nissan (México)", "MDH": "Nissan (India)",
+    "WBA": "BMW", "WBS": "BMW M", "WDB": "Mercedes-Benz", "WDD": "Mercedes-Benz",
+    "ZFA": "Fiat", "ZAR": "Alfa Romeo", "1G1": "Chevrolet", "KMH": "Hyundai",
+    "KNA": "Kia", "JHM": "Honda", "JTD": "Toyota", "JT1": "Toyota", "9BW": "VW (Brasil)",
+    "8AP": "Fiat (Argentina)", "8AG": "Chevrolet (Argentina)", "9BD": "Fiat (Brasil)",
+    "935": "Peugeot (Brasil)", "936": "Citroën (Brasil)", "8AD": "Peugeot (Argentina)",
+}
+# Año de modelo por el 10º carácter (código estándar; se repite cada 30 años).
+_VIN_ANIO = {
+    "A": 1980, "B": 1981, "C": 1982, "D": 1983, "E": 1984, "F": 1985, "G": 1986, "H": 1987,
+    "J": 1988, "K": 1989, "L": 1990, "M": 1991, "N": 1992, "P": 1993, "R": 1994, "S": 1995,
+    "T": 1996, "V": 1997, "W": 1998, "X": 1999, "Y": 2000, "1": 2001, "2": 2002, "3": 2003,
+    "4": 2004, "5": 2005, "6": 2006, "7": 2007, "8": 2008, "9": 2009,
+}
+_VIN_ANIO_2 = {  # segunda vuelta del código (2010-2039)
+    "A": 2010, "B": 2011, "C": 2012, "D": 2013, "E": 2014, "F": 2015, "G": 2016, "H": 2017,
+    "J": 2018, "K": 2019, "L": 2020, "M": 2021, "N": 2022, "P": 2023, "R": 2024, "S": 2025,
+    "T": 2026, "V": 2027, "W": 2028, "X": 2029, "Y": 2030,
+}
+
+
+def _vin_valido(vin):
+    import re
+    return bool(vin) and bool(re.fullmatch(r"[A-HJ-NPR-Z0-9]{17}", str(vin).upper()))
+
+
+def decodificar_vin(vin):
+    """Decodifica un VIN offline → {vin, valido, region, fabricante, wmi, anio_modelo, planta}.
+    Nunca falla; si no reconoce algo lo deja en None."""
+    if not vin:
+        return {"vin": None, "valido": False}
+    v = str(vin).strip().upper()
+    valido = _vin_valido(v)
+    out = {"vin": v, "valido": valido, "region": None, "fabricante": None,
+           "wmi": v[:3] if len(v) >= 3 else None, "anio_modelo": None, "planta": None}
+    if len(v) >= 1:
+        for chars, region in _VIN_REGION.items():
+            if v[0] in chars:
+                out["region"] = region
+                break
+    if len(v) >= 3:
+        out["fabricante"] = _VIN_WMI.get(v[:3]) or _VIN_WMI.get(v[:2]) or _VIN_WMI.get(v[:1])
+    if len(v) >= 10:
+        c = v[9]
+        # elegir la vuelta más plausible: si hay 7º carácter numérico suele ser <2010
+        anio = _VIN_ANIO_2.get(c) if c in _VIN_ANIO_2 else _VIN_ANIO.get(c)
+        # heurística: autos con VIN moderno (letra en pos 7) tienden a ser >=2010
+        if c in _VIN_ANIO and c in _VIN_ANIO_2:
+            anio = _VIN_ANIO_2.get(c) if (len(v) >= 7 and v[6].isalpha()) else _VIN_ANIO.get(c)
+        out["anio_modelo"] = anio
+    if len(v) >= 11:
+        out["planta"] = v[10]
+    return out
+
+
 # Respuestas de simulación para probar sin auto.
 _SIM = {
     "0100": "41 00 BE 3E B8 11",
     "0120": "41 20 80 00 00 01",
     "0140": "41 40 40 00 00 00",
+    "0101": "41 01 83 07 61 05",          # MIL on, 3 DTC, monitores
+    "020200": "42 02 00 01 33 00 00",     # freeze frame disparado por P0133
+    "020400": "42 04 00 40",              # carga ~25% en freeze
+    "020500": "42 05 00 5C",              # 52°C
+    "020600": "42 06 00 78",
+    "020700": "42 07 00 82",
+    "020B00": "42 0B 00 62",
+    "020C00": "42 0C 00 2E E0",           # ~3000 RPM en freeze
+    "020D00": "42 0D 00 50",              # 80 km/h
+    "020E00": "42 0E 00 90",
+    "020F00": "42 0F 00 3C",
+    "021000": "42 10 00 12 C0",
+    "021100": "42 11 00 60",
+    "022F00": "42 2F 00 A0",
+    "024200": "42 42 00 39 D0",
     "010C": "41 0C 1A F8",       # ~1758 RPM
     "0105": "41 05 5A",          # 50 °C
     "010F": "41 0F 46",          # 30 °C
