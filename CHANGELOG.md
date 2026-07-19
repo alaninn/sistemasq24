@@ -7,6 +7,22 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — FIX CRÍTICO autodetección: fallback KWP-sobre-CAN (F4R, Kangoo 2…)
+
+- **Por qué no detectaba nada** (ni el F4R ni la Kangoo): el escáner solo probaba **UDS**
+  (sesión 1003 + `22F1Ax`), que usan los Renault NUEVOS. Los Renault VIEJOS (F4R, Kangoo 2,
+  etc.) tienen CAN pero hablan **KWP-sobre-CAN** ("Diag on CAN": sesión `10C0` + lectura
+  `21 80`), y no responden a UDS → la detección probaba las 121 direcciones y no matcheaba
+  ninguna.
+- **Fix**: portado el `identify_old` de ddt4all. Ahora en cada dirección CAN, si UDS no
+  responde, prueba KWP-sobre-CAN (`10C0` + `2180`) como fallback. Validado en simulación:
+  matcheó ECUs reales X84/Mégane II (`S3000_...X84` motor, `Tdb_J84` tablero) que la vía UDS
+  nunca encontraba. Las 6 ECUs CAN del F4R están en la tabla de direcciones, así que en el
+  auto real ahora deberían detectarse.
+- Parser de identificación `21 80` extraído a `_parse_ident_2180` (compartido K-line y CAN).
+
+---
+
 ## [2026-07-19] — Chequeo General del Auto (reporte exhaustivo con captura por RPM)
 
 Nueva función completa (etapas 1-4): un **chequeo guiado** que arma un reporte exhaustivo.

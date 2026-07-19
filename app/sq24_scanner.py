@@ -196,12 +196,32 @@ class SQ24Scanner:
             except Exception:
                 pass
 
-    # ---------------------------------------------------------------- probe KWP2000
+    # ------------------------------------------- parser de identificación 21 80
+    def _parse_ident_2180(self, resp):
+        """Parsea una respuesta '61 80 ...' (servicio 21 LID 80) → (diagversion,
+        supplier, soft, version). Portado de check_ecu de ddt4all (offsets sobre la
+        cadena CON espacios). Lo usan tanto KWP-sobre-K-line como KWP-sobre-CAN."""
+        if not resp or len(resp) <= 20:
+            return None
+        try:
+            if len(resp) > 59:
+                diagversion = str(int(resp[21:23], 16))
+                supplier = bytes.fromhex(resp[24:32].replace(" ", "")).decode("utf-8", "ignore")
+                soft = resp[48:53].replace(" ", "")
+                version = resp[54:59].replace(" ", "")
+            else:
+                diagversion = str(int(resp[6:8], 16))
+                supplier = bytes.fromhex(resp[9:17].replace(" ", "")).decode("utf-8", "ignore")
+                soft = resp[18:26].replace(" ", "")
+                version = resp[27:35].replace(" ", "")
+        except (ValueError, IndexError):
+            return None
+        return diagversion, supplier, soft, version
+
+    # ---------------------------------------------------------------- probe KWP2000 (K-line)
     def _identificar_kwp(self, addr):
-        """Lee la identificación de una ECU KWP2000 en `addr` (protocolo de ddt4all
-        `scan_kwp`): una sola lectura de identificación (servicio 21, LID 0x80),
-        con la sesión 10C0 ya abierta. Devuelve (diagversion, supplier, soft, version)
-        o None si no responde."""
+        """Identificación de una ECU KWP2000 por K-line (ddt4all `scan_kwp`): sesión
+        10C0 + lectura de identificación (servicio 21, LID 0x80)."""
         if options.simulation_mode:
             resp = _SIM_RESP_KWP.get(addr)
         else:
@@ -224,24 +244,32 @@ class SQ24Scanner:
                 resp = elm.request(req="2180", positive="61", cache=False)
             except Exception:
                 return None
-        if not resp or len(resp) <= 20:
-            return None
-        try:
-            if len(resp) > 59:
-                # formato largo (ver ddt4all check_ecu): offsets sobre la cadena
-                # "XX XX XX ..." (con espacios), no sobre los bytes crudos.
-                diagversion = str(int(resp[21:23], 16))
-                supplier = bytes.fromhex(resp[24:32].replace(" ", "")).decode("utf-8", "ignore")
-                soft = resp[48:53].replace(" ", "")
-                version = resp[54:59].replace(" ", "")
-            else:
-                diagversion = str(int(resp[6:8], 16))
-                supplier = bytes.fromhex(resp[9:17].replace(" ", "")).decode("utf-8", "ignore")
-                soft = resp[18:26].replace(" ", "")
-                version = resp[27:35].replace(" ", "")
-        except (ValueError, IndexError):
-            return None
-        return diagversion, supplier, soft, version
+        return self._parse_ident_2180(resp)
+
+    # ---------------------------------------------------------------- probe KWP-sobre-CAN
+    def _identificar_old_can(self, addr):
+        """Identificación KWP-SOBRE-CAN (Renault viejo 'Diag on CAN', ddt4all `identify_old`):
+        sesión 10C0 + lectura 21 80. Es lo que usan el F4R, la Kangoo 2, etc.: tienen CAN
+        pero NO responden a UDS (22F1Ax). Se llama como fallback cuando `_identificar` (UDS)
+        no responde. El direccionamiento CAN ya lo dejó puesto el loop (set_can_addr)."""
+        if options.simulation_mode:
+            resp = _SIM_RESP_OLDCAN.get(addr)
+        else:
+            elm = options.elm
+            if elm is None:
+                return None
+            try:
+                if not elm.start_session_can("10C0"):
+                    return None
+                elm.clear_cache()
+                resp = elm.request(req="2180", positive="61", cache=False)
+                try:
+                    elm.cmd("1081")   # volver a sesión default (no dejar la ECU en broadcast)
+                except Exception:
+                    pass
+            except Exception:
+                return None
+        return self._parse_ident_2180(resp)
 
     # ---------------------------------------------------------------- escaneo
     def escanear(self, canline=0, progress_cb=None):
@@ -268,8 +296,9 @@ class SQ24Scanner:
         # En el auto real sondeamos los PARES CAN reales (send/recv). En simulación,
         # unas direcciones cortas canned.
         if options.simulation_mode:
-            pares = [{"send": a, "recv": a} for a in ["26", "13", "62", "01", "04"]]
-            addrs_kwp = ["02", "7A", "26"]
+            # 26/13/62/01/04 responden UDS; 51/7A solo KWP-sobre-CAN (para probar el fallback).
+            pares = [{"send": a, "recv": a} for a in ["26", "13", "62", "01", "04", "51", "7A"]]
+            addrs_kwp = ["02"]
         else:
             pares = self.pares_can or [{"send": "7E0", "recv": "7E8"}]
             addrs_kwp = self.addrs_kwp
@@ -296,7 +325,11 @@ class SQ24Scanner:
                     elm.set_can_addr(send, {"idTx": send, "idRx": recv, "ecuname": "SCAN"}, canline)
                 except Exception:
                     continue
+            # Primero UDS (Renault nuevos: 1003 + 22F1Ax). Si no responde, KWP-sobre-CAN
+            # (Renault viejos como F4R/Kangoo 2: 10C0 + 21 80). Muchos autos son este 2º caso.
             ident = self._identificar(addr)
+            if ident is None:
+                ident = self._identificar_old_can(addr)
             if ident is None:
                 continue
             t = self._match(*ident, addr, protocolos=("CAN",))
@@ -399,9 +432,16 @@ _SIM_RESP = {
 }
 
 # Respuestas KWP2000 simuladas (portadas de scan_kwp de ddt4all) para probar el pipeline
-# de módulos viejos de un solo hilo sin auto conectado.
+# de módulos viejos de un solo hilo (K-line) sin auto conectado.
 _SIM_RESP_KWP = {
     "02": "61 80 77 00 31 38 31 04 41 42 45 E3 17 03 00 38 00 07 00 00 00 00 09 11 12 00",
     "7A": "61 80 82 00 23 66 18 14 30 33 37 82 00 08 53 86 00 CB A4 00 70 06 3C 02 B1 A4",
     "26": "61 80 82 00 03 27 76 00 32 31 33 11 01 10 30 08 00 66 00 00 00 41 06 01 F1 38",
+}
+
+# Respuestas KWP-sobre-CAN simuladas (portadas de identify_old de ddt4all) para probar el
+# fallback de Renault viejos (F4R, Kangoo 2) que tienen CAN pero no responden UDS.
+_SIM_RESP_OLDCAN = {
+    "51": "61 80 82 00 45 15 05 08 32 31 33 21 11 31 39 09 00 09 06 02 05 01 0D 8D 39 00",
+    "7A": "61 80 82 00 44 66 27 44 32 31 33 82 00 38 71 38 00 A7 75 00 56 05 02 01 00 00",
 }
