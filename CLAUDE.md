@@ -50,9 +50,35 @@ después se saca y quedan solo en `log/` local.
 - Para probar SOLO la lógica del software sin ELM, sigue estando `options.simulation_mode`.
 
 ## Base de descripciones de DTC
-- `app/dtc_db.py` — descripciones en español de los DTC genéricos (SAE J2012) curadas a mano.
-  `describir(codigo)` da match exacto → familia → letra. La usan el modo OBD-II genérico y,
-  como fallback, la lectura de DTC del F4R/enhanced cuando la ECU no trae descripción.
+- `app/dtc_db.py` + `app/dtc_generico.json` — `describir(codigo)` resuelve por calidad:
+  (1) ~107 curados a mano en español perfecto, (2) base completa de ~9.400 códigos (SAE J2012,
+  de Wal33D/dtc-database MIT) traducida por un **traductor de términos** EN→ES (`_TERMINOS`),
+  (3) fallback por familia → letra. La usan el modo OBD-II genérico y, como fallback, el
+  F4R/enhanced. Para mejorar una traducción fea, agregá el término a `_TERMINOS` (frases largas
+  primero). `es_conocido(codigo)` dice si está en la base (no solo fallback).
+
+## OBD-II genérico — features estándar (SAE J1979)
+- `app/obd_generico.py`: Modo 01 (sensores), 02 (**freeze frame** `leer_freeze_frame`),
+  03/07 (DTC), 04 (borrar), 09 (**VIN**). `leer_readiness()` = monitores de emisiones + MIL.
+  `decodificar_vin()` = fabricante/región/año **offline** (tabla WMI ISO 3779). Endpoints
+  `/api/obd/{freeze-frame,readiness,vin}`. Botones en el panel del modo genérico.
+
+## Roadmap pendiente (de la investigación en GitHub, jul-2026)
+Ver el CHANGELOG para lo YA hecho (DTC 9.5k, freeze frame, readiness, VIN, record/replay).
+Queda pendiente, por orden de valor:
+- **ecu.zip oct-2022 (~3086 ECUs vs. 1973)**: única mejora de datos grande, mismo formato
+  GPL-3.0, +~1100 autos (Dacia/Clio/Captur/Zoe 2020-22). Links oficiales caídos → hay que
+  conseguir el mirror comunitario (discusiones de cedricp/ddt4all). Cuando se tenga el archivo:
+  `python tools/importar_ecu_zip.py RUTA_al_nuevo_ecu.zip` (valida, re-parte y deja listo para
+  commitear). Post-2022 Renault cerró DDT2000: no hay base pública más nueva.
+- **DTCs por UDS servicio 19** (estados presente/pendiente/histórico) con la lógica de
+  `pylessard/python-udsoncan` (MIT) — para F4R y ECUs modernas.
+- **Sniffing pasivo de CAN** con `cantools` + DBCs de Renault/Nissan (leer sensores sin
+  diagnóstico). Requiere adaptador CAN nativo (SLCAN/SocketCAN), no solo ELM327.
+- **Security access seed-key de Renault** (rutinas/actuadores protegidos) — lo más difícil,
+  necesita el algoritmo específico. Ref: CaringCaribou, ludwig-v/psa-seedkey-algorithm.
+- Rebasar mejoras de protocolo/adaptadores del upstream `cedricp/ddt4all` (Vlinker, VGate,
+  OBDLink SX, ELS27).
 
 ## Verificación mínima antes de pushear
 - `node --check` del script grande de `index.html` (sin errores de sintaxis).

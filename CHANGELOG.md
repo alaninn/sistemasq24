@@ -7,6 +7,17 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — Importador de ecu.zip nuevo + roadmap documentado (#6 y estratégicos)
+
+- **`tools/importar_ecu_zip.py`** (NUEVO) — deja la mejora #6 lista para un solo comando: toma
+  un `ecu.zip` nuevo (ej. la base comunitaria de oct-2022, ~3086 ECUs vs. 1973), lo valida,
+  compara la cantidad de ECUs contra la base actual, lo copia a `vendor/sistemasq24/ecu.zip` y
+  lo **re-parte** en `ecu.zip.part*` (<95 MB) para GitHub. `app/run.py` lo re-arma solo.
+  Falta conseguir el archivo (links oficiales caídos; hay que rastrear el mirror comunitario).
+- **`CLAUDE.md`** — documentado el roadmap pendiente (ecu.zip oct-2022, DTCs por UDS svc 19,
+  sniffing pasivo de CAN con cantools+DBC, seed-key de Renault, rebase del upstream ddt4all)
+  para no perderlo entre sesiones.
+
 ## [2026-07-19] — Analizador de ondas: grabar y REPRODUCIR sesiones (record/replay)
 
 Roadmap de investigación en GitHub, punto #5 (idea de AndrOBD). El export CSV ya existía
