@@ -671,6 +671,18 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       </div>
     </section>
 
+    <!-- VISTA: CHEQUEO GENERAL -->
+    <section class="view hidden" id="view-chequeo">
+      <div class="view-head">
+        <div>
+          <div class="eyebrow">Diagnóstico completo</div>
+          <h2>🩺 Chequeo General del Auto</h2>
+          <div class="desc">Lee TODAS las computadoras del auto y sus códigos de falla, después captura los sensores del motor a ralentí, 1500, 2000 y 3000 RPM, y genera un reporte exhaustivo (HTML/JSON/TXT) para leer o pasarle a una IA.</div>
+        </div>
+      </div>
+      <div id="chequeoContent"></div>
+    </section>
+
     <!-- VISTA: TABLERO -->
     <section class="view hidden" id="view-dash">
       <div class="view-head">
@@ -1099,6 +1111,7 @@ function go(v){
   if(v==='memoria') renderMemoria();
   if(v==='escanear') renderEscaneo();
   if(v==='ondas') renderOndas();
+  if(v==='chequeo') renderChequeo();
   if(v==='vehiculo') renderVehiculos();
 }
 
@@ -2069,6 +2082,127 @@ function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;'
 function cssId(s){ return String(s).replace(/[^a-zA-Z0-9]/g,'_'); }
 function cssAttr(s){ return String(s).replace(/["\\]/g,'\\$&'); }
 
+/* ============================ CHEQUEO GENERAL ============================ */
+let CHEQUEO = {polling:false};
+
+function renderChequeo(){
+  const box=document.getElementById('chequeoContent');
+  // ¿ya hay uno corriendo/terminado? consultar estado
+  fetch(API+'/api/chequeo/estado').then(r=>r.json()).then(e=>{
+    if(e.corriendo){ arrancarPollingChequeo(); return; }
+    if(e.terminado && e.resultado){ renderChequeoResultado(e.resultado); return; }
+    // pantalla inicial
+    box.innerHTML=`
+      <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+        <div style="font-size:15px;line-height:1.7;color:var(--ink-dim)">
+          Este chequeo hace, en orden:
+          <ol style="margin:12px 0 0;padding-left:20px;line-height:1.9">
+            <li><b>Paneo general</b> — lee todas las computadoras del auto, sus datos y códigos de falla (~1-2 min, auto en ralentí).</li>
+            <li><b>Captura por RPM</b> — te va a pedir llevar el motor a <b>ralentí, 1500, 2000 y 3000 RPM</b>; cuando detecta cada RPM estable, captura solo.</li>
+            <li><b>Reporte</b> — arma un informe exhaustivo descargable (HTML para leer, JSON/TXT para pasarle a una IA).</li>
+          </ol>
+        </div>
+        <div style="margin-top:20px;padding:12px;background:rgba(255,171,46,.08);border:1px solid rgba(255,171,46,.3);border-radius:8px;font-size:13px;color:var(--amber)">
+          ⚠️ Hacelo con el auto detenido, freno de mano puesto y en un lugar seguro y ventilado. Vas a tener que acelerar y mantener revoluciones.
+        </div>
+        <button class="uni-btn" style="margin-top:20px;max-width:280px" onclick="iniciarChequeo()">🩺 Iniciar chequeo general</button>
+      </div>`;
+  }).catch(()=>{ box.innerHTML='<div class="error">No se pudo consultar el estado del chequeo.</div>'; });
+}
+
+async function iniciarChequeo(){
+  if(!ST.conectado){ toast('Conectá el auto primero','warn'); return; }
+  try{
+    const r=await fetch(API+'/api/chequeo/iniciar',{method:'POST'});
+    const j=await r.json();
+    if(!j.ok && !j.iniciado){ toast(j.error||'No se pudo iniciar','err'); return; }
+    arrancarPollingChequeo();
+  }catch(e){ toast('Error iniciando el chequeo','err'); }
+}
+
+function arrancarPollingChequeo(){
+  if(CHEQUEO.polling) return;
+  CHEQUEO.polling=true;
+  const loop=async()=>{
+    if(ST.view!=='chequeo'){ CHEQUEO.polling=false; return; }
+    let e;
+    try{ e=await (await fetch(API+'/api/chequeo/estado')).json(); }
+    catch(err){ setTimeout(loop,700); return; }
+    if(e.terminado){ CHEQUEO.polling=false; renderChequeoResultado(e.resultado); return; }
+    renderChequeoFase(e);
+    setTimeout(loop,500);
+  };
+  loop();
+}
+
+function renderChequeoFase(e){
+  const box=document.getElementById('chequeoContent');
+  const fase=e.fase||'';
+  let cuerpo='';
+  if(fase==='paneo' || fase==='iniciando'){
+    cuerpo=`
+      <div style="font-size:16px;margin-bottom:10px">🔎 ${esc(e.instruccion||'Leyendo las computadoras del auto…')}</div>
+      <div style="height:10px;background:var(--line);border-radius:5px;overflow:hidden">
+        <div style="height:100%;width:${e.progreso||0}%;background:var(--cyan);transition:width .3s"></div>
+      </div>`;
+  } else if(fase==='ralenti'){
+    cuerpo=`<div style="font-size:20px;text-align:center;padding:20px">🅿️ ${esc(e.instruccion||'Dejá el auto en ralentí — capturando…')}</div>`;
+  } else if(fase.startsWith('esperando_') || fase.startsWith('capturando_')){
+    const obj=e.rpm_objetivo||0;
+    const rpm=e.rpm_actual;
+    const enBanda = rpm!=null && Math.abs(rpm-obj)<=200;
+    const capturando = fase.startsWith('capturando_');
+    const color = capturando ? 'var(--green)' : (enBanda?'var(--green)':(rpm!=null&&rpm<obj?'var(--amber)':'var(--red)'));
+    cuerpo=`
+      <div style="text-align:center;padding:14px">
+        <div style="font-size:20px;margin-bottom:6px">${capturando?'📸 Capturando a':'🎯 Llevá el motor a'} <b>${obj} RPM</b>${capturando?'…':' y mantené'}</div>
+        <div style="font-size:64px;font-weight:800;color:${color};line-height:1.1;margin:8px 0">${rpm!=null?rpm:'—'}</div>
+        <div style="color:var(--ink-dim);font-size:13px">RPM actuales</div>
+        ${e.timeout && !capturando ? `<div style="margin-top:14px;color:var(--amber)">${esc(e.instruccion)}</div><button class="chip" style="margin-top:10px" onclick="capturarAhoraChequeo()">📸 Capturar ahora</button>`:''}
+      </div>`;
+  } else if(fase==='reporte'){
+    cuerpo=`<div style="font-size:18px;text-align:center;padding:24px">📝 Generando el reporte…</div>`;
+  }
+  box.innerHTML=`
+    <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+      ${cuerpo}
+      <div style="margin-top:20px;text-align:right"><button class="chip" onclick="cancelarChequeo()">✕ Cancelar</button></div>
+    </div>`;
+}
+
+async function capturarAhoraChequeo(){ try{ await fetch(API+'/api/chequeo/capturar-ahora',{method:'POST'}); }catch(e){} }
+async function cancelarChequeo(){
+  try{ await fetch(API+'/api/chequeo/cancelar',{method:'POST'}); }catch(e){}
+  CHEQUEO.polling=false; toast('Chequeo cancelado','warn'); renderChequeo();
+}
+
+function renderChequeoResultado(res){
+  const box=document.getElementById('chequeoContent');
+  if(!res || !res.ok){
+    box.innerHTML=`<div class="error" style="max-width:640px">${esc((res&&res.error)||'El chequeo no se completó.')}</div>
+      <button class="uni-btn" style="margin-top:16px;max-width:240px" onclick="renderChequeo()">Volver a empezar</button>`;
+    return;
+  }
+  box.innerHTML=`
+    <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+      <div style="font-size:18px;font-weight:700;color:var(--green)">✓ Chequeo completado</div>
+      <div style="color:var(--ink-dim);font-size:14px;margin-top:6px">
+        ${esc(res.vehiculo||'')} · ${res.n_ecus} computadoras leídas · etapas: ${(res.etapas||[]).join(', ')}
+      </div>
+      <div style="margin-top:18px;font-size:14px;font-weight:600">Descargar el reporte:</div>
+      <div class="obd-quick" style="margin-top:10px">
+        <a href="/api/chequeo/reporte/html" target="_blank"><button>🌐 HTML (ver/imprimir)</button></a>
+        <a href="/api/chequeo/reporte/json"><button>🤖 JSON (para IA)</button></a>
+        <a href="/api/chequeo/reporte/txt"><button>📄 TXT</button></a>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="chip" onclick="subirLogs()">☁ Subir reporte a GitHub</button>
+        <button class="chip" onclick="renderChequeo()">🔁 Hacer otro chequeo</button>
+      </div>
+      <div style="font-size:12px;color:var(--ink-dim);margin-top:12px">💡 Abrí el HTML para leerlo, o pegá el JSON en una IA para que te dé el diagnóstico completo.</div>
+    </div>`;
+}
+
 /* ============================ ANALIZADOR DE ONDAS (Chart.js) ============================ */
 let ONDAS = {
   buffers: {},         // {sensorId: [{t, valor}]}
@@ -2728,6 +2862,7 @@ async function cargarEcusCompatibles(){
 // perf: en qué perfiles aparece cada opción (si no está, aparece en todos).
 const MENU_COMPLETO = [
   {view:'dash',ico:'📟',txt:'Tablero en vivo'},
+  {view:'chequeo',ico:'🩺',txt:'Chequeo general', perf:['f4r','detectado','generico']},
   {view:'ondas',ico:'📈',txt:'Analizador de Ondas'},
   {view:'dtc',ico:'🚨',txt:'Códigos de falla'},
   {view:'sensores',ico:'🎚️',txt:'Elegir sensores'},

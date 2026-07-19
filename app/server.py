@@ -476,9 +476,13 @@ def api_logs_subir():
         pass
     repo = APP_DIR.parent
     log_dir = repo / "log"
-    txts = sorted(log_dir.glob("sesion_*.txt")) if log_dir.exists() else []
+    # Sube logs de sesión + los reportes del chequeo general (json/txt/html).
+    txts = []
+    if log_dir.exists():
+        txts = (sorted(log_dir.glob("sesion_*.txt")) + sorted(log_dir.glob("reporte_*.json"))
+                + sorted(log_dir.glob("reporte_*.txt")) + sorted(log_dir.glob("reporte_*.html")))
     if not txts:
-        return {"ok": False, "error": "Todavía no hay logs para subir."}
+        return {"ok": False, "error": "Todavía no hay logs ni reportes para subir."}
 
     token = _github_token()
     if token:

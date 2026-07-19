@@ -7,6 +7,28 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — Chequeo General del Auto (reporte exhaustivo con captura por RPM)
+
+Nueva función completa (etapas 1-4): un **chequeo guiado** que arma un reporte exhaustivo.
+- **Paneo** de todas las ECUs del perfil activo: identificación + una lectura de cada sensor
+  + códigos de falla (con descripción vía `dtc_db`).
+- **Captura por RPM automática**: pide llevar el motor a ralentí / 1500 / 2000 / 3000 RPM;
+  detecta cuando entra y se estabiliza en cada banda (±200 rpm, ~2.5s) y captura solo los
+  sensores del motor. Botón "capturar ahora" de fallback + medidor de RPM en vivo con color.
+- **Reporte en 3 formatos** (`log/reporte_<fecha>.html/json/txt`): HTML para leer, JSON/TXT
+  para pegarle a una IA. Evalúa los sensores clave del F4R contra `rangos_f4r.json`
+  (OK/atención/fuera), arma resumen (sensores OK, en atención, DTCs) y la evolución de cada
+  sensor del motor a través de las RPM.
+- Archivos: `app/chequeo.py` (orquestador, máquina de estados + `estadisticas_de_muestras`
+  reutilizable), `app/reporte.py` (generador), `app/rangos_f4r.json` (rangos curados).
+  Endpoints `/api/chequeo/{iniciar,estado,capturar-ahora,cancelar,reporte/{tipo}}`. Vista
+  `view-chequeo` (asistente paso a paso) + entrada de menú. El botón "Subir a GitHub" ahora
+  también sube los reportes del chequeo.
+- Verificado end-to-end en simulación (flujo completo + los 3 archivos + descarga por HTTP).
+  Los VALORES de sensores se llenan en el auto real (en simulación salen vacíos, es esperado).
+
+---
+
 ## [2026-07-18] — Autodetección KWP2000 (módulos viejos, no solo CAN)
 
 - El escáner ahora también sondea protocolo **KWP2000** (26 direcciones únicas, 198 ECUs
