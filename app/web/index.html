@@ -930,52 +930,92 @@ const API = '';
 // (Parámetros generales, Estados, Papillon-Pédale, Adaptativo de riqueza, Ralentí/VVT).
 // Son los mismos que muestra cualquier scanner. Se matchean por el nombre ORIGINAL
 // (dato) del parámetro, no por la traducción.
+// CURADO POR UN EXPERTO EN EFI. Objetivo: que el F4R muestre TODO lo que muestra el
+// modo OBD-II genérico (RPM, temps, MAP, MAF, lambda, ajuste de combustible corto/largo,
+// posición del acelerador, avance…) MÁS los extras propios de esta ECU Renault Sagem S3000
+// (knock/cliquetis, VVT, adaptativos de riqueza por zona de presión, ralentí, turbo,
+// potenciómetros de mariposa/pedal, par motor…). Solo sensores OBSERVABLES que oscilan
+// con el motor en marcha; se descartan códigos internos, contadores y flags de config.
+// Se matchean por el nombre ORIGINAL (dato) del parámetro, no por la traducción.
 const SENSORES_RELEVANTES = new Set([
-  // Trama 01 — Parámetros generales
-  'Tension batterie mesurée','Température air mesurée','Pression collecteur absolue mesurée',
-  'Dépression altimétrique','Régime moteur','Régime consigne régulation ralenti',
-  'Correction régime ralenti après-vente','Vitesse véhicule','Pression de suralimentation',
-  'Avance allumage','Valeur max correction lente avance cliquetis','Consigne RCO commande wastegate',
-  'RCO purge canister','Consommation carburant instantanée','Avance allumage corrigée',
-  'Période moyenne maxi sonde amont','Offset apprentissage regulation richesse',
-  'Gain apprentissage regulation richesse','Déchéance de couple','Température eau mesurée',
-  'Pression climatisation',
-  // Trama 03 — Mariposa / Pedal
+  // — Régimen / marcha (equiv. genérico PID 0C, 0D) —
+  'Régime moteur','Vitesse véhicule','Etat moteur',
+  // — Temperaturas (equiv. PID 05, 0F) —
+  'Température eau mesurée',"Température d'eau haute résolution",'Température air mesurée',
+  // — Presiones: MAP, atmosférica, turbo, A/A (equiv. PID 0B, 33) —
+  'Pression collecteur absolue mesurée','Dépression altimétrique','Pression de suralimentation',
+  'Consigne RCO commande wastegate','Pression climatisation',
+  // — Batería (equiv. PID 42) —
+  'Tension batterie mesurée',
+  // — Avance de encendido + corrección por cliquetis/knock (equiv. PID 0E) —
+  'Avance allumage','Avance allumage corrigée','Valeur max correction lente avance cliquetis',
+  // — Caudal de aire / llenado (equiv. PID 10 MAF) —
+  'Débit air moteur évalué','Remplissage en air',
+  // — Mariposa motorizada: medida, consigna, corregida, topes (equiv. PID 11) —
+  'Position papillon transmise à l\'applicatif',
   'Position papillon mesurée piste 1 après filtrage','Position papillon mesurée piste 2 après filtrage',
-  'Valeur apprise butée basse papillon','Valeur apprise butée haute papillon',
   'Valeur corrigée position papillon motorisé','Consigne position corrigée du papillon motorisé',
+  'Valeur apprise butée basse papillon','Valeur apprise butée haute papillon',
+  'Butée basse du papillon avec offset',
+  'Butée basse papillon capteur 1','Butée basse papillon capteur 2',
+  'Butée haute papillon capteur 1','Butée haute papillon capteur 2',
+  'Info papillon fermé','Info papillon à fond',
+  // — Pedal del acelerador: medida, pistas, potenciómetros (equiv. PID 49/45) —
   'Position pédale mesurée','Position pédale mesurée piste 1','Position pédale mesurée piste 2',
   'Position pédale piste 1 après filtrage','Position pédale piste 2 après filtrage',
-  'Tension du potentiomètre 1','Tension du potentiomètre 2','Débit air moteur évalué',
-  // Trama 04 — Adaptativo de riqueza / sonda lambda
-  'Tension sonde amont','Période moyenne sonde amont','Temps injection réel',
-  'Facteur enrichissement regulation richesse','Tension sonde aval',
+  'Tension du potentiomètre 1','Tension du potentiomètre 2',
+  'Info pied levé pédale','Info pédale à fond','Info pédale frein appuyé',
+  // — Sonda lambda anterior/posterior: tensión, período, calefacción (equiv. PID 14, 15) —
+  'Tension sonde amont','Tension sonde aval',
+  'Période moyenne sonde amont','Période moyenne maxi sonde amont',
+  'Résistance chauffage sonde amont','Résistance chauffage sonde aval',
+  'Etat sonde 02 amont pour mode SAV',
+  // — Regulación de riqueza / ajuste de combustible corto y largo (equiv. PID 06/07) —
+  'Facteur enrichissement regulation richesse',
   'Correction adaptative de la 1ère zone de pression','Correction adaptative de la 2ème zone de pression',
   'Correction adaptative de la 3ème zone de pression','Correction adaptative de la 4ème zone de pression',
   'Correction adaptative de la 5ème zone de pression',
-  // Trama 05 — Ralentí y VVT
+  'Offset apprentissage regulation richesse','Gain apprentissage regulation richesse',
+  'Etat stratégie régulation richesse',
+  // — Inyección / consumo (equiv. PID 5E) —
+  'Temps injection réel','Consommation carburant instantanée',
+  'Formatted fuel consumption for cluster display','RCO purge canister',
+  // — Ralentí: consigna, corrección, aprendizaje, RCO —
+  'Régime consigne régulation ralenti','Correction régime ralenti après-vente',
   'Valeur apprentissage régulation ralenti','RCO théorique régulation ralenti',
-  'Final intake VVT relative angle','Consigne RCO commande VVT','Décalage VVT continu mesuré',
+  'Etat stratégie régulation ralenti','Info demande ralenti accéléré',
+  // — Distribución variable (VVT) —
+  'Décalage VVT continu mesuré','Final intake VVT relative angle','Consigne RCO commande VVT',
+  // — Par motor (torque) —
+  'Couple moteur effectif','Couple moteur estimé volonté conducteur','Déchéance de couple',
+  // — A/A (carga sobre el motor) —
+  'Puissance absorbée climatisation','calculated AC Load',
 ]);
 
 // Sensores que aparecen POR DEFECTO en el Tablero en vivo (si no hay selección guardada).
 // Los clásicos que mira cualquiera: RPM, temps, MAP, batería, velocidad, avance,
 // mariposa, pedal, sondas lambda, inyección.
+// Estos 16 igualan (y superan) lo que muestra el OBD-II genérico por defecto:
+// RPM, temps agua/aire, MAP, batería, velocidad, mariposa, pedal, avance, ambas sondas
+// lambda, tiempo de inyección, ajuste de combustible (corto = Facteur enrichissement;
+// largo = Correction adaptative 1ª zona) y presión de sobrealimentación.
 const SENSORES_PRECARGADOS = [
-  'Régime moteur',
-  'Température eau mesurée',
-  'Température air mesurée',
-  'Pression collecteur absolue mesurée',
-  'Dépression altimétrique',
-  'Tension batterie mesurée',
-  'Vitesse véhicule',
-  'Avance allumage',
-  'Position papillon mesurée piste 1 après filtrage',
-  'Position pédale mesurée',
-  'Tension sonde amont',
-  'Tension sonde aval',
-  'Temps injection réel',
-  'Pression de suralimentation',
+  'Régime moteur',                                     // RPM (PID 0C)
+  'Température eau mesurée',                            // temp refrigerante (PID 05)
+  'Température air mesurée',                            // temp aire admisión (PID 0F)
+  'Pression collecteur absolue mesurée',               // MAP (PID 0B)
+  'Dépression altimétrique',                           // presión atmosférica (PID 33)
+  'Tension batterie mesurée',                          // batería (PID 42)
+  'Vitesse véhicule',                                  // velocidad (PID 0D)
+  'Avance allumage',                                   // avance de encendido (PID 0E)
+  'Position papillon mesurée piste 1 après filtrage',  // posición mariposa (PID 11)
+  'Position pédale mesurée',                           // posición pedal (PID 49)
+  'Tension sonde amont',                               // sonda lambda anterior (PID 14)
+  'Tension sonde aval',                                // sonda lambda posterior (PID 15)
+  'Temps injection réel',                              // tiempo de inyección
+  'Facteur enrichissement regulation richesse',        // ajuste de combustible CORTO (PID 06)
+  'Correction adaptative de la 1ère zone de pression', // ajuste de combustible LARGO (PID 07)
+  'Pression de suralimentation',                       // presión de sobrealimentación (turbo)
 ];
 
 let ST = {

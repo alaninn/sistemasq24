@@ -7,6 +7,23 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — Curaduría de sensores en vivo del F4R: iguala y supera al OBD-II genérico
+
+- **Problema:** el tablero en vivo del F4R mostraba MENOS que el modo OBD-II genérico
+  (faltaban ajuste corto/largo de combustible y posición del acelerador), aunque la ECU
+  tiene 521 parámetros legibles. Era un problema de curaduría de las listas destacadas.
+- **`app/web/index.html`** — se reescribieron las dos listas (por `dato` original francés,
+  verificadas 1:1 contra `motor.readable_params()`):
+  - `SENSORES_RELEVANTES`: ampliada a **91 datos** curados (todos los equivalentes de los
+    PIDs del genérico + extras del F4R: cliquetis/knock, VVT, adaptativos de riqueza por
+    zona de presión, sondas amont/aval, ralentí, turbo/wastegate, potenciómetros de
+    mariposa/pedal, par motor). Solo sensores observables; se descartan códigos/flags.
+  - `SENSORES_PRECARGADOS`: **16 datos** por defecto. Ahora incluye sí o sí el ajuste de
+    combustible corto (`Facteur enrichissement regulation richesse`) y largo
+    (`Correction adaptative de la 1ère zone de pression`) y la posición de mariposa/pedal,
+    que antes no aparecían.
+- Verificado: 91/91 y 16/16 datos matchean parámetros reales; `node --check` del script OK.
+
 ## [2026-07-19] — FIX CRÍTICO autodetección: fallback KWP-sobre-CAN (F4R, Kangoo 2…)
 
 - **Por qué no detectaba nada** (ni el F4R ni la Kangoo): el escáner solo probaba **UDS**
