@@ -482,10 +482,10 @@ def api_logs_subir():
         pass
     repo = APP_DIR.parent
     log_dir = repo / "log"
-    # Sube logs de sesión + los reportes del chequeo general y del ensayo (json/txt/html).
+    # Sube logs de sesión + consola + los reportes del chequeo general y del ensayo.
     txts = []
     if log_dir.exists():
-        txts = (sorted(log_dir.glob("sesion_*.txt"))
+        txts = (sorted(log_dir.glob("sesion_*.txt")) + sorted(log_dir.glob("consola_*.txt"))
                 + sorted(log_dir.glob("reporte_*.json")) + sorted(log_dir.glob("reporte_*.txt"))
                 + sorted(log_dir.glob("reporte_*.html"))
                 + sorted(log_dir.glob("ensayo_*.json")) + sorted(log_dir.glob("ensayo_*.txt"))

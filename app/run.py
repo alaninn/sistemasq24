@@ -13,6 +13,14 @@ from pathlib import Path
 APP_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(APP_DIR))
 
+# Capturar TODA la salida de consola (stdout/stderr, tracebacks, logs de uvicorn) a
+# log/consola_<fecha>.txt — lo antes posible, para no perder errores de arranque.
+try:
+    import consola_log
+    consola_log.iniciar()
+except Exception:
+    pass
+
 # Hacer que 'import sistemasq24' funcione sin instalar el paquete completo (evita PyQt5).
 # El core (base de ddt4all, ya rebrandeada) va empaquetado en megane2_f4r/vendor/sistemasq24.
 for _cand in [

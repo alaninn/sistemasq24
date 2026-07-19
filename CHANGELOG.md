@@ -7,6 +7,18 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — Log de consola: captura TODO lo que sale por la pantalla de CMD
+
+- **`app/consola_log.py`** (NUEVO) — en cada arranque crea `log/consola_<fecha>.txt` que
+  **duplica stdout y stderr** (prints, warnings, tracebacks, logs de uvicorn/FastAPI, errores
+  de importación). Con flush inmediato (si el proceso se cae no se pierde nada), `faulthandler`
+  para crashes duros (segfault/deadlock) y un `excepthook` para excepciones no manejadas.
+  Conserva los últimos 20 logs y borra los viejos.
+- **`app/run.py`** — llama a `consola_log.iniciar()` como lo primero, antes de importar uvicorn,
+  para capturar también los mensajes de inicio.
+- **`app/server.py`** — "Subir logs" ahora también sube los `consola_*.txt`, así esos errores
+  de consola (que no aparecían en ningún otro lado) se pueden revisar desde acá.
+
 ## [2026-07-19] — Importador de ecu.zip nuevo + roadmap documentado (#6 y estratégicos)
 
 - **`tools/importar_ecu_zip.py`** (NUEVO) — deja la mejora #6 lista para un solo comando: toma
