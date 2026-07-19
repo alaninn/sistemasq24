@@ -73,6 +73,12 @@ class Estado:
         # actuadores encendidos: {"ecu|id": {"ecu","id"}}. Se re-envían periódicamente
         # (keep-alive) porque el "Start Temporary" del servicio 30 expira solo.
         self.actuadores_activos = {}
+        # estado del chequeo general (progreso por polling, igual que la detección)
+        self.chequeo = {"corriendo": False, "fase": "", "rpm_objetivo": 0, "rpm_actual": None,
+                        "progreso": 0, "instruccion": "", "timeout": False,
+                        "terminado": False, "resultado": None, "error": None}
+        self.chequeo_cancelar = False    # flag para abortar el chequeo
+        self.chequeo_capturar = False    # flag "capturar ahora" (fallback manual)
 
     @property
     def modo_peligroso(self):
@@ -606,6 +612,7 @@ def api_desconectar():
         estado.ecu_activa = None
         estado.vehiculo_seleccionado = None
         estado.actuadores_activos = {}   # cortar el keep-alive de actuadores
+        estado.chequeo_cancelar = True   # abortar chequeo si estaba corriendo
         # Descargar el auto activo: al desconectar no debe quedar ningún perfil cargado.
         estado.registro.reset()
     slog.log("CONEXION", "Desconectado del auto")
@@ -1405,6 +1412,109 @@ def api_auto_detectar_progreso():
     """Progreso de la autodetección: {corriendo, actual, total, addr, n, terminado, resultado}."""
     with ESTADO_LOCK:
         return dict(estado.deteccion)
+
+
+# ----------------------------------------------------------------------------
+# CHEQUEO GENERAL DEL AUTO (reporte exhaustivo con captura por RPM)
+# ----------------------------------------------------------------------------
+class _CtxChequeo:
+    """Contexto que el orquestador `chequeo.Chequeo` usa para hablar con el server,
+    sin imports circulares."""
+    registro = estado.registro
+    elm_lock = ELM_LOCK
+
+    def marcar_actividad(self):
+        _marcar_actividad()
+
+    def seleccionar_ecu(self, ecu_id):
+        _seleccionar_ecu(ecu_id)
+
+    def set_estado(self, kw):
+        with ESTADO_LOCK:
+            estado.chequeo.update(kw)
+
+    def cancelado(self):
+        return estado.chequeo_cancelar
+
+    def capturar_ahora(self):
+        return estado.chequeo_capturar
+
+    def reset_capturar_ahora(self):
+        estado.chequeo_capturar = False
+
+    def simulacion(self):
+        return options.simulation_mode
+
+    def log(self, tipo, msg, det=None):
+        slog.log(tipo, msg, det or {})
+
+
+def _run_chequeo():
+    import chequeo
+    ctx = _CtxChequeo()
+    ctx.registro = estado.registro   # perfil activo al momento de iniciar
+    try:
+        resultado = chequeo.Chequeo(ctx).run()
+    except Exception as e:
+        slog.log("CHEQUEO", f"Error en el chequeo: {e}", {})
+        resultado = {"ok": False, "error": f"Error en el chequeo: {e}"}
+    with ESTADO_LOCK:
+        estado.chequeo.update({"corriendo": False, "terminado": True, "resultado": resultado})
+
+
+@app.post("/api/chequeo/iniciar")
+def api_chequeo_iniciar():
+    """Inicia el chequeo general en segundo plano. Requiere auto conectado con motor."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    if estado.registro.perfil in ("ninguno", None):
+        return JSONResponse({"error": "Primero seleccioná o detectá un auto"}, status_code=409)
+    with ESTADO_LOCK:
+        if estado.chequeo.get("corriendo"):
+            return {"ok": True, "iniciado": True, "ya_corria": True}
+        estado.chequeo = {"corriendo": True, "fase": "iniciando", "rpm_objetivo": 0,
+                          "rpm_actual": None, "progreso": 0, "instruccion": "Preparando…",
+                          "timeout": False, "terminado": False, "resultado": None, "error": None}
+        estado.chequeo_cancelar = False
+        estado.chequeo_capturar = False
+    slog.log("CHEQUEO", "Chequeo general iniciado", {"perfil": estado.registro.perfil})
+    THREAD_POOL.submit(_run_chequeo)
+    return {"ok": True, "iniciado": True}
+
+
+@app.get("/api/chequeo/estado")
+def api_chequeo_estado():
+    """Progreso del chequeo (fase, rpm_actual/objetivo, instruccion, terminado, resultado)."""
+    with ESTADO_LOCK:
+        return dict(estado.chequeo)
+
+
+@app.post("/api/chequeo/capturar-ahora")
+def api_chequeo_capturar():
+    """Fuerza la captura de la etapa de RPM actual (fallback si no detecta la banda)."""
+    estado.chequeo_capturar = True
+    return {"ok": True}
+
+
+@app.post("/api/chequeo/cancelar")
+def api_chequeo_cancelar():
+    """Aborta el chequeo en curso."""
+    estado.chequeo_cancelar = True
+    return {"ok": True}
+
+
+@app.get("/api/chequeo/reporte/{tipo}")
+def api_chequeo_reporte(tipo: str):
+    """Descarga el reporte generado (tipo: html | json | txt)."""
+    res = (estado.chequeo.get("resultado") or {}).get("reporte") or {}
+    ruta = res.get(tipo)
+    if not ruta or not Path(ruta).exists():
+        return JSONResponse({"error": "Reporte no disponible"}, status_code=404)
+    contenido = Path(ruta).read_text(encoding="utf-8")
+    media = {"html": "text/html", "json": "application/json", "txt": "text/plain"}.get(tipo, "text/plain")
+    from fastapi.responses import Response
+    return Response(content=contenido, media_type=media + "; charset=utf-8",
+                    headers={"Content-Disposition": f'attachment; filename="{Path(ruta).name}"'})
 
 
 # ----------------------------------------------------------------------------

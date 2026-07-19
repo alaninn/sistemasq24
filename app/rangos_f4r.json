@@ -1,0 +1,17 @@
+{
+  "_comentario": "Rangos esperados de sensores clave del Renault Mégane II F4R, para marcar OK/atención en el chequeo. La clave se busca como SUBCADENA (minúsculas) dentro de la etiqueta del sensor. Los rangos aplican al auto con motor caliente a RALENTÍ (salvo nota). Se puede ampliar.",
+  "régimen del motor": {"min": 700, "max": 1000, "unidad": "RPM", "nota": "a ralentí (motor caliente)"},
+  "temperatura del agua": {"min": 80, "max": 100, "unidad": "°C", "nota": "con el motor en temperatura; en frío es menor"},
+  "temperatura del aire": {"min": 5, "max": 60, "unidad": "°C", "nota": "según ambiente"},
+  "presión absoluta del colector": {"min": 250, "max": 550, "unidad": "mbar", "nota": "a ralentí (vacío); sube al acelerar"},
+  "presión de sobrealimentación": {"min": 900, "max": 1100, "unidad": "mbar", "nota": "a ralentí ~atmosférica"},
+  "avance de encendido": {"min": 0, "max": 30, "unidad": "°", "nota": "a ralentí"},
+  "tensión de la sonda lambda anterior": {"min": 0, "max": 1000, "unidad": "mV", "nota": "DEBE oscilar (0.1-0.9 V) con motor caliente"},
+  "tensión de la sonda lambda posterior": {"min": 0, "max": 1000, "unidad": "mV", "nota": "más estable que la anterior"},
+  "tiempo de inyección": {"min": 1500, "max": 5000, "unidad": "µs", "nota": "a ralentí"},
+  "posición de mariposa": {"min": 0, "max": 15, "unidad": "%", "nota": "a ralentí (pie fuera del acelerador)"},
+  "posición del pedal": {"min": 0, "max": 12, "unidad": "%", "nota": "pie fuera del acelerador"},
+  "tensión de batería": {"min": 13.2, "max": 14.8, "unidad": "V", "nota": "motor en marcha (alternador cargando)"},
+  "velocidad del vehículo": {"min": 0, "max": 3, "unidad": "km/h", "nota": "debe ser 0 durante el chequeo (auto detenido)"},
+  "depresión altimétrica": {"min": 900, "max": 1050, "unidad": "mbar", "nota": "presión atmosférica según altitud"}
+}
