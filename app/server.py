@@ -79,6 +79,12 @@ class Estado:
                         "terminado": False, "resultado": None, "error": None}
         self.chequeo_cancelar = False    # flag para abortar el chequeo
         self.chequeo_capturar = False    # flag "capturar ahora" (fallback manual)
+        # estado del ensayo de aceleración (motor en movimiento, ~50/100 m)
+        self.ensayo = {"corriendo": False, "fase": "", "vel_actual": None, "rpm_actual": None,
+                       "distancia": 0, "progreso": 0, "instruccion": "", "timeout": False,
+                       "terminado": False, "resultado": None, "error": None}
+        self.ensayo_cancelar = False     # flag para abortar el ensayo
+        self.ensayo_ahora = False        # flag "ahora" (forzar arranque o fin del tramo)
 
     @property
     def modo_peligroso(self):
@@ -476,11 +482,14 @@ def api_logs_subir():
         pass
     repo = APP_DIR.parent
     log_dir = repo / "log"
-    # Sube logs de sesión + los reportes del chequeo general (json/txt/html).
+    # Sube logs de sesión + los reportes del chequeo general y del ensayo (json/txt/html).
     txts = []
     if log_dir.exists():
-        txts = (sorted(log_dir.glob("sesion_*.txt")) + sorted(log_dir.glob("reporte_*.json"))
-                + sorted(log_dir.glob("reporte_*.txt")) + sorted(log_dir.glob("reporte_*.html")))
+        txts = (sorted(log_dir.glob("sesion_*.txt"))
+                + sorted(log_dir.glob("reporte_*.json")) + sorted(log_dir.glob("reporte_*.txt"))
+                + sorted(log_dir.glob("reporte_*.html"))
+                + sorted(log_dir.glob("ensayo_*.json")) + sorted(log_dir.glob("ensayo_*.txt"))
+                + sorted(log_dir.glob("ensayo_*.html")))
     if not txts:
         return {"ok": False, "error": "Todavía no hay logs ni reportes para subir."}
 
@@ -617,6 +626,7 @@ def api_desconectar():
         estado.vehiculo_seleccionado = None
         estado.actuadores_activos = {}   # cortar el keep-alive de actuadores
         estado.chequeo_cancelar = True   # abortar chequeo si estaba corriendo
+        estado.ensayo_cancelar = True    # abortar ensayo si estaba corriendo
         # Descargar el auto activo: al desconectar no debe quedar ningún perfil cargado.
         estado.registro.reset()
     slog.log("CONEXION", "Desconectado del auto")
@@ -1511,6 +1521,116 @@ def api_chequeo_cancelar():
 def api_chequeo_reporte(tipo: str):
     """Descarga el reporte generado (tipo: html | json | txt)."""
     res = (estado.chequeo.get("resultado") or {}).get("reporte") or {}
+    ruta = res.get(tipo)
+    if not ruta or not Path(ruta).exists():
+        return JSONResponse({"error": "Reporte no disponible"}, status_code=404)
+    contenido = Path(ruta).read_text(encoding="utf-8")
+    media = {"html": "text/html", "json": "application/json", "txt": "text/plain"}.get(tipo, "text/plain")
+    from fastapi.responses import Response
+    return Response(content=contenido, media_type=media + "; charset=utf-8",
+                    headers={"Content-Disposition": f'attachment; filename="{Path(ruta).name}"'})
+
+
+# ----------------------------------------------------------------------------
+# ENSAYO DE ACELERACIÓN (motor en movimiento, tramo de ~50/100 m)
+# ----------------------------------------------------------------------------
+class _CtxEnsayo:
+    """Contexto que el orquestador `ensayo.Ensayo` usa para hablar con el server."""
+    registro = estado.registro
+    elm_lock = ELM_LOCK
+
+    def marcar_actividad(self):
+        _marcar_actividad()
+
+    def seleccionar_ecu(self, ecu_id):
+        _seleccionar_ecu(ecu_id)
+
+    def set_estado(self, kw):
+        with ESTADO_LOCK:
+            estado.ensayo.update(kw)
+
+    def cancelado(self):
+        return estado.ensayo_cancelar
+
+    def ahora(self):
+        return estado.ensayo_ahora
+
+    def reset_ahora(self):
+        estado.ensayo_ahora = False
+
+    def simulacion(self):
+        return options.simulation_mode
+
+    def log(self, tipo, msg, det=None):
+        slog.log(tipo, msg, det or {})
+
+
+def _run_ensayo(distancia):
+    import ensayo
+    ctx = _CtxEnsayo()
+    ctx.registro = estado.registro
+    try:
+        resultado = ensayo.Ensayo(ctx, distancia_objetivo=distancia).run()
+    except Exception as e:
+        slog.log("ENSAYO", f"Error en el ensayo: {e}", {})
+        resultado = {"ok": False, "error": f"Error en el ensayo: {e}"}
+    with ESTADO_LOCK:
+        estado.ensayo.update({"corriendo": False, "terminado": True, "resultado": resultado})
+
+
+class EnsayoReq(BaseModel):
+    distancia: float = 100.0
+
+
+@app.post("/api/ensayo/iniciar")
+def api_ensayo_iniciar(req: EnsayoReq = EnsayoReq()):
+    """Inicia el ensayo de aceleración en segundo plano. Requiere auto conectado con motor.
+    Acepta {distancia} (metros objetivo, default 100)."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    if estado.registro.perfil in ("ninguno", None):
+        return JSONResponse({"error": "Primero seleccioná o detectá un auto"}, status_code=409)
+    distancia = max(20.0, min(500.0, float(req.distancia or 100.0)))
+    with ESTADO_LOCK:
+        if estado.ensayo.get("corriendo"):
+            return {"ok": True, "iniciado": True, "ya_corria": True}
+        estado.ensayo = {"corriendo": True, "fase": "iniciando", "vel_actual": None,
+                         "rpm_actual": None, "distancia": 0, "progreso": 0,
+                         "instruccion": "Preparando…", "timeout": False,
+                         "terminado": False, "resultado": None, "error": None}
+        estado.ensayo_cancelar = False
+        estado.ensayo_ahora = False
+    slog.log("ENSAYO", "Ensayo de aceleración iniciado",
+             {"perfil": estado.registro.perfil, "distancia": distancia})
+    THREAD_POOL.submit(_run_ensayo, distancia)
+    return {"ok": True, "iniciado": True}
+
+
+@app.get("/api/ensayo/estado")
+def api_ensayo_estado():
+    """Progreso del ensayo (fase, vel/rpm actuales, distancia, instruccion, terminado, resultado)."""
+    with ESTADO_LOCK:
+        return dict(estado.ensayo)
+
+
+@app.post("/api/ensayo/ahora")
+def api_ensayo_ahora():
+    """Fuerza el 'ahora': arranca la grabación (en espera) o termina el tramo (grabando)."""
+    estado.ensayo_ahora = True
+    return {"ok": True}
+
+
+@app.post("/api/ensayo/cancelar")
+def api_ensayo_cancelar():
+    """Aborta el ensayo en curso."""
+    estado.ensayo_cancelar = True
+    return {"ok": True}
+
+
+@app.get("/api/ensayo/reporte/{tipo}")
+def api_ensayo_reporte(tipo: str):
+    """Descarga el reporte del ensayo (tipo: html | json | txt)."""
+    res = (estado.ensayo.get("resultado") or {}).get("reporte") or {}
     ruta = res.get(tipo)
     if not ruta or not Path(ruta).exists():
         return JSONResponse({"error": "Reporte no disponible"}, status_code=404)

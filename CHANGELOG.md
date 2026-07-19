@@ -7,6 +7,37 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — NUEVO módulo: Ensayo de Aceleración (motor EN MOVIMIENTO, ~50/100 m)
+
+Módulo hermano del Chequeo General, pero al revés: en vez de medir el auto DETENIDO subiendo
+RPM en el lugar, mide el motor EN CARGA durante un tramo corto de aceleración. En movimiento
+aparecen cosas que parado no se ven: enriquecimiento en carga, respuesta de la mariposa,
+avance y boost bajo demanda, y los fuel trims reales.
+- **`app/ensayo.py`** (NUEVO) — máquina de estados en background (reutiliza `ctx` y
+  `estadisticas_de_muestras` de `chequeo.py`). Fases:
+  1. **espera_arranque**: muestra velocidad/RPM en vivo y espera a que el auto se mueva
+     (velocidad > 4 km/h sostenida) o a que el usuario fuerce el inicio.
+  2. **grabando**: captura TODOS los sensores clave del motor a alta frecuencia (200 ms)
+     mientras se acelera, **integrando la velocidad para estimar la distancia** recorrida.
+     Corta al llegar a la distancia objetivo, al levantar el pie (desaceleración < 60% del
+     pico), por timeout de seguridad (45 s) o manualmente.
+  3. **reporte**: serie temporal + estadísticas por sensor + métricas derivadas
+     (vel/RPM máx, tiempos 0→40/60/80/100 km/h, boost/MAP/avance/mariposa/fuel-trim máx).
+- **`app/reporte.py`** — `generar_ensayo(datos)` (HTML/JSON/TXT, prefijo `ensayo_<fecha>`):
+  tarjetas resumen, destacados bajo carga, stats por sensor y tabla temporal muestreada.
+  Sin flags de rango (los rangos de ralentí no aplican en carga; van crudos para interpretar
+  una persona o IA).
+- **`app/server.py`** — `estado.ensayo` + `_CtxEnsayo` + `_run_ensayo`; endpoints
+  `/api/ensayo/{iniciar,estado,ahora,cancelar,reporte/{tipo}}` (`iniciar` acepta `distancia`,
+  50 o 100 m; `ahora` fuerza arranque o fin). Se aborta al desconectar y los `ensayo_*` se
+  suben con "Subir a GitHub".
+- **`app/web/index.html`** — vista `view-ensayo` (elegir 50/100 m, gauges de velocidad/RPM/
+  distancia en vivo, barra de progreso del tramo, botones arrancar/terminar-ahora) + entrada
+  de menú. Con aviso de seguridad (lugar habilitado, no vía pública).
+- Verificado end-to-end en simulación (rampa de velocidad canned): flujo completo por los
+  endpoints reales (iniciando→espera→grabando→reporte) y descarga de los 3 archivos. `node
+  --check` OK, `import server` OK.
+
 ## [2026-07-19] — Curaduría de sensores en vivo del F4R: iguala y supera al OBD-II genérico
 
 - **Problema:** el tablero en vivo del F4R mostraba MENOS que el modo OBD-II genérico

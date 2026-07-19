@@ -683,6 +683,18 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       <div id="chequeoContent"></div>
     </section>
 
+    <!-- VISTA: ENSAYO DE ACELERACIÓN -->
+    <section class="view hidden" id="view-ensayo">
+      <div class="view-head">
+        <div>
+          <div class="eyebrow">Prueba en movimiento</div>
+          <h2>🏁 Ensayo de Aceleración</h2>
+          <div class="desc">Graba TODOS los sensores del motor durante un tramo corto de aceleración (~50/100 m). En movimiento aparecen cosas que con el auto parado no se ven: enriquecimiento en carga, respuesta de la mariposa, avance y boost bajo demanda, fuel trims reales. Genera un informe (HTML/JSON/TXT) para leer o pasarle a una IA.</div>
+        </div>
+      </div>
+      <div id="ensayoContent"></div>
+    </section>
+
     <!-- VISTA: TABLERO -->
     <section class="view hidden" id="view-dash">
       <div class="view-head">
@@ -1152,6 +1164,7 @@ function go(v){
   if(v==='escanear') renderEscaneo();
   if(v==='ondas') renderOndas();
   if(v==='chequeo') renderChequeo();
+  if(v==='ensayo') renderEnsayo();
   if(v==='vehiculo') renderVehiculos();
 }
 
@@ -2243,6 +2256,151 @@ function renderChequeoResultado(res){
     </div>`;
 }
 
+/* ============================ ENSAYO DE ACELERACIÓN ============================ */
+let ENSAYO = {polling:false, distancia:100};
+
+function renderEnsayo(){
+  const box=document.getElementById('ensayoContent');
+  fetch(API+'/api/ensayo/estado').then(r=>r.json()).then(e=>{
+    if(e.corriendo){ arrancarPollingEnsayo(); return; }
+    if(e.terminado && e.resultado){ renderEnsayoResultado(e.resultado); return; }
+    box.innerHTML=`
+      <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+        <div style="font-size:15px;line-height:1.7;color:var(--ink-dim)">
+          Cómo funciona:
+          <ol style="margin:12px 0 0;padding-left:20px;line-height:1.9">
+            <li><b>Elegí la distancia</b> del tramo (50 o 100 m).</li>
+            <li><b>Poné a grabar</b> — con el auto detenido y listo, tocá iniciar. Queda esperando.</li>
+            <li><b>Acelerá parejo</b> — la grabación arranca sola cuando detecta que te movés y corta al llegar a la distancia (o cuando levantás el pie).</li>
+            <li><b>Reporte</b> — informe del tramo con velocidad, RPM, boost, mariposa, avance y fuel trims bajo carga (HTML/JSON/TXT).</li>
+          </ol>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <span style="color:var(--ink-dim);font-size:13px">Distancia del tramo:</span>
+          <button class="chip ens-dist" data-d="50" onclick="setEnsayoDist(50)">50 m</button>
+          <button class="chip ens-dist" data-d="100" onclick="setEnsayoDist(100)">100 m</button>
+        </div>
+        <div style="margin-top:18px;padding:12px;background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.3);border-radius:8px;font-size:13px;color:var(--red)">
+          ⚠️ Hacelo en un lugar seguro y habilitado (no en vía pública con tránsito), respetando las leyes. Necesitás un acompañante que maneje la app mientras vos conducís, o dejala grabando sola: arranca y corta automáticamente.
+        </div>
+        <button class="uni-btn" style="margin-top:20px;max-width:300px" onclick="iniciarEnsayo()">🏁 Poner a grabar el ensayo</button>
+      </div>`;
+    setEnsayoDist(ENSAYO.distancia);
+  }).catch(()=>{ box.innerHTML='<div class="error">No se pudo consultar el estado del ensayo.</div>'; });
+}
+
+function setEnsayoDist(d){
+  ENSAYO.distancia=d;
+  document.querySelectorAll('.ens-dist').forEach(b=>{
+    b.style.background = (+b.dataset.d===d)?'var(--cyan)':'';
+    b.style.color = (+b.dataset.d===d)?'#04222a':'';
+  });
+}
+
+async function iniciarEnsayo(){
+  if(!ST.conectado){ toast('Conectá el auto primero','warn'); return; }
+  try{
+    const r=await fetch(API+'/api/ensayo/iniciar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({distancia:ENSAYO.distancia})});
+    const j=await r.json();
+    if(!j.ok && !j.iniciado){ toast(j.error||'No se pudo iniciar','err'); return; }
+    arrancarPollingEnsayo();
+  }catch(e){ toast('Error iniciando el ensayo','err'); }
+}
+
+function arrancarPollingEnsayo(){
+  if(ENSAYO.polling) return;
+  ENSAYO.polling=true;
+  const loop=async()=>{
+    if(ST.view!=='ensayo'){ ENSAYO.polling=false; return; }
+    let e;
+    try{ e=await (await fetch(API+'/api/ensayo/estado')).json(); }
+    catch(err){ setTimeout(loop,500); return; }
+    if(e.terminado){ ENSAYO.polling=false; renderEnsayoResultado(e.resultado); return; }
+    renderEnsayoFase(e);
+    setTimeout(loop,350);
+  };
+  loop();
+}
+
+function renderEnsayoFase(e){
+  const box=document.getElementById('ensayoContent');
+  const fase=e.fase||'';
+  let cuerpo='';
+  if(fase==='iniciando'){
+    cuerpo=`<div style="font-size:18px;text-align:center;padding:24px">⏳ Preparando el ensayo…</div>`;
+  } else if(fase==='esperando_arranque'){
+    cuerpo=`
+      <div style="text-align:center;padding:10px">
+        <div style="font-size:19px;margin-bottom:14px">🚦 Listo para grabar — <b>acelerá cuando quieras</b></div>
+        <div style="display:flex;justify-content:center;gap:28px;margin:10px 0">
+          <div><div style="font-size:46px;font-weight:800;color:var(--cyan);line-height:1">${e.vel_actual!=null?e.vel_actual:'—'}</div><div style="color:var(--ink-dim);font-size:12px">km/h</div></div>
+          <div><div style="font-size:46px;font-weight:800;line-height:1">${e.rpm_actual!=null?e.rpm_actual:'—'}</div><div style="color:var(--ink-dim);font-size:12px">RPM</div></div>
+        </div>
+        <div style="color:var(--ink-dim);font-size:13px;margin-top:8px">${esc(e.instruccion||'')}</div>
+        ${e.timeout ? `<button class="chip" style="margin-top:12px" onclick="ensayoAhora()">▶️ Arrancar grabación a mano</button>`:''}
+      </div>`;
+  } else if(fase==='grabando'){
+    const pr=e.progreso||0;
+    cuerpo=`
+      <div style="text-align:center;padding:6px">
+        <div style="font-size:19px;margin-bottom:8px;color:var(--green)">🔴 GRABANDO — acelerá parejo</div>
+        <div style="display:flex;justify-content:center;gap:28px;margin:8px 0">
+          <div><div style="font-size:44px;font-weight:800;color:var(--green);line-height:1">${e.vel_actual!=null?e.vel_actual:'—'}</div><div style="color:var(--ink-dim);font-size:12px">km/h</div></div>
+          <div><div style="font-size:44px;font-weight:800;line-height:1">${e.rpm_actual!=null?e.rpm_actual:'—'}</div><div style="color:var(--ink-dim);font-size:12px">RPM</div></div>
+          <div><div style="font-size:44px;font-weight:800;color:var(--cyan);line-height:1">${e.distancia!=null?e.distancia:'—'}</div><div style="color:var(--ink-dim);font-size:12px">metros</div></div>
+        </div>
+        <div style="height:12px;background:var(--line);border-radius:6px;overflow:hidden;margin:14px 0 6px">
+          <div style="height:100%;width:${pr}%;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .2s"></div>
+        </div>
+        <div style="color:var(--ink-dim);font-size:13px">${esc(e.instruccion||'')}</div>
+        <button class="chip" style="margin-top:12px" onclick="ensayoAhora()">⏹️ Terminar tramo ahora</button>
+      </div>`;
+  } else if(fase==='reporte'){
+    cuerpo=`<div style="font-size:18px;text-align:center;padding:24px">📝 Generando el informe…</div>`;
+  }
+  box.innerHTML=`
+    <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+      ${cuerpo}
+      <div style="margin-top:18px;text-align:right"><button class="chip" onclick="cancelarEnsayo()">✕ Cancelar</button></div>
+    </div>`;
+}
+
+async function ensayoAhora(){ try{ await fetch(API+'/api/ensayo/ahora',{method:'POST'}); }catch(e){} }
+async function cancelarEnsayo(){
+  try{ await fetch(API+'/api/ensayo/cancelar',{method:'POST'}); }catch(e){}
+  ENSAYO.polling=false; toast('Ensayo cancelado','warn'); renderEnsayo();
+}
+
+function renderEnsayoResultado(res){
+  const box=document.getElementById('ensayoContent');
+  if(!res || !res.ok){
+    box.innerHTML=`<div class="error" style="max-width:640px">${esc((res&&res.error)||'El ensayo no se completó.')}</div>
+      <button class="uni-btn" style="margin-top:16px;max-width:240px" onclick="renderEnsayo()">Volver a empezar</button>`;
+    return;
+  }
+  box.innerHTML=`
+    <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+      <div style="font-size:18px;font-weight:700;color:var(--green)">✓ Ensayo completado</div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:14px">
+        <div><div style="font-size:26px;font-weight:800;color:var(--cyan)">${res.distancia!=null?res.distancia:'—'}</div><div style="color:var(--ink-dim);font-size:12px">metros</div></div>
+        <div><div style="font-size:26px;font-weight:800">${res.duracion!=null?res.duracion:'—'}</div><div style="color:var(--ink-dim);font-size:12px">segundos</div></div>
+        <div><div style="font-size:26px;font-weight:800">${res.vel_max!=null?res.vel_max:'—'}</div><div style="color:var(--ink-dim);font-size:12px">km/h máx</div></div>
+        <div><div style="font-size:26px;font-weight:800">${res.rpm_max!=null?res.rpm_max:'—'}</div><div style="color:var(--ink-dim);font-size:12px">RPM máx</div></div>
+      </div>
+      <div style="margin-top:18px;font-size:14px;font-weight:600">Descargar el informe:</div>
+      <div class="obd-quick" style="margin-top:10px">
+        <a href="/api/ensayo/reporte/html" target="_blank"><button>🌐 HTML (ver/imprimir)</button></a>
+        <a href="/api/ensayo/reporte/json"><button>🤖 JSON (para IA)</button></a>
+        <a href="/api/ensayo/reporte/txt"><button>📄 TXT</button></a>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="chip" onclick="subirLogs()">☁ Subir informe a GitHub</button>
+        <button class="chip" onclick="renderEnsayo()">🔁 Hacer otro ensayo</button>
+      </div>
+      <div style="font-size:12px;color:var(--ink-dim);margin-top:12px">💡 Compará este ensayo (en carga) con el Chequeo General (auto detenido) para ver el motor bajo demanda.</div>
+    </div>`;
+}
+
 /* ============================ ANALIZADOR DE ONDAS (Chart.js) ============================ */
 let ONDAS = {
   buffers: {},         // {sensorId: [{t, valor}]}
@@ -2903,6 +3061,7 @@ async function cargarEcusCompatibles(){
 const MENU_COMPLETO = [
   {view:'dash',ico:'📟',txt:'Tablero en vivo'},
   {view:'chequeo',ico:'🩺',txt:'Chequeo general', perf:['f4r','detectado','generico']},
+  {view:'ensayo',ico:'🏁',txt:'Ensayo de aceleración', perf:['f4r','detectado','generico']},
   {view:'ondas',ico:'📈',txt:'Analizador de Ondas'},
   {view:'dtc',ico:'🚨',txt:'Códigos de falla'},
   {view:'sensores',ico:'🎚️',txt:'Elegir sensores'},
