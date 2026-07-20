@@ -53,6 +53,21 @@ después se saca y quedan solo en `log/` local.
   **adaptadores ELM327 WiFi** (`socket://192.168.0.10:35000`), no solo USB.
 - Para probar SOLO la lógica del software sin ELM, sigue estando `options.simulation_mode`.
 
+## Adaptadores (tipos y velocidad)
+- Selector en la pantalla de conexión; tipos en `server.ADAPTADORES` + `GET /api/adaptadores/tipos`.
+  Default **AUTO**: abre con perfil ELM327 (el más tolerante), identifica el chip con `ATI`/`STI`
+  (`_detectar_chip`) y **reabre** al baudrate óptimo si es un chip rápido (STN → 115200).
+  Se reabre, NO se conmuta en caliente: un cambio de baudios a medias deja adaptador y puerto
+  desincronizados y mata la sesión. Fallback: volver a la velocidad anterior.
+- **Por qué importa**: con `opt_stpx_full=False`, `elm.py:796` recorta la lectura de DTC
+  (`1902`→`1902AF`) por límite de baudios. Un chip **STN** (OBDLink SX/EX, cables Renolink) lo
+  evita. La detección STN/STPX ya la hace sola `ELM.__init__` (`elm.py:481-512`); nosotros solo
+  la leemos para informar (`estado.adaptador_info`, también en `GET /api/estado`).
+- **Renolink / "Renlink"**: es software propietario de codificación + un cable con chip STN
+  (superset del ELM327). No es CAN Clip ni J2534. Sus funciones de escritura (ECU/UCH, llaves,
+  airbag, EEPROM/flash) necesitan el **seed-key de Renault (servicio 27)**, no implementado.
+  El proyecto es **solo lectura**: una escritura de flash interrumpida brickea la ECU.
+
 ## Base de descripciones de DTC
 - `app/dtc_db.py` + `app/dtc_generico.json` — `describir(codigo)` resuelve por calidad:
   (1) ~107 curados a mano en español perfecto, (2) base completa de ~9.400 códigos (SAE J2012,

@@ -607,6 +607,9 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       <select id="portSel" onchange="onPortSel()"><option>Buscando puertos…</option></select>
       <input id="portManual" class="hidden" placeholder="socket://192.168.0.10:35000 (WiFi) o socket://localhost:35000 (emulador)"
              style="margin-top:8px;width:100%;padding:8px 10px;border-radius:6px;border:1px solid var(--line2);background:var(--panel);color:var(--ink);font-family:var(--mono);font-size:12px">
+      <label style="margin-top:12px;display:block">Tipo de adaptador</label>
+      <select id="adapSel" onchange="onAdapSel()"><option value="AUTO">Detectar automáticamente</option></select>
+      <div id="adapHint" style="margin-top:6px;font-size:11px;color:var(--ink-dim)">Recomendado — prueba el chip y elige la mejor configuración</div>
     </div>
 
     <button class="gate-btn" id="gateBtn" onclick="doConnect()">Entrar</button>
@@ -1095,6 +1098,7 @@ let ST = {
   ws:null,
   conectado:false,              // ¿hay conexión activa (sim o real) con el adaptador?
   mostrarSoloRelevantes: true,  // por default, mostrar solo sensores relevantes
+  adaptadorInfo:null,           // chip/capacidades del adaptador conectado
   perfil:'ninguno',             // 'ninguno' | 'f4r' (curado) | 'detectado'
   vehiculo:null,
   detectadas:null,
@@ -1120,7 +1124,27 @@ function pickMode(m){
   pendingMode=m;
   document.querySelectorAll('.mode-opt').forEach(o=>o.classList.toggle('sel',o.dataset.mode===m));
   document.getElementById('portField').classList.toggle('hidden',m!=='real');
-  if(m==='real') loadPorts();
+  if(m==='real'){ loadPorts(); loadAdaptadores(); }
+}
+// Tipos de adaptador que soporta el motor. El default (AUTO) identifica el chip y,
+// si es un STN (OBDLink / Renolink / SX), reabre a 115200 en vez de 38400.
+let ADAP_TIPOS=[];
+async function loadAdaptadores(){
+  if(ADAP_TIPOS.length) return;
+  const sel=document.getElementById('adapSel');
+  try{
+    const r=await fetch(API+'/api/adaptadores/tipos'); const j=await r.json();
+    ADAP_TIPOS=j.tipos||[];
+    sel.innerHTML=ADAP_TIPOS.map(t=>`<option value="${esc(t.id)}">${esc(t.nombre)}</option>`).join('');
+    const guardado=localStorage.getItem('meg_adaptador');
+    if(guardado && ADAP_TIPOS.some(t=>t.id===guardado)) sel.value=guardado;
+    onAdapSel();
+  }catch(e){ /* queda la opción AUTO del HTML */ }
+}
+function onAdapSel(){
+  const sel=document.getElementById('adapSel');
+  const t=ADAP_TIPOS.find(x=>x.id===sel.value);
+  document.getElementById('adapHint').textContent=t?t.detalle:'';
 }
 async function loadPorts(){
   const sel=document.getElementById('portSel');
@@ -1144,7 +1168,9 @@ async function doConnect(){
   if(pendingMode==='real'){
     let p=document.getElementById('portSel').value;
     if(p==='__manual__') p=document.getElementById('portManual').value.trim();
-    body.puerto=p; body.adaptador='ELM327';
+    const ad=(document.getElementById('adapSel')||{}).value||'AUTO';
+    body.puerto=p; body.adaptador=ad;
+    localStorage.setItem('meg_adaptador',ad);
   }
   try{
     const r=await fetch(API+'/api/conectar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
@@ -1152,6 +1178,11 @@ async function doConnect(){
     if(!j.ok){ toast(j.error||'No se pudo conectar','err'); btn.disabled=false; btn.textContent='Entrar'; return; }
     ST.connMode=j.modo;
     ST.conectado=true;
+    ST.adaptadorInfo=j.adaptador_info||null;
+    if(ST.adaptadorInfo){
+      const i=ST.adaptadorInfo;
+      toast(`Adaptador: ${i.chip||'?'}${i.stn?' (STN)':''} · ${i.velocidad||'?'} baudios`, i.stn?'ok':'');
+    }
     document.getElementById('gate').classList.add('hidden');
     document.getElementById('app').classList.remove('hidden');
     updateConnPill();
@@ -1427,11 +1458,29 @@ async function buscarAdaptadores(){
   try{ const r=await fetch(API+'/api/adaptadores/buscar'); const j=await r.json(); ST.adap=j.adaptadores||[]; drawAdaptadores(); }
   catch(e){ box.innerHTML=`<div class="empty"><div class="ico">⚠️</div><p>No se pudieron buscar.</p></div>`; }
 }
+// Ficha del adaptador realmente conectado (qué chip resultó ser y qué habilitó).
+function _htmlAdaptadorActual(){
+  const i=ST.adaptadorInfo;
+  if(!i) return '';
+  const cap=(t,ok)=>`<span style="display:inline-block;margin:2px 6px 2px 0;padding:2px 8px;border-radius:10px;font-size:11px;
+    background:${ok?'rgba(61,220,151,.12)':'rgba(255,255,255,.05)'};color:${ok?'var(--green)':'var(--ink-dim)'}">${ok?'✓':'—'} ${t}</span>`;
+  return `<div class="adap-card">
+    <div class="adap-head"><div class="pico">${i.stn?'⚡':'🔌'}</div>
+      <div><div class="pn">Conectado: ${esc(i.chip||'desconocido')}${i.stn?' (STN)':''}</div>
+      <div class="pd">${esc(i.version||'')} · ${i.velocidad||'?'} baudios · perfil ${esc(i.adaptador||'')}</div></div>
+    </div>
+    <div style="padding:0 14px 8px">${cap('STN extendido',!!i.stn)}${cap('STPX completo',!!i.stpx)}</div>
+    ${(i.notas||[]).map(n=>`<div class="adap-nota">${esc(n)}</div>`).join('')}
+  </div>`;
+}
 function drawAdaptadores(){
   const box=document.getElementById('adapContent');
   const consejo=`<div class="act-warn" style="background:rgba(47,212,212,.06);border-color:rgba(47,212,212,.25);color:var(--ink-dim)">
-    💡 <div><b style="color:var(--cyan)">El mejor adaptador</b> es un ELM327 <b>USB</b> con chip original <b>PIC18F25K80</b>.
-    Evitá los clones muy baratos y las versiones WiFi/Bluetooth, que suelen fallar. La OBDLink SX también funciona muy bien.</div></div>`;
+    💡 <div><b style="color:var(--cyan)">El mejor adaptador</b> es uno con chip <b>STN</b> (OBDLink SX/EX, cables Renolink):
+    va a 115200 baudios y habilita <b>STPX</b>, con lo que la lectura de códigos de falla no sale recortada.
+    Un ELM327 <b>USB</b> con chip original <b>PIC18F25K80</b> también anda bien, a 38400.
+    Evitá los clones muy baratos y las versiones WiFi/Bluetooth, que suelen fallar.</div></div>`
+    + _htmlAdaptadorActual();
   if(!ST.adap.length){ box.innerHTML=consejo+`<div class="empty"><div class="ico">🔌</div><h3>No hay adaptadores</h3>
     <p>No se detectó ningún adaptador. Enchufá el ELM327 por USB y tocá “Buscar de nuevo”.</p></div>`; return; }
   box.innerHTML=consejo+ST.adap.map((a,i)=>`<div class="adap-card">
@@ -1450,7 +1499,7 @@ async function testAdaptador(puerto, i){
   const res=document.getElementById('testres_'+i);
   try{
     const r=await fetch(API+'/api/adaptadores/test',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({puerto,adaptador:'ELM327'})});
+      body:JSON.stringify({puerto,adaptador:'AUTO'})});
     const j=await r.json();
     if(!j.ok){ res.innerHTML=`<div class="test-result"><div class="test-verdict incompatible">❌ ${esc(j.error||'No se pudo abrir el adaptador')}</div></div>`; }
     else {
@@ -1459,6 +1508,8 @@ async function testAdaptador(puerto, i){
         <div class="test-verdict ${esc(j.verdicto)}">${esc(j.mensaje)}</div>
         <div class="test-bar"><span style="width:${j.puntaje}%;background:${barColor}"></span></div>
         ${j.version?`<div class="adap-nota">Versión detectada: <b>${esc(j.version)}</b></div>`:''}
+        ${j.chip?`<div class="adap-nota">Chip: <b>${esc(j.chip.chip||'?')}</b>${j.chip.stn?' <b style="color:var(--green)">(STN — más rápido)</b>':''}</div>`:''}
+        ${j.chip&&j.chip.notas?j.chip.notas.map(n=>`<div class="adap-nota">${esc(n)}</div>`).join(''):''}
         ${j.pruebas.map(p=>`<div class="test-step">
           <span class="mk ${p.ok?'ok':'no'}">${p.ok?'✓':'✕'}</span>
           <span class="sn">${esc(p.nombre)}</span>

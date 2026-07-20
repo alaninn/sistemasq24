@@ -7,6 +7,40 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-20] — Soporte real de adaptadores STN (OBDLink / Renolink): detección de chip y 115200 baudios
+
+**Motivo**: se consiguió un cable "Renlink". La investigación mostró que "Renlink" es
+casi seguro una variante ortográfica de **Renolink**, que NO es un clon de CAN Clip ni un
+J2534: es un **software propietario** de codificación (ECU/UCH, llaves, airbag) más un cable
+con chip **STN11xx/STN22xx** — el mismo silicio del OBDLink SX/EX, que es un **superset del
+ELM327** (mismos comandos AT + comandos ST + hasta 1 Mbps). O sea: la ventaja aprovechable
+del cable es de **transporte**, no de protocolo.
+
+- **El problema**: el frontend hardcodeaba `adaptador:'ELM327'` (`index.html`), así que todo
+  se abría a **38400 baudios** aunque el cable soportara 115200. Consecuencia concreta y
+  medible: con `opt_stpx_full` en falso, `elm.py:796` **recorta la lectura de DTC**
+  (`1902` → `1902AF`) justamente por el límite de baudios.
+- **Selector de tipo de adaptador** en la pantalla de conexión: `AUTO` (default) | ELM327 |
+  OBDLINK/STN | VLINKER | VGATE | ELS27. Nuevo `GET /api/adaptadores/tipos`. La elección se
+  recuerda en `localStorage` (`meg_adaptador`).
+- **Modo AUTO**: abre con el perfil genérico (el más tolerante), identifica el chip con
+  `ATI`/`STI` (`_detectar_chip`) y, si es un chip rápido, **reabre** la conexión al baudrate
+  óptimo. Se **reabre en vez de conmutar en caliente**: si el cambio de baudios fallara a
+  mitad, el adaptador queda en un baudrate y el puerto en otro y la sesión muere; reabriendo,
+  el peor caso es volver a la velocidad anterior, que ya sabemos que funciona (y eso está
+  implementado como fallback).
+- **Se informa al usuario** qué chip se detectó y qué habilitó: toast al conectar, ficha en la
+  vista "Adaptador" (STN extendido / STPX completo) y detalle en el test del adaptador.
+  Nuevo campo `adaptador_info` en `GET /api/estado` y en la respuesta de `/api/conectar`.
+- El test de adaptador ahora usa `AUTO` y suma dos pruebas: identificación del chip y STPX.
+- Consejo de la vista "Adaptador" actualizado: el mejor cable ya no es un ELM327 sino uno STN.
+
+**Lo que este cable NO habilita** (para que quede documentado): la codificación de ECU/UCH,
+el matching de llaves, el virginizado de airbag y la escritura de EEPROM/flash viven en el
+software propietario cerrado de Renolink, no en el cable, y requieren el **seed-key de Renault
+(servicio 27)**, que sigue sin implementarse. Además, una escritura de flash interrumpida
+brickea la ECU de forma irreversible: el proyecto se mantiene en **solo lectura**.
+
 ## [2026-07-19] — El token de logs ahora se guarda en el perfil del usuario (sobrevive re-descargas)
 
 - **Problema**: la notebook vuelve a bajar el ZIP del proyecto para probar, y eso borraba el

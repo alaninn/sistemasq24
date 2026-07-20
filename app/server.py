@@ -85,6 +85,8 @@ class Estado:
                        "terminado": False, "resultado": None, "error": None}
         self.ensayo_cancelar = False     # flag para abortar el ensayo
         self.ensayo_ahora = False        # flag "ahora" (forzar arranque o fin del tramo)
+        # chip/capacidades del adaptador conectado (se llena en _conectar_real)
+        self.adaptador_info = None
 
     @property
     def modo_peligroso(self):
@@ -143,18 +145,116 @@ def _conectar_simulacion():
     return {"ok": True, "modo": "simulacion"}
 
 
+# Adaptadores que el motor sabe manejar, con su nombre lindo para la UI.
+# El valor "AUTO" no es un tipo real: dispara la detección del chip (ver _detectar_chip).
+ADAPTADORES = [
+    {"id": "AUTO",     "nombre": "Detectar automáticamente", "detalle": "Recomendado — prueba el chip y elige la mejor configuración"},
+    {"id": "ELM327",   "nombre": "ELM327 (genérico / clon)", "detalle": "El más común. 38400 baudios."},
+    {"id": "OBDLINK",  "nombre": "OBDLink / chip STN (Renolink, SX, EX)", "detalle": "Chip STN11xx/STN22xx. 115200 baudios, mucho más rápido y estable."},
+    {"id": "VLINKER",  "nombre": "Vlinker (FS / BM+)", "detalle": "115200 baudios."},
+    {"id": "VGATE",    "nombre": "VGate / iCar", "detalle": "115200 baudios."},
+    {"id": "ELS27",    "nombre": "ELS27", "detalle": "Inicialización específica de pines CAN."},
+]
+_IDS_ADAPTADOR = {a["id"] for a in ADAPTADORES}
+
+# Tipo interno (DeviceManager) -> tipo de UI que hay que pasarle a ELM()
+_CHIP_A_ADAPTADOR = {
+    "obdlink": "OBDLINK", "obdlink_ex": "OBDLINK", "vgate": "VGATE",
+    "vlinker": "VLINKER", "els27": "ELS27", "elm327": "ELM327", "unknown": "ELM327",
+}
+
+
+def _velocidad_optima(adaptador):
+    """Baudrate óptimo declarado por DeviceManager para ese tipo de adaptador."""
+    from sistemasq24.core.elm.device_manager import DeviceManager
+    try:
+        return int(DeviceManager.get_optimal_settings(adaptador).get("baudrate", 38400))
+    except Exception:
+        return 38400
+
+
+def _detectar_chip(elm):
+    """Identifica el chip del adaptador ya conectado (ATI + STI).
+
+    Devuelve (adaptador_ui, info) donde info describe qué capacidades quedaron
+    habilitadas. La detección STN (opt_stpx_full / opt_stn_basic) la hace sola
+    ELM.__init__ al arrancar; acá sólo la leemos para informar al usuario.
+    """
+    from sistemasq24.core.elm.device_manager import DeviceManager
+    chip = "unknown"
+    version = ""
+    try:
+        chip = DeviceManager.detect_device_type(elm) or "unknown"
+    except Exception:
+        pass
+    try:
+        version = (elm.send_raw("ATI") or "").strip()[:60]
+    except Exception:
+        pass
+    info = {
+        "chip": chip,
+        "adaptador": _CHIP_A_ADAPTADOR.get(chip, "ELM327"),
+        "version": version,
+        "stn": bool(getattr(options, "opt_stn_basic", False)),
+        "stpx": bool(getattr(options, "opt_stpx_full", False)),
+        "velocidad": int(getattr(options, "port_speed", 0) or 0),
+        "buffer": int(getattr(options, "elm_uart_buffer_size", 0) or 0),
+    }
+    notas = []
+    if info["stpx"]:
+        notas.append("STPX completo: lectura de DTC sin recortar (servicio 19 entero) y flujo ISO-TP optimizado.")
+    else:
+        notas.append("Sin STPX: la lectura de DTC va recortada (1902 → 1902AF) por límite de baudios.")
+    if info["stn"]:
+        notas.append("Chip STN detectado: soporta comandos ST extendidos y CAN multicanal.")
+    info["notas"] = notas
+    return info["adaptador"], info
+
+
+def _abrir_elm(puerto, velocidad, adaptador):
+    """Abre el ELM y devuelve (elm, error). No toca el estado global."""
+    from sistemasq24.core.elm.elm import ELM
+    try:
+        elm = ELM(puerto, velocidad, adaptador)
+    except Exception as e:
+        return None, f"No se pudo abrir el adaptador: {e}"
+    try:
+        if not elm.connectionStat():
+            _cerrar_elm(elm)
+            return None, "El adaptador no respondió. Revisá el cable/puerto."
+    except Exception as e:
+        _cerrar_elm(elm)
+        return None, f"Error verificando conexión: {e}"
+    return elm, None
+
+
+def _cerrar_elm(elm):
+    if elm is None:
+        return
+    try:
+        elm.__del__()
+    except Exception:
+        pass
+
+
 def _conectar_real(puerto, velocidad, adaptador):
-    """Conecta al adaptador OBD-II real (ELM327, VLinker, etc).
+    """Conecta al adaptador OBD-II real (ELM327, OBDLink/STN, VLinker, etc).
+
+    Si `adaptador` es "AUTO", abre a velocidad base, identifica el chip y — si es
+    uno que soporta más baudios que los actuales — REABRE la conexión a la
+    velocidad óptima. Se reabre en vez de conmutar en caliente: si el cambio de
+    baudios falla a mitad de camino, el adaptador queda en un baudrate y el
+    puerto en otro, y la sesión muere. Reabriendo, el peor caso es volver a la
+    velocidad anterior, que ya sabemos que funciona.
 
     Args:
-        puerto: puerto serie (ej: COM3, /dev/ttyUSB0)
-        velocidad: baudrate (típicamente 38400)
-        adaptador: tipo de adaptador (ELM327, STPX, VGate, etc)
+        puerto: puerto serie (ej: COM3, /dev/ttyUSB0) o URL (socket://…)
+        velocidad: baudrate base (típicamente 38400)
+        adaptador: "AUTO" | ELM327 | OBDLINK | VLINKER | VGATE | ELS27
 
     Returns:
-        dict con {ok: bool, modo: str, puerto: str} o {ok: False, error: str}
+        dict con {ok, modo, puerto, adaptador_info} o {ok: False, error: str}
     """
-    from sistemasq24.core.elm.elm import ELM
     # Validar inputs antes de usarlos
     if not puerto or not str(puerto).strip():
         return {"ok": False, "error": "Puerto debe especificarse"}
@@ -165,40 +265,72 @@ def _conectar_real(puerto, velocidad, adaptador):
     except (ValueError, TypeError):
         return {"ok": False, "error": "Velocidad debe ser un número"}
 
-    options.simulation_mode = False
-    try:
-        options.elm = ELM(puerto, velocidad, adaptador)
-    except Exception as e:
-        options.elm = None
-        with ESTADO_LOCK:
-            estado.conectado = False
-            estado.modo = "desconectado"
-        slog.log("CONEXION", f"Error conectando: {e}", {})
-        return {"ok": False, "error": f"No se pudo abrir el adaptador: {e}"}
+    adaptador = (adaptador or "AUTO").upper().strip()
+    if adaptador not in _IDS_ADAPTADOR:
+        adaptador = "AUTO"
+    auto = adaptador == "AUTO"
+    # En AUTO arrancamos con el perfil genérico (el más tolerante) y después afinamos.
+    tipo_inicial = "ELM327" if auto else adaptador
+    if not auto:
+        # Si el usuario eligió un adaptador concreto, respetamos su baudrate óptimo:
+        # ELM.__init__ prueba ese primero y cae a los demás solo si falla.
+        velocidad = _velocidad_optima(tipo_inicial)
 
-    try:
-        if not options.elm.connectionStat():
-            options.elm = None
-            with ESTADO_LOCK:
-                estado.conectado = False
-                estado.modo = "desconectado"
-            return {"ok": False, "error": "El adaptador no respondió. Revisá el cable/puerto."}
-    except Exception as e:
+    options.simulation_mode = False
+    elm, err = _abrir_elm(puerto, velocidad, tipo_inicial)
+    if elm is None:
         options.elm = None
         with ESTADO_LOCK:
             estado.conectado = False
             estado.modo = "desconectado"
-        slog.log("CONEXION", f"Error verificando conexión: {e}", {})
-        return {"ok": False, "error": f"Error verificando conexión: {e}"}
+            estado.adaptador_info = None
+        slog.log("CONEXION", f"Error conectando: {err}", {"puerto": puerto})
+        return {"ok": False, "error": err}
+
+    tipo_final = tipo_inicial
+    info = None
+    if auto:
+        detectado, info = _detectar_chip(elm)
+        objetivo = _velocidad_optima(detectado)
+        actual = int(getattr(options, "port_speed", velocidad) or velocidad)
+        if detectado != "ELM327" and objetivo > actual:
+            # Vale la pena reabrir más rápido. Si no anda, volvemos a lo que había.
+            _cerrar_elm(elm)
+            elm2, err2 = _abrir_elm(puerto, objetivo, detectado)
+            if elm2 is not None:
+                elm, tipo_final = elm2, detectado
+                _, info = _detectar_chip(elm)
+                info["notas"].append(f"Velocidad subida de {actual} a {int(getattr(options,'port_speed',objetivo) or objetivo)} baudios.")
+            else:
+                elm, err = _abrir_elm(puerto, actual, tipo_inicial)
+                if elm is None:
+                    options.elm = None
+                    with ESTADO_LOCK:
+                        estado.conectado = False
+                        estado.modo = "desconectado"
+                        estado.adaptador_info = None
+                    return {"ok": False, "error": f"El adaptador dejó de responder al reconectar: {err}"}
+                _, info = _detectar_chip(elm)
+                info["notas"].append(f"No se pudo usar {objetivo} baudios ({err2}); sigue a {actual}.")
+        else:
+            tipo_final = detectado
+
+    options.elm = elm
+    if info is None:
+        _, info = _detectar_chip(elm)
+    info["adaptador"] = tipo_final
 
     with ESTADO_LOCK:
         estado.conectado = True
         estado.modo = "real"
         estado.puerto = puerto
         estado.ecu_activa = None
+        estado.adaptador_info = info
     _enganchar_log_elm()
-    slog.log("CONEXION", "Conectado al auto (real)", {"puerto": puerto, "velocidad": velocidad, "adaptador": adaptador})
-    return {"ok": True, "modo": "real", "puerto": puerto}
+    slog.log("CONEXION", "Conectado al auto (real)",
+             {"puerto": puerto, "velocidad": info.get("velocidad"), "adaptador": tipo_final,
+              "chip": info.get("chip"), "stn": info.get("stn"), "stpx": info.get("stpx")})
+    return {"ok": True, "modo": "real", "puerto": puerto, "adaptador_info": info}
 
 
 def _enganchar_log_elm():
@@ -306,7 +438,13 @@ def _test_adaptador(puerto, adaptador):
     """Abre el adaptador y corre una batería de comandos AT para medir compatibilidad."""
     from sistemasq24.core.elm.elm import ELM
     from sistemasq24.core.elm.device_manager import DeviceManager
-    settings = DeviceManager.get_optimal_settings(adaptador)
+    adaptador = (adaptador or "AUTO").upper().strip()
+    if adaptador not in _IDS_ADAPTADOR:
+        adaptador = "AUTO"
+    # En AUTO probamos con el perfil genérico (el más tolerante) y después informamos
+    # qué chip resultó ser.
+    tipo = "ELM327" if adaptador == "AUTO" else adaptador
+    settings = DeviceManager.get_optimal_settings(tipo)
     velocidad = settings.get("baudrate", 38400)
 
     pruebas = []
@@ -318,7 +456,7 @@ def _test_adaptador(puerto, adaptador):
     elm = None
     try:
         try:
-            elm = ELM(puerto, velocidad, adaptador)
+            elm = ELM(puerto, velocidad, tipo)
         except Exception as e:
             options.simulation_mode = prev_sim
             return {"ok": False, "error": f"No se pudo abrir el puerto {puerto}: {e}",
@@ -328,6 +466,14 @@ def _test_adaptador(puerto, adaptador):
             prueba("Conexión al puerto", False, "El adaptador no respondió")
             return _resultado_test(puerto, velocidad, adaptador, pruebas, None)
         prueba("Conexión al puerto", True, f"Abierto a {velocidad} baudios")
+
+        # Identificar el chip: es lo que decide si el cable es un ELM327 pelado o
+        # un STN (más rápido, con STPX). Se informa al usuario en el resultado.
+        chip_ui, info_chip = _detectar_chip(elm)
+        prueba("Identificación del chip", info_chip.get("chip") != "unknown",
+               f"{info_chip.get('chip')}" + (" (STN)" if info_chip.get("stn") else ""))
+        if info_chip.get("stpx"):
+            prueba("STPX completo (STN)", True, "lectura de DTC sin recortar")
 
         # ATZ: reinicio, debería devolver "ELM327 vX.X"
         version = None
@@ -358,7 +504,7 @@ def _test_adaptador(puerto, adaptador):
         except Exception as e:
             prueba("Comando básico (ATE0)", False, str(e))
 
-        return _resultado_test(puerto, velocidad, adaptador, pruebas, version)
+        return _resultado_test(puerto, velocidad, adaptador, pruebas, version, info_chip)
     finally:
         if elm is not None:
             try:
@@ -368,7 +514,7 @@ def _test_adaptador(puerto, adaptador):
         options.simulation_mode = prev_sim
 
 
-def _resultado_test(puerto, velocidad, adaptador, pruebas, version):
+def _resultado_test(puerto, velocidad, adaptador, pruebas, version, info_chip=None):
     total = len(pruebas)
     ok = sum(1 for p in pruebas if p["ok"])
     pct = int(round(100 * ok / total)) if total else 0
@@ -384,7 +530,7 @@ def _resultado_test(puerto, velocidad, adaptador, pruebas, version):
     return {
         "ok": True, "puerto": puerto, "velocidad": velocidad, "adaptador": adaptador,
         "version": version, "pruebas": pruebas, "puntaje": pct,
-        "verdicto": verdicto, "mensaje": mensaje,
+        "verdicto": verdicto, "mensaje": mensaje, "chip": info_chip,
     }
 
 
@@ -395,7 +541,7 @@ class ConexionReq(BaseModel):
     modo: str = "simulacion"          # "simulacion" | "real"
     puerto: str = ""
     velocidad: int = 38400
-    adaptador: str = "ELM327"
+    adaptador: str = "AUTO"           # AUTO | ELM327 | OBDLINK | VLINKER | VGATE | ELS27
 
 
 class PeligroReq(BaseModel):
@@ -740,6 +886,7 @@ def api_estado():
         "ecu_activa": estado.ecu_activa,
         "modo_peligroso": estado.modo_peligroso,
         "captura_automatica": estado.captura_automatica,
+        "adaptador_info": estado.adaptador_info,
     }
 
 
@@ -779,6 +926,7 @@ def api_desconectar():
         estado.modo = "desconectado"
         estado.ecu_activa = None
         estado.vehiculo_seleccionado = None
+        estado.adaptador_info = None
         estado.actuadores_activos = {}   # cortar el keep-alive de actuadores
         estado.chequeo_cancelar = True   # abortar chequeo si estaba corriendo
         estado.ensayo_cancelar = True    # abortar ensayo si estaba corriendo
@@ -1275,9 +1423,15 @@ def api_adaptadores_buscar():
     return {"adaptadores": puertos}
 
 
+@app.get("/api/adaptadores/tipos")
+def api_adaptadores_tipos():
+    """Lista los tipos de adaptador que el motor sabe manejar (para el selector)."""
+    return {"tipos": ADAPTADORES}
+
+
 class TestAdaptadorReq(BaseModel):
     puerto: str
-    adaptador: str = "ELM327"
+    adaptador: str = "AUTO"
 
 
 @app.post("/api/adaptadores/test")
