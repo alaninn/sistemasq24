@@ -7,6 +7,23 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — El token de logs ahora se guarda en el perfil del usuario (sobrevive re-descargas)
+
+- **Problema**: la notebook vuelve a bajar el ZIP del proyecto para probar, y eso borraba el
+  `github_token.txt` (está dentro de la carpeta) → había que volver a configurarlo cada vez.
+- **Fix**: el token ahora se guarda en **`~/.sistemasq24/github_token.txt`** (perfil del
+  usuario, FUERA del repo). Se configura **una sola vez por notebook** y sobrevive a todas las
+  re-descargas. `_github_token()` busca en orden: perfil → carpeta del proyecto → env
+  `GITHUB_TOKEN`.
+- **Por qué NO se commitea el token al repo** (se evaluó y se descartó): el repo es público y
+  el *secret scanning* de GitHub **revoca automáticamente** cualquier token que aparezca en un
+  commit, así que subirlo rompería la función a los minutos — además de quedar para siempre en
+  el historial. La subida a GitHub requiere autenticación sí o sí (no hay escritura anónima),
+  por eso la vía es un token propio + el ZIP como alternativa sin configuración.
+- Agregados `GET /api/config` y `POST /api/config/debug` (modo prueba) para poder **ocultar
+  más adelante** las herramientas de depuración al usuario común. **No se oculta nada por
+  ahora**: seguimos en pruebas y todo queda a la vista.
+
 ## [2026-07-19] — FIX: subir logs desde la notebook (no tenía token ni git → callejón sin salida)
 
 En la notebook la subida fallaba con "git no está instalado": no hay `github_token.txt`

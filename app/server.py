@@ -453,14 +453,30 @@ def api_grabar_estado():
 GITHUB_REPO = "alaninn/sistemasq24"   # owner/repo para la API de subida de logs
 
 
+def _token_en_perfil():
+    """Ruta del token en el PERFIL DEL USUARIO (fuera del repo).
+    Guardarlo acá es clave: la notebook re-descarga el ZIP del proyecto y pierde todo lo que
+    esté adentro de la carpeta, pero esto sobrevive. Y nunca se puede commitear por error."""
+    from pathlib import Path as _P
+    return _P.home() / ".sistemasq24" / "github_token.txt"
+
+
 def _github_token():
-    """Token de GitHub para subir logs por API: de github_token.txt o env GITHUB_TOKEN."""
+    """Token de GitHub para subir logs por API. Busca, en orden:
+    1) el perfil del usuario (~/.sistemasq24/github_token.txt) — sobrevive re-descargas,
+    2) github_token.txt en la carpeta del proyecto (gitignoreado),
+    3) la variable de entorno GITHUB_TOKEN.
+    NUNCA se sube al repo: es público y GitHub revoca automáticamente los tokens que detecta
+    en un commit (secret scanning), así que subirlo rompería la función."""
     import os
-    tf = APP_DIR.parent / "github_token.txt"
-    if tf.exists():
-        t = tf.read_text(encoding="utf-8").strip()
-        if t:
-            return t
+    for tf in (_token_en_perfil(), APP_DIR.parent / "github_token.txt"):
+        try:
+            if tf.exists():
+                t = tf.read_text(encoding="utf-8").strip()
+                if t:
+                    return t
+        except Exception:
+            pass
     return os.environ.get("GITHUB_TOKEN", "").strip() or None
 
 
@@ -566,6 +582,54 @@ class TokenReq(BaseModel):
     token: str
 
 
+class DebugReq(BaseModel):
+    activo: bool
+
+
+def _config_path():
+    """Config local del usuario (fuera del repo, sobrevive re-descargas del proyecto)."""
+    from pathlib import Path as _P
+    return _P.home() / ".sistemasq24" / "config.json"
+
+
+def _leer_config():
+    import json as _json
+    try:
+        return _json.loads(_config_path().read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _modo_debug():
+    """¿Mostrar las herramientas de depuración (subir logs, token…)?
+    Por defecto SÍ: estamos en pruebas. Cuando el scanner se entregue a un usuario común se
+    apaga desde la interfaz y esas opciones desaparecen."""
+    return bool(_leer_config().get("modo_debug", True))
+
+
+@app.get("/api/config")
+def api_config():
+    """Config de la interfaz (qué mostrar)."""
+    return {"modo_debug": _modo_debug(), "tiene_token": bool(_github_token())}
+
+
+@app.post("/api/config/debug")
+def api_config_debug(req: DebugReq):
+    """Activa/desactiva el MODO PRUEBA. Con el modo apagado, la interfaz esconde las
+    herramientas de depuración (subir logs, guardar token, bajar ZIP)."""
+    import json as _json
+    cfg = _leer_config()
+    cfg["modo_debug"] = bool(req.activo)
+    try:
+        p = _config_path()
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(_json.dumps(cfg, ensure_ascii=False, indent=1), encoding="utf-8")
+    except Exception as e:
+        return {"ok": False, "error": f"No se pudo guardar la config: {e}"}
+    slog.log("CONFIG", f"Modo prueba {'ACTIVADO' if req.activo else 'DESACTIVADO'}", {})
+    return {"ok": True, "modo_debug": cfg["modo_debug"]}
+
+
 @app.get("/api/logs/token-estado")
 def api_logs_token_estado():
     """¿Esta máquina tiene token de GitHub guardado?"""
@@ -596,12 +660,22 @@ def api_logs_token(req: TokenReq):
     except Exception as e:
         return {"ok": False, "error": f"El token no funciona ({e}). Revisá que lo hayas "
                                       f"copiado completo y que tenga acceso al repo."}
+    # Se guarda en el PERFIL DEL USUARIO, no en la carpeta del proyecto: así sobrevive a que
+    # la notebook vuelva a bajar el ZIP del repo (que borra todo lo de adentro).
+    destino = _token_en_perfil()
     try:
-        (APP_DIR.parent / "github_token.txt").write_text(token, encoding="utf-8")
-    except Exception as e:
-        return {"ok": False, "error": f"No se pudo guardar el token: {e}"}
-    slog.log("LOGS", "Token de GitHub guardado desde la interfaz", {})
-    return {"ok": True, "mensaje": "Token guardado. Ya podés subir los logs."}
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_text(token, encoding="utf-8")
+    except Exception:
+        try:   # fallback: dentro del proyecto (gitignoreado)
+            destino = APP_DIR.parent / "github_token.txt"
+            destino.write_text(token, encoding="utf-8")
+        except Exception as e:
+            return {"ok": False, "error": f"No se pudo guardar el token: {e}"}
+    slog.log("LOGS", "Token de GitHub guardado", {"destino": str(destino)})
+    return {"ok": True, "guardado_en": str(destino),
+            "mensaje": "Token guardado en tu perfil de usuario (no se pierde aunque vuelvas "
+                       "a bajar el proyecto). Ya podés subir los logs."}
 
 
 @app.get("/api/logs/descargar")
