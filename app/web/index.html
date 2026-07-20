@@ -1030,8 +1030,58 @@ const SENSORES_PRECARGADOS = [
   'Temps injection réel',                              // tiempo de inyección
   'Facteur enrichissement regulation richesse',        // ajuste de combustible CORTO (PID 06)
   'Correction adaptative de la 1ère zone de pression', // ajuste de combustible LARGO (PID 07)
+  'Etat stratégie régulation richesse',                // estado de LAZO CERRADO / abierto
   'Pression de suralimentation',                       // presión de sobrealimentación (turbo)
 ];
+// Versión de la lista de precargados. Al subirla, los tableros YA guardados reciben los
+// sensores nuevos que les falten (sin perder los que el usuario eligió a mano).
+const PRECARGADOS_VER = 2;
+
+// Alias en "idioma de taller": las etiquetas del F4R son traducción literal del francés
+// ("Factor de enriquecimiento de la regulación de riqueza"), así que buscar "ajuste de
+// combustible" no encontraba nada. Acá se mapea dato original -> {alias visible, términos
+// de búsqueda}. El alias se muestra al lado de la etiqueta y el buscador matchea ambos.
+const SENSOR_ALIAS = {
+  'Facteur enrichissement regulation richesse':
+    {alias:'ajuste corto de combustible', buscar:'ajuste corto combustible fuel trim stft short lambda sonda riqueza mezcla'},
+  'Correction adaptative de la 1ère zone de pression':
+    {alias:'ajuste largo de combustible (zona 1)', buscar:'ajuste largo combustible fuel trim ltft long adaptativo lambda riqueza mezcla'},
+  'Correction adaptative de la 2ème zone de pression':
+    {alias:'ajuste largo de combustible (zona 2)', buscar:'ajuste largo combustible fuel trim ltft long adaptativo riqueza'},
+  'Correction adaptative de la 3ème zone de pression':
+    {alias:'ajuste largo de combustible (zona 3)', buscar:'ajuste largo combustible fuel trim ltft long adaptativo riqueza'},
+  'Correction adaptative de la 4ème zone de pression':
+    {alias:'ajuste largo de combustible (zona 4)', buscar:'ajuste largo combustible fuel trim ltft long adaptativo riqueza'},
+  'Correction adaptative de la 5ème zone de pression':
+    {alias:'ajuste largo de combustible (zona 5)', buscar:'ajuste largo combustible fuel trim ltft long adaptativo riqueza'},
+  'Etat stratégie régulation richesse':
+    {alias:'estado de lazo cerrado / abierto', buscar:'lazo cerrado abierto closed open loop estado regulacion riqueza lambda sonda mezcla'},
+  'Offset apprentissage regulation richesse':
+    {alias:'aprendizaje de mezcla (offset)', buscar:'ajuste largo aprendizaje adaptativo offset combustible riqueza'},
+  'Gain apprentissage regulation richesse':
+    {alias:'aprendizaje de mezcla (ganancia)', buscar:'ajuste largo aprendizaje adaptativo ganancia combustible riqueza'},
+  'Tension sonde amont':
+    {alias:'sonda lambda 1 (antes del catalizador)', buscar:'sonda lambda oxigeno o2 amont pre cat banco 1 tension'},
+  'Tension sonde aval':
+    {alias:'sonda lambda 2 (después del catalizador)', buscar:'sonda lambda oxigeno o2 aval post cat banco 1 tension catalizador'},
+  'Position papillon mesurée piste 1 après filtrage':
+    {alias:'posición del acelerador (mariposa)', buscar:'acelerador mariposa throttle tps posicion papillon'},
+  'Position pédale mesurée':
+    {alias:'posición del pedal del acelerador', buscar:'pedal acelerador throttle posicion'},
+  'Pression collecteur absolue mesurée':
+    {alias:'presión del colector (MAP)', buscar:'map colector presion absoluta admision'},
+  'Régime moteur': {alias:'RPM del motor', buscar:'rpm revoluciones regimen motor'},
+  'Vitesse véhicule': {alias:'velocidad del vehículo', buscar:'velocidad kmh speed vehiculo'},
+  'Température eau mesurée': {alias:'temperatura del refrigerante', buscar:'temperatura agua refrigerante motor ect'},
+  'Température air mesurée': {alias:'temperatura del aire de admisión', buscar:'temperatura aire admision iat'},
+  'Tension batterie mesurée': {alias:'tensión de batería', buscar:'bateria tension voltaje alternador carga'},
+  'Avance allumage': {alias:'avance de encendido', buscar:'avance encendido ignicion timing'},
+  'Temps injection réel': {alias:'tiempo de inyección', buscar:'inyeccion tiempo pulso inyector ancho'},
+  'Pression de suralimentation': {alias:'presión de turbo (boost)', buscar:'turbo boost sobrealimentacion presion'},
+  'Débit air moteur évalué': {alias:'caudal de aire (MAF estimado)', buscar:'maf caudal aire masa flujo admision'},
+  'Valeur max correction lente avance cliquetis': {alias:'corrección por detonación (knock)', buscar:'knock cliquetis detonacion picado avance correccion'},
+};
+function _aliasDe(dato){ return SENSOR_ALIAS[dato]; }
 
 let ST = {
   ecus: [],                 // lista de ECUs
@@ -1547,7 +1597,30 @@ async function ensureParams(){
   // Si es primera vez (localStorage vacío), cargar sensores precargados
   if(ST.selected.size===0 && localStorage.getItem('meg_sel')===null){
     _autoSelectDefault();
+  } else {
+    _migrarPrecargados();   // tablero ya guardado: sumarle los sensores nuevos que falten
   }
+}
+// Cuando se amplía la lista curada (PRECARGADOS_VER), los tableros YA guardados no veían
+// los sensores nuevos (ajuste corto/largo de combustible, lazo cerrado…) porque
+// _autoSelectDefault solo corre con el tablero vacío. Acá se suman los que falten, SIN
+// tocar los que el usuario eligió a mano.
+function _migrarPrecargados(){
+  if(ST.perfil!=='f4r') return;
+  const ver=parseInt(localStorage.getItem('meg_sel_ver')||'0',10);
+  if(ver>=PRECARGADOS_VER) return;
+  let sumados=0;
+  for(const nombre of SENSORES_PRECARGADOS){
+    let yaEsta=false;
+    for(const id of ST.selected){ if(ST.paramMeta[id] && ST.paramMeta[id].dato===nombre){ yaEsta=true; break; } }
+    if(yaEsta) continue;
+    for(const id in ST.paramMeta){
+      if(ST.paramMeta[id].dato===nombre){ ST.selected.add(id); sumados++; break; }
+    }
+  }
+  localStorage.setItem('meg_sel',JSON.stringify([...ST.selected]));
+  localStorage.setItem('meg_sel_ver',String(PRECARGADOS_VER));
+  if(sumados) setTimeout(()=>toast(`➕ Se agregaron ${sumados} sensores nuevos al tablero (ajuste de combustible, lazo cerrado…)`,'ok'),800);
 }
 function _autoSelectDefault(){
   // Los sensores precargados a mano son del Mégane F4R: solo aplican en perfil curado.
@@ -1569,6 +1642,7 @@ function _autoSelectDefault(){
     return;
   }
   // F4R: los precargados se matchean por el nombre ORIGINAL del parámetro (dato).
+  localStorage.setItem('meg_sel_ver',String(PRECARGADOS_VER));
   for(const nombre of SENSORES_PRECARGADOS){
     for(const id in ST.paramMeta){
       if(ST.paramMeta[id].dato===nombre){
@@ -1750,6 +1824,14 @@ function esSensorDestacado(p){
   if(ST.perfil==='f4r') return SENSORES_RELEVANTES.has(p.dato);
   return p.util !== false;
 }
+// Busca por la etiqueta Y por el alias de taller (para que "ajuste de combustible" o
+// "lazo cerrado" encuentren los sensores del F4R, que están nombrados en francés literal).
+function _matcheaBusqueda(p,q){
+  if(p.etiqueta.toLowerCase().includes(q)) return true;
+  const a=_aliasDe(p.dato);
+  if(a && ((a.alias+' '+a.buscar).toLowerCase().includes(q))) return true;
+  return false;
+}
 // ¿Mostrar este sensor con el filtro activo? (apagado = todos)
 function esSensorMostrable(p){
   if(!ST.mostrarSoloRelevantes) return true;
@@ -1762,7 +1844,7 @@ function renderSelector(){
   for(const e of ST.ecus){
     if(ST.ecuFilter!=='all'&&ST.ecuFilter!==e.id) continue;
     for(const p of (ST.params[e.id]||[])){
-      if(q && !p.etiqueta.toLowerCase().includes(q)) continue;
+      if(q && !_matcheaBusqueda(p,q)) continue;
       if(!esSensorMostrable(p)) continue;
       rows.push({p,e});
     }
@@ -1774,7 +1856,7 @@ function renderSelector(){
     const sel=ST.selected.has(p.id);
     return `<div class="param-row ${sel?'sel':''}" onclick="toggleParam('${esc(p.id)}')">
       <div class="chk">✓</div>
-      <div class="pname">${esc(p.etiqueta)}</div>
+      <div class="pname">${esc(p.etiqueta)}${(()=>{const a=_aliasDe(p.dato);return a?` <span style="color:var(--cyan);font-size:11px;font-weight:600">· ${esc(a.alias)}</span>`:'';})()}</div>
       ${p.unidad?`<div class="punit">${esc(p.unidad)}</div>`:''}
       <div class="pecu">${e.icon} ${esc(e.nombre.split(' ')[0])}</div>
       <button class="help-btn" onclick="event.stopPropagation();showHelp('${esc(p.id)}')">?</button>
@@ -1792,7 +1874,7 @@ function selectAllParams(){
   for(const e of ST.ecus){
     if(ST.ecuFilter!=='all'&&ST.ecuFilter!==e.id) continue;
     for(const p of (ST.params[e.id]||[])){
-      if(q && !p.etiqueta.toLowerCase().includes(q)) continue;
+      if(q && !_matcheaBusqueda(p,q)) continue;
       if(!esSensorMostrable(p)) continue;
       ST.selected.add(p.id);
     }

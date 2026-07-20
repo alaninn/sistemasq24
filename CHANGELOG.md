@@ -7,6 +7,28 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — FIX: el ajuste de combustible del F4R existía pero era imposible de encontrar
+
+El usuario reportó que en el F4R seguía sin ver el ajuste corto/largo de combustible (que sí
+aparece en el scanner genérico). Los sensores YA estaban en las listas curadas; el problema
+eran **dos bugs de usabilidad**:
+- **Los tableros ya guardados nunca recibían los sensores nuevos**: `_autoSelectDefault()`
+  solo corre si el tablero está VACÍO, así que ampliar la lista curada no le servía a nadie
+  que ya tuviera sensores elegidos. **Fix**: `PRECARGADOS_VER` + `_migrarPrecargados()` —
+  suma al tablero los precargados que falten **sin tocar los que el usuario eligió a mano**,
+  y avisa con un toast.
+- **No se podían buscar**: las etiquetas del F4R son traducción literal del francés
+  ("Factor de enriquecimiento de la regulación de riqueza"), así que buscar *"ajuste de
+  combustible"*, *"fuel trim"* o *"lazo cerrado"* no devolvía NADA. **Fix**: tabla
+  `SENSOR_ALIAS` (dato → alias de taller + términos de búsqueda). El buscador ahora matchea
+  etiqueta **y** alias (en el selector de sensores **y** en el analizador de ondas), y la fila
+  muestra el alias en cian al lado del nombre técnico.
+- **Agregado el estado de LAZO CERRADO** (`Etat stratégie régulation richesse`) a los
+  precargados, como pidió el usuario. Ahora son 17.
+- Verificado: 17/17 precargados y todos los alias matchean parámetros reales; las búsquedas
+  "ajuste corto de combustible", "ajuste largo", "fuel trim", "lazo cerrado", "sonda lambda"
+  y "acelerador" encuentran el sensor correcto. `node --check` OK.
+
 ## [2026-07-19] — FIX de los 2 módulos nuevos probados en el auto real (ensayo y chequeo)
 
 ### Ensayo de aceleración: nunca detectaba el movimiento
