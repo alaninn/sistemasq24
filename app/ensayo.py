@@ -188,35 +188,67 @@ class Ensayo:
         }
         return valores, vel, rpm
 
+    def _probar_velocidad(self, tecu, reqs, vel_info, rpm_info):
+        """Prueba si la ECU realmente devuelve velocidad (no todas la exponen).
+        Devuelve True/False; se informa al frontend para explicar qué esperar."""
+        if self.ctx.simulacion():
+            return True
+        if not vel_info:
+            return False
+        for _ in range(3):
+            _v, vel, _r = self._muestra(tecu, reqs, vel_info, rpm_info)
+            if vel is not None:
+                return True
+        return False
+
     # ------------------------------------------------------------------ fases
     def _fase_espera(self, tecu, reqs, vel_info, rpm_info):
-        """Espera a que el auto arranque (velocidad > umbral sostenida) o inicio forzado."""
+        """Espera a que el auto arranque (velocidad > umbral sostenida) o inicio forzado.
+        Si la ECU no da velocidad, avisa y espera el arranque manual (o sube de RPM)."""
         self.ctx.reset_ahora()
+        vel_ok = self.datos.get("vel_disponible", True)
         t_ini = time.time()
         moviendo_desde = None
+        rpm_base = None
         while True:
             if self.ctx.cancelado():
                 return False
             _val, vel, rpm = self._muestra(tecu, reqs, vel_info, rpm_info)
+            if rpm is not None and rpm_base is None and rpm > 0:
+                rpm_base = rpm          # ralentí de referencia
+            if vel_ok:
+                instr = ("Cuando estés listo en un tramo seguro, acelerá. "
+                         "La grabación arranca sola al detectar movimiento.")
+            else:
+                instr = ("Esta ECU no informa la velocidad. Tocá «Arrancar grabación» "
+                         "justo antes de acelerar (el tramo se mide por tiempo).")
             self._set(fase="esperando_arranque",
                       vel_actual=round(vel) if vel is not None else None,
                       rpm_actual=round(rpm) if rpm is not None else None,
-                      distancia=0, progreso=0, timeout=False,
-                      instruccion="Cuando estés listo en un tramo seguro, acelerá. "
-                                  "La grabación arranca sola al detectar movimiento.")
-            if self.ctx.ahora():           # inicio manual forzado
+                      vel_disponible=vel_ok,
+                      distancia=0, progreso=0, timeout=not vel_ok,
+                      instruccion=instr)
+            if self.ctx.ahora():           # inicio manual forzado (botón siempre disponible)
                 return True
-            if vel is not None and vel >= UMBRAL_ARRANQUE_KMH:
+            if vel_ok and vel is not None and vel >= UMBRAL_ARRANQUE_KMH:
                 if moviendo_desde is None:
                     moviendo_desde = time.time()
                 elif time.time() - moviendo_desde >= ESTABLE_ARRANQUE_SEG:
                     return True
             else:
                 moviendo_desde = None
+            # Sin velocidad: arrancar solo si las RPM suben claramente sobre el ralentí
+            # (el usuario ya está acelerando). Es una ayuda, no reemplaza el botón.
+            if (not vel_ok and rpm is not None and rpm_base
+                    and rpm > rpm_base + 800):
+                if moviendo_desde is None:
+                    moviendo_desde = time.time()
+                elif time.time() - moviendo_desde >= ESTABLE_ARRANQUE_SEG:
+                    return True
             if time.time() - t_ini > TIMEOUT_ARRANQUE and not self.ctx.simulacion():
                 self._set(timeout=True,
-                          instruccion="No detecté movimiento. Si la velocidad no se lee, "
-                                      "podés arrancar la grabación a mano.")
+                          instruccion="No detecté movimiento. Arrancá la grabación a mano "
+                                      "justo antes de acelerar.")
             time.sleep(0.25)
 
     def _fase_grabando(self, tecu, reqs, vel_info, rpm_info):
@@ -246,15 +278,25 @@ class Ensayo:
                 "rpm": round(rpm) if rpm is not None else None,
                 "valores": valores,
             })
+            vel_ok = self.datos.get("vel_disponible", True)
+            transcurrido = ahora - self._t_run0
+            if vel_ok:
+                progreso = min(100, round(distancia / self.distancia_objetivo * 100))
+                instr = (f"Grabando… acelerá parejo. "
+                         f"{round(distancia)} de {round(self.distancia_objetivo)} m")
+            else:
+                # sin velocidad no hay distancia: el tramo se mide por tiempo
+                progreso = min(100, round(transcurrido / TIMEOUT_GRABANDO * 100))
+                instr = (f"Grabando… acelerá parejo. {round(transcurrido, 1)} s "
+                         f"(tocá «Terminar tramo» al llegar a los "
+                         f"{round(self.distancia_objetivo)} m)")
             self._set(fase="grabando",
                       vel_actual=round(vel) if vel is not None else None,
                       rpm_actual=round(rpm) if rpm is not None else None,
-                      distancia=round(distancia, 1),
-                      progreso=min(100, round(distancia / self.distancia_objetivo * 100)),
-                      instruccion=f"Grabando… acelerá parejo. "
-                                  f"{round(distancia)} de {round(self.distancia_objetivo)} m")
+                      distancia=round(distancia, 1), vel_disponible=vel_ok,
+                      progreso=progreso, instruccion=instr)
             # --- condiciones de fin ---
-            if distancia >= self.distancia_objetivo:
+            if vel_ok and distancia >= self.distancia_objetivo:
                 motivo = "distancia"; break
             if self.ctx.ahora():
                 motivo = "manual"; break
@@ -280,6 +322,7 @@ class Ensayo:
             "duracion_seg": round(dur, 1),
             "n_muestras": len(muestras),
             "motivo_fin": motivo,
+            "velocidad_disponible": self.datos.get("vel_disponible", True),
             "vel_max": round(max(vels), 1) if vels else None,
             "vel_final": vels[-1] if vels else None,
             "rpm_max": max(rpms) if rpms else None,
@@ -323,6 +366,13 @@ class Ensayo:
             vel_info = self._buscar_param(tecu, ["vitesse", "velocidad", "vehicle speed", "speed"])
             rpm_info = self._buscar_param(tecu, ["régime", "regime", "régimen", "rpm"])
             reqs = self._requests_captura(tecu)
+            # CRÍTICO: los requests de velocidad y RPM tienen que estar SÍ o SÍ en la captura,
+            # si no `vel`/`rpm` salen None y el ensayo nunca detecta el arranque.
+            for info in (vel_info, rpm_info):
+                if info and info[0] not in reqs:
+                    reqs.insert(0, info[0])
+            # ¿la velocidad se lee de verdad? (algunas ECU de motor no la exponen)
+            self.datos["vel_disponible"] = self._probar_velocidad(tecu, reqs, vel_info, rpm_info)
             if not self._fase_espera(tecu, reqs, vel_info, rpm_info):
                 return {"ok": False, "error": "Ensayo cancelado antes de arrancar."}
             if not self._fase_grabando(tecu, reqs, vel_info, rpm_info):

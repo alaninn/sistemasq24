@@ -22,6 +22,13 @@ RALENTI_SEG = 5.0      # duración de la captura a ralentí
 
 ETAPAS_RPM = [1500, 2000, 3000]
 
+# El paneo lee SOLO la ECU del motor: leer todas las ECUs (cada request de cada una) tarda
+# muchísimo en el auto real — el ELM lee de a una y `_seleccionar_ecu` reabre sesión — y el
+# chequeo parecía colgado. Los DTC de los otros módulos se ven en "Escanear"/"Códigos".
+SOLO_MOTOR_EN_PANEO = True
+PRESUPUESTO_PANEO = 90     # seg máx leyendo sensores en el paneo (después corta y sigue)
+MAX_FALLOS_SEGUIDOS = 8    # si la ECU deja de responder, no seguir insistiendo
+
 # Nombres (dato original) de los sensores CLAVE que varían con las RPM — se capturan
 # a alta frecuencia en las etapas de RPM. Si no se encuentran (otro perfil), se cae a
 # los primeros requests útiles.
@@ -179,7 +186,13 @@ class Chequeo:
         """Lee todas las ECUs del perfil: identificación + una lectura de cada request
         legible + DTCs."""
         ecus = self.ctx.registro.list()
+        if SOLO_MOTOR_EN_PANEO:
+            motor = self._motor_tecu()
+            mid = getattr(motor, "id", None)
+            solo = [e for e in ecus if e["id"] == mid]
+            ecus = solo or ecus[:1]
         total = max(1, len(ecus))
+        t_paneo0 = time.time()
         for i, info in enumerate(ecus):
             if self.ctx.cancelado():
                 return False
@@ -204,12 +217,29 @@ class Chequeo:
             for p in tecu.readable_params():
                 if p["request"] not in reqs:
                     reqs.append(p["request"])
-            for r in reqs:
+            fallos = 0
+            for j, r in enumerate(reqs):
                 if self.ctx.cancelado():
                     return False
+                # Presupuesto de tiempo: si el auto responde lento, cortar y seguir con los
+                # DTC y las etapas de RPM en vez de quedar colgado leyendo cientos de requests.
+                if time.time() - t_paneo0 > PRESUPUESTO_PANEO:
+                    self.ctx.log("CHEQUEO", "Paneo cortado por tiempo", {
+                        "ecu": eid, "leidos": j, "total": len(reqs)})
+                    break
+                if fallos >= MAX_FALLOS_SEGUIDOS:
+                    self.ctx.log("CHEQUEO", "Paneo cortado: la ECU dejó de responder",
+                                 {"ecu": eid, "leidos": j})
+                    break
+                self._set(fase="paneo",
+                          progreso=round((i + (j + 1) / max(1, len(reqs))) / total * 100),
+                          instruccion=f"Leyendo {info['nombre']}… sensor {j+1}/{len(reqs)}")
                 vals = self._leer_request(tecu, r)
                 if vals:
+                    fallos = 0
                     ecu_data["sensores"].update(self._valores_legibles(vals))
+                else:
+                    fallos += 1
             # DTCs
             try:
                 with self.ctx.elm_lock:

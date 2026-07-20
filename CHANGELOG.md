@@ -7,6 +7,30 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — FIX de los 2 módulos nuevos probados en el auto real (ensayo y chequeo)
+
+### Ensayo de aceleración: nunca detectaba el movimiento
+- **Bug raíz**: el request de la VELOCIDAD podía no estar entre los que se capturaban
+  (`_requests_captura` filtra por la lista de sensores clave), así que `vel` salía siempre
+  `None` → la condición de arranque nunca se cumplía y quedaba esperando para siempre.
+- **Fix**: los requests de **velocidad y RPM se fuerzan SÍ o SÍ** en la captura.
+- **Fix 2 (ECUs que no dan velocidad)**: al iniciar se **prueba si la velocidad se lee**
+  (`_probar_velocidad`). Si no, el ensayo pasa a modo **por tiempo**: avisa en pantalla, el
+  botón **«Arrancar grabación ahora»** está **siempre visible** (antes solo aparecía tras 2
+  min de timeout) y el tramo se corta con «Terminar tramo». Además, sin velocidad, arranca
+  solo si las RPM suben >800 sobre el ralentí. El reporte marca `velocidad_disponible`.
+
+### Chequeo general: se tildaba leyendo ECUs innecesarias
+- **Bug raíz**: el paneo leía **todas las ECUs y cada request de cada una**. En el auto real
+  el ELM lee de a una y `_seleccionar_ecu` reabre sesión → cientos de lecturas seriadas:
+  parecía colgado.
+- **Fix**: el paneo lee **SOLO la ECU del motor** (`SOLO_MOTOR_EN_PANEO`), que es lo que
+  importa para el chequeo. Además: **presupuesto de tiempo** (90 s; si el auto responde
+  lento corta y sigue con DTC + etapas de RPM en vez de colgarse), corte si la ECU deja de
+  responder (8 fallos seguidos) y **progreso por sensor** ("sensor 12/80") para que se vea
+  que avanza. Verificado: pasó de leer 6 ECUs a 1.
+- Textos de la pantalla actualizados para reflejar que es solo el motor.
+
 ## [2026-07-19] — Log de consola: captura TODO lo que sale por la pantalla de CMD
 
 - **`app/consola_log.py`** (NUEVO) — en cada arranque crea `log/consola_<fecha>.txt` que
