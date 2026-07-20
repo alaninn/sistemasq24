@@ -553,11 +553,92 @@ def api_logs_subir():
                              "tiene el repo clonado ni credenciales?). Poné un token en "
                              "github_token.txt. Detalle: " + (push.stderr or push.stdout or "").strip()[:300]}
     except FileNotFoundError:
-        return {"ok": False, "error": "No hay token en github_token.txt y git no está instalado. "
-                "Creá un token de GitHub y guardalo en github_token.txt (ver LEEME)."}
+        return {"ok": False, "falta_token": True,
+                "error": "Esta máquina no tiene token de GitHub ni git instalado. "
+                         "Pegá un token acá (se guarda para las próximas veces) o bajá "
+                         "los logs en un ZIP y mandámelos por otra vía."}
     except Exception as e:
         return {"ok": False, "error": f"Error subiendo logs: {e}"}
     return {"ok": True, "archivos": copiados, "mensaje": f"{len(copiados)} log(s) subidos a GitHub."}
+
+
+class TokenReq(BaseModel):
+    token: str
+
+
+@app.get("/api/logs/token-estado")
+def api_logs_token_estado():
+    """¿Esta máquina tiene token de GitHub guardado?"""
+    return {"tiene_token": bool(_github_token())}
+
+
+@app.post("/api/logs/token")
+def api_logs_token(req: TokenReq):
+    """Guarda el token de GitHub en github_token.txt (gitignoreado) desde la interfaz, así
+    la notebook no necesita crear archivos a mano ni tener git instalado. Valida el token
+    contra la API antes de guardarlo."""
+    import json as _json
+    import urllib.request
+    token = (req.token or "").strip()
+    if not token:
+        return {"ok": False, "error": "Pegá el token."}
+    # validar contra la API (que exista y tenga acceso al repo)
+    try:
+        r = urllib.request.Request(
+            f"https://api.github.com/repos/{GITHUB_REPO}",
+            headers={"Authorization": f"token {token}",
+                     "Accept": "application/vnd.github+json", "User-Agent": "sq24"})
+        info = _json.load(urllib.request.urlopen(r, timeout=30))
+        if not info.get("permissions", {}).get("push"):
+            return {"ok": False, "error": "El token es válido pero NO tiene permiso de "
+                                          "escritura sobre el repo. Creá uno con permiso "
+                                          "'Contents: Read and write'."}
+    except Exception as e:
+        return {"ok": False, "error": f"El token no funciona ({e}). Revisá que lo hayas "
+                                      f"copiado completo y que tenga acceso al repo."}
+    try:
+        (APP_DIR.parent / "github_token.txt").write_text(token, encoding="utf-8")
+    except Exception as e:
+        return {"ok": False, "error": f"No se pudo guardar el token: {e}"}
+    slog.log("LOGS", "Token de GitHub guardado desde la interfaz", {})
+    return {"ok": True, "mensaje": "Token guardado. Ya podés subir los logs."}
+
+
+@app.get("/api/logs/descargar")
+def api_logs_descargar():
+    """Descarga TODOS los logs y reportes en un ZIP. Alternativa que funciona siempre:
+    sin token, sin git y sin internet (para pasarlos por mail/pendrive/WhatsApp)."""
+    import io as _io
+    import zipfile as _zip
+    from datetime import datetime as _dt
+    try:
+        if slog.activo:
+            slog._guardar()
+    except Exception:
+        pass
+    log_dir = APP_DIR.parent / "log"
+    patrones = ("sesion_*.txt", "sesion_*.json", "consola_*.txt",
+                "reporte_*.json", "reporte_*.txt", "reporte_*.html",
+                "ensayo_*.json", "ensayo_*.txt", "ensayo_*.html")
+    archivos = []
+    if log_dir.exists():
+        for p in patrones:
+            archivos += sorted(log_dir.glob(p))
+    if not archivos:
+        return JSONResponse({"error": "Todavía no hay logs ni reportes para descargar."},
+                            status_code=404)
+    buf = _io.BytesIO()
+    with _zip.ZipFile(buf, "w", _zip.ZIP_DEFLATED) as z:
+        for f in archivos:
+            try:
+                z.write(f, arcname=f.name)
+            except Exception:
+                pass
+    buf.seek(0)
+    nombre = "logs_sistemasq24_" + _dt.now().strftime("%Y%m%d_%H%M%S") + ".zip"
+    from fastapi.responses import Response
+    return Response(content=buf.read(), media_type="application/zip",
+                    headers={"Content-Disposition": f'attachment; filename="{nombre}"'})
 
 
 @app.post("/api/captura-automatica/toggle")

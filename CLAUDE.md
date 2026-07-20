@@ -16,9 +16,13 @@ logs a GitHub, a la carpeta `debug-logs/`. El endpoint `POST /api/logs/subir` su
 **API de GitHub con un token** (`github_token.txt` en la raíz, o env `GITHUB_TOKEN`) — así
 funciona **sin git ni .git** en la notebook (que bajó el ZIP). Si no hay token, cae al git
 CLI (solo sirve en una PC con el repo clonado + credenciales).
-- **Setup del token (una vez por notebook):** crear un Personal Access Token en GitHub con
-  permiso de escritura de contenido del repo, y guardarlo en `megane2_f4r/github_token.txt`.
-  Ese archivo está gitignoreado (nunca se sube).
+- **Setup del token (una vez por notebook):** ya NO hace falta crear el archivo a mano. Si la
+  subida falla, la app abre un diálogo con dos salidas:
+  1. **📦 Bajar logs en ZIP** (`GET /api/logs/descargar`) — funciona SIEMPRE (sin token, sin
+     git, sin internet). Es la vía rápida para que el usuario mande los logs por otro medio.
+  2. **🔑 Pegar un token** (`POST /api/logs/token`) — se valida contra la API (que exista y
+     tenga permiso de push) y se guarda en `github_token.txt` (gitignoreado). De ahí en
+     adelante la notebook sube sola.
 Cuando el usuario dice **"revisá los logs desde acá"**: hago `git pull` y **leo los
 `sesion_*.txt` de `debug-logs/`** (tienen fecha en el nombre) para depurar. Es **temporal**;
 después se saca y quedan solo en `log/` local.

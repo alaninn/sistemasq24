@@ -2108,16 +2108,65 @@ async function readScreen(auto){
 
 /* ============================ SUBIR LOGS A GITHUB (temporal, debug) ============================ */
 async function subirLogs(){
+  // el botón no existe en todas las pantallas (chequeo/ensayo lo llaman también)
   const btn=document.getElementById('subirLogsBtn');
-  const txt=btn.textContent;
-  btn.disabled=true; btn.textContent='☁ Subiendo…';
+  const txt=btn?btn.textContent:'';
+  if(btn){ btn.disabled=true; btn.textContent='☁ Subiendo…'; }
   try{
     const r=await fetch(API+'/api/logs/subir',{method:'POST'});
     const j=await r.json();
     if(j.ok) toast('☁ '+(j.mensaje||'Logs subidos a GitHub'),'ok');
-    else toast('⚠ '+(j.error||'No se pudieron subir'),'err');
-  }catch(e){ toast('Error subiendo logs','err'); }
-  btn.disabled=false; btn.textContent=txt;
+    else modalLogs(j.error||'No se pudieron subir');
+  }catch(e){ modalLogs('No se pudo contactar al servidor local.'); }
+  if(btn){ btn.disabled=false; btn.textContent=txt; }
+}
+
+// Si la subida falla (típico en la notebook: sin token de GitHub y sin git instalado),
+// ofrecer las dos salidas: pegar un token, o bajar los logs en un ZIP (siempre funciona).
+function modalLogs(error){
+  modal(`
+    <h3 style="margin:0 0 8px">☁ No se pudieron subir los logs</h3>
+    <div style="font-size:13px;color:var(--ink-dim);margin-bottom:14px">${esc(error)}</div>
+
+    <div style="background:var(--panel2);border:1px solid var(--line2);border-radius:8px;padding:12px;margin-bottom:12px">
+      <div style="font-weight:600;font-size:14px;margin-bottom:6px">📦 Opción rápida: bajar los logs</div>
+      <div style="font-size:12px;color:var(--ink-dim);margin-bottom:10px">Descarga un ZIP con todos los logs y reportes. Funciona siempre (sin internet, sin token, sin git). Mandámelo por donde quieras.</div>
+      <a href="/api/logs/descargar"><button class="uni-btn" style="max-width:260px">📦 Bajar logs en ZIP</button></a>
+    </div>
+
+    <div style="background:var(--panel2);border:1px solid var(--line2);border-radius:8px;padding:12px">
+      <div style="font-weight:600;font-size:14px;margin-bottom:6px">🔑 Opción permanente: guardar un token</div>
+      <div style="font-size:12px;color:var(--ink-dim);margin-bottom:8px">
+        Con un token, esta máquina sube los logs sola de acá en adelante (no necesita git).
+        Crealo en GitHub → Settings → Developer settings → <b>Personal access tokens</b>, con permiso
+        <b>Contents: Read and write</b> sobre el repo. Se guarda solo en esta PC.
+      </div>
+      <input id="ghTokenInput" type="password" placeholder="Pegá el token acá (ghp_… o github_pat_…)"
+             style="width:100%;padding:9px 11px;border-radius:7px;border:1px solid var(--line2);background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:12px">
+      <div id="ghTokenMsg" style="font-size:12px;margin-top:8px"></div>
+      <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end">
+        <button class="chip" onclick="closeModal()">Cerrar</button>
+        <button class="uni-btn" style="max-width:180px;margin:0" onclick="guardarTokenGithub()">Guardar y subir</button>
+      </div>
+    </div>`);
+}
+
+async function guardarTokenGithub(){
+  const inp=document.getElementById('ghTokenInput');
+  const msg=document.getElementById('ghTokenMsg');
+  const token=(inp.value||'').trim();
+  if(!token){ msg.innerHTML='<span style="color:var(--amber)">Pegá el token primero.</span>'; return; }
+  msg.innerHTML='<span style="color:var(--ink-dim)">Validando el token…</span>';
+  try{
+    const r=await fetch(API+'/api/logs/token',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token})});
+    const j=await r.json();
+    if(!j.ok){ msg.innerHTML=`<span style="color:var(--red)">${esc(j.error||'No se pudo guardar')}</span>`; return; }
+    msg.innerHTML='<span style="color:var(--green)">✓ Token guardado. Subiendo los logs…</span>';
+    const r2=await fetch(API+'/api/logs/subir',{method:'POST'});
+    const j2=await r2.json();
+    if(j2.ok){ closeModal(); toast('☁ '+(j2.mensaje||'Logs subidos a GitHub'),'ok'); }
+    else msg.innerHTML=`<span style="color:var(--red)">${esc(j2.error||'No se pudieron subir')}</span>`;
+  }catch(e){ msg.innerHTML='<span style="color:var(--red)">Error de conexión.</span>'; }
 }
 
 /* ============================ GRABAR SESIÓN ============================ */

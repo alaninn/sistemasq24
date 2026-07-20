@@ -7,6 +7,23 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-19] — FIX: subir logs desde la notebook (no tenía token ni git → callejón sin salida)
+
+En la notebook la subida fallaba con "git no está instalado": no hay `github_token.txt`
+(está gitignoreado, así que al bajar el ZIP no viene) NI git CLI → se quedaba sin las dos
+vías y el usuario no podía hacer nada desde la app. Ahora hay dos salidas:
+- **📦 Bajar logs en ZIP** — `GET /api/logs/descargar` arma un ZIP con todos los logs de
+  sesión, los `consola_*` y los reportes de chequeo/ensayo. **Funciona siempre**: sin token,
+  sin git y sin internet. Es la vía rápida para mandar los logs por cualquier medio.
+- **🔑 Pegar el token desde la app** — `POST /api/logs/token` valida el token contra la API
+  de GitHub (que exista y tenga permiso de escritura) y lo guarda en `github_token.txt`; si
+  valida, sube los logs en el acto. Ya no hay que crear archivos a mano ni instalar git.
+  `GET /api/logs/token-estado` dice si la máquina ya tiene token.
+- El error ahora abre un **diálogo explicando ambas opciones** en vez de un toast rojo, con
+  instrucciones de dónde sacar el token y qué permiso necesita.
+- De paso: `subirLogs()` fallaba si se lo llamaba desde el chequeo/ensayo (buscaba un botón
+  que no existe en esas pantallas). Arreglado.
+
 ## [2026-07-19] — FIX: el ajuste de combustible del F4R existía pero era imposible de encontrar
 
 El usuario reportó que en el F4R seguía sin ver el ajuste corto/largo de combustible (que sí
