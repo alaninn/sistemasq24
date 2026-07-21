@@ -1,0 +1,100 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260721_202252
+==================================================================
+
+[20:22:52.049] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[20:22:52.049] (+   0.0s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-21 20:22:52
+
+[20:22:52.185] (+  0.14s) ELM      diag
+           → envío:     21 A0  (32.3 ms)
+           → respuesta: 61 A0 C5 00 7C 0F 05 03 03 2B 02 F0 00 00 00 00 00 4F 15 03 00 01 49 00 00 00 
+
+[20:22:52.521] (+  0.47s) ELM      diag
+           → envío:     21 A0  (34.0 ms)
+           → respuesta: 61 A0 C5 00 7C 0E B5 03 03 2E 02 F0 00 00 00 00 00 58 15 03 00 01 49 00 00 00 
+
+[20:22:52.857] (+  0.81s) ELM      diag
+           → envío:     21 A0  (34.0 ms)
+           → respuesta: 61 A0 BC 00 7C 0E C0 03 03 21 02 F0 00 00 00 00 00 5B 15 03 00 01 49 00 00 00 
+
+[20:22:53.196] (+  1.15s) ELM      diag
+           → envío:     21 A0  (36.3 ms)
+           → respuesta: 61 A0 C8 00 7C 0E F5 03 03 1B 02 F0 00 00 00 00 00 54 15 03 00 01 49 00 00 00 
+
+[20:22:53.530] (+  1.48s) ELM      diag
+           → envío:     21 A0  (33.3 ms)
+           → respuesta: 61 A0 C7 00 7C 14 CA 03 03 2B 02 F0 00 00 00 00 00 60 15 03 00 01 49 00 00 00 
+
+[20:22:53.863] (+  1.81s) ELM      diag
+           → envío:     21 A0  (32.4 ms)
+           → respuesta: 61 A0 C6 00 7C 13 20 03 03 B3 02 F0 00 00 00 00 00 6F 15 03 00 01 49 00 00 00 
+
+[20:22:54.199] (+  2.15s) ELM      diag
+           → envío:     21 A0  (32.6 ms)
+           → respuesta: 61 A0 C8 00 7C 10 30 03 04 77 02 F0 00 00 00 00 00 7B 15 03 00 01 4A 00 00 00 
+
+[20:22:54.535] (+  2.49s) ELM      diag
+           → envío:     21 A0  (33.3 ms)
+           → respuesta: 61 A0 C2 00 7C 0E 8A 03 05 04 02 F0 00 00 00 00 00 85 15 03 00 01 4A 00 00 00 
+
+[20:22:54.871] (+  2.82s) ELM      diag
+           → envío:     21 A0  (33.6 ms)
+           → respuesta: 61 A0 BD 00 7C 0D 45 03 05 6B 02 F0 00 00 00 00 00 8A 15 03 00 01 4A 00 00 00 
+
+[20:22:55.223] (+  3.17s) ELM      diag
+           → envío:     21 A0  (50.0 ms)
+           → respuesta: 61 A0 C8 00 7C 0C 95 03 05 A1 02 F0 00 00 00 00 00 8B 15 03 00 01 4A 00 00 00 
+
+[20:22:55.556] (+  3.51s) ELM      diag
+           → envío:     21 A0  (27.9 ms)
+           → respuesta: 61 A0 BF 00 7C 0C 30 03 05 B4 02 F0 00 00 00 00 00 89 15 03 00 01 4A 00 00 00 
+
+[20:22:55.895] (+  3.85s) ELM      diag
+           → envío:     21 A0  (35.8 ms)
+           → respuesta: 61 A0 BE 00 7C 0C 3A 03 05 AD 02 F0 00 00 00 00 00 86 15 03 00 01 4A 00 00 00 
+
+[20:22:56.228] (+  4.18s) ELM      diag
+           → envío:     21 A0  (31.0 ms)
+           → respuesta: 61 A0 C6 00 7C 0A 65 03 05 96 02 F0 00 00 00 00 00 79 15 03 00 01 4A 00 00 00 
+
+[20:22:56.563] (+  4.51s) ELM      diag
+           → envío:     21 A0  (32.8 ms)
+           → respuesta: 61 A0 C7 00 7C 09 50 03 05 00 02 F0 00 00 00 00 00 4A 15 03 00 01 4A 00 00 00 
+
+[20:22:56.899] (+  4.85s) ELM      diag
+           → envío:     21 A0  (33.5 ms)
+           → respuesta: 61 A0 C5 00 7C 0B 45 03 04 22 02 F0 00 00 00 00 00 64 15 03 00 01 4A 00 00 00 
+
+[20:22:57.235] (+  5.19s) ELM      diag
+           → envío:     21 A0  (33.4 ms)
+           → respuesta: 61 A0 C5 00 7C 0D 60 03 03 7B 02 F0 00 00 00 00 00 64 15 03 00 01 4B 00 00 00 
+
+[20:22:57.577] (+  5.53s) ELM      diag
+           → envío:     21 A0  (39.5 ms)
+           → respuesta: 61 A0 C5 00 7C 0E 90 03 03 2C 02 F0 00 00 00 00 00 64 15 03 00 01 4B 00 00 00 
+
+[20:22:59.766] (+  7.72s) ELM      keep-alive
+           → envío:     3E00  (41.1 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:23:02.203] (+ 10.15s) ELM      keep-alive
+           → envío:     3E00  (33.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:23:04.631] (+ 12.58s) ELM      keep-alive
+           → envío:     3E00  (26.8 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:23:05.462] (+ 13.41s) SESION   Fin de grabación
+           · eventos: 22
