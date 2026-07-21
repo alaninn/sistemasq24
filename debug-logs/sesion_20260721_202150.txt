@@ -1,0 +1,48 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260721_202150
+==================================================================
+
+[20:21:50.151] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[20:21:50.159] (+  0.01s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-21 20:21:50
+
+[20:21:50.810] (+  0.66s) ELM      keep-alive
+           → envío:     3E00  (40.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:21:53.290] (+  3.14s) ELM      keep-alive
+           → envío:     3E00  (58.7 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:21:55.700] (+  5.55s) ELM      keep-alive
+           → envío:     3E00  (32.0 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:21:58.143] (+  7.99s) ELM      keep-alive
+           → envío:     3E00  (25.9 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:22:00.571] (+ 10.42s) ELM      keep-alive
+           → envío:     3E00  (27.7 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:22:03.033] (+ 12.88s) ELM      keep-alive
+           → envío:     3E00  (38.4 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:22:05.476] (+ 15.33s) ELM      keep-alive
+           → envío:     3E00  (27.3 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[20:22:05.813] (+ 15.66s) SESION   Fin de grabación
+           · eventos: 9
