@@ -1,0 +1,359 @@
+{
+ "fecha": "2026-07-21 20:24:28",
+ "perfil": "generico",
+ "vehiculo": "OBD-II Genérico",
+ "ecus": [
+  {
+   "id": "obd",
+   "nombre": "Motor (OBD-II Genérico)",
+   "icon": "🌐",
+   "identificacion": {},
+   "presente": true,
+   "sensores": {
+    "Ajuste corto de combustible B1": "0.8 %",
+    "Ajuste largo de combustible B1": "30.5 %",
+    "Avance de encendido": "5.0 °",
+    "Carga calculada del motor": "18.8 %",
+    "Distancia con testigo MIL": "0 km",
+    "Posición del acelerador": "11.8 %",
+    "Presión absoluta del colector (MAP)": "32 kPa",
+    "Régimen del motor (RPM)": "763 RPM",
+    "Sonda lambda 1 — tensión": "0.115 V",
+    "Sonda lambda 2 — tensión": "0.455 V",
+    "Temperatura del aire de admisión": "37 °C",
+    "Temperatura del refrigerante": "71 °C",
+    "Velocidad del vehículo": "0 km/h"
+   },
+   "dtcs": [],
+   "evaluaciones": {
+    "Ajuste corto de combustible B1": {
+     "estado": "sin_rango"
+    },
+    "Ajuste largo de combustible B1": {
+     "estado": "sin_rango"
+    },
+    "Avance de encendido": {
+     "estado": "sin_rango"
+    },
+    "Carga calculada del motor": {
+     "estado": "sin_rango"
+    },
+    "Distancia con testigo MIL": {
+     "estado": "sin_rango"
+    },
+    "Posición del acelerador": {
+     "estado": "sin_rango"
+    },
+    "Presión absoluta del colector (MAP)": {
+     "estado": "sin_rango"
+    },
+    "Régimen del motor (RPM)": {
+     "estado": "sin_rango"
+    },
+    "Sonda lambda 1 — tensión": {
+     "estado": "sin_rango"
+    },
+    "Sonda lambda 2 — tensión": {
+     "estado": "sin_rango"
+    },
+    "Temperatura del aire de admisión": {
+     "estado": "sin_rango"
+    },
+    "Temperatura del refrigerante": {
+     "estado": "sin_rango"
+    },
+    "Velocidad del vehículo": {
+     "estado": "sin_rango"
+    }
+   }
+  }
+ ],
+ "rpm_etapas": {
+  "ralenti": {
+   "rpm_prom": 755.43,
+   "n_muestras": 14,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 5.86,
+     "minimo": 3.0,
+     "maximo": 9.0,
+     "desv_std": 1.87,
+     "unidad": "°",
+     "muestras": 14,
+     "oscila": true
+    },
+    "Posición del acelerador": {
+     "promedio": 11.8,
+     "minimo": 11.8,
+     "maximo": 11.8,
+     "desv_std": 0.0,
+     "unidad": "%",
+     "muestras": 14,
+     "oscila": false
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 32.0,
+     "minimo": 32.0,
+     "maximo": 32.0,
+     "desv_std": 0.0,
+     "unidad": "kPa",
+     "muestras": 14,
+     "oscila": false
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 755.43,
+     "minimo": 740.0,
+     "maximo": 764.0,
+     "desv_std": 7.48,
+     "unidad": "RPM",
+     "muestras": 14,
+     "oscila": false
+    },
+    "Sonda lambda 1 — tensión": {
+     "promedio": 0.38,
+     "minimo": 0.09,
+     "maximo": 0.69,
+     "desv_std": 0.2,
+     "unidad": "V",
+     "muestras": 14,
+     "oscila": true
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 37.0,
+     "minimo": 37.0,
+     "maximo": 37.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 14,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 71.36,
+     "minimo": 71.0,
+     "maximo": 72.0,
+     "desv_std": 0.48,
+     "unidad": "°C",
+     "muestras": 14,
+     "oscila": false
+    }
+   }
+  },
+  "1500": {
+   "rpm_prom": 1637.71,
+   "n_muestras": 14,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 31.89,
+     "minimo": 30.0,
+     "maximo": 32.5,
+     "desv_std": 0.63,
+     "unidad": "°",
+     "muestras": 14,
+     "oscila": true
+    },
+    "Posición del acelerador": {
+     "promedio": 13.73,
+     "minimo": 13.7,
+     "maximo": 14.1,
+     "desv_std": 0.1,
+     "unidad": "%",
+     "muestras": 14,
+     "oscila": false
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 29.36,
+     "minimo": 29.0,
+     "maximo": 31.0,
+     "desv_std": 0.61,
+     "unidad": "kPa",
+     "muestras": 14,
+     "oscila": true
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 1637.71,
+     "minimo": 1535.0,
+     "maximo": 1669.0,
+     "desv_std": 36.87,
+     "unidad": "RPM",
+     "muestras": 14,
+     "oscila": true
+    },
+    "Sonda lambda 1 — tensión": {
+     "promedio": 0.47,
+     "minimo": 0.26,
+     "maximo": 0.68,
+     "desv_std": 0.12,
+     "unidad": "V",
+     "muestras": 14,
+     "oscila": true
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 37.0,
+     "minimo": 37.0,
+     "maximo": 37.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 14,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 72.57,
+     "minimo": 72.0,
+     "maximo": 73.0,
+     "desv_std": 0.49,
+     "unidad": "°C",
+     "muestras": 14,
+     "oscila": false
+    }
+   }
+  },
+  "2000": {
+   "rpm_prom": 2127.15,
+   "n_muestras": 13,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 38.19,
+     "minimo": 34.0,
+     "maximo": 39.0,
+     "desv_std": 1.26,
+     "unidad": "°",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Posición del acelerador": {
+     "promedio": 14.99,
+     "minimo": 14.9,
+     "maximo": 16.1,
+     "desv_std": 0.32,
+     "unidad": "%",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 29.08,
+     "minimo": 28.0,
+     "maximo": 35.0,
+     "desv_std": 2.02,
+     "unidad": "kPa",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 2127.15,
+     "minimo": 2069.0,
+     "maximo": 2232.0,
+     "desv_std": 50.65,
+     "unidad": "RPM",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Sonda lambda 1 — tensión": {
+     "promedio": 0.26,
+     "minimo": 0.07,
+     "maximo": 0.83,
+     "desv_std": 0.27,
+     "unidad": "V",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 37.0,
+     "minimo": 37.0,
+     "maximo": 37.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 73.77,
+     "minimo": 73.0,
+     "maximo": 74.0,
+     "desv_std": 0.42,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    }
+   }
+  },
+  "3000": {
+   "rpm_prom": 3103.62,
+   "n_muestras": 13,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 45.46,
+     "minimo": 45.0,
+     "maximo": 46.0,
+     "desv_std": 0.24,
+     "unidad": "°",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Posición del acelerador": {
+     "promedio": 16.9,
+     "minimo": 16.9,
+     "maximo": 16.9,
+     "desv_std": 0.0,
+     "unidad": "%",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 29.38,
+     "minimo": 29.0,
+     "maximo": 30.0,
+     "desv_std": 0.49,
+     "unidad": "kPa",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 3103.62,
+     "minimo": 3081.0,
+     "maximo": 3117.0,
+     "desv_std": 9.44,
+     "unidad": "RPM",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Sonda lambda 1 — tensión": {
+     "promedio": 0.34,
+     "minimo": 0.07,
+     "maximo": 0.82,
+     "desv_std": 0.32,
+     "unidad": "V",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 37.0,
+     "minimo": 37.0,
+     "maximo": 37.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 75.62,
+     "minimo": 75.0,
+     "maximo": 76.0,
+     "desv_std": 0.49,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    }
+   }
+  }
+ },
+ "resumen": {
+  "generado": "2026-07-21 20:25:06",
+  "sensores_totales": 13,
+  "sensores_ok": 0,
+  "sensores_en_atencion": 0,
+  "atencion": [],
+  "dtcs_totales": 0,
+  "dtcs": [],
+  "con_rangos": false
+ }
+}
