@@ -19,10 +19,32 @@ def _u16(d, i=0):
     return (d[i] << 8) | d[i + 1]
 
 
+def _s16(d, i=0):
+    v = _u16(d, i)
+    return v - 0x10000 if v & 0x8000 else v
+
+
+# Estado del sistema de combustible (PID 03, byte A) — el famoso "lazo cerrado/abierto".
+_FUEL_STATUS = {
+    0: "Motor apagado",
+    1: "Lazo abierto (temperatura insuficiente)",
+    2: "Lazo cerrado (usando sonda lambda)",
+    4: "Lazo abierto (carga alta / corte en desaceleración)",
+    8: "Lazo abierto (falla en el sistema)",
+    16: "Lazo cerrado con falla en una sonda lambda",
+}
+
+
+def _fuel_status(d):
+    return _FUEL_STATUS.get(d[0], f"Desconocido (0x{d[0]:02X})")
+
+
 # Tabla de PIDs estándar del Modo 01. Cada entrada:
 #   pid_hex -> (nombre_es, unidad, nbytes, formula(bytes)->valor)
 # Fórmulas de la norma SAE J1979 (universales; no dependen del auto).
+# `valor` puede ser número o texto (ej. estado de lazo).
 PIDS = {
+    "03": ("Estado del sistema de combustible (lazo)", "", 2, _fuel_status),
     "04": ("Carga calculada del motor", "%",     1, lambda d: round(d[0] * 100 / 255, 1)),
     "05": ("Temperatura del refrigerante", "°C", 1, lambda d: d[0] - 40),
     "06": ("Ajuste corto de combustible B1", "%", 1, lambda d: round(d[0] * 100 / 128 - 100, 1)),
@@ -37,15 +59,32 @@ PIDS = {
     "0F": ("Temperatura del aire de admisión", "°C", 1, lambda d: d[0] - 40),
     "10": ("Caudal de aire (MAF)", "g/s",     2, lambda d: round(_u16(d) / 100, 2)),
     "11": ("Posición del acelerador", "%",    1, lambda d: round(d[0] * 100 / 255, 1)),
-    "14": ("Sonda lambda 1 — tensión", "V",   2, lambda d: round(d[0] / 200, 3)),
-    "15": ("Sonda lambda 2 — tensión", "V",   2, lambda d: round(d[0] / 200, 3)),
+    "13": ("Sondas lambda presentes (banco)", "", 1, lambda d: f"0x{d[0]:02X}"),
+    "14": ("Sonda lambda B1S1 — tensión", "V", 2, lambda d: round(d[0] / 200, 3)),
+    "15": ("Sonda lambda B1S2 — tensión", "V", 2, lambda d: round(d[0] / 200, 3)),
+    "16": ("Sonda lambda B1S3 — tensión", "V", 2, lambda d: round(d[0] / 200, 3)),
+    "17": ("Sonda lambda B1S4 — tensión", "V", 2, lambda d: round(d[0] / 200, 3)),
+    "18": ("Sonda lambda B2S1 — tensión", "V", 2, lambda d: round(d[0] / 200, 3)),
+    "19": ("Sonda lambda B2S2 — tensión", "V", 2, lambda d: round(d[0] / 200, 3)),
+    "1C": ("Norma OBD del vehículo", "", 1, lambda d: _OBD_STD.get(d[0], f"0x{d[0]:02X}")),
     "1F": ("Tiempo de marcha desde arranque", "s", 2, lambda d: _u16(d)),
     "21": ("Distancia con testigo MIL", "km", 2, lambda d: _u16(d)),
+    "22": ("Presión de riel (rel. al colector)", "kPa", 2, lambda d: round(_u16(d) * 0.079, 1)),
     "23": ("Presión de riel de combustible", "kPa", 2, lambda d: _u16(d) * 10),
+    "24": ("Sonda lambda B1S1 (banda ancha) — λ", "λ", 4, lambda d: round(_u16(d) * 2 / 65536, 3)),
+    "25": ("Sonda lambda B1S2 (banda ancha) — λ", "λ", 4, lambda d: round(_u16(d) * 2 / 65536, 3)),
     "2C": ("Comando EGR", "%",                1, lambda d: round(d[0] * 100 / 255, 1)),
+    "2D": ("Error de EGR", "%",               1, lambda d: round(d[0] * 100 / 128 - 100, 1)),
+    "2E": ("Comando de purga EVAP", "%",      1, lambda d: round(d[0] * 100 / 255, 1)),
     "2F": ("Nivel de combustible", "%",       1, lambda d: round(d[0] * 100 / 255, 1)),
+    "30": ("Calentamientos desde borrado de DTC", "", 1, lambda d: d[0]),
     "31": ("Distancia desde borrado de DTC", "km", 2, lambda d: _u16(d)),
     "33": ("Presión barométrica", "kPa",      1, lambda d: d[0]),
+    "34": ("Sonda lambda B1S1 (banda ancha) — λ (i)", "λ", 4, lambda d: round(_u16(d) * 2 / 65536, 3)),
+    "3C": ("Temperatura catalizador B1S1", "°C", 2, lambda d: round(_u16(d) / 10 - 40, 1)),
+    "3D": ("Temperatura catalizador B2S1", "°C", 2, lambda d: round(_u16(d) / 10 - 40, 1)),
+    "3E": ("Temperatura catalizador B1S2", "°C", 2, lambda d: round(_u16(d) / 10 - 40, 1)),
+    "3F": ("Temperatura catalizador B2S2", "°C", 2, lambda d: round(_u16(d) / 10 - 40, 1)),
     "42": ("Tensión del módulo (batería)", "V", 2, lambda d: round(_u16(d) / 1000, 2)),
     "43": ("Carga absoluta del motor", "%",   2, lambda d: round(_u16(d) * 100 / 255, 1)),
     "44": ("Relación lambda comandada", "λ",  2, lambda d: round(_u16(d) / 32768, 3)),
@@ -53,13 +92,23 @@ PIDS = {
     "46": ("Temperatura ambiente", "°C",      1, lambda d: d[0] - 40),
     "47": ("Posición absoluta acelerador B", "%", 1, lambda d: round(d[0] * 100 / 255, 1)),
     "49": ("Posición del pedal D", "%",       1, lambda d: round(d[0] * 100 / 255, 1)),
+    "4A": ("Posición del pedal E", "%",       1, lambda d: round(d[0] * 100 / 255, 1)),
     "4C": ("Acelerador comandado", "%",       1, lambda d: round(d[0] * 100 / 255, 1)),
+    "4D": ("Tiempo con testigo MIL encendido", "min", 2, lambda d: _u16(d)),
+    "4E": ("Tiempo desde borrado de DTC", "min", 2, lambda d: _u16(d)),
+    "52": ("Combustible etanol", "%",         1, lambda d: round(d[0] * 100 / 255, 1)),
     "5C": ("Temperatura del aceite del motor", "°C", 1, lambda d: d[0] - 40),
     "5E": ("Consumo de combustible", "L/h",   2, lambda d: round(_u16(d) / 20, 2)),
 }
 
-# PIDs que se muestran POR DEFECTO en el tablero (los clásicos oscilantes).
-PRECARGADOS = ["0C", "05", "0F", "0B", "10", "0D", "11", "0E", "42", "14", "04", "2F"]
+# Norma OBD reportada por el vehículo (PID 1C) — los códigos más comunes.
+_OBD_STD = {1: "OBD-II (California)", 2: "OBD (federal EE.UU.)", 3: "OBD y OBD-II",
+            6: "EOBD (Europa)", 7: "EOBD y OBD-II", 8: "EOBD, OBD y OBD-II",
+            10: "JOBD (Japón)", 11: "JOBD y OBD-II"}
+
+# PIDs que se muestran POR DEFECTO en el tablero (los clásicos + mezcla/lazo).
+PRECARGADOS = ["0C", "05", "0F", "0B", "10", "0D", "11", "0E", "42",
+               "14", "04", "2F", "03", "06", "07", "44"]
 
 # Códigos de respuesta negativa (para mensajes claros)
 from ecu_registry import dtc_estandar, NRC  # reutilizamos el decodificador de DTC
@@ -528,6 +577,19 @@ _SIM = {
     "0114": "41 14 90 80",       # 0.72 V
     "0104": "41 04 40",          # ~25 %
     "012F": "41 2F 80",          # ~50 %
+    "0103": "41 03 02 00",       # lazo cerrado (banco 1)
+    "0106": "41 06 82",          # STFT B1 ~ +1.6 %
+    "0107": "41 07 78",          # LTFT B1 ~ -6.3 %
+    "0122": "41 22 0F A0",       # presión de riel rel. ~316 kPa
+    "0124": "41 24 80 00 90 00", # sonda banda ancha λ≈1.00
+    "0134": "41 34 80 00 90 00", # sonda banda ancha λ≈1.00
+    "0144": "41 44 80 00",       # relación lambda comandada ≈1.00
+    "013C": "41 3C 12 34",       # temp catalizador ~426 °C
+    "014D": "41 4D 00 00",       # 0 min con MIL
+    "014E": "41 4E 03 84",       # 900 min desde borrado
+    "0152": "41 52 00",          # 0 % etanol
+    "011C": "41 1C 06",          # EOBD (Europa)
+    "0130": "41 30 05",          # 5 calentamientos
     "03": "43 01 33 00 00",      # DTC P0133
     "07": "47 00 00",
 }

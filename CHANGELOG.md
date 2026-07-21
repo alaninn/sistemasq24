@@ -7,6 +7,26 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-21] — OBD-II genérico: muchos más sensores + ajustes de combustible y estado de lazo en el tablero
+
+**Motivo**: en el auto real el modo genérico anduvo bien, pero (a) el tablero en vivo NO
+mostraba por defecto los ajustes corto/largo de combustible ni el estado de lazo, y (b) faltaban
+sensores estándar que el auto puede reportar.
+
+- **Ajustes de combustible y lazo en el tablero por defecto**: se agregaron a `PRECARGADOS`
+  (`obd_generico.py`) el PID **06** (ajuste corto B1), **07** (ajuste largo B1), **03** (estado
+  del sistema de combustible = **lazo cerrado/abierto**) y **44** (relación lambda comandada).
+  Antes 06/07 solo aparecían en el reporte del chequeo, no en la pantalla en vivo.
+- **PID 03 (estado de lazo)**: nuevo, con texto claro ("Lazo cerrado usando sonda lambda",
+  "Lazo abierto por temperatura", etc.) — lo que el usuario venía pidiendo ver.
+- **Tabla de PIDs ampliada de 32 a 55**: sondas lambda B1S2/B2S1/B2S2, sondas de **banda ancha**
+  (λ, PID 24/25/34), **temperatura de catalizador** (3C-3F), presión de riel relativa (22),
+  purga EVAP (2E), error de EGR (2D), norma OBD del auto (1C), calentamientos desde borrado (30),
+  tiempo con MIL / desde borrado (4D/4E), etanol (52), pedal E (4A). Todas fórmulas SAE J1979.
+- El tablero ya distingue valores numéricos de texto (`index.html:1805`) y el analizador de
+  ondas saltea los no numéricos (`:2744`), así que los estados de texto no rompen gráficos.
+- Simulador (`_SIM`) actualizado con los PIDs nuevos para poder probar sin auto.
+
 ## [2026-07-20] — Soporte real de adaptadores STN (OBDLink / Renolink): detección de chip y 115200 baudios
 
 **Motivo**: se consiguió un cable "Renlink". La investigación mostró que "Renlink" es
