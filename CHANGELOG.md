@@ -7,6 +7,15 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-21] — Log de consola: se saca el spam "Unknown address" que tapaba los errores
+
+El log de consola (que grabamos justo para cazar errores) venía inundado con miles de líneas
+`Unknown address: 7DF 01xx` / `7E0 21xx` idénticas — un `print` cosmético de `elm.py:722` que
+se disparaba en CADA request cuya dirección no está en las tablas `dnat` globales (o sea,
+siempre: las ECUs del F4R usan 7E0, el OBD genérico usa 7DF). Ahora esa info se escribe al log
+dedicado de ECU (`ecu_*.txt`) con la dirección cruda, en vez de a la consola. Los logs de
+consola quedan legibles y los errores reales dejan de quedar sepultados.
+
 ## [2026-07-21] — FIX F4R: el chequeo ya no se cuelga + ajustes de combustible % estándar en F4R
 
 Dos problemas reportados en el auto real (F4R, cable ELM327 por COM3): el chequeo/ensayo

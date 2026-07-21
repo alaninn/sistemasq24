@@ -719,7 +719,12 @@ class ELM:
                 self.vf.write(tmstr + ";" + dnat[
                     self.currentaddress] + ";" + req.replace(' ', '') + ";" + rsp + ";" + errorstr + "\n")
             else:
-                print(_("Unknown address: "), self.currentaddress, req.replace(' ', ''))
+                # Dirección fuera de las tablas dnat globales (ej. ECUs propias del F4R en 7E0,
+                # o el broadcast 7DF del OBD genérico). ANTES esto imprimía a consola en CADA
+                # request e inundaba el log de consola (miles de líneas idénticas que tapaban
+                # los errores reales). Ahora se escribe al log de ECU con la dirección cruda.
+                self.vf.write(tmstr + ";" + str(self.currentaddress) + ";" +
+                              req.replace(' ', '') + ";" + rsp + ";" + errorstr + "\n")
             self.vf.flush()
 
         return rsp
