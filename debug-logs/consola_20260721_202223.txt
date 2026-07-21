@@ -1,0 +1,231 @@
+============================================================
+  CONSOLA SISTEMASQ24 — 2026-07-21 20:22:23
+  Python 3.11.9 · win32
+============================================================
+======================================================
+  SISTEMASQ24 · Scanner Universal
+  Abrí en el navegador:  http://127.0.0.1:8073/
+  (Ctrl+C para detener)
+======================================================
+Trying to open port COM3 @ 38400
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x1d40c661b10, open=True>(port='COM3', baudrate=38400, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Unknown address:   3E00
+Unknown address:   3E00
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 3E00
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A7
+Unknown address:  7E0 2180
+Unknown address:  7E0 21A7
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A6
+Unknown address:  7E0 21C7
+Unknown address:  7E0 21AF
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A9
+Unknown address:  7E0 21A1
+Unknown address:  7E0 21D1
+Unknown address:  7E0 21C1
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A8
+Unknown address:  7E0 2181
+Unknown address:  7E0 2182
+Unknown address:  7E0 2180
+Unknown address:  7E0 2180
+Unknown address:  7E0 21A5
+Unknown address:  7E0 21AA
+Unknown address:  7E0 2184
+Unknown address:  7E0 17FF00
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A2
+Unknown address:  7E0 21A4
+Unknown address:  7E0 21A3
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 21A0
+Unknown address:  7E0 3E00
+Unknown address:  7E0 3E00
+Unknown address:  7E0 3E00
+Unknown address:  7E0 3E00
+Trying to open port COM3 @ 38400
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM3 @ 115200
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 115200, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM3 @ 230400
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 230400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM3 @ 57600
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 57600, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM3 @ 9600
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 9600, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM3 @ 500000
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 500000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM3 @ 1000000
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM3 @ 2000000
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 2000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM3': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM3
+ELM reset...
+Port handler is None, cannot write
+ELM reset...
+Port handler is None, cannot write
+ELM reset...
+Port handler is None, cannot write
