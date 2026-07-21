@@ -751,6 +751,18 @@ class Registry:
                 ecu_id, icon, short, ecu_file, layout, es_dict, self.tm, self.ayudas
             )
             self._orden.append(ecu_id)
+        # Además de las 6 ECUs curadas, sumamos el "Motor OBD-II estándar": el ECU enhanced
+        # del F4R (Sagem S3000) NO expone el ajuste corto/largo de combustible como % ± igual
+        # que el escáner genérico — usa "factor de enriquecimiento" y "corrección adaptativa"
+        # por zonas, en otra escala. Para que en F4R se vean los MISMOS % que muestra el modo
+        # genérico (PID 0106/0107) y el estado de lazo (PID 03), exponemos esos PIDs estándar
+        # como una ECU virtual extra. Usa broadcast 7DF, addressing propio (ver _seleccionar_ecu).
+        try:
+            from obd_generico import get_obd
+            self.ecus["obd"] = get_obd()
+            self._orden.append("obd")
+        except Exception:
+            pass
         self.perfil = "f4r"
         self.vehiculo = "Mégane II F4R"
 

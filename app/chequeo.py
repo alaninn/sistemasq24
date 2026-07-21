@@ -17,8 +17,9 @@ BANDA_RPM = 200        # ± rpm alrededor del objetivo para considerar "en banda
 ESTABLE_SEG = 2.5      # cuánto tiene que mantenerse en banda antes de capturar
 CAPTURA_SEG = 5.0      # duración de cada captura del motor por etapa
 INTERVALO_MS = 250     # entre muestras de la captura del motor
-TIMEOUT_ETAPA = 60     # seg máx esperando que llegue a una RPM antes de ofrecer manual
+TIMEOUT_ETAPA = 60     # seg máx esperando la banda; después CAPTURA IGUAL y sigue (no cuelga)
 RALENTI_SEG = 5.0      # duración de la captura a ralentí
+PROBE_RPM_SEG = 6      # seg para confirmar que las RPM se pueden leer antes de arrancar etapas
 
 ETAPAS_RPM = [1500, 2000, 3000]
 
@@ -164,6 +165,23 @@ class Chequeo:
         except (ValueError, TypeError, IndexError):
             return None
 
+    def _probar_rpm(self, tecu, rpm_info):
+        """¿Se pueden leer las RPM del motor? Prueba unos segundos. En sim, siempre sí.
+        Si devuelve False, las etapas de aceleración se saltean (evita el cuelgue infinito
+        esperando una banda de RPM que nunca va a llegar porque no se lee el régimen)."""
+        if self.ctx.simulacion():
+            return True
+        if rpm_info is None:
+            return False
+        t0 = time.time()
+        while time.time() - t0 < PROBE_RPM_SEG:
+            if self.ctx.cancelado():
+                return False
+            if self._leer_rpm(tecu, rpm_info) is not None:
+                return True
+            time.sleep(0.3)
+        return False
+
     def _capturar_motor(self, tecu, reqs, segundos):
         """Captura los `reqs` del motor durante `segundos`. Devuelve lista de muestras."""
         muestras = []
@@ -273,7 +291,19 @@ class Chequeo:
         self._set(fase="ralenti", rpm_objetivo=0, progreso=0,
                   instruccion="Dejá el auto en RALENTÍ. Capturando…")
         muestras = self._capturar_motor(tecu, reqs, RALENTI_SEG)
-        self.datos["rpm_etapas"]["ralenti"] = self._resumir_etapa(muestras, rpm_info, tecu)
+        self.datos["rpm_etapas"]["ralenti"] = self._resumir_etapa(muestras, rpm_info, tecu, True)
+
+        # ¿Se pueden leer las RPM? Si no (rpm_info None o la ECU no responde el régimen),
+        # NO tiene sentido esperar bandas que nunca van a llegar: se saltean las etapas de
+        # aceleración y el reporte se genera igual con el paneo + ralentí. Evita el cuelgue.
+        rpm_ok = self._probar_rpm(tecu, rpm_info)
+        self.datos["rpm_disponible"] = rpm_ok
+        if not rpm_ok:
+            self.ctx.log("CHEQUEO", "RPM no legibles: se saltean las etapas de aceleración", {})
+            self._set(fase="rpm_no_disponible", progreso=100,
+                      instruccion="No pude leer las RPM del motor; salteo las etapas de "
+                                  "aceleración y genero el reporte con lo leído.")
+            return True
 
         # --- 1500 / 2000 / 3000 ---
         for objetivo in ETAPAS_RPM:
@@ -282,8 +312,9 @@ class Chequeo:
             self._t0_sim = time.time()  # reiniciar rampa sim para esta etapa
             t_ini = time.time()
             estable_desde = None
+            alcanzo = False
             self.ctx.reset_capturar_ahora()
-            # esperar a que llegue y se estabilice (o captura manual, o timeout)
+            # esperar a que llegue y se estabilice (o captura manual, o TIMEOUT que captura igual)
             while True:
                 if self.ctx.cancelado():
                     return False
@@ -296,30 +327,37 @@ class Chequeo:
                     if estable_desde is None:
                         estable_desde = time.time()
                     elif time.time() - estable_desde >= ESTABLE_SEG:
+                        alcanzo = True
                         break
                 else:
                     estable_desde = None
                 if self.ctx.capturar_ahora():
+                    alcanzo = en_banda
                     break
+                # CRÍTICO: al vencer el timeout NO seguimos esperando para siempre —
+                # capturamos lo que haya y avanzamos, marcando que no llegó a la banda.
                 if time.time() - t_ini > TIMEOUT_ETAPA and not self.ctx.simulacion():
-                    # ofrecer captura manual: seguir esperando pero avisando
-                    self._set(instruccion=f"No detecté {objetivo} RPM estable. "
-                              f"Poné el motor ahí y tocá 'Capturar ahora'.", timeout=True)
+                    self.ctx.log("CHEQUEO", f"Etapa {objetivo} RPM sin banda estable: "
+                                 f"capturo igual y sigo", {})
+                    alcanzo = False
+                    break
                 time.sleep(0.3)
             self._set(fase=f"capturando_{objetivo}", rpm_objetivo=objetivo,
                       instruccion=f"Capturando a {objetivo} RPM…")
             muestras = self._capturar_motor(tecu, reqs, CAPTURA_SEG)
-            self.datos["rpm_etapas"][str(objetivo)] = self._resumir_etapa(muestras, rpm_info, tecu)
+            self.datos["rpm_etapas"][str(objetivo)] = self._resumir_etapa(
+                muestras, rpm_info, tecu, alcanzo)
         return True
 
-    def _resumir_etapa(self, muestras, rpm_info, tecu):
+    def _resumir_etapa(self, muestras, rpm_info, tecu, alcanzo_banda=True):
         stats = estadisticas_de_muestras(muestras)
         rpm_prom = None
         if rpm_info:
             et = rpm_info[2]
             if et in stats:
                 rpm_prom = stats[et]["promedio"]
-        return {"rpm_prom": rpm_prom, "n_muestras": len(muestras), "estadisticas": stats}
+        return {"rpm_prom": rpm_prom, "n_muestras": len(muestras),
+                "alcanzo_banda": bool(alcanzo_banda), "estadisticas": stats}
 
     # ------------------------------------------------------------------ run
     def run(self):

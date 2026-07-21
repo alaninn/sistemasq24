@@ -7,6 +7,36 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-21] — FIX F4R: el chequeo ya no se cuelga + ajustes de combustible % estándar en F4R
+
+Dos problemas reportados en el auto real (F4R, cable ELM327 por COM3): el chequeo/ensayo
+"no hacía nada y se colgaba", y los ajustes de combustible seguían sin verse en vivo.
+
+**1) El chequeo se colgaba esperando RPM para siempre** (`chequeo.py`):
+- Causa raíz: el `while True` que espera que el motor llegue a 1500/2000/3000 RPM **no salía
+  nunca por timeout** — al vencer `TIMEOUT_ETAPA` solo cambiaba el mensaje pero seguía
+  girando. En F4R, como el régimen a veces no se lee (respuestas multiframe que fallan el
+  flow-control a 38400), `rpm` era siempre `None`, nunca entraba en banda → espera infinita =
+  "no pasa nada". (El análisis del log real confirmó una tormenta de reintentos, no un cuelgue
+  del puerto: `expect()` ya tiene timeout para serie en `port.py:440`.)
+- Fix: (a) **salida dura por timeout** — al vencer, captura lo que haya y sigue, marcando
+  `alcanzo_banda=False`; (b) **prueba previa `_probar_rpm`** — si las RPM no se pueden leer,
+  **saltea las etapas de aceleración** y genera el reporte igual con paneo + ralentí, en vez de
+  colgarse. El chequeo ahora SIEMPRE termina y produce reporte.
+- **Nota de hardware**: esos reads multiframe del F4R que fallan a 38400 son justo lo que un
+  cable con chip **STN + STPX** (el Renlink/OBDLink) resuelve — conectá con adaptador AUTO.
+
+**2) Ajustes de combustible % estándar ahora visibles en F4R** (`ecu_registry.py`, `index.html`):
+- Un agente confirmó, leyendo los datos reales del F4R (Sagem S3000), que el ECU enhanced
+  **NO expone** el ajuste corto/largo como % ± igual que el OBD genérico: usa "factor de
+  enriquecimiento" (0-100%) y "corrección adaptativa por zonas" (−50..+50), otra escala. Por eso
+  el usuario nunca veía el % que sí muestra el escáner universal.
+- Fix: el perfil **F4R ahora incluye una ECU virtual "OBD-II estándar"** (los PIDs 0106/0107/03),
+  así se ven los **mismos %** que en el modo genérico, además de los valores enhanced del F4R.
+- **`PRECARGADOS_VER` 2 → 3**: los tableros ya guardados (localStorage con `meg_sel_ver=2` de
+  builds previas) no recibían los sensores nuevos porque `_migrarPrecargados()` cortaba temprano.
+  Al subir la versión, se agregan solos el ajuste corto/largo y el estado de lazo estándar.
+
 ## [2026-07-21] — OBD-II genérico: muchos más sensores + ajustes de combustible y estado de lazo en el tablero
 
 **Motivo**: en el auto real el modo genérico anduvo bien, pero (a) el tablero en vivo NO

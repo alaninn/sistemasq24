@@ -1035,10 +1035,17 @@ const SENSORES_PRECARGADOS = [
   'Correction adaptative de la 1ère zone de pression', // ajuste de combustible LARGO (PID 07)
   'Etat stratégie régulation richesse',                // estado de LAZO CERRADO / abierto
   'Pression de suralimentation',                       // presión de sobrealimentación (turbo)
+  // Sensores OBD-II ESTÁNDAR (ECU virtual "obd" que ahora también está en el perfil F4R).
+  // El ECU enhanced del F4R no da el ajuste corto/largo como % ± igual que el escáner
+  // genérico; estos SÍ, con la misma escala que el usuario ve en el modo universal.
+  'Ajuste corto de combustible B1',                    // STFT estándar (PID 06)
+  'Ajuste largo de combustible B1',                    // LTFT estándar (PID 07)
+  'Estado del sistema de combustible (lazo)',          // lazo cerrado/abierto estándar (PID 03)
 ];
 // Versión de la lista de precargados. Al subirla, los tableros YA guardados reciben los
 // sensores nuevos que les falten (sin perder los que el usuario eligió a mano).
-const PRECARGADOS_VER = 2;
+// v3: se sumaron los ajustes de combustible OBD-II estándar (% ±) al perfil F4R.
+const PRECARGADOS_VER = 3;
 
 // Alias en "idioma de taller": las etiquetas del F4R son traducción literal del francés
 // ("Factor de enriquecimiento de la regulación de riqueza"), así que buscar "ajuste de
