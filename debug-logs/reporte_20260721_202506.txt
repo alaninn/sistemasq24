@@ -1,0 +1,36 @@
+======================================================================
+  CHEQUEO GENERAL DEL AUTO — SISTEMASQ24
+  Vehículo: OBD-II Genérico   |   2026-07-21 20:24:28
+======================================================================
+
+RESUMEN
+  Sensores leídos: 13  |  OK: 0  |  En atención: 0  |  Códigos de falla: 0
+  (Sin rangos de referencia para este perfil: los valores van crudos.)
+
+----------------------------------------------------------------------
+ECU: Motor (OBD-II Genérico)  [responde]
+  Sensores (13):
+      Ajuste corto de combustible B1: 0.8 %
+      Ajuste largo de combustible B1: 30.5 %
+      Avance de encendido: 5.0 °
+      Carga calculada del motor: 18.8 %
+      Distancia con testigo MIL: 0 km
+      Posición del acelerador: 11.8 %
+      Presión absoluta del colector (MAP): 32 kPa
+      Régimen del motor (RPM): 763 RPM
+      Sonda lambda 1 — tensión: 0.115 V
+      Sonda lambda 2 — tensión: 0.455 V
+      Temperatura del aire de admisión: 37 °C
+      Temperatura del refrigerante: 71 °C
+      Velocidad del vehículo: 0 km/h
+
+======================================================================
+EVOLUCIÓN DE SENSORES DEL MOTOR POR RPM (promedio)
+  Sensor                                      ralentí       1500       2000       3000
+  Avance de encendido                            5.86      31.89      38.19      45.46  °
+  Posición del acelerador                        11.8      13.73      14.99       16.9  %
+  Presión absoluta del colector (MAP)            32.0      29.36      29.08      29.38  kPa
+  Régimen del motor (RPM)                      755.43    1637.71    2127.15    3103.62  RPM
+  Sonda lambda 1 — tensión                       0.38       0.47       0.26       0.34  V
+  Temperatura del aire de admisión               37.0       37.0       37.0       37.0  °C
+  Temperatura del refrigerante                  71.36      72.57      73.77      75.62  °C
