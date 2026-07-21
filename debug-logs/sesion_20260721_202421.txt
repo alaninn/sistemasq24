@@ -1,0 +1,2217 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260721_202421
+==================================================================
+
+[20:24:21.896] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[20:24:21.898] (+   0.0s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-21 20:24:21
+
+[20:24:23.052] (+  1.16s) ELM      keep-alive
+           → envío:     3E00  (1055.4 ms)
+           → respuesta: WRONG RESPONSE
+
+[20:24:23.738] (+  1.84s) ELM      diag
+           → envío:     0106  (25.8 ms)
+           → respuesta: 41 06 82 
+
+[20:24:23.755] (+  1.86s) ELM      diag
+           → envío:     0107  (16.4 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:23.770] (+  1.87s) ELM      diag
+           → envío:     010E  (15.2 ms)
+           → respuesta: 41 0E 8F 
+
+[20:24:23.787] (+  1.89s) ELM      diag
+           → envío:     0104  (16.7 ms)
+           → respuesta: 41 04 30 
+
+[20:24:23.835] (+  1.94s) ELM      diag
+           → envío:     0121  (48.0 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:23.851] (+  1.96s) ELM      diag
+           → envío:     0111  (16.9 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:23.867] (+  1.97s) ELM      diag
+           → envío:     010B  (15.7 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:23.884] (+  1.99s) ELM      diag
+           → envío:     010C  (17.1 ms)
+           → respuesta: 41 0C 0B F0 
+
+[20:24:23.898] (+   2.0s) ELM      diag
+           → envío:     0114  (13.5 ms)
+           → respuesta: 41 14 29 89 
+
+[20:24:23.914] (+  2.02s) ELM      diag
+           → envío:     0115  (15.8 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:23.931] (+  2.03s) ELM      diag
+           → envío:     010F  (17.4 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:23.946] (+  2.05s) ELM      diag
+           → envío:     0105  (15.5 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:23.961] (+  2.07s) ELM      diag
+           → envío:     010D  (15.0 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:23.961] (+  2.07s) SENSORES Lectura en vivo (obd)
+           · Ajuste corto de combustible B1: 1.6 %
+           · Ajuste largo de combustible B1: 30.5 %
+           · Avance de encendido: 7.5 °
+           · Carga calculada del motor: 18.8 %
+           · Distancia con testigo MIL: 0 km
+           · Posición del acelerador: 11.8 %
+           · Presión absoluta del colector (MAP): 32 kPa
+           · Régimen del motor (RPM): 764 RPM
+           · Sonda lambda 1 — tensión: 0.205 V
+           · Sonda lambda 2 — tensión: 0.455 V
+           · Temperatura del aire de admisión: 37 °C
+           · Temperatura del refrigerante: 71 °C
+           · Velocidad del vehículo: 0 km/h
+
+[20:24:24.149] (+  2.25s) ELM      diag
+           → envío:     0106  (32.2 ms)
+           → respuesta: 41 06 82 
+
+[20:24:24.172] (+  2.28s) ELM      diag
+           → envío:     0107  (22.4 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:24.189] (+  2.29s) ELM      diag
+           → envío:     010E  (17.9 ms)
+           → respuesta: 41 0E 8F 
+
+[20:24:24.218] (+  2.32s) ELM      diag
+           → envío:     0104  (29.0 ms)
+           → respuesta: 41 04 31 
+
+[20:24:24.236] (+  2.34s) ELM      diag
+           → envío:     0121  (17.1 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:24.258] (+  2.36s) ELM      diag
+           → envío:     0111  (22.8 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:24.282] (+  2.39s) ELM      diag
+           → envío:     010B  (23.7 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:24.300] (+   2.4s) ELM      diag
+           → envío:     010C  (18.2 ms)
+           → respuesta: 41 0C 0B C8 
+
+[20:24:24.316] (+  2.42s) ELM      diag
+           → envío:     0114  (15.2 ms)
+           → respuesta: 41 14 69 82 
+
+[20:24:24.332] (+  2.44s) ELM      diag
+           → envío:     0115  (16.0 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:24.345] (+  2.45s) ELM      diag
+           → envío:     010F  (13.9 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:24.364] (+  2.47s) ELM      diag
+           → envío:     0105  (18.8 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:24.379] (+  2.48s) ELM      diag
+           → envío:     010D  (15.1 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:24.571] (+  2.67s) ELM      diag
+           → envío:     0106  (23.3 ms)
+           → respuesta: 41 06 89 
+
+[20:24:24.586] (+  2.69s) ELM      diag
+           → envío:     0107  (15.0 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:24.602] (+  2.71s) ELM      diag
+           → envío:     010E  (16.9 ms)
+           → respuesta: 41 0E 88 
+
+[20:24:24.618] (+  2.72s) ELM      diag
+           → envío:     0104  (15.5 ms)
+           → respuesta: 41 04 30 
+
+[20:24:24.635] (+  2.74s) ELM      diag
+           → envío:     0121  (17.4 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:24.651] (+  2.75s) ELM      diag
+           → envío:     0111  (15.8 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:24.665] (+  2.77s) ELM      diag
+           → envío:     010B  (13.7 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:24.683] (+  2.79s) ELM      diag
+           → envío:     010C  (16.4 ms)
+           → respuesta: 41 0C 0B B8 
+
+[20:24:24.699] (+   2.8s) ELM      diag
+           → envío:     0114  (16.1 ms)
+           → respuesta: 41 14 21 89 
+
+[20:24:24.712] (+  2.82s) ELM      diag
+           → envío:     0115  (13.8 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:24.731] (+  2.84s) ELM      diag
+           → envío:     010F  (18.9 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:24.746] (+  2.85s) ELM      diag
+           → envío:     0105  (14.4 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:24.762] (+  2.87s) ELM      diag
+           → envío:     010D  (16.1 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:24.954] (+  3.06s) ELM      diag
+           → envío:     0106  (23.0 ms)
+           → respuesta: 41 06 83 
+
+[20:24:24.970] (+  3.07s) ELM      diag
+           → envío:     0107  (15.5 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:24.985] (+  3.09s) ELM      diag
+           → envío:     010E  (15.4 ms)
+           → respuesta: 41 0E 8D 
+
+[20:24:25.000] (+   3.1s) ELM      diag
+           → envío:     0104  (15.0 ms)
+           → respuesta: 41 04 30 
+
+[20:24:25.019] (+  3.12s) ELM      diag
+           → envío:     0121  (18.8 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:25.035] (+  3.14s) ELM      diag
+           → envío:     0111  (15.8 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:25.048] (+  3.15s) ELM      diag
+           → envío:     010B  (13.3 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:25.066] (+  3.17s) ELM      diag
+           → envío:     010C  (16.4 ms)
+           → respuesta: 41 0C 0B CC 
+
+[20:24:25.080] (+  3.18s) ELM      diag
+           → envío:     0114  (13.9 ms)
+           → respuesta: 41 14 38 89 
+
+[20:24:25.097] (+   3.2s) ELM      diag
+           → envío:     0115  (17.2 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:25.112] (+  3.22s) ELM      diag
+           → envío:     010F  (14.7 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:25.128] (+  3.23s) ELM      diag
+           → envío:     0105  (16.0 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:25.144] (+  3.25s) ELM      diag
+           → envío:     010D  (16.6 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:25.321] (+  3.42s) ELM      diag
+           → envío:     0106  (24.8 ms)
+           → respuesta: 41 06 89 
+
+[20:24:25.337] (+  3.44s) ELM      diag
+           → envío:     0107  (16.1 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:25.353] (+  3.46s) ELM      diag
+           → envío:     010E  (15.9 ms)
+           → respuesta: 41 0E 8F 
+
+[20:24:25.369] (+  3.47s) ELM      diag
+           → envío:     0104  (15.9 ms)
+           → respuesta: 41 04 31 
+
+[20:24:25.385] (+  3.49s) ELM      diag
+           → envío:     0121  (15.5 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:25.402] (+  3.51s) ELM      diag
+           → envío:     0111  (17.1 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:25.417] (+  3.52s) ELM      diag
+           → envío:     010B  (14.9 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:25.433] (+  3.54s) ELM      diag
+           → envío:     010C  (16.7 ms)
+           → respuesta: 41 0C 0B D8 
+
+[20:24:25.450] (+  3.55s) ELM      diag
+           → envío:     0114  (16.1 ms)
+           → respuesta: 41 14 6B 82 
+
+[20:24:25.466] (+  3.57s) ELM      diag
+           → envío:     0115  (16.0 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:25.480] (+  3.58s) ELM      diag
+           → envío:     010F  (14.3 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:25.497] (+   3.6s) ELM      diag
+           → envío:     0105  (16.7 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:25.511] (+  3.61s) ELM      diag
+           → envío:     010D  (14.4 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:25.688] (+  3.79s) ELM      diag
+           → envío:     0106  (23.4 ms)
+           → respuesta: 41 06 82 
+
+[20:24:25.704] (+  3.81s) ELM      diag
+           → envío:     0107  (15.8 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:25.721] (+  3.82s) ELM      diag
+           → envío:     010E  (17.1 ms)
+           → respuesta: 41 0E 8D 
+
+[20:24:25.736] (+  3.84s) ELM      diag
+           → envío:     0104  (15.8 ms)
+           → respuesta: 41 04 31 
+
+[20:24:25.752] (+  3.86s) ELM      diag
+           → envío:     0121  (15.5 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:25.769] (+  3.87s) ELM      diag
+           → envío:     0111  (16.8 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:25.783] (+  3.89s) ELM      diag
+           → envío:     010B  (14.7 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:25.800] (+   3.9s) ELM      diag
+           → envío:     010C  (16.9 ms)
+           → respuesta: 41 0C 0B B0 
+
+[20:24:25.816] (+  3.92s) ELM      diag
+           → envío:     0114  (15.4 ms)
+           → respuesta: 41 14 8A 82 
+
+[20:24:25.831] (+  3.94s) ELM      diag
+           → envío:     0115  (15.7 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:25.847] (+  3.95s) ELM      diag
+           → envío:     010F  (15.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:25.862] (+  3.97s) ELM      diag
+           → envío:     0105  (15.3 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:25.879] (+  3.98s) ELM      diag
+           → envío:     010D  (15.7 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:26.081] (+  4.19s) ELM      diag
+           → envío:     0106  (27.4 ms)
+           → respuesta: 41 06 88 
+
+[20:24:26.117] (+  4.22s) ELM      diag
+           → envío:     0107  (35.3 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:26.150] (+  4.25s) ELM      diag
+           → envío:     010E  (33.4 ms)
+           → respuesta: 41 0E 8D 
+
+[20:24:26.187] (+  4.29s) ELM      diag
+           → envío:     0104  (36.9 ms)
+           → respuesta: 41 04 31 
+
+[20:24:26.223] (+  4.33s) ELM      diag
+           → envío:     0121  (36.1 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:26.250] (+  4.35s) ELM      diag
+           → envío:     0111  (26.7 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:26.267] (+  4.37s) ELM      diag
+           → envío:     010B  (17.0 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:26.298] (+   4.4s) ELM      diag
+           → envío:     010C  (31.7 ms)
+           → respuesta: 41 0C 0B C0 
+
+[20:24:26.333] (+  4.44s) ELM      diag
+           → envío:     0114  (34.9 ms)
+           → respuesta: 41 14 82 81 
+
+[20:24:26.358] (+  4.46s) ELM      diag
+           → envío:     0115  (25.1 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:26.374] (+  4.48s) ELM      diag
+           → envío:     010F  (15.7 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:26.390] (+  4.49s) ELM      diag
+           → envío:     0105  (16.0 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:26.407] (+  4.51s) ELM      diag
+           → envío:     010D  (16.7 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:26.407] (+  4.51s) SENSORES Lectura en vivo (obd)
+           · Ajuste corto de combustible B1: 6.2 %
+           · Ajuste largo de combustible B1: 30.5 %
+           · Avance de encendido: 6.5 °
+           · Carga calculada del motor: 19.2 %
+           · Distancia con testigo MIL: 0 km
+           · Posición del acelerador: 11.8 %
+           · Presión absoluta del colector (MAP): 32 kPa
+           · Régimen del motor (RPM): 752 RPM
+           · Sonda lambda 1 — tensión: 0.65 V
+           · Sonda lambda 2 — tensión: 0.455 V
+           · Temperatura del aire de admisión: 37 °C
+           · Temperatura del refrigerante: 71 °C
+           · Velocidad del vehículo: 0 km/h
+
+[20:24:28.038] (+  6.14s) CHEQUEO  Chequeo general iniciado
+           · perfil: generico
+
+[20:24:28.947] (+  7.05s) ELM      keep-alive
+           → envío:     3E00  (1052.7 ms)
+           → respuesta: WRONG RESPONSE
+
+[20:24:30.018] (+  8.12s) ELM      diag
+           → envío:     0902  (1071.8 ms)
+           → respuesta: WRONG RESPONSE
+
+[20:24:30.056] (+  8.16s) ELM      diag
+           → envío:     0106  (37.6 ms)
+           → respuesta: 41 06 81 
+
+[20:24:30.085] (+  8.19s) ELM      diag
+           → envío:     0107  (27.0 ms)
+           → respuesta: 41 07 A7 
+
+[20:24:30.112] (+  8.22s) ELM      diag
+           → envío:     010E  (27.0 ms)
+           → respuesta: 41 0E 8A 
+
+[20:24:30.129] (+  8.23s) ELM      diag
+           → envío:     0104  (17.4 ms)
+           → respuesta: 41 04 30 
+
+[20:24:30.144] (+  8.25s) ELM      diag
+           → envío:     0121  (14.6 ms)
+           → respuesta: 41 21 00 00 
+
+[20:24:30.160] (+  8.26s) ELM      diag
+           → envío:     0111  (16.1 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:30.178] (+  8.28s) ELM      diag
+           → envío:     010B  (17.4 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:30.193] (+   8.3s) ELM      diag
+           → envío:     010C  (15.1 ms)
+           → respuesta: 41 0C 0B EC 
+
+[20:24:30.209] (+  8.31s) ELM      diag
+           → envío:     0114  (16.2 ms)
+           → respuesta: 41 14 17 87 
+
+[20:24:30.225] (+  8.33s) ELM      diag
+           → envío:     0115  (15.8 ms)
+           → respuesta: 41 15 5B 00 
+
+[20:24:30.241] (+  8.34s) ELM      diag
+           → envío:     010F  (16.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:30.256] (+  8.36s) ELM      diag
+           → envío:     0105  (15.6 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:30.272] (+  8.38s) ELM      diag
+           → envío:     010D  (16.1 ms)
+           → respuesta: 41 0D 00 
+
+[20:24:30.289] (+  8.39s) ELM      diag
+           → envío:     03  (16.7 ms)
+           → respuesta: 43 00 
+
+[20:24:30.304] (+  8.41s) ELM      diag
+           → envío:     07  (15.2 ms)
+           → respuesta: 47 00 
+
+[20:24:30.320] (+  8.42s) ELM      diag
+           → envío:     010E  (15.5 ms)
+           → respuesta: 41 0E 8F 
+
+[20:24:30.336] (+  8.44s) ELM      diag
+           → envío:     0111  (16.0 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:30.352] (+  8.46s) ELM      diag
+           → envío:     010B  (16.6 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:30.369] (+  8.47s) ELM      diag
+           → envío:     010C  (16.1 ms)
+           → respuesta: 41 0C 0B F0 
+
+[20:24:30.384] (+  8.49s) ELM      diag
+           → envío:     0114  (15.7 ms)
+           → respuesta: 41 14 30 88 
+
+[20:24:30.402] (+  8.51s) ELM      diag
+           → envío:     010F  (17.7 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:30.416] (+  8.52s) ELM      diag
+           → envío:     0105  (14.1 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:30.687] (+  8.79s) ELM      diag
+           → envío:     010E  (19.4 ms)
+           → respuesta: 41 0E 88 
+
+[20:24:30.704] (+  8.81s) ELM      diag
+           → envío:     0111  (17.2 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:30.719] (+  8.82s) ELM      diag
+           → envío:     010B  (14.7 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:30.736] (+  8.84s) ELM      diag
+           → envío:     010C  (17.0 ms)
+           → respuesta: 41 0C 0B B4 
+
+[20:24:30.752] (+  8.86s) ELM      diag
+           → envío:     0114  (16.2 ms)
+           → respuesta: 41 14 46 89 
+
+[20:24:30.767] (+  8.87s) ELM      diag
+           → envío:     010F  (15.2 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:30.784] (+  8.89s) ELM      diag
+           → envío:     0105  (16.5 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:31.055] (+  9.16s) ELM      diag
+           → envío:     010E  (19.7 ms)
+           → respuesta: 41 0E 8A 
+
+[20:24:31.070] (+  9.17s) ELM      diag
+           → envío:     0111  (11.2 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:31.087] (+  9.19s) ELM      diag
+           → envío:     010B  (16.3 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:31.103] (+  9.21s) ELM      diag
+           → envío:     010C  (15.9 ms)
+           → respuesta: 41 0C 0B F0 
+
+[20:24:31.121] (+  9.23s) ELM      diag
+           → envío:     0114  (18.6 ms)
+           → respuesta: 41 14 77 82 
+
+[20:24:31.137] (+  9.24s) ELM      diag
+           → envío:     010F  (15.6 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:31.152] (+  9.26s) ELM      diag
+           → envío:     0105  (15.3 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:31.423] (+  9.53s) ELM      diag
+           → envío:     010E  (20.6 ms)
+           → respuesta: 41 0E 8E 
+
+[20:24:31.439] (+  9.54s) ELM      diag
+           → envío:     0111  (16.4 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:31.454] (+  9.56s) ELM      diag
+           → envío:     010B  (15.0 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:31.471] (+  9.57s) ELM      diag
+           → envío:     010C  (16.3 ms)
+           → respuesta: 41 0C 0B D8 
+
+[20:24:31.487] (+  9.59s) ELM      diag
+           → envío:     0114  (16.6 ms)
+           → respuesta: 41 14 13 87 
+
+[20:24:31.503] (+  9.61s) ELM      diag
+           → envío:     010F  (15.3 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:31.518] (+  9.62s) ELM      diag
+           → envío:     0105  (15.2 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:31.817] (+  9.92s) ELM      diag
+           → envío:     010E  (45.4 ms)
+           → respuesta: 41 0E 89 
+
+[20:24:31.858] (+  9.96s) ELM      diag
+           → envío:     0111  (41.4 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:31.890] (+  9.99s) ELM      diag
+           → envío:     010B  (32.0 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:31.913] (+ 10.02s) ELM      diag
+           → envío:     010C  (22.9 ms)
+           → respuesta: 41 0C 0B DC 
+
+[20:24:31.941] (+ 10.05s) ELM      diag
+           → envío:     0114  (25.2 ms)
+           → respuesta: 41 14 65 82 
+
+[20:24:31.977] (+ 10.08s) ELM      diag
+           → envío:     010F  (35.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:32.027] (+ 10.13s) ELM      diag
+           → envío:     0105  (50.0 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:32.302] (+ 10.41s) ELM      diag
+           → envío:     010E  (20.5 ms)
+           → respuesta: 41 0E 89 
+
+[20:24:32.318] (+ 10.42s) ELM      diag
+           → envío:     0111  (15.7 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:32.334] (+ 10.44s) ELM      diag
+           → envío:     010B  (15.8 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:32.349] (+ 10.45s) ELM      diag
+           → envío:     010C  (15.6 ms)
+           → respuesta: 41 0C 0B B0 
+
+[20:24:32.366] (+ 10.47s) ELM      diag
+           → envío:     0114  (16.9 ms)
+           → respuesta: 41 14 11 89 
+
+[20:24:32.384] (+ 10.49s) ELM      diag
+           → envío:     010F  (17.5 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:32.398] (+  10.5s) ELM      diag
+           → envío:     0105  (13.9 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:32.669] (+ 10.77s) ELM      diag
+           → envío:     010E  (20.6 ms)
+           → respuesta: 41 0E 89 
+
+[20:24:32.685] (+ 10.79s) ELM      diag
+           → envío:     0111  (16.2 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:32.700] (+  10.8s) ELM      diag
+           → envío:     010B  (15.0 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:32.717] (+ 10.82s) ELM      diag
+           → envío:     010C  (17.2 ms)
+           → respuesta: 41 0C 0B DC 
+
+[20:24:32.733] (+ 10.84s) ELM      diag
+           → envío:     0114  (15.9 ms)
+           → respuesta: 41 14 29 8B 
+
+[20:24:32.750] (+ 10.85s) ELM      diag
+           → envío:     010F  (16.7 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:32.764] (+ 10.87s) ELM      diag
+           → envío:     0105  (14.3 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:33.036] (+ 11.14s) ELM      diag
+           → envío:     010E  (20.5 ms)
+           → respuesta: 41 0E 91 
+
+[20:24:33.053] (+ 11.16s) ELM      diag
+           → envío:     0111  (16.9 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:33.068] (+ 11.17s) ELM      diag
+           → envío:     010B  (15.2 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:33.084] (+ 11.19s) ELM      diag
+           → envío:     010C  (15.8 ms)
+           → respuesta: 41 0C 0B EC 
+
+[20:24:33.100] (+  11.2s) ELM      diag
+           → envío:     0114  (16.4 ms)
+           → respuesta: 41 14 4A 8B 
+
+[20:24:33.117] (+ 11.22s) ELM      diag
+           → envío:     010F  (16.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:33.132] (+ 11.24s) ELM      diag
+           → envío:     0105  (15.4 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:33.419] (+ 11.52s) ELM      diag
+           → envío:     010E  (35.5 ms)
+           → respuesta: 41 0E 8F 
+
+[20:24:33.435] (+ 11.54s) ELM      diag
+           → envío:     0111  (15.8 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:33.451] (+ 11.55s) ELM      diag
+           → envío:     010B  (16.2 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:33.468] (+ 11.57s) ELM      diag
+           → envío:     010C  (17.1 ms)
+           → respuesta: 41 0C 0B AC 
+
+[20:24:33.484] (+ 11.59s) ELM      diag
+           → envío:     0114  (15.7 ms)
+           → respuesta: 41 14 8A 83 
+
+[20:24:33.501] (+  11.6s) ELM      diag
+           → envío:     010F  (16.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:33.523] (+ 11.63s) ELM      diag
+           → envío:     0105  (22.1 ms)
+           → respuesta: 41 05 6F 
+
+[20:24:33.797] (+  11.9s) ELM      diag
+           → envío:     010E  (23.5 ms)
+           → respuesta: 41 0E 8E 
+
+[20:24:33.826] (+ 11.93s) ELM      diag
+           → envío:     0111  (29.3 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:33.851] (+ 11.95s) ELM      diag
+           → envío:     010B  (24.5 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:33.868] (+ 11.97s) ELM      diag
+           → envío:     010C  (17.5 ms)
+           → respuesta: 41 0C 0B EC 
+
+[20:24:33.884] (+ 11.99s) ELM      diag
+           → envío:     0114  (15.6 ms)
+           → respuesta: 41 14 79 82 
+
+[20:24:33.900] (+  12.0s) ELM      diag
+           → envío:     010F  (16.7 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:33.916] (+ 12.02s) ELM      diag
+           → envío:     0105  (15.4 ms)
+           → respuesta: 41 05 70 
+
+[20:24:34.187] (+ 12.29s) ELM      diag
+           → envío:     010E  (20.3 ms)
+           → respuesta: 41 0E 86 
+
+[20:24:34.219] (+ 12.32s) ELM      diag
+           → envío:     0111  (25.8 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:34.234] (+ 12.34s) ELM      diag
+           → envío:     010B  (15.4 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:34.250] (+ 12.35s) ELM      diag
+           → envío:     010C  (16.4 ms)
+           → respuesta: 41 0C 0B C0 
+
+[20:24:34.267] (+ 12.37s) ELM      diag
+           → envío:     0114  (16.5 ms)
+           → respuesta: 41 14 1D 89 
+
+[20:24:34.284] (+ 12.39s) ELM      diag
+           → envío:     010F  (16.6 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:34.299] (+  12.4s) ELM      diag
+           → envío:     0105  (15.5 ms)
+           → respuesta: 41 05 70 
+
+[20:24:34.570] (+ 12.67s) ELM      diag
+           → envío:     010E  (19.6 ms)
+           → respuesta: 41 0E 8D 
+
+[20:24:34.586] (+ 12.69s) ELM      diag
+           → envío:     0111  (16.3 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:34.602] (+ 12.71s) ELM      diag
+           → envío:     010B  (16.0 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:34.619] (+ 12.72s) ELM      diag
+           → envío:     010C  (16.7 ms)
+           → respuesta: 41 0C 0B E4 
+
+[20:24:34.633] (+ 12.74s) ELM      diag
+           → envío:     0114  (14.8 ms)
+           → respuesta: 41 14 6D 82 
+
+[20:24:34.650] (+ 12.75s) ELM      diag
+           → envío:     010F  (16.7 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:34.666] (+ 12.77s) ELM      diag
+           → envío:     0105  (15.4 ms)
+           → respuesta: 41 05 70 
+
+[20:24:34.938] (+ 13.04s) ELM      diag
+           → envío:     010E  (21.1 ms)
+           → respuesta: 41 0E 92 
+
+[20:24:34.953] (+ 13.06s) ELM      diag
+           → envío:     0111  (14.6 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:34.968] (+ 13.07s) ELM      diag
+           → envío:     010B  (15.9 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:34.985] (+ 13.09s) ELM      diag
+           → envío:     010C  (16.9 ms)
+           → respuesta: 41 0C 0B B4 
+
+[20:24:35.001] (+  13.1s) ELM      diag
+           → envío:     0114  (15.2 ms)
+           → respuesta: 41 14 44 87 
+
+[20:24:35.017] (+ 13.12s) ELM      diag
+           → envío:     010F  (16.4 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:35.034] (+ 13.14s) ELM      diag
+           → envío:     0105  (16.6 ms)
+           → respuesta: 41 05 70 
+
+[20:24:35.305] (+ 13.41s) ELM      diag
+           → envío:     010E  (19.8 ms)
+           → respuesta: 41 0E 87 
+
+[20:24:35.321] (+ 13.42s) ELM      diag
+           → envío:     0111  (16.0 ms)
+           → respuesta: 41 11 1E 
+
+[20:24:35.337] (+ 13.44s) ELM      diag
+           → envío:     010B  (16.2 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:35.353] (+ 13.46s) ELM      diag
+           → envío:     010C  (15.6 ms)
+           → respuesta: 41 0C 0B 90 
+
+[20:24:35.369] (+ 13.47s) ELM      diag
+           → envío:     0114  (16.4 ms)
+           → respuesta: 41 14 69 81 
+
+[20:24:35.386] (+ 13.49s) ELM      diag
+           → envío:     010F  (16.4 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:35.404] (+ 13.51s) ELM      diag
+           → envío:     0105  (18.3 ms)
+           → respuesta: 41 05 70 
+
+[20:24:35.687] (+ 13.79s) ELM      diag
+           → envío:     010C  (27.3 ms)
+           → respuesta: 41 0C 0B A8 
+
+[20:24:36.007] (+ 14.11s) ELM      diag
+           → envío:     010C  (18.2 ms)
+           → respuesta: 41 0C 0B 94 
+
+[20:24:36.328] (+ 14.43s) ELM      diag
+           → envío:     010C  (18.9 ms)
+           → respuesta: 41 0C 0B C8 
+
+[20:24:36.647] (+ 14.75s) ELM      diag
+           → envío:     010C  (18.2 ms)
+           → respuesta: 41 0C 0B A4 
+
+[20:24:36.967] (+ 15.07s) ELM      diag
+           → envío:     010C  (17.9 ms)
+           → respuesta: 41 0C 0B 9C 
+
+[20:24:37.297] (+  15.4s) ELM      diag
+           → envío:     010C  (25.2 ms)
+           → respuesta: 41 0C 0B A0 
+
+[20:24:37.621] (+ 15.73s) ELM      diag
+           → envío:     010C  (13.4 ms)
+           → respuesta: 41 0C 0B DC 
+
+[20:24:37.940] (+ 16.04s) ELM      diag
+           → envío:     010C  (16.6 ms)
+           → respuesta: 41 0C 0C C0 
+
+[20:24:38.260] (+ 16.36s) ELM      diag
+           → envío:     010C  (18.8 ms)
+           → respuesta: 41 0C 0F AC 
+
+[20:24:38.580] (+ 16.68s) ELM      diag
+           → envío:     010C  (18.8 ms)
+           → respuesta: 41 0C 12 EC 
+
+[20:24:38.900] (+  17.0s) ELM      diag
+           → envío:     010C  (18.5 ms)
+           → respuesta: 41 0C 15 3C 
+
+[20:24:39.222] (+ 17.33s) ELM      diag
+           → envío:     010C  (21.3 ms)
+           → respuesta: 41 0C 16 90 
+
+[20:24:39.538] (+ 17.64s) ELM      diag
+           → envío:     010C  (13.8 ms)
+           → respuesta: 41 0C 17 0C 
+
+[20:24:39.859] (+ 17.96s) ELM      diag
+           → envío:     010C  (18.3 ms)
+           → respuesta: 41 0C 17 4C 
+
+[20:24:40.177] (+ 18.28s) ELM      diag
+           → envío:     010C  (17.0 ms)
+           → respuesta: 41 0C 17 34 
+
+[20:24:40.496] (+  18.6s) ELM      diag
+           → envío:     010C  (17.6 ms)
+           → respuesta: 41 0C 16 F8 
+
+[20:24:40.832] (+ 18.94s) ELM      diag
+           → envío:     010C  (24.7 ms)
+           → respuesta: 41 0C 16 C8 
+
+[20:24:41.153] (+ 19.26s) ELM      diag
+           → envío:     010C  (20.1 ms)
+           → respuesta: 41 0C 17 04 
+
+[20:24:41.472] (+ 19.58s) ELM      diag
+           → envío:     010C  (16.7 ms)
+           → respuesta: 41 0C 17 CC 
+
+[20:24:41.488] (+ 19.59s) ELM      diag
+           → envío:     010E  (15.9 ms)
+           → respuesta: 41 0E BC 
+
+[20:24:41.503] (+ 19.61s) ELM      diag
+           → envío:     0111  (15.1 ms)
+           → respuesta: 41 11 23 
+
+[20:24:41.519] (+ 19.62s) ELM      diag
+           → envío:     010B  (16.2 ms)
+           → respuesta: 41 0B 1E 
+
+[20:24:41.534] (+ 19.64s) ELM      diag
+           → envío:     010C  (15.4 ms)
+           → respuesta: 41 0C 17 FC 
+
+[20:24:41.551] (+ 19.66s) ELM      diag
+           → envío:     0114  (16.8 ms)
+           → respuesta: 41 14 5F 62 
+
+[20:24:41.566] (+ 19.67s) ELM      diag
+           → envío:     010F  (15.1 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:41.584] (+ 19.69s) ELM      diag
+           → envío:     0105  (17.9 ms)
+           → respuesta: 41 05 70 
+
+[20:24:41.855] (+ 19.96s) ELM      diag
+           → envío:     010E  (20.2 ms)
+           → respuesta: 41 0E BF 
+
+[20:24:41.870] (+ 19.97s) ELM      diag
+           → envío:     0111  (15.4 ms)
+           → respuesta: 41 11 23 
+
+[20:24:41.886] (+ 19.99s) ELM      diag
+           → envío:     010B  (15.8 ms)
+           → respuesta: 41 0B 1E 
+
+[20:24:41.902] (+ 20.01s) ELM      diag
+           → envío:     010C  (16.0 ms)
+           → respuesta: 41 0C 18 B0 
+
+[20:24:41.918] (+ 20.02s) ELM      diag
+           → envío:     0114  (15.4 ms)
+           → respuesta: 41 14 77 61 
+
+[20:24:41.934] (+ 20.04s) ELM      diag
+           → envío:     010F  (16.1 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:41.951] (+ 20.05s) ELM      diag
+           → envío:     0105  (17.2 ms)
+           → respuesta: 41 05 70 
+
+[20:24:42.222] (+ 20.33s) ELM      diag
+           → envío:     010E  (19.7 ms)
+           → respuesta: 41 0E BF 
+
+[20:24:42.238] (+ 20.34s) ELM      diag
+           → envío:     0111  (15.1 ms)
+           → respuesta: 41 11 23 
+
+[20:24:42.255] (+ 20.36s) ELM      diag
+           → envío:     010B  (17.0 ms)
+           → respuesta: 41 0B 1E 
+
+[20:24:42.269] (+ 20.37s) ELM      diag
+           → envío:     010C  (14.7 ms)
+           → respuesta: 41 0C 19 20 
+
+[20:24:42.286] (+ 20.39s) ELM      diag
+           → envío:     0114  (16.7 ms)
+           → respuesta: 41 14 6D 5C 
+
+[20:24:42.301] (+  20.4s) ELM      diag
+           → envío:     010F  (15.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:42.318] (+ 20.42s) ELM      diag
+           → envío:     0105  (17.3 ms)
+           → respuesta: 41 05 70 
+
+[20:24:42.590] (+ 20.69s) ELM      diag
+           → envío:     010E  (19.9 ms)
+           → respuesta: 41 0E BF 
+
+[20:24:42.606] (+ 20.71s) ELM      diag
+           → envío:     0111  (16.4 ms)
+           → respuesta: 41 11 24 
+
+[20:24:42.622] (+ 20.73s) ELM      diag
+           → envío:     010B  (15.9 ms)
+           → respuesta: 41 0B 1F 
+
+[20:24:42.637] (+ 20.74s) ELM      diag
+           → envío:     010C  (15.5 ms)
+           → respuesta: 41 0C 19 9C 
+
+[20:24:42.653] (+ 20.76s) ELM      diag
+           → envío:     0114  (15.3 ms)
+           → respuesta: 41 14 34 65 
+
+[20:24:42.670] (+ 20.77s) ELM      diag
+           → envío:     010F  (17.1 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:42.685] (+ 20.79s) ELM      diag
+           → envío:     0105  (15.4 ms)
+           → respuesta: 41 05 70 
+
+[20:24:42.959] (+ 21.06s) ELM      diag
+           → envío:     010E  (22.6 ms)
+           → respuesta: 41 0E C1 
+
+[20:24:42.990] (+ 21.09s) ELM      diag
+           → envío:     0111  (31.4 ms)
+           → respuesta: 41 11 23 
+
+[20:24:43.012] (+ 21.12s) ELM      diag
+           → envío:     010B  (21.3 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:43.036] (+ 21.14s) ELM      diag
+           → envío:     010C  (24.7 ms)
+           → respuesta: 41 0C 1A 04 
+
+[20:24:43.053] (+ 21.16s) ELM      diag
+           → envío:     0114  (17.0 ms)
+           → respuesta: 41 14 46 63 
+
+[20:24:43.069] (+ 21.17s) ELM      diag
+           → envío:     010F  (15.2 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:43.084] (+ 21.19s) ELM      diag
+           → envío:     0105  (15.7 ms)
+           → respuesta: 41 05 70 
+
+[20:24:43.356] (+ 21.46s) ELM      diag
+           → envío:     010E  (19.3 ms)
+           → respuesta: 41 0E C1 
+
+[20:24:43.373] (+ 21.48s) ELM      diag
+           → envío:     0111  (16.9 ms)
+           → respuesta: 41 11 23 
+
+[20:24:43.387] (+ 21.49s) ELM      diag
+           → envío:     010B  (14.9 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:43.405] (+ 21.51s) ELM      diag
+           → envío:     010C  (17.2 ms)
+           → respuesta: 41 0C 1A 14 
+
+[20:24:43.421] (+ 21.52s) ELM      diag
+           → envío:     0114  (16.3 ms)
+           → respuesta: 41 14 88 54 
+
+[20:24:43.437] (+ 21.54s) ELM      diag
+           → envío:     010F  (15.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:43.453] (+ 21.56s) ELM      diag
+           → envío:     0105  (16.6 ms)
+           → respuesta: 41 05 70 
+
+[20:24:43.723] (+ 21.83s) ELM      diag
+           → envío:     010E  (18.3 ms)
+           → respuesta: 41 0E C1 
+
+[20:24:43.755] (+ 21.86s) ELM      diag
+           → envío:     0111  (22.3 ms)
+           → respuesta: 41 11 23 
+
+[20:24:43.771] (+ 21.88s) ELM      diag
+           → envío:     010B  (16.2 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:43.788] (+ 21.89s) ELM      diag
+           → envío:     010C  (16.8 ms)
+           → respuesta: 41 0C 1A 08 
+
+[20:24:43.803] (+ 21.91s) ELM      diag
+           → envío:     0114  (14.7 ms)
+           → respuesta: 41 14 7D 4F 
+
+[20:24:43.819] (+ 21.92s) ELM      diag
+           → envío:     010F  (16.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:43.835] (+ 21.94s) ELM      diag
+           → envío:     0105  (16.1 ms)
+           → respuesta: 41 05 71 
+
+[20:24:44.108] (+ 22.21s) ELM      diag
+           → envío:     010E  (21.0 ms)
+           → respuesta: 41 0E C0 
+
+[20:24:44.122] (+ 22.23s) ELM      diag
+           → envío:     0111  (14.8 ms)
+           → respuesta: 41 11 23 
+
+[20:24:44.139] (+ 22.24s) ELM      diag
+           → envío:     010B  (16.5 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:44.155] (+ 22.26s) ELM      diag
+           → envío:     010C  (16.3 ms)
+           → respuesta: 41 0C 19 F4 
+
+[20:24:44.171] (+ 22.28s) ELM      diag
+           → envío:     0114  (15.8 ms)
+           → respuesta: 41 14 3E 60 
+
+[20:24:44.187] (+ 22.29s) ELM      diag
+           → envío:     010F  (16.3 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:44.203] (+ 22.31s) ELM      diag
+           → envío:     0105  (15.1 ms)
+           → respuesta: 41 05 71 
+
+[20:24:44.474] (+ 22.58s) ELM      diag
+           → envío:     010E  (20.2 ms)
+           → respuesta: 41 0E C1 
+
+[20:24:44.490] (+ 22.59s) ELM      diag
+           → envío:     0111  (15.8 ms)
+           → respuesta: 41 11 23 
+
+[20:24:44.506] (+ 22.61s) ELM      diag
+           → envío:     010B  (15.9 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:44.522] (+ 22.63s) ELM      diag
+           → envío:     010C  (16.0 ms)
+           → respuesta: 41 0C 19 EC 
+
+[20:24:44.538] (+ 22.64s) ELM      diag
+           → envío:     0114  (15.9 ms)
+           → respuesta: 41 14 65 4F 
+
+[20:24:44.555] (+ 22.66s) ELM      diag
+           → envío:     010F  (16.5 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:44.573] (+ 22.68s) ELM      diag
+           → envío:     0105  (18.7 ms)
+           → respuesta: 41 05 71 
+
+[20:24:44.841] (+ 22.95s) ELM      diag
+           → envío:     010E  (17.1 ms)
+           → respuesta: 41 0E C0 
+
+[20:24:44.859] (+ 22.96s) ELM      diag
+           → envío:     0111  (17.8 ms)
+           → respuesta: 41 11 23 
+
+[20:24:44.878] (+ 22.98s) ELM      diag
+           → envío:     010B  (18.8 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:44.908] (+ 23.01s) ELM      diag
+           → envío:     010C  (30.4 ms)
+           → respuesta: 41 0C 19 DC 
+
+[20:24:44.921] (+ 23.03s) ELM      diag
+           → envío:     0114  (12.9 ms)
+           → respuesta: 41 14 5B 53 
+
+[20:24:44.938] (+ 23.04s) ELM      diag
+           → envío:     010F  (17.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:44.954] (+ 23.06s) ELM      diag
+           → envío:     0105  (16.3 ms)
+           → respuesta: 41 05 71 
+
+[20:24:45.226] (+ 23.33s) ELM      diag
+           → envío:     010E  (20.4 ms)
+           → respuesta: 41 0E C0 
+
+[20:24:45.241] (+ 23.34s) ELM      diag
+           → envío:     0111  (15.1 ms)
+           → respuesta: 41 11 23 
+
+[20:24:45.258] (+ 23.36s) ELM      diag
+           → envío:     010B  (17.1 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:45.274] (+ 23.38s) ELM      diag
+           → envío:     010C  (16.0 ms)
+           → respuesta: 41 0C 19 AC 
+
+[20:24:45.291] (+  23.4s) ELM      diag
+           → envío:     0114  (17.5 ms)
+           → respuesta: 41 14 4A 5C 
+
+[20:24:45.306] (+ 23.41s) ELM      diag
+           → envío:     010F  (14.5 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:45.321] (+ 23.42s) ELM      diag
+           → envío:     0105  (15.0 ms)
+           → respuesta: 41 05 71 
+
+[20:24:45.592] (+  23.7s) ELM      diag
+           → envío:     010E  (20.3 ms)
+           → respuesta: 41 0E C0 
+
+[20:24:45.610] (+ 23.71s) ELM      diag
+           → envío:     0111  (18.5 ms)
+           → respuesta: 41 11 23 
+
+[20:24:45.624] (+ 23.73s) ELM      diag
+           → envío:     010B  (13.6 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:45.640] (+ 23.74s) ELM      diag
+           → envío:     010C  (16.0 ms)
+           → respuesta: 41 0C 19 D0 
+
+[20:24:45.659] (+ 23.76s) ELM      diag
+           → envío:     0114  (19.0 ms)
+           → respuesta: 41 14 73 52 
+
+[20:24:45.672] (+ 23.78s) ELM      diag
+           → envío:     010F  (13.2 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:45.688] (+ 23.79s) ELM      diag
+           → envío:     0105  (16.1 ms)
+           → respuesta: 41 05 71 
+
+[20:24:45.959] (+ 24.06s) ELM      diag
+           → envío:     010E  (19.2 ms)
+           → respuesta: 41 0E C0 
+
+[20:24:45.977] (+ 24.08s) ELM      diag
+           → envío:     0111  (17.3 ms)
+           → respuesta: 41 11 23 
+
+[20:24:45.993] (+  24.1s) ELM      diag
+           → envío:     010B  (16.0 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:46.009] (+ 24.11s) ELM      diag
+           → envío:     010C  (16.1 ms)
+           → respuesta: 41 0C 19 BC 
+
+[20:24:46.026] (+ 24.13s) ELM      diag
+           → envío:     0114  (17.0 ms)
+           → respuesta: 41 14 46 5C 
+
+[20:24:46.041] (+ 24.14s) ELM      diag
+           → envío:     010F  (15.1 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:46.056] (+ 24.16s) ELM      diag
+           → envío:     0105  (15.1 ms)
+           → respuesta: 41 05 71 
+
+[20:24:46.329] (+ 24.43s) ELM      diag
+           → envío:     010E  (21.4 ms)
+           → respuesta: 41 0E C0 
+
+[20:24:46.344] (+ 24.45s) ELM      diag
+           → envío:     0111  (14.5 ms)
+           → respuesta: 41 11 23 
+
+[20:24:46.359] (+ 24.46s) ELM      diag
+           → envío:     010B  (15.2 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:46.376] (+ 24.48s) ELM      diag
+           → envío:     010C  (16.8 ms)
+           → respuesta: 41 0C 19 C4 
+
+[20:24:46.391] (+ 24.49s) ELM      diag
+           → envío:     0114  (15.0 ms)
+           → respuesta: 41 14 63 51 
+
+[20:24:46.408] (+ 24.51s) ELM      diag
+           → envío:     010F  (16.9 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:46.423] (+ 24.53s) ELM      diag
+           → envío:     0105  (15.0 ms)
+           → respuesta: 41 05 71 
+
+[20:24:46.702] (+ 24.81s) ELM      diag
+           → envío:     010C  (27.8 ms)
+           → respuesta: 41 0C 19 CC 
+
+[20:24:47.015] (+ 25.12s) ELM      diag
+           → envío:     010C  (12.7 ms)
+           → respuesta: 41 0C 19 D0 
+
+[20:24:47.350] (+ 25.45s) ELM      diag
+           → envío:     010C  (27.0 ms)
+           → respuesta: 41 0C 19 F8 
+
+[20:24:47.670] (+ 25.77s) ELM      diag
+           → envío:     010C  (19.0 ms)
+           → respuesta: 41 0C 19 D8 
+
+[20:24:47.989] (+ 26.09s) ELM      diag
+           → envío:     010C  (16.4 ms)
+           → respuesta: 41 0C 1A 00 
+
+[20:24:48.332] (+ 26.44s) ELM      diag
+           → envío:     010C  (36.5 ms)
+           → respuesta: 41 0C 1A C4 
+
+[20:24:48.660] (+ 26.76s) ELM      diag
+           → envío:     010C  (26.7 ms)
+           → respuesta: 41 0C 1D 64 
+
+[20:24:48.981] (+ 27.08s) ELM      diag
+           → envío:     010C  (20.0 ms)
+           → respuesta: 41 0C 20 40 
+
+[20:24:49.299] (+  27.4s) ELM      diag
+           → envío:     010C  (17.3 ms)
+           → respuesta: 41 0C 20 B8 
+
+[20:24:49.619] (+ 27.72s) ELM      diag
+           → envío:     010C  (19.0 ms)
+           → respuesta: 41 0C 1F D0 
+
+[20:24:49.938] (+ 28.04s) ELM      diag
+           → envío:     010C  (18.2 ms)
+           → respuesta: 41 0C 1F 28 
+
+[20:24:50.278] (+ 28.38s) ELM      diag
+           → envío:     010C  (34.3 ms)
+           → respuesta: 41 0C 1E CC 
+
+[20:24:50.625] (+ 28.73s) ELM      diag
+           → envío:     010C  (14.6 ms)
+           → respuesta: 41 0C 1E 7C 
+
+[20:24:50.945] (+ 29.05s) ELM      diag
+           → envío:     010C  (18.1 ms)
+           → respuesta: 41 0C 1E 50 
+
+[20:24:51.265] (+ 29.37s) ELM      diag
+           → envío:     010C  (18.5 ms)
+           → respuesta: 41 0C 1F B4 
+
+[20:24:51.281] (+ 29.38s) ELM      diag
+           → envío:     010E  (15.4 ms)
+           → respuesta: 41 0E C4 
+
+[20:24:51.296] (+  29.4s) ELM      diag
+           → envío:     0111  (15.0 ms)
+           → respuesta: 41 11 29 
+
+[20:24:51.312] (+ 29.42s) ELM      diag
+           → envío:     010B  (16.7 ms)
+           → respuesta: 41 0B 23 
+
+[20:24:51.329] (+ 29.43s) ELM      diag
+           → envío:     010C  (16.6 ms)
+           → respuesta: 41 0C 20 54 
+
+[20:24:51.344] (+ 29.45s) ELM      diag
+           → envío:     0114  (15.3 ms)
+           → respuesta: 41 14 0F 7F 
+
+[20:24:51.360] (+ 29.46s) ELM      diag
+           → envío:     010F  (15.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:51.375] (+ 29.48s) ELM      diag
+           → envío:     0105  (15.2 ms)
+           → respuesta: 41 05 71 
+
+[20:24:51.649] (+ 29.75s) ELM      diag
+           → envío:     010E  (21.7 ms)
+           → respuesta: 41 0E CB 
+
+[20:24:51.664] (+ 29.77s) ELM      diag
+           → envío:     0111  (15.3 ms)
+           → respuesta: 41 11 26 
+
+[20:24:51.680] (+ 29.78s) ELM      diag
+           → envío:     010B  (16.2 ms)
+           → respuesta: 41 0B 20 
+
+[20:24:51.697] (+  29.8s) ELM      diag
+           → envío:     010C  (17.4 ms)
+           → respuesta: 41 0C 22 E0 
+
+[20:24:51.711] (+ 29.82s) ELM      diag
+           → envío:     0114  (14.1 ms)
+           → respuesta: 41 14 13 86 
+
+[20:24:51.728] (+ 29.83s) ELM      diag
+           → envío:     010F  (16.3 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:51.743] (+ 29.85s) ELM      diag
+           → envío:     0105  (15.7 ms)
+           → respuesta: 41 05 71 
+
+[20:24:52.044] (+ 30.15s) ELM      diag
+           → envío:     010E  (43.8 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:52.103] (+ 30.21s) ELM      diag
+           → envío:     0111  (58.4 ms)
+           → respuesta: 41 11 26 
+
+[20:24:52.133] (+ 30.24s) ELM      diag
+           → envío:     010B  (30.1 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:52.163] (+ 30.27s) ELM      diag
+           → envío:     010C  (30.2 ms)
+           → respuesta: 41 0C 22 D4 
+
+[20:24:52.181] (+ 30.28s) ELM      diag
+           → envío:     0114  (17.5 ms)
+           → respuesta: 41 14 A6 73 
+
+[20:24:52.214] (+ 30.32s) ELM      diag
+           → envío:     010F  (33.3 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:52.245] (+ 30.35s) ELM      diag
+           → envío:     0105  (31.1 ms)
+           → respuesta: 41 05 71 
+
+[20:24:52.510] (+ 30.61s) ELM      diag
+           → envío:     010E  (13.2 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:52.526] (+ 30.63s) ELM      diag
+           → envío:     0111  (15.9 ms)
+           → respuesta: 41 11 26 
+
+[20:24:52.544] (+ 30.65s) ELM      diag
+           → envío:     010B  (17.5 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:52.558] (+ 30.66s) ELM      diag
+           → envío:     010C  (14.4 ms)
+           → respuesta: 41 0C 21 D4 
+
+[20:24:52.574] (+ 30.68s) ELM      diag
+           → envío:     0114  (15.5 ms)
+           → respuesta: 41 14 77 6D 
+
+[20:24:52.590] (+ 30.69s) ELM      diag
+           → envío:     010F  (16.7 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:52.606] (+ 30.71s) ELM      diag
+           → envío:     0105  (16.1 ms)
+           → respuesta: 41 05 72 
+
+[20:24:52.878] (+ 30.98s) ELM      diag
+           → envío:     010E  (20.9 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:52.893] (+  31.0s) ELM      diag
+           → envío:     0111  (15.0 ms)
+           → respuesta: 41 11 26 
+
+[20:24:52.910] (+ 31.01s) ELM      diag
+           → envío:     010B  (16.8 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:52.925] (+ 31.03s) ELM      diag
+           → envío:     010C  (15.2 ms)
+           → respuesta: 41 0C 21 8C 
+
+[20:24:52.942] (+ 31.05s) ELM      diag
+           → envío:     0114  (17.0 ms)
+           → respuesta: 41 14 2E 82 
+
+[20:24:52.957] (+ 31.06s) ELM      diag
+           → envío:     010F  (15.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:52.973] (+ 31.08s) ELM      diag
+           → envío:     0105  (16.0 ms)
+           → respuesta: 41 05 72 
+
+[20:24:53.245] (+ 31.35s) ELM      diag
+           → envío:     010E  (20.4 ms)
+           → respuesta: 41 0E CE 
+
+[20:24:53.260] (+ 31.36s) ELM      diag
+           → envío:     0111  (15.8 ms)
+           → respuesta: 41 11 26 
+
+[20:24:53.277] (+ 31.38s) ELM      diag
+           → envío:     010B  (16.9 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:53.294] (+  31.4s) ELM      diag
+           → envío:     010C  (16.9 ms)
+           → respuesta: 41 0C 21 44 
+
+[20:24:53.325] (+ 31.43s) ELM      diag
+           → envío:     0114  (19.1 ms)
+           → respuesta: 41 14 13 82 
+
+[20:24:53.342] (+ 31.45s) ELM      diag
+           → envío:     010F  (16.9 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:53.357] (+ 31.46s) ELM      diag
+           → envío:     0105  (15.6 ms)
+           → respuesta: 41 05 72 
+
+[20:24:53.628] (+ 31.73s) ELM      diag
+           → envío:     010E  (18.4 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:53.644] (+ 31.75s) ELM      diag
+           → envío:     0111  (16.3 ms)
+           → respuesta: 41 11 26 
+
+[20:24:53.660] (+ 31.76s) ELM      diag
+           → envío:     010B  (15.3 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:53.677] (+ 31.78s) ELM      diag
+           → envío:     010C  (17.6 ms)
+           → respuesta: 41 0C 21 10 
+
+[20:24:53.693] (+  31.8s) ELM      diag
+           → envío:     0114  (15.3 ms)
+           → respuesta: 41 14 29 89 
+
+[20:24:53.709] (+ 31.81s) ELM      diag
+           → envío:     010F  (16.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:53.724] (+ 31.83s) ELM      diag
+           → envío:     0105  (15.7 ms)
+           → respuesta: 41 05 72 
+
+[20:24:54.016] (+ 32.12s) ELM      diag
+           → envío:     010E  (37.3 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:54.044] (+ 32.15s) ELM      diag
+           → envío:     0111  (27.6 ms)
+           → respuesta: 41 11 26 
+
+[20:24:54.072] (+ 32.18s) ELM      diag
+           → envío:     010B  (27.9 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:54.101] (+ 32.21s) ELM      diag
+           → envío:     010C  (29.9 ms)
+           → respuesta: 41 0C 20 CC 
+
+[20:24:54.124] (+ 32.23s) ELM      diag
+           → envío:     0114  (22.7 ms)
+           → respuesta: 41 14 11 8A 
+
+[20:24:54.139] (+ 32.24s) ELM      diag
+           → envío:     010F  (15.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:54.156] (+ 32.26s) ELM      diag
+           → envío:     0105  (16.7 ms)
+           → respuesta: 41 05 72 
+
+[20:24:54.427] (+ 32.53s) ELM      diag
+           → envío:     010E  (18.7 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:54.443] (+ 32.55s) ELM      diag
+           → envío:     0111  (16.8 ms)
+           → respuesta: 41 11 26 
+
+[20:24:54.461] (+ 32.56s) ELM      diag
+           → envío:     010B  (17.6 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:54.476] (+ 32.58s) ELM      diag
+           → envío:     010C  (14.7 ms)
+           → respuesta: 41 0C 20 B8 
+
+[20:24:54.492] (+  32.6s) ELM      diag
+           → envío:     0114  (15.8 ms)
+           → respuesta: 41 14 0F 8A 
+
+[20:24:54.509] (+ 32.61s) ELM      diag
+           → envío:     010F  (17.4 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:54.524] (+ 32.63s) ELM      diag
+           → envío:     0105  (15.3 ms)
+           → respuesta: 41 05 72 
+
+[20:24:54.795] (+  32.9s) ELM      diag
+           → envío:     010E  (20.9 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:54.810] (+ 32.91s) ELM      diag
+           → envío:     0111  (14.5 ms)
+           → respuesta: 41 11 26 
+
+[20:24:54.826] (+ 32.93s) ELM      diag
+           → envío:     010B  (16.6 ms)
+           → respuesta: 41 0B 1C 
+
+[20:24:54.843] (+ 32.95s) ELM      diag
+           → envío:     010C  (17.0 ms)
+           → respuesta: 41 0C 20 AC 
+
+[20:24:54.859] (+ 32.96s) ELM      diag
+           → envío:     0114  (15.8 ms)
+           → respuesta: 41 14 2A 90 
+
+[20:24:54.875] (+ 32.98s) ELM      diag
+           → envío:     010F  (16.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:54.891] (+ 32.99s) ELM      diag
+           → envío:     0105  (15.9 ms)
+           → respuesta: 41 05 72 
+
+[20:24:55.164] (+ 33.27s) ELM      diag
+           → envío:     010E  (21.9 ms)
+           → respuesta: 41 0E CD 
+
+[20:24:55.223] (+ 33.33s) ELM      diag
+           → envío:     0111  (59.5 ms)
+           → respuesta: 41 11 26 
+
+[20:24:55.241] (+ 33.35s) ELM      diag
+           → envío:     010B  (18.5 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:55.258] (+ 33.36s) ELM      diag
+           → envío:     010C  (16.9 ms)
+           → respuesta: 41 0C 20 9C 
+
+[20:24:55.274] (+ 33.38s) ELM      diag
+           → envío:     0114  (15.9 ms)
+           → respuesta: 41 14 11 91 
+
+[20:24:55.289] (+ 33.39s) ELM      diag
+           → envío:     010F  (14.9 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:55.305] (+ 33.41s) ELM      diag
+           → envío:     0105  (15.8 ms)
+           → respuesta: 41 05 72 
+
+[20:24:55.578] (+ 33.68s) ELM      diag
+           → envío:     010E  (20.9 ms)
+           → respuesta: 41 0E CE 
+
+[20:24:55.594] (+  33.7s) ELM      diag
+           → envío:     0111  (15.9 ms)
+           → respuesta: 41 11 26 
+
+[20:24:55.610] (+ 33.71s) ELM      diag
+           → envío:     010B  (15.9 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:55.626] (+ 33.73s) ELM      diag
+           → envío:     010C  (16.1 ms)
+           → respuesta: 41 0C 20 AC 
+
+[20:24:55.655] (+ 33.76s) ELM      diag
+           → envío:     0114  (29.2 ms)
+           → respuesta: 41 14 0F 92 
+
+[20:24:55.685] (+ 33.79s) ELM      diag
+           → envío:     010F  (28.2 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:55.721] (+ 33.83s) ELM      diag
+           → envío:     0105  (36.0 ms)
+           → respuesta: 41 05 72 
+
+[20:24:55.992] (+  34.1s) ELM      diag
+           → envío:     010E  (17.1 ms)
+           → respuesta: 41 0E CE 
+
+[20:24:56.008] (+ 34.11s) ELM      diag
+           → envío:     0111  (16.2 ms)
+           → respuesta: 41 11 26 
+
+[20:24:56.024] (+ 34.13s) ELM      diag
+           → envío:     010B  (15.9 ms)
+           → respuesta: 41 0B 1D 
+
+[20:24:56.040] (+ 34.14s) ELM      diag
+           → envío:     010C  (14.9 ms)
+           → respuesta: 41 0C 20 E0 
+
+[20:24:56.057] (+ 34.16s) ELM      diag
+           → envío:     0114  (16.0 ms)
+           → respuesta: 41 14 9C 85 
+
+[20:24:56.073] (+ 34.18s) ELM      diag
+           → envío:     010F  (15.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:24:56.088] (+ 34.19s) ELM      diag
+           → envío:     0105  (14.9 ms)
+           → respuesta: 41 05 72 
+
+[20:24:56.360] (+ 34.46s) ELM      diag
+           → envío:     010C  (19.9 ms)
+           → respuesta: 41 0C 21 00 
+
+[20:24:56.697] (+  34.8s) ELM      diag
+           → envío:     010C  (20.6 ms)
+           → respuesta: 41 0C 21 08 
+
+[20:24:57.014] (+ 35.12s) ELM      diag
+           → envío:     010C  (16.1 ms)
+           → respuesta: 41 0C 21 30 
+
+[20:24:57.335] (+ 35.44s) ELM      diag
+           → envío:     010C  (19.0 ms)
+           → respuesta: 41 0C 21 28 
+
+[20:24:57.679] (+ 35.78s) ELM      diag
+           → envío:     010C  (41.0 ms)
+           → respuesta: 41 0C 22 D0 
+
+[20:24:58.006] (+ 36.11s) ELM      diag
+           → envío:     010C  (25.6 ms)
+           → respuesta: 41 0C 26 78 
+
+[20:24:58.325] (+ 36.43s) ELM      diag
+           → envío:     010C  (18.5 ms)
+           → respuesta: 41 0C 28 E4 
+
+[20:24:58.646] (+ 36.75s) ELM      diag
+           → envío:     010C  (19.6 ms)
+           → respuesta: 41 0C 2A 50 
+
+[20:24:58.964] (+ 37.07s) ELM      diag
+           → envío:     010C  (17.5 ms)
+           → respuesta: 41 0C 2B 7C 
+
+[20:24:59.283] (+ 37.39s) ELM      diag
+           → envío:     010C  (17.2 ms)
+           → respuesta: 41 0C 2E D4 
+
+[20:24:59.605] (+ 37.71s) ELM      diag
+           → envío:     010C  (17.9 ms)
+           → respuesta: 41 0C 30 64 
+
+[20:24:59.938] (+ 38.04s) ELM      diag
+           → envío:     010C  (11.9 ms)
+           → respuesta: 41 0C 31 1C 
+
+[20:25:00.259] (+ 38.36s) ELM      diag
+           → envío:     010C  (19.4 ms)
+           → respuesta: 41 0C 30 3C 
+
+[20:25:00.577] (+ 38.68s) ELM      diag
+           → envío:     010C  (17.3 ms)
+           → respuesta: 41 0C 2F E8 
+
+[20:25:00.897] (+  39.0s) ELM      diag
+           → envío:     010C  (18.1 ms)
+           → respuesta: 41 0C 2F D8 
+
+[20:25:01.235] (+ 39.34s) ELM      diag
+           → envío:     010C  (34.9 ms)
+           → respuesta: 41 0C 2F D0 
+
+[20:25:01.552] (+ 39.66s) ELM      diag
+           → envío:     010C  (15.6 ms)
+           → respuesta: 41 0C 2F EC 
+
+[20:25:01.871] (+ 39.97s) ELM      diag
+           → envío:     010C  (16.8 ms)
+           → respuesta: 41 0C 30 14 
+
+[20:25:01.887] (+ 39.99s) ELM      diag
+           → envío:     010E  (16.3 ms)
+           → respuesta: 41 0E DA 
+
+[20:25:01.904] (+ 40.01s) ELM      diag
+           → envío:     0111  (15.3 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:01.920] (+ 40.02s) ELM      diag
+           → envío:     010B  (15.6 ms)
+           → respuesta: 41 0B 1E 
+
+[20:25:01.936] (+ 40.04s) ELM      diag
+           → envío:     010C  (16.4 ms)
+           → respuesta: 41 0C 30 24 
+
+[20:25:01.951] (+ 40.05s) ELM      diag
+           → envío:     0114  (14.8 ms)
+           → respuesta: 41 14 11 9C 
+
+[20:25:01.968] (+ 40.07s) ELM      diag
+           → envío:     010F  (16.9 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:01.984] (+ 40.09s) ELM      diag
+           → envío:     0105  (16.2 ms)
+           → respuesta: 41 05 73 
+
+[20:25:02.254] (+ 40.36s) ELM      diag
+           → envío:     010E  (18.4 ms)
+           → respuesta: 41 0E DA 
+
+[20:25:02.271] (+ 40.38s) ELM      diag
+           → envío:     0111  (17.1 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:02.287] (+ 40.39s) ELM      diag
+           → envío:     010B  (15.7 ms)
+           → respuesta: 41 0B 1E 
+
+[20:25:02.302] (+ 40.41s) ELM      diag
+           → envío:     010C  (15.1 ms)
+           → respuesta: 41 0C 30 44 
+
+[20:25:02.319] (+ 40.42s) ELM      diag
+           → envío:     0114  (16.3 ms)
+           → respuesta: 41 14 82 88 
+
+[20:25:02.334] (+ 40.44s) ELM      diag
+           → envío:     010F  (15.3 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:02.350] (+ 40.45s) ELM      diag
+           → envío:     0105  (16.6 ms)
+           → respuesta: 41 05 73 
+
+[20:25:02.622] (+ 40.73s) ELM      diag
+           → envío:     010E  (19.6 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:02.654] (+ 40.76s) ELM      diag
+           → envío:     0111  (23.8 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:02.670] (+ 40.77s) ELM      diag
+           → envío:     010B  (15.8 ms)
+           → respuesta: 41 0B 1E 
+
+[20:25:02.687] (+ 40.79s) ELM      diag
+           → envío:     010C  (16.8 ms)
+           → respuesta: 41 0C 30 68 
+
+[20:25:02.702] (+ 40.81s) ELM      diag
+           → envío:     0114  (15.2 ms)
+           → respuesta: 41 14 A4 85 
+
+[20:25:02.717] (+ 40.82s) ELM      diag
+           → envío:     010F  (15.3 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:02.734] (+ 40.84s) ELM      diag
+           → envío:     0105  (16.8 ms)
+           → respuesta: 41 05 73 
+
+[20:25:03.018] (+ 41.12s) ELM      diag
+           → envío:     010E  (29.9 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:03.053] (+ 41.16s) ELM      diag
+           → envío:     0111  (35.8 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:03.092] (+  41.2s) ELM      diag
+           → envío:     010B  (36.5 ms)
+           → respuesta: 41 0B 1E 
+
+[20:25:03.144] (+ 41.25s) ELM      diag
+           → envío:     010C  (52.1 ms)
+           → respuesta: 41 0C 30 78 
+
+[20:25:03.182] (+ 41.29s) ELM      diag
+           → envío:     0114  (37.7 ms)
+           → respuesta: 41 14 A2 7F 
+
+[20:25:03.200] (+  41.3s) ELM      diag
+           → envío:     010F  (18.4 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:03.219] (+ 41.32s) ELM      diag
+           → envío:     0105  (18.8 ms)
+           → respuesta: 41 05 73 
+
+[20:25:03.485] (+ 41.59s) ELM      diag
+           → envío:     010E  (14.4 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:03.501] (+  41.6s) ELM      diag
+           → envío:     0111  (15.6 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:03.517] (+ 41.62s) ELM      diag
+           → envío:     010B  (16.9 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:03.533] (+ 41.64s) ELM      diag
+           → envío:     010C  (15.7 ms)
+           → respuesta: 41 0C 30 74 
+
+[20:25:03.549] (+ 41.65s) ELM      diag
+           → envío:     0114  (15.5 ms)
+           → respuesta: 41 14 8C 7B 
+
+[20:25:03.565] (+ 41.67s) ELM      diag
+           → envío:     010F  (16.2 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:03.580] (+ 41.68s) ELM      diag
+           → envío:     0105  (15.6 ms)
+           → respuesta: 41 05 73 
+
+[20:25:03.853] (+ 41.96s) ELM      diag
+           → envío:     010E  (20.6 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:03.869] (+ 41.97s) ELM      diag
+           → envío:     0111  (16.3 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:03.884] (+ 41.99s) ELM      diag
+           → envío:     010B  (15.1 ms)
+           → respuesta: 41 0B 1E 
+
+[20:25:03.900] (+  42.0s) ELM      diag
+           → envío:     010C  (15.7 ms)
+           → respuesta: 41 0C 30 88 
+
+[20:25:03.917] (+ 42.02s) ELM      diag
+           → envío:     0114  (16.7 ms)
+           → respuesta: 41 14 15 8A 
+
+[20:25:03.932] (+ 42.04s) ELM      diag
+           → envío:     010F  (15.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:03.949] (+ 42.05s) ELM      diag
+           → envío:     0105  (16.8 ms)
+           → respuesta: 41 05 74 
+
+[20:25:04.220] (+ 42.32s) ELM      diag
+           → envío:     010E  (20.1 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:04.236] (+ 42.34s) ELM      diag
+           → envío:     0111  (15.9 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:04.252] (+ 42.36s) ELM      diag
+           → envío:     010B  (16.0 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:04.268] (+ 42.37s) ELM      diag
+           → envío:     010C  (16.7 ms)
+           → respuesta: 41 0C 30 84 
+
+[20:25:04.284] (+ 42.39s) ELM      diag
+           → envío:     0114  (15.2 ms)
+           → respuesta: 41 14 8A 6F 
+
+[20:25:04.300] (+  42.4s) ELM      diag
+           → envío:     010F  (16.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:04.317] (+ 42.42s) ELM      diag
+           → envío:     0105  (17.1 ms)
+           → respuesta: 41 05 74 
+
+[20:25:04.587] (+ 42.69s) ELM      diag
+           → envío:     010E  (19.4 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:04.603] (+ 42.71s) ELM      diag
+           → envío:     0111  (16.3 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:04.618] (+ 42.72s) ELM      diag
+           → envío:     010B  (14.9 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:04.635] (+ 42.74s) ELM      diag
+           → envío:     010C  (16.7 ms)
+           → respuesta: 41 0C 30 90 
+
+[20:25:04.651] (+ 42.76s) ELM      diag
+           → envío:     0114  (16.3 ms)
+           → respuesta: 41 14 11 7E 
+
+[20:25:04.667] (+ 42.77s) ELM      diag
+           → envío:     010F  (15.9 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:04.683] (+ 42.79s) ELM      diag
+           → envío:     0105  (16.2 ms)
+           → respuesta: 41 05 74 
+
+[20:25:04.965] (+ 43.07s) ELM      diag
+           → envío:     010E  (29.9 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:04.996] (+  43.1s) ELM      diag
+           → envío:     0111  (30.9 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:05.025] (+ 43.13s) ELM      diag
+           → envío:     010B  (29.5 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:05.054] (+ 43.16s) ELM      diag
+           → envío:     010C  (29.1 ms)
+           → respuesta: 41 0C 30 A8 
+
+[20:25:05.085] (+ 43.19s) ELM      diag
+           → envío:     0114  (30.8 ms)
+           → respuesta: 41 14 0F 7D 
+
+[20:25:05.102] (+ 43.21s) ELM      diag
+           → envío:     010F  (16.8 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:05.133] (+ 43.24s) ELM      diag
+           → envío:     0105  (31.5 ms)
+           → respuesta: 41 05 74 
+
+[20:25:05.402] (+ 43.51s) ELM      diag
+           → envío:     010E  (17.6 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:05.417] (+ 43.52s) ELM      diag
+           → envío:     0111  (15.3 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:05.433] (+ 43.54s) ELM      diag
+           → envío:     010B  (15.9 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:05.451] (+ 43.55s) ELM      diag
+           → envío:     010C  (17.4 ms)
+           → respuesta: 41 0C 30 B4 
+
+[20:25:05.466] (+ 43.57s) ELM      diag
+           → envío:     0114  (15.1 ms)
+           → respuesta: 41 14 15 7B 
+
+[20:25:05.482] (+ 43.59s) ELM      diag
+           → envío:     010F  (16.5 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:05.498] (+  43.6s) ELM      diag
+           → envío:     0105  (16.3 ms)
+           → respuesta: 41 05 74 
+
+[20:25:05.769] (+ 43.87s) ELM      diag
+           → envío:     010E  (18.6 ms)
+           → respuesta: 41 0E DC 
+
+[20:25:05.801] (+  43.9s) ELM      diag
+           → envío:     0111  (18.7 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:05.817] (+ 43.92s) ELM      diag
+           → envío:     010B  (16.3 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:05.834] (+ 43.94s) ELM      diag
+           → envío:     010C  (16.7 ms)
+           → respuesta: 41 0C 30 98 
+
+[20:25:05.849] (+ 43.95s) ELM      diag
+           → envío:     0114  (14.9 ms)
+           → respuesta: 41 14 13 77 
+
+[20:25:05.865] (+ 43.97s) ELM      diag
+           → envío:     010F  (16.0 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:05.881] (+ 43.99s) ELM      diag
+           → envío:     0105  (16.4 ms)
+           → respuesta: 41 05 74 
+
+[20:25:06.152] (+ 44.26s) ELM      diag
+           → envío:     010E  (19.9 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:06.168] (+ 44.27s) ELM      diag
+           → envío:     0111  (15.9 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:06.185] (+ 44.29s) ELM      diag
+           → envío:     010B  (17.2 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:06.203] (+ 44.31s) ELM      diag
+           → envío:     010C  (17.4 ms)
+           → respuesta: 41 0C 30 90 
+
+[20:25:06.216] (+ 44.32s) ELM      diag
+           → envío:     0114  (13.6 ms)
+           → respuesta: 41 14 0D 77 
+
+[20:25:06.232] (+ 44.34s) ELM      diag
+           → envío:     010F  (16.1 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:06.249] (+ 44.35s) ELM      diag
+           → envío:     0105  (16.9 ms)
+           → respuesta: 41 05 74 
+
+[20:25:06.519] (+ 44.62s) ELM      diag
+           → envío:     010E  (18.4 ms)
+           → respuesta: 41 0E DB 
+
+[20:25:06.535] (+ 44.64s) ELM      diag
+           → envío:     0111  (16.0 ms)
+           → respuesta: 41 11 2B 
+
+[20:25:06.552] (+ 44.66s) ELM      diag
+           → envío:     010B  (16.3 ms)
+           → respuesta: 41 0B 1D 
+
+[20:25:06.569] (+ 44.67s) ELM      diag
+           → envío:     010C  (17.0 ms)
+           → respuesta: 41 0C 30 90 
+
+[20:25:06.584] (+ 44.69s) ELM      diag
+           → envío:     0114  (15.2 ms)
+           → respuesta: 41 14 13 78 
+
+[20:25:06.601] (+ 44.71s) ELM      diag
+           → envío:     010F  (17.4 ms)
+           → respuesta: 41 0F 4D 
+
+[20:25:06.616] (+ 44.72s) ELM      diag
+           → envío:     0105  (15.3 ms)
+           → respuesta: 41 05 74 
+
+[20:25:09.827] (+ 47.93s) ELM      keep-alive
+           → envío:     3E00  (1060.2 ms)
+           → respuesta: WRONG RESPONSE
+
+[20:25:13.309] (+ 51.41s) ELM      keep-alive
+           → envío:     3E00  (1050.1 ms)
+           → respuesta: WRONG RESPONSE
+
+[20:25:14.567] (+ 52.67s) SESION   Fin de grabación
+           · eventos: 546
