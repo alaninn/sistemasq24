@@ -585,7 +585,12 @@ def _sweep_sensores_sesion():
     """Mientras se graba la sesión y hay conexión real, barre periódicamente TODOS los
     sensores legibles del motor y los loguea. Así la grabación captura "todo" aunque el
     usuario NO esté mirando la pantalla en vivo (que solo loguea los sensores del tablero).
-    Corre uno solo a la vez, serializado con ELM_LOCK como el resto del acceso al adaptador."""
+    Corre uno solo a la vez, serializado con ELM_LOCK como el resto del acceso al adaptador.
+
+    IMPORTANTE: lee SOLO sensores (readable_params → read_request). NUNCA lee DTCs ni corre
+    identificación: leer códigos de falla en algunas ECUs (servicio 19/17 multiframe) puede
+    dejar el módulo "tildado". Los DTC se leen ÚNICAMENTE cuando el usuario los pide desde la
+    pantalla de códigos (POST /api/dtc/leer). No agregar read_dtcs() acá."""
     global _sweep_activo
     _sweep_activo = True
     try:
@@ -1510,16 +1515,20 @@ def api_dtc_leer():
     slog.log("DTC", "Lectura de códigos de falla de todas las ECUs")
     resultado = []
     total = 0
-    with ELM_LOCK:
-      _marcar_actividad()
-      for info in estado.registro.list():
+    # El lock se toma POR ECU (no en un solo bloque para las 6): si un módulo tarda o se
+    # cuelga leyendo DTCs (servicio 19/17 multiframe), solo retiene el adaptador durante SU
+    # lectura (acotada por el timeout de expect), y las lecturas en vivo / el barrido de
+    # sesión pueden intercalarse entre módulo y módulo en vez de quedar todo congelado.
+    for info in estado.registro.list():
         ecu_id = info["id"]
         tecu = estado.registro.get(ecu_id)
-        _seleccionar_ecu(ecu_id)
-        try:
-            r = tecu.read_dtcs()
-        except Exception as e:
-            r = {"soportado": True, "cantidad": 0, "dtcs": [], "error": str(e)}
+        with ELM_LOCK:
+            _marcar_actividad()
+            _seleccionar_ecu(ecu_id)
+            try:
+                r = tecu.read_dtcs()
+            except Exception as e:
+                r = {"soportado": True, "cantidad": 0, "dtcs": [], "error": str(e)}
         slog.log("DTC", f"{info['nombre']}: {r.get('cantidad', 0)} falla(s)",
                  {"dtcs": [{"codigo": d.get("codigo"), "desc": d.get("descripcion")} for d in r.get("dtcs", [])]})
         resultado.append({

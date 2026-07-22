@@ -7,6 +7,18 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-21] — Grabar sesión: solo sensores, NUNCA DTCs (que pueden tildar la ECU)
+
+- El barrido de sensores de la grabación (`_sweep_sensores_sesion`) lee **solo sensores**
+  (`readable_params → read_request`) y **nunca DTCs**: leer códigos de falla en algunas ECUs
+  (servicio 19/17 multiframe) puede dejar el módulo "tildado". Se dejó explícito en el código
+  para que no se agregue por error. Los DTC se leen **únicamente** cuando el usuario los pide
+  desde la pantalla de códigos (entrar a la pantalla no lee nada; hay que tocar el botón).
+- Además, la lectura de DTC (`/api/dtc/leer`) ahora toma el lock del adaptador **por ECU** en
+  vez de en un solo bloque para las 6: si un módulo tarda o se cuelga, solo retiene el
+  adaptador durante SU lectura (acotada por el timeout), y las lecturas en vivo / el barrido de
+  sesión pueden intercalarse — no se congela todo el sistema.
+
 ## [2026-07-21] — Grabar sesión captura TODOS los sensores + reporte de chequeo mucho más exhaustivo
 
 **1) Grabación de sesión ahora barre TODO** (`server.py`):
