@@ -722,12 +722,28 @@ class TranslatedECU:
             return {nombre: {"etiqueta": nombre, "valor": sim.get(pid), "unidad": unidad}}
         if options.elm is None:
             return None
+        # OBD mode 01 NO lo soporta el motor en su dirección FÍSICA (7E0) mientras está en la
+        # sesión extendida del F4R: responde ":11:NR: Service Not Supported". SÍ responde en el
+        # broadcast FUNCIONAL 7DF (probado: da el ajuste ±% real). Mandamos el PID a 7DF con un
+        # cambio de header liviano (2 comandos AT, sin reabrir sesión ni cambiar el CRA); la
+        # respuesta llega en 7E8, que ya es el RX del motor y está filtrado. Restauramos el
+        # header al terminar para que las lecturas nativas del F4R sigan andando.
+        tx = getattr(self.ecu, "ecu_send_id", None)
+        resp = None
         try:
             options.elm.clear_cache()
+            options.elm.cmd("AT SH 7DF")
             resp = options.elm.request("01" + pid, cache=False)
         except Exception:
-            return None
-        if not resp or "NO DATA" in resp.upper() or "WRONG" in resp.upper():
+            resp = None
+        finally:
+            if tx:
+                try:
+                    options.elm.cmd("AT SH " + tx)
+                except Exception:
+                    pass
+        if (not resp or "NO DATA" in resp.upper() or "WRONG" in resp.upper()
+                or "NR:" in resp.upper() or "SERVICE NOT" in resp.upper()):
             return {nombre: {"etiqueta": nombre, "valor": None, "unidad": unidad}}
         partes = resp.strip().split()
         datos = None

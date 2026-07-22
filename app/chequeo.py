@@ -125,8 +125,13 @@ class Chequeo:
 
     # ------------------------------------------------------------------ RPM
     def _param_rpm(self, tecu):
-        """Ubica el request/dato/etiqueta de las RPM del motor. Devuelve (request,dato,etiqueta) o None."""
+        """Ubica el request/dato/etiqueta de las RPM NATIVAS del motor. Salta los PIDs OBD
+        extra (010C): en el F4R el régimen nativo se lee bien (multiframe con el flow-control
+        arreglado) y no depende del OBD, que el motor no soporta en su dirección física."""
+        obd_reqs = {"01" + p for p in getattr(tecu, "obd_extra", [])}
         for p in tecu.readable_params():
+            if p["request"] in obd_reqs:
+                continue
             texto = (p.get("dato", "") + " " + p.get("etiqueta", "")).lower()
             if "régime" in texto or "regime" in texto or "régimen" in texto or "rpm" in texto:
                 return p["request"], p["dato"], p["etiqueta"]
@@ -174,21 +179,18 @@ class Chequeo:
             base = objetivo_sim if objetivo_sim else 850
             t = time.time() - self._t0_sim
             return min(base, 400 + t * 250) if objetivo_sim else 850
-        # 1) OBD 010C (un frame, sin flow-control): confiable aunque el F4R multiframe falle.
-        rpm = self._leer_rpm_obd()
-        if rpm is not None:
-            return rpm
-        # 2) régimen del ECU del motor enhanced (F4R). Puede fallar si la respuesta es multiframe.
-        if rpm_info is None:
-            return None
-        req, dato, _et = rpm_info
-        vals = self._leer_request(tecu, req)
-        if not vals or dato not in vals:
-            return None
-        try:
-            return float(str(vals[dato].get("valor")).split()[0])
-        except (ValueError, TypeError, IndexError):
-            return None
+        # 1) Régimen NATIVO del F4R: con el flow-control arreglado se lee bien y es lo más
+        #    directo (el OBD 010C el motor no lo soporta en su dirección física).
+        if rpm_info is not None:
+            req, dato, _et = rpm_info
+            vals = self._leer_request(tecu, req)
+            if vals and dato in vals:
+                try:
+                    return float(str(vals[dato].get("valor")).split()[0])
+                except (ValueError, TypeError, IndexError):
+                    pass
+        # 2) Fallback: OBD 010C (por 7DF). Sirve si el nativo no estuviera disponible.
+        return self._leer_rpm_obd()
 
     def _probar_rpm(self, tecu, rpm_info):
         """¿Se pueden leer las RPM del motor? Prueba unos segundos. En sim, siempre sí.

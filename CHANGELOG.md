@@ -7,6 +7,21 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-22] — FIX: fuel trim OBD por 7DF (el motor no soporta OBD en 7E0) + chequeo usa RPM nativo
+
+El log lo confirmó: leer los PID OBD (0106/0107/010C) en la dirección FÍSICA del motor (7E0)
+devuelve `:11:NR: Service Not Supported` — el motor, en la sesión extendida del F4R, no soporta
+OBD mode 01 ahí. Por eso el ajuste corto/largo salía vacío y el chequeo se quedaba sin RPM.
+(El régimen y la riqueza NATIVOS sí se leían bien: 872 tr/min, factor 47.59%.)
+
+- **Fuel trim ±%**: `_leer_obd_pid` (`ecu_registry.py`) ahora manda el PID al broadcast
+  **FUNCIONAL 7DF** (donde el motor SÍ responde OBD, probado) con un cambio de header liviano
+  (`AT SH 7DF` → PID → restaurar `AT SH 7E0`), sin reabrir sesión ni cambiar el CRA (el response
+  llega en 7E8 = RX del motor, ya filtrado). Detecta y descarta respuestas negativas (`NR:`).
+- **Chequeo**: `_param_rpm` ahora apunta al **régimen NATIVO** del F4R (salta el PID OBD 010C), y
+  `_leer_rpm` lo lee primero (con el flow-control arreglado se lee perfecto) y deja el OBD como
+  fallback. Así el chequeo detecta las RPM y arranca las etapas de aceleración.
+
 ## [2026-07-22] — El ajuste ±% se lee en la MISMA ECU del motor (una sola ECU = tablero rápido de vuelta)
 
 El usuario notó que al agregar la ECU "obd" (7DF) al perfil F4R, el tablero se frenó: tener DOS
