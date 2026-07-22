@@ -1699,6 +1699,20 @@ class ELM:
         self.cmd("AT S0")
         self.cmd("AT AL")
 
+        # CRÍTICO: `AT SP` (cambio de protocolo, dentro de set_can_500/250) también resetea la
+        # config de FLOW CONTROL en muchos ELM327/clones. Sin re-aplicarla, las respuestas
+        # MULTIFRAME (régimen 21A0, riqueza 21A3, y casi todos los sensores enhanced del F4R)
+        # llegan como "first frame only — FC failed": el ELM deja de mandarle el frame de flow
+        # control a la ECU, así que los frames consecutivos nunca llegan. El workaround de
+        # arriba re-aplicaba CAF/S/AL pero se olvidaba del FC — esto lo completa. Solo aplica al
+        # camino ELM327 clásico (el STPX de los STN usa STCFCPA más abajo).
+        if not (options.opt_stpx_full and options.opt_caf):
+            self.cmd("AT FC SH " + TXa)
+            self.cmd("AT FC SD 30 00 00")   # FC: ClearToSend, BlockSize 0, STmin 0
+            self.cmd("AT FC SM 1")          # usar el FC SH/SD configurado
+            if not self.ATCFC0:
+                self.cmd("AT CFC1")         # que el ELM mande el flow control automáticamente
+
         if options.cantimeout > 0:
             self.set_can_timeout(options.cantimeout)
 

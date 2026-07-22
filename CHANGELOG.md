@@ -7,6 +7,25 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-22] — POSIBLE FIX DE FONDO: re-aplicar flow control tras AT SP (multiframe del F4R a 38400)
+
+Revisión exhaustiva del dato de fuel trim del F4R (Sagem S3000): el ajuste de combustible SÍ
+existe nativo (`Correction boucle de richesse` = short-term, `Offset/Gain apprentissage
+regulation richesse` = long-term), pero vive en respuestas **multiframe** (requests 21A3, 21A7,
+21A9, 1201-1203; minbytes 18-35) que fallan el flow-control a 38400 ("received first frame
+only"). Lo mismo que el régimen 21A0 y casi todos los sensores enhanced.
+
+**Causa raíz encontrada en `elm.py` `set_can_addr`**: la config de flow control (`AT FC SH/SD/SM`)
+se setea (líneas ~1664-1666), pero después `set_can_500/250` hace `AT SP` (cambio de protocolo)
+que **la resetea** en muchos ELM327/clones. El código re-aplicaba `CAF0/S0/AL` tras el `AT SP`
+pero **se olvidaba del flow control** → el ELM deja de mandarle el FC frame a la ECU y los frames
+consecutivos nunca llegan.
+
+**Fix**: re-aplicar `AT FC SH/SD/SM` + `CFC1` después del `AT SP` (camino ELM327 clásico; el STPX
+de los STN ya usa STCFCPA). Si funciona, **desbloquea TODO el enhanced del F4R a 38400** con el
+ELM327 común: régimen nativo, fuel trim nativo, y el resto de los sensores multiframe. Falta
+verificar en el auto real (no se puede probar en simulación).
+
 ## [2026-07-22] — Los fuel trim OBD ahora SÍ se actualizan en el tablero en vivo (ECUs secundarias)
 
 - Problema: en el tablero en vivo del F4R, los sensores del motor F4R se actualizaban pero los
