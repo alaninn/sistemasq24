@@ -1,0 +1,62 @@
+============================================================
+  CONSOLA SISTEMASQ24 — 2026-07-21 21:39:12
+  Python 3.11.9 · win32
+============================================================
+======================================================
+  SISTEMASQ24 · Scanner Universal
+  Abrí en el navegador:  http://127.0.0.1:8073/
+  (Ctrl+C para detener)
+======================================================
+Trying to open port COM4 @ 115200
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef81300, open=True>(port='COM4', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef81300, open=False>(port='COM4', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+Trying to open port COM4 @ 38400
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 38400, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef81690, open=True>(port='COM4', baudrate=38400, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef81690, open=False>(port='COM4', baudrate=38400, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+Trying to open port COM4 @ 230400
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 230400, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef80970, open=True>(port='COM4', baudrate=230400, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef80970, open=False>(port='COM4', baudrate=230400, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+Trying to open port COM4 @ 57600
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 57600, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef81300, open=True>(port='COM4', baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef81300, open=False>(port='COM4', baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+Trying to open port COM4 @ 9600
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 9600, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef81690, open=True>(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef81690, open=False>(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+Trying to open port COM4 @ 500000
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 500000, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef80970, open=True>(port='COM4', baudrate=500000, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef80970, open=False>(port='COM4', baudrate=500000, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+Trying to open port COM4 @ 1000000
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 1000000, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef81300, open=True>(port='COM4', baudrate=1000000, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef81300, open=False>(port='COM4', baudrate=1000000, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+Trying to open port COM4 @ 2000000
+Using saved settings for OBDLINK: {'baudrate': 115200, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Using settings for OBDLINK: {'baudrate': 2000000, 'timeout': 2, 'rtscts': True, 'dsrdtr': False}
+Serial port opened: Serial<id=0x2b4cef81690, open=True>(port='COM4', baudrate=2000000, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x2b4cef81690, open=False>(port='COM4', baudrate=2000000, bytesize=8, parity='N', stopbits=1, timeout=2, xonxoff=False, rtscts=True, dsrdtr=False)
+OBDLink Connection OK, using optimal settings
+ELM reset...
+Port handler is None, cannot write
+ELM reset...
+Port handler is None, cannot write
