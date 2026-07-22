@@ -2407,6 +2407,10 @@ function renderChequeoFase(e){
         <div style="color:var(--ink-dim);font-size:13px">RPM actuales</div>
         ${e.timeout && !capturando ? `<div style="margin-top:14px;color:var(--amber)">${esc(e.instruccion)}</div><button class="chip" style="margin-top:10px" onclick="capturarAhoraChequeo()">📸 Capturar ahora</button>`:''}
       </div>`;
+  } else if(fase==='rpm_no_disponible'){
+    cuerpo=`<div style="text-align:center;padding:20px">
+      <div style="font-size:34px;margin-bottom:8px">⚠️</div>
+      <div style="font-size:15px;color:var(--amber)">${esc(e.instruccion||'No se pudieron leer las RPM del motor; genero el reporte con lo leído.')}</div></div>`;
   } else if(fase==='reporte'){
     cuerpo=`<div style="font-size:18px;text-align:center;padding:24px">📝 Generando el reporte…</div>`;
   }
