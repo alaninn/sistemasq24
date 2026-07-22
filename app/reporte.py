@@ -35,6 +35,77 @@ def _num(valor_str):
         return None
 
 
+# Sensores CLAVE para el diagnóstico de un motor naftero, con cómo leerlos. Se buscan por
+# subcadena de la etiqueta (case-insensitive) entre TODOS los sensores del paneo + ralentí.
+DIAG_CLAVE = [
+    (["régimen", "regime", "rpm"],
+     "Ralentí estable ~750-850 rpm. Inestable → admisión de aire falsa, bujías, inyectores."),
+    (["temperatura del refrigerante", "température eau", "temperatura de agua", "eau mesurée"],
+     "Con el motor caliente debe estar ~85-95 °C. Frío = no entra en lazo cerrado; muy alto = riesgo."),
+    (["ajuste corto", "enrichissement regulation", "facteur enrichissement"],
+     "STFT: corrección instantánea de mezcla. Sano ±10%. Muy + = mezcla pobre; muy − = rica."),
+    (["ajuste largo", "correction adaptative", "apprentissage regulation"],
+     "LTFT: corrección aprendida. Alto + = falsa de aire / inyectores sucios / MAF; alto − = mezcla rica."),
+    (["estado del sistema de combustible", "lazo", "stratégie régulation", "état stratégie"],
+     "Con motor caliente debe estar en LAZO CERRADO. Si queda abierto → sonda o temperatura."),
+    (["sonda lambda", "sonde amont", "tension sonde", "relación lambda", "λ"],
+     "En lazo cerrado la sonda anterior debe OSCILAR (0.1–0.9 V). Fija = sonda vaga/envejecida."),
+    (["tensión de batería", "tension batterie", "tensión del módulo", "batería"],
+     "Con el motor en marcha 13.5–14.8 V (alternador cargando). Bajo = alternador/batería."),
+    (["presión del colector", "map", "pression collecteur", "colector absolut"],
+     "MAP: bajo en ralentí (~25-40 kPa), sube con la carga. Alto en ralentí = fuga/válvula."),
+    (["avance de encendido", "avance allumage"],
+     "El avance debe aumentar con las RPM. Plano o negativo = detonación/sensor de picado."),
+    (["posición del acelerador", "posición de la mariposa", "papillon", "acelerador"],
+     "TPS: ~0-15% en ralentí, sigue al pedal de forma lineal."),
+    (["tiempo de inyección", "temps injection"],
+     "Ancho de pulso del inyector: sube con la carga. Anómalo = inyector/mezcla."),
+    (["caudal de aire", "maf", "débit air"],
+     "MAF: proporcional a las RPM y la carga. Bajo = MAF sucio / falsa de aire."),
+    (["presión de turbo", "suralimentation", "boost"],
+     "Boost (si tiene turbo): sube con la carga. Bajo = fuga/wastegate."),
+]
+
+
+def _iter_sensores_paneo(datos):
+    """Itera (ecu_nombre, etiqueta, valor_str) de todos los sensores del paneo."""
+    for ecu in datos.get("ecus", []):
+        for etiqueta, valor in (ecu.get("sensores") or {}).items():
+            yield ecu.get("nombre", "?"), etiqueta, valor
+
+
+def _valor_clave(datos, keywords):
+    """Busca el primer sensor cuya etiqueta contenga alguno de los keywords.
+    Prioriza el paneo (ralentí, auto quieto); devuelve (etiqueta, valor_str, origen) o None."""
+    for _ecu, etiqueta, valor in _iter_sensores_paneo(datos):
+        el = etiqueta.lower()
+        if any(k in el for k in keywords):
+            return etiqueta, valor, "ralentí"
+    # si no está en el paneo, buscar en las estadísticas de la etapa ralentí
+    stats = (datos.get("rpm_etapas", {}).get("ralenti") or {}).get("estadisticas", {})
+    for etiqueta, s in stats.items():
+        el = etiqueta.lower()
+        if any(k in el for k in keywords):
+            return etiqueta, f"{s.get('promedio')} {s.get('unidad','')}".strip(), "ralentí (prom)"
+    return None
+
+
+def _diagnostico(datos):
+    """Arma la lista de datos clave para el diagnóstico: cada sensor clave con su valor
+    medido y la explicación de qué esperar. Lo que no se leyó queda marcado."""
+    out = []
+    for keywords, explicacion in DIAG_CLAVE:
+        hit = _valor_clave(datos, keywords)
+        if hit:
+            etiqueta, valor, origen = hit
+            out.append({"sensor": etiqueta, "valor": valor, "origen": origen,
+                        "referencia": explicacion, "leido": True})
+        else:
+            out.append({"sensor": keywords[0], "valor": None, "origen": None,
+                        "referencia": explicacion, "leido": False})
+    return out
+
+
 def _evaluar(etiqueta, valor_str, rangos):
     """Evalúa un sensor contra los rangos (match por subcadena de la etiqueta).
     Devuelve {estado, rango?, nota?}. estado: ok | atencion | sin_rango."""
@@ -78,6 +149,20 @@ def _analizar(datos):
             dtcs_lista.append({"ecu": ecu["nombre"], "codigo": d.get("codigo"),
                                "descripcion": d.get("descripcion", "")})
 
+    # ECUs presentes / ausentes (para saber qué módulos respondieron)
+    ecus_presentes = [e["nombre"] for e in datos.get("ecus", []) if e.get("presente")]
+    ecus_ausentes = [e["nombre"] for e in datos.get("ecus", []) if e.get("presente") is False]
+
+    # Notas sobre la captura de RPM (honestidad: qué se alcanzó realmente)
+    notas_captura = []
+    if datos.get("rpm_disponible") is False:
+        notas_captura.append("No se pudieron leer las RPM del motor: se saltearon las etapas de "
+                             "aceleración. El reporte tiene solo el paneo y el ralentí.")
+    for et, d in (datos.get("rpm_etapas") or {}).items():
+        if et != "ralenti" and d.get("alcanzo_banda") is False:
+            notas_captura.append(f"La etapa de {et} RPM no llegó a una banda estable: los valores "
+                                f"de esa etapa son aproximados (el motor no se mantuvo ahí).")
+
     datos["resumen"] = {
         "generado": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "sensores_totales": total_sensores,
@@ -87,8 +172,41 @@ def _analizar(datos):
         "dtcs_totales": total_dtcs,
         "dtcs": dtcs_lista,
         "con_rangos": bool(rangos),
+        "ecus_presentes": ecus_presentes,
+        "ecus_ausentes": ecus_ausentes,
+        "notas_captura": notas_captura,
+        "diagnostico": _diagnostico(datos),
+    }
+    # Bloque compacto pensado para pegarle a una IA / experto: todo lo esencial junto.
+    datos["para_experto"] = {
+        "vehiculo": datos.get("vehiculo"),
+        "perfil": datos.get("perfil"),
+        "fecha": datos.get("fecha"),
+        "modulos_presentes": ecus_presentes,
+        "modulos_sin_respuesta": ecus_ausentes,
+        "codigos_de_falla": dtcs_lista,
+        "sensores_en_atencion": atencion,
+        "datos_clave": datos["resumen"]["diagnostico"],
+        "evolucion_por_rpm": _evolucion_completa(datos),
+        "advertencias_de_captura": notas_captura,
     }
     return datos
+
+
+def _evolucion_completa(datos):
+    """Evolución por RPM con TODAS las estadísticas (min/prom/max/σ/oscila) por sensor y etapa.
+    Estructura pensada para análisis: {sensor: {unidad, etapas:{ralenti:{...}, 1500:{...}}}}."""
+    etapas = datos.get("rpm_etapas", {})
+    orden = ["ralenti", "1500", "2000", "3000"]
+    out = {}
+    for et in orden:
+        stats = (etapas.get(et) or {}).get("estadisticas", {})
+        for sensor, s in stats.items():
+            d = out.setdefault(sensor, {"unidad": s.get("unidad", ""), "etapas": {}})
+            d["etapas"][et] = {"min": s.get("minimo"), "prom": s.get("promedio"),
+                               "max": s.get("maximo"), "desv": s.get("desv_std"),
+                               "oscila": s.get("oscila")}
+    return out
 
 
 def _tabla_evolucion(datos):
@@ -116,9 +234,26 @@ def _txt(datos):
     L.append("RESUMEN")
     L.append(f"  Sensores leídos: {r['sensores_totales']}  |  OK: {r['sensores_ok']}  |  "
              f"En atención: {r['sensores_en_atencion']}  |  Códigos de falla: {r['dtcs_totales']}")
+    if r.get("ecus_presentes"):
+        L.append(f"  Módulos que responden: {', '.join(r['ecus_presentes'])}")
+    if r.get("ecus_ausentes"):
+        L.append(f"  Módulos SIN respuesta: {', '.join(r['ecus_ausentes'])}")
     if not r["con_rangos"]:
         L.append("  (Sin rangos de referencia para este perfil: los valores van crudos.)")
     L.append("")
+    if r.get("notas_captura"):
+        L.append("NOTAS DE LA CAPTURA")
+        for n in r["notas_captura"]:
+            L.append(f"  • {n}")
+        L.append("")
+    # Datos clave para el diagnóstico (con qué esperar de cada uno)
+    if r.get("diagnostico"):
+        L.append("DATOS CLAVE PARA EL DIAGNÓSTICO")
+        for d in r["diagnostico"]:
+            val = d["valor"] if d["leido"] else "— (no se leyó)"
+            L.append(f"  · {d['sensor']}: {val}")
+            L.append(f"      ↳ {d['referencia']}")
+        L.append("")
     if r["atencion"]:
         L.append("⚠ SENSORES EN ATENCIÓN")
         for a in r["atencion"]:
@@ -156,6 +291,24 @@ def _txt(datos):
                 fila += f" {('' if v is None else v):>10}"
             L.append(fila + f"  {vals.get('unidad','')}")
         L.append("")
+        # Detalle completo por etapa (min/prom/max/σ) — para ver variabilidad bajo carga
+        completa = _evolucion_completa(datos)
+        L.append("DETALLE POR ETAPA (mín / prom / máx / σ)")
+        for sensor, d in completa.items():
+            L.append(f"  {sensor}  [{d.get('unidad','')}]")
+            for et in orden:
+                e = d["etapas"].get(et)
+                if not e:
+                    continue
+                osc = " ~oscila" if e.get("oscila") else ""
+                L.append(f"      {et:<8} min {e['min']:<8} prom {e['prom']:<8} "
+                         f"max {e['max']:<8} σ {e['desv']}{osc}")
+        L.append("")
+    L.append("=" * 70)
+    L.append("Cómo leer este reporte: 'DATOS CLAVE' resume el estado del motor con qué esperar")
+    L.append("de cada sensor. 'EN ATENCIÓN' son los que se salieron del rango. La 'EVOLUCIÓN POR")
+    L.append("RPM' muestra cómo responde el motor bajo demanda. El .json trae el bloque")
+    L.append("'para_experto' con todo junto, listo para pegarle a un mecánico o a una IA.")
     return "\n".join(L)
 
 
@@ -177,7 +330,8 @@ def _html(datos):
     .ok{color:#4ade80}.warn{color:#ffab2e}.dim{color:#8ea0b2}
     .ecu{background:#131b23;border:1px solid #24303f;border-radius:10px;padding:14px 18px;margin:12px 0}
     .badge{display:inline-block;padding:2px 8px;border-radius:100px;font-size:11px}
-    .badge.ok{background:rgba(74,222,128,.15)}.badge.warn{background:rgba(255,171,46,.15)}"""
+    .badge.ok{background:rgba(74,222,128,.15)}.badge.warn{background:rgba(255,171,46,.15)}
+    .note{margin:14px 0;padding:10px 14px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px;font-size:13px;color:#9fd}"""
     H = [f"<style>{css}</style>",
          f"<h1>🩺 Chequeo General — {_esc(datos.get('vehiculo'))}</h1>",
          f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))}</div>",
@@ -187,6 +341,29 @@ def _html(datos):
          f"<div class='card'><b class='warn'>{r['sensores_en_atencion']}</b>en atención</div>",
          f"<div class='card'><b>{r['dtcs_totales']}</b>códigos de falla</div>",
          "</div>"]
+    if r.get("ecus_presentes") or r.get("ecus_ausentes"):
+        H.append("<div class='sub'>")
+        if r.get("ecus_presentes"):
+            H.append("✅ Responden: " + _esc(", ".join(r["ecus_presentes"])) + ". ")
+        if r.get("ecus_ausentes"):
+            H.append("⛔ Sin respuesta: <span class='warn'>" + _esc(", ".join(r["ecus_ausentes"])) + "</span>.")
+        H.append("</div>")
+    if r.get("notas_captura"):
+        H.append("<div class='note'>ⓘ " + "<br>".join(_esc(n) for n in r["notas_captura"]) + "</div>")
+    # Datos clave para el diagnóstico
+    if r.get("diagnostico"):
+        H.append("<h2>🔑 Datos clave para el diagnóstico</h2>")
+        H.append("<table><tr><th>Sensor</th><th>Valor medido</th><th>Qué esperar</th></tr>")
+        for d in r["diagnostico"]:
+            if d["leido"]:
+                val = f"<b>{_esc(d['valor'])}</b>"
+                cls = ""
+            else:
+                val = "<span class='dim'>— no se leyó</span>"
+                cls = "dim"
+            H.append(f"<tr class='{cls}'><td>{_esc(d['sensor'])}</td><td>{val}</td>"
+                     f"<td class='dim'>{_esc(d['referencia'])}</td></tr>")
+        H.append("</table>")
     if r["atencion"]:
         H.append("<h2>⚠ Sensores en atención</h2><table><tr><th>ECU</th><th>Sensor</th><th>Valor</th><th>Detalle</th></tr>")
         for a in r["atencion"]:
@@ -222,6 +399,26 @@ def _html(datos):
                      "".join(f"<td>{'' if vals.get(et) is None else _esc(vals.get(et))}</td>" for et in orden) +
                      f"<td class='dim'>{_esc(vals.get('unidad',''))}</td></tr>")
         H.append("</table>")
+        # Detalle completo por etapa (min/prom/max/σ)
+        completa = _evolucion_completa(datos)
+        H.append("<h2>Detalle por etapa (mín / prom / máx / σ)</h2>")
+        H.append("<table><tr><th>Sensor</th><th>Etapa</th><th>mín</th><th>prom</th>"
+                 "<th>máx</th><th>σ</th><th></th></tr>")
+        for sensor, d in completa.items():
+            for et in orden:
+                e = d["etapas"].get(et)
+                if not e:
+                    continue
+                osc = "~oscila" if e.get("oscila") else ""
+                H.append(f"<tr><td>{_esc(sensor)}</td><td class='dim'>{et}</td>"
+                         f"<td>{_esc(e['min'])}</td><td><b>{_esc(e['prom'])}</b></td>"
+                         f"<td>{_esc(e['max'])}</td><td class='dim'>{_esc(e['desv'])}</td>"
+                         f"<td class='dim'>{_esc(d.get('unidad',''))} {osc}</td></tr>")
+        H.append("</table>")
+    H.append("<div class='note'>Cómo leer: <b>Datos clave</b> resume el estado del motor con qué "
+             "esperar de cada sensor; <b>En atención</b> son los que se salieron de rango; la "
+             "<b>evolución por RPM</b> muestra la respuesta bajo demanda. El <b>.json</b> trae el "
+             "bloque <code>para_experto</code> con todo junto, listo para un mecánico o una IA.</div>")
     return "\n".join(H)
 
 

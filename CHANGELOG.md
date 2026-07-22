@@ -7,6 +7,30 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-21] — Grabar sesión captura TODOS los sensores + reporte de chequeo mucho más exhaustivo
+
+**1) Grabación de sesión ahora barre TODO** (`server.py`):
+- Antes, al grabar sesión, solo se logueaban los sensores del TABLERO y solo mientras estabas
+  en la pantalla en vivo. Ahora, mientras la grabación está activa y hay conexión real, un
+  barrido en background (`_sweep_sensores_sesion`, cada ~8 s) lee **todos los sensores legibles
+  del motor** y los registra, estés donde estés en la app. La sesión queda con el panorama
+  completo. Serializado con `ELM_LOCK`; corre uno solo a la vez.
+
+**2) Reporte del Chequeo General mucho más completo** (`reporte.py`) — para que un experto o una
+IA pueda diagnosticar de una:
+- **"Datos clave para el diagnóstico"**: los ~13 sensores que importan (RPM, temp, ajustes de
+  combustible STFT/LTFT, estado de lazo, sonda lambda, batería, MAP, avance, TPS, tiempo de
+  inyección, MAF, boost) con su valor medido **y qué esperar de cada uno** (rangos sanos +
+  qué significa si está mal). Lo que no se leyó queda marcado como "no se leyó".
+- **Detalle por etapa (mín / prom / máx / σ)**: además del promedio por RPM, ahora se ve la
+  variabilidad bajo carga y si el sensor oscila — clave para juzgar sondas, ralentí, etc.
+- **Módulos presentes / sin respuesta** listados en el resumen.
+- **Notas de captura honestas**: si no se leyeron las RPM o una etapa no llegó a banda estable,
+  el reporte lo dice (los valores de esa etapa son aproximados).
+- **Bloque `para_experto` en el JSON**: todo lo esencial junto (módulos, DTCs, sensores en
+  atención, datos clave, evolución completa por RPM, advertencias) — listo para pegarle a un
+  mecánico o a una IA.
+
 ## [2026-07-21] — Log de consola: se saca el spam "Unknown address" que tapaba los errores
 
 El log de consola (que grabamos justo para cazar errores) venía inundado con miles de líneas

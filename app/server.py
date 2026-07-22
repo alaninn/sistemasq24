@@ -575,6 +575,65 @@ class ComandoReq(BaseModel):
 # ----------------------------------------------------------------------------
 # Rutas REST
 # ----------------------------------------------------------------------------
+# Barrido de sensores durante la grabación: cada cuántos segundos leer TODOS los sensores
+# legibles del motor (no solo los del tablero) para que la sesión tenga el panorama completo.
+SWEEP_SESION_SEG = 8
+_sweep_activo = False
+
+
+def _sweep_sensores_sesion():
+    """Mientras se graba la sesión y hay conexión real, barre periódicamente TODOS los
+    sensores legibles del motor y los loguea. Así la grabación captura "todo" aunque el
+    usuario NO esté mirando la pantalla en vivo (que solo loguea los sensores del tablero).
+    Corre uno solo a la vez, serializado con ELM_LOCK como el resto del acceso al adaptador."""
+    global _sweep_activo
+    _sweep_activo = True
+    try:
+        while slog.activo:
+            try:
+                if estado.conectado and estado.modo == "real":
+                    tecu = None
+                    for cand in ("motor", "obd"):
+                        tecu = estado.registro.get(cand)
+                        if tecu is not None:
+                            break
+                    if tecu is not None:
+                        reqs = []
+                        for p in tecu.readable_params():
+                            if p["request"] not in reqs:
+                                reqs.append(p["request"])
+                        legible = {}
+                        for r in reqs:
+                            if not slog.activo:
+                                break
+                            with ELM_LOCK:
+                                _marcar_actividad()
+                                _seleccionar_ecu(tecu.id)
+                                try:
+                                    vals = tecu.read_request(r)
+                                except Exception:
+                                    vals = None
+                            for dato, info in (vals or {}).items():
+                                v = info.get("valor")
+                                if v is None or str(v).strip() == "":
+                                    continue
+                                legible[info.get("etiqueta", dato)] = info
+                        if legible:
+                            slog.log_sensores(f"{tecu.short_name} (barrido completo)", legible)
+            except Exception as e:
+                try:
+                    slog.log("SWEEP", f"Error en barrido de sensores: {e}", {})
+                except Exception:
+                    pass
+            # esperar SWEEP_SESION_SEG cortando enseguida si se detiene la grabación
+            for _ in range(int(SWEEP_SESION_SEG * 2)):
+                if not slog.activo:
+                    return
+                time.sleep(0.5)
+    finally:
+        _sweep_activo = False
+
+
 @app.post("/api/grabar/iniciar")
 def api_grabar_iniciar():
     """Empieza a grabar todo lo que pasa en la sesión de diagnóstico."""
@@ -582,6 +641,9 @@ def api_grabar_iniciar():
     # si ya estamos conectados en real, enganchar el log del ELM ahora
     if estado.modo == "real":
         _enganchar_log_elm()
+    # arrancar el barrido completo de sensores del motor (uno solo a la vez)
+    if not _sweep_activo:
+        THREAD_POOL.submit(_sweep_sensores_sesion)
     return r
 
 
