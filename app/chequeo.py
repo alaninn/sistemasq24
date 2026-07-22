@@ -149,13 +149,38 @@ class Chequeo:
                     break
         return reqs
 
+    def _leer_rpm_obd(self):
+        """Lee las RPM por el PID OBD-II estándar 010C. Es una respuesta de UN SOLO frame
+        (sin flow-control), así que FUNCIONA aunque el ECU enhanced del F4R falle los reads
+        multiframe (que es justo lo que pasa a 38400: 'received first frame only — FC failed').
+        Usa la ECU virtual 'obd' que ahora también está en el perfil F4R. Devuelve float|None."""
+        obd = self.ctx.registro.get("obd")
+        if obd is None:
+            return None
+        vals = self._leer_request(obd, "010C")
+        if not vals:
+            return None
+        for info in vals.values():
+            try:
+                return float(str(info.get("valor")).split()[0])
+            except (ValueError, TypeError, IndexError):
+                continue
+        return None
+
     def _leer_rpm(self, tecu, rpm_info, objetivo_sim=None):
-        """Lee las RPM actuales. En simulación devuelve una rampa hacia objetivo_sim."""
+        """Lee las RPM actuales, de la fuente MÁS CONFIABLE. En simulación, rampa hacia objetivo."""
         if self.ctx.simulacion():
             # rampa: en ~4s llega al objetivo y se queda ahí
             base = objetivo_sim if objetivo_sim else 850
             t = time.time() - self._t0_sim
             return min(base, 400 + t * 250) if objetivo_sim else 850
+        # 1) OBD 010C (un frame, sin flow-control): confiable aunque el F4R multiframe falle.
+        rpm = self._leer_rpm_obd()
+        if rpm is not None:
+            return rpm
+        # 2) régimen del ECU del motor enhanced (F4R). Puede fallar si la respuesta es multiframe.
+        if rpm_info is None:
+            return None
         req, dato, _et = rpm_info
         vals = self._leer_request(tecu, req)
         if not vals or dato not in vals:
@@ -167,12 +192,11 @@ class Chequeo:
 
     def _probar_rpm(self, tecu, rpm_info):
         """¿Se pueden leer las RPM del motor? Prueba unos segundos. En sim, siempre sí.
-        Si devuelve False, las etapas de aceleración se saltean (evita el cuelgue infinito
-        esperando una banda de RPM que nunca va a llegar porque no se lee el régimen)."""
+        Prueba con `_leer_rpm` (que intenta OBD 010C primero), así que anda incluso si el
+        régimen enhanced del F4R no se lee. Si devuelve False, se saltean las etapas de
+        aceleración (el reporte sale igual con paneo + ralentí) en vez de colgarse."""
         if self.ctx.simulacion():
             return True
-        if rpm_info is None:
-            return False
         t0 = time.time()
         while time.time() - t0 < PROBE_RPM_SEG:
             if self.ctx.cancelado():
@@ -183,9 +207,12 @@ class Chequeo:
         return False
 
     def _capturar_motor(self, tecu, reqs, segundos):
-        """Captura los `reqs` del motor durante `segundos`. Devuelve lista de muestras."""
+        """Captura los `reqs` del motor durante `segundos`. Devuelve lista de muestras.
+        En real, agrega también las RPM por OBD 010C a cada muestra, así el reporte tiene el
+        régimen aunque los reads enhance del F4R fallen (multiframe)."""
         muestras = []
         t0 = time.time()
+        usar_obd_rpm = not self.ctx.simulacion()
         while time.time() - t0 < segundos:
             if self.ctx.cancelado():
                 break
@@ -194,6 +221,10 @@ class Chequeo:
                 v = self._leer_request(tecu, r)
                 if v:
                     valores.update(self._valores_legibles(v))
+            if usar_obd_rpm:
+                rpm = self._leer_rpm_obd()
+                if rpm is not None:
+                    valores["Régimen del motor (RPM)"] = f"{round(rpm)} RPM"
             if valores:
                 muestras.append({"timestamp": round(time.time() - t0, 2), "valores": valores})
             time.sleep(INTERVALO_MS / 1000.0)
@@ -352,10 +383,12 @@ class Chequeo:
     def _resumir_etapa(self, muestras, rpm_info, tecu, alcanzo_banda=True):
         stats = estadisticas_de_muestras(muestras)
         rpm_prom = None
-        if rpm_info:
-            et = rpm_info[2]
-            if et in stats:
-                rpm_prom = stats[et]["promedio"]
+        # RPM del reporte: primero la clave OBD estándar (confiable), luego el régimen enhance.
+        claves = ["Régimen del motor (RPM)"] + ([rpm_info[2]] if rpm_info else [])
+        for clave in claves:
+            if clave in stats:
+                rpm_prom = stats[clave]["promedio"]
+                break
         return {"rpm_prom": rpm_prom, "n_muestras": len(muestras),
                 "alcanzo_banda": bool(alcanzo_banda), "estadisticas": stats}
 

@@ -7,6 +7,25 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-22] — El chequeo F4R lee las RPM por OBD 010C (arranca de verdad) + fin del flood de puerto muerto
+
+**1) El chequeo F4R ahora SÍ lee las RPM** (`chequeo.py`):
+- Problema real en el auto: el régimen del F4R está en una respuesta **multiframe** (21A0…) que
+  falla el flow-control a 38400 (`received first frame only — FC failed`), así que el chequeo
+  nunca leía las RPM y las etapas de aceleración no arrancaban.
+- Fix: el chequeo lee las RPM por el **PID OBD-II estándar 010C**, que es una respuesta de UN
+  frame (sin flow-control) y funciona aunque el enhanced del F4R falle. Usa la ECU virtual
+  'obd' que ya está en el perfil F4R. `_leer_rpm` prueba OBD 010C primero y cae al régimen
+  enhanced. Además, cada captura de etapa registra las RPM por OBD, así el reporte tiene el
+  régimen aunque los reads del F4R fallen.
+
+**2) Fin del flood de log cuando se desconecta el cable** (`port.py`):
+- Al desenchufar el cable, cada lectura fallaba con `PermissionError/ClearCommError` y se
+  imprimían **decenas de miles de líneas idénticas** (un log llegó a 2.4 MB), porque `expect()`
+  seguía girando 5 s por comando y `read_byte` avisaba en cada intento.
+- Fix: bandera `_port_dead` — se avisa UNA sola vez y `expect()` abandona enseguida en vez de
+  girar hasta el timeout. Se limpia al reabrir el puerto (reconexión OK).
+
 ## [2026-07-21] — Grabar sesión: solo sensores, NUNCA DTCs (que pueden tildar la ECU)
 
 - El barrido de sensores de la grabación (`_sweep_sensores_sesion`) lee **solo sensores**

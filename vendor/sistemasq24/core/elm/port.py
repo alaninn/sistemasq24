@@ -64,6 +64,7 @@ class Port:
 
     def init_serial(self, speed):
         """Initialize serial/USB connection with enhanced error handling"""
+        self._port_dead = False   # puerto recién (re)abierto: limpiar la bandera de "muerto"
         try:
             # Check for saved device settings first, use optimal settings as fallback
             device_key = DeviceManager.normalize_adapter_type(self.adapter_type)
@@ -295,13 +296,21 @@ class Port:
                 return byte
 
             except serial.SerialException as e:
-                print(_("Serial error in read_byte: %s") % e)
+                # Solo avisar la PRIMERA vez que se cae. Cuando el cable se desenchufa, cada
+                # read falla con PermissionError/ClearCommError; sin este guard se imprimían
+                # decenas de miles de líneas idénticas (log de 2.4 MB). `_port_dead` corta eso
+                # y hace que expect() abandone enseguida en vez de girar 5 s por comando.
+                if not getattr(self, "_port_dead", False):
+                    print(_("Serial error in read_byte: %s") % e)
+                self._port_dead = True
                 self.connectionStatus = False
                 return None
             except Exception as e:
-                print('*' * 40)
-                print('*       ' + _('Connection to ELM was lost'))
-                print(_('*       Error: %s') % e)
+                if not getattr(self, "_port_dead", False):
+                    print('*' * 40)
+                    print('*       ' + _('Connection to ELM was lost'))
+                    print(_('*       Error: %s') % e)
+                self._port_dead = True
                 self.connectionStatus = False
                 self.close()
                 return None
@@ -413,6 +422,10 @@ class Port:
     
         while True:
             if not options.simulation_mode:
+                # Si el puerto murió (cable desenchufado / acceso denegado), no seguir
+                # intentando: abandonar ya en vez de girar hasta el deadline spameando errores.
+                if getattr(self, "_port_dead", False):
+                    return self.buff + _("TIMEOUT")
                 if self.portType == 1 and self.hdr is not None:
                     remaining = deadline - time.time()
                     if remaining <= 0:
