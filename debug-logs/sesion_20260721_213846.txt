@@ -1,0 +1,106 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260721_213846
+==================================================================
+
+[21:38:46.430] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM4
+           · conectado: True
+
+[21:38:46.436] (+  0.01s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-21 21:38:46
+
+[21:38:48.157] (+  1.73s) ELM      keep-alive
+           → envío:     3E00  (615.5 ms)
+           → respuesta: 
+
+[21:38:51.246] (+  4.82s) ELM      keep-alive
+           → envío:     3E00  (651.8 ms)
+           → respuesta: 
+
+[21:38:52.647] (+  6.22s) VEHICULO Perfil curado: Mégane II F4R
+           · ecus: 6
+
+[21:38:54.252] (+  7.82s) ELM      keep-alive
+           → envío:     3E00  (613.4 ms)
+           → respuesta: 
+
+[21:38:54.252] (+  7.82s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[21:38:55.832] (+   9.4s) ELM      diag
+           → envío:     21 A0  (523.5 ms)
+           → respuesta:  
+
+[21:38:56.350] (+  9.92s) ELM      diag
+           → envío:     21 A0  (0.0 ms)
+           → respuesta:  
+
+[21:38:56.862] (+ 10.43s) ELM      diag
+           → envío:     21 A2  (512.2 ms)
+           → respuesta:  
+
+[21:38:57.311] (+ 10.88s) ELM      diag
+           → envío:     21 A2  (0.0 ms)
+           → respuesta:  
+
+[21:38:57.841] (+ 11.41s) ELM      diag
+           → envío:     21 A4  (528.2 ms)
+           → respuesta:  
+
+[21:38:58.359] (+ 11.93s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta:  
+
+[21:38:58.876] (+ 12.45s) ELM      diag
+           → envío:     21 A3  (516.4 ms)
+           → respuesta:  
+
+[21:38:59.382] (+ 12.95s) ELM      diag
+           → envío:     21 A3  (0.0 ms)
+           → respuesta:  
+
+[21:38:59.895] (+ 13.46s) ELM      diag
+           → envío:     21 A7  (512.3 ms)
+           → respuesta:  
+
+[21:39:00.342] (+ 13.91s) ELM      diag
+           → envío:     21 A7  (0.0 ms)
+           → respuesta:  
+
+[21:39:00.855] (+ 14.43s) ELM      diag
+           → envío:     21 A7  (510.0 ms)
+           → respuesta:  
+
+[21:39:01.367] (+ 14.94s) ELM      diag
+           → envío:     21 A7  (0.0 ms)
+           → respuesta:  
+
+[21:39:01.879] (+ 15.45s) ELM      diag
+           → envío:     21 A4  (512.4 ms)
+           → respuesta:  
+
+[21:39:02.391] (+ 15.96s) ELM      diag
+           → envío:     21 A4  (0.0 ms)
+           → respuesta:  
+
+[21:39:02.903] (+ 16.47s) ELM      diag
+           → envío:     21 A6  (511.6 ms)
+           → respuesta:  
+
+[21:39:03.334] (+  16.9s) ELM      diag
+           → envío:     21 A6  (0.0 ms)
+           → respuesta:  
+
+[21:39:03.847] (+ 17.42s) ELM      diag
+           → envío:     21 C7  (511.4 ms)
+           → respuesta:  
