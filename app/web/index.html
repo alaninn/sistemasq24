@@ -1772,14 +1772,16 @@ function subscribeLive(){
   for(const id of ST.selected){ const m=ST.paramMeta[id]; if(!m) continue; (byEcu[m.ecu]=byEcu[m.ecu]||new Set()).add(m.request); }
   const ecuIds=Object.keys(byEcu);
   if(!ecuIds.length){ unsubscribeLive(); return; }
-  // Leer SOLO la ECU con más sensores, SIN rotar entre ECUs. Rotar reabría sesión
-  // en cada ECU (reiniciaba el tablero, trababa actuadores y era lento). Una sola
-  // ECU estable = rápido y sin efectos secundarios, igual que DDT4All.
+  // ECU PRIMARIA: la que tiene más sensores, se lee en cada ciclo (rápido). Las OTRAS ECUs
+  // del tablero (ej. la 'obd' con los fuel trim) van como `extra`: el backend las lee cada
+  // ~2s en vez de cada ciclo, así se actualizan sin reabrir sesión CAN en cada refresco
+  // (que era lo que hacía que solo se leyera una ECU y los short trim quedaran congelados).
   ecuIds.sort((a,b)=> byEcu[b].size - byEcu[a].size);
   ST._liveEcu=ecuIds[0];
   ST._liveOtras=ecuIds.slice(1);
   const reqs=[...byEcu[ST._liveEcu]];
-  ST.ws.send(JSON.stringify({tipo:'suscribir',ecu:ST._liveEcu,requests:reqs,intervalo:0.15}));
+  const extra=ST._liveOtras.map(e=>({ecu:e, requests:[...byEcu[e]]}));
+  ST.ws.send(JSON.stringify({tipo:'suscribir',ecu:ST._liveEcu,requests:reqs,intervalo:0.15,extra}));
 }
 function unsubscribeLive(){
   ST._liveEcu=null;

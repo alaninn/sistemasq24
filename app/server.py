@@ -2085,7 +2085,14 @@ def api_ensayo_reporte(tipo: str):
 @app.websocket("/ws")
 async def ws_vivo(ws: WebSocket):
     await ws.accept()
-    suscripcion = {"ecu": None, "requests": [], "intervalo": 1.0}
+    # "ecu"/"requests": ECU primaria (se lee en CADA ciclo, rápido).
+    # "extra": [{ecu, requests}] de OTRAS ECUs del tablero (ej. la 'obd' con los fuel trim),
+    # que se leen cada ~EXTRA_SEG en vez de cada ciclo: cambian lento y así evitamos re-abrir
+    # sesión CAN en cada refresco (era la razón por la que solo se leía UNA ECU).
+    suscripcion = {"ecu": None, "requests": [], "intervalo": 1.0, "extra": []}
+    EXTRA_SEG = 2.0
+    _extra_cache = {}      # {param_id: info} de las ECUs secundarias, refrescado cada EXTRA_SEG
+    _extra_ts = [0.0]      # último refresco de las secundarias (lista para mutar en el closure)
     try:
         while True:
             # recibir suscripción (no bloqueante: con timeout corto)
@@ -2096,6 +2103,9 @@ async def ws_vivo(ws: WebSocket):
                     suscripcion["ecu"] = data.get("ecu")
                     suscripcion["requests"] = data.get("requests", [])
                     suscripcion["intervalo"] = float(data.get("intervalo", 1.0))
+                    suscripcion["extra"] = data.get("extra", []) or []
+                    _extra_cache.clear()
+                    _extra_ts[0] = 0.0
             except asyncio.TimeoutError:
                 pass
             except (WebSocketDisconnect, RuntimeError):
@@ -2106,6 +2116,7 @@ async def ws_vivo(ws: WebSocket):
                 if tecu is not None:
                     ecu_id = suscripcion["ecu"]
                     reqs = list(suscripcion["requests"])
+                    extra = list(suscripcion["extra"])
 
                     def _leer_sync():
                         # Acceso exclusivo al ELM (no pisar comandos HTTP concurrentes).
@@ -2122,6 +2133,32 @@ async def ws_vivo(ws: WebSocket):
                                 if vals:
                                     for dato, info in vals.items():
                                         res[tecu.param_id(req_name, dato)] = info
+                            # ECUs secundarias (ej. 'obd' con los fuel trim): cada EXTRA_SEG.
+                            if extra and time.time() - _extra_ts[0] > EXTRA_SEG:
+                                _extra_ts[0] = time.time()
+                                nuevo = {}
+                                for grupo in extra:
+                                    e_id = grupo.get("ecu")
+                                    e_reqs = grupo.get("requests", []) or []
+                                    e_tecu = estado.registro.get(e_id)
+                                    if e_tecu is None or not e_reqs:
+                                        continue
+                                    _seleccionar_ecu(e_id)
+                                    for req_name in e_reqs:
+                                        try:
+                                            vals = e_tecu.read_request(req_name)
+                                        except Exception:
+                                            vals = None
+                                        if vals:
+                                            for dato, info in vals.items():
+                                                nuevo[e_tecu.param_id(req_name, dato)] = info
+                                # volver a la ECU primaria para el próximo ciclo
+                                _seleccionar_ecu(ecu_id)
+                                if nuevo:
+                                    _extra_cache.clear()
+                                    _extra_cache.update(nuevo)
+                            # mezclar el último valor conocido de las secundarias
+                            res.update(_extra_cache)
                             # Snapshot legible de sensores en la grabación (cada ~2s)
                             if slog.activo and res and time.time() - estado.ultimo_log_sensores > 2.0:
                                 estado.ultimo_log_sensores = time.time()

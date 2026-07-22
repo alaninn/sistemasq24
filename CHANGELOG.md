@@ -7,6 +7,17 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-22] — Los fuel trim OBD ahora SÍ se actualizan en el tablero en vivo (ECUs secundarias)
+
+- Problema: en el tablero en vivo del F4R, los sensores del motor F4R se actualizaban pero los
+  que agregamos por OBD (ajuste corto/largo, lazo) quedaban **congelados**. Causa: el WebSocket
+  leía **una sola ECU** (la del motor, que tiene más sensores); rotar entre ECUs se había
+  evitado porque reabría sesión CAN en cada refresco.
+- Fix: la suscripción ahora manda una ECU **primaria** (se lee en cada ciclo, 0.15s) y las
+  **secundarias** en `extra` (`index.html` `subscribeLive`). El backend (`server.py`, WS) lee
+  las secundarias **cada ~2s** y cachea el último valor, mezclándolo en cada refresco. Los fuel
+  trim (que cambian lento) se actualizan sin la penalidad de reabrir sesión en cada ciclo.
+
 ## [2026-07-22] — El chequeo F4R lee las RPM por OBD 010C (arranca de verdad) + fin del flood de puerto muerto
 
 **1) El chequeo F4R ahora SÍ lee las RPM** (`chequeo.py`):
