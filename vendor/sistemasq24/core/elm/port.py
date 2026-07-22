@@ -349,6 +349,11 @@ class Port:
     def write(self, data):
         """Enhanced write method with automatic reconnection and better error handling"""
         with self._lock:
+            # Puerto ya muerto (cable desenchufado): no intentar escribir ni spamear. Sin esto
+            # cada comando fallaba con WriteFile/PermissionError e inundaba el log (miles de
+            # líneas "Serial write error"). El read ya cortaba; faltaba cortar el write.
+            if getattr(self, "_port_dead", False):
+                return None
             try:
                 if not isinstance(data, bytes):
                     data = data.encode('utf-8')
@@ -380,13 +385,17 @@ class Port:
                     return self.hdr.write(data)
 
             except serial.SerialException as e:
-                print(_("Serial write error: %s") % e)
+                if not getattr(self, "_port_dead", False):
+                    print(_("Serial write error: %s") % e)
+                self._port_dead = True
                 self.connectionStatus = False
                 return None
             except Exception as e:
-                print('*' * 40)
-                print('*       ' + _('Connection to ELM was lost'))
-                print(_('*       Write error: %s') % e)
+                if not getattr(self, "_port_dead", False):
+                    print('*' * 40)
+                    print('*       ' + _('Connection to ELM was lost'))
+                    print(_('*       Write error: %s') % e)
+                self._port_dead = True
                 self.connectionStatus = False
                 self.close()
                 return None

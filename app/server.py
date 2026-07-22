@@ -2117,63 +2117,76 @@ async def ws_vivo(ws: WebSocket):
                     ecu_id = suscripcion["ecu"]
                     reqs = list(suscripcion["requests"])
                     extra = list(suscripcion["extra"])
+                    loop = asyncio.get_event_loop()
 
-                    def _leer_sync():
-                        # Acceso exclusivo al ELM (no pisar comandos HTTP concurrentes).
+                    def _leer_reqs(_ecu_id, _tecu, _reqs):
+                        """Lee una tanda de requests de UNA ECU bajo el lock. {param_id: info}."""
+                        out = {}
                         with ELM_LOCK:
                             _marcar_actividad()
-                            _seleccionar_ecu(ecu_id)
-                            res = {}
-                            for req_name in reqs:
+                            _seleccionar_ecu(_ecu_id)
+                            for rn in _reqs:
                                 try:
-                                    vals = tecu.read_request(req_name)
+                                    vals = _tecu.read_request(rn)
                                 except Exception as e:
-                                    slog.log("WS_READ", f"Error leyendo {req_name}: {e}", {})
+                                    slog.log("WS_READ", f"Error leyendo {rn}: {e}", {})
                                     vals = None
                                 if vals:
                                     for dato, info in vals.items():
-                                        res[tecu.param_id(req_name, dato)] = info
-                            # ECUs secundarias (ej. 'obd' con los fuel trim): cada EXTRA_SEG.
-                            if extra and time.time() - _extra_ts[0] > EXTRA_SEG:
-                                _extra_ts[0] = time.time()
-                                nuevo = {}
-                                for grupo in extra:
-                                    e_id = grupo.get("ecu")
-                                    e_reqs = grupo.get("requests", []) or []
-                                    e_tecu = estado.registro.get(e_id)
-                                    if e_tecu is None or not e_reqs:
-                                        continue
-                                    _seleccionar_ecu(e_id)
-                                    for req_name in e_reqs:
-                                        try:
-                                            vals = e_tecu.read_request(req_name)
-                                        except Exception:
-                                            vals = None
-                                        if vals:
-                                            for dato, info in vals.items():
-                                                nuevo[e_tecu.param_id(req_name, dato)] = info
-                                # volver a la ECU primaria para el próximo ciclo
-                                _seleccionar_ecu(ecu_id)
-                                if nuevo:
-                                    _extra_cache.clear()
-                                    _extra_cache.update(nuevo)
-                            # mezclar el último valor conocido de las secundarias
-                            res.update(_extra_cache)
-                            # Snapshot legible de sensores en la grabación (cada ~2s)
-                            if slog.activo and res and time.time() - estado.ultimo_log_sensores > 2.0:
-                                estado.ultimo_log_sensores = time.time()
-                                try:
-                                    legible = {info["etiqueta"]: info for info in res.values()}
-                                    slog.log_sensores(ecu_id, legible)
-                                except Exception as e:
-                                    slog.log("WS_LOG", f"Error loguando sensores: {e}", {})
-                            return res
+                                        out[_tecu.param_id(rn, dato)] = info
+                        return out
 
-                    # Correr la lectura serie en un thread para no bloquear el servidor.
-                    resultado = await asyncio.get_event_loop().run_in_executor(None, _leer_sync)
-                    await ws.send_text(json.dumps({"tipo": "valores", "datos": resultado}))
+                    # STREAMING: leer y ENVIAR de a un request, así el tablero se actualiza
+                    # sensor por sensor y no se congela hasta terminar TODO el ciclo. Los
+                    # multiframe del F4R ahora sí se leen pero tardan; batchearlos hacía que
+                    # pareciera "se actualiza cada 10 s". Cada request se manda apenas está.
+                    acumulado = {}
+                    corte = False
+                    for rn in reqs:
+                        res = await loop.run_in_executor(None, _leer_reqs, ecu_id, tecu, [rn])
+                        if res:
+                            acumulado.update(res)
+                            try:
+                                await ws.send_text(json.dumps({"tipo": "valores", "datos": res}))
+                            except (WebSocketDisconnect, RuntimeError):
+                                corte = True
+                                break
+                    if corte:
+                        break
 
-            await asyncio.sleep(max(0.05, suscripcion["intervalo"]))
+                    # ECUs secundarias (ej. 'obd' con los fuel trim): cada EXTRA_SEG, no cada
+                    # ciclo (cambian lento y cada cambio de ECU reabre el direccionamiento).
+                    if extra and time.time() - _extra_ts[0] > EXTRA_SEG:
+                        _extra_ts[0] = time.time()
+                        nuevo = {}
+                        for grupo in extra:
+                            e_id = grupo.get("ecu")
+                            e_reqs = grupo.get("requests", []) or []
+                            e_tecu = estado.registro.get(e_id)
+                            if e_tecu is None or not e_reqs:
+                                continue
+                            nuevo.update(await loop.run_in_executor(None, _leer_reqs, e_id, e_tecu, e_reqs))
+                        if nuevo:
+                            _extra_cache.clear()
+                            _extra_cache.update(nuevo)
+                            acumulado.update(nuevo)
+                            try:
+                                await ws.send_text(json.dumps({"tipo": "valores", "datos": nuevo}))
+                            except (WebSocketDisconnect, RuntimeError):
+                                break
+                    elif _extra_cache:
+                        acumulado.update(_extra_cache)
+
+                    # Snapshot legible de sensores en la grabación (cada ~2s), con todo el ciclo.
+                    if slog.activo and acumulado and time.time() - estado.ultimo_log_sensores > 2.0:
+                        estado.ultimo_log_sensores = time.time()
+                        try:
+                            legible = {info["etiqueta"]: info for info in acumulado.values()}
+                            slog.log_sensores(ecu_id, legible)
+                        except Exception as e:
+                            slog.log("WS_LOG", f"Error loguando sensores: {e}", {})
+
+            await asyncio.sleep(max(0.02, suscripcion["intervalo"]))
     except WebSocketDisconnect:
         pass
 

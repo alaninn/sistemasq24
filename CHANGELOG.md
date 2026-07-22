@@ -7,6 +7,25 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-22] — CONFIRMADO: el flow control desbloqueó el F4R + tablero en vivo fluido + fin del flood de escritura
+
+**Confirmado en el auto real**: tras el fix de flow control, `received first frame only` = 0 y el
+F4R ahora lee sus datos nativos multiframe a 38400 con el ELM327 común (log 22:14): régimen
+`840 tr/min`, `Offset/Ganancia de aprendizaje de riqueza`, `Factor de enriquecimiento`, sonda
+lambda, estado de lazo, etc. El usuario tenía razón: el dato estaba, solo faltaba pedir bien los
+frames.
+
+**Tablero en vivo fluido** (`server.py` WS + `index.html`): como los multiframe ahora sí se leen
+(y tardan ~cientos de ms cada uno), leer TODO el ciclo y recién ahí mandar un paquete hacía que
+el tablero pareciera actualizarse "cada ~10 s". Ahora el WS **envía sensor por sensor a medida
+que los lee** (streaming); `applyLive` ya fusiona, así que cada valor aparece apenas está, sin
+congelar el resto. Los fuel trim OBD (ECU secundaria) siguen cada ~2 s.
+
+**Fin del flood de escritura** (`port.py`): el fix anterior de `_port_dead` cortó el spam de
+lectura, pero al desconectar el cable seguía inundando con `Serial write error: WriteFile failed`
+(miles de líneas) desde `write()`. Ahora `write()` también respeta `_port_dead`: avisa una vez y
+no intenta más.
+
 ## [2026-07-22] — POSIBLE FIX DE FONDO: re-aplicar flow control tras AT SP (multiframe del F4R a 38400)
 
 Revisión exhaustiva del dato de fuel trim del F4R (Sagem S3000): el ajuste de combustible SÍ
