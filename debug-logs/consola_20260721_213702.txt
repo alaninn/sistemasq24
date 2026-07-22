@@ -1,0 +1,109 @@
+============================================================
+  CONSOLA SISTEMASQ24 — 2026-07-21 21:37:02
+  Python 3.11.9 · win32
+============================================================
+======================================================
+  SISTEMASQ24 · Scanner Universal
+  Abrí en el navegador:  http://127.0.0.1:8073/
+  (Ctrl+C para detener)
+======================================================
+Trying to open port COM4 @ 38400
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x13d837da500, open=True>(port='COM4', baudrate=38400, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x13d837da500, open=False>(port='COM4', baudrate=38400, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Trying to open port COM4 @ 115200
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 115200, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x13d837d92a0, open=True>(port='COM4', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x13d837d92a0, open=False>(port='COM4', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Trying to open port COM4 @ 230400
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 230400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x13d837d81c0, open=True>(port='COM4', baudrate=230400, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x13d837d81c0, open=False>(port='COM4', baudrate=230400, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Trying to open port COM4 @ 57600
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 57600, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x13d837da500, open=True>(port='COM4', baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x13d837da500, open=False>(port='COM4', baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Trying to open port COM4 @ 9600
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 9600, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x13d837d92a0, open=True>(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x13d837d92a0, open=False>(port='COM4', baudrate=9600, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Trying to open port COM4 @ 500000
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 500000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x13d837d81c0, open=True>(port='COM4', baudrate=500000, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+ELM reset...
+Port closed: Serial<id=0x13d837d81c0, open=False>(port='COM4', baudrate=500000, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Trying to open port COM4 @ 1000000
+Using saved settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Serial port opened: Serial<id=0x13d837da500, open=True>(port='COM4', baudrate=1000000, bytesize=8, parity='N', stopbits=1, timeout=5, xonxoff=False, rtscts=False, dsrdtr=False)
+Trying to open port COM4 @ 38400
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 38400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM4 @ 115200
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 115200, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM4 @ 230400
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 230400, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM4 @ 57600
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 57600, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM4 @ 9600
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 9600, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM4 @ 500000
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 500000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM4 @ 1000000
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+Trying to open port COM4 @ 2000000
+Using saved settings for ELM327: {'baudrate': 1000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Using settings for ELM327: {'baudrate': 2000000, 'timeout': 5, 'rtscts': False, 'dsrdtr': False}
+Error: Serial connection error: could not open port 'COM4': PermissionError(13, 'Acceso denegado.', None, 5)
+ELM not connected or wrong COM port COM4
+ELM reset...
+Port handler is None, cannot write
+ELM reset...
+Port handler is None, cannot write
+ELM reset...
+Port handler is None, cannot write
