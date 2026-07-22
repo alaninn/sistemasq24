@@ -1,0 +1,2279 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260721_221404
+==================================================================
+
+[22:14:04.321] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[22:14:04.327] (+  0.01s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-21 22:14:04
+
+[22:14:04.340] (+  0.02s) ELM      diag
+           → envío:     21 A7  (46.6 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:04.341] (+  0.02s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:06.066] (+  1.75s) ELM      diag
+           → envío:     0106  (1325.3 ms)
+           → respuesta: 41 06 93 
+
+[22:14:07.119] (+   2.8s) ELM      diag
+           → envío:     0107  (1053.6 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:08.174] (+  3.85s) ELM      diag
+           → envío:     0103  (1054.4 ms)
+           → respuesta:  
+
+[22:14:08.174] (+  3.85s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:08.622] (+   4.3s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 13.98 V
+           · Avance de encendido: 6.75 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 49.38 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 840 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 326.50 mbar
+           · Régimen de consigna de la regulación del ralentí: 816 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 11
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 2.15 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 12.12 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 11.34 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.57 V
+           · Tensión del potenciómetro 1: 0.61 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 12.12 %
+           · Valor corregido de posición de la mariposa motorizada: 2.44 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 312.32 mV
+           · Ruido medio del motor en la ventana de detonación: 10323
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 57.21 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 22.65 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3284.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 14.8 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:10.012] (+  5.69s) ELM      diag
+           → envío:     21 A7  (64.0 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:10.060] (+  5.74s) ELM      keep-alive
+           → envío:     3E00  (47.9 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[22:14:10.108] (+  5.79s) ELM      diag
+           → envío:     21 A0  (47.6 ms)
+           → respuesta: 61 A0 BD 00 7B 0E CA 01 03 2F 03 30 00 00 00 00 00 56 15 03 00 01 20 00 00 00 
+
+[22:14:10.155] (+  5.83s) ELM      diag
+           → envío:     21 A2  (47.1 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0B 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 C0 00 14 30 2F 26 12 
+
+[22:14:10.203] (+  5.88s) ELM      diag
+           → envío:     21 A4  (47.9 ms)
+           → respuesta: 61 A4 20 00 00 00 00 00 00 2F 00 00 00 00 00 00 13 98 01 11 43 09 86 02 64 0B B0 
+
+[22:14:10.252] (+  5.93s) ELM      diag
+           → envío:     21 A3  (49.1 ms)
+           → respuesta: 61 A3 03 1A 00 00 00 00 00 ED 41 58 B3 37 43 8F CB 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:10.298] (+  5.98s) ELM      diag
+           → envío:     21 A7  (46.5 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:10.299] (+  5.98s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:12.024] (+   7.7s) ELM      diag
+           → envío:     0106  (1325.9 ms)
+           → respuesta: 41 06 8F 
+
+[22:14:13.079] (+  8.76s) ELM      diag
+           → envío:     0107  (1054.7 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:14.133] (+  9.81s) ELM      diag
+           → envío:     0103  (1054.3 ms)
+           → respuesta:  
+
+[22:14:14.133] (+  9.81s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:14.532] (+ 10.21s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 14.05 V
+           · Avance de encendido: 8.62 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 50.00 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 815 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 321.88 mbar
+           · Régimen de consigna de la regulación del ralentí: 816 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 11
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 1.95 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.95 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.55 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.25 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 312.32 mV
+           · Ruido medio del motor en la ventana de detonación: 5016
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 56.17 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 21.59 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3176.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 11.7 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:15.906] (+ 11.59s) ELM      diag
+           → envío:     21 A4  (47.9 ms)
+           → respuesta: 61 A4 24 00 00 00 00 00 00 2F 00 00 00 00 00 00 4E B1 01 11 43 09 86 02 64 0B B0 
+
+[22:14:15.969] (+ 11.65s) ELM      diag
+           → envío:     21 A6  (59.1 ms)
+           → respuesta: 61 A6 A2 00 00 00 A2 00 00 00 00 00 05 B1 05 B1 00 00 00 0E FD 0E FD 00 00 00 00 00 00 00 00 00 00 80 00 00 FF 00 00 
+
+[22:14:16.035] (+ 11.71s) ELM      diag
+           → envío:     21 A0  (65.2 ms)
+           → respuesta: 61 A0 BB 00 7B 0F 4A 01 03 26 03 30 00 00 00 00 00 4F 15 03 00 01 22 00 00 00 
+
+[22:14:16.082] (+ 11.76s) ELM      diag
+           → envío:     21 A2  (47.4 ms)
+           → respuesta: 61 A2 1E 1E 1D 18 E1 30 1E 1D 00 26 26 12 26 00 00 0B 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 06 00 00 16 30 2F 26 12 
+
+[22:14:16.130] (+ 11.81s) ELM      diag
+           → envío:     21 A4  (46.8 ms)
+           → respuesta: 61 A4 3D 00 00 00 00 00 00 2F 00 00 00 00 00 00 52 FC 01 11 43 09 86 02 64 0B B0 
+
+[22:14:16.178] (+ 11.86s) ELM      diag
+           → envío:     21 A3  (48.1 ms)
+           → respuesta: 61 A3 03 27 00 00 00 00 00 ED 41 58 B3 39 E6 8F EF 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:16.210] (+ 11.89s) ELM      diag
+           → envío:     21 A7  (32.2 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:16.212] (+ 11.89s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:17.935] (+ 13.61s) ELM      diag
+           → envío:     0106  (1325.6 ms)
+           → respuesta: 41 06 95 
+
+[22:14:18.990] (+ 14.67s) ELM      diag
+           → envío:     0107  (1054.3 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:20.060] (+ 15.74s) ELM      diag
+           → envío:     0103  (1065.6 ms)
+           → respuesta:  
+
+[22:14:20.060] (+ 15.74s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:20.460] (+ 16.14s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 13.98 V
+           · Avance de encendido: 6.00 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 50.62 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 806 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 329.28 mbar
+           · Régimen de consigna de la regulación del ralentí: 816 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 11
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 2.15 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 11.34 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.57 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.34 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 595.36 mV
+           · Ruido medio del motor en la ventana de detonación: 21244
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 56.23 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 22.62 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3228.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 16.4 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:22.839] (+ 18.52s) ELM      keep-alive
+           → envío:     3E00  (1053.9 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[22:14:23.894] (+ 19.57s) ELM      diag
+           → envío:     21 C7  (1050.5 ms)
+           → respuesta: 61 C7 01 03 09 00 14 03 37 01 01 00 2A 
+
+[22:14:23.943] (+ 19.62s) ELM      diag
+           → envío:     21 AF  (49.1 ms)
+           → respuesta: 61 AF 34 0F 00 08 0F 00 F0 00 40 0D B4 13 
+
+[22:14:23.990] (+ 19.67s) ELM      diag
+           → envío:     21 A0  (47.7 ms)
+           → respuesta: 61 A0 BA 00 7B 0F 05 01 03 37 03 20 00 00 00 00 00 50 15 03 00 01 26 00 00 00 
+
+[22:14:24.038] (+ 19.72s) ELM      diag
+           → envío:     21 A2  (47.8 ms)
+           → respuesta: 61 A2 1E 1E 1D 18 E1 30 1E 1D 00 26 26 12 26 00 00 0B 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 06 00 00 15 30 2F 26 12 
+
+[22:14:24.086] (+ 19.77s) ELM      diag
+           → envío:     21 A4  (47.9 ms)
+           → respuesta: 61 A4 0A 00 00 00 00 00 00 2F 00 00 00 00 00 00 33 33 01 11 43 09 86 02 64 0B B0 
+
+[22:14:24.134] (+ 19.81s) ELM      diag
+           → envío:     21 A3  (48.0 ms)
+           → respuesta: 61 A3 03 18 00 00 00 00 00 ED 41 58 B3 38 E2 8E 66 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:24.182] (+ 19.86s) ELM      diag
+           → envío:     21 A7  (48.5 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:24.182] (+ 19.86s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:25.955] (+ 21.63s) ELM      diag
+           → envío:     0106  (1326.1 ms)
+           → respuesta: 41 06 87 
+
+[22:14:27.009] (+ 22.69s) ELM      diag
+           → envío:     0107  (1050.6 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:28.063] (+ 23.74s) ELM      diag
+           → envío:     0103  (1054.1 ms)
+           → respuesta:  
+
+[22:14:28.063] (+ 23.74s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:28.464] (+ 24.14s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 13.95 V
+           · Avance de encendido: 6.38 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 51.88 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 823 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 325.29 mbar
+           · Régimen de consigna de la regulación del ralentí: 800 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 11
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 2.05 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 11.34 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.57 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.34 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 97.60 mV
+           · Ruido medio del motor en la ventana de detonación: 13107
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 55.63 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 22.22 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3168.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 5.5 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:29.836] (+ 25.52s) ELM      diag
+           → envío:     21 A0  (47.1 ms)
+           → respuesta: 61 A0 BB 00 7B 0E F0 01 03 25 03 20 00 00 00 00 00 58 15 03 00 01 28 00 00 00 
+
+[22:14:29.901] (+ 25.58s) ELM      keep-alive
+           → envío:     3E00  (61.4 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[22:14:29.949] (+ 25.63s) ELM      diag
+           → envío:     21 A0  (47.9 ms)
+           → respuesta: 61 A0 BB 00 7B 0F 00 01 03 24 03 20 00 00 00 00 00 56 15 03 00 01 28 00 00 00 
+
+[22:14:29.997] (+ 25.68s) ELM      diag
+           → envío:     21 A2  (47.9 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0B 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 C0 00 14 30 2F 26 12 
+
+[22:14:30.045] (+ 25.72s) ELM      diag
+           → envío:     21 A4  (47.7 ms)
+           → respuesta: 61 A4 13 00 00 00 00 00 00 2F 00 00 00 00 00 00 43 74 01 11 43 09 86 02 64 0B B0 
+
+[22:14:30.092] (+ 25.77s) ELM      diag
+           → envío:     21 A3  (47.3 ms)
+           → respuesta: 61 A3 03 24 00 00 00 00 00 ED 41 58 B3 35 A4 8B A2 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:30.141] (+ 25.82s) ELM      diag
+           → envío:     21 A7  (49.2 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:30.141] (+ 25.82s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:31.866] (+ 27.55s) ELM      diag
+           → envío:     0106  (1326.5 ms)
+           → respuesta: 41 06 88 
+
+[22:14:32.920] (+  28.6s) ELM      diag
+           → envío:     0107  (1054.2 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:33.991] (+ 29.67s) ELM      diag
+           → envío:     0103  (1070.7 ms)
+           → respuesta:  
+
+[22:14:33.991] (+ 29.67s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:34.458] (+ 30.14s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 13.98 V
+           · Avance de encendido: 8.62 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 52.50 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 804 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 325.00 mbar
+           · Régimen de consigna de la regulación del ralentí: 800 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 11
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 1.95 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.95 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.55 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.25 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 185.44 mV
+           · Ruido medio del motor en la ventana de detonación: 17268
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 54.55 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 20.96 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3216.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 6.2 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:35.828] (+ 31.51s) ELM      diag
+           → envío:     21 A9  (48.5 ms)
+           → respuesta: 61 A9 00 79 55 00 58 B3 00 00 34 00 0F A0 00 00 FF 00 00 00 00 00 00 00 00 00 
+
+[22:14:35.892] (+ 31.57s) ELM      diag
+           → envío:     21 A1  (63.7 ms)
+           → respuesta: 61 A1 F0 08 00 00 00 C0 08 00 0C 55 00 40 00 00 00 00 00 00 00 00 00 01 2A 01 A0 00 01 20 
+
+[22:14:35.940] (+ 31.62s) ELM      diag
+           → envío:     21 A0  (47.9 ms)
+           → respuesta: 61 A0 BD 00 7B 0E E0 01 03 19 03 20 00 00 00 00 00 55 15 03 00 01 2A 00 00 00 
+
+[22:14:35.989] (+ 31.67s) ELM      diag
+           → envío:     21 A2  (42.9 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0A 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 80 00 14 30 2F 26 12 
+
+[22:14:36.035] (+ 31.71s) ELM      diag
+           → envío:     21 A4  (46.1 ms)
+           → respuesta: 61 A4 34 00 00 00 00 00 00 2F 00 00 00 00 00 00 27 7F 01 11 43 09 86 02 64 0B B0 
+
+[22:14:36.084] (+ 31.76s) ELM      diag
+           → envío:     21 A3  (48.4 ms)
+           → respuesta: 61 A3 03 11 00 00 00 00 00 ED 41 58 B3 34 EC 8B D3 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:36.116] (+  31.8s) ELM      diag
+           → envío:     21 A7  (31.9 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:36.116] (+  31.8s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:38.001] (+ 33.68s) ELM      diag
+           → envío:     0106  (1326.1 ms)
+           → respuesta: 41 06 8F 
+
+[22:14:39.055] (+ 34.73s) ELM      diag
+           → envío:     0107  (1054.2 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:40.136] (+ 35.81s) ELM      diag
+           → envío:     0103  (1076.3 ms)
+           → respuesta:  
+
+[22:14:40.136] (+ 35.81s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:40.701] (+ 36.38s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 14.05 V
+           · Avance de encendido: 8.25 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 53.12 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 793 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 323.15 mbar
+           · Régimen de consigna de la regulación del ralentí: 800 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 10
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 1.95 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.95 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.55 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.15 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 507.52 mV
+           · Ruido medio del motor en la ventana de detonación: 10111
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 54.62 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 20.67 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3140.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 11.7 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:43.098] (+ 38.78s) ELM      keep-alive
+           → envío:     3E00  (1063.9 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[22:14:43.161] (+ 38.84s) ELM      diag
+           → envío:     21 D1  (57.7 ms)
+           → respuesta: 61 D1 01 00 04 00 00 02 00 00 00 01 00 00 03 1B 00 00 00 FE 
+
+[22:14:43.224] (+  38.9s) ELM      diag
+           → envío:     21 A0  (63.2 ms)
+           → respuesta: 61 A0 BD 00 7B 0F 20 01 03 1D 03 20 00 00 00 00 00 55 15 03 00 01 2D 00 00 00 
+
+[22:14:43.272] (+ 38.95s) ELM      diag
+           → envío:     21 A2  (48.2 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0B 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 C0 00 15 30 2F 26 12 
+
+[22:14:43.321] (+  39.0s) ELM      diag
+           → envío:     21 A4  (48.5 ms)
+           → respuesta: 61 A4 36 00 00 00 00 00 00 2F 00 00 00 00 00 00 23 42 01 11 43 09 86 02 64 0B B0 
+
+[22:14:43.368] (+ 39.05s) ELM      diag
+           → envío:     21 A3  (47.6 ms)
+           → respuesta: 61 A3 03 1D 00 00 00 00 00 ED 41 58 B3 37 82 8E 25 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:43.416] (+  39.1s) ELM      diag
+           → envío:     21 A7  (47.3 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:43.416] (+  39.1s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:45.174] (+ 40.85s) ELM      diag
+           → envío:     0106  (1325.7 ms)
+           → respuesta: 41 06 91 
+
+[22:14:46.228] (+ 41.91s) ELM      diag
+           → envío:     0107  (1054.4 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:47.298] (+ 42.98s) ELM      diag
+           → envío:     0103  (1070.1 ms)
+           → respuesta:  
+
+[22:14:47.298] (+ 42.98s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:47.698] (+ 43.38s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 14.05 V
+           · Avance de encendido: 8.25 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 54.06 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 797 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 326.85 mbar
+           · Régimen de consigna de la regulación del ralentí: 800 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 11
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 2.05 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.95 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.55 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.25 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 527.04 mV
+           · Ruido medio del motor en la ventana de detonación: 9026
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 55.53 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 21.68 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3188.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 13.3 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:49.969] (+ 45.65s) CHEQUEO  Chequeo general iniciado
+           · perfil: f4r
+
+[22:14:50.063] (+ 45.74s) ELM      diag
+           → envío:     21 C1  (1054.3 ms)
+           → respuesta: 61 C1 01 00 04 00 09 00 00 02 03 00 03 15 01 50 0F FF 
+
+[22:14:50.111] (+ 45.79s) ELM      keep-alive
+           → envío:     3E00  (48.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[22:14:50.175] (+ 45.85s) ELM      diag
+           → envío:     21 A0  (63.5 ms)
+           → respuesta: 61 A0 BD 00 7B 0E EA 01 03 16 03 10 00 00 00 00 00 51 15 03 00 01 30 00 00 00 
+
+[22:14:50.238] (+ 45.92s) ELM      diag
+           → envío:     21 A2  (63.5 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0A 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 80 00 13 30 2F 26 12 
+
+[22:14:50.287] (+ 45.97s) ELM      diag
+           → envío:     21 A4  (48.4 ms)
+           → respuesta: 61 A4 38 00 00 00 00 00 00 2F 00 00 00 00 00 00 40 BB 01 11 43 09 86 02 64 0B B0 
+
+[22:14:50.334] (+ 46.01s) ELM      diag
+           → envío:     21 A3  (46.9 ms)
+           → respuesta: 61 A3 03 02 00 00 00 00 00 ED 41 58 B3 33 31 8D 23 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:50.383] (+ 46.06s) ELM      diag
+           → envío:     21 A7  (49.2 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:50.383] (+ 46.06s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:52.108] (+ 47.79s) ELM      diag
+           → envío:     0106  (1326.7 ms)
+           → respuesta: 41 06 8E 
+
+[22:14:53.162] (+ 48.84s) ELM      diag
+           → envío:     0107  (1054.3 ms)
+           → respuesta: 41 07 B3 
+
+[22:14:54.232] (+ 49.91s) ELM      diag
+           → envío:     0103  (1062.0 ms)
+           → respuesta:  
+
+[22:14:54.232] (+ 49.91s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:14:54.680] (+ 50.36s) SENSORES Lectura en vivo (motor)
+           · Tensión de batería medida: 14.05 V
+           · Avance de encendido: 6.75 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 55.00 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 790 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 323.73 mbar
+           · Régimen de consigna de la regulación del ralentí: 784 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 10
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 1.86 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.95 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.55 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.15 %
+           · Posición del pedal medida: 14.84 %
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 546.56 mV
+           · Ruido medio del motor en la ventana de detonación: 16571
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 55.14 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 20.00 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3080.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Ajuste corto de combustible B1: 10.9 %
+           · Ajuste largo de combustible B1: 39.8 %
+
+[22:14:56.053] (+ 51.73s) ELM      diag
+           → envío:     21 80  (48.0 ms)
+           → respuesta: 61 80 82 00 87 89 38 54 32 31 33 82 00 50 95 16 00 AD 89 00 40 06 46 01 00 00 
+
+[22:14:56.118] (+  51.8s) ELM      diag
+           → envío:     21 A2  (65.0 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0A 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 80 00 13 30 2F 26 12 
+
+[22:14:56.165] (+ 51.84s) ELM      keep-alive
+           → envío:     3E00  (47.1 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[22:14:56.213] (+ 51.89s) ELM      diag
+           → envío:     21 A7  (42.3 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:14:56.261] (+ 51.94s) ELM      diag
+           → envío:     21 A3  (48.2 ms)
+           → respuesta: 61 A3 03 1A 00 00 00 00 00 ED 41 58 B3 34 0C 8C A8 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:56.310] (+ 51.99s) ELM      diag
+           → envío:     21 A8  (49.0 ms)
+           → respuesta: 61 A8 2F EF 62 0F 07 16 04 EF 02 08 01 DA 11 65 04 BB 00 00 00 01 00 00 00 00 
+
+[22:14:56.357] (+ 52.04s) ELM      diag
+           → envío:     21 81  (47.7 ms)
+           → respuesta: 61 81 39 33 59 4C 4D 31 4E 34 36 42 4A 34 38 38 35 31 37 6A AB 
+
+[22:14:56.390] (+ 52.07s) ELM      diag
+           → envío:     21 82  (32.8 ms)
+           → respuesta: 61 82 84 12 00 00 00 00 00 00 FF FF FF FF F0 FF FF F0 FF FF FF FF FF FF FF 00 FF FF FF FF 
+
+[22:14:56.421] (+  52.1s) ELM      diag
+           → envío:     21 80  (30.9 ms)
+           → respuesta: 61 80 82 00 87 89 38 54 32 31 33 82 00 50 95 16 00 AD 89 00 40 06 46 01 00 00 
+
+[22:14:56.452] (+ 52.13s) ELM      diag
+           → envío:     21 80  (31.1 ms)
+           → respuesta: 61 80 82 00 87 89 38 54 32 31 33 82 00 50 95 16 00 AD 89 00 40 06 46 01 00 00 
+
+[22:14:56.485] (+ 52.16s) ELM      diag
+           → envío:     21 A5  (32.4 ms)
+           → respuesta: 61 A5 37 32 0F 00 42 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+[22:14:56.533] (+ 52.21s) ELM      diag
+           → envío:     21 AA  (48.4 ms)
+           → respuesta: 61 AA 00 35 00 D7 01 D4 03 B4 05 3E 09 57 0D FE 14 16 1B FF 26 62 32 76 3E 42 4E 40 5F AF 61 A6 61 FA 62 4E 
+
+[22:14:56.565] (+ 52.24s) ELM      diag
+           → envío:     21 84  (32.2 ms)
+           → respuesta: 61 84 32 31 33 46 46 30 31 33 39 33 33 31 30 31 33 20 20 20 20 20 
+
+[22:14:56.567] (+ 52.25s) SENSORES Lectura en vivo (Motor / Inyección (F4R) (barrido completo))
+           · Estado de la conexión del relé del electroventilador 1: no conectado
+           · Configuración de emulación de estrategia de A/A X06 D7F EU96: no utilizado
+           · Configuración de aire acondicionado de lazo frío: SÍ
+           · Bit de configuración "con sonda lambda posterior": CON
+           · Conexión del ESP: No conectado
+           · Estado de la señal de diente: DETECTADO
+           · Estado de la estrategia de regulación de riqueza de mezcla: HEBILLA
+           · Estado de la conexión del relé del electroventilador 2: no conectado
+           · Conexión del freno a apertura por cable: CONECTADO
+           · Configuración de gestión del testigo MIL: Testigo multiplexado
+           · Estado de la estrategia de regulación del ralentí: EFECTIVO
+           · 1.ª búsqueda de topes de la mariposa motorizada en el 1.er encendido de la ECU, efectuada: OK
+           · Conexión del CTP: No conectado
+           · Booleano de configuración del comando de los electroventiladores: MUX (multiplexado)
+           · N.° de homologación: 8200198078
+           · Contador de PMS del diagnóstico de fallos de encendido, control en cadena: 0 PMS (punto muerto superior)
+           · Configuración de caja automática: Caja manual (BVM)
+           · Tasa de fallos de encendido en modo de control en cadena: 0.00
+           · Conexión del tablero: CONECTADO
+           · Bandera de activación del control de par por solicitud de par entre sistemas: desactivado
+           · Bandera asociada a la avería de resortes: Sin paso a modo degradado
+           · Configuración de caja robotizada: Caja manual (BVM)
+           · Configuración de estrategia de aire acondicionado para motor chico: no utilizado
+           · Estado del aprendizaje válido de media vuelta: No realizado
+           · Conexión del aire acondicionado: CONECTADO
+           · Estado: primer aprendizaje completo exitoso: Realizado
+           · Conexión del GLP: No conectado
+           · Configuración con bomba de aire: sin
+           · Booleano de configuración del comando del compresor de aire acondicionado: MUX (multiplexado)
+           · Configuración del termostato pilotado: sin
+           · Avería validada en el aprendizaje del blanco (target): OK
+           · Vxx_in_out_typ_byt1: 16
+           · Configuración de estrategia de reconocimiento del cilindro 1: UTILIZADO
+           · Conexión de la bomba de aire: No conectado
+           · Conexión de la bomba de agua: no conectado
+           · Vxx_in_out_conf_byt2: 0
+           · N.° de homologación 3: 19
+           · Vxx_in_out_conf_byt1: 230
+           · Booleano de configuración del bimodo: no seleccionado
+           · Configuración del contacto de freno a cierre o apertura: Apertura
+           · Vxx_sw_stt_byt1: 212
+           · Configuración con bomba de agua eléctrica: sin
+           · Estado de la estrategia de doble lazo: inactivo
+           · Estado de la estrategia de reconocimiento de cilindro: no terminado
+           · Falla de inyección de gravedad 2: no
+           · Vxx_el_cnt_stt_byt2: 4
+           · Vxx_el_cnt_stt_byt1: 18
+           · Falla de inyección de gravedad 1: no
+           · Estado del reaprendizaje con llave en OFF: No realizado
+           · Tipo de enlace de velocidad del vehículo: multiplexada
+           · El enlace compresor de A/A - inyección está conectado: no conectada
+           · N.° de homologación 5: 78
+           · N.° de homologación 4: 80
+           · Configuración de la sonda lambda anterior: CON
+           · N.° de homologación 1: 82
+           · Booleano de detección de la conexión de la válvula de bimodo: no conectado
+           · N.° de homologación 2: 00
+           · Vxx_sw_conf_byt1: 17
+           · Vxx_sw_stt_byt2: 128
+           · Período medio de la sonda anterior: 0 ms
+           · Actividad medida de la sonda lambda posterior: 0
+           · Cantidad de conmutaciones falsas de la sonda anterior: 0
+           · Tensión de la sonda lambda anterior: 351.36 mV
+           · Ruido medio del motor en la ventana de detonación: 20145
+           · Resistencia de calefacción de la sonda anterior: 0.00 Ohms
+           · Configuración del variador de distribución (VVT): VVT encendido / apagado
+           · Tensión de la sonda lambda posterior: 458.72 mV
+           · Contador de detonaciones (cascabeleo), cilindro 4: 2992
+           · Resistencia de calefacción de la sonda posterior: 0.00 Ohms
+           · Contador de detonaciones (cascabeleo), cilindro 2: 2438
+           · Contador de detonaciones (cascabeleo), cilindro 3: 612
+           · Contador de detonaciones (cascabeleo), cilindro 1: 4419
+           · Estado de la sonda de oxígeno anterior para modo posventa: diagnóstico de la sonda no realizado
+           · Vxx_obd_conf_byt1: 162
+           · Configuración del secuenciador OBD: autorizar diagnóstico de fallos de encendido: AUTORIZADO
+           · Estado del diagnóstico OBD del catalizador: no realizado
+           · Fallo de encendido en cilindro 2 con GAS: NO
+           · Solicitud de encendido del MIL OBD: fallo de encendido (catalizador) con nivel bajo de combustible: No solicitado
+           · Período medio total de la sonda anterior durante el diagnóstico: 0 ms
+           · Solicitud de diagnóstico OBD de fallos de encendido: no
+           · Caudal de aire medio durante el diagnóstico: 0
+           · Estado del proceso adaptativo del blanco (target): no realizado
+           · Caudal de aire del motor retenido al entrar en fase de 'mediciones' (medición elemental): 0
+           · Solicitud de diagnóstico OBD del catalizador: no
+           · Valor aprendido TLZ de falla de media vuelta, cilindros 1 y 4: 3837
+           · Solicitud de diagnóstico OBD de las sondas: no
+           · Diagnóstico de fallos de encendido terminado: NO
+           · Fallo de encendido en cilindro 3 con GAS: NO
+           · Estado del diagnóstico OBD del circuito de nafta: No realizado
+           · Secuenciador OBD en modo de fin de línea: no
+           · Diagnóstico OBD de fallos de encendido considerado por el secuenciador: SÍ
+           · Solicitud de encendido del testigo MIL por falla OBD del catalizador: No solicitado
+           · Medición del diagnóstico del sistema de inyección de aire secundario terminada: NO
+           · Configuración del secuenciador OBD: autorizar diagnóstico de sondas lambda: AUTORIZADO
+           · Diagnóstico de fallos de encendido con GAS terminado: NO
+           · Fallo de encendido en cilindro 4 con GAS: NO
+           · Criterio de diagnóstico del sistema de aire secundario (SAI): 9.721874999999999 mV
+           · Fallo de encendido en cilindro 1 con GAS: NO
+           · Contador de kilómetros recorridos con testigo MIL encendido: 0 km
+           · Diagnóstico del sistema de inyección de aire secundario terminado: NO
+           · Solicitud de encendido del MIL OBD: fallo de encendido que daña el catalizador: No solicitado
+           · Solicitud de diagnóstico del circuito de nafta al secuenciador: NO
+           · Modo degradado por fallo de encendido activo: NO
+           · Solicitud de diagnóstico OBD de la bomba de aire: no
+           · Vxx_obd_stt_byt1: 162
+           · Vxx_obd_stt_byt2: 0
+           · Vxx_obd_stt_byt3: 0
+           · Vxx_obd_stt_byt4: 0
+           · Vxx_obd_stt_byt5: 0
+           · Vxx_obd_stt_byt6: 0
+           · ALFACL medio corregido para el diagnóstico del circuito de nafta: 32768
+           · Valor aprendido TLZ de falla de rueda fónica de baja frecuencia: 0
+           · Valor aprendido TLZ de falla de media vuelta, cilindros 2 y 3: 3837
+           · Solicitud de encendido del MIL por falla OBD del circuito de alimentación de nafta: No solicitado
+           · Diagnóstico del circuito de alimentación de gas terminado: No hecho
+           · Valor aprendido TRZ de falla de media vuelta, cilindros 2 y 3: 1457
+           · Solicitud de encendido del MIL por falla OBD de fallo de encendido contaminante (GAS): No solicitado
+           · Configuración del secuenciador OBD: autorizar diagnóstico del circuito de nafta: No autorizado
+           · Encendido del MIL por multiplexado: 0
+           · Diagnóstico OBD del catalizador considerado por el secuenciador: SÍ
+           · Valor guardado del 'caudal de aire del motor': 0
+           · Solicitud de encendido del MIL por falla OBD de fallo de encendido que daña el catalizador (GAS): No solicitado
+           · Solicitud de encendido del MIL OBD: fallo de encendido contaminante: No solicitado
+           · Solicitud de encendido del MIL por falla OBD del sistema de inyección de aire secundario: No solicitado
+           · Solicitud de encendido del MIL por falla OBD de las sondas lambda: No solicitado
+           · Detección de fallo de encendido en cilindro 1: no
+           · Detección de fallo de encendido en cilindro 2: no
+           · Detección de fallo de encendido en cilindro 3: no
+           · Detección de fallo de encendido en cilindro 4: no
+           · Valor aprendido TRZ de falla de media vuelta, cilindros 1 y 4: 1457
+           · Diagnóstico del aire secundario considerado por el secuenciador: NO
+           · Umbral de avería del catalizador: 0
+           · Validación del diagnóstico de aire secundario por el diagnóstico de fallos de encendido: 0
+           · Configuración del secuenciador OBD: autorizar diagnóstico del catalizador: AUTORIZADO
+           · Solicitud de encendido del MIL OBD: fallo de encendido contaminante con nivel bajo de combustible: No solicitado
+           · Configuración del secuenciador para diagnóstico del sistema de inyección de aire secundario: No autorizado
+           · Diagnóstico del circuito de nafta considerado por el secuenciador: NO
+           · Estado del diagnóstico OBD de las sondas: no realizado
+           · Estado del catalizador para el modo posventa: diagnóstico del catalizador no realizado
+           · Solicitud de encendido del MIL por falla OBD del circuito de alimentación de gas: No solicitado
+           · Diagnóstico OBD de sondas considerado por el secuenciador: SÍ
+           · Falla de arranque: OK
+           · id_prod_tram_diag_fnct: 1
+           · Autorización de arranque de la ECU motor: detención del motor de arranque solicitada
+           · Prod_tram_diag_foct_vsc_zn1: 9
+           · Prod_tram_diag_foct_vsc_zn2: 20
+           · Prod_tram_diag_foct_vsc_zn3: 1
+           · Solicitud específica de prohibición del motor de arranque: sin solicitud
+           · APC (+contacto) activo: SÍ
+           · Estado del motor de arranque: relé del motor de arranque no activado
+           · Engine_speed: 789 rpm
+           · Avería presente del sensor de temperatura de agua: OK
+           · Autorización de arranque del antiarranque vía ECU motor: Caja manual (BVM)
+           · Avería memorizada del sensor de temperatura de agua: OK
+           · Autorización de arranque del antiarranque: no disponible
+           · FLGVSC4: 0
+           · FLGVSC5: 42
+           · FLGVSC2: 0
+           · FLGVSC3: 1
+           · FLGVSC1: 3
+           · estado de conexión con la ECU multiplexada 9 (caja automática): 0
+           · precalentamiento: 0
+           · Estado del motor: motor en marcha autónomo
+           · estado de conexión con la ECU multiplexada 4 (UCH): 1
+           · estado de conexión con la ECU multiplexada 6: 0
+           · estado de conexión con la ECU multiplexada 5: 0
+           · estado de conexión con la ECU multiplexada 10: 0
+           · estado de conexión con la ECU multiplexada 11: 0
+           · estado de conexión con la ECU multiplexada 13: 0
+           · estado de conexión con la ECU multiplexada 14: 0
+           · estado de conexión con la ECU multiplexada 15: 0
+           · estado de conexión con la ECU multiplexada 16: 0
+           · estado de conexión con la ECU multiplexada 17: 0
+           · FTDIVST2: 64
+           · estado de conexión con la ECU multiplexada 19: 0
+           · FTDIVST1: 0
+           · Estado de la llave: clave guardada en el boot
+           · Booleano que indica si el estado está protegido: no protegido
+           · Memoria de choque (CRASHMEM): Sin memorización de choque
+           · estado de conexión con la ECU multiplexada 20: 1
+           · estado de conexión con la ECU multiplexada 23: 0
+           · estado de conexión con la ECU multiplexada 22: 0
+           · estado de conexión con la ECU multiplexada 24: 0
+           · estado de conexión con la ECU multiplexada 1 (inyección): 1
+           · Llave en falla: OK
+           · estado de conexión con la ECU multiplexada 7 (control crucero adaptativo): 0
+           · Cle_appli: 1
+           · estado de conexión con la ECU multiplexada 2 (ABS): 1
+           · Consumo de combustible formateado para el cuadro de instrumentos: 1520 mm³
+           · AUTFTMEM: Ningún apagado anormal del motor memorizado
+           · CONFMUX1: 15
+           · requiere herramienta: valor por defecto
+           · FONCTDIV: 52
+           · CONFMUX2: 0
+           · CONFMUX3: 8
+           · estado de conexión con la ECU multiplexada 3 (tablero): 1
+           · Consumo de combustible formateado para necesidades de ajuste: 71.84384 dm³
+           · estado de conexión con la ECU multiplexada 21: 0
+           · estado de conexión con la ECU multiplexada 8 (aire acondicionado): 0
+           · estado de conexión con la ECU multiplexada 18: 0
+           · estado de conexión con la ECU multiplexada 12 (GLP): 0
+           · Tensión de batería medida: 13.98 V
+           · Avance de encendido: 9.38 °V (grados de cigüeñal)
+           · Temperatura del agua medida: 52.50 °C
+           · Consigna de ciclo de trabajo (RCO) del comando de la wastegate: 1.17 %
+           · Régimen del motor (RPM): 805 tr/min
+           · Temperatura del aire medida: 36.88 °C
+           · Velocidad del vehículo: 0 km/h
+           · Corrección del régimen de ralentí de posventa: 0 tr/min
+           · Presión de sobrealimentación (turbo): 103.00 mbar
+           · Depresión altimétrica (presión atmosférica): 3.70 mbar
+           · Presión absoluta del colector medida: 324.08 mbar
+           · Régimen de consigna de la regulación del ralentí: 800 tr/min
+           · Presión del aire acondicionado: 0.00 bar
+           · Valor máximo de corrección lenta del avance por detonación: 7.88 °V (grados de cigüeñal)
+           · Vxx_thr_pdl_fail_byt: 0
+           · Presencia de averías memorizadas en entrada: Avería
+           · Contador de incoherencia entre posición de pedal principal y de seguridad: 0 s.u.
+           · Potencia absorbida por el aire acondicionado: 300 W
+           · Avería memorizada: pista 1 del potenciómetro de mariposa en cortocircuito a masa: OK
+           · Integral del ciclo de trabajo (RCO) teórico de la regulación del ralentí: 13312
+           · Contador de casos de seguridad del pedal de acelerador solicitados: 0
+           · Avería presente: pista 1 del potenciómetro del pedal en cortocircuito a masa o circuito abierto: OK
+           · Avería presente: pista 2 del potenciómetro de mariposa en cortocircuito a batería: OK
+           · Pérdida de par: 0 N.m
+           · Avería presente: pista 1 del potenciómetro de mariposa en cortocircuito a batería: OK
+           · Avería presente: pista 2 del potenciómetro de mariposa en cortocircuito a masa: OK
+           · Período medio máximo de la sonda anterior: 0 ms
+           · Avería presente: pista 2 del potenciómetro del pedal en cortocircuito a masa o circuito abierto: OK
+           · Presencia de averías activas en entrada: Avería
+           · Avería memorizada: pista 2 del potenciómetro de mariposa en cortocircuito a masa: OK
+           · Vxx_pres_fail_stt_byt1: 160
+           · Avería presente: pista 2 del potenciómetro del pedal en cortocircuito a batería: OK
+           · Offset de aprendizaje de la regulación de riqueza: 34.51 %
+           · Ganancia de aprendizaje de la regulación de riqueza: 70.20 %
+           · Contador de incoherencia entre par realizado estimado y solicitud de par enmascarada: 255 s.u.
+           · Avería presente: pista 1 del potenciómetro del pedal en cortocircuito a batería: OK
+           · Presencia de averías memorizadas en salida: OK
+           · Avance de encendido corregido: 8.25 °V (grados de cigüeñal)
+           · Avería presente: pista 2 del potenciómetro de mariposa en circuito abierto: OK
+           · Presencia de averías activas en salida: OK
+           · Avería presente: pista 1 del potenciómetro de mariposa en cortocircuito a masa: OK
+           · Avería presente: pista 1 del potenciómetro de mariposa en circuito abierto: OK
+           · Contador de incoherencia entre objetivo de par de seguridad enmascarado y objetivo de par principal: 0 s.u.
+           · Consumo instantáneo de combustible: 1.21 L/H
+           · Presencia de falla del termostato pilotado de nivel 0: OK
+           · Presencia de falla del termostato pilotado de nivel 1: OK
+           · Comando de purga del cánister: inactivo
+           · Contador de kilómetros recorridos con testigo de falla: 0.00 km
+           · Información de +APC (+contacto): SÍ
+           · Vxx_out_stt_byt1: 192
+           · Comando del testigo de alerta de temperatura de agua en el tablero por multiplexado: Inactivo
+           · Transición de GLP a nafta: No efectuada
+           · Información de solicitud de encendido del aire acondicionado: no solicitado
+           · Presencia de falla de control de la mariposa motorizada de nivel 5: OK
+           · Presencia de falla de control de la mariposa motorizada de nivel 4: OK
+           · Comando del variador de distribución (VVT): Inactivo
+           · Presencia de falla de control de la mariposa motorizada de nivel 2: OK
+           · Presencia de falla de control de la mariposa motorizada de nivel 1: OK
+           · Información de pedal de freno pisado: no detectado
+           · Comando de calefacción de la sonda lambda posterior: inactivo
+           · Vxx_out_stt_byt3: 0
+           · Vxx_out_stt_byt2: 8
+           · Comando de la bomba de agua: inactivo
+           · Modelo de temperatura de agua para el diagnóstico de coherencia: 50.0000 °C
+           · Comando de la bomba de aire: Inactivo
+           · Información de pedal a fondo: no detectado
+           · Comando de calefacción de la sonda lambda anterior: ACTIVO
+           · Comando del electroventilador 2: Inactivo
+           · Comando del electroventilador 1: Inactivo
+           · Vxx_rams_stt_byt1: 0
+           · Vxx_rams_stt_byt2: 0
+           · Vxx_in_stt_byt1: 240
+           · Inicialización de la memoria de respaldo: inicialización no efectuada
+           · Vxx_in_stt_byt2: 8
+           · Condiciones de conmutación a GLP: NO
+           · Vxx_in_stt_lpg_byt: 64
+           · Comando de la bomba de nafta: ACTIVO
+           · sistema GLP: No listo
+           · Información de pie levantado y mariposa cerrada: DETECTADO
+           · Información de solicitud de ralentí acelerado: no solicitado
+           · Vxx_mem_stt_byt1: 0
+           · Presencia de falla de control del VVT continuo de nivel 0: OK
+           · Falla del sistema GLP: Sin falla
+           · Información de mariposa a fondo: no detectado
+           · Tanque de GLP: No vacío
+           · Transición de nafta a GLP: No efectuada
+           · Comando del compresor de aire acondicionado: inactivo
+           · Avería de la ECU de inyección: OK
+           · Temperatura del agua de alta resolución: 53.12 °C
+           · Información de pie levantado del pedal: DETECTADO
+           · Funcionamiento con GLP: No establecido
+           · Presencia de falla de control de la mariposa motorizada de nivel 0: OK
+           · Encendido del MIL por la caja automática: No solicitado
+           · Comando del relé de actuadores: ACTIVO
+           · Consigna de temperatura de agua del termostato pilotado: 90.00 °C
+           · Información de mariposa cerrada: DETECTADO
+           · Presencia de falla de control de la mariposa motorizada de nivel 3: OK
+           · Funcionamiento con nafta: Establecido
+           · Comando de la bomba de GLP: inactivo
+           · Presencia de falla de control del VVT continuo de nivel 1: OK
+           · Información de posición Park/Neutro: posición Park/Neutro
+           · Llenado de aire (carga del cilindro): 0.19268798828125
+           · Ciclo de trabajo (RCO) del comando del termostato pilotado: 0.00
+           · Botón reanudar presionado: 0
+           · FLGRLV1: 0
+           · Desactivación por detección de avería del regulador/limitador: 0
+           · Avería memorizada en 1 de los 2 contactos de freno: OK
+           · Desactivación por pisar el freno: 0
+           · FLGRLV6: 0
+           · Botón de encendido/apagado del limitador de velocidad presionado: 0
+           · Botón set y menos presionado: 0
+           · Desactivación por desacople motor-caja de velocidades: 0
+           · Velocidad solicitada: 254
+           · Avería presente por incoherencia del botón de encendido: OK
+           · Botón set y más presionado: 0
+           · Desactivación por detección de punto muerto en caja automática: 0
+           · Botón suspender presionado: 0
+           · Estado de la pantalla del control crucero: Regulador y limitador de velocidad inactivos
+           · Desactivación por velocidad del vehículo inválida: 0
+           · Desactivación por relación velocidad/consigna incoherente: 0
+           · Información de pedal de freno pisado (del contacto a apertura): no detectado
+           · Desactivación por problema del control del motor: 0
+           · Desactivación por presionar el botón suspender: 0
+           · Botón de encendido/apagado del regulador de velocidad presionado: 0
+           · Detección de un cambio de estado en 1 de los 4 botones del volante: 0
+           · Estado del control crucero: Regulador y limitador de velocidad inactivos
+           · Estado del testigo: No intermitente
+           · Desactivación por solicitud del control de tracción (ASR): 0
+           · Detección de un cambio de estado de posición del limitador de velocidad: 1
+           · Detección de un cambio de estado en el contacto de freno a apertura: 1
+           · Desactivación por modo de emergencia de la caja: 0
+           · Velocidad del vehículo mostrada: 0.00 km/h
+           · Avería memorizada por incoherencia del botón de encendido: OK
+           · Copia: avería memorizada en 1 de los 2 contactos de freno: OK
+           · Booleano del contacto de embrague: 0
+           · Detección de un cambio de estado de posición del regulador de velocidad: 1
+           · Avería presente en 1 de los 2 contactos de freno: OK
+           · Avería presente de los comandos del volante: OK
+           · Copia: avería presente en 1 de los 2 contactos de freno: OK
+           · Avería memorizada de los comandos del volante: OK
+           · FLGRLV8: 0
+           · Booleano de contacto de freno a cierre: no presionado
+           · FLGRLV2: 0
+           · Prod_tram_diag_foct_rlv_zn1: 4
+           · Prod_tram_diag_foct_rlv_zn2: 2
+           · Prod_tram_diag_foct_rlv_zn3: 1
+           · Prod_tram_diag_foct_rlv_zn4: 3
+           · FLGRLV7: 0
+           · FLGRLV4: 0
+           · FLGRLV5: 27
+           · Avería presente de los 2 contactos de freno: OK
+           · FLGRLV3: 0
+           · Detección de un cambio de estado en el contacto de embrague: 1
+           · Avería memorizada de los 2 contactos de freno: OK
+           · Enlace ECU motor/aire acondicionado conectado: CONECTADO
+           · Solicitud de regulación del ralentí: No solicitado
+           · Inhibición del A/A por solicitud del control del motor: 0
+           · Solicitud de activación del electroventilador: No
+           · carga calculada del aire acondicionado: 300 W
+           · Solicitud de regulación del ralentí pedida por la UCH: No solicitado
+           · Presión relativa del aire acondicionado para diagnóstico: 0.00 bar
+           · Solicitud de aire acondicionado: No solicitado
+           · Prueba de la carga de gas refrigerante: 0
+           · Avería presente en el sensor de presión del aire acondicionado: Avería
+           · FLGCLIM2: 0
+           · FLGCLIM3: 3
+           · FLGCLIM1: 0
+           · FLGCLIM4: 80
+           · Solicitud del antiarranque de activar el electroventilador: No pilotado
+           · Avería memorizada del sensor de presión del aire acondicionado: Avería
+           · Solicitud de cambio de marcha: Sin cambio
+           · Solicitud de activación del compresor de aire acondicionado: Desactivación
+           · Solicitud de corte del CTP: 1
+           · Potencia máxima autorizada del CTP: 5100
+           · Solicitud de congelamiento del CTP: 0
+           · Prod_tram_diag_foct_clim_zn4: 1
+           · Prod_tram_diag_foct_clim_zn1: 4
+           · Prod_tram_diag_foct_clim_zn2: 9
+           · Prod_tram_diag_foct_clim_zn3: 2
+           · Tope inferior de mariposa, sensor 2: 0.45 V
+           · Valor aprendido de la posición de emergencia (limp home) de la mariposa motorizada: 18.77 %
+           · Valor aprendido de posición de emergencia de la mariposa, pista 1: 0.94 V
+           · Caudal de aire del motor evaluado: 10
+           · Valor aprendido de posición de emergencia de la mariposa, pista 2: 0.92 V
+           · Valor aprendido del tope superior de la mariposa: 87.98 %
+           · Tope superior de mariposa, sensor 1: 4.40 V
+           · Valor aprendido de pie levantado del pedal: 14.84 %
+           · Consigna de posición corregida de la mariposa motorizada: 1.86 %
+           · Tope inferior de mariposa, sensor 1: 0.47 V
+           · Posición de la mariposa transmitida a la aplicación: 11.73 %
+           · Posición de mariposa medida, pista 2, tras filtrado: 10.95 %
+           · Tope inferior de la mariposa con offset: 9.68 %
+           · Posición del pedal pista 1 después del filtrado: 14.86 %
+           · Tope superior de mariposa, sensor 2: 4.40 V
+           · Posición del pedal medida, pista 2: 0.35 V
+           · Posición del pedal medida, pista 1: 0.74 V
+           · Tensión del potenciómetro 2: 0.55 V
+           · Tensión del potenciómetro 1: 0.59 V
+           · Posición del pedal pista 2 después del filtrado: 7.04 %
+           · Valor aprendido del tope inferior de la mariposa: 9.38 %
+           · Posición de mariposa medida, pista 1, tras filtrado: 11.73 %
+           · Valor corregido de posición de la mariposa motorizada: 2.15 %
+           · Posición del pedal medida: 14.84 %
+           · Consigna de ciclo de trabajo (RCO) del comando del VVT: 0 %
+           · Valor de aprendizaje de la regulación del ralentí: -7.32 %
+           · Corrección adaptativa de la 2.ª zona de presión: 0.003968000000000416 %
+           · Ángulo relativo final del VVT de admisión: 0.00 °
+           · Corrección adaptativa de la 5.ª zona de presión: 0.003968000000000416 %
+           · Corrección adaptativa de la 3.ª zona de presión: 0.003968000000000416 %
+           · Desfase continuo del VVT medido: 0.00 °
+           · Desfase continuo del VVT medido (sin modo degradado): 0.00 °
+           · Corrección adaptativa de la 1.ª zona de presión: 0.003968000000000416 %
+           · Factor de enriquecimiento de la regulación de riqueza: 54.95 %
+           · Ciclo de trabajo (RCO) teórico de la regulación del ralentí: 20.33 %
+           · Ciclo de trabajo (RCO) de la purga del cánister: 0.00 %
+           · Offset medio de doble lazo para el diagnóstico: 0
+           · Offset medio máximo de doble lazo para el diagnóstico del lado rico: 0
+           · Corrección adaptativa de la 4.ª zona de presión: 0.003968000000000416 %
+           · Tiempo de inyección real: 3176.00 µs
+           · Offset medio mínimo de doble lazo para el diagnóstico del lado pobre: 0
+           · Contador de no decisión en identificación de cilindro RR: 4453
+           · Contador de fallos de identificación de cilindro: 1814
+           · Contador de fallos de identificación de cilindro RR: 1263
+           · Contador de no decisión en identificación de cilindro: 474
+           · Contador de reinicios con motor en marcha: 1
+           · Contador de predicciones correctas del fasado del árbol de levas: 12271
+           · Contador de predicciones incorrectas del fasado del árbol de levas: 1211
+           · Contador de éxitos en identificación de cilindro: 25103
+           · Contador de reinicios en caliente: 0
+           · Contador de fallos de identificación de cilindro RR (invalidado con vehículo rodando): 520
+           · VIN local OK: 81
+           · Lectura del VIN: 93YLM1N46BJ488517
+           · CRC_VINr: 6aab
+           · módulo ausente 8: ff
+           · módulo ausente 9: f0
+           · módulo ausente 1: 00
+           · módulo ausente 2: 00
+           · módulo ausente 3: 00
+           · módulo ausente 4: 00
+           · módulo ausente 5: ff
+           · módulo ausente 6: ff
+           · módulo ausente 7: ff
+           · parámetro de módulo mudo: 00
+           · parámetro de bus desconectado (bus off): 00
+           · Referencia de mensajería: 8412
+           · módulo ausente 24: ff
+           · módulo ausente 23: ff
+           · módulo ausente 22: ff
+           · módulo ausente 21: ff
+           · módulo ausente 20: 00
+           · módulo ausente 12: f0
+           · módulo ausente 13: ff
+           · módulo ausente 10: ff
+           · módulo ausente 11: ff
+           · módulo ausente 16: ff
+           · módulo ausente 17: ff
+           · módulo ausente 14: ff
+           · módulo ausente 15: ff
+           · módulo ausente 18: ff
+           · módulo ausente 19: ff
+           · Multiplexado local OK: 82
+           · N.° de versión del software: 8900
+           · N.° RENAULT de la ECU: 8200878938
+           · N.° del programa: 00ad
+           · N.° de calibración de puesta a punto: 46
+           · N.° de hardware: 8200509516
+           · N.° del proveedor: 213
+           · N.° de calibración del sistema: 01
+           · N.° de diagnóstico: 54
+           · N.° de calibración: 4006
+           · N.° de calibración 2: 06
+           · N.° de versión del software 2: 00
+           · N.° RENAULT de la ECU 4: 89
+           · N.° de calibración 1: 40
+           · N.° del proveedor 1: 2
+           · N.° RENAULT de la ECU 3: 87
+           · N.° del proveedor 3: 3
+           · N.° del proveedor 2: 1
+           · N.° RENAULT de la ECU 1: 82
+           · N.° de versión del software 1: 89
+           · N.° RENAULT de la ECU 5: 38
+           · N.° RENAULT de la ECU 2: 00
+           · N.° del programa 2: ad
+           · N.° del programa 1: 00
+           · Par motor resistente transmitido por CAN: 32 N.m
+           · Par tomado por el convertidor de la caja automática: 0 N.m
+           · Par motor efectivo: 10 N.m
+           · Par motor estimado según voluntad del conductor: 0 N.m
+           · Pérdidas totales de par motor: 30 N.m
+           · Par del alternador: 4 Nm
+           · Puntos de quiebre de la curva de área de mariposa (14): 1460.02 mm²
+           · Puntos de quiebre de la curva de área de mariposa (6): 142.51 mm²
+           · Puntos de quiebre de la curva de área de mariposa (15): 1490.00 mm²
+           · Puntos de quiebre de la curva de área de mariposa (1): 3.16 mm²
+           · Puntos de quiebre de la curva de área de mariposa (16): 1495.00 mm²
+           · Puntos de quiebre de la curva de área de mariposa (5): 79.99 mm²
+           · Puntos de quiebre de la curva de área de mariposa (4): 56.51 mm²
+           · Puntos de quiebre de la curva de área de mariposa (9): 427.19 mm²
+           · Puntos de quiebre de la curva de área de mariposa (8): 306.49 mm²
+           · Puntos de quiebre de la curva de área de mariposa (7): 213.50 mm²
+           · Puntos de quiebre de la curva de área de mariposa (12): 949.98 mm²
+           · Puntos de quiebre de la curva de área de mariposa (13): 1194.00 mm²
+           · Puntos de quiebre de la curva de área de mariposa (17): 1500.01 mm²
+           · Puntos de quiebre de la curva de área de mariposa (3): 27.89 mm²
+           · Puntos de quiebre de la curva de área de mariposa (2): 12.81 mm²
+           · Puntos de quiebre de la curva de área de mariposa (10): 585.68 mm²
+           · Puntos de quiebre de la curva de área de mariposa (11): 769.97 mm²
+           · Trazabilidad: 20202020
+
+[22:14:56.599] (+ 52.28s) ELM      diag
+           → envío:     21 A4  (31.8 ms)
+           → respuesta: 61 A4 2C 00 00 00 00 00 00 2F 00 00 00 00 00 00 46 B0 01 11 43 09 86 02 64 0B B0 
+
+[22:14:56.645] (+ 52.32s) ELM      diag
+           → envío:     21 A6  (45.8 ms)
+           → respuesta: 61 A6 A2 00 00 00 A2 00 00 00 00 00 05 B1 05 B1 00 00 00 0E FD 0E FD 00 00 00 00 00 00 00 00 00 00 80 00 00 FF 00 00 
+
+[22:14:56.677] (+ 52.36s) ELM      diag
+           → envío:     21 C7  (30.7 ms)
+           → respuesta: 61 C7 01 03 09 00 14 03 0E 01 01 00 2A 
+
+[22:14:56.709] (+ 52.39s) ELM      diag
+           → envío:     21 AF  (32.0 ms)
+           → respuesta: 61 AF 34 0F 00 08 0F 00 F0 00 40 0D B4 9A 
+
+[22:14:56.740] (+ 52.42s) ELM      diag
+           → envío:     21 A0  (29.6 ms)
+           → respuesta: 61 A0 B2 00 7B 0F 50 01 03 07 03 10 00 00 00 00 00 4D 15 03 00 01 33 00 00 00 
+
+[22:14:56.772] (+ 52.45s) ELM      diag
+           → envío:     21 A9  (30.1 ms)
+           → respuesta: 61 A9 00 78 4D 00 58 B3 00 00 36 00 0F A0 00 00 FF 00 00 00 00 00 00 00 00 00 
+
+[22:14:56.804] (+ 52.48s) ELM      diag
+           → envío:     21 A1  (30.6 ms)
+           → respuesta: 61 A1 F0 08 00 00 00 C0 08 00 0C D6 00 40 00 00 00 00 00 00 00 00 00 01 33 01 A0 00 01 24 
+
+[22:14:56.837] (+ 52.52s) ELM      diag
+           → envío:     21 D1  (32.6 ms)
+           → respuesta: 61 D1 01 00 04 00 00 02 00 00 00 01 00 00 03 1B 00 00 00 FE 
+
+[22:14:56.868] (+ 52.55s) ELM      diag
+           → envío:     21 C1  (30.8 ms)
+           → respuesta: 61 C1 01 00 04 00 09 00 00 02 03 00 03 0D 01 50 0F FF 
+
+[22:14:56.916] (+  52.6s) ELM      diag
+           → envío:     21 A2  (48.7 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0B 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 C0 00 14 30 2F 26 12 
+
+[22:14:56.965] (+ 52.64s) ELM      diag
+           → envío:     21 A3  (47.1 ms)
+           → respuesta: 61 A3 03 1B 00 00 00 00 00 ED 41 58 B3 34 BA 8C BF 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:56.996] (+ 52.68s) ELM      diag
+           → envío:     21 A8  (31.6 ms)
+           → respuesta: 61 A8 2F EF 62 0F 07 16 04 EF 02 08 01 DA 11 65 04 BB 00 00 00 01 00 00 00 00 
+
+[22:14:57.030] (+ 52.71s) ELM      diag
+           → envío:     21 81  (33.4 ms)
+           → respuesta: 61 81 39 33 59 4C 4D 31 4E 34 36 42 4A 34 38 38 35 31 37 6A AB 
+
+[22:14:57.060] (+ 52.74s) ELM      diag
+           → envío:     21 82  (30.8 ms)
+           → respuesta: 61 82 84 12 00 00 00 00 00 00 FF FF FF FF F0 FF FF F0 FF FF FF FF FF FF FF 00 FF FF FF FF 
+
+[22:14:57.092] (+ 52.77s) ELM      diag
+           → envío:     21 80  (29.3 ms)
+           → respuesta: 61 80 82 00 87 89 38 54 32 31 33 82 00 50 95 16 00 AD 89 00 40 06 46 01 00 00 
+
+[22:14:57.124] (+  52.8s) ELM      diag
+           → envío:     21 80  (32.2 ms)
+           → respuesta: 61 80 82 00 87 89 38 54 32 31 33 82 00 50 95 16 00 AD 89 00 40 06 46 01 00 00 
+
+[22:14:57.156] (+ 52.84s) ELM      diag
+           → envío:     21 A5  (30.1 ms)
+           → respuesta: 61 A5 36 31 0F 00 42 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+[22:14:57.204] (+ 52.88s) ELM      diag
+           → envío:     21 AA  (47.8 ms)
+           → respuesta: 61 AA 00 35 00 D7 01 D4 03 B4 05 3E 09 57 0D FE 14 16 1B FF 26 62 32 76 3E 42 4E 40 5F AF 61 A6 61 FA 62 4E 
+
+[22:14:57.236] (+ 52.92s) ELM      diag
+           → envío:     21 84  (31.8 ms)
+           → respuesta: 61 84 32 31 33 46 46 30 31 33 39 33 33 31 30 31 33 20 20 20 20 20 
+
+[22:14:57.284] (+ 52.96s) ELM      diag
+           → envío:     17FF00  (32.2 ms)
+           → respuesta: 57 02 05 30 72 C1 11 4E 
+
+[22:14:57.421] (+  53.1s) ELM      diag
+           → envío:     21 A0  (57.5 ms)
+           → respuesta: 61 A0 BB 00 7B 0F 60 01 03 0E 03 10 00 00 00 00 00 4E 15 03 00 01 34 00 00 00 
+
+[22:14:57.490] (+ 53.17s) ELM      diag
+           → envío:     21 A2  (69.6 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0A 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 80 00 14 30 2F 26 12 
+
+[22:14:57.532] (+ 53.21s) ELM      diag
+           → envío:     21 A4  (41.5 ms)
+           → respuesta: 61 A4 2B 00 00 00 00 00 00 2F 00 00 00 00 00 00 30 7C 01 11 43 09 86 02 64 0B B0 
+
+[22:14:57.601] (+ 53.28s) ELM      diag
+           → envío:     21 A3  (59.6 ms)
+           → respuesta: 61 A3 03 05 00 00 00 00 00 ED 41 58 B3 35 3C 8C C3 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:14:57.603] (+ 53.28s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:14:59.338] (+ 55.02s) ELM      diag
+           → envío:     010C  (1333.8 ms)
+           → respuesta: 41 0C 0C 50 
+
+[22:14:59.717] (+  55.4s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:15:01.485] (+ 57.16s) ELM      diag
+           → envío:     21 A0  (47.9 ms)
+           → respuesta: 61 A0 AF 00 7B 0F 25 01 03 15 03 10 00 00 00 00 00 4F 15 03 00 01 35 00 00 00 
+
+[22:15:01.534] (+ 57.21s) ELM      diag
+           → envío:     21 A2  (49.2 ms)
+           → respuesta: 61 A2 1E 1E 1C 18 E1 30 1E 1C 00 26 26 12 26 00 00 0A 00 E1 E1 18 17 00 63 00 00 00 00 00 00 00 05 80 00 14 30 2F 26 12 
+
+[22:15:01.598] (+ 57.28s) ELM      diag
+           → envío:     21 A4  (63.8 ms)
+           → respuesta: 61 A4 2A 00 00 00 00 00 00 2F 00 00 00 00 00 00 32 91 01 11 43 09 86 02 64 0B B0 
+
+[22:15:01.645] (+ 57.32s) ELM      diag
+           → envío:     21 A3  (47.7 ms)
+           → respuesta: 61 A3 03 14 00 00 00 00 00 ED 41 58 B3 34 D3 8D B2 00 00 00 00 00 00 00 00 80 00 80 00 80 00 80 00 80 00 
+
+[22:15:01.645] (+ 57.32s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:15:03.371] (+ 59.05s) ELM      diag
+           → envío:     010C  (1325.8 ms)
+           → respuesta: 41 0C 0C 48 
+
+[22:15:04.456] (+ 60.14s) ELM      keep-alive
+           → envío:     3E00  (1064.3 ms)
+           → respuesta:  
+
+[22:15:05.512] (+ 61.19s) ELM      diag
+           → envío:     010C  (1055.8 ms)
+           → respuesta: 41 0C 0C 18 
+
+[22:15:06.565] (+ 62.24s) ELM      diag
+           → envío:     010C  (1053.1 ms)
+           → respuesta: 41 0C 0B D4 
+
+[22:15:06.574] (+ 62.25s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:15:08.515] (+ 64.19s) ELM      diag
+           → envío:     21 A7  (47.9 ms)
+           → respuesta: 61 A7 12 04 00 E6 00 00 10 11 00 D4 80 00 82 00 19 80 78 00 00 00 00 00 00 00 
+
+[22:15:08.562] (+ 64.24s) ELM      diag
+           → envío:     21 A4  (45.3 ms)
+           → respuesta: 61 A4 32 00 00 00 00 00 00 2F 00 00 00 00 00 00 14 C0 01 11 43 09 86 02 64 0B B0 
+
+[22:15:08.617] (+  64.3s) ELM      keep-alive
+           → envío:     3E00  (55.5 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[22:15:08.617] (+  64.3s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:15:10.452] (+ 66.13s) ELM      diag
+           → envío:     010C  (1329.8 ms)
+           → respuesta: 41 0C 0B CC 
+
+[22:15:10.480] (+ 66.16s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:15:12.354] (+ 68.03s) ELM      diag
+           → envío:     21 A6  (68.8 ms)
+           → respuesta: 61 A6 A2 00 00 00 A2 00 00 00 00 00 05 B1 05 B1 00 00 00 0E FD 0E FD 00 00 00 00 00 00 00 00 00 00 80 00 00 FF 00 00 
+
+[22:15:12.354] (+ 68.03s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:15:14.121] (+  69.8s) ELM      diag
+           → envío:     010C  (1324.2 ms)
+           → respuesta: 41 0C 13 B8 
+
+[22:15:15.193] (+ 70.87s) ELM      keep-alive
+           → envío:     3E00  (1063.2 ms)
+           → respuesta:  
+
+[22:15:15.193] (+ 70.87s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:15:17.980] (+ 73.66s) ELM      diag
+           → envío:     21 C7  (1062.3 ms)
+           → respuesta: 61 C7 01 03 09 00 14 03 C1 01 01 00 2A 
+
+[22:15:18.012] (+ 73.69s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[22:15:19.809] (+ 75.49s) ELM      diag
+           → envío:     010C  (1325.8 ms)
+           → respuesta: 41 0C 0C A0 
+
+[22:15:20.864] (+ 76.54s) ELM      keep-alive
+           → envío:     3E00  (1054.6 ms)
+           → respuesta:  
+
+[22:15:20.864] (+ 76.54s) ECU      Acceso a módulo
+           · ecu: motor
+           · nombre: Motor / Inyección (F4R)
+           · tx: 7E0
+           · rx: 7E8
+
+[22:15:23.642] (+ 79.32s) ELM      diag
+           → envío:     21 AF  (1054.5 ms)
+           → respuesta: 61 AF 34 0F 00 08 0F 00 F0 00 40 0D B5 11 
