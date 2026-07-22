@@ -151,13 +151,13 @@ class Chequeo:
 
     def _leer_rpm_obd(self):
         """Lee las RPM por el PID OBD-II estándar 010C. Es una respuesta de UN SOLO frame
-        (sin flow-control), así que FUNCIONA aunque el ECU enhanced del F4R falle los reads
-        multiframe (que es justo lo que pasa a 38400: 'received first frame only — FC failed').
-        Usa la ECU virtual 'obd' que ahora también está en el perfil F4R. Devuelve float|None."""
-        obd = self.ctx.registro.get("obd")
-        if obd is None:
+        (sin flow-control), confiable aunque el enhanced del F4R falle los reads multiframe.
+        Se lee en la MISMA ECU del motor (que expone 010C como sensor OBD extra), o en la ECU
+        'obd' del perfil genérico. Devuelve float|None."""
+        tecu = self.ctx.registro.get("motor") or self.ctx.registro.get("obd")
+        if tecu is None:
             return None
-        vals = self._leer_request(obd, "010C")
+        vals = self._leer_request(tecu, "010C")
         if not vals:
             return None
         for info in vals.values():

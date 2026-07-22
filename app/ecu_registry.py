@@ -75,6 +75,20 @@ def dtc_estandar(raw_hex):
     return f"{letra}{d1}{d2:X}{d34:02X}"
 
 
+# PIDs OBD-II estándar (SAE J1979) que exponemos como sensores EXTRA de una ECU enhanced,
+# leídos en la MISMA dirección de esa ECU. Para el motor F4R (TX 7E0 / RX 7E8 = dirección OBD
+# estándar del motor) esto da el ajuste corto/largo ±% y el estado de lazo SIN necesitar una
+# segunda ECU "obd" (7DF): así no hay que saltar de dirección en cada refresco (lo que frenaba
+# el tablero). Se decodifican con las fórmulas de obd_generico.PIDS.
+OBD_EXTRA_PIDS = ["06", "07", "03", "0C"]   # STFT B1, LTFT B1, estado de lazo, RPM
+
+
+def _OBD_PIDS():
+    """Tabla de PIDs OBD (import diferido para no crear ciclo con obd_generico)."""
+    from obd_generico import PIDS
+    return PIDS
+
+
 class TranslatedECU:
     def __init__(self, ecu_id, icon, short_name, ecu_file, layout, es_dict, tm, ayudas):
         self.id = ecu_id
@@ -85,6 +99,9 @@ class TranslatedECU:
         self.es = es_dict              # diccionario de traducción es/<ecu>.es.json
         self._tm = tm
         self._ayudas = ayudas
+        # PIDs OBD estándar extra a exponer en ESTA ECU (leídos en su propia dirección).
+        # Vacío por default; se setea solo en el motor del F4R (ver load_curado_f4r).
+        self.obd_extra = []
 
     # ---- traducción ----
     def t(self, s):
@@ -236,6 +253,19 @@ class TranslatedECU:
                     "request": req_name,
                     "util": self._es_util(data_name),
                 })
+        # Sensores OBD-II estándar extra (ajuste de combustible ±%, lazo, RPM) leídos en la
+        # dirección de ESTA ECU. Solo si se configuró obd_extra (motor F4R).
+        for pid in self.obd_extra:
+            spec = _OBD_PIDS().get(pid)
+            if spec is None:
+                continue
+            nombre, unidad, _n, _f = spec
+            req_name = "01" + pid
+            out.append({
+                "id": self.param_id(req_name, nombre),
+                "dato": nombre, "etiqueta": nombre, "unidad": unidad,
+                "ayuda": self.help_for(nombre), "request": req_name, "util": True,
+            })
         out.sort(key=lambda p: p["etiqueta"].lower())
         return out
 
@@ -678,8 +708,50 @@ class TranslatedECU:
         return {"soportado": True, "comando": cmd, "direccion": direccion_hex,
                 "cantidad": cantidad, "bytes": [b.upper() for b in datos]}
 
+    def _leer_obd_pid(self, pid):
+        """Lee un PID OBD-II estándar (mode 01) en la dirección ACTUAL del ELM (la de esta
+        ECU, ya seleccionada por el server). Decodifica con las fórmulas de obd_generico.
+        Devuelve {nombre: {etiqueta, valor, unidad}} o None."""
+        spec = _OBD_PIDS().get(pid)
+        if spec is None:
+            return None
+        nombre, unidad, nbytes, formula = spec
+        if options.simulation_mode:
+            # valores de ejemplo para probar sin auto
+            sim = {"06": 2.3, "07": -4.1, "03": "Lazo cerrado (usando sonda lambda)", "0C": 850}
+            return {nombre: {"etiqueta": nombre, "valor": sim.get(pid), "unidad": unidad}}
+        if options.elm is None:
+            return None
+        try:
+            options.elm.clear_cache()
+            resp = options.elm.request("01" + pid, cache=False)
+        except Exception:
+            return None
+        if not resp or "NO DATA" in resp.upper() or "WRONG" in resp.upper():
+            return {nombre: {"etiqueta": nombre, "valor": None, "unidad": unidad}}
+        partes = resp.strip().split()
+        datos = None
+        for i in range(len(partes) - 1):
+            if partes[i].upper() == "41" and partes[i + 1].upper() == pid.upper():
+                try:
+                    datos = [int(b, 16) for b in partes[i + 2:i + 2 + nbytes]]
+                except ValueError:
+                    datos = None
+                break
+        valor = None
+        if datos is not None and len(datos) >= nbytes:
+            try:
+                valor = formula(datos)
+            except Exception:
+                valor = None
+        return {nombre: {"etiqueta": nombre, "valor": valor, "unidad": unidad}}
+
     def read_request(self, request_name, inputs=None):
         """Lee un request y devuelve valores traducidos: {dato: {valor, etiqueta, unidad}}."""
+        # ¿Es un PID OBD-II estándar extra de esta ECU? (ajuste de combustible ±%, lazo, RPM)
+        rn = str(request_name).replace(" ", "").upper()
+        if rn.startswith("01") and len(rn) == 4 and rn[2:] in self.obd_extra:
+            return self._leer_obd_pid(rn[2:])
         req = self.ecu.get_request(request_name)
         if req is None:
             return None
@@ -747,22 +819,20 @@ class Registry:
             layout = json.loads((ORIG / f"{base}.json.layout").read_text(encoding="utf-8"))
             es_path = ES / f"{base}.es.json"
             es_dict = json.loads(es_path.read_text(encoding="utf-8")) if es_path.exists() else {}
-            self.ecus[ecu_id] = TranslatedECU(
+            tecu = TranslatedECU(
                 ecu_id, icon, short, ecu_file, layout, es_dict, self.tm, self.ayudas
             )
+            # El ECU enhanced del F4R (Sagem S3000) NO expone el ajuste corto/largo de
+            # combustible como % ± igual que el escáner genérico (usa "factor de
+            # enriquecimiento" y "corrección adaptativa por zonas", otra escala). Como el motor
+            # está en la dirección OBD estándar (TX 7E0 / RX 7E8), le exponemos los PIDs OBD
+            # 0106/0107 (ajuste ±%), 03 (lazo) y 010C (RPM) como sensores EXTRA leídos en SU
+            # MISMA dirección. Así se ve el ±% familiar sin una segunda ECU "obd" (7DF), que
+            # obligaba a saltar de dirección en cada refresco y frenaba el tablero.
+            if ecu_id == "motor":
+                tecu.obd_extra = list(OBD_EXTRA_PIDS)
+            self.ecus[ecu_id] = tecu
             self._orden.append(ecu_id)
-        # Además de las 6 ECUs curadas, sumamos el "Motor OBD-II estándar": el ECU enhanced
-        # del F4R (Sagem S3000) NO expone el ajuste corto/largo de combustible como % ± igual
-        # que el escáner genérico — usa "factor de enriquecimiento" y "corrección adaptativa"
-        # por zonas, en otra escala. Para que en F4R se vean los MISMOS % que muestra el modo
-        # genérico (PID 0106/0107) y el estado de lazo (PID 03), exponemos esos PIDs estándar
-        # como una ECU virtual extra. Usa broadcast 7DF, addressing propio (ver _seleccionar_ecu).
-        try:
-            from obd_generico import get_obd
-            self.ecus["obd"] = get_obd()
-            self._orden.append("obd")
-        except Exception:
-            pass
         self.perfil = "f4r"
         self.vehiculo = "Mégane II F4R"
 

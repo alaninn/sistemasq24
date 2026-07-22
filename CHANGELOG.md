@@ -7,6 +7,23 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-22] — El ajuste ±% se lee en la MISMA ECU del motor (una sola ECU = tablero rápido de vuelta)
+
+El usuario notó que al agregar la ECU "obd" (7DF) al perfil F4R, el tablero se frenó: tener DOS
+ECUs (motor 7E0 + obd 7DF) obligaba al WebSocket a saltar de dirección y reabrir el
+direccionamiento en cada refresco. Y lo que quería ver es el ajuste ±% (STFT/LTFT estándar).
+
+- **Fix**: el motor F4R está en la dirección OBD estándar (TX 7E0 / RX 7E8), así que ahora lee
+  los PIDs OBD `0106` (ajuste corto ±%), `0107` (largo ±%), `03` (lazo) y `010C` (RPM) como
+  **sensores extra en SU MISMA dirección** — no más ECU "obd" aparte. (`ecu_registry.py`:
+  `TranslatedECU.obd_extra` + `_leer_obd_pid`; se configura solo en el motor en
+  `load_curado_f4r`.) Todo el tablero del F4R queda en **una sola ECU** → sin saltos de
+  dirección → vuelve a actualizar rápido, y con el ±% incluido.
+- La ECU virtual "obd" (7DF) sigue existiendo solo para el **perfil genérico** (`load_generico`).
+- El chequeo lee las RPM OBD desde el motor (o la 'obd' en genérico).
+- Nota: requiere que el motor responda a OBD mode 01 en su dirección física 7E0 (estándar en el
+  motor); a verificar en el auto. Si no respondiera, esos 4 sensores saldrían vacíos (inofensivo).
+
 ## [2026-07-22] — CONFIRMADO: el flow control desbloqueó el F4R + tablero en vivo fluido + fin del flood de escritura
 
 **Confirmado en el auto real**: tras el fix de flow control, `received first frame only` = 0 y el
