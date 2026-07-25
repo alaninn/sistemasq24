@@ -7,6 +7,24 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-25] — Tablero F4R rápido de vuelta (el PID 03 colgaba 1s/ciclo) + paneo del chequeo veloz
+
+El log midió los tiempos: la mediana de lectura del F4R es 33 ms (rápido), PERO el PID OBD
+**`0103` (estado de lazo) tardaba ~1055 ms CADA ciclo** — el motor no responde ese PID y se
+esperaba el timeout completo. Estaba en el tablero por defecto → 1 s perdido por refresco = la
+lentitud que reportó el usuario. (El ajuste ±% por 7DF sí anda: `41 06 75`, ~25 ms.)
+
+- **Sacado el PID 03 de los OBD extra** (`ecu_registry.OBD_EXTRA_PIDS` = `06,07,0C`): el estado
+  de lazo ya se tiene NATIVO (`Etat stratégie régulation richesse`), sin timeout. Quitado también
+  de los precargados del tablero.
+- **Auto-descarte de PIDs OBD que no responden**: si un PID falla 3 veces seguidas se deja de
+  leer (devuelve vacío al toque) en vez de colgar ~1 s esperando su timeout. Red de seguridad
+  para cualquier PID no soportado.
+- **Paneo del chequeo mucho más rápido**: leía TODOS los requests del motor (cientos, incluidos
+  parámetros de estudio/config) → parecía que "nunca arrancaba". Ahora lee solo los **sensores
+  observables** (`util`) y con presupuesto de 30 s (antes 90). Más logging de la fase de RPM
+  para diagnosticar si aún fallara.
+
 ## [2026-07-22] — FIX: fuel trim OBD por 7DF (el motor no soporta OBD en 7E0) + chequeo usa RPM nativo
 
 El log lo confirmó: leer los PID OBD (0106/0107/010C) en la dirección FÍSICA del motor (7E0)

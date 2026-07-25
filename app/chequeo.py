@@ -27,8 +27,9 @@ ETAPAS_RPM = [1500, 2000, 3000]
 # muchísimo en el auto real — el ELM lee de a una y `_seleccionar_ecu` reabre sesión — y el
 # chequeo parecía colgado. Los DTC de los otros módulos se ven en "Escanear"/"Códigos".
 SOLO_MOTOR_EN_PANEO = True
-PRESUPUESTO_PANEO = 90     # seg máx leyendo sensores en el paneo (después corta y sigue)
+PRESUPUESTO_PANEO = 30     # seg máx leyendo sensores en el paneo (después corta y sigue)
 MAX_FALLOS_SEGUIDOS = 8    # si la ECU deja de responder, no seguir insistiendo
+SOLO_UTILES_EN_PANEO = True  # en el paneo, leer solo sensores OBSERVABLES (no params de estudio/config)
 
 # Nombres (dato original) de los sensores CLAVE que varían con las RPM — se capturan
 # a alta frecuencia en las etapas de RPM. Si no se encuentran (otro perfil), se cae a
@@ -263,11 +264,17 @@ class Chequeo:
                 ecu_data["identificacion"] = ident.get("identificacion", {})
             except Exception:
                 pass
-            # una lectura de cada request legible (deduplicado)
+            # una lectura de cada request legible (deduplicado). En el paneo leemos solo los
+            # requests que tienen algún sensor OBSERVABLE: el motor F4R tiene cientos de
+            # parámetros de estudio/config que no sirven para el diagnóstico y hacían el paneo
+            # eterno (parecía que "nunca arrancaba").
             reqs = []
             for p in tecu.readable_params():
+                if SOLO_UTILES_EN_PANEO and p.get("util") is False:
+                    continue
                 if p["request"] not in reqs:
                     reqs.append(p["request"])
+            self.ctx.log("CHEQUEO", f"Paneo {info['nombre']}: {len(reqs)} requests a leer", {})
             fallos = 0
             for j, r in enumerate(reqs):
                 if self.ctx.cancelado():
@@ -319,6 +326,10 @@ class Chequeo:
             return True
         rpm_info = self._param_rpm(tecu)
         reqs = self._requests_captura(tecu)
+        self.ctx.log("CHEQUEO", "Fase RPM: fuente de régimen",
+                     {"rpm_request": rpm_info[0] if rpm_info else None,
+                      "rpm_dato": rpm_info[1] if rpm_info else None,
+                      "requests_captura": len(reqs)})
 
         # --- Ralentí ---
         self._set(fase="ralenti", rpm_objetivo=0, progreso=0,
@@ -331,6 +342,7 @@ class Chequeo:
         # aceleración y el reporte se genera igual con el paneo + ralentí. Evita el cuelgue.
         rpm_ok = self._probar_rpm(tecu, rpm_info)
         self.datos["rpm_disponible"] = rpm_ok
+        self.ctx.log("CHEQUEO", f"Prueba de RPM: {'legibles' if rpm_ok else 'NO legibles'}", {})
         if not rpm_ok:
             self.ctx.log("CHEQUEO", "RPM no legibles: se saltean las etapas de aceleración", {})
             self._set(fase="rpm_no_disponible", progreso=100,

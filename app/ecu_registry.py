@@ -80,7 +80,11 @@ def dtc_estandar(raw_hex):
 # estándar del motor) esto da el ajuste corto/largo ±% y el estado de lazo SIN necesitar una
 # segunda ECU "obd" (7DF): así no hay que saltar de dirección en cada refresco (lo que frenaba
 # el tablero). Se decodifican con las fórmulas de obd_generico.PIDS.
-OBD_EXTRA_PIDS = ["06", "07", "03", "0C"]   # STFT B1, LTFT B1, estado de lazo, RPM
+# Solo los PIDs OBD que aportan algo que el F4R NO da nativo y que responden rápido:
+# 06/07 = ajuste corto/largo ±% (el enhanced usa otra escala), 0C = RPM (fallback).
+# NO incluir 03 (estado de lazo): el motor no responde ese PID y espera el timeout ~1s por
+# ciclo, frenando el tablero; el estado de lazo ya se tiene nativo ("Etat stratégie...").
+OBD_EXTRA_PIDS = ["06", "07", "0C"]   # STFT B1, LTFT B1, RPM
 
 
 def _OBD_PIDS():
@@ -102,6 +106,9 @@ class TranslatedECU:
         # PIDs OBD estándar extra a exponer en ESTA ECU (leídos en su propia dirección).
         # Vacío por default; se setea solo en el motor del F4R (ver load_curado_f4r).
         self.obd_extra = []
+        # Contador de fallos por PID OBD: si un PID no responde varias veces seguidas se deja
+        # de leer (devuelve None al toque) para no colgar el ciclo esperando su timeout (~1s).
+        self._obd_fallos = {}
 
     # ---- traducción ----
     def t(self, s):
@@ -722,6 +729,11 @@ class TranslatedECU:
             return {nombre: {"etiqueta": nombre, "valor": sim.get(pid), "unidad": unidad}}
         if options.elm is None:
             return None
+        # Si este PID ya falló varias veces seguidas, NO lo leemos: el motor no lo soporta y
+        # cada intento cuelga ~1s esperando el timeout (frenaba todo el tablero). Devolvemos
+        # vacío al toque. (Se resetea al reconectar, que crea una ECU nueva.)
+        if self._obd_fallos.get(pid, 0) >= 3:
+            return {nombre: {"etiqueta": nombre, "valor": None, "unidad": unidad}}
         # OBD mode 01 NO lo soporta el motor en su dirección FÍSICA (7E0) mientras está en la
         # sesión extendida del F4R: responde ":11:NR: Service Not Supported". SÍ responde en el
         # broadcast FUNCIONAL 7DF (probado: da el ajuste ±% real). Mandamos el PID a 7DF con un
@@ -744,6 +756,7 @@ class TranslatedECU:
                     pass
         if (not resp or "NO DATA" in resp.upper() or "WRONG" in resp.upper()
                 or "NR:" in resp.upper() or "SERVICE NOT" in resp.upper()):
+            self._obd_fallos[pid] = self._obd_fallos.get(pid, 0) + 1
             return {nombre: {"etiqueta": nombre, "valor": None, "unidad": unidad}}
         partes = resp.strip().split()
         datos = None
@@ -760,6 +773,11 @@ class TranslatedECU:
                 valor = formula(datos)
             except Exception:
                 valor = None
+        # éxito → resetear el contador; sin datos → contarlo como fallo (para el auto-descarte)
+        if valor is not None:
+            self._obd_fallos[pid] = 0
+        else:
+            self._obd_fallos[pid] = self._obd_fallos.get(pid, 0) + 1
         return {nombre: {"etiqueta": nombre, "valor": valor, "unidad": unidad}}
 
     def read_request(self, request_name, inputs=None):
