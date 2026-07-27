@@ -7,6 +7,19 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-27] — Chequeo: usar el régimen REAL (no la corrección de ralentí) para detectar las bandas
+
+El log del chequeo reveló que `_param_rpm` agarraba **`Correction régime ralenti après-vente`**
+(contiene "régime" pero es la corrección de ralentí, no las RPM) en vez de `Régime moteur`. Por
+eso el medidor de RPM del chequeo mostraba un valor fijo/raro y parecía que "no leía las RPM"
+(el reporte igual salía bien porque la captura usa el OBD 010C: 750→2956).
+
+- **`_param_rpm`** ahora descarta correcciones/consignas/umbrales (`correction`, `consigne`,
+  `ralenti`, `cible`, `seuil`, `min/max`, …) y prefiere el match exacto `Régime moteur`.
+- **`_leer_rpm`** usa el **OBD 010C** (por 7DF) como fuente primaria de la detección de banda
+  (es el régimen real, sin ambigüedad, ya probado correcto), con el nativo `Régime moteur` de
+  fallback. Así el medidor muestra las RPM reales y las bandas 1500/2000/3000 se detectan bien.
+
 ## [2026-07-25] — Tablero F4R rápido de vuelta (el PID 03 colgaba 1s/ciclo) + paneo del chequeo veloz
 
 El log midió los tiempos: la mediana de lectura del F4R es 33 ms (rápido), PERO el PID OBD

@@ -126,17 +126,30 @@ class Chequeo:
 
     # ------------------------------------------------------------------ RPM
     def _param_rpm(self, tecu):
-        """Ubica el request/dato/etiqueta de las RPM NATIVAS del motor. Salta los PIDs OBD
-        extra (010C): en el F4R el régimen nativo se lee bien (multiframe con el flow-control
-        arreglado) y no depende del OBD, que el motor no soporta en su dirección física."""
+        """Ubica el request/dato/etiqueta del RÉGIMEN REAL del motor (no correcciones/consignas).
+        Salta los PIDs OBD extra. En el F4R hay varios "régime": el real es 'Régime moteur';
+        los otros ('Correction régime ralenti', 'Régime consigne régulation ralenti') son
+        parámetros de ralentí que NO son las RPM actuales (agarrarlos rompía la detección)."""
         obd_reqs = {"01" + p for p in getattr(tecu, "obd_extra", [])}
+        # modificadores que descartan al candidato: no es el régimen real sino una consigna/etc.
+        malos = ("correction", "consigne", "cible", "souhait", "objectif", "ralenti",
+                 "seuil", "après-vente", "apres-vente", "min", "max", "delta", "écart", "ecart")
+        mejor = None
         for p in tecu.readable_params():
             if p["request"] in obd_reqs:
                 continue
             texto = (p.get("dato", "") + " " + p.get("etiqueta", "")).lower()
-            if "régime" in texto or "regime" in texto or "régimen" in texto or "rpm" in texto:
+            if not ("régime" in texto or "regime" in texto or "régimen" in texto or "rpm" in texto):
+                continue
+            if any(m in texto for m in malos):
+                continue
+            # match exacto del régimen del motor → el mejor
+            if ("régime moteur" in texto or "regime moteur" in texto
+                    or "régimen del motor" in texto or "régimen motor" in texto):
                 return p["request"], p["dato"], p["etiqueta"]
-        return None
+            if mejor is None:
+                mejor = (p["request"], p["dato"], p["etiqueta"])
+        return mejor
 
     def _requests_captura(self, tecu):
         """Requests a capturar en las etapas de RPM: los de los sensores CLAVE (para que
@@ -180,8 +193,12 @@ class Chequeo:
             base = objetivo_sim if objetivo_sim else 850
             t = time.time() - self._t0_sim
             return min(base, 400 + t * 250) if objetivo_sim else 850
-        # 1) Régimen NATIVO del F4R: con el flow-control arreglado se lee bien y es lo más
-        #    directo (el OBD 010C el motor no lo soporta en su dirección física).
+        # 1) OBD 010C (por 7DF): es el régimen REAL, sin ambigüedad y ya probado correcto en el
+        #    reporte (750→2956). Se usa para la detección de banda del chequeo.
+        rpm = self._leer_rpm_obd()
+        if rpm is not None:
+            return rpm
+        # 2) Fallback: régimen nativo del F4R ('Régime moteur', elegido por _param_rpm).
         if rpm_info is not None:
             req, dato, _et = rpm_info
             vals = self._leer_request(tecu, req)
@@ -190,8 +207,7 @@ class Chequeo:
                     return float(str(vals[dato].get("valor")).split()[0])
                 except (ValueError, TypeError, IndexError):
                     pass
-        # 2) Fallback: OBD 010C (por 7DF). Sirve si el nativo no estuviera disponible.
-        return self._leer_rpm_obd()
+        return None
 
     def _probar_rpm(self, tecu, rpm_info):
         """¿Se pueden leer las RPM del motor? Prueba unos segundos. En sim, siempre sí.
