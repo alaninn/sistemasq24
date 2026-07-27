@@ -1598,16 +1598,10 @@ def api_comando(req: ComandoReq):
 
     slog.log("COMANDO", f"{req.request}", {"ecu": req.ecu, "inputs": req.inputs, "peligroso": peligroso})
 
-    # Validar que el request exista en la ECU (prevenir inyección de comandos)
-    request_exists = False
-    for screens in getattr(tecu, 'screens', {}).values():
-        for btn in screens.get('botones', []):
-            if req.request in btn.get('requests', []):
-                request_exists = True
-                break
-        if request_exists:
-            break
-    if not request_exists:
+    # Validar que el request exista en una pantalla de la ECU (prevenir inyección de comandos).
+    # ANTES esto usaba `tecu.screens`, un atributo que NO existe en TranslatedECU → SIEMPRE daba
+    # "request no válido" y bloqueaba TODOS los procedimientos (ej. reset de adaptativos).
+    if not tecu.request_en_pantalla(req.request):
         return JSONResponse({"error": f"Request '{req.request}' no válido para esta ECU"}, status_code=400)
 
     # Detectar si es una rutina (StartRoutine - servicio 31)

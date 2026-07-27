@@ -326,6 +326,17 @@ class TranslatedECU:
         req = self.ecu.get_request(request_name)
         return req is not None and self._is_read_request(req)
 
+    def request_en_pantalla(self, request_name):
+        """True si `request_name` aparece en algún botón de alguna pantalla de esta ECU.
+        Es la validación anti-inyección de `api_comando`: solo se ejecutan comandos que la
+        propia UI de la ECU expone (procedimientos/rutinas)."""
+        for scr in self.layout.get("screens", {}).values():
+            for b in scr.get("buttons", []):
+                for s in b.get("send", []):
+                    if s.get("RequestName") == request_name:
+                        return True
+        return False
+
     def is_dangerous(self, request_name):
         """True si el request modifica el auto (requiere modo avanzado)."""
         req = self.ecu.get_request(request_name)

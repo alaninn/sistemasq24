@@ -1042,11 +1042,18 @@ const SENSORES_PRECARGADOS = [
   'Ajuste largo de combustible B1',                    // LTFT estándar (PID 07)
   // El estado de lazo NO se toma por OBD (PID 03): el motor no lo responde y colgaba el ciclo
   // ~1s. Ya está el nativo del F4R ('Etat stratégie régulation richesse', arriba en la lista).
+  // Contadores de detonación (cascabeleo) por cilindro — para vigilar si detona AHORA
+  // (anotar el valor, andar un rato, y ver si suben). Todos vienen en la Trame 05.
+  'Compteur des coups de cliquetis, cylindre 1',
+  'Compteur des coups de cliquetis, cylindre 2',
+  'Compteur des coups de cliquetis, cylindre 3',
+  'Compteur des coups de cliquetis, cylindre 4',
+  'Bruit moteur moyen dans la fenetre cliquetis',      // ruido en la ventana de detonación (contexto)
 ];
 // Versión de la lista de precargados. Al subirla, los tableros YA guardados reciben los
 // sensores nuevos que les falten (sin perder los que el usuario eligió a mano).
-// v3: se sumaron los ajustes de combustible OBD-II estándar (% ±) al perfil F4R.
-const PRECARGADOS_VER = 3;
+// v3: ajustes de combustible OBD-II estándar (% ±). v4: contadores de detonación por cilindro.
+const PRECARGADOS_VER = 4;
 
 // Alias en "idioma de taller": las etiquetas del F4R son traducción literal del francés
 // ("Factor de enriquecimiento de la regulación de riqueza"), así que buscar "ajuste de

@@ -7,6 +7,26 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-27] — FIX: los procedimientos del F4R NO se ejecutaban (reset de adaptativos, rutinas) + contadores de detonación en el tablero
+
+**Bug grave encontrado al verificar el reset de adaptativos**: `api_comando` (`server.py`) validaba
+el request contra `tecu.screens`, un atributo que **NO existe** en `TranslatedECU` → `getattr`
+devolvía `{}` → SIEMPRE daba "Request no válido para esta ECU" (400). Es decir, **ningún
+procedimiento/rutina del F4R se podía ejecutar** (reset de aprendizajes, arranque de rutinas,
+etc.), incluso con el modo avanzado activado.
+- **Fix**: nuevo método `TranslatedECU.request_en_pantalla()` que valida contra las pantallas
+  reales (`layout["screens"] → buttons → send → RequestName`). Verificado end-to-end: el reset
+  de adaptativos ahora ejecuta con modo avanzado, se bloquea sin él (403), y un comando
+  inventado sigue rechazado (400, anti-inyección intacto). `ObdGenerico` también tiene el método
+  (devuelve False, no expone comandos).
+- **Cómo resetear los trims** (para el usuario): conectar en F4R → activar modo avanzado (switch
+  rojo) → Procedimientos → "Lancement routines" → "reinicialización de los aprendizajes".
+
+**Contadores de detonación en el tablero** (`index.html`, `PRECARGADOS_VER` 3→4): se precargan los
+4 contadores de cascabeleo por cilindro (`Compteur des coups de cliquetis, cylindre 1-4`) + el
+ruido en la ventana de detonación. Sirven para ver si el motor detona AHORA (anotar, andar, ver
+si suben) vs. historial viejo. Vienen en la Trame 05, ya capturada.
+
 ## [2026-07-27] — Chequeo: etapa de 1000 RPM + tiempos más cortos (no cansa mantener 3000)
 
 Pedido del usuario: mantener 3000 RPM mucho tiempo cansa; y mejor tomar más puntos en el rango.

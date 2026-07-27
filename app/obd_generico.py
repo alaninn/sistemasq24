@@ -463,6 +463,9 @@ class ObdGenerico:
     def is_read_request_name(self, request_name):
         return True
 
+    def request_en_pantalla(self, request_name):
+        return False   # el OBD genérico no expone procedimientos/comandos modificadores
+
     def ensure_session(self, force=False):
         return True
 
