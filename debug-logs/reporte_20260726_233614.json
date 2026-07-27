@@ -1,0 +1,739 @@
+{
+ "fecha": "2026-07-26 23:35:32",
+ "perfil": "generico",
+ "vehiculo": "OBD-II Genérico",
+ "ecus": [
+  {
+   "id": "obd",
+   "nombre": "Motor (OBD-II Genérico)",
+   "icon": "🌐",
+   "identificacion": {},
+   "presente": true,
+   "sensores": {
+    "Ajuste corto de combustible B1": "2.3 %",
+    "Ajuste largo de combustible B1": "30.5 %",
+    "Avance de encendido": "2.0 °",
+    "Carga calculada del motor": "18.0 %",
+    "Distancia con testigo MIL": "0 km",
+    "Norma OBD del vehículo": "EOBD (Europa)",
+    "Posición del acelerador": "11.4 %",
+    "Presión absoluta del colector (MAP)": "31 kPa",
+    "Régimen del motor (RPM)": "752 RPM",
+    "Sonda lambda B1S1 — tensión": "0.65 V",
+    "Sonda lambda B1S2 — tensión": "0.475 V",
+    "Sondas lambda presentes (banco)": "0x03",
+    "Temperatura del aire de admisión": "38 °C",
+    "Temperatura del refrigerante": "80 °C",
+    "Velocidad del vehículo": "0 km/h"
+   },
+   "dtcs": [],
+   "evaluaciones": {
+    "Ajuste corto de combustible B1": {
+     "estado": "sin_rango"
+    },
+    "Ajuste largo de combustible B1": {
+     "estado": "sin_rango"
+    },
+    "Avance de encendido": {
+     "estado": "sin_rango"
+    },
+    "Carga calculada del motor": {
+     "estado": "sin_rango"
+    },
+    "Distancia con testigo MIL": {
+     "estado": "sin_rango"
+    },
+    "Norma OBD del vehículo": {
+     "estado": "sin_rango"
+    },
+    "Posición del acelerador": {
+     "estado": "sin_rango"
+    },
+    "Presión absoluta del colector (MAP)": {
+     "estado": "sin_rango"
+    },
+    "Régimen del motor (RPM)": {
+     "estado": "sin_rango"
+    },
+    "Sonda lambda B1S1 — tensión": {
+     "estado": "sin_rango"
+    },
+    "Sonda lambda B1S2 — tensión": {
+     "estado": "sin_rango"
+    },
+    "Sondas lambda presentes (banco)": {
+     "estado": "sin_rango"
+    },
+    "Temperatura del aire de admisión": {
+     "estado": "sin_rango"
+    },
+    "Temperatura del refrigerante": {
+     "estado": "sin_rango"
+    },
+    "Velocidad del vehículo": {
+     "estado": "sin_rango"
+    }
+   }
+  }
+ ],
+ "rpm_etapas": {
+  "ralenti": {
+   "rpm_prom": 750.85,
+   "n_muestras": 13,
+   "alcanzo_banda": true,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 3.92,
+     "minimo": 0.0,
+     "maximo": 7.5,
+     "desv_std": 2.0,
+     "unidad": "°",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Posición del acelerador": {
+     "promedio": 11.4,
+     "minimo": 11.4,
+     "maximo": 11.4,
+     "desv_std": 0.0,
+     "unidad": "%",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 31.0,
+     "minimo": 31.0,
+     "maximo": 31.0,
+     "desv_std": 0.0,
+     "unidad": "kPa",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 750.85,
+     "minimo": 742.0,
+     "maximo": 764.0,
+     "desv_std": 6.16,
+     "unidad": "RPM",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 38.0,
+     "minimo": 38.0,
+     "maximo": 38.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 80.0,
+     "minimo": 80.0,
+     "maximo": 80.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    }
+   }
+  },
+  "1500": {
+   "rpm_prom": 1580.69,
+   "n_muestras": 13,
+   "alcanzo_banda": true,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 30.35,
+     "minimo": 29.5,
+     "maximo": 31.5,
+     "desv_std": 0.66,
+     "unidad": "°",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Posición del acelerador": {
+     "promedio": 13.3,
+     "minimo": 13.3,
+     "maximo": 13.3,
+     "desv_std": 0.0,
+     "unidad": "%",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 28.0,
+     "minimo": 28.0,
+     "maximo": 28.0,
+     "desv_std": 0.0,
+     "unidad": "kPa",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 1580.69,
+     "minimo": 1540.0,
+     "maximo": 1669.0,
+     "desv_std": 43.64,
+     "unidad": "RPM",
+     "muestras": 13,
+     "oscila": true
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 38.0,
+     "minimo": 38.0,
+     "maximo": 38.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 80.0,
+     "minimo": 80.0,
+     "maximo": 80.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    }
+   }
+  },
+  "2000": {
+   "rpm_prom": 2016.92,
+   "n_muestras": 13,
+   "alcanzo_banda": true,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 38.0,
+     "minimo": 38.0,
+     "maximo": 38.0,
+     "desv_std": 0.0,
+     "unidad": "°",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Posición del acelerador": {
+     "promedio": 14.25,
+     "minimo": 14.1,
+     "maximo": 14.5,
+     "desv_std": 0.19,
+     "unidad": "%",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 28.0,
+     "minimo": 28.0,
+     "maximo": 28.0,
+     "desv_std": 0.0,
+     "unidad": "kPa",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 2016.92,
+     "minimo": 1988.0,
+     "maximo": 2036.0,
+     "desv_std": 16.72,
+     "unidad": "RPM",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 38.0,
+     "minimo": 38.0,
+     "maximo": 38.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 81.62,
+     "minimo": 81.0,
+     "maximo": 82.0,
+     "desv_std": 0.49,
+     "unidad": "°C",
+     "muestras": 13,
+     "oscila": false
+    }
+   }
+  },
+  "3000": {
+   "rpm_prom": 2956.17,
+   "n_muestras": 12,
+   "alcanzo_banda": true,
+   "estadisticas": {
+    "Avance de encendido": {
+     "promedio": 43.71,
+     "minimo": 41.5,
+     "maximo": 45.5,
+     "desv_std": 1.36,
+     "unidad": "°",
+     "muestras": 12,
+     "oscila": true
+    },
+    "Posición del acelerador": {
+     "promedio": 16.16,
+     "minimo": 14.1,
+     "maximo": 18.4,
+     "desv_std": 1.33,
+     "unidad": "%",
+     "muestras": 12,
+     "oscila": true
+    },
+    "Presión absoluta del colector (MAP)": {
+     "promedio": 29.33,
+     "minimo": 23.0,
+     "maximo": 35.0,
+     "desv_std": 3.79,
+     "unidad": "kPa",
+     "muestras": 12,
+     "oscila": true
+    },
+    "Régimen del motor (RPM)": {
+     "promedio": 2956.17,
+     "minimo": 2676.0,
+     "maximo": 3094.0,
+     "desv_std": 104.79,
+     "unidad": "RPM",
+     "muestras": 12,
+     "oscila": true
+    },
+    "Temperatura del aire de admisión": {
+     "promedio": 38.0,
+     "minimo": 38.0,
+     "maximo": 38.0,
+     "desv_std": 0.0,
+     "unidad": "°C",
+     "muestras": 12,
+     "oscila": false
+    },
+    "Temperatura del refrigerante": {
+     "promedio": 83.58,
+     "minimo": 83.0,
+     "maximo": 84.0,
+     "desv_std": 0.49,
+     "unidad": "°C",
+     "muestras": 12,
+     "oscila": false
+    }
+   }
+  }
+ },
+ "rpm_disponible": true,
+ "resumen": {
+  "generado": "2026-07-26 23:36:14",
+  "sensores_totales": 15,
+  "sensores_ok": 0,
+  "sensores_en_atencion": 0,
+  "atencion": [],
+  "dtcs_totales": 0,
+  "dtcs": [],
+  "con_rangos": false,
+  "ecus_presentes": [
+   "Motor (OBD-II Genérico)"
+  ],
+  "ecus_ausentes": [],
+  "notas_captura": [],
+  "diagnostico": [
+   {
+    "sensor": "Régimen del motor (RPM)",
+    "valor": "752 RPM",
+    "origen": "ralentí",
+    "referencia": "Ralentí estable ~750-850 rpm. Inestable → admisión de aire falsa, bujías, inyectores.",
+    "leido": true
+   },
+   {
+    "sensor": "Temperatura del refrigerante",
+    "valor": "80 °C",
+    "origen": "ralentí",
+    "referencia": "Con el motor caliente debe estar ~85-95 °C. Frío = no entra en lazo cerrado; muy alto = riesgo.",
+    "leido": true
+   },
+   {
+    "sensor": "Ajuste corto de combustible B1",
+    "valor": "2.3 %",
+    "origen": "ralentí",
+    "referencia": "STFT: corrección instantánea de mezcla. Sano ±10%. Muy + = mezcla pobre; muy − = rica.",
+    "leido": true
+   },
+   {
+    "sensor": "Ajuste largo de combustible B1",
+    "valor": "30.5 %",
+    "origen": "ralentí",
+    "referencia": "LTFT: corrección aprendida. Alto + = falsa de aire / inyectores sucios / MAF; alto − = mezcla rica.",
+    "leido": true
+   },
+   {
+    "sensor": "estado del sistema de combustible",
+    "valor": null,
+    "origen": null,
+    "referencia": "Con motor caliente debe estar en LAZO CERRADO. Si queda abierto → sonda o temperatura.",
+    "leido": false
+   },
+   {
+    "sensor": "Sonda lambda B1S1 — tensión",
+    "valor": "0.65 V",
+    "origen": "ralentí",
+    "referencia": "En lazo cerrado la sonda anterior debe OSCILAR (0.1–0.9 V). Fija = sonda vaga/envejecida.",
+    "leido": true
+   },
+   {
+    "sensor": "tensión de batería",
+    "valor": null,
+    "origen": null,
+    "referencia": "Con el motor en marcha 13.5–14.8 V (alternador cargando). Bajo = alternador/batería.",
+    "leido": false
+   },
+   {
+    "sensor": "Presión absoluta del colector (MAP)",
+    "valor": "31 kPa",
+    "origen": "ralentí",
+    "referencia": "MAP: bajo en ralentí (~25-40 kPa), sube con la carga. Alto en ralentí = fuga/válvula.",
+    "leido": true
+   },
+   {
+    "sensor": "Avance de encendido",
+    "valor": "2.0 °",
+    "origen": "ralentí",
+    "referencia": "El avance debe aumentar con las RPM. Plano o negativo = detonación/sensor de picado.",
+    "leido": true
+   },
+   {
+    "sensor": "Posición del acelerador",
+    "valor": "11.4 %",
+    "origen": "ralentí",
+    "referencia": "TPS: ~0-15% en ralentí, sigue al pedal de forma lineal.",
+    "leido": true
+   },
+   {
+    "sensor": "tiempo de inyección",
+    "valor": null,
+    "origen": null,
+    "referencia": "Ancho de pulso del inyector: sube con la carga. Anómalo = inyector/mezcla.",
+    "leido": false
+   },
+   {
+    "sensor": "caudal de aire",
+    "valor": null,
+    "origen": null,
+    "referencia": "MAF: proporcional a las RPM y la carga. Bajo = MAF sucio / falsa de aire.",
+    "leido": false
+   },
+   {
+    "sensor": "presión de turbo",
+    "valor": null,
+    "origen": null,
+    "referencia": "Boost (si tiene turbo): sube con la carga. Bajo = fuga/wastegate.",
+    "leido": false
+   }
+  ]
+ },
+ "para_experto": {
+  "vehiculo": "OBD-II Genérico",
+  "perfil": "generico",
+  "fecha": "2026-07-26 23:35:32",
+  "modulos_presentes": [
+   "Motor (OBD-II Genérico)"
+  ],
+  "modulos_sin_respuesta": [],
+  "codigos_de_falla": [],
+  "sensores_en_atencion": [],
+  "datos_clave": [
+   {
+    "sensor": "Régimen del motor (RPM)",
+    "valor": "752 RPM",
+    "origen": "ralentí",
+    "referencia": "Ralentí estable ~750-850 rpm. Inestable → admisión de aire falsa, bujías, inyectores.",
+    "leido": true
+   },
+   {
+    "sensor": "Temperatura del refrigerante",
+    "valor": "80 °C",
+    "origen": "ralentí",
+    "referencia": "Con el motor caliente debe estar ~85-95 °C. Frío = no entra en lazo cerrado; muy alto = riesgo.",
+    "leido": true
+   },
+   {
+    "sensor": "Ajuste corto de combustible B1",
+    "valor": "2.3 %",
+    "origen": "ralentí",
+    "referencia": "STFT: corrección instantánea de mezcla. Sano ±10%. Muy + = mezcla pobre; muy − = rica.",
+    "leido": true
+   },
+   {
+    "sensor": "Ajuste largo de combustible B1",
+    "valor": "30.5 %",
+    "origen": "ralentí",
+    "referencia": "LTFT: corrección aprendida. Alto + = falsa de aire / inyectores sucios / MAF; alto − = mezcla rica.",
+    "leido": true
+   },
+   {
+    "sensor": "estado del sistema de combustible",
+    "valor": null,
+    "origen": null,
+    "referencia": "Con motor caliente debe estar en LAZO CERRADO. Si queda abierto → sonda o temperatura.",
+    "leido": false
+   },
+   {
+    "sensor": "Sonda lambda B1S1 — tensión",
+    "valor": "0.65 V",
+    "origen": "ralentí",
+    "referencia": "En lazo cerrado la sonda anterior debe OSCILAR (0.1–0.9 V). Fija = sonda vaga/envejecida.",
+    "leido": true
+   },
+   {
+    "sensor": "tensión de batería",
+    "valor": null,
+    "origen": null,
+    "referencia": "Con el motor en marcha 13.5–14.8 V (alternador cargando). Bajo = alternador/batería.",
+    "leido": false
+   },
+   {
+    "sensor": "Presión absoluta del colector (MAP)",
+    "valor": "31 kPa",
+    "origen": "ralentí",
+    "referencia": "MAP: bajo en ralentí (~25-40 kPa), sube con la carga. Alto en ralentí = fuga/válvula.",
+    "leido": true
+   },
+   {
+    "sensor": "Avance de encendido",
+    "valor": "2.0 °",
+    "origen": "ralentí",
+    "referencia": "El avance debe aumentar con las RPM. Plano o negativo = detonación/sensor de picado.",
+    "leido": true
+   },
+   {
+    "sensor": "Posición del acelerador",
+    "valor": "11.4 %",
+    "origen": "ralentí",
+    "referencia": "TPS: ~0-15% en ralentí, sigue al pedal de forma lineal.",
+    "leido": true
+   },
+   {
+    "sensor": "tiempo de inyección",
+    "valor": null,
+    "origen": null,
+    "referencia": "Ancho de pulso del inyector: sube con la carga. Anómalo = inyector/mezcla.",
+    "leido": false
+   },
+   {
+    "sensor": "caudal de aire",
+    "valor": null,
+    "origen": null,
+    "referencia": "MAF: proporcional a las RPM y la carga. Bajo = MAF sucio / falsa de aire.",
+    "leido": false
+   },
+   {
+    "sensor": "presión de turbo",
+    "valor": null,
+    "origen": null,
+    "referencia": "Boost (si tiene turbo): sube con la carga. Bajo = fuga/wastegate.",
+    "leido": false
+   }
+  ],
+  "evolucion_por_rpm": {
+   "Avance de encendido": {
+    "unidad": "°",
+    "etapas": {
+     "ralenti": {
+      "min": 0.0,
+      "prom": 3.92,
+      "max": 7.5,
+      "desv": 2.0,
+      "oscila": true
+     },
+     "1500": {
+      "min": 29.5,
+      "prom": 30.35,
+      "max": 31.5,
+      "desv": 0.66,
+      "oscila": true
+     },
+     "2000": {
+      "min": 38.0,
+      "prom": 38.0,
+      "max": 38.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "3000": {
+      "min": 41.5,
+      "prom": 43.71,
+      "max": 45.5,
+      "desv": 1.36,
+      "oscila": true
+     }
+    }
+   },
+   "Posición del acelerador": {
+    "unidad": "%",
+    "etapas": {
+     "ralenti": {
+      "min": 11.4,
+      "prom": 11.4,
+      "max": 11.4,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "1500": {
+      "min": 13.3,
+      "prom": 13.3,
+      "max": 13.3,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "2000": {
+      "min": 14.1,
+      "prom": 14.25,
+      "max": 14.5,
+      "desv": 0.19,
+      "oscila": false
+     },
+     "3000": {
+      "min": 14.1,
+      "prom": 16.16,
+      "max": 18.4,
+      "desv": 1.33,
+      "oscila": true
+     }
+    }
+   },
+   "Presión absoluta del colector (MAP)": {
+    "unidad": "kPa",
+    "etapas": {
+     "ralenti": {
+      "min": 31.0,
+      "prom": 31.0,
+      "max": 31.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "1500": {
+      "min": 28.0,
+      "prom": 28.0,
+      "max": 28.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "2000": {
+      "min": 28.0,
+      "prom": 28.0,
+      "max": 28.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "3000": {
+      "min": 23.0,
+      "prom": 29.33,
+      "max": 35.0,
+      "desv": 3.79,
+      "oscila": true
+     }
+    }
+   },
+   "Régimen del motor (RPM)": {
+    "unidad": "RPM",
+    "etapas": {
+     "ralenti": {
+      "min": 742.0,
+      "prom": 750.85,
+      "max": 764.0,
+      "desv": 6.16,
+      "oscila": false
+     },
+     "1500": {
+      "min": 1540.0,
+      "prom": 1580.69,
+      "max": 1669.0,
+      "desv": 43.64,
+      "oscila": true
+     },
+     "2000": {
+      "min": 1988.0,
+      "prom": 2016.92,
+      "max": 2036.0,
+      "desv": 16.72,
+      "oscila": false
+     },
+     "3000": {
+      "min": 2676.0,
+      "prom": 2956.17,
+      "max": 3094.0,
+      "desv": 104.79,
+      "oscila": true
+     }
+    }
+   },
+   "Temperatura del aire de admisión": {
+    "unidad": "°C",
+    "etapas": {
+     "ralenti": {
+      "min": 38.0,
+      "prom": 38.0,
+      "max": 38.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "1500": {
+      "min": 38.0,
+      "prom": 38.0,
+      "max": 38.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "2000": {
+      "min": 38.0,
+      "prom": 38.0,
+      "max": 38.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "3000": {
+      "min": 38.0,
+      "prom": 38.0,
+      "max": 38.0,
+      "desv": 0.0,
+      "oscila": false
+     }
+    }
+   },
+   "Temperatura del refrigerante": {
+    "unidad": "°C",
+    "etapas": {
+     "ralenti": {
+      "min": 80.0,
+      "prom": 80.0,
+      "max": 80.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "1500": {
+      "min": 80.0,
+      "prom": 80.0,
+      "max": 80.0,
+      "desv": 0.0,
+      "oscila": false
+     },
+     "2000": {
+      "min": 81.0,
+      "prom": 81.62,
+      "max": 82.0,
+      "desv": 0.49,
+      "oscila": false
+     },
+     "3000": {
+      "min": 83.0,
+      "prom": 83.58,
+      "max": 84.0,
+      "desv": 0.49,
+      "oscila": false
+     }
+    }
+   }
+  },
+  "advertencias_de_captura": []
+ }
+}
