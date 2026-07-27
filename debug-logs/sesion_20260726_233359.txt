@@ -1,0 +1,275 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260726_233359
+==================================================================
+
+[23:33:59.214] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[23:33:59.217] (+   0.0s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-26 23:33:59
+
+[23:33:59.234] (+  0.02s) ELM      diag
+           → envío:     0106  (17.0 ms)
+           → respuesta: 41 06 8B 
+
+[23:33:59.251] (+  0.04s) ELM      diag
+           → envío:     0107  (16.4 ms)
+           → respuesta: 41 07 A7 
+
+[23:33:59.265] (+  0.05s) ELM      diag
+           → envío:     010E  (14.3 ms)
+           → respuesta: 41 0E 8D 
+
+[23:33:59.282] (+  0.07s) ELM      diag
+           → envío:     0104  (15.1 ms)
+           → respuesta: 41 04 2D 
+
+[23:33:59.299] (+  0.08s) ELM      diag
+           → envío:     0121  (16.8 ms)
+           → respuesta: 41 21 00 00 
+
+[23:33:59.314] (+   0.1s) ELM      diag
+           → envío:     011C  (15.6 ms)
+           → respuesta: 41 1C 06 
+
+[23:33:59.331] (+  0.12s) ELM      diag
+           → envío:     0111  (16.4 ms)
+           → respuesta: 41 11 1D 
+
+[23:33:59.347] (+  0.13s) ELM      diag
+           → envío:     010B  (16.9 ms)
+           → respuesta: 41 0B 1F 
+
+[23:33:59.364] (+  0.15s) ELM      diag
+           → envío:     010C  (16.3 ms)
+           → respuesta: 41 0C 0B B0 
+
+[23:33:59.381] (+  0.17s) ELM      diag
+           → envío:     0114  (16.8 ms)
+           → respuesta: 41 14 32 8B 
+
+[23:33:59.397] (+  0.18s) ELM      diag
+           → envío:     0115  (14.0 ms)
+           → respuesta: 41 15 5F 00 
+
+[23:33:59.409] (+   0.2s) ELM      diag
+           → envío:     0113  (12.4 ms)
+           → respuesta: 41 13 03 
+
+[23:33:59.427] (+  0.21s) ELM      diag
+           → envío:     010F  (17.7 ms)
+           → respuesta: 41 0F 4E 
+
+[23:33:59.443] (+  0.23s) ELM      diag
+           → envío:     0105  (15.6 ms)
+           → respuesta: 41 05 71 
+
+[23:33:59.460] (+  0.25s) ELM      diag
+           → envío:     010D  (16.6 ms)
+           → respuesta: 41 0D 00 
+
+[23:33:59.460] (+  0.25s) SENSORES Lectura en vivo (Motor (OBD-II Genérico) (barrido completo))
+           · Ajuste corto de combustible B1: 8.6 %
+           · Ajuste largo de combustible B1: 30.5 %
+           · Avance de encendido: 6.5 °
+           · Carga calculada del motor: 17.6 %
+           · Distancia con testigo MIL: 0 km
+           · Norma OBD del vehículo: EOBD (Europa)
+           · Posición del acelerador: 11.4 %
+           · Presión absoluta del colector (MAP): 31 kPa
+           · Régimen del motor (RPM): 748 RPM
+           · Sonda lambda B1S1 — tensión: 0.25 V
+           · Sonda lambda B1S2 — tensión: 0.475 V
+           · Sondas lambda presentes (banco): 0x03
+           · Temperatura del aire de admisión: 38 °C
+           · Temperatura del refrigerante: 73 °C
+           · Velocidad del vehículo: 0 km/h
+
+[23:34:02.877] (+  3.66s) ELM      keep-alive
+           → envío:     3E00  (1051.3 ms)
+           → respuesta: WRONG RESPONSE
+
+[23:34:06.342] (+  7.13s) ELM      keep-alive
+           → envío:     3E00  (1061.2 ms)
+           → respuesta: WRONG RESPONSE
+
+[23:34:07.509] (+   8.3s) ELM      diag
+           → envío:     0106  (20.3 ms)
+           → respuesta: 41 06 87 
+
+[23:34:07.525] (+  8.31s) ELM      diag
+           → envío:     0107  (16.0 ms)
+           → respuesta: 41 07 A7 
+
+[23:34:07.541] (+  8.33s) ELM      diag
+           → envío:     010E  (15.5 ms)
+           → respuesta: 41 0E 89 
+
+[23:34:07.556] (+  8.34s) ELM      diag
+           → envío:     0104  (15.4 ms)
+           → respuesta: 41 04 2D 
+
+[23:34:07.574] (+  8.36s) ELM      diag
+           → envío:     0121  (17.4 ms)
+           → respuesta: 41 21 00 00 
+
+[23:34:07.589] (+  8.38s) ELM      diag
+           → envío:     011C  (15.7 ms)
+           → respuesta: 41 1C 06 
+
+[23:34:07.606] (+  8.39s) ELM      diag
+           → envío:     0111  (16.9 ms)
+           → respuesta: 41 11 1D 
+
+[23:34:07.623] (+  8.41s) ELM      diag
+           → envío:     010B  (16.2 ms)
+           → respuesta: 41 0B 1F 
+
+[23:34:07.638] (+  8.42s) ELM      diag
+           → envío:     010C  (15.1 ms)
+           → respuesta: 41 0C 0B B4 
+
+[23:34:07.654] (+  8.44s) ELM      diag
+           → envío:     0114  (16.5 ms)
+           → respuesta: 41 14 1F 87 
+
+[23:34:07.670] (+  8.46s) ELM      diag
+           → envío:     0115  (15.5 ms)
+           → respuesta: 41 15 5F 00 
+
+[23:34:07.684] (+  8.47s) ELM      diag
+           → envío:     0113  (14.3 ms)
+           → respuesta: 41 13 03 
+
+[23:34:07.700] (+  8.49s) ELM      diag
+           → envío:     010F  (16.0 ms)
+           → respuesta: 41 0F 4E 
+
+[23:34:07.716] (+   8.5s) ELM      diag
+           → envío:     0105  (16.2 ms)
+           → respuesta: 41 05 71 
+
+[23:34:07.735] (+  8.52s) ELM      diag
+           → envío:     010D  (18.4 ms)
+           → respuesta: 41 0D 00 
+
+[23:34:07.735] (+  8.52s) SENSORES Lectura en vivo (Motor (OBD-II Genérico) (barrido completo))
+           · Ajuste corto de combustible B1: 5.5 %
+           · Ajuste largo de combustible B1: 30.5 %
+           · Avance de encendido: 4.5 °
+           · Carga calculada del motor: 17.6 %
+           · Distancia con testigo MIL: 0 km
+           · Norma OBD del vehículo: EOBD (Europa)
+           · Posición del acelerador: 11.4 %
+           · Presión absoluta del colector (MAP): 31 kPa
+           · Régimen del motor (RPM): 749 RPM
+           · Sonda lambda B1S1 — tensión: 0.155 V
+           · Sonda lambda B1S2 — tensión: 0.475 V
+           · Sondas lambda presentes (banco): 0x03
+           · Temperatura del aire de admisión: 38 °C
+           · Temperatura del refrigerante: 73 °C
+           · Velocidad del vehículo: 0 km/h
+
+[23:34:11.007] (+ 11.79s) ELM      keep-alive
+           → envío:     3E00  (1059.2 ms)
+           → respuesta: WRONG RESPONSE
+
+[23:34:14.474] (+ 15.26s) ELM      keep-alive
+           → envío:     3E00  (1064.4 ms)
+           → respuesta: WRONG RESPONSE
+
+[23:34:15.785] (+ 16.57s) ELM      diag
+           → envío:     0106  (18.7 ms)
+           → respuesta: 41 06 87 
+
+[23:34:15.800] (+ 16.59s) ELM      diag
+           → envío:     0107  (14.4 ms)
+           → respuesta: 41 07 A7 
+
+[23:34:15.816] (+  16.6s) ELM      diag
+           → envío:     010E  (16.6 ms)
+           → respuesta: 41 0E 8C 
+
+[23:34:15.833] (+ 16.62s) ELM      diag
+           → envío:     0104  (16.5 ms)
+           → respuesta: 41 04 2D 
+
+[23:34:15.848] (+ 16.63s) ELM      diag
+           → envío:     0121  (15.8 ms)
+           → respuesta: 41 21 00 00 
+
+[23:34:15.864] (+ 16.65s) ELM      diag
+           → envío:     011C  (15.4 ms)
+           → respuesta: 41 1C 06 
+
+[23:34:15.880] (+ 16.67s) ELM      diag
+           → envío:     0111  (16.5 ms)
+           → respuesta: 41 11 1D 
+
+[23:34:15.898] (+ 16.68s) ELM      diag
+           → envío:     010B  (15.8 ms)
+           → respuesta: 41 0B 1F 
+
+[23:34:15.913] (+  16.7s) ELM      diag
+           → envío:     010C  (14.5 ms)
+           → respuesta: 41 0C 0B BC 
+
+[23:34:15.928] (+ 16.71s) ELM      diag
+           → envío:     0114  (15.3 ms)
+           → respuesta: 41 14 15 87 
+
+[23:34:15.944] (+ 16.73s) ELM      diag
+           → envío:     0115  (15.5 ms)
+           → respuesta: 41 15 5F 00 
+
+[23:34:15.961] (+ 16.75s) ELM      diag
+           → envío:     0113  (17.0 ms)
+           → respuesta: 41 13 03 
+
+[23:34:15.977] (+ 16.76s) ELM      diag
+           → envío:     010F  (16.1 ms)
+           → respuesta: 41 0F 4E 
+
+[23:34:15.991] (+ 16.78s) ELM      diag
+           → envío:     0105  (14.5 ms)
+           → respuesta: 41 05 72 
+
+[23:34:16.008] (+ 16.79s) ELM      diag
+           → envío:     010D  (16.7 ms)
+           → respuesta: 41 0D 00 
+
+[23:34:16.008] (+ 16.79s) SENSORES Lectura en vivo (Motor (OBD-II Genérico) (barrido completo))
+           · Ajuste corto de combustible B1: 5.5 %
+           · Ajuste largo de combustible B1: 30.5 %
+           · Avance de encendido: 6.0 °
+           · Carga calculada del motor: 17.6 %
+           · Distancia con testigo MIL: 0 km
+           · Norma OBD del vehículo: EOBD (Europa)
+           · Posición del acelerador: 11.4 %
+           · Presión absoluta del colector (MAP): 31 kPa
+           · Régimen del motor (RPM): 751 RPM
+           · Sonda lambda B1S1 — tensión: 0.105 V
+           · Sonda lambda B1S2 — tensión: 0.475 V
+           · Sondas lambda presentes (banco): 0x03
+           · Temperatura del aire de admisión: 38 °C
+           · Temperatura del refrigerante: 74 °C
+           · Velocidad del vehículo: 0 km/h
+
+[23:34:19.155] (+ 19.94s) ELM      keep-alive
+           → envío:     3E00  (1062.1 ms)
+           → respuesta: WRONG RESPONSE
+
+[23:34:22.638] (+ 23.42s) ELM      keep-alive
+           → envío:     3E00  (1064.3 ms)
+           → respuesta: WRONG RESPONSE
+
+[23:34:22.870] (+ 23.66s) SESION   Fin de grabación
+           · eventos: 56
