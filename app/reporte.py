@@ -197,7 +197,7 @@ def _evolucion_completa(datos):
     """Evolución por RPM con TODAS las estadísticas (min/prom/max/σ/oscila) por sensor y etapa.
     Estructura pensada para análisis: {sensor: {unidad, etapas:{ralenti:{...}, 1500:{...}}}}."""
     etapas = datos.get("rpm_etapas", {})
-    orden = ["ralenti", "1500", "2000", "3000"]
+    orden = ["ralenti", "1000", "1500", "2000", "3000"]
     out = {}
     for et in orden:
         stats = (etapas.get(et) or {}).get("estadisticas", {})
@@ -212,7 +212,7 @@ def _evolucion_completa(datos):
 def _tabla_evolucion(datos):
     """Arma la evolución por RPM: {sensor: {ralenti, 1500, 2000, 3000}} con el promedio."""
     etapas = datos.get("rpm_etapas", {})
-    orden = ["ralenti", "1500", "2000", "3000"]
+    orden = ["ralenti", "1000", "1500", "2000", "3000"]
     sensores = {}
     for et in orden:
         stats = (etapas.get(et) or {}).get("estadisticas", {})

@@ -14,14 +14,16 @@ from datetime import datetime
 
 # Bandas y tiempos de captura (constantes ajustables).
 BANDA_RPM = 200        # ± rpm alrededor del objetivo para considerar "en banda"
-ESTABLE_SEG = 2.5      # cuánto tiene que mantenerse en banda antes de capturar
-CAPTURA_SEG = 5.0      # duración de cada captura del motor por etapa
-INTERVALO_MS = 250     # entre muestras de la captura del motor
+ESTABLE_SEG = 1.2      # cuánto tiene que mantenerse en banda antes de capturar (corto: no cansa)
+CAPTURA_SEG = 2.5      # duración de cada captura del motor por etapa (corto: mantener 3000 poco)
+INTERVALO_MS = 200     # entre muestras de la captura del motor
 TIMEOUT_ETAPA = 60     # seg máx esperando la banda; después CAPTURA IGUAL y sigue (no cuelga)
-RALENTI_SEG = 5.0      # duración de la captura a ralentí
+RALENTI_SEG = 3.0      # duración de la captura a ralentí
 PROBE_RPM_SEG = 6      # seg para confirmar que las RPM se pueden leer antes de arrancar etapas
 
-ETAPAS_RPM = [1500, 2000, 3000]
+# Etapas de RPM: arranca desde ralentí y sube en pasos chicos (1000/1500/2000/3000) para tener
+# una foto de cómo evolucionan los sensores en todo el rango, sin exigir mantener mucho tiempo.
+ETAPAS_RPM = [1000, 1500, 2000, 3000]
 
 # El paneo lee SOLO la ECU del motor: leer todas las ECUs (cada request de cada una) tarda
 # muchísimo en el auto real — el ELM lee de a una y `_seleccionar_ecu` reabre sesión — y el

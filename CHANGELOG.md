@@ -7,6 +7,18 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-27] — Chequeo: etapa de 1000 RPM + tiempos más cortos (no cansa mantener 3000)
+
+Pedido del usuario: mantener 3000 RPM mucho tiempo cansa; y mejor tomar más puntos en el rango.
+- **Etapas ahora: ralentí → 1000 → 1500 → 2000 → 3000** (antes ralentí→1500→2000→3000). Se agrega
+  el punto de 1000 para ver mejor la evolución en la zona baja.
+- **Tiempos más cortos**: `ESTABLE_SEG` 2.5→1.2 (mantener menos antes de capturar), `CAPTURA_SEG`
+  5→2.5 (captura por etapa más corta), `RALENTI_SEG` 5→3. Cada etapa se resuelve en ~4 s en vez
+  de ~7-8 s.
+- El reporte (evolución por RPM, TXT/HTML/JSON) incluye la columna de 1000 RPM.
+- (Pendiente en esta tanda: ampliar `DATOS_CLAVE_F4R` con más sensores que varían con RPM, para
+  un paneo más completo — se está analizando con un agente.)
+
 ## [2026-07-27] — Chequeo: usar el régimen REAL (no la corrección de ralentí) para detectar las bandas
 
 El log del chequeo reveló que `_param_rpm` agarraba **`Correction régime ralenti après-vente`**
