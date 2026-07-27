@@ -36,12 +36,26 @@ SOLO_UTILES_EN_PANEO = True  # en el paneo, leer solo sensores OBSERVABLES (no p
 # Nombres (dato original) de los sensores CLAVE que varían con las RPM — se capturan
 # a alta frecuencia en las etapas de RPM. Si no se encuentran (otro perfil), se cae a
 # los primeros requests útiles.
+# La captura elige QUÉ REQUESTS leer a partir de estos `dato`; una vez elegido un request se
+# guardan TODOS sus campos (no solo el nombrado). Así, con UN `dato` por trama se arrastra toda
+# la trama. Estos cubren 5 tramas del motor (~65-70 sensores que varían con RPM/carga):
+# Trame 01 (régimen, avance, MAP, boost, temps, batería, velocidad),
+# Trame 03 (mariposa/pedal, ambas pistas), Trame 04 (inyección, VVT, riqueza/canister),
+# Trame 05 (sondas lambda amont/aval), Trame 06 (PAR MOTOR — antes no se capturaba).
 DATOS_CLAVE_F4R = [
-    "Régime moteur", "Température eau mesurée", "Température air mesurée",
-    "Pression collecteur absolue mesurée", "Avance allumage",
-    "Tension sonde amont", "Tension sonde aval", "Temps injection réel",
-    "Position papillon mesurée piste 1 après filtrage", "Tension batterie mesurée",
-    "Pression de suralimentation",
+    # Trame 01 : Paramètres généraux
+    "Régime moteur", "Avance allumage", "Pression collecteur absolue mesurée",
+    "Pression de suralimentation", "Température eau mesurée", "Température air mesurée",
+    "Tension batterie mesurée", "Vitesse véhicule",
+    # Trame 03 : Papillon / pédale
+    "Position papillon mesurée piste 1 après filtrage", "Position pédale mesurée",
+    # Trame 04 : Adaptatif de richesse 1
+    "Temps injection réel", "Décalage VVT continu mesuré",
+    "Facteur enrichissement regulation richesse",
+    # Trame 05 : Adaptatif de richesse 2
+    "Tension sonde amont", "Tension sonde aval",
+    # Trame 06 : Structure couple (par motor) — NUEVO
+    "Couple moteur effectif",
 ]
 DATOS_CLAVE_OBD = [
     "Régimen del motor (RPM)", "Temperatura del refrigerante",
