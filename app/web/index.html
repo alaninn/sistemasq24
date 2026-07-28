@@ -416,6 +416,22 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
 .act-ecu-tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
 .act-warn{display:flex;align-items:center;gap:11px;padding:13px 16px;border-radius:11px;margin-bottom:18px;
   background:rgba(255,171,46,.08);border:1px solid rgba(255,171,46,.3);color:var(--amber);font-size:13px;line-height:1.5}
+/* Reaprendizajes (reset ECU) */
+.reapr-wrap{max-width:680px}
+.reapr-q{font-weight:600;font-size:15px;margin:6px 0 12px}
+.reapr-list{display:flex;flex-direction:column;gap:10px}
+.reapr-opt{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line2);
+  border-radius:12px;background:var(--panel);cursor:pointer;transition:.15s}
+.reapr-opt:hover{border-color:var(--cyan)}
+.reapr-opt input{margin-top:3px;accent-color:var(--cyan);width:16px;height:16px;flex:none}
+.reapr-opt.reco{border-color:rgba(61,220,151,.4);background:rgba(61,220,151,.05)}
+.reapr-opt:has(input:checked){border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan) inset}
+.reapr-t{font-weight:600;font-size:14px;margin-bottom:3px}
+.reapr-d{font-size:12.5px;color:var(--ink-dim);line-height:1.5}
+.reapr-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--green);
+  background:rgba(61,220,151,.15);padding:1px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
+.reapr-after{margin-top:16px;padding:12px 15px;border-radius:11px;background:rgba(47,212,212,.06);
+  border:1px solid rgba(47,212,212,.22);font-size:12.5px;color:var(--ink-dim);line-height:1.55}
 .act-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
 .act-card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:12px;
   padding:16px;display:flex;flex-direction:column;gap:12px;transition:.15s}
@@ -843,6 +859,18 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       <div id="procContent"></div>
     </section>
 
+    <!-- VISTA: REAPRENDIZAJES (reset de adaptativos, simple) -->
+    <section class="view hidden" id="view-reaprendizajes">
+      <div class="view-head">
+        <div>
+          <div class="eyebrow">Después de una reparación</div>
+          <h2>Reaprendizajes de la ECU</h2>
+          <div class="desc">La computadora del motor va “aprendiendo” ajustes con el tiempo (mezcla, ralentí…). Si reparaste algo, conviene borrar esos aprendizajes para que la ECU vuelva a aprender desde cero con el auto ya sano.</div>
+        </div>
+      </div>
+      <div id="reaprContent"></div>
+    </section>
+
     <!-- VISTA: SENSORES -->
     <section class="view hidden" id="view-sensores">
       <div class="view-head">
@@ -1256,6 +1284,7 @@ function go(v){
   if(v==='ecus') renderEcus();
   if(v==='dtc') renderDtcView();
   if(v==='proc') renderProc();
+  if(v==='reaprendizajes') renderReaprendizajes();
   if(v==='actuadores') renderActuadores();
   if(v==='adaptador') renderAdaptador();
   if(v==='service') renderService();
@@ -1536,6 +1565,80 @@ async function testAdaptador(puerto, i){
 }
 
 /* ============================ PROCEDIMIENTOS ============================ */
+/* ===================== REAPRENDIZAJES (reset de adaptativos) ===================== */
+// Opciones del "Modo de reinicio" del F4R (request ECUReset Reinit des Apprentissages,
+// input ResetMode). Valores tomados directo del archivo de la ECU. Descripción en criollo.
+const RESET_OPCIONES = [
+  {v:'82', t:'Ajustes de combustible (mezcla)', reco:true,
+   d:'Borra los ajustes corto y largo de combustible (STFT/LTFT). Es el que se usa después de arreglar una <b>fuga de vacío</b> o cualquier problema de mezcla — como el que te salió en el diagnóstico (ajuste largo ~30%).'},
+  {v:'80', t:'Regulación del ralentí',
+   d:'Borra el aprendizaje del ralentí. Usalo tras <b>limpiar el cuerpo de mariposa</b> o el paso de aire, si el ralentí quedó raro.'},
+  {v:'83', t:'Medidor de par',
+   d:'Reinicia el aprendizaje del medidor de par del motor. Rara vez hace falta.'},
+  {v:'86', t:'Consumo de nafta y GLP',
+   d:'Reinicia los contadores de consumo de combustible.'},
+  {v:'FF', t:'Todos los aprendizajes',
+   d:'Resetea <b>TODO</b> de una: mezcla, ralentí, par y consumo. La ECU vuelve a aprender desde cero.'},
+];
+function renderReaprendizajes(){
+  const box=document.getElementById('reaprContent');
+  if(!hayAuto() || ST.perfil!=='f4r'){
+    box.innerHTML=`<div class="empty"><div class="ico">🚗</div><h3>Solo para el Mégane II F4R</h3>
+      <p>Esta función usa los reseteos específicos de la computadora del F4R. Entrá con el perfil F4R.</p></div>`;
+    return;
+  }
+  const items = RESET_OPCIONES.map((o,i)=>`
+    <label class="reapr-opt${o.reco?' reco':''}">
+      <input type="radio" name="resetmode" value="${o.v}"${o.reco?' checked':''}>
+      <div>
+        <div class="reapr-t">${esc(o.t)}${o.reco?' <span class="reapr-badge">recomendado</span>':''}</div>
+        <div class="reapr-d">${o.d}</div>
+      </div>
+    </label>`).join('');
+  box.innerHTML=`
+    <div class="reapr-wrap">
+      <div class="act-warn" style="background:rgba(255,171,46,.08);border-color:rgba(255,171,46,.35)">
+        ⚠️ <div><b>Hacelo DESPUÉS de reparar</b>, no antes. Si reseteás con el problema todavía presente, la ECU
+        vuelve a aprender el mismo desajuste en pocos minutos. Ideal: motor <b>caliente y en ralentí</b>. Necesita el
+        <b>modo avanzado</b> activado (el switch rojo de arriba).</div>
+      </div>
+      <div class="reapr-q">¿Qué querés reiniciar?</div>
+      <div class="reapr-list">${items}</div>
+      <button class="ctl-run danger" style="margin-top:16px" onclick="ejecutarReset()">🔄 Reiniciar el aprendizaje elegido ▸</button>
+      <div class="ctl-result" id="resetResult"></div>
+      <div class="reapr-after">Después del reset: dejá el motor caliente en <b>ralentí unos minutos</b> y luego andá un
+        rato con manejo variado, para que la ECU vuelva a aprender con el auto sano. Después volvé a mirar el
+        ajuste largo de combustible — tiene que bajar a ±10%.</div>
+    </div>`;
+}
+async function ejecutarReset(){
+  const sel=document.querySelector('input[name="resetmode"]:checked');
+  if(!sel){ toast('Elegí qué reiniciar','err'); return; }
+  const op=RESET_OPCIONES.find(o=>o.v===sel.value);
+  if(!ST.danger){
+    confirmModal('🔒','Necesitás el modo avanzado',
+      'Reiniciar los aprendizajes <b>modifica la computadora del auto</b>.<br><br>Activá el <b>modo avanzado</b> (el switch rojo arriba a la derecha) y volvé a intentarlo.',
+      'Entendido', false, ()=>{});
+    return;
+  }
+  confirmModal('⚠️','Reiniciar: '+esc(op.t),
+    `Vas a borrar este aprendizaje de la ECU del motor.<br><br><b>Confirmá que ya reparaste</b> lo que causaba el problema —
+     si no, la corrección vuelve enseguida.<br><br>El motor debería estar caliente y en ralentí.`,
+    'Sí, reiniciar', true, async()=>{
+      const res=document.getElementById('resetResult');
+      res.innerHTML='<div class="ctl-sending">Enviando…</div>';
+      try{
+        const r=await fetch(API+'/api/comando',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({ecu:'motor',request:'ECUReset Reinit des Apprentissages',inputs:{ResetMode:op.v}})});
+        const j=await r.json();
+        if(r.status===403){ res.innerHTML=''; toast('🔒 '+(j.detalle||'Activá el modo avanzado'),'err'); return; }
+        if(j.error){ res.innerHTML=`<div class="ctl-err">${esc(j.error)}</div>`; toast(j.error,'err'); return; }
+        res.innerHTML=`<div style="color:var(--green);font-weight:600">✅ Aprendizaje reiniciado (${esc(op.t)}). Dejá el motor en ralentí caliente unos minutos y después andá un rato.</div>`;
+        toast('✅ Aprendizajes reiniciados','ok');
+      }catch(e){ res.innerHTML=`<div class="ctl-err">Error de conexión</div>`; }
+    });
+}
+
 async function renderProc(){
   const box=document.getElementById('procContent');
   if(!ST.proc){
@@ -3401,6 +3504,7 @@ const MENU_COMPLETO = [
   {view:'ecus',ico:'🧩',txt:'Módulos (ECU)', perf:['f4r','detectado']},
   {view:'escanear',ico:'📡',txt:'Escanear Auto', perf:['f4r','detectado']},
   {view:'proc',ico:'🛠️',txt:'Procedimientos', perf:['f4r']},
+  {view:'reaprendizajes',ico:'🔄',txt:'Reaprendizajes (reset ECU)', perf:['f4r']},
   {view:'actuadores',ico:'🎛️',txt:'Actuadores', perf:['f4r','detectado']},
   {view:'memoria',ico:'🧠',txt:'Memoria (avanzado)', perf:['f4r']},
   {view:'scan-universal',ico:'🔍',txt:'Scanner Universal'},

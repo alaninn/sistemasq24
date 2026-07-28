@@ -7,6 +7,18 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-27] — Panel dedicado "Reaprendizajes" (reset de adaptativos, simple y explicado)
+
+La pantalla "Inicio de rutinas" del F4R mezcla 9 menús con nombres crípticos (RLOCID, RENTOPT1…)
+y 5 botones — imposible saber qué usar para resetear los trims. Nueva vista **🔄 Reaprendizajes
+(reset ECU)** (`index.html`, menú F4R) que aísla SOLO el reset de aprendizajes con lenguaje claro:
+- Opciones en criollo con descripción de cuándo usar cada una: **Ajustes de combustible (mezcla)**
+  [recomendado], Regulación del ralentí, Medidor de par, Consumo, Todos los aprendizajes.
+  (Request `ECUReset Reinit des Apprentissages`, input `ResetMode` 82/80/83/86/FF.)
+- Advertencia clara ("hacelo DESPUÉS de reparar; si no, la corrección vuelve"), gate de modo
+  avanzado con explicación, confirmación, y qué hacer después (ralentí caliente + andar un rato).
+- Un solo botón. Verificado end-to-end en simulación (ResetMode 82 y FF ejecutan).
+
 ## [2026-07-27] — FIX: los procedimientos del F4R NO se ejecutaban (reset de adaptativos, rutinas) + contadores de detonación en el tablero
 
 **Bug grave encontrado al verificar el reset de adaptativos**: `api_comando` (`server.py`) validaba
