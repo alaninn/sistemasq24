@@ -1590,10 +1590,11 @@ const RESET_OPCIONES = [
   {v:'FF', t:'Todos los aprendizajes', d:'Resetea <b>TODO</b>: mezcla, ralentí, par y consumo.'},
 ];
 const SESION_OPCIONES = [
-  {v:'85', t:'Programación', reco:true},
-  {v:'86', t:'Desarrollo'},
-  {v:'C0', t:'Posventa (la que usa el scanner para leer)'},
+  {v:'auto', t:'Automático (probar todas y avisar cuál funciona)', reco:true},
+  {v:'86', t:'Desarrollo (la que ddt4all usa para resets)'},
+  {v:'85', t:'Programación'},
   {v:'81', t:'Por defecto'},
+  {v:'C0', t:'Posventa (la que usa el scanner para leer)'},
 ];
 function renderReaprendizajes(){
   const box=document.getElementById('reaprContent');
@@ -1619,11 +1620,11 @@ function renderReaprendizajes(){
       <div class="reapr-q">1 · ¿Qué querés reiniciar?</div>
       <div class="reapr-list">${items}</div>
       <div class="reapr-q" style="margin-top:20px">2 · ¿En qué sesión?</div>
-      <label class="ctl-field" style="max-width:420px"><span>Sesión de diagnóstico</span>
+      <label class="ctl-field" style="max-width:460px"><span>Sesión de diagnóstico</span>
         <select id="resetSesion">${sesiones}</select></label>
-      <div class="reapr-d" style="margin:6px 0 0">El reset necesita una sesión que lo permita. La ECU usa <b>posventa</b> para leer,
-        pero este reset suele pedir <b>programación</b> o <b>desarrollo</b>. Si una no funciona, probá otra — el sistema te
-        muestra <b>exactamente qué contestó el auto</b>.</div>
+      <div class="reapr-d" style="margin:6px 0 0">El reset necesita una sesión que lo permita. Según ddt4all, estos resets van en
+        <b>Desarrollo</b> (la ECU usa "posventa" solo para leer). Dejá <b>Automático</b> y el sistema prueba Desarrollo →
+        Programación → Defecto y te dice en cuál lo aceptó — te muestra <b>exactamente qué contestó el auto</b>.</div>
       <button class="ctl-run danger" style="margin-top:18px" onclick="ejecutarReset()">🔄 Reiniciar ▸</button>
       <div class="ctl-result" id="resetResult"></div>
       <div class="reapr-after">Después de un reset aceptado: motor caliente en <b>ralentí unos minutos</b> + un rato de manejo
@@ -1653,14 +1654,16 @@ async function ejecutarReset(){
         const j=await r.json();
         if(r.status===403){ res.innerHTML=''; toast('🔒 '+(j.detalle||'Activá el modo avanzado'),'err'); return; }
         if(j.error){ res.innerHTML=`<div class="ctl-err">${esc(j.error)}</div>`; toast(j.error,'err'); return; }
-        // mostrar la respuesta REAL del ECU (positiva o el rechazo con su motivo)
+        // mostrar la respuesta REAL del ECU: mensaje + cada intento por sesión
         const color = j.ok ? 'var(--green)' : 'var(--amber)';
+        const nomSes = v => ({'86':'Desarrollo','85':'Programación','81':'Defecto','C0':'Posventa'}[v]||v);
+        const intentos = (j.intentos||[]).map(i=>`<div class="reapr-d">${i.ok?'✅':'✗'} Sesión <b>${esc(nomSes(i.session))}</b>:
+          ${esc(i.motivo||'')} <code>${esc(i.respuesta_cruda||'')}</code></div>`).join('');
         res.innerHTML=`<div style="color:${color};font-weight:600">${esc(j.mensaje||'')}</div>
-          <div class="reapr-d" style="margin-top:8px">Sesión ${esc(sesNom)}: ${j.sesion_abierta?'abierta ✓':'no abrió ✗'} ·
-          Respuesta cruda del ECU: <code>${esc(j.respuesta_cruda||'(vacía)')}</code></div>
-          ${j.ok?'<div class="reapr-d" style="margin-top:6px;color:var(--green)">Ahora dejá el motor en ralentí caliente unos minutos y andá un rato.</div>'
-                 :'<div class="reapr-d" style="margin-top:6px">Si dice "SubFunction/Service Not Supported" o "Conditions Not Correct", probá con <b>otra sesión</b> (arriba) o con el motor en otro estado.</div>'}`;
-        toast(j.ok?'✅ Reset aceptado':'⚠️ El ECU no aceptó el reset', j.ok?'ok':'err');
+          <div style="margin-top:8px">${intentos}</div>
+          ${j.ok?'<div class="reapr-d" style="margin-top:8px;color:var(--green)">Ahora dejá el motor en ralentí caliente unos minutos y andá un rato para que reaprenda.</div>'
+                 :'<div class="reapr-d" style="margin-top:8px">Si en todas dice "Not Supported"/"Conditions Not Correct", puede que ese modo de reset no exista en esta ECU, o que necesite el motor en otro estado (apagado/llave). Probá otro modo o contame el resultado.</div>'}`;
+        toast(j.ok?('✅ Reset aceptado ('+nomSes(j.session)+')'):'⚠️ El ECU no aceptó el reset', j.ok?'ok':'err');
       }catch(e){ res.innerHTML=`<div class="ctl-err">Error de conexión</div>`; }
     });
 }

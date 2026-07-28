@@ -1027,66 +1027,87 @@ def api_lecturas_pausar(req: PausaReq):
 
 
 class ReaprReq(BaseModel):
-    session: str = "85"   # sesión de diagnóstico a abrir (85=programación, 86=desarrollo, 81=defecto…)
+    # Según la investigación de ddt4all, los resets "delicados" van en la sesión de DESARROLLO
+    # (engineering, 86), no en posventa (C0, que es solo para leer). Default = 86.
+    session: str = "86"   # 86=desarrollo, 85=programación, 81=defecto, C0=posventa, "auto"=probar varias
     mode: str = "82"      # modo de reinicio (82=riqueza, 80=ralentí, FF=todos…)
+
+
+# Orden de sesiones para el modo "auto" (de más a menos probable para un reset de motor).
+_SESIONES_AUTO = ["86", "85", "81"]
+
+
+def _intentar_reset_en_sesion(session, mode):
+    """Abre la sesión `session` y manda el reset `11+mode` RAW en ella, bajo el lock, sin que
+    ensure_session reabra la C0. Devuelve dict con la respuesta REAL del ECU."""
+    sess = "10" + str(session).strip().upper()
+    reset_cmd = "11" + str(mode).strip().upper()
+    with ELM_LOCK:
+        _marcar_actividad()
+        _seleccionar_ecu("motor")
+        try:
+            options.elm.clear_cache()
+        except Exception:
+            pass
+        ok_sesion = options.elm.start_session_can(sess)          # setea elm.startSession
+        resp = options.elm.request(reset_cmd, cache=False) or ""  # reset RAW en esa sesión
+    up = resp.upper().replace(" ", "")
+    negativo = "7F" in up or "NR" in resp.upper()
+    positivo = ("51" + str(mode).upper()) in up or up.startswith("51")
+    if not ok_sesion:
+        return {"session": session, "ok": False, "sesion_abierta": False, "respuesta_cruda": resp,
+                "motivo": f"no se pudo abrir la sesión {session}"}
+    if positivo and not negativo:
+        return {"session": session, "ok": True, "sesion_abierta": True, "respuesta_cruda": resp,
+                "motivo": "aceptado (respuesta positiva)"}
+    m = re.search(r"NR:\s*([A-Za-z ]+)", resp)
+    motivo = m.group(1).strip() if m else (resp or "respuesta vacía")
+    return {"session": session, "ok": False, "sesion_abierta": True, "respuesta_cruda": resp,
+            "motivo": motivo}
 
 
 @app.post("/api/reaprendizaje/reset")
 def api_reaprendizaje_reset(req: ReaprReq):
     """Reset de aprendizajes COORDINADO: pausa las lecturas, abre la sesión elegida y manda el
     reset EN esa sesión de forma atómica (sin que ensure_session/tester/barrido reabran la C0 y
-    lo pisen), y devuelve la RESPUESTA REAL del ECU (positiva 51.. o el rechazo 7F/NR). No miente."""
+    lo pisen), y devuelve la RESPUESTA REAL del ECU (positiva 51.. o el rechazo 7F/NR). No miente.
+    Con session="auto" prueba las sesiones en orden (86→85→81) y para en la primera que acepta."""
     if not options.promode:
         return JSONResponse({"error": "BLOQUEADO", "detalle": "Activá el modo avanzado."}, status_code=403)
     if not estado.conectado or options.simulation_mode or options.elm is None:
         return JSONResponse({"error": "No hay conexión real con el auto"}, status_code=409)
-    tecu = estado.registro.get("motor")
-    if tecu is None:
+    if estado.registro.get("motor") is None:
         return JSONResponse({"error": "ECU del motor no disponible (entrá con perfil F4R)"}, status_code=404)
-    sess = "10" + str(req.session).strip().upper()
-    reset_cmd = "11" + str(req.mode).strip().upper()
 
+    sesiones = _SESIONES_AUTO if str(req.session).lower() == "auto" else [req.session]
     prev_pausa = estado.pausar_lecturas
     estado.pausar_lecturas = True   # frenar barrido + tester-present mientras dura el reset
+    intentos = []
+    exito = None
     try:
-        with ELM_LOCK:
-            _marcar_actividad()
-            _seleccionar_ecu("motor")
-            try:
-                options.elm.clear_cache()
-            except Exception:
-                pass
-            # 1) abrir la sesión pedida (esto setea elm.startSession → la próxima lectura NO la pisa)
-            ok_sesion = options.elm.start_session_can(sess)
-            rsp_sesion = getattr(options.elm, "lastMessage", "") or ""
-            # 2) mandar el reset RAW en esa sesión (sin ensure_session que reabra la C0)
-            resp = options.elm.request(reset_cmd, cache=False) or ""
+        for s in sesiones:
+            r = _intentar_reset_en_sesion(s, req.mode)
+            intentos.append(r)
+            if r["ok"]:
+                exito = r
+                break
     except Exception as e:
-        estado.pausar_lecturas = prev_pausa
         return JSONResponse({"error": f"Error enviando el reset: {e}"}, status_code=500)
     finally:
         estado.pausar_lecturas = prev_pausa
 
-    # interpretar la respuesta REAL del ECU
-    up = resp.upper().replace(" ", "")
-    negativo = "7F" in up or "NR" in resp.upper()
-    positivo = ("51" + str(req.mode).upper()) in up or up.startswith("51")
-    if not ok_sesion:
-        estado_txt, ok = f"No se pudo abrir la sesión {req.session} (respuesta: {resp or 'sin respuesta'})", False
-    elif positivo and not negativo:
-        estado_txt, ok = "✅ Reset aceptado por el ECU (respuesta positiva).", True
-    elif negativo:
-        # decodificar el NRC si viene como :NN:NR: Texto
-        m = re.search(r"NR:\s*([A-Za-z ]+)", resp)
-        motivo = m.group(1).strip() if m else "respuesta negativa"
-        estado_txt, ok = f"❌ El ECU RECHAZÓ el reset: {motivo}.", False
+    ok = exito is not None
+    if ok:
+        mensaje = f"✅ Reset ACEPTADO en la sesión {exito['session']} (desarrollo/programación/defecto)."
     else:
-        estado_txt, ok = f"⚠️ Respuesta no reconocida del ECU: {resp or 'vacía'}", False
-
-    slog.log("REAPRENDIZAJE", f"reset session={req.session} mode={req.mode}",
-             {"sesion_ok": ok_sesion, "resp": resp, "ok": ok})
-    return {"ok": ok, "session": req.session, "mode": req.mode,
-            "sesion_abierta": ok_sesion, "respuesta_cruda": resp, "mensaje": estado_txt}
+        detalles = "; ".join(f"sesión {i['session']}: {i['motivo']}" for i in intentos)
+        mensaje = f"❌ El ECU rechazó el reset. {detalles}."
+    slog.log("REAPRENDIZAJE", f"reset mode={req.mode} session={req.session}",
+             {"ok": ok, "intentos": intentos})
+    ganadora = exito or intentos[-1] if intentos else {}
+    return {"ok": ok, "mode": req.mode, "mensaje": mensaje, "intentos": intentos,
+            "session": ganadora.get("session"), "sesion_abierta": ganadora.get("sesion_abierta"),
+            "respuesta_cruda": ganadora.get("respuesta_cruda", "")}
 
 
 @app.get("/api/ecus")

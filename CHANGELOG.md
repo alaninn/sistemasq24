@@ -7,6 +7,22 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-28] — Reset: modo "Automático" (prueba sesiones) + default Desarrollo, según ddt4all
+
+Investigación del repo de ddt4all (`cedricp/ddt4all`, código real): (1) el patrón universal es
+`10 xx` (abrir sesión) → `11 8x` (reset), como ya hicimos; (2) la sesión requerida NO está en el
+código de ddt4all (vive en el archivo de ECU, fuera del repo), pero sus plugins de resets
+"delicados" usan la sesión de **desarrollo/engineering**, reservando posventa (10C0) solo para
+lecturas; (3) el bug de "falso éxito" viene del diálogo `ecu_command.py` de ddt4all que NO chequea
+`7F` — nuestro endpoint nuevo sí lo chequea.
+
+- **Default de sesión → Desarrollo (86)** (antes 85), siguiendo el patrón de ddt4all.
+- **Modo "Automático"**: `POST /api/reaprendizaje/reset` con `session="auto"` prueba las sesiones
+  en orden **86 → 85 → 81** y para en la primera que el ECU ACEPTA (respuesta positiva `51`),
+  informando el resultado de cada intento (sesión + motivo + respuesta cruda). Es el default del
+  panel: el usuario le da a Reiniciar y el sistema descubre solo qué sesión funciona.
+- El panel muestra cada intento por sesión con su respuesta real del auto.
+
 ## [2026-07-28] — Reset de adaptativos COORDINADO: pausa lecturas, abre sesión, y muestra la respuesta REAL
 
 Los logs del auto confirmaron por qué el reset no andaba: se mandaba `11 82` pero el ECU lo
