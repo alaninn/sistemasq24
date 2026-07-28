@@ -86,6 +86,11 @@ class Estado:
                        "terminado": False, "resultado": None, "error": None}
         self.ensayo_cancelar = False     # flag para abortar el ensayo
         self.ensayo_ahora = False        # flag "ahora" (forzar arranque o fin del tramo)
+        # Grabación de CONDUCCIÓN: registro continuo en segundo plano de velocidad + todos los
+        # sensores clave a alta frecuencia, indexado por velocidad (línea temporal para el
+        # informe). Corre estés en la pantalla que estés; solo para cuando el usuario da stop.
+        self.conduccion = {"corriendo": False, "muestras": [], "n": 0, "segundos": 0,
+                           "vel_actual": None, "resultado": None, "error": None, "_run": False}
         # chip/capacidades del adaptador conectado (se llena en _conectar_real)
         self.adaptador_info = None
         # Pausa global de lecturas de fondo (barrido de grabación + tester-present). Se activa
@@ -666,6 +671,144 @@ def api_grabar_detener():
 @app.get("/api/grabar/estado")
 def api_grabar_estado():
     return slog.estado()
+
+
+# ----------------------------------------------------------------------------
+# Grabación de CONDUCCIÓN: línea temporal continua indexada por velocidad.
+# ----------------------------------------------------------------------------
+CONDUCCION_INTERVALO = 0.8    # seg entre muestras (continuo, convive con el tablero en vivo)
+CONDUCCION_MAX = 8000         # tope de seguridad de muestras (~1.8 h)
+
+
+def _conduccion_setup():
+    """Devuelve (motor_tecu, [requests a capturar], etiqueta_velocidad) para la grabación."""
+    import chequeo
+    motor = estado.registro.get("motor") or estado.registro.get("obd")
+    if motor is None:
+        return None, [], None
+    perfil = estado.registro.perfil
+    clave = chequeo.DATOS_CLAVE_OBD if perfil == "generico" else chequeo.DATOS_CLAVE_F4R
+    params = motor.readable_params()
+    reqs, vel_et = [], None
+    for p in params:
+        if p.get("dato") in clave and p["request"] not in reqs:
+            reqs.append(p["request"])
+    for p in params:
+        t = (p.get("dato", "") + " " + p.get("etiqueta", "")).lower()
+        if "vitesse" in t or "velocidad" in t:
+            vel_et = p["etiqueta"]
+            break
+    return motor, reqs, vel_et
+
+
+def _run_conduccion():
+    """Loop de grabación: lee todos los sensores clave + velocidad, guarda cada muestra con su
+    timestamp y velocidad. Corre en background hasta que el usuario da stop."""
+    estado.conduccion["_run"] = True
+    motor, reqs, vel_et = _conduccion_setup()
+    if motor is None:
+        estado.conduccion.update({"corriendo": False, "_run": False, "error": "No hay ECU de motor"})
+        return
+    muestras = estado.conduccion["muestras"]
+    t0 = time.time()
+    try:
+        while estado.conduccion.get("corriendo") and len(muestras) < CONDUCCION_MAX:
+            if estado.pausar_lecturas:   # ej. reset de adaptativos: no tocar el bus
+                time.sleep(0.3)
+                continue
+            valores = {}
+            with ELM_LOCK:
+                _marcar_actividad()
+                _seleccionar_ecu(motor.id)
+                for r in reqs:
+                    try:
+                        v = motor.read_request(r)
+                    except Exception:
+                        v = None
+                    for dato, info in (v or {}).items():
+                        val = info.get("valor")
+                        if val is None or str(val).strip() == "":
+                            continue
+                        valores[info.get("etiqueta", dato)] = f"{val} {info.get('unidad', '')}".strip()
+            vel = None
+            if vel_et and vel_et in valores:
+                try:
+                    vel = float(str(valores[vel_et]).split()[0])
+                except (ValueError, IndexError):
+                    vel = None
+            muestras.append({"t": round(time.time() - t0, 2), "vel": vel, "valores": valores})
+            estado.conduccion["n"] = len(muestras)
+            estado.conduccion["vel_actual"] = vel
+            estado.conduccion["segundos"] = round(time.time() - t0, 1)
+            time.sleep(CONDUCCION_INTERVALO)
+    except Exception as e:
+        slog.log("CONDUCCION", f"Error en la grabación: {e}", {})
+        estado.conduccion["error"] = str(e)
+    finally:
+        estado.conduccion["corriendo"] = False
+        estado.conduccion["_run"] = False
+
+
+@app.post("/api/conduccion/iniciar")
+def api_conduccion_iniciar():
+    """Empieza a grabar la conducción en segundo plano (velocidad + todos los sensores clave)."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    if estado.conduccion.get("corriendo"):
+        return {"ok": False, "error": "Ya se está grabando la conducción"}
+    from datetime import datetime
+    estado.conduccion = {"corriendo": True, "muestras": [], "n": 0, "segundos": 0,
+                         "vel_actual": None, "resultado": None, "error": None, "_run": False,
+                         "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                         "perfil": estado.registro.perfil, "vehiculo": estado.registro.vehiculo}
+    THREAD_POOL.submit(_run_conduccion)
+    return {"ok": True}
+
+
+@app.get("/api/conduccion/estado")
+def api_conduccion_estado():
+    c = estado.conduccion
+    return {"corriendo": c.get("corriendo", False), "n": c.get("n", 0),
+            "segundos": c.get("segundos", 0), "vel_actual": c.get("vel_actual")}
+
+
+@app.post("/api/conduccion/detener")
+def api_conduccion_detener():
+    """Detiene la grabación y genera el informe (analiza cómo reaccionó el auto por velocidad)."""
+    estado.conduccion["corriendo"] = False
+    # esperar a que el loop de captura termine su ciclo (para no leer muestras a medias)
+    for _ in range(int(CONDUCCION_INTERVALO * 10) + 6):
+        if not estado.conduccion.get("_run"):
+            break
+        time.sleep(0.1)
+    muestras = estado.conduccion.get("muestras", [])
+    if not muestras:
+        return {"ok": False, "error": "No se grabó ninguna muestra."}
+    datos = {"fecha": estado.conduccion.get("fecha"), "perfil": estado.conduccion.get("perfil"),
+             "vehiculo": estado.conduccion.get("vehiculo"), "muestras": muestras}
+    try:
+        import reporte
+        rutas = reporte.generar_conduccion(datos)
+    except Exception as e:
+        slog.log("CONDUCCION", f"Error generando el informe: {e}", {})
+        return JSONResponse({"error": f"Error generando el informe: {e}"}, status_code=500)
+    estado.conduccion["resultado"] = rutas
+    slog.log("CONDUCCION", "Grabación de conducción finalizada",
+             {"muestras": len(muestras), "reporte": rutas.get("nombre")})
+    return {"ok": True, "n": len(muestras), "reporte": rutas}
+
+
+@app.get("/api/conduccion/reporte/{tipo}")
+def api_conduccion_reporte(tipo: str):
+    res = (estado.conduccion.get("resultado") or {})
+    ruta = res.get(tipo)
+    if not ruta or not Path(ruta).exists():
+        return JSONResponse({"error": "Informe no disponible"}, status_code=404)
+    media = {"html": "text/html", "json": "application/json", "txt": "text/plain"}.get(tipo, "text/plain")
+    contenido = Path(ruta).read_text(encoding="utf-8")
+    from fastapi.responses import Response
+    return Response(content=contenido, media_type=media + "; charset=utf-8",
+                    headers={"Content-Disposition": f'attachment; filename="{Path(ruta).name}"'})
 
 
 GITHUB_REPO = "alaninn/sistemasq24"   # owner/repo para la API de subida de logs

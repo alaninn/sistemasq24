@@ -7,6 +7,22 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-28] — Nuevo: "Grabar conducción" — línea temporal indexada por velocidad (en segundo plano)
+
+Botón **"Grabar conducción"** al lado de "Grabar sesión" (en el tablero). Igual de simple: click y
+graba en **segundo plano**, sin gráfico, sin cortar al cambiar de pantalla — solo para cuando le
+das stop. Idea del usuario: enfocar todo en la **velocidad** como eje, para ver cómo reacciona el
+auto a medida que acelera (en vez de datos dispersos).
+- Backend: `estado.conduccion` + `_run_conduccion` (loop en background cada ~0.8 s que lee
+  velocidad + todos los sensores clave de las 5 tramas, guardando `{t, vel, valores}`). Endpoints
+  `iniciar` / `estado` / `detener` (genera el informe) / `reporte/{tipo}`. Respeta la pausa del
+  reset. Corre estés en la pantalla que estés.
+- Informe (`reporte.generar_conduccion`): **NO muestra la línea temporal cruda** (como pediste),
+  la usa para el análisis: segmenta por **bandas de velocidad** (ralentí / baja / media / alta…) y
+  muestra cómo evolucionó cada sensor en cada banda + datos clave (rango en todo el manejo) +
+  bloque `para_experto`. HTML/JSON/TXT en `log/`.
+- El botón se re-sincroniza al recargar la página (si seguía grabando).
+
 ## [2026-07-28] — Separados en DOS módulos: Detonaciones y Misfire (a pedido)
 
 Se dividió el monitor combinado en dos módulos independientes en el menú F4R:

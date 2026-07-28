@@ -668,6 +668,8 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
     <div class="spacer"></div>
     <button class="rec-btn" id="recBtn" onclick="toggleGrabar()">
       <span class="rec-dot"></span><span id="recTxt">Grabar sesión</span></button>
+    <button class="rec-btn" id="condBtn" onclick="toggleConduccion()" title="Graba en segundo plano velocidad + todos los sensores clave (línea temporal) mientras manejás. Corta solo cuando le das stop.">
+      <span class="rec-dot"></span><span id="condTxt">Grabar conducción</span></button>
     <button class="rec-btn" id="subirLogsBtn" onclick="subirLogs()" title="Subir los logs grabados a GitHub (temporal, para debug)">☁ Subir logs</button>
     <div class="pill" id="connPill"><span class="dot"></span><span id="connTxt">—</span></div>
     <div class="danger-toggle" id="dangerToggle" onclick="toggleDanger()">
@@ -1303,6 +1305,9 @@ async function boot(){
   }
   go('gateway');
   openWS();
+  // Re-sincronizar el botón de conducción por si ya estaba grabando (recarga de página).
+  try{ const c=await (await fetch(API+'/api/conduccion/estado')).json();
+    if(c.corriendo){ ST.conduciendo=true; document.getElementById('condBtn').classList.add('grabando'); condPoll(); } }catch(e){}
 }
 
 /* ============================ NAVEGACIÓN ============================ */
@@ -2552,6 +2557,52 @@ async function toggleGrabar(){
       toast('💾 Sesión guardada en la carpeta log','ok');
     }catch(e){ toast('No se pudo guardar la grabación','err'); }
   }
+}
+/* ===================== GRABAR CONDUCCIÓN (línea temporal por velocidad, en segundo plano) ===================== */
+async function toggleConduccion(){
+  const btn=document.getElementById('condBtn'), txt=document.getElementById('condTxt');
+  if(!ST.conduciendo){
+    try{
+      const r=await fetch(API+'/api/conduccion/iniciar',{method:'POST'});
+      const j=await r.json();
+      if(j.error){ toast(j.error,'err'); return; }
+      ST.conduciendo=true; btn.classList.add('grabando');
+      condPoll();
+      toast('🏁 Grabando conducción — manejá tranquilo, corta cuando le des stop','ok');
+    }catch(e){ toast('No se pudo iniciar la grabación de conducción','err'); }
+  } else {
+    txt.textContent='Guardando…'; btn.disabled=true;
+    try{
+      const r=await fetch(API+'/api/conduccion/detener',{method:'POST'});
+      const j=await r.json();
+      ST.conduciendo=false; btn.classList.remove('grabando'); btn.disabled=false;
+      txt.textContent='Grabar conducción';
+      clearInterval(ST._condInt);
+      if(j.error){ toast(j.error,'err'); return; }
+      confirmModal('🏁','Conducción grabada',
+        `Se grabaron <b>${j.n}</b> muestras. El informe (cómo reaccionó el auto según la velocidad) quedó en la carpeta <b>log</b>.<br><br>Descargalo:<br><br>
+         <a href="/api/conduccion/reporte/html" target="_blank"><button class="chip">🌐 HTML</button></a>
+         <a href="/api/conduccion/reporte/json"><button class="chip">🤖 JSON (para IA)</button></a>
+         <a href="/api/conduccion/reporte/txt"><button class="chip">📄 TXT</button></a>`,
+        'Listo',false,()=>{});
+      toast('🏁 Informe de conducción guardado','ok');
+    }catch(e){ ST.conduciendo=false; btn.disabled=false; txt.textContent='Grabar conducción'; toast('No se pudo guardar','err'); }
+  }
+}
+function condPoll(){
+  clearInterval(ST._condInt);
+  ST._condInt=setInterval(async()=>{
+    if(!ST.conduciendo){ clearInterval(ST._condInt); return; }
+    try{
+      const e=await (await fetch(API+'/api/conduccion/estado')).json();
+      const txt=document.getElementById('condTxt');
+      if(txt){ const s=e.segundos||0, mm=String(Math.floor(s/60)).padStart(2,'0'), ss=String(Math.floor(s%60)).padStart(2,'0');
+        txt.textContent=`Grabando ${mm}:${ss} (${e.n||0})`; }
+      if(!e.corriendo){ ST.conduciendo=false; clearInterval(ST._condInt);
+        const b=document.getElementById('condBtn'); if(b) b.classList.remove('grabando');
+        if(txt) txt.textContent='Grabar conducción'; }
+    }catch(err){}
+  }, 1500);
 }
 function startRecTimer(){
   ST._recStart=Date.now();

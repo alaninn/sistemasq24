@@ -546,6 +546,164 @@ def generar_ensayo(datos):
             "carpeta": str(LOG_DIR), "nombre": nombre}
 
 
+# =====================================================================
+# GRABACIÓN DE CONDUCCIÓN — línea temporal indexada por VELOCIDAD
+# =====================================================================
+# Bandas de velocidad para segmentar el manejo (km/h). El informe muestra cómo reaccionó cada
+# sensor en cada banda → "cómo se comportó el auto a medida que aceleraba".
+BANDAS_VEL = [
+    (0, 3, "Detenido / ralentí"), (3, 20, "Baja (3-20)"), (20, 40, "Media-baja (20-40)"),
+    (40, 60, "Media (40-60)"), (60, 90, "Alta (60-90)"), (90, 9999, "Muy alta (90+)"),
+]
+
+
+def _conduccion_analizar(datos):
+    """Segmenta las muestras por banda de velocidad y calcula, por sensor, el promedio en cada
+    banda + estadísticas globales + un diagnóstico. Devuelve la estructura para el informe."""
+    from chequeo import estadisticas_de_muestras
+    muestras = datos.get("muestras", [])
+    vels = [m["vel"] for m in muestras if m.get("vel") is not None]
+    dur = muestras[-1]["t"] if muestras else 0
+
+    # estadísticas globales (todas las muestras)
+    stats_glob = estadisticas_de_muestras(muestras)
+
+    # por banda de velocidad
+    bandas = []
+    for lo, hi, nombre in BANDAS_VEL:
+        sub = [m for m in muestras if m.get("vel") is not None and lo <= m["vel"] < hi]
+        if len(sub) < 2:
+            continue
+        st = estadisticas_de_muestras(sub)
+        bandas.append({"banda": nombre, "rango": [lo, hi], "n": len(sub),
+                       "vel_prom": round(sum(m["vel"] for m in sub) / len(sub), 1),
+                       "promedios": {s: v["promedio"] for s, v in st.items()}})
+
+    # evolución por velocidad: {sensor: {unidad, por_banda:{banda:prom}}}
+    evolucion = {}
+    for b in bandas:
+        for sensor, prom in b["promedios"].items():
+            d = evolucion.setdefault(sensor, {"unidad": stats_glob.get(sensor, {}).get("unidad", ""), "por_banda": {}})
+            d["por_banda"][b["banda"]] = prom
+
+    # diagnóstico: usa los mismos sensores clave del chequeo, sobre las stats globales
+    diag = []
+    for keywords, explicacion in DIAG_CLAVE:
+        hit = None
+        for sensor, s in stats_glob.items():
+            if any(k in sensor.lower() for k in keywords):
+                hit = (sensor, s)
+                break
+        if hit:
+            sensor, s = hit
+            diag.append({"sensor": sensor, "min": s["minimo"], "prom": s["promedio"],
+                         "max": s["maximo"], "unidad": s["unidad"], "referencia": explicacion, "leido": True})
+        else:
+            diag.append({"sensor": keywords[0], "leido": False, "referencia": explicacion})
+
+    datos["resumen"] = {
+        "generado": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "muestras": len(muestras), "duracion_seg": dur,
+        "vel_min": round(min(vels), 1) if vels else None,
+        "vel_max": round(max(vels), 1) if vels else None,
+        "sensores_distintos": len(stats_glob),
+        "bandas_velocidad": bandas, "evolucion_por_velocidad": evolucion, "diagnostico": diag,
+    }
+    datos["para_experto"] = {
+        "vehiculo": datos.get("vehiculo"), "perfil": datos.get("perfil"), "fecha": datos.get("fecha"),
+        "duracion_seg": dur, "velocidad": {"min": datos["resumen"]["vel_min"], "max": datos["resumen"]["vel_max"]},
+        "datos_clave": diag, "evolucion_por_velocidad": evolucion, "bandas": bandas,
+    }
+    return datos
+
+
+def _txt_conduccion(datos):
+    r = datos["resumen"]
+    L = ["=" * 70, "  GRABACIÓN DE CONDUCCIÓN — SISTEMASQ24",
+         f"  Vehículo: {datos.get('vehiculo')}   |   {datos.get('fecha')}", "=" * 70, ""]
+    L.append(f"Duración: {r['duracion_seg']} s  |  Muestras: {r['muestras']}  |  "
+             f"Velocidad: {r['vel_min']}–{r['vel_max']} km/h  |  Sensores: {r['sensores_distintos']}")
+    L.append("")
+    L.append("DATOS CLAVE (rango en todo el manejo: mín / prom / máx)")
+    for d in r["diagnostico"]:
+        if d.get("leido"):
+            L.append(f"  · {d['sensor']}: {d['min']} / {d['prom']} / {d['max']} {d['unidad']}")
+            L.append(f"      ↳ {d['referencia']}")
+    L.append("")
+    L.append("EVOLUCIÓN POR VELOCIDAD (promedio de cada sensor en cada banda)")
+    bandas = [b["banda"] for b in r["bandas_velocidad"]]
+    if bandas:
+        L.append("  " + "Sensor".ljust(38) + "".join(b[:12].rjust(13) for b in bandas))
+        for sensor, d in r["evolucion_por_velocidad"].items():
+            fila = "  " + sensor[:38].ljust(38)
+            for b in bandas:
+                v = d["por_banda"].get(b)
+                fila += ("" if v is None else str(v)).rjust(13)
+            L.append(fila + f"  {d.get('unidad','')}")
+    L.append("")
+    L.append("Nota: es un registro CONTINUO indexado por velocidad. Muestra cómo reaccionó cada")
+    L.append("sistema a medida que el auto aceleraba. El .json trae 'para_experto' con todo junto.")
+    return "\n".join(L)
+
+
+def _html_conduccion(datos):
+    r = datos["resumen"]
+    css = """body{font-family:system-ui,Segoe UI,Arial,sans-serif;background:#0e141b;color:#e8eef4;margin:0;padding:24px;line-height:1.5}
+    h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;border-bottom:1px solid #24303f;padding-bottom:6px;margin-top:28px}
+    .sub{color:#8ea0b2;font-size:13px;margin-bottom:18px}
+    .cards{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+    .card{background:#161e27;border:1px solid #24303f;border-radius:10px;padding:14px 18px;min-width:120px}
+    .card b{font-size:24px;display:block}.card .u{color:#8ea0b2;font-size:12px}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;display:block;overflow-x:auto}
+    th,td{text-align:left;padding:5px 9px;border-bottom:1px solid #1c2732;white-space:nowrap}
+    th{color:#8ea0b2}.dim{color:#8ea0b2}.cyan{color:#2fd4d4}
+    .note{margin-top:16px;padding:10px 14px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px;font-size:13px;color:#9fd}"""
+    H = [f"<style>{css}</style>",
+         f"<h1>🏁 Grabación de conducción — {_esc(datos.get('vehiculo'))}</h1>",
+         f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))}</div>",
+         "<div class='cards'>",
+         f"<div class='card'><b class='cyan'>{r['vel_min']}–{r['vel_max']}</b><span class='u'>km/h recorridos</span></div>",
+         f"<div class='card'><b>{r['duracion_seg']}</b><span class='u'>segundos</span></div>",
+         f"<div class='card'><b>{r['muestras']}</b><span class='u'>muestras</span></div>",
+         f"<div class='card'><b>{r['sensores_distintos']}</b><span class='u'>sensores</span></div>",
+         "</div>",
+         "<h2>🔑 Datos clave (rango en todo el manejo)</h2>",
+         "<table><tr><th>Sensor</th><th>mín</th><th>prom</th><th>máx</th><th>Qué esperar</th></tr>"]
+    for d in r["diagnostico"]:
+        if d.get("leido"):
+            H.append(f"<tr><td>{_esc(d['sensor'])}</td><td>{_esc(d['min'])}</td><td><b>{_esc(d['prom'])}</b></td>"
+                     f"<td>{_esc(d['max'])}</td><td class='dim'>{_esc(d['referencia'])}</td></tr>")
+    H.append("</table>")
+    bandas = [b["banda"] for b in r["bandas_velocidad"]]
+    if bandas:
+        H.append("<h2>Evolución por velocidad (promedio por banda)</h2>")
+        H.append("<table><tr><th>Sensor</th>" + "".join(f"<th>{_esc(b)}</th>" for b in bandas) + "<th></th></tr>")
+        for sensor, d in r["evolucion_por_velocidad"].items():
+            H.append("<tr><td>" + _esc(sensor) + "</td>" +
+                     "".join(f"<td>{'' if d['por_banda'].get(b) is None else _esc(d['por_banda'][b])}</td>" for b in bandas) +
+                     f"<td class='dim'>{_esc(d.get('unidad',''))}</td></tr>")
+        H.append("</table>")
+    H.append("<div class='note'>Registro CONTINUO indexado por velocidad: muestra cómo reaccionó cada "
+             "sistema a medida que el auto aceleraba. El <b>.json</b> trae <code>para_experto</code>.</div>")
+    return "\n".join(H)
+
+
+def generar_conduccion(datos):
+    """Analiza la grabación de conducción y escribe HTML/JSON/TXT. Devuelve {html,json,txt}."""
+    _conduccion_analizar(datos)
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    nombre = "conduccion_" + datetime.now().strftime("%Y%m%d_%H%M%S")
+    p_json = LOG_DIR / f"{nombre}.json"
+    p_txt = LOG_DIR / f"{nombre}.txt"
+    p_html = LOG_DIR / f"{nombre}.html"
+    p_json.write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf-8")
+    p_txt.write_text(_txt_conduccion(datos), encoding="utf-8")
+    p_html.write_text("<!doctype html><meta charset='utf-8'><title>Conducción " +
+                      _esc(datos.get("vehiculo", "")) + "</title>" + _html_conduccion(datos), encoding="utf-8")
+    return {"html": str(p_html), "json": str(p_json), "txt": str(p_txt),
+            "carpeta": str(LOG_DIR), "nombre": nombre}
+
+
 def generar(datos):
     """Analiza los datos y escribe los 3 archivos. Devuelve {html, json, txt, carpeta}."""
     _analizar(datos)
