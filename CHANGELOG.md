@@ -7,6 +7,29 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-28] — Reset de adaptativos COORDINADO: pausa lecturas, abre sesión, y muestra la respuesta REAL
+
+Los logs del auto confirmaron por qué el reset no andaba: se mandaba `11 82` pero el ECU lo
+rechazaba (`:12:NR: SubFunction Not Supported`) porque el reset corría en la sesión de lectura
+(C0), no en la que necesita — y el barrido de grabación + el tester-present + `ensure_session`
+**reabrían la sesión C0 en el medio, pisando** la que el usuario abría a mano (`10 85` → `50 85`
+positivo, pero se perdía al instante). Encima el sistema mostraba "Rutina activada" aunque el
+ECU había rechazado.
+
+- **Pausa de lecturas por pantalla** (pedido del usuario): en la vista de reaprendizaje el
+  scanner **no lee nada** (se pausan el barrido de grabación y el tester-present vía
+  `estado.pausar_lecturas` + `POST /api/lecturas/pausar`; el `go()` del frontend pausa al entrar
+  y reanuda al salir). Así nada pisa la sesión del reset. Las lecturas en vivo ya paraban al
+  salir del tablero.
+- **Reset coordinado y honesto** (`POST /api/reaprendizaje/reset`): pausa lecturas → abre la
+  sesión elegida (`10 XX`) → manda el reset RAW **en esa sesión** de forma atómica bajo el lock
+  (sin que `ensure_session` reabra la C0) → **lee e informa la respuesta REAL** del ECU (positiva
+  `51..` o el rechazo `7F`/NR con su motivo). Ya no miente.
+- **Panel rehecho**: elegís qué reiniciar (mode) Y en qué sesión (Programación/Desarrollo/
+  Posventa/Defecto), con explicación. Muestra la respuesta cruda del auto, así se descubre en una
+  prueba qué sesión acepta el reset (todavía no se sabe cuál — nunca se llegó a probar porque la
+  sesión se pisaba).
+
 ## [2026-07-27] — Panel dedicado "Reaprendizajes" (reset de adaptativos, simple y explicado)
 
 La pantalla "Inicio de rutinas" del F4R mezcla 9 menús con nombres crípticos (RLOCID, RENTOPT1…)

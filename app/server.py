@@ -10,6 +10,7 @@ core/ecu). Sirve el frontend web y expone:
 """
 import asyncio
 import json
+import re
 import sys
 import threading
 import time
@@ -87,6 +88,10 @@ class Estado:
         self.ensayo_ahora = False        # flag "ahora" (forzar arranque o fin del tramo)
         # chip/capacidades del adaptador conectado (se llena en _conectar_real)
         self.adaptador_info = None
+        # Pausa global de lecturas de fondo (barrido de grabación + tester-present). Se activa
+        # en pantallas que NO deben leer nada (ej. reaprendizajes/reset), para que el reset abra
+        # su sesión sin que un read reabra la sesión C0 y lo pise.
+        self.pausar_lecturas = False
 
     @property
     def modo_peligroso(self):
@@ -596,7 +601,7 @@ def _sweep_sensores_sesion():
     try:
         while slog.activo:
             try:
-                if estado.conectado and estado.modo == "real":
+                if estado.conectado and estado.modo == "real" and not estado.pausar_lecturas:
                     tecu = None
                     for cand in ("motor", "obd"):
                         tecu = estado.registro.get(cand)
@@ -1007,6 +1012,81 @@ def api_desconectar():
 def api_peligro(req: PeligroReq):
     options.promode = bool(req.activar)
     return {"modo_peligroso": options.promode}
+
+
+class PausaReq(BaseModel):
+    activar: bool
+
+
+@app.post("/api/lecturas/pausar")
+def api_lecturas_pausar(req: PausaReq):
+    """Pausa/reanuda las lecturas de fondo (barrido de grabación + tester-present). El frontend
+    la activa en pantallas que no deben leer nada (reaprendizaje/reset), para no pisar la sesión."""
+    estado.pausar_lecturas = bool(req.activar)
+    return {"pausado": estado.pausar_lecturas}
+
+
+class ReaprReq(BaseModel):
+    session: str = "85"   # sesión de diagnóstico a abrir (85=programación, 86=desarrollo, 81=defecto…)
+    mode: str = "82"      # modo de reinicio (82=riqueza, 80=ralentí, FF=todos…)
+
+
+@app.post("/api/reaprendizaje/reset")
+def api_reaprendizaje_reset(req: ReaprReq):
+    """Reset de aprendizajes COORDINADO: pausa las lecturas, abre la sesión elegida y manda el
+    reset EN esa sesión de forma atómica (sin que ensure_session/tester/barrido reabran la C0 y
+    lo pisen), y devuelve la RESPUESTA REAL del ECU (positiva 51.. o el rechazo 7F/NR). No miente."""
+    if not options.promode:
+        return JSONResponse({"error": "BLOQUEADO", "detalle": "Activá el modo avanzado."}, status_code=403)
+    if not estado.conectado or options.simulation_mode or options.elm is None:
+        return JSONResponse({"error": "No hay conexión real con el auto"}, status_code=409)
+    tecu = estado.registro.get("motor")
+    if tecu is None:
+        return JSONResponse({"error": "ECU del motor no disponible (entrá con perfil F4R)"}, status_code=404)
+    sess = "10" + str(req.session).strip().upper()
+    reset_cmd = "11" + str(req.mode).strip().upper()
+
+    prev_pausa = estado.pausar_lecturas
+    estado.pausar_lecturas = True   # frenar barrido + tester-present mientras dura el reset
+    try:
+        with ELM_LOCK:
+            _marcar_actividad()
+            _seleccionar_ecu("motor")
+            try:
+                options.elm.clear_cache()
+            except Exception:
+                pass
+            # 1) abrir la sesión pedida (esto setea elm.startSession → la próxima lectura NO la pisa)
+            ok_sesion = options.elm.start_session_can(sess)
+            rsp_sesion = getattr(options.elm, "lastMessage", "") or ""
+            # 2) mandar el reset RAW en esa sesión (sin ensure_session que reabra la C0)
+            resp = options.elm.request(reset_cmd, cache=False) or ""
+    except Exception as e:
+        estado.pausar_lecturas = prev_pausa
+        return JSONResponse({"error": f"Error enviando el reset: {e}"}, status_code=500)
+    finally:
+        estado.pausar_lecturas = prev_pausa
+
+    # interpretar la respuesta REAL del ECU
+    up = resp.upper().replace(" ", "")
+    negativo = "7F" in up or "NR" in resp.upper()
+    positivo = ("51" + str(req.mode).upper()) in up or up.startswith("51")
+    if not ok_sesion:
+        estado_txt, ok = f"No se pudo abrir la sesión {req.session} (respuesta: {resp or 'sin respuesta'})", False
+    elif positivo and not negativo:
+        estado_txt, ok = "✅ Reset aceptado por el ECU (respuesta positiva).", True
+    elif negativo:
+        # decodificar el NRC si viene como :NN:NR: Texto
+        m = re.search(r"NR:\s*([A-Za-z ]+)", resp)
+        motivo = m.group(1).strip() if m else "respuesta negativa"
+        estado_txt, ok = f"❌ El ECU RECHAZÓ el reset: {motivo}.", False
+    else:
+        estado_txt, ok = f"⚠️ Respuesta no reconocida del ECU: {resp or 'vacía'}", False
+
+    slog.log("REAPRENDIZAJE", f"reset session={req.session} mode={req.mode}",
+             {"sesion_ok": ok_sesion, "resp": resp, "ok": ok})
+    return {"ok": ok, "session": req.session, "mode": req.mode,
+            "sesion_abierta": ok_sesion, "respuesta_cruda": resp, "mensaje": estado_txt}
 
 
 @app.get("/api/ecus")
@@ -2195,6 +2275,10 @@ async def _tester_present_loop():
     while True:
         await asyncio.sleep(1.2)
         if not (estado.conectado and estado.modo == "real" and options.elm is not None):
+            continue
+        # Pausado (ej. estamos en la pantalla de reaprendizaje): no tocar el bus, para no
+        # reabrir la sesión C0 ni pisar la sesión que el reset necesita.
+        if estado.pausar_lecturas:
             continue
 
         # Si hay actuadores encendidos, re-enviar su comando (keep-alive): el
