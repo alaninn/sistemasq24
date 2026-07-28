@@ -7,6 +7,20 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-28] — Nuevo módulo: Contador de detonaciones + misfire en vivo
+
+El F4R expone contadores de cascabeleo por cilindro (Trame 05) y detección de misfire por
+cilindro (Trame 07). Nuevo módulo **💥 Contador de detonaciones** (menú F4R):
+- Cuenta las detonaciones **NUEVAS de la sesión** por cilindro (delta desde que se abre la
+  pantalla, no el histórico de por vida). La tarjeta del cilindro **destella en rojo** cuando
+  detona. Botón "Reiniciar contador de sesión" para volver a cero.
+- Muestra por cilindro: nuevas de la sesión (grande), histórico, y estado de **misfire** (OK / ⚠
+  FALLA).
+- Abajo: total de detonaciones nuevas, **ruido del motor** en la ventana de detonación, tiempo de
+  sesión, y modo degradado por misfire.
+- Backend `GET /api/detonaciones/leer` (lee Trame 05 + Trame 07 de una); frontend con loop ~1s,
+  baseline al abrir y delta en vivo. Solo perfil F4R.
+
 ## [2026-07-28] — Reset: modo "Automático" (prueba sesiones) + default Desarrollo, según ddt4all
 
 Investigación del repo de ddt4all (`cedricp/ddt4all`, código real): (1) el patrón universal es

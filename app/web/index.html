@@ -435,6 +435,26 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
 .reapr-quiet{margin-bottom:14px;padding:10px 14px;border-radius:10px;background:var(--bg2);
   border:1px dashed var(--line2);font-size:12.5px;color:var(--ink-dim)}
 .reapr-wrap code{font-family:var(--mono);background:var(--bg2);padding:1px 6px;border-radius:5px;font-size:12px}
+/* Contador de detonaciones + misfire */
+.det-note{margin-bottom:16px;padding:11px 15px;border-radius:10px;background:rgba(255,90,90,.07);
+  border:1px solid rgba(255,90,90,.28);font-size:13px;color:var(--ink-dim);line-height:1.5}
+.det-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.det-cyl{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:16px;text-align:center;transition:.2s}
+.det-cyl-h{font-size:13px;font-weight:700;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.04em}
+.det-nuevas{margin:8px 0 6px;line-height:1}
+.det-nuevas span{font-size:46px;font-weight:800;font-family:var(--mono);color:var(--ink)}
+.det-nuevas small{display:block;font-size:11px;color:var(--ink-dim);margin-top:2px}
+.det-misfire{font-size:12px;color:var(--ink-dim);padding:4px 0}
+.det-misfire.bad{color:var(--red);font-weight:700}
+.det-total{font-size:11px;color:var(--ink-dim);font-family:var(--mono)}
+.det-cyl.hit{animation:detHit .6s ease}
+@keyframes detHit{0%{border-color:var(--red);box-shadow:0 0 26px rgba(255,90,90,.5);background:rgba(255,90,90,.12)}100%{}}
+.det-cyl.hit .det-nuevas span{color:var(--red)}
+.det-foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
+.det-tile{background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:12px 15px}
+.det-tile span{display:block;font-size:11px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.det-tile b{font-size:22px;font-family:var(--mono);font-weight:700}
+@media (prefers-reduced-motion:reduce){.det-cyl.hit{animation:none}}
 .act-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
 .act-card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:12px;
   padding:16px;display:flex;flex-direction:column;gap:12px;transition:.15s}
@@ -874,6 +894,19 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       <div id="reaprContent"></div>
     </section>
 
+    <!-- VISTA: DETONACIONES + MISFIRE (monitor en vivo) -->
+    <section class="view hidden" id="view-detonaciones">
+      <div class="view-head">
+        <div>
+          <div class="eyebrow">Monitor en vivo</div>
+          <h2>Contador de detonaciones</h2>
+          <div class="desc">Lleva la cuenta de las detonaciones (cascabeleo) que aparecen <b>durante esta sesión</b> en cada cilindro, más el fallo de encendido (misfire) y el ruido del motor. Ideal con el auto en marcha para ver si detona ahora.</div>
+        </div>
+        <button class="btn-action" onclick="detReset()">↺ Reiniciar contador de sesión</button>
+      </div>
+      <div id="detContent"></div>
+    </section>
+
     <!-- VISTA: SENSORES -->
     <section class="view hidden" id="view-sensores">
       <div class="view-head">
@@ -1292,6 +1325,7 @@ function go(v){
   if(v==='dtc') renderDtcView();
   if(v==='proc') renderProc();
   if(v==='reaprendizajes') renderReaprendizajes();
+  if(v==='detonaciones') renderDetonaciones();
   if(v==='actuadores') renderActuadores();
   if(v==='adaptador') renderAdaptador();
   if(v==='service') renderService();
@@ -1666,6 +1700,89 @@ async function ejecutarReset(){
         toast(j.ok?('✅ Reset aceptado ('+nomSes(j.session)+')'):'⚠️ El ECU no aceptó el reset', j.ok?'ok':'err');
       }catch(e){ res.innerHTML=`<div class="ctl-err">Error de conexión</div>`; }
     });
+}
+
+/* ===================== CONTADOR DE DETONACIONES + MISFIRE (monitor en vivo) ===================== */
+const DET = {base:null, total:{}, nuevas:{cil1:0,cil2:0,cil3:0,cil4:0}, ruido:null,
+             misfire:{}, t0:0, _t:null, ultTotal:{}, ultMisfire:{cil1:0,cil2:0,cil3:0,cil4:0}};
+function renderDetonaciones(){
+  const box=document.getElementById('detContent');
+  if(!hayAuto() || ST.perfil!=='f4r'){
+    box.innerHTML=`<div class="empty"><div class="ico">🚗</div><h3>Solo para el F4R</h3>
+      <p>Este monitor usa los contadores de detonación/misfire de la computadora del F4R. Entrá con el perfil F4R.</p></div>`;
+    return;
+  }
+  DET.base=null; DET.nuevas={cil1:0,cil2:0,cil3:0,cil4:0}; DET.t0=Date.now();
+  DET.ultMisfire={cil1:0,cil2:0,cil3:0,cil4:0};
+  box.innerHTML=`
+    <div class="det-note">🔴 El contador arranca en cero al abrir esta pantalla. Cuenta solo las detonaciones <b>nuevas</b> de ahora en adelante (no el histórico de por vida de la ECU). Andá con el auto y mirá si algún cilindro suma.</div>
+    <div class="det-grid" id="detGrid">${[1,2,3,4].map(detCard).join('')}</div>
+    <div class="det-foot">
+      <div class="det-tile"><span>Detonaciones nuevas (total)</span><b id="detTotalNuevas">0</b></div>
+      <div class="det-tile"><span>Ruido del motor (ventana de detonación)</span><b id="detRuido">—</b></div>
+      <div class="det-tile"><span>Tiempo de sesión</span><b id="detTiempo">0:00</b></div>
+      <div class="det-tile"><span>Modo degradado por misfire</span><b id="detModoDeg">—</b></div>
+    </div>`;
+  detLoop();
+}
+function detCard(i){
+  return `<div class="det-cyl" id="detCyl${i}">
+    <div class="det-cyl-h">Cilindro ${i}</div>
+    <div class="det-nuevas"><span id="detN${i}">0</span><small>nuevas esta sesión</small></div>
+    <div class="det-misfire" id="detMis${i}">encendido: —</div>
+    <div class="det-total">histórico: <span id="detT${i}">—</span></div>
+  </div>`;
+}
+async function detLoop(){
+  if(ST.view!=='detonaciones'){ clearTimeout(DET._t); return; }
+  try{
+    const r=await fetch(API+'/api/detonaciones/leer'); const j=await r.json();
+    if(!j.error) detApply(j);
+  }catch(e){}
+  if(ST.view==='detonaciones') DET._t=setTimeout(detLoop, 1000);
+}
+function _num(x){ const n=parseFloat(x); return isNaN(n)?null:n; }
+function detApply(j){
+  const k=j.knock||{}, m=j.misfire||{};
+  // baseline la primera vez
+  if(DET.base===null){
+    DET.base={cil1:_num(k.cil1),cil2:_num(k.cil2),cil3:_num(k.cil3),cil4:_num(k.cil4)};
+  }
+  [1,2,3,4].forEach(i=>{
+    const key='cil'+i, cur=_num(k[key]), base=DET.base[key];
+    // detonación NUEVA: contador subió respecto al histórico anterior
+    if(cur!==null && base!==null){
+      const nueva=Math.max(0, cur-base);
+      if(nueva!==DET.nuevas[key]){
+        DET.nuevas[key]=nueva;
+        const el=document.getElementById('detN'+i); if(el) el.textContent=nueva;
+        const card=document.getElementById('detCyl'+i);
+        if(card){ card.classList.remove('hit'); void card.offsetWidth; card.classList.add('hit'); }
+      }
+    }
+    const tel=document.getElementById('detT'+i); if(tel&&cur!==null) tel.textContent=cur;
+    // misfire por cilindro (estado)
+    const mv=m[key];
+    const mel=document.getElementById('detMis'+i);
+    if(mel){
+      const falla = mv!==null&&mv!==undefined && String(mv).toLowerCase().match(/si|sí|1|présent|present|detect|oui|fallo/);
+      mel.textContent = 'encendido: '+(mv==null?'—':(falla?'⚠ FALLA':'OK'));
+      mel.className='det-misfire'+(falla?' bad':'');
+    }
+  });
+  // total nuevas + ruido + tiempo + modo degradado
+  const tot=[1,2,3,4].reduce((a,i)=>a+DET.nuevas['cil'+i],0);
+  const te=document.getElementById('detTotalNuevas'); if(te) te.textContent=tot;
+  const ru=document.getElementById('detRuido'); if(ru) ru.textContent=(k.ruido==null?'—':k.ruido);
+  const md=document.getElementById('detModoDeg');
+  if(md){ const v=m.modo_degradado; md.textContent=(v==null?'—':v); md.style.color=(v&&String(v).toLowerCase().match(/actif|activ|si|1/)?'var(--red)':'var(--ink)'); }
+  const secs=Math.floor((Date.now()-DET.t0)/1000);
+  const tm=document.getElementById('detTiempo'); if(tm) tm.textContent=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');
+}
+function detReset(){ DET.base=null; DET.nuevas={cil1:0,cil2:0,cil3:0,cil4:0}; DET.t0=Date.now();
+  [1,2,3,4].forEach(i=>{const e=document.getElementById('detN'+i);if(e)e.textContent='0';});
+  const te=document.getElementById('detTotalNuevas'); if(te) te.textContent='0';
+  toast('Contador de sesión reiniciado','ok');
 }
 
 async function renderProc(){
@@ -3534,6 +3651,7 @@ const MENU_COMPLETO = [
   {view:'escanear',ico:'📡',txt:'Escanear Auto', perf:['f4r','detectado']},
   {view:'proc',ico:'🛠️',txt:'Procedimientos', perf:['f4r']},
   {view:'reaprendizajes',ico:'🔄',txt:'Reaprendizajes (reset ECU)', perf:['f4r']},
+  {view:'detonaciones',ico:'💥',txt:'Contador de detonaciones', perf:['f4r']},
   {view:'actuadores',ico:'🎛️',txt:'Actuadores', perf:['f4r','detectado']},
   {view:'memoria',ico:'🧠',txt:'Memoria (avanzado)', perf:['f4r']},
   {view:'scan-universal',ico:'🔍',txt:'Scanner Universal'},

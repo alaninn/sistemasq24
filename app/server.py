@@ -1305,6 +1305,56 @@ def _capturar_pantalla_background(ecu, nombre_pantalla, request, inputs):
         pass
 
 
+# Módulo detonación (cascabeleo) + misfire (fallo de encendido) del F4R.
+# Contadores de detonación por cilindro + ruido: Trame 05. Detección de misfire: Trame 07.
+_DET_KNOCK = {
+    "Compteur des coups de cliquetis, cylindre 1": "cil1",
+    "Compteur des coups de cliquetis, cylindre 2": "cil2",
+    "Compteur des coups de cliquetis, cylindre 3": "cil3",
+    "Compteur des coups de cliquetis, cylindre 4": "cil4",
+    "Bruit moteur moyen dans la fenetre cliquetis": "ruido",
+}
+_DET_MISFIRE = {
+    "Détection Misfire cylindre 1": "cil1",
+    "Détection Misfire cylindre 2": "cil2",
+    "Détection Misfire cylindre 3": "cil3",
+    "Détection Misfire cylindre 4": "cil4",
+    "Mode dégradé misfire actif": "modo_degradado",
+}
+
+
+@app.get("/api/detonaciones/leer")
+def api_detonaciones_leer():
+    """Lee de una los contadores de detonación por cilindro + ruido (Trame 05) y la detección de
+    misfire por cilindro (Trame 07). El frontend calcula las detonaciones NUEVAS de la sesión."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    motor = estado.registro.get("motor")
+    if motor is None:
+        return JSONResponse({"error": "Solo disponible en el perfil F4R"}, status_code=404)
+
+    def _extraer(valores, mapa):
+        out = {}
+        for dato, key in mapa.items():
+            info = (valores or {}).get(dato)
+            out[key] = info.get("valor") if info else None
+        return out
+
+    knock, misfire = {}, {}
+    with ELM_LOCK:
+        _marcar_actividad()
+        _seleccionar_ecu("motor")
+        try:
+            knock = _extraer(motor.read_request("Trame 05 : Adaptatif de richesse 2"), _DET_KNOCK)
+        except Exception:
+            pass
+        try:
+            misfire = _extraer(motor.read_request("Trame 07 : OBD"), _DET_MISFIRE)
+        except Exception:
+            pass
+    return {"knock": knock, "misfire": misfire}
+
+
 @app.post("/api/leer")
 def api_leer(req: ComandoReq):
     """Lectura puntual de un request (solo lectura)."""
