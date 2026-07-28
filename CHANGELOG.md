@@ -7,6 +7,19 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-28] — Separados en DOS módulos: Detonaciones y Misfire (a pedido)
+
+Se dividió el monitor combinado en dos módulos independientes en el menú F4R:
+- **💥 Detonaciones (cascabeleo)**: solo Trame 05. Contador de detonaciones NUEVAS de la sesión
+  por cilindro (delta) + histórico + ruido del motor. `GET /api/detonaciones/leer` (una sola
+  trama → rápido, ya no arrastra la Trama 07 grande).
+- **🔥 Misfire (fallo de encendido)**: solo Trame 07/08. Estado por cilindro (OK / ⚠ FALLA ahora)
+  + **cuántas veces falló en la sesión** (cuenta las transiciones no-falla→falla) + **modo
+  degradado** (ACTIVO/inactivo) + tasa de misfire. `GET /api/misfire/leer`.
+- "Modo degradado por misfire" = la ECU corta la nafta al cilindro que falla para proteger el
+  catalizador (un cilindro que no quema manda nafta cruda al escape y lo funde). ACTIVO = hay un
+  misfire feo a revisar.
+
 ## [2026-07-28] — Nuevo módulo: Contador de detonaciones + misfire en vivo
 
 El F4R expone contadores de cascabeleo por cilindro (Trame 05) y detección de misfire por

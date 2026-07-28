@@ -1323,36 +1323,60 @@ _DET_MISFIRE = {
 }
 
 
+_MISFIRE_RATE = {"Taux misfire en mode contrôle en chaine": "tasa"}  # Trame 08
+
+
+def _det_extraer(valores, mapa):
+    out = {}
+    for dato, key in mapa.items():
+        info = (valores or {}).get(dato)
+        out[key] = info.get("valor") if info else None
+    return out
+
+
 @app.get("/api/detonaciones/leer")
 def api_detonaciones_leer():
-    """Lee de una los contadores de detonación por cilindro + ruido (Trame 05) y la detección de
-    misfire por cilindro (Trame 07). El frontend calcula las detonaciones NUEVAS de la sesión."""
+    """Solo DETONACIÓN (cascabeleo): contadores por cilindro + ruido del motor (Trame 05).
+    El frontend calcula las detonaciones NUEVAS de la sesión. Rápido (un solo request)."""
     if not estado.conectado:
         return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
     motor = estado.registro.get("motor")
     if motor is None:
         return JSONResponse({"error": "Solo disponible en el perfil F4R"}, status_code=404)
-
-    def _extraer(valores, mapa):
-        out = {}
-        for dato, key in mapa.items():
-            info = (valores or {}).get(dato)
-            out[key] = info.get("valor") if info else None
-        return out
-
-    knock, misfire = {}, {}
+    knock = {}
     with ELM_LOCK:
         _marcar_actividad()
         _seleccionar_ecu("motor")
         try:
-            knock = _extraer(motor.read_request("Trame 05 : Adaptatif de richesse 2"), _DET_KNOCK)
+            knock = _det_extraer(motor.read_request("Trame 05 : Adaptatif de richesse 2"), _DET_KNOCK)
+        except Exception:
+            pass
+    return {"knock": knock}
+
+
+@app.get("/api/misfire/leer")
+def api_misfire_leer():
+    """Solo MISFIRE (fallo de encendido): detección por cilindro + modo degradado (Trame 07) y la
+    tasa de misfire (Trame 08). El frontend cuenta los eventos de misfire de la sesión."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    motor = estado.registro.get("motor")
+    if motor is None:
+        return JSONResponse({"error": "Solo disponible en el perfil F4R"}, status_code=404)
+    misfire, extra = {}, {}
+    with ELM_LOCK:
+        _marcar_actividad()
+        _seleccionar_ecu("motor")
+        try:
+            misfire = _det_extraer(motor.read_request("Trame 07 : OBD"), _DET_MISFIRE)
         except Exception:
             pass
         try:
-            misfire = _extraer(motor.read_request("Trame 07 : OBD"), _DET_MISFIRE)
+            extra = _det_extraer(motor.read_request("Trame 08 : Usine"), _MISFIRE_RATE)
         except Exception:
             pass
-    return {"knock": knock, "misfire": misfire}
+    misfire["tasa"] = extra.get("tasa")
+    return {"misfire": misfire}
 
 
 @app.post("/api/leer")
