@@ -865,6 +865,55 @@ def _github_token():
     return os.environ.get("GITHUB_TOKEN", "").strip() or None
 
 
+# Prefijos de INFORMES (se conservan siempre al limpiar); el resto (sesion_/consola_) es ruido
+# de debug que se poda dejando solo los más recientes.
+_LOG_INFORMES = ("reporte_", "ensayo_", "conduccion_", "informe_")
+_LOG_MANTENER_RUIDO = 12   # cuántos sesion_/consola_ recientes conservar
+
+
+def _limpiar_logs_viejos(log_dir):
+    """Borra los logs de debug viejos (sesion_/consola_) dejando solo los más recientes.
+    Conserva SIEMPRE los informes. Evita acumular y re-subir cosas viejas."""
+    if not log_dir.exists():
+        return
+    ruido = [f for f in log_dir.iterdir()
+             if f.is_file() and (f.name.startswith("sesion_") or f.name.startswith("consola_"))]
+    ruido.sort(key=lambda f: f.stat().st_mtime, reverse=True)
+    for f in ruido[_LOG_MANTENER_RUIDO:]:
+        try:
+            f.unlink()
+        except Exception:
+            pass
+
+
+def _borrar_stale_debug_logs(token, nombres_actuales):
+    """Borra de la carpeta debug-logs/ del repo los archivos que ya NO están en log/ local
+    (logs viejos de subidas anteriores), para que git quede como espejo de lo actual."""
+    import json as _json
+    import urllib.request
+    base = f"https://api.github.com/repos/{GITHUB_REPO}/contents/debug-logs"
+    hdr = {"Authorization": f"token {token}", "Accept": "application/vnd.github+json", "User-Agent": "sq24"}
+    borrados = []
+    try:
+        items = _json.load(urllib.request.urlopen(urllib.request.Request(base, headers=hdr), timeout=60))
+    except Exception:
+        return borrados
+    for it in items:
+        name = it.get("name", "")
+        if name in nombres_actuales or name.startswith("."):
+            continue
+        try:
+            body = {"message": "limpiar log viejo " + name, "sha": it.get("sha"), "branch": "main"}
+            dreq = urllib.request.Request(base + "/" + name, method="DELETE",
+                                          data=_json.dumps(body).encode("utf-8"),
+                                          headers={**hdr, "Content-Type": "application/json"})
+            urllib.request.urlopen(dreq, timeout=60)
+            borrados.append(name)
+        except Exception:
+            pass
+    return borrados
+
+
 @app.post("/api/logs/subir")
 def api_logs_subir():
     """(TEMPORAL — solo para debug) Sube los logs a GitHub (carpeta debug-logs/) para
@@ -883,14 +932,16 @@ def api_logs_subir():
         pass
     repo = APP_DIR.parent
     log_dir = repo / "log"
-    # Sube logs de sesión + consola + los reportes del chequeo general y del ensayo.
+    # Antes de subir: limpiar los logs viejos locales (sesion/consola ruidosos) para no acumular
+    # ni re-subir cosas viejas. Los INFORMES (reporte/ensayo/conduccion/informe) se conservan
+    # siempre (son livianos y son la entrega). Se quedan los últimos de cada tipo ruidoso.
+    _limpiar_logs_viejos(log_dir)
+    # Sube TODO lo que quede en log/ (informes, reportes, sesiones, consola, PDFs… todo).
     txts = []
     if log_dir.exists():
-        txts = (sorted(log_dir.glob("sesion_*.txt")) + sorted(log_dir.glob("consola_*.txt"))
-                + sorted(log_dir.glob("reporte_*.json")) + sorted(log_dir.glob("reporte_*.txt"))
-                + sorted(log_dir.glob("reporte_*.html"))
-                + sorted(log_dir.glob("ensayo_*.json")) + sorted(log_dir.glob("ensayo_*.txt"))
-                + sorted(log_dir.glob("ensayo_*.html")))
+        txts = sorted([f for f in log_dir.iterdir()
+                       if f.is_file() and not f.name.startswith(".")],
+                      key=lambda f: f.stat().st_mtime)
     if not txts:
         return {"ok": False, "error": "Todavía no hay logs ni reportes para subir."}
 
@@ -924,10 +975,14 @@ def api_logs_subir():
             except Exception as e:
                 errores.append(f"{f.name}: {e}")
         if subidos:
-            msg = f"{len(subidos)} log(s) subidos a GitHub (debug-logs/)."
+            # limpiar de git los logs viejos que ya no están local (espejo del log/ actual)
+            borrados = _borrar_stale_debug_logs(token, {f.name for f in txts})
+            msg = f"{len(subidos)} archivo(s) subidos a GitHub (debug-logs/)."
+            if borrados:
+                msg += f" {len(borrados)} viejo(s) borrados."
             if errores:
                 msg += f" ({len(errores)} fallaron)"
-            return {"ok": True, "archivos": subidos, "mensaje": msg, "errores": errores}
+            return {"ok": True, "archivos": subidos, "borrados": borrados, "mensaje": msg, "errores": errores}
         return {"ok": False, "error": "No se pudo subir por la API: " + "; ".join(errores)[:400]}
 
     # --- Fallback: git CLI (solo si esta máquina tiene el repo clonado + credenciales) ---
@@ -935,8 +990,16 @@ def api_logs_subir():
     import shutil
     dest = repo / "debug-logs"
     dest.mkdir(exist_ok=True)
+    # Espejo: borrar de debug-logs lo que ya no está en log/ local (logs viejos).
+    actuales = {f.name for f in txts}
+    for old in dest.iterdir():
+        if old.is_file() and not old.name.startswith(".") and old.name not in actuales:
+            try:
+                old.unlink()
+            except Exception:
+                pass
     copiados = []
-    for f in txts + (list(log_dir.glob("sesion_*.json")) if log_dir.exists() else []):
+    for f in txts:
         try:
             shutil.copy2(f, dest / f.name); copiados.append(f.name)
         except Exception:
@@ -945,7 +1008,7 @@ def api_logs_subir():
     def git(*a):
         return subprocess.run(["git", *a], cwd=str(repo), capture_output=True, text=True, timeout=180)
     try:
-        git("add", "debug-logs")
+        git("add", "-A", "debug-logs")
         git("commit", "-m", "logs de prueba " + _dt.now().strftime("%Y-%m-%d %H:%M"))
         push = git("push", "origin", "main")
         if push.returncode != 0:

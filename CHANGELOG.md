@@ -7,6 +7,17 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-29] — "Subir logs" ahora sube TODO log/ (informes incluidos) + limpia lo viejo
+
+- **Sube TODO lo que haya en `log/`** (no solo sesion/consola/reporte/ensayo): también los
+  `conduccion_*`, informes, PDFs, cualquier archivo. Así los informes se guardan y suben solos.
+- **Limpia lo viejo** para no acumular ni re-subir cosas viejas a git:
+  - Local: `_limpiar_logs_viejos` borra los `sesion_/consola_` viejos dejando los 12 más
+    recientes. Los INFORMES (`reporte_/ensayo_/conduccion_/informe_`) se conservan siempre.
+  - Git: tras subir, `_borrar_stale_debug_logs` (API) borra de `debug-logs/` los archivos que ya
+    no están en `log/` → git queda como espejo de lo actual. (El fallback git-CLI hace lo mismo
+    con `git add -A`.)
+
 ## [2026-07-29] — Informe de conducción RICO (como el PDF) + foto final de todos los sensores
 
 El informe de conducción salía muy pobre. Ahora es completo, estilo el informe grande:
