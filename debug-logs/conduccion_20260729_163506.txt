@@ -1,0 +1,110 @@
+======================================================================
+  GRABACIÓN DE CONDUCCIÓN — SISTEMASQ24
+  Vehículo: Mégane II F4R   |   2026-07-29 16:23:13
+======================================================================
+
+Duración: 710.5 s  |  Muestras: 673  |  Velocidad: None–None km/h  |  Sensores: 75
+
+VEREDICTO: Sin anomalías evidentes en el manejo
+  Los sensores clave se movieron dentro de lo esperado durante la conducción.
+
+DATOS CLAVE (rango en todo el manejo: mín / prom / máx)
+  · Régimen del motor (RPM): 688.0 / 1236.6 / 2998.0 tr/min
+      ↳ Ralentí estable ~750-850 rpm. Inestable → admisión de aire falsa, bujías, inyectores.
+  · Offset medio de doble lazo para el diagnóstico: 0.0 / 0.0 / 0.0 
+      ↳ Con motor caliente debe estar en LAZO CERRADO. Si queda abierto → sonda o temperatura.
+  · Actividad medida de la sonda lambda posterior: 0.0 / 0.0 / 0.0 
+      ↳ En lazo cerrado la sonda anterior debe OSCILAR (0.1–0.9 V). Fija = sonda vaga/envejecida.
+  · Tensión de batería medida: 13.66 / 14.26 / 14.56 V
+      ↳ Con el motor en marcha 13.5–14.8 V (alternador cargando). Bajo = alternador/batería.
+  · Avance de encendido: -2.25 / 16.16 / 38.62 °V (grados de cigüeñal)
+      ↳ El avance debe aumentar con las RPM. Plano o negativo = detonación/sensor de picado.
+  · Posición de la mariposa transmitida a la aplicación: 11.73 / 14.42 / 41.84 %
+      ↳ TPS: ~0-15% en ralentí, sigue al pedal de forma lineal.
+  · Tiempo de inyección real: 0.0 / 3824.74 / 12784.0 µs
+      ↳ Ancho de pulso del inyector: sube con la carga. Anómalo = inyector/mezcla.
+  · Caudal de aire del motor evaluado: 8.0 / 24.48 / 155.0 
+      ↳ MAF: proporcional a las RPM y la carga. Bajo = MAF sucio / falsa de aire.
+
+EVOLUCIÓN POR VELOCIDAD (promedio de cada sensor en cada banda)
+
+TODOS LOS SENSORES DEL MANEJO (75) — mín / prom / máx / σ
+  Sensor                                           mín      prom       máx       σ
+  Ruido medio del motor en la ventana de det     519.0  13011.43   30858.0 4112.89  
+  Tiempo de inyección real                         0.0   3824.74   12784.0 2339.81  µs
+  Régimen del motor (RPM)                        688.0    1236.6    2998.0  453.55  tr/min
+  Tensión de la sonda lambda anterior              0.0    493.95    907.68  332.26  mV
+  Tensión de la sonda lambda posterior             0.0    171.01    858.88  267.11  mV
+  Presión absoluta del colector medida          236.49    398.04   1012.85  172.69  mbar
+  Par motor estimado según voluntad del cond     -30.0     19.25     158.0   43.69  N.m
+  Par motor efectivo                             -28.0     21.85     142.0   35.31  N.m
+  Caudal de aire del motor evaluado                8.0     24.48     155.0   20.78  
+  Ciclo de trabajo (RCO) de la purga del cán       0.0      1.22      88.0    8.48  %
+  Velocidad del vehículo                           0.0     18.08      52.0   15.72  km/h
+  Contador de detonaciones (cascabeleo), cil    8278.0   8312.65    8324.0   12.85  
+  Avance de encendido                            -2.25     16.16     38.62   10.51  °V (grados de cigüeñal)
+  Posición del pedal pista 1 después del fil     14.86     19.31     53.57    6.36  %
+  Posición del pedal medida                      14.84     19.28     53.52    6.36  %
+  Consigna de posición corregida de la marip      1.76      4.68     33.89    4.21  %
+  Posición de mariposa medida, pista 2, tras     10.95     13.76     41.84    4.11  %
+  Valor corregido de posición de la mariposa      2.05      4.86     32.23    3.97  %
+  Posición de la mariposa transmitida a la a     11.73     14.42     41.84    3.96  %
+  Posición de mariposa medida, pista 1, tras     11.73     14.42     41.84    3.97  %
+  Factor de enriquecimiento de la regulación     37.04     51.43     66.66    4.76  %
+  Ciclo de trabajo (RCO) teórico de la regul     19.42     25.77     41.93    3.38  %
+  Contador de detonaciones (cascabeleo), cil    5444.0   5458.36    5465.0    7.61  
+  Posición del pedal pista 2 después del fil      7.04       9.2     25.81     3.1  %
+  Par motor resistente transmitido por CAN        16.0     25.87      34.0    3.45  N.m
+  Pérdidas totales de par motor                   14.0     24.86      32.0    3.37  N.m
+  Contador de detonaciones (cascabeleo), cil    4107.0   4119.13    4124.0    5.15  
+  Contador de detonaciones (cascabeleo), cil    1268.0   1276.75    1280.0    2.99  
+  Temperatura del agua medida                    89.38     94.11     99.38    2.64  °C
+  Par del alternador                               0.0      3.53      10.0    1.67  Nm
+  Temperatura del aire medida                     52.5     56.12     59.38    1.45  °C
+  Offset de aprendizaje de la regulación de      56.08     57.45     58.43    1.16  %
+  Valor máximo de corrección lenta del avanc      6.38      7.48      8.25    0.71  °V (grados de cigüeñal)
+  Posición del pedal medida, pista 1              0.74      0.96      2.42    0.32  V
+  Tensión del potenciómetro 2                     0.55      0.69      2.09     0.2  V
+  Tensión del potenciómetro 1                     0.59      0.72      2.09     0.2  V
+  Tensión de batería medida                      13.66     14.26     14.56    0.17  V
+  Posición del pedal medida, pista 2              0.35      0.46      1.17    0.15  V
+  Valor aprendido de pie levantado del pedal     14.84     14.84     15.62    0.03  %
+  Valor de aprendizaje de la regulación del      -1.83     -1.57     -1.15    0.14  %
+  Consigna de ciclo de trabajo (RCO) del com      1.17      1.17      1.17     0.0  %
+  Corrección del régimen de ralentí de posve       0.0       0.0       0.0     0.0  tr/min
+  Presión de sobrealimentación (turbo)           103.0     103.0     103.0     0.0  mbar
+  Depresión altimétrica (presión atmosférica       3.7       3.7       3.7     0.0  mbar
+  Régimen de consigna de la regulación del r     752.0     752.0     752.0     0.0  tr/min
+  Presión del aire acondicionado                   0.0       0.0       0.0     0.0  bar
+  Consigna de ciclo de trabajo (RCO) del com       0.0       0.0       0.0     0.0  %
+  Ganancia de aprendizaje de la regulación d      50.2      50.2      50.2     0.0  %
+  Corrección adaptativa de la 2.ª zona de pr       0.0       0.0       0.0     0.0  %
+  Ángulo relativo final del VVT de admisión        0.0       0.0       0.0     0.0  °
+  Corrección adaptativa de la 5.ª zona de pr       0.0       0.0       0.0     0.0  %
+  Corrección adaptativa de la 3.ª zona de pr       0.0       0.0       0.0     0.0  %
+  Desfase continuo del VVT medido                  0.0       0.0       0.0     0.0  °
+  Desfase continuo del VVT medido (sin modo        0.0       0.0       0.0     0.0  °
+  Corrección adaptativa de la 1.ª zona de pr       0.0       0.0       0.0     0.0  %
+  Offset medio de doble lazo para el diagnós       0.0       0.0       0.0     0.0  
+  Offset medio máximo de doble lazo para el        0.0       0.0       0.0     0.0  
+  Corrección adaptativa de la 4.ª zona de pr       0.0       0.0       0.0     0.0  %
+  Offset medio mínimo de doble lazo para el        0.0       0.0       0.0     0.0  
+  Par tomado por el convertidor de la caja a       0.0       0.0       0.0     0.0  N.m
+  Tope inferior de mariposa, sensor 2             0.45      0.45      0.45     0.0  V
+  Valor aprendido de la posición de emergenc     18.77     18.77     18.77     0.0  %
+  Valor aprendido de posición de emergencia       0.94      0.94      0.94     0.0  V
+  Valor aprendido de posición de emergencia       0.92      0.92      0.92     0.0  V
+  Valor aprendido del tope superior de la ma     87.98     87.98     87.98     0.0  %
+  Tope superior de mariposa, sensor 1              4.4       4.4       4.4     0.0  V
+  Tope inferior de mariposa, sensor 1             0.47      0.47      0.47     0.0  V
+  Tope inferior de la mariposa con offset         9.68      9.68      9.68     0.0  %
+  Tope superior de mariposa, sensor 2              4.4       4.4       4.4     0.0  V
+  Valor aprendido del tope inferior de la ma      9.38      9.38      9.38     0.0  %
+  Período medio de la sonda anterior               0.0       0.0       0.0     0.0  ms
+  Actividad medida de la sonda lambda poster       0.0       0.0       0.0     0.0  
+  Cantidad de conmutaciones falsas de la son       0.0       0.0       0.0     0.0  
+  Resistencia de calefacción de la sonda ant       0.0       0.0       0.0     0.0  Ohms
+  Resistencia de calefacción de la sonda pos       0.0       0.0       0.0     0.0  Ohms
+
+Nota: es un registro CONTINUO indexado por velocidad. Muestra cómo reaccionó cada
+sistema a medida que el auto aceleraba. El .json trae 'para_experto' con todo junto.
