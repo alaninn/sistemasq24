@@ -1,0 +1,202 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260729_163737
+==================================================================
+
+[16:37:37.390] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[16:37:37.398] (+  0.01s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-29 16:37:37
+
+[16:50:01.563] (+744.17s) ELM      keep-alive
+           → envío:     3E00  (3163.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[16:50:07.104] (+749.71s) ELM      keep-alive
+           → envío:     3E00  (3155.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[16:50:09.299] (+751.91s) ECU      Acceso a módulo
+           · ecu: obd
+           · nombre: Motor (OBD-II Genérico)
+           · tx: 7DF
+           · rx: 7E8
+
+[16:50:11.050] (+753.66s) ELM      diag
+           → envío:     0100  (1326.6 ms)
+           → respuesta: 41 00 BE 3E B8 13 
+
+[16:50:12.120] (+754.73s) ELM      diag
+           → envío:     0120  (1068.5 ms)
+           → respuesta: 41 20 90 07 A0 01 
+
+[16:50:13.191] (+ 755.8s) ELM      diag
+           → envío:     0140  (1070.9 ms)
+           → respuesta: 41 40 FE D2 00 11 
+
+[16:50:15.362] (+757.97s) ELM      diag
+           → envío:     0902  (2171.5 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:15.365] (+757.98s) OBD      Modo OBD-II genérico activado
+           · pids_soportados: 39
+           · vin: None
+
+[16:50:15.395] (+758.01s) ELM      diag
+           → envío:     014C  (29.8 ms)
+           → respuesta: 41 4C 1A 
+
+[16:50:15.427] (+758.04s) ELM      diag
+           → envío:     0106  (31.7 ms)
+           → respuesta: 41 06 80 
+
+[16:50:16.480] (+759.09s) ELM      diag
+           → envío:     0108  (1053.4 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:16.513] (+759.12s) ELM      diag
+           → envío:     0107  (32.7 ms)
+           → respuesta: 41 07 AE 
+
+[16:50:17.568] (+760.18s) ELM      diag
+           → envío:     0109  (1054.6 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:17.600] (+760.21s) ELM      diag
+           → envío:     010E  (31.9 ms)
+           → respuesta: 41 0E AC 
+
+[16:50:17.632] (+760.24s) ELM      diag
+           → envío:     0130  (32.2 ms)
+           → respuesta: 41 30 FF 
+
+[16:50:17.663] (+760.27s) ELM      diag
+           → envío:     0143  (31.4 ms)
+           → respuesta: 41 43 00 00 
+
+[16:50:17.695] (+760.31s) ELM      diag
+           → envío:     0104  (32.3 ms)
+           → respuesta: 41 04 7D 
+
+[16:50:18.749] (+761.36s) ELM      diag
+           → envío:     0110  (1052.7 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:18.781] (+761.39s) ELM      diag
+           → envío:     012E  (30.1 ms)
+           → respuesta: 41 2E 01 
+
+[16:50:19.837] (+762.45s) ELM      diag
+           → envío:     012C  (1056.0 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:20.905] (+763.52s) ELM      diag
+           → envío:     0152  (1068.2 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:21.960] (+764.57s) ELM      diag
+           → envío:     015E  (1054.7 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:21.992] (+ 764.6s) ELM      diag
+           → envío:     0121  (29.8 ms)
+           → respuesta: 41 21 00 00 
+
+[16:50:22.023] (+764.63s) ELM      diag
+           → envío:     0131  (31.8 ms)
+           → respuesta: 41 31 18 E7 
+
+[16:50:23.078] (+765.69s) ELM      diag
+           → envío:     012D  (1054.9 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:23.110] (+765.72s) ELM      diag
+           → envío:     0103  (32.0 ms)
+           → respuesta: 41 03 01 00 
+
+[16:50:23.141] (+765.75s) ELM      diag
+           → envío:     012F  (31.3 ms)
+           → respuesta: 41 2F 23 
+
+[16:50:23.174] (+765.78s) ELM      diag
+           → envío:     011C  (32.1 ms)
+           → respuesta: 41 1C 06 
+
+[16:50:23.189] (+ 765.8s) ELM      diag
+           → envío:     0147  (15.7 ms)
+           → respuesta: 41 47 22 
+
+[16:50:23.222] (+765.83s) ELM      diag
+           → envío:     0111  (32.5 ms)
+           → respuesta: 41 11 22 
+
+[16:50:23.254] (+765.86s) ELM      diag
+           → envío:     0149  (32.7 ms)
+           → respuesta: 41 49 08 
+
+[16:50:23.285] (+ 765.9s) ELM      diag
+           → envío:     014A  (30.7 ms)
+           → respuesta: 41 4A 04 
+
+[16:50:23.317] (+765.93s) ELM      diag
+           → envío:     0145  (31.8 ms)
+           → respuesta: 41 45 08 
+
+[16:50:23.350] (+765.96s) ELM      keep-alive
+           → envío:     3E00  (33.2 ms)
+           → respuesta: :12:NR: SubFunction Not Supported 
+
+[16:50:23.382] (+765.99s) ELM      diag
+           → envío:     014C  (31.7 ms)
+           → respuesta: 41 4C 0A 
+
+[16:50:23.414] (+766.02s) ELM      diag
+           → envío:     010B  (31.6 ms)
+           → respuesta: 41 0B 00 
+
+[16:50:23.445] (+766.06s) ELM      diag
+           → envío:     0133  (31.7 ms)
+           → respuesta: 41 33 65 
+
+[16:50:24.499] (+767.11s) ELM      diag
+           → envío:     010A  (1053.5 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:25.554] (+768.16s) ELM      diag
+           → envío:     0122  (1054.9 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:26.651] (+769.26s) ELM      diag
+           → envío:     0123  (1095.3 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:26.688] (+ 769.3s) ELM      diag
+           → envío:     0144  (37.4 ms)
+           → respuesta: 41 44 7D 34 
+
+[16:50:26.720] (+769.33s) ELM      diag
+           → envío:     010C  (32.2 ms)
+           → respuesta: 41 0C 0B 16 
+
+[16:50:26.752] (+769.36s) ELM      diag
+           → envío:     0124  (31.5 ms)
+           → respuesta: 41 24 80 00 00 00 
+
+[16:50:27.806] (+770.42s) ELM      diag
+           → envío:     0134  (1053.7 ms)
+           → respuesta: WRONG RESPONSE
+
+[16:50:27.838] (+770.45s) ELM      diag
+           → envío:     0114  (32.5 ms)
+           → respuesta: 41 14 FF 80 
+
+[16:50:28.398] (+771.01s) SESION   Fin de grabación
+           · eventos: 47
