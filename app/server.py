@@ -784,8 +784,32 @@ def api_conduccion_detener():
     muestras = estado.conduccion.get("muestras", [])
     if not muestras:
         return {"ok": False, "error": "No se grabó ninguna muestra."}
+    # Foto final: leer TODOS los sensores útiles del motor una vez, para que el informe tenga la
+    # completitud del informe grande (además de la evolución por velocidad del manejo).
+    snapshot = {}
+    motor = estado.registro.get("motor") or estado.registro.get("obd")
+    if motor is not None and not options.simulation_mode:
+        reqs = []
+        for p in motor.readable_params():
+            if p.get("util") is False:
+                continue
+            if p["request"] not in reqs:
+                reqs.append(p["request"])
+        with ELM_LOCK:
+            _marcar_actividad()
+            _seleccionar_ecu(motor.id)
+            for r in reqs:
+                try:
+                    v = motor.read_request(r)
+                except Exception:
+                    v = None
+                for dato, info in (v or {}).items():
+                    val = info.get("valor")
+                    if val is None or str(val).strip() == "":
+                        continue
+                    snapshot[info.get("etiqueta", dato)] = f"{val} {info.get('unidad', '')}".strip()
     datos = {"fecha": estado.conduccion.get("fecha"), "perfil": estado.conduccion.get("perfil"),
-             "vehiculo": estado.conduccion.get("vehiculo"), "muestras": muestras}
+             "vehiculo": estado.conduccion.get("vehiculo"), "muestras": muestras, "snapshot": snapshot}
     try:
         import reporte
         rutas = reporte.generar_conduccion(datos)

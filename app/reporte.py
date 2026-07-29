@@ -601,18 +601,32 @@ def _conduccion_analizar(datos):
         else:
             diag.append({"sensor": keywords[0], "leido": False, "referencia": explicacion})
 
+    # veredicto general: sobre todo el ajuste largo de combustible (mezcla)
+    veredicto = {"nivel": "ok", "titulo": "Sin anomalías evidentes en el manejo",
+                 "detalle": "Los sensores clave se movieron dentro de lo esperado durante la conducción."}
+    ltft = next((s for n, s in stats_glob.items() if "ajuste largo" in n.lower()), None)
+    if ltft and ltft.get("maximo") is not None and ltft["maximo"] > 25:
+        veredicto = {"nivel": "warn", "titulo": "Atención — mezcla pobre a baja carga (posible fuga de vacío)",
+                     "detalle": f"El ajuste largo de combustible llegó a {ltft['maximo']}% (sano ±10%). "
+                     "Típico de una entrada de aire falso que se nota a bajas RPM/carga y se diluye acelerando. "
+                     "Revisar manguera de servofreno, PCV, regulador de presión de nafta y juntas de admisión."}
+
     datos["resumen"] = {
         "generado": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "muestras": len(muestras), "duracion_seg": dur,
         "vel_min": round(min(vels), 1) if vels else None,
         "vel_max": round(max(vels), 1) if vels else None,
         "sensores_distintos": len(stats_glob),
+        "veredicto": veredicto,
         "bandas_velocidad": bandas, "evolucion_por_velocidad": evolucion, "diagnostico": diag,
+        "estadisticas": stats_glob,   # todas: min/prom/max/σ/oscila por sensor
+        "snapshot": datos.get("snapshot", {}),
     }
     datos["para_experto"] = {
         "vehiculo": datos.get("vehiculo"), "perfil": datos.get("perfil"), "fecha": datos.get("fecha"),
         "duracion_seg": dur, "velocidad": {"min": datos["resumen"]["vel_min"], "max": datos["resumen"]["vel_max"]},
-        "datos_clave": diag, "evolucion_por_velocidad": evolucion, "bandas": bandas,
+        "veredicto": veredicto, "datos_clave": diag, "evolucion_por_velocidad": evolucion,
+        "bandas": bandas, "estadisticas_por_sensor": stats_glob, "foto_final": datos.get("snapshot", {}),
     }
     return datos
 
@@ -623,6 +637,10 @@ def _txt_conduccion(datos):
          f"  Vehículo: {datos.get('vehiculo')}   |   {datos.get('fecha')}", "=" * 70, ""]
     L.append(f"Duración: {r['duracion_seg']} s  |  Muestras: {r['muestras']}  |  "
              f"Velocidad: {r['vel_min']}–{r['vel_max']} km/h  |  Sensores: {r['sensores_distintos']}")
+    L.append("")
+    vd = r.get("veredicto", {})
+    L.append(f"VEREDICTO: {vd.get('titulo','')}")
+    L.append(f"  {vd.get('detalle','')}")
     L.append("")
     L.append("DATOS CLAVE (rango en todo el manejo: mín / prom / máx)")
     for d in r["diagnostico"]:
@@ -641,6 +659,13 @@ def _txt_conduccion(datos):
                 fila += ("" if v is None else str(v)).rjust(13)
             L.append(fila + f"  {d.get('unidad','')}")
     L.append("")
+    stats = r.get("estadisticas", {})
+    if stats:
+        L.append(f"TODOS LOS SENSORES DEL MANEJO ({len(stats)}) — mín / prom / máx / σ")
+        L.append(f"  {'Sensor':<42} {'mín':>9} {'prom':>9} {'máx':>9} {'σ':>7}")
+        for s, st in sorted(stats.items(), key=lambda x: -(x[1].get('maximo', 0) - x[1].get('minimo', 0))):
+            L.append(f"  {s[:42]:<42} {st['minimo']:>9} {st['promedio']:>9} {st['maximo']:>9} {st['desv_std']:>7}  {st['unidad']}")
+        L.append("")
     L.append("Nota: es un registro CONTINUO indexado por velocidad. Muestra cómo reaccionó cada")
     L.append("sistema a medida que el auto aceleraba. El .json trae 'para_experto' con todo junto.")
     return "\n".join(L)
@@ -648,43 +673,86 @@ def _txt_conduccion(datos):
 
 def _html_conduccion(datos):
     r = datos["resumen"]
+    v = r.get("veredicto", {})
+    vcol = {"ok": "#3ddc97", "warn": "#ffab2e", "bad": "#ff5a5a"}.get(v.get("nivel"), "#8ea0b2")
+    vico = {"ok": "🟢", "warn": "🟡", "bad": "🔴"}.get(v.get("nivel"), "⚪")
     css = """body{font-family:system-ui,Segoe UI,Arial,sans-serif;background:#0e141b;color:#e8eef4;margin:0;padding:24px;line-height:1.5}
-    h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;border-bottom:1px solid #24303f;padding-bottom:6px;margin-top:28px}
-    .sub{color:#8ea0b2;font-size:13px;margin-bottom:18px}
-    .cards{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
-    .card{background:#161e27;border:1px solid #24303f;border-radius:10px;padding:14px 18px;min-width:120px}
-    .card b{font-size:24px;display:block}.card .u{color:#8ea0b2;font-size:12px}
-    table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0;display:block;overflow-x:auto}
-    th,td{text-align:left;padding:5px 9px;border-bottom:1px solid #1c2732;white-space:nowrap}
-    th{color:#8ea0b2}.dim{color:#8ea0b2}.cyan{color:#2fd4d4}
-    .note{margin-top:16px;padding:10px 14px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px;font-size:13px;color:#9fd}"""
-    H = [f"<style>{css}</style>",
+    .wrap{max-width:1040px;margin:0 auto}
+    h1{font-size:23px;margin:0 0 4px}h2{font-size:16px;border-bottom:1px solid #24303f;padding-bottom:6px;margin-top:30px}
+    .sub{color:#8ea0b2;font-size:13px;margin-bottom:16px}
+    .verdict{display:flex;gap:14px;align-items:flex-start;border-radius:11px;padding:15px 18px;margin:6px 0 8px}
+    .verdict .d{font-size:24px;line-height:1}.verdict h3{margin:0 0 3px;font-size:16px}.verdict p{margin:0;font-size:13.5px;color:#cdd8e2}
+    .cards{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+    .card{background:#161e27;border:1px solid #24303f;border-radius:10px;padding:13px 17px;min-width:120px}
+    .card b{font-size:23px;display:block;font-variant-numeric:tabular-nums}.card .u{color:#8ea0b2;font-size:12px}
+    .kcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:11px}
+    .kc{background:#161e27;border:1px solid #24303f;border-radius:11px;padding:13px 15px;border-top:3px solid #2c3b49}
+    .kc .t{font-size:12.5px;color:#8ea0b2;font-weight:600}.kc .v{font-size:15px;margin:5px 0;font-variant-numeric:tabular-nums}
+    .kc .r{font-size:11.5px;color:#8ea0b2;margin-top:7px;padding-top:7px;border-top:1px dashed #24303f}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+    .tw{overflow-x:auto;border:1px solid #22303c;border-radius:10px;margin-top:10px}
+    th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #1c2732;white-space:nowrap}
+    thead th{background:#111922;color:#8ea0b2;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+    tbody tr:nth-child(even){background:#111922}
+    .num{text-align:right;font-variant-numeric:tabular-nums}.dim{color:#8ea0b2}.cyan{color:#2fd4d4}
+    .note{margin-top:16px;padding:10px 14px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px;font-size:13px;color:#9fd}
+    details{margin-top:10px}summary{cursor:pointer;color:#2fd4d4;font-size:13px;font-weight:600;padding:6px 0}
+    .est2{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px 18px;margin-top:10px}
+    .est2 div{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:3px 0;border-bottom:1px solid #1c2732}
+    .est2 span{color:#8ea0b2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}"""
+    evol = r["evolucion_por_velocidad"]
+    bandas = [b["banda"] for b in r["bandas_velocidad"]]
+    stats = r.get("estadisticas", {})
+    varian = {s: st for s, st in stats.items() if st.get("oscila")}
+    H = [f"<style>{css}</style><div class='wrap'>",
          f"<h1>🏁 Grabación de conducción — {_esc(datos.get('vehiculo'))}</h1>",
-         f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))}</div>",
+         f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))} · registro continuo indexado por velocidad</div>",
+         f"<div class='verdict' style='background:{vcol}1a;border:1px solid {vcol};border-left:5px solid {vcol}'>"
+         f"<span class='d'>{vico}</span><div><h3 style='color:{vcol}'>{_esc(v.get('titulo',''))}</h3><p>{_esc(v.get('detalle',''))}</p></div></div>",
          "<div class='cards'>",
          f"<div class='card'><b class='cyan'>{r['vel_min']}–{r['vel_max']}</b><span class='u'>km/h recorridos</span></div>",
          f"<div class='card'><b>{r['duracion_seg']}</b><span class='u'>segundos</span></div>",
          f"<div class='card'><b>{r['muestras']}</b><span class='u'>muestras</span></div>",
          f"<div class='card'><b>{r['sensores_distintos']}</b><span class='u'>sensores</span></div>",
-         "</div>",
-         "<h2>🔑 Datos clave (rango en todo el manejo)</h2>",
-         "<table><tr><th>Sensor</th><th>mín</th><th>prom</th><th>máx</th><th>Qué esperar</th></tr>"]
+         f"<div class='card'><b>{len(varian)}</b><span class='u'>varían al manejar</span></div>",
+         "</div>"]
+    # tarjetas de datos clave con interpretación
+    H.append("<h2>🔑 Datos clave del manejo</h2><div class='kcards'>")
     for d in r["diagnostico"]:
         if d.get("leido"):
-            H.append(f"<tr><td>{_esc(d['sensor'])}</td><td>{_esc(d['min'])}</td><td><b>{_esc(d['prom'])}</b></td>"
-                     f"<td>{_esc(d['max'])}</td><td class='dim'>{_esc(d['referencia'])}</td></tr>")
-    H.append("</table>")
-    bandas = [b["banda"] for b in r["bandas_velocidad"]]
+            H.append(f"<div class='kc'><div class='t'>{_esc(d['sensor'])}</div>"
+                     f"<div class='v'><b>{_esc(d['prom'])}</b> <span class='dim'>{_esc(d['unidad'])}</span> "
+                     f"<span class='dim'>(rango {_esc(d['min'])}–{_esc(d['max'])})</span></div>"
+                     f"<div class='r'>{_esc(d['referencia'])}</div></div>")
+    H.append("</div>")
+    # evolución por velocidad (todos los que varían)
     if bandas:
-        H.append("<h2>Evolución por velocidad (promedio por banda)</h2>")
-        H.append("<table><tr><th>Sensor</th>" + "".join(f"<th>{_esc(b)}</th>" for b in bandas) + "<th></th></tr>")
-        for sensor, d in r["evolucion_por_velocidad"].items():
+        H.append("<h2>📈 Cómo reaccionó cada sensor según la velocidad (promedio por banda)</h2>")
+        H.append("<div class='tw'><table><thead><tr><th>Sensor</th>" + "".join(f"<th class='num'>{_esc(b)}</th>" for b in bandas) + "<th></th></tr></thead><tbody>")
+        for sensor, d in evol.items():
             H.append("<tr><td>" + _esc(sensor) + "</td>" +
-                     "".join(f"<td>{'' if d['por_banda'].get(b) is None else _esc(d['por_banda'][b])}</td>" for b in bandas) +
+                     "".join(f"<td class='num'>{'' if d['por_banda'].get(b) is None else _esc(d['por_banda'][b])}</td>" for b in bandas) +
                      f"<td class='dim'>{_esc(d.get('unidad',''))}</td></tr>")
-        H.append("</table>")
-    H.append("<div class='note'>Registro CONTINUO indexado por velocidad: muestra cómo reaccionó cada "
-             "sistema a medida que el auto aceleraba. El <b>.json</b> trae <code>para_experto</code>.</div>")
+        H.append("</tbody></table></div>")
+    # todos los sensores capturados (stats)
+    if stats:
+        H.append(f"<h2>Todos los sensores del manejo (mín / prom / máx / σ) <span class='dim'>{len(stats)}</span></h2>")
+        H.append("<div class='tw'><table><thead><tr><th>Sensor</th><th class='num'>mín</th><th class='num'>prom</th><th class='num'>máx</th><th class='num'>σ</th><th></th></tr></thead><tbody>")
+        for s, st in sorted(stats.items(), key=lambda x: -(x[1].get('maximo',0)-x[1].get('minimo',0))):
+            H.append(f"<tr><td>{_esc(s)}</td><td class='num'>{_esc(st['minimo'])}</td><td class='num'><b>{_esc(st['promedio'])}</b></td>"
+                     f"<td class='num'>{_esc(st['maximo'])}</td><td class='num dim'>{_esc(st['desv_std'])}</td><td class='dim'>{_esc(st['unidad'])}</td></tr>")
+        H.append("</tbody></table></div>")
+    # foto final: todos los sensores (completitud)
+    snap = r.get("snapshot", {})
+    if snap:
+        H.append(f"<h2>Foto final del motor <span class='dim'>{len(snap)}</span></h2>")
+        H.append(f"<details><summary>Ver los {len(snap)} valores al terminar el manejo</summary><div class='est2'>")
+        for k, val in sorted(snap.items()):
+            H.append(f"<div><span>{_esc(k)}</span><span>{_esc(val)}</span></div>")
+        H.append("</div></details>")
+    H.append("<div class='note'>Registro CONTINUO indexado por velocidad: muestra cómo reaccionó cada sistema a medida "
+             "que el auto aceleraba. El <b>.json</b> trae el bloque <code>para_experto</code> con todo junto, listo para "
+             "un mecánico o una IA. Podés imprimir esta página a PDF (Ctrl+P).</div></div>")
     return "\n".join(H)
 
 

@@ -7,6 +7,24 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-29] — Informe de conducción RICO (como el PDF) + foto final de todos los sensores
+
+El informe de conducción salía muy pobre. Ahora es completo, estilo el informe grande:
+- **Veredicto** con semáforo (detecta la mezcla pobre por el ajuste largo alto).
+- **Tarjetas de datos clave** del manejo (prom + rango + qué esperar de cada uno).
+- **Evolución por velocidad** de cada sensor (promedio por banda) — el análisis propio de la
+  conducción.
+- **Tabla de TODOS los sensores** del manejo (mín/prom/máx/σ), ordenados por cuánto se movieron.
+- **Foto final**: al parar, el scanner lee UNA vez todos los sensores útiles del motor
+  (`api_conduccion_detener`), así el informe tiene la completitud del informe grande además de la
+  evolución por velocidad.
+- HTML rico (imprimible a PDF con Ctrl+P) + TXT enriquecido + JSON con `para_experto`.
+
+Confirmado en el auto (log 28/07 20:xx): la grabación anduvo (~13 min, velocidad 0-50 km/h) y el
+ajuste largo bajó de ~30% (ralentí) a mayormente 0-14% (manejando) → **firma de fuga de vacío
+confirmada** (la fuga domina en ralentí y se diluye con más aire). El reset de aprendizajes ahora
+funciona (arranca en 0 y vuelve a subir con la fuga sin reparar).
+
 ## [2026-07-28] — Nuevo: "Grabar conducción" — línea temporal indexada por velocidad (en segundo plano)
 
 Botón **"Grabar conducción"** al lado de "Grabar sesión" (en el tablero). Igual de simple: click y
