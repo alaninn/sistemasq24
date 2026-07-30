@@ -2111,6 +2111,58 @@ def api_ecu_database_info():
     }
 
 
+@app.get("/api/ecu-database/buscar")
+def api_ecu_database_buscar(q: str = "", limite: int = 60):
+    """Busca ECUs en la base (3.945 archivos) por nombre / grupo / proyecto, para poder
+    ELEGIRLAS A MANO cuando la autodetección no las encuentra — igual que en ddt4all."""
+    sc = get_scanner()
+    try:
+        res = sc.buscar_ecus(q, max(1, min(int(limite), 200)))
+    except Exception as e:
+        return JSONResponse({"error": f"Error buscando: {e}"}, status_code=500)
+    return {"q": q, "total": len(res), "ecus": res}
+
+
+class CargarEcusReq(BaseModel):
+    archivos: list = []           # nombres de archivo del ecu.zip (href de db.json)
+    vehiculo: str = "Auto elegido a mano"
+
+
+@app.post("/api/ecu-database/cargar")
+def api_ecu_database_cargar(req: CargarEcusReq):
+    """Carga a mano las ECUs elegidas de la base y las deja como perfil activo."""
+    if not req.archivos:
+        return JSONResponse({"error": "No elegiste ninguna ECU"}, status_code=400)
+    import sq24_scanner as _sc
+    sc = get_scanner()
+    sc.cargar_indice()
+    # metadatos (grupo) para asignarle a cada ECU su slot/ícono
+    import zipfile as _zip
+    import json as _json
+    try:
+        with _zip.ZipFile(_sc.ZIP_PATH, "r") as zf:
+            db = _json.loads(zf.read("db.json"))
+    except Exception:
+        db = {}
+    matches = []
+    for i, arch in enumerate(req.archivos[:12]):
+        tv = db.get(arch, {})
+        ecu_id, icon, nombre = _sc._slot_para_grupo(tv.get("group", ""), i)
+        if any(m["ecu_id"] == ecu_id for m in matches):   # no repetir slot
+            ecu_id = f"{ecu_id}_{i}"
+        matches.append({"ecu_id": ecu_id, "archivo": arch, "icon": icon,
+                        "nombre": nombre or tv.get("ecuname", arch)})
+    n = estado.registro.load_detectado(matches, req.vehiculo)
+    if not n:
+        return JSONResponse({"error": "No se pudo cargar ninguna de esas ECUs "
+                                      "(¿el archivo no está en la base?)"}, status_code=422)
+    estado.ecu_activa = None
+    slog.log("ECU", "Perfil cargado a mano", {"vehiculo": req.vehiculo,
+                                              "archivos": req.archivos[:12], "cargadas": n})
+    return {"ok": True, "cargadas": n, "vehiculo": req.vehiculo,
+            "ecus": estado.registro.list()}
+
+
 @app.get("/api/perfil")
 def api_perfil():
     """Perfil de ECUs activo: 'ninguno' | 'f4r' | 'detectado' | 'generico'."""

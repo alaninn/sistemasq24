@@ -435,6 +435,27 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
 .reapr-quiet{margin-bottom:14px;padding:10px 14px;border-radius:10px;background:var(--bg2);
   border:1px dashed var(--line2);font-size:12.5px;color:var(--ink-dim)}
 .reapr-wrap code{font-family:var(--mono);background:var(--bg2);padding:1px 6px;border-radius:5px;font-size:12px}
+/* Elegir ECU a mano (base completa) */
+.man-box{margin-top:26px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:20px 22px}
+.man-t{font-size:16px;font-weight:700;margin-bottom:4px}
+.man-d{font-size:13px;color:var(--ink-dim);line-height:1.55;max-width:78ch}
+.man-search{display:flex;gap:10px;margin:16px 0 8px;flex-wrap:wrap}
+.man-search input{flex:1;min-width:260px;background:var(--bg2);border:1px solid var(--line2);border-radius:9px;
+  padding:11px 14px;color:var(--ink);font-size:14px;font-family:inherit}
+.man-search input:focus{outline:none;border-color:var(--cyan)}
+.man-tips{font-size:12px;color:var(--ink-dim);display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.man-tips .chip{cursor:pointer;background:var(--bg2);border:1px solid var(--line2);color:var(--ink-dim);
+  padding:3px 10px;border-radius:20px;font-size:11.5px}
+.man-tips .chip:hover{border-color:var(--cyan);color:var(--cyan)}
+.man-msg{font-size:13px;color:var(--ink-dim);margin:14px 0 6px}
+.man-msg.ok{color:var(--green)}.man-msg.err{color:var(--red)}
+.man-list{display:flex;flex-direction:column;gap:7px;max-height:340px;overflow-y:auto;margin-top:6px}
+.man-it{display:flex;gap:11px;align-items:flex-start;padding:10px 13px;border:1px solid var(--line);
+  border-radius:10px;background:var(--bg2);cursor:pointer}
+.man-it:hover{border-color:var(--cyan)}
+.man-it input{margin-top:3px;accent-color:var(--cyan);width:16px;height:16px;flex:none}
+.man-n{font-size:13.5px;font-weight:600;word-break:break-all}
+.man-m{font-size:11.5px;color:var(--ink-dim);margin-top:2px}
 /* Contador de detonaciones + misfire */
 .det-note{margin-bottom:16px;padding:11px 15px;border-radius:10px;background:rgba(255,90,90,.07);
   border:1px solid rgba(255,90,90,.28);font-size:13px;color:var(--ink-dim);line-height:1.5}
@@ -995,6 +1016,27 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
         </div>
       </div>
       <div id="vehiculos-lista" class="vehiculos-grid"></div>
+
+      <!-- Elegir la ECU a mano (cuando el auto no está en la lista o la autodetección falla) -->
+      <div class="man-box">
+        <div class="man-h">
+          <div>
+            <div class="man-t">🔎 ¿Tu auto no está en la lista?</div>
+            <div class="man-d">Elegí la computadora a mano de la base (3.945 ECUs de Renault, Dacia y Nissan),
+              igual que en DDT4All. Si sabés el modelo de tu ECM — por ejemplo <b>EMS312X</b> — buscalo acá.</div>
+          </div>
+        </div>
+        <div class="man-search">
+          <input id="manQ" type="text" placeholder="Buscá por modelo de ECU o sistema: EMS312X, sirius, airbag, ABS…"
+                 onkeydown="if(event.key==='Enter')buscarEcuManual()">
+          <button class="btn-action" onclick="buscarEcuManual()">Buscar</button>
+        </div>
+        <div class="man-tips">Ejemplos: <button class="chip" onclick="manEjemplo('EMS312X')">EMS312X</button>
+          <button class="chip" onclick="manEjemplo('injection')">injection</button>
+          <button class="chip" onclick="manEjemplo('sirius')">sirius</button>
+          <button class="chip" onclick="manEjemplo('airbag')">airbag</button></div>
+        <div id="manRes"></div>
+      </div>
     </section>
 
     <!-- VISTA: SELECCIONAR ECUS DISPONIBLES PARA VEHÍCULO -->
@@ -3383,6 +3425,58 @@ let VEHICULOS = {
     'Kangoo': {motor: 'K4M/1.6', año: '2003-2010', ecus: 5, imagen: '🟣'},
   }
 };
+
+/* ===== Elegir la ECU A MANO de la base (cuando la autodetección no la encuentra) ===== */
+const MANUAL = {sel: new Set(), res: []};
+function manEjemplo(q){ document.getElementById('manQ').value = q; buscarEcuManual(); }
+async function buscarEcuManual(){
+  const q = (document.getElementById('manQ').value || '').trim();
+  const box = document.getElementById('manRes');
+  if(q.length < 2){ box.innerHTML = `<div class="man-msg">Escribí al menos 2 letras.</div>`; return; }
+  box.innerHTML = `<div class="man-msg">Buscando…</div>`;
+  try{
+    const j = await (await fetch(API + '/api/ecu-database/buscar?q=' + encodeURIComponent(q))).json();
+    MANUAL.res = j.ecus || [];
+    if(!MANUAL.res.length){
+      box.innerHTML = `<div class="man-msg">No encontré ninguna ECU con «${esc(q)}».<br>
+        Probá con el modelo del ECM (EMS312X, SIRIUS34…) o con el sistema (injection, abs, airbag).</div>`;
+      return;
+    }
+    box.innerHTML = `<div class="man-msg">${MANUAL.res.length} resultado(s). Tocá las que quieras cargar:</div>
+      <div class="man-list">${MANUAL.res.map((e,i)=>`
+        <label class="man-it">
+          <input type="checkbox" value="${i}" onchange="manToggle(${i},this.checked)">
+          <div>
+            <div class="man-n">${esc(e.nombre)}</div>
+            <div class="man-m">${esc(e.grupo||'—')} · ${esc(e.protocolo||'')}${
+              e.proyectos && e.proyectos.length ? ' · ' + esc(e.proyectos.join(', ')) : ''}</div>
+          </div>
+        </label>`).join('')}</div>
+      <button class="ctl-run" style="margin-top:14px" onclick="cargarEcuManual()">Cargar las ECUs elegidas ▸</button>
+      <div id="manOut"></div>`;
+    MANUAL.sel.clear();
+  }catch(e){ box.innerHTML = `<div class="man-msg">Error al buscar.</div>`; }
+}
+function manToggle(i, on){ on ? MANUAL.sel.add(i) : MANUAL.sel.delete(i); }
+async function cargarEcuManual(){
+  if(!MANUAL.sel.size){ toast('Elegí al menos una ECU','err'); return; }
+  const archivos = [...MANUAL.sel].map(i => MANUAL.res[i].archivo);
+  const nombre = MANUAL.res[[...MANUAL.sel][0]].nombre.split('_')[0];
+  const out = document.getElementById('manOut');
+  out.innerHTML = `<div class="man-msg">Cargando…</div>`;
+  try{
+    const r = await fetch(API + '/api/ecu-database/cargar', {method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({archivos, vehiculo: 'Auto elegido a mano (' + nombre + ')'})});
+    const j = await r.json();
+    if(j.error){ out.innerHTML = `<div class="man-msg err">${esc(j.error)}</div>`; toast(j.error,'err'); return; }
+    out.innerHTML = `<div class="man-msg ok">✅ ${j.cargadas} ECU(s) cargadas: ${
+      (j.ecus||[]).map(e=>esc(e.nombre)).join(', ')}</div>`;
+    toast('✅ Auto cargado a mano','ok');
+    await refrescarPerfil();
+    setTimeout(()=>go('dash'), 900);
+  }catch(e){ out.innerHTML = `<div class="man-msg err">Error de conexión</div>`; }
+}
 
 async function renderVehiculos(){
   // Cargar lista de modelos disponibles

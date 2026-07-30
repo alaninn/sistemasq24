@@ -7,6 +7,26 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-30] — Elegir la ECU A MANO de la base (para autos que la autodetección no encuentra)
+
+El usuario probó una **Kangoo/Dokker** y el scanner no detectó la ECU del motor, aunque en
+DDT4All conecta bien eligiendo **EMS312X** de la lista. El problema de fondo: el scanner **no
+tenía forma de elegir una ECU a mano** — el selector de vehículos tiene 6 modelos hardcodeados
+(solo el Mégane II habilitado) y todo lo demás dependía de la autodetección.
+
+- **`SQ24Scanner.buscar_ecus(texto)`**: busca en las 3.945 ECUs del `ecu.zip` por nombre de
+  archivo, `ecuname`, grupo y proyectos.
+- **`GET /api/ecu-database/buscar?q=`** y **`POST /api/ecu-database/cargar`** (lista de archivos
+  → `Registry.load_detectado`, asignando slot/ícono por grupo con `_slot_para_grupo`).
+- **Frontend**: en la pantalla de selección de vehículo, caja **"¿Tu auto no está en la lista?"**
+  con buscador, ejemplos rápidos (EMS312X, injection, sirius, airbag), resultados con
+  grupo/protocolo/proyectos y carga de las ECUs elegidas.
+- Verificado: buscar `EMS312` encuentra `EMS312X_RDC_xxx_RDE_...` (Injection, CAN) y al cargarlo
+  queda como ECU `motor` en TX 7E0 / RX 7E8 con **3.166 sensores legibles**.
+
+Pendiente: saber POR QUÉ la autodetección no la encontró (hace falta el log de esa sesión, que no
+se subió — los logs del día son todos del F4R).
+
 ## [2026-07-30] — FIX: el informe de conducción salía SIN velocidad (y por eso sin análisis)
 
 Revisando los informes que subió el usuario (`conduccion_20260729_223241`,

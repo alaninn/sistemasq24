@@ -105,6 +105,42 @@ class SQ24Scanner:
         self._cargado = True
         return True
 
+    # ---------------------------------------------------------------- búsqueda manual
+    def buscar_ecus(self, texto, limite=60):
+        """Busca ECUs en la base por nombre de archivo / ecuname / grupo / proyecto.
+        Sirve para ELEGIR una ECU a mano cuando la autodetección no la encuentra (igual que
+        elegirla de la lista en ddt4all). Devuelve [{archivo, nombre, grupo, protocolo, proyectos}]."""
+        if not self.cargar_indice():
+            return []
+        q = (texto or "").strip().lower()
+        if not q:
+            return []
+        palabras = [p for p in q.replace("-", " ").replace("_", " ").split() if p]
+        vistos, out = set(), []
+        with zipfile.ZipFile(ZIP_PATH, "r") as zf:
+            db = json.loads(zf.read("db.json"))
+        for href, tv in db.items():
+            if href in vistos:
+                continue
+            grupo = tv.get("group", "") or ""
+            proyectos = tv.get("projects", []) or []
+            heno = " ".join([href, tv.get("ecuname", ""), grupo, " ".join(map(str, proyectos))]).lower()
+            heno = heno.replace("-", " ").replace("_", " ")
+            if not all(p in heno for p in palabras):
+                continue
+            vistos.add(href)
+            out.append({
+                "archivo": href,
+                "nombre": tv.get("ecuname", href).replace(".json", ""),
+                "grupo": grupo,
+                "protocolo": tv.get("protocol", ""),
+                "proyectos": [str(p) for p in proyectos][:8],
+            })
+            if len(out) >= limite:
+                break
+        out.sort(key=lambda e: e["nombre"].lower())
+        return out
+
     # ---------------------------------------------------------------- match
     def _match(self, diagversion, supplier, soft, version, addr, protocolos=("CAN",)):
         """Devuelve el mejor EcuIdent para una identificación leída, o None."""
