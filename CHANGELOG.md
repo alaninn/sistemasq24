@@ -7,6 +7,21 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-30] — FIX: el informe de conducción salía SIN velocidad (y por eso sin análisis)
+
+Revisando los informes que subió el usuario (`conduccion_20260729_223241`,
+`conduccion_20260730_000518`) apareció el bug: `vel_min/vel_max = None` y **0 bandas de
+velocidad** — o sea, el análisis por velocidad (el corazón del módulo) no funcionaba, aunque los
+75 sensores sí se grababan.
+- Causa: `_conduccion_setup()` tomaba el **primer** parámetro cuyo nombre contuviera "velocidad",
+  y en el F4R hay ~10 (botón del limitador, "velocidad solicitada", "velocidad inválida"…).
+  Además "Velocidad del vehículo" existe en DOS tramas (01 y DIV-RVLV) y agarraba la que **no se
+  captura**, así que la lectura siempre venía vacía.
+- Fix: se puntúan los candidatos descartando los que no son la velocidad real (solicitada,
+  botón, limitador, mostrada…) y **priorizando el que está en una trama que sí se captura**.
+  Verificado: ahora elige `Vitesse véhicule` de la Trame 01. Se loguea cuál eligió, para poder
+  auditarlo en el próximo log.
+
 ## [2026-07-29] — "Subir logs" ahora sube TODO log/ (informes incluidos) + limpia lo viejo
 
 - **Sube TODO lo que haya en `log/`** (no solo sesion/consola/reporte/ensayo): también los

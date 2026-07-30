@@ -689,15 +689,35 @@ def _conduccion_setup():
     perfil = estado.registro.perfil
     clave = chequeo.DATOS_CLAVE_OBD if perfil == "generico" else chequeo.DATOS_CLAVE_F4R
     params = motor.readable_params()
-    reqs, vel_et = [], None
+    reqs = []
     for p in params:
         if p.get("dato") in clave and p["request"] not in reqs:
             reqs.append(p["request"])
+    # Etiqueta de la VELOCIDAD (es el eje del informe de conducción). Hay ~10 parámetros con la
+    # palabra "velocidad" (botón del limitador, velocidad solicitada, "velocidad inválida"…) y
+    # quedarse con el primero daba un sensor que no se captura → el informe salía sin velocidad
+    # y sin bandas. Se prefiere el nombre EXACTO y se descartan los que no son la velocidad real.
+    EXACTOS = ("vitesse véhicule", "velocidad del vehículo", "velocidad del vehiculo",
+               "vehicle speed", "velocidad")
+    MALOS = ("solicitada", "botón", "boton", "bouton", "limitador", "regulador", "inválida",
+             "invalida", "mostrada", "desactivación", "desactivacion", "incoherente",
+             "consigna", "cible", "memorizada", "presente")
+    # Además, el mismo nombre puede existir en VARIAS tramas (ej. "Velocidad del vehículo" está
+    # en Trame 01 y también en Trame DIV-RVLV): hay que quedarse con el que esté en una trama
+    # que realmente se captura, si no el informe lee un sensor que nunca llega.
+    candidatos = []
     for p in params:
-        t = (p.get("dato", "") + " " + p.get("etiqueta", "")).lower()
-        if "vitesse" in t or "velocidad" in t:
-            vel_et = p["etiqueta"]
-            break
+        dato = (p.get("dato") or "").strip().lower()
+        et = (p.get("etiqueta") or "").strip().lower()
+        if any(m in dato or m in et for m in MALOS):
+            continue
+        if not ("vitesse" in dato or "velocidad" in et or "velocidad" in dato):
+            continue
+        puntos = (100 if p["request"] in reqs else 0) + (10 if (dato in EXACTOS or et in EXACTOS) else 0)
+        candidatos.append((puntos, p["etiqueta"]))
+    vel_et = max(candidatos)[1] if candidatos else None
+    slog.log("CONDUCCION", "Sensor de velocidad para el informe",
+             {"etiqueta": vel_et, "requests": len(reqs)})
     return motor, reqs, vel_et
 
 
