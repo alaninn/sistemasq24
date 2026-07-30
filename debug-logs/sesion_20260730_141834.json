@@ -1,0 +1,2481 @@
+{
+ "nombre": "sesion_20260730_141834",
+ "eventos": [
+  {
+   "t": "14:18:34.053",
+   "seg": 0.0,
+   "tipo": "SESION",
+   "mensaje": "Inicio de grabación",
+   "detalle": {
+    "modo": "real",
+    "puerto": "COM3",
+    "conectado": true
+   }
+  },
+  {
+   "t": "14:18:34.056",
+   "seg": 0.0,
+   "tipo": "EQUIPO",
+   "mensaje": "Información del equipo",
+   "detalle": {
+    "sistema": "Windows 10",
+    "version": "10.0.26200",
+    "maquina": "AMD64",
+    "python": "3.11.9",
+    "nodo": "omar",
+    "fecha": "2026-07-30 14:18:34"
+   }
+  },
+  {
+   "t": "14:29:01.647",
+   "seg": 627.59,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.6
+   }
+  },
+  {
+   "t": "14:29:07.206",
+   "seg": 633.15,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3169.2
+   }
+  },
+  {
+   "t": "14:29:12.781",
+   "seg": 638.73,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.4
+   }
+  },
+  {
+   "t": "14:29:18.339",
+   "seg": 644.29,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3154.0
+   }
+  },
+  {
+   "t": "14:29:23.914",
+   "seg": 649.86,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.4
+   }
+  },
+  {
+   "t": "14:29:29.456",
+   "seg": 655.4,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.2
+   }
+  },
+  {
+   "t": "14:29:35.047",
+   "seg": 660.99,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.8
+   }
+  },
+  {
+   "t": "14:29:40.621",
+   "seg": 666.57,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3173.8
+   }
+  },
+  {
+   "t": "14:29:46.212",
+   "seg": 672.16,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3160.7
+   }
+  },
+  {
+   "t": "14:29:51.802",
+   "seg": 677.75,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.3
+   }
+  },
+  {
+   "t": "14:29:57.375",
+   "seg": 683.32,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.3
+   }
+  },
+  {
+   "t": "14:30:02.917",
+   "seg": 688.86,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3156.2
+   }
+  },
+  {
+   "t": "14:30:08.493",
+   "seg": 694.44,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3165.2
+   }
+  },
+  {
+   "t": "14:30:14.067",
+   "seg": 700.01,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.3
+   }
+  },
+  {
+   "t": "14:30:19.689",
+   "seg": 705.64,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3160.0
+   }
+  },
+  {
+   "t": "14:30:25.264",
+   "seg": 711.21,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3168.9
+   }
+  },
+  {
+   "t": "14:30:30.839",
+   "seg": 716.79,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.5
+   }
+  },
+  {
+   "t": "14:30:36.413",
+   "seg": 722.36,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3157.4
+   }
+  },
+  {
+   "t": "14:30:42.003",
+   "seg": 727.95,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3157.4
+   }
+  },
+  {
+   "t": "14:30:47.546",
+   "seg": 733.49,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3154.8
+   }
+  },
+  {
+   "t": "14:30:53.120",
+   "seg": 739.07,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3164.8
+   }
+  },
+  {
+   "t": "14:30:58.695",
+   "seg": 744.64,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3152.4
+   }
+  },
+  {
+   "t": "14:31:04.237",
+   "seg": 750.18,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3161.8
+   }
+  },
+  {
+   "t": "14:31:09.829",
+   "seg": 755.78,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.1
+   }
+  },
+  {
+   "t": "14:31:15.386",
+   "seg": 761.33,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.2
+   }
+  },
+  {
+   "t": "14:31:20.945",
+   "seg": 766.89,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.0
+   }
+  },
+  {
+   "t": "14:31:26.503",
+   "seg": 772.45,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3160.5
+   }
+  },
+  {
+   "t": "14:31:32.078",
+   "seg": 778.02,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.5
+   }
+  },
+  {
+   "t": "14:31:37.620",
+   "seg": 783.57,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.7
+   }
+  },
+  {
+   "t": "14:31:43.178",
+   "seg": 789.13,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3159.8
+   }
+  },
+  {
+   "t": "14:31:48.769",
+   "seg": 794.72,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.0
+   }
+  },
+  {
+   "t": "14:31:54.344",
+   "seg": 800.29,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3159.7
+   }
+  },
+  {
+   "t": "14:31:59.918",
+   "seg": 805.86,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.8
+   }
+  },
+  {
+   "t": "14:32:05.493",
+   "seg": 811.44,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.2
+   }
+  },
+  {
+   "t": "14:32:11.066",
+   "seg": 817.01,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3151.0
+   }
+  },
+  {
+   "t": "14:32:16.593",
+   "seg": 822.54,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3157.9
+   }
+  },
+  {
+   "t": "14:32:22.167",
+   "seg": 828.11,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.0
+   }
+  },
+  {
+   "t": "14:32:27.742",
+   "seg": 833.69,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3159.9
+   }
+  },
+  {
+   "t": "14:32:33.302",
+   "seg": 839.25,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.8
+   }
+  },
+  {
+   "t": "14:32:38.876",
+   "seg": 844.82,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.7
+   }
+  },
+  {
+   "t": "14:32:44.466",
+   "seg": 850.41,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.4
+   }
+  },
+  {
+   "t": "14:32:50.040",
+   "seg": 855.99,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3160.6
+   }
+  },
+  {
+   "t": "14:32:55.646",
+   "seg": 861.59,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.2
+   }
+  },
+  {
+   "t": "14:33:01.188",
+   "seg": 867.13,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3158.0
+   }
+  },
+  {
+   "t": "14:33:06.781",
+   "seg": 872.73,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.2
+   }
+  },
+  {
+   "t": "14:33:12.354",
+   "seg": 878.3,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.0
+   }
+  },
+  {
+   "t": "14:33:17.960",
+   "seg": 883.91,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3170.2
+   }
+  },
+  {
+   "t": "14:33:23.519",
+   "seg": 889.47,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3157.9
+   }
+  },
+  {
+   "t": "14:33:29.094",
+   "seg": 895.04,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.7
+   }
+  },
+  {
+   "t": "14:33:34.667",
+   "seg": 900.61,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.7
+   }
+  },
+  {
+   "t": "14:33:40.211",
+   "seg": 906.16,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3165.0
+   }
+  },
+  {
+   "t": "14:33:45.786",
+   "seg": 911.73,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3160.6
+   }
+  },
+  {
+   "t": "14:33:51.376",
+   "seg": 917.32,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3169.0
+   }
+  },
+  {
+   "t": "14:33:56.934",
+   "seg": 922.88,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.2
+   }
+  },
+  {
+   "t": "14:34:02.509",
+   "seg": 928.46,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.4
+   }
+  },
+  {
+   "t": "14:34:08.082",
+   "seg": 934.03,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3159.7
+   }
+  },
+  {
+   "t": "14:34:13.657",
+   "seg": 939.6,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3168.5
+   }
+  },
+  {
+   "t": "14:34:19.231",
+   "seg": 945.18,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.5
+   }
+  },
+  {
+   "t": "14:34:24.806",
+   "seg": 950.75,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3168.6
+   }
+  },
+  {
+   "t": "14:34:30.363",
+   "seg": 956.31,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.3
+   }
+  },
+  {
+   "t": "14:34:35.939",
+   "seg": 961.89,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3169.7
+   }
+  },
+  {
+   "t": "14:34:41.513",
+   "seg": 967.46,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.2
+   }
+  },
+  {
+   "t": "14:34:47.088",
+   "seg": 973.03,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3169.0
+   }
+  },
+  {
+   "t": "14:34:52.662",
+   "seg": 978.61,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.3
+   }
+  },
+  {
+   "t": "14:34:58.220",
+   "seg": 984.17,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3170.7
+   }
+  },
+  {
+   "t": "14:35:03.795",
+   "seg": 989.74,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.8
+   }
+  },
+  {
+   "t": "14:35:09.401",
+   "seg": 995.35,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.5
+   }
+  },
+  {
+   "t": "14:35:14.975",
+   "seg": 1000.92,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.1
+   }
+  },
+  {
+   "t": "14:35:20.551",
+   "seg": 1006.5,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3172.7
+   }
+  },
+  {
+   "t": "14:35:26.109",
+   "seg": 1012.06,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.9
+   }
+  },
+  {
+   "t": "14:35:31.651",
+   "seg": 1017.6,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3154.9
+   }
+  },
+  {
+   "t": "14:35:37.242",
+   "seg": 1023.19,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3159.8
+   }
+  },
+  {
+   "t": "14:35:42.799",
+   "seg": 1028.75,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3170.4
+   }
+  },
+  {
+   "t": "14:35:48.391",
+   "seg": 1034.34,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.4
+   }
+  },
+  {
+   "t": "14:35:53.981",
+   "seg": 1039.93,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3156.9
+   }
+  },
+  {
+   "t": "14:35:59.555",
+   "seg": 1045.5,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.6
+   }
+  },
+  {
+   "t": "14:36:05.130",
+   "seg": 1051.08,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.2
+   }
+  },
+  {
+   "t": "14:36:10.720",
+   "seg": 1056.67,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3161.5
+   }
+  },
+  {
+   "t": "14:36:16.294",
+   "seg": 1062.24,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3165.1
+   }
+  },
+  {
+   "t": "14:36:21.854",
+   "seg": 1067.8,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.3
+   }
+  },
+  {
+   "t": "14:36:27.460",
+   "seg": 1073.41,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3170.9
+   }
+  },
+  {
+   "t": "14:36:33.034",
+   "seg": 1078.98,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3165.5
+   }
+  },
+  {
+   "t": "14:36:38.593",
+   "seg": 1084.54,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.2
+   }
+  },
+  {
+   "t": "14:36:44.151",
+   "seg": 1090.1,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3176.1
+   }
+  },
+  {
+   "t": "14:36:49.726",
+   "seg": 1095.67,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3154.1
+   }
+  },
+  {
+   "t": "14:36:55.300",
+   "seg": 1101.25,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.6
+   }
+  },
+  {
+   "t": "14:37:00.890",
+   "seg": 1106.84,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3168.2
+   }
+  },
+  {
+   "t": "14:37:06.465",
+   "seg": 1112.41,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3163.0
+   }
+  },
+  {
+   "t": "14:37:12.055",
+   "seg": 1118.0,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3168.1
+   }
+  },
+  {
+   "t": "14:37:17.614",
+   "seg": 1123.56,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3179.8
+   }
+  },
+  {
+   "t": "14:37:23.156",
+   "seg": 1129.1,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3168.9
+   }
+  },
+  {
+   "t": "14:37:28.730",
+   "seg": 1134.68,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.2
+   }
+  },
+  {
+   "t": "14:37:34.305",
+   "seg": 1140.25,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.7
+   }
+  },
+  {
+   "t": "14:37:39.895",
+   "seg": 1145.84,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3164.6
+   }
+  },
+  {
+   "t": "14:37:45.471",
+   "seg": 1151.42,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.6
+   }
+  },
+  {
+   "t": "14:37:51.028",
+   "seg": 1156.97,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.8
+   }
+  },
+  {
+   "t": "14:37:56.635",
+   "seg": 1162.58,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.4
+   }
+  },
+  {
+   "t": "14:38:02.193",
+   "seg": 1168.14,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.4
+   }
+  },
+  {
+   "t": "14:38:07.785",
+   "seg": 1173.73,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3156.2
+   }
+  },
+  {
+   "t": "14:38:13.374",
+   "seg": 1179.32,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3178.2
+   }
+  },
+  {
+   "t": "14:38:18.965",
+   "seg": 1184.91,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.9
+   }
+  },
+  {
+   "t": "14:38:24.555",
+   "seg": 1190.5,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3174.6
+   }
+  },
+  {
+   "t": "14:38:30.146",
+   "seg": 1196.09,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3170.7
+   }
+  },
+  {
+   "t": "14:38:35.706",
+   "seg": 1201.65,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3159.9
+   }
+  },
+  {
+   "t": "14:38:41.294",
+   "seg": 1207.24,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.3
+   }
+  },
+  {
+   "t": "14:38:46.869",
+   "seg": 1212.82,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3158.7
+   }
+  },
+  {
+   "t": "14:38:52.475",
+   "seg": 1218.42,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.0
+   }
+  },
+  {
+   "t": "14:38:58.065",
+   "seg": 1224.01,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.7
+   }
+  },
+  {
+   "t": "14:39:03.656",
+   "seg": 1229.6,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.2
+   }
+  },
+  {
+   "t": "14:39:09.246",
+   "seg": 1235.19,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3157.6
+   }
+  },
+  {
+   "t": "14:39:14.838",
+   "seg": 1240.78,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.7
+   }
+  },
+  {
+   "t": "14:39:20.411",
+   "seg": 1246.36,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3170.6
+   }
+  },
+  {
+   "t": "14:39:25.986",
+   "seg": 1251.93,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3161.9
+   }
+  },
+  {
+   "t": "14:39:31.528",
+   "seg": 1257.47,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3156.7
+   }
+  },
+  {
+   "t": "14:39:37.103",
+   "seg": 1263.05,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3165.8
+   }
+  },
+  {
+   "t": "14:39:42.693",
+   "seg": 1268.64,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3172.4
+   }
+  },
+  {
+   "t": "14:39:48.300",
+   "seg": 1274.25,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.7
+   }
+  },
+  {
+   "t": "14:39:53.889",
+   "seg": 1279.84,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3165.9
+   }
+  },
+  {
+   "t": "14:39:59.496",
+   "seg": 1285.44,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3177.8
+   }
+  },
+  {
+   "t": "14:40:05.055",
+   "seg": 1291.0,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3171.5
+   }
+  },
+  {
+   "t": "14:40:10.647",
+   "seg": 1296.59,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.3
+   }
+  },
+  {
+   "t": "14:40:16.203",
+   "seg": 1302.15,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3157.1
+   }
+  },
+  {
+   "t": "14:40:21.778",
+   "seg": 1307.73,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3166.9
+   }
+  },
+  {
+   "t": "14:40:27.369",
+   "seg": 1313.32,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3165.2
+   }
+  },
+  {
+   "t": "14:40:32.911",
+   "seg": 1318.86,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3164.6
+   }
+  },
+  {
+   "t": "14:40:38.486",
+   "seg": 1324.43,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3159.6
+   }
+  },
+  {
+   "t": "14:40:44.061",
+   "seg": 1330.01,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3167.1
+   }
+  },
+  {
+   "t": "14:40:49.635",
+   "seg": 1335.58,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3155.2
+   }
+  },
+  {
+   "t": "14:40:55.209",
+   "seg": 1341.16,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3162.7
+   }
+  },
+  {
+   "t": "14:41:00.625",
+   "seg": 1346.57,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.0
+   }
+  },
+  {
+   "t": "14:41:06.039",
+   "seg": 1351.99,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3011.2
+   }
+  },
+  {
+   "t": "14:41:11.469",
+   "seg": 1357.42,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3011.2
+   }
+  },
+  {
+   "t": "14:41:16.932",
+   "seg": 1362.88,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.1
+   }
+  },
+  {
+   "t": "14:41:22.346",
+   "seg": 1368.29,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.1
+   }
+  },
+  {
+   "t": "14:41:27.794",
+   "seg": 1373.74,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3017.4
+   }
+  },
+  {
+   "t": "14:41:33.225",
+   "seg": 1379.17,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3015.1
+   }
+  },
+  {
+   "t": "14:41:38.653",
+   "seg": 1384.6,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.9
+   }
+  },
+  {
+   "t": "14:41:44.086",
+   "seg": 1390.03,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3011.9
+   }
+  },
+  {
+   "t": "14:41:49.515",
+   "seg": 1395.46,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3008.8
+   }
+  },
+  {
+   "t": "14:41:54.930",
+   "seg": 1400.88,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.1
+   }
+  },
+  {
+   "t": "14:42:00.361",
+   "seg": 1406.31,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3008.3
+   }
+  },
+  {
+   "t": "14:42:05.792",
+   "seg": 1411.74,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.9
+   }
+  },
+  {
+   "t": "14:42:11.208",
+   "seg": 1417.15,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3020.4
+   }
+  },
+  {
+   "t": "14:42:16.637",
+   "seg": 1422.58,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.3
+   }
+  },
+  {
+   "t": "14:42:22.072",
+   "seg": 1428.02,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3020.9
+   }
+  },
+  {
+   "t": "14:42:27.499",
+   "seg": 1433.45,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3014.8
+   }
+  },
+  {
+   "t": "14:42:32.945",
+   "seg": 1438.89,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3010.8
+   }
+  },
+  {
+   "t": "14:42:38.377",
+   "seg": 1444.32,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.8
+   }
+  },
+  {
+   "t": "14:42:43.774",
+   "seg": 1449.72,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.6
+   }
+  },
+  {
+   "t": "14:42:49.206",
+   "seg": 1455.15,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.9
+   }
+  },
+  {
+   "t": "14:42:54.621",
+   "seg": 1460.57,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.1
+   }
+  },
+  {
+   "t": "14:43:00.052",
+   "seg": 1466.0,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3020.1
+   }
+  },
+  {
+   "t": "14:43:05.466",
+   "seg": 1471.41,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3013.7
+   }
+  },
+  {
+   "t": "14:43:10.897",
+   "seg": 1476.84,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.4
+   }
+  },
+  {
+   "t": "14:43:16.312",
+   "seg": 1482.26,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3016.5
+   }
+  },
+  {
+   "t": "14:43:21.758",
+   "seg": 1487.7,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3011.5
+   }
+  },
+  {
+   "t": "14:43:27.189",
+   "seg": 1493.14,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3010.8
+   }
+  },
+  {
+   "t": "14:43:32.572",
+   "seg": 1498.52,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3011.1
+   }
+  },
+  {
+   "t": "14:43:38.018",
+   "seg": 1503.96,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3010.4
+   }
+  },
+  {
+   "t": "14:43:43.449",
+   "seg": 1509.4,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.4
+   }
+  },
+  {
+   "t": "14:43:48.880",
+   "seg": 1514.83,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3017.8
+   }
+  },
+  {
+   "t": "14:43:54.278",
+   "seg": 1520.22,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.5
+   }
+  },
+  {
+   "t": "14:43:59.709",
+   "seg": 1525.66,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.1
+   }
+  },
+  {
+   "t": "14:44:05.124",
+   "seg": 1531.07,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3015.8
+   }
+  },
+  {
+   "t": "14:44:10.538",
+   "seg": 1536.48,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3014.2
+   }
+  },
+  {
+   "t": "14:44:17.959",
+   "seg": 1543.91,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "!LP ALERT TIMEOUT ",
+    "ms": 5001.7
+   }
+  },
+  {
+   "t": "14:44:21.385",
+   "seg": 1547.33,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "ELM327 v2.1 ",
+    "ms": 1015.5
+   }
+  },
+  {
+   "t": "14:44:26.816",
+   "seg": 1552.76,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3008.8
+   }
+  },
+  {
+   "t": "14:44:32.231",
+   "seg": 1558.18,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3007.9
+   }
+  },
+  {
+   "t": "14:44:37.647",
+   "seg": 1563.59,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3009.9
+   }
+  },
+  {
+   "t": "14:44:43.076",
+   "seg": 1569.02,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3020.6
+   }
+  },
+  {
+   "t": "14:44:48.505",
+   "seg": 1574.45,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3021.0
+   }
+  },
+  {
+   "t": "14:44:53.937",
+   "seg": 1579.88,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3014.1
+   }
+  },
+  {
+   "t": "14:44:59.350",
+   "seg": 1585.3,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3016.3
+   }
+  },
+  {
+   "t": "14:45:04.782",
+   "seg": 1590.73,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3013.5
+   }
+  },
+  {
+   "t": "14:45:10.213",
+   "seg": 1596.16,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.6
+   }
+  },
+  {
+   "t": "14:45:15.658",
+   "seg": 1601.6,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3021.0
+   }
+  },
+  {
+   "t": "14:45:21.073",
+   "seg": 1607.02,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3009.3
+   }
+  },
+  {
+   "t": "14:45:26.489",
+   "seg": 1612.44,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3007.5
+   }
+  },
+  {
+   "t": "14:45:31.921",
+   "seg": 1617.87,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3018.6
+   }
+  },
+  {
+   "t": "14:45:37.333",
+   "seg": 1623.28,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3015.7
+   }
+  },
+  {
+   "t": "14:45:42.781",
+   "seg": 1628.73,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.0
+   }
+  },
+  {
+   "t": "14:45:48.181",
+   "seg": 1634.13,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3017.5
+   }
+  },
+  {
+   "t": "14:45:53.611",
+   "seg": 1639.56,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.4
+   }
+  },
+  {
+   "t": "14:45:59.042",
+   "seg": 1644.99,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.6
+   }
+  },
+  {
+   "t": "14:46:04.472",
+   "seg": 1650.42,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3008.3
+   }
+  },
+  {
+   "t": "14:46:09.902",
+   "seg": 1655.85,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3009.4
+   }
+  },
+  {
+   "t": "14:46:15.334",
+   "seg": 1661.28,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3022.3
+   }
+  },
+  {
+   "t": "14:46:20.795",
+   "seg": 1666.74,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.1
+   }
+  },
+  {
+   "t": "14:46:26.227",
+   "seg": 1672.17,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3016.5
+   }
+  },
+  {
+   "t": "14:46:31.657",
+   "seg": 1677.6,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3015.8
+   }
+  },
+  {
+   "t": "14:46:37.104",
+   "seg": 1683.05,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.9
+   }
+  },
+  {
+   "t": "14:46:42.535",
+   "seg": 1688.48,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.0
+   }
+  },
+  {
+   "t": "14:46:47.948",
+   "seg": 1693.9,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3007.8
+   }
+  },
+  {
+   "t": "14:46:53.380",
+   "seg": 1699.33,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.3
+   }
+  },
+  {
+   "t": "14:46:58.844",
+   "seg": 1704.79,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3016.7
+   }
+  },
+  {
+   "t": "14:47:04.274",
+   "seg": 1710.22,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3015.9
+   }
+  },
+  {
+   "t": "14:47:09.671",
+   "seg": 1715.62,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3016.5
+   }
+  },
+  {
+   "t": "14:47:15.119",
+   "seg": 1721.07,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3013.4
+   }
+  },
+  {
+   "t": "14:47:20.517",
+   "seg": 1726.46,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3011.4
+   }
+  },
+  {
+   "t": "14:47:25.948",
+   "seg": 1731.89,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3010.9
+   }
+  },
+  {
+   "t": "14:47:31.378",
+   "seg": 1737.32,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3010.2
+   }
+  },
+  {
+   "t": "14:47:36.809",
+   "seg": 1742.76,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3021.5
+   }
+  },
+  {
+   "t": "14:47:44.226",
+   "seg": 1750.17,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "!LP ALERT TIMEOUT ",
+    "ms": 5004.6
+   }
+  },
+  {
+   "t": "14:47:47.623",
+   "seg": 1753.57,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "ELM327 v2.1 ",
+    "ms": 1006.3
+   }
+  },
+  {
+   "t": "14:47:53.055",
+   "seg": 1759.0,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3020.9
+   }
+  },
+  {
+   "t": "14:47:58.484",
+   "seg": 1764.43,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.2
+   }
+  },
+  {
+   "t": "14:48:03.899",
+   "seg": 1769.85,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3011.3
+   }
+  },
+  {
+   "t": "14:48:09.329",
+   "seg": 1775.28,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3015.7
+   }
+  },
+  {
+   "t": "14:48:14.746",
+   "seg": 1780.69,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.5
+   }
+  },
+  {
+   "t": "14:48:20.176",
+   "seg": 1786.12,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3012.2
+   }
+  },
+  {
+   "t": "14:48:25.606",
+   "seg": 1791.55,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3006.4
+   }
+  },
+  {
+   "t": "14:48:31.125",
+   "seg": 1797.07,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3090.6
+   }
+  },
+  {
+   "t": "14:48:36.516",
+   "seg": 1802.46,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3007.1
+   }
+  },
+  {
+   "t": "14:48:41.930",
+   "seg": 1807.88,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3010.5
+   }
+  },
+  {
+   "t": "14:48:47.378",
+   "seg": 1813.32,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3020.3
+   }
+  },
+  {
+   "t": "14:48:52.792",
+   "seg": 1818.74,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ERROR ",
+    "ms": 3019.5
+   }
+  },
+  {
+   "t": "14:49:10.718",
+   "seg": 1836.66,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: ETIMEOUT ",
+    "ms": 15527.6
+   }
+  },
+  {
+   "t": "14:49:13.222",
+   "seg": 1839.17,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "",
+    "ms": 1.3
+   }
+  },
+  {
+   "t": "15:25:40.268",
+   "seg": 4026.21,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "BUS INIT: TIMEOUT ",
+    "ms": 2184625.7
+   }
+  },
+  {
+   "t": "15:25:42.720",
+   "seg": 4028.67,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "",
+    "ms": 1.3
+   }
+  },
+  {
+   "t": "15:25:45.137",
+   "seg": 4031.08,
+   "tipo": "ELM",
+   "mensaje": "keep-alive",
+   "detalle": {
+    "envio": "3E00",
+    "respuesta": "!LP ALERT ELM327 v2.1 ",
+    "ms": 0.0
+   }
+  },
+  {
+   "t": "15:25:46.801",
+   "seg": 4032.75,
+   "tipo": "SESION",
+   "mensaje": "Fin de grabación",
+   "detalle": {
+    "eventos": 224
+   }
+  }
+ ]
+}
