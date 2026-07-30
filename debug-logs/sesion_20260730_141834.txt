@@ -1,0 +1,908 @@
+==================================================================
+  GRABACIÓN DE SESIÓN — SISTEMASQ24
+  sesion_20260730_141834
+==================================================================
+
+[14:18:34.053] (+   0.0s) SESION   Inicio de grabación
+           · modo: real
+           · puerto: COM3
+           · conectado: True
+
+[14:18:34.056] (+   0.0s) EQUIPO   Información del equipo
+           · sistema: Windows 10
+           · version: 10.0.26200
+           · maquina: AMD64
+           · python: 3.11.9
+           · nodo: omar
+           · fecha: 2026-07-30 14:18:34
+
+[14:29:01.647] (+627.59s) ELM      keep-alive
+           → envío:     3E00  (3162.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:07.206] (+633.15s) ELM      keep-alive
+           → envío:     3E00  (3169.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:12.781] (+638.73s) ELM      keep-alive
+           → envío:     3E00  (3163.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:18.339] (+644.29s) ELM      keep-alive
+           → envío:     3E00  (3154.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:23.914] (+649.86s) ELM      keep-alive
+           → envío:     3E00  (3166.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:29.456] (+ 655.4s) ELM      keep-alive
+           → envío:     3E00  (3155.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:35.047] (+660.99s) ELM      keep-alive
+           → envío:     3E00  (3166.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:40.621] (+666.57s) ELM      keep-alive
+           → envío:     3E00  (3173.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:46.212] (+672.16s) ELM      keep-alive
+           → envío:     3E00  (3160.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:51.802] (+677.75s) ELM      keep-alive
+           → envío:     3E00  (3171.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:29:57.375] (+683.32s) ELM      keep-alive
+           → envío:     3E00  (3162.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:02.917] (+688.86s) ELM      keep-alive
+           → envío:     3E00  (3156.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:08.493] (+694.44s) ELM      keep-alive
+           → envío:     3E00  (3165.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:14.067] (+700.01s) ELM      keep-alive
+           → envío:     3E00  (3171.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:19.689] (+705.64s) ELM      keep-alive
+           → envío:     3E00  (3160.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:25.264] (+711.21s) ELM      keep-alive
+           → envío:     3E00  (3168.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:30.839] (+716.79s) ELM      keep-alive
+           → envío:     3E00  (3163.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:36.413] (+722.36s) ELM      keep-alive
+           → envío:     3E00  (3157.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:42.003] (+727.95s) ELM      keep-alive
+           → envío:     3E00  (3157.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:47.546] (+733.49s) ELM      keep-alive
+           → envío:     3E00  (3154.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:53.120] (+739.07s) ELM      keep-alive
+           → envío:     3E00  (3164.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:30:58.695] (+744.64s) ELM      keep-alive
+           → envío:     3E00  (3152.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:04.237] (+750.18s) ELM      keep-alive
+           → envío:     3E00  (3161.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:09.829] (+755.78s) ELM      keep-alive
+           → envío:     3E00  (3171.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:15.386] (+761.33s) ELM      keep-alive
+           → envío:     3E00  (3163.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:20.945] (+766.89s) ELM      keep-alive
+           → envío:     3E00  (3155.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:26.503] (+772.45s) ELM      keep-alive
+           → envío:     3E00  (3160.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:32.078] (+778.02s) ELM      keep-alive
+           → envío:     3E00  (3155.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:37.620] (+783.57s) ELM      keep-alive
+           → envío:     3E00  (3167.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:43.178] (+789.13s) ELM      keep-alive
+           → envío:     3E00  (3159.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:48.769] (+794.72s) ELM      keep-alive
+           → envío:     3E00  (3166.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:54.344] (+800.29s) ELM      keep-alive
+           → envío:     3E00  (3159.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:31:59.918] (+805.86s) ELM      keep-alive
+           → envío:     3E00  (3167.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:05.493] (+811.44s) ELM      keep-alive
+           → envío:     3E00  (3155.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:11.066] (+817.01s) ELM      keep-alive
+           → envío:     3E00  (3151.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:16.593] (+822.54s) ELM      keep-alive
+           → envío:     3E00  (3157.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:22.167] (+828.11s) ELM      keep-alive
+           → envío:     3E00  (3155.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:27.742] (+833.69s) ELM      keep-alive
+           → envío:     3E00  (3159.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:33.302] (+839.25s) ELM      keep-alive
+           → envío:     3E00  (3155.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:38.876] (+844.82s) ELM      keep-alive
+           → envío:     3E00  (3163.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:44.466] (+850.41s) ELM      keep-alive
+           → envío:     3E00  (3166.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:50.040] (+855.99s) ELM      keep-alive
+           → envío:     3E00  (3160.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:32:55.646] (+861.59s) ELM      keep-alive
+           → envío:     3E00  (3166.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:01.188] (+867.13s) ELM      keep-alive
+           → envío:     3E00  (3158.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:06.781] (+872.73s) ELM      keep-alive
+           → envío:     3E00  (3166.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:12.354] (+ 878.3s) ELM      keep-alive
+           → envío:     3E00  (3163.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:17.960] (+883.91s) ELM      keep-alive
+           → envío:     3E00  (3170.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:23.519] (+889.47s) ELM      keep-alive
+           → envío:     3E00  (3157.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:29.094] (+895.04s) ELM      keep-alive
+           → envío:     3E00  (3171.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:34.667] (+900.61s) ELM      keep-alive
+           → envío:     3E00  (3162.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:40.211] (+906.16s) ELM      keep-alive
+           → envío:     3E00  (3165.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:45.786] (+911.73s) ELM      keep-alive
+           → envío:     3E00  (3160.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:51.376] (+917.32s) ELM      keep-alive
+           → envío:     3E00  (3169.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:33:56.934] (+922.88s) ELM      keep-alive
+           → envío:     3E00  (3163.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:02.509] (+928.46s) ELM      keep-alive
+           → envío:     3E00  (3171.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:08.082] (+934.03s) ELM      keep-alive
+           → envío:     3E00  (3159.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:13.657] (+ 939.6s) ELM      keep-alive
+           → envío:     3E00  (3168.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:19.231] (+945.18s) ELM      keep-alive
+           → envío:     3E00  (3163.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:24.806] (+950.75s) ELM      keep-alive
+           → envío:     3E00  (3168.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:30.363] (+956.31s) ELM      keep-alive
+           → envío:     3E00  (3162.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:35.939] (+961.89s) ELM      keep-alive
+           → envío:     3E00  (3169.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:41.513] (+967.46s) ELM      keep-alive
+           → envío:     3E00  (3163.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:47.088] (+973.03s) ELM      keep-alive
+           → envío:     3E00  (3169.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:52.662] (+978.61s) ELM      keep-alive
+           → envío:     3E00  (3163.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:34:58.220] (+984.17s) ELM      keep-alive
+           → envío:     3E00  (3170.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:03.795] (+989.74s) ELM      keep-alive
+           → envío:     3E00  (3162.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:09.401] (+995.35s) ELM      keep-alive
+           → envío:     3E00  (3171.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:14.975] (+1000.92s) ELM      keep-alive
+           → envío:     3E00  (3162.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:20.551] (+1006.5s) ELM      keep-alive
+           → envío:     3E00  (3172.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:26.109] (+1012.06s) ELM      keep-alive
+           → envío:     3E00  (3163.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:31.651] (+1017.6s) ELM      keep-alive
+           → envío:     3E00  (3154.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:37.242] (+1023.19s) ELM      keep-alive
+           → envío:     3E00  (3159.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:42.799] (+1028.75s) ELM      keep-alive
+           → envío:     3E00  (3170.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:48.391] (+1034.34s) ELM      keep-alive
+           → envío:     3E00  (3166.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:53.981] (+1039.93s) ELM      keep-alive
+           → envío:     3E00  (3156.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:35:59.555] (+1045.5s) ELM      keep-alive
+           → envío:     3E00  (3163.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:05.130] (+1051.08s) ELM      keep-alive
+           → envío:     3E00  (3167.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:10.720] (+1056.67s) ELM      keep-alive
+           → envío:     3E00  (3161.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:16.294] (+1062.24s) ELM      keep-alive
+           → envío:     3E00  (3165.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:21.854] (+1067.8s) ELM      keep-alive
+           → envío:     3E00  (3163.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:27.460] (+1073.41s) ELM      keep-alive
+           → envío:     3E00  (3170.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:33.034] (+1078.98s) ELM      keep-alive
+           → envío:     3E00  (3165.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:38.593] (+1084.54s) ELM      keep-alive
+           → envío:     3E00  (3167.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:44.151] (+1090.1s) ELM      keep-alive
+           → envío:     3E00  (3176.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:49.726] (+1095.67s) ELM      keep-alive
+           → envío:     3E00  (3154.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:36:55.300] (+1101.25s) ELM      keep-alive
+           → envío:     3E00  (3166.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:00.890] (+1106.84s) ELM      keep-alive
+           → envío:     3E00  (3168.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:06.465] (+1112.41s) ELM      keep-alive
+           → envío:     3E00  (3163.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:12.055] (+1118.0s) ELM      keep-alive
+           → envío:     3E00  (3168.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:17.614] (+1123.56s) ELM      keep-alive
+           → envío:     3E00  (3179.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:23.156] (+1129.1s) ELM      keep-alive
+           → envío:     3E00  (3168.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:28.730] (+1134.68s) ELM      keep-alive
+           → envío:     3E00  (3162.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:34.305] (+1140.25s) ELM      keep-alive
+           → envío:     3E00  (3155.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:39.895] (+1145.84s) ELM      keep-alive
+           → envío:     3E00  (3164.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:45.471] (+1151.42s) ELM      keep-alive
+           → envío:     3E00  (3171.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:51.028] (+1156.97s) ELM      keep-alive
+           → envío:     3E00  (3162.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:37:56.635] (+1162.58s) ELM      keep-alive
+           → envío:     3E00  (3171.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:02.193] (+1168.14s) ELM      keep-alive
+           → envío:     3E00  (3162.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:07.785] (+1173.73s) ELM      keep-alive
+           → envío:     3E00  (3156.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:13.374] (+1179.32s) ELM      keep-alive
+           → envío:     3E00  (3178.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:18.965] (+1184.91s) ELM      keep-alive
+           → envío:     3E00  (3155.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:24.555] (+1190.5s) ELM      keep-alive
+           → envío:     3E00  (3174.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:30.146] (+1196.09s) ELM      keep-alive
+           → envío:     3E00  (3170.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:35.706] (+1201.65s) ELM      keep-alive
+           → envío:     3E00  (3159.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:41.294] (+1207.24s) ELM      keep-alive
+           → envío:     3E00  (3166.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:46.869] (+1212.82s) ELM      keep-alive
+           → envío:     3E00  (3158.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:52.475] (+1218.42s) ELM      keep-alive
+           → envío:     3E00  (3167.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:38:58.065] (+1224.01s) ELM      keep-alive
+           → envío:     3E00  (3171.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:03.656] (+1229.6s) ELM      keep-alive
+           → envío:     3E00  (3166.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:09.246] (+1235.19s) ELM      keep-alive
+           → envío:     3E00  (3157.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:14.838] (+1240.78s) ELM      keep-alive
+           → envío:     3E00  (3167.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:20.411] (+1246.36s) ELM      keep-alive
+           → envío:     3E00  (3170.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:25.986] (+1251.93s) ELM      keep-alive
+           → envío:     3E00  (3161.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:31.528] (+1257.47s) ELM      keep-alive
+           → envío:     3E00  (3156.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:37.103] (+1263.05s) ELM      keep-alive
+           → envío:     3E00  (3165.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:42.693] (+1268.64s) ELM      keep-alive
+           → envío:     3E00  (3172.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:48.300] (+1274.25s) ELM      keep-alive
+           → envío:     3E00  (3167.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:53.889] (+1279.84s) ELM      keep-alive
+           → envío:     3E00  (3165.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:39:59.496] (+1285.44s) ELM      keep-alive
+           → envío:     3E00  (3177.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:05.055] (+1291.0s) ELM      keep-alive
+           → envío:     3E00  (3171.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:10.647] (+1296.59s) ELM      keep-alive
+           → envío:     3E00  (3166.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:16.203] (+1302.15s) ELM      keep-alive
+           → envío:     3E00  (3157.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:21.778] (+1307.73s) ELM      keep-alive
+           → envío:     3E00  (3166.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:27.369] (+1313.32s) ELM      keep-alive
+           → envío:     3E00  (3165.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:32.911] (+1318.86s) ELM      keep-alive
+           → envío:     3E00  (3164.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:38.486] (+1324.43s) ELM      keep-alive
+           → envío:     3E00  (3159.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:44.061] (+1330.01s) ELM      keep-alive
+           → envío:     3E00  (3167.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:49.635] (+1335.58s) ELM      keep-alive
+           → envío:     3E00  (3155.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:40:55.209] (+1341.16s) ELM      keep-alive
+           → envío:     3E00  (3162.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:00.625] (+1346.57s) ELM      keep-alive
+           → envío:     3E00  (3012.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:06.039] (+1351.99s) ELM      keep-alive
+           → envío:     3E00  (3011.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:11.469] (+1357.42s) ELM      keep-alive
+           → envío:     3E00  (3011.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:16.932] (+1362.88s) ELM      keep-alive
+           → envío:     3E00  (3019.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:22.346] (+1368.29s) ELM      keep-alive
+           → envío:     3E00  (3006.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:27.794] (+1373.74s) ELM      keep-alive
+           → envío:     3E00  (3017.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:33.225] (+1379.17s) ELM      keep-alive
+           → envío:     3E00  (3015.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:38.653] (+1384.6s) ELM      keep-alive
+           → envío:     3E00  (3012.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:44.086] (+1390.03s) ELM      keep-alive
+           → envío:     3E00  (3011.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:49.515] (+1395.46s) ELM      keep-alive
+           → envío:     3E00  (3008.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:41:54.930] (+1400.88s) ELM      keep-alive
+           → envío:     3E00  (3006.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:00.361] (+1406.31s) ELM      keep-alive
+           → envío:     3E00  (3008.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:05.792] (+1411.74s) ELM      keep-alive
+           → envío:     3E00  (3019.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:11.208] (+1417.15s) ELM      keep-alive
+           → envío:     3E00  (3020.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:16.637] (+1422.58s) ELM      keep-alive
+           → envío:     3E00  (3019.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:22.072] (+1428.02s) ELM      keep-alive
+           → envío:     3E00  (3020.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:27.499] (+1433.45s) ELM      keep-alive
+           → envío:     3E00  (3014.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:32.945] (+1438.89s) ELM      keep-alive
+           → envío:     3E00  (3010.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:38.377] (+1444.32s) ELM      keep-alive
+           → envío:     3E00  (3012.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:43.774] (+1449.72s) ELM      keep-alive
+           → envío:     3E00  (3006.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:49.206] (+1455.15s) ELM      keep-alive
+           → envío:     3E00  (3006.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:42:54.621] (+1460.57s) ELM      keep-alive
+           → envío:     3E00  (3006.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:00.052] (+1466.0s) ELM      keep-alive
+           → envío:     3E00  (3020.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:05.466] (+1471.41s) ELM      keep-alive
+           → envío:     3E00  (3013.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:10.897] (+1476.84s) ELM      keep-alive
+           → envío:     3E00  (3012.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:16.312] (+1482.26s) ELM      keep-alive
+           → envío:     3E00  (3016.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:21.758] (+1487.7s) ELM      keep-alive
+           → envío:     3E00  (3011.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:27.189] (+1493.14s) ELM      keep-alive
+           → envío:     3E00  (3010.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:32.572] (+1498.52s) ELM      keep-alive
+           → envío:     3E00  (3011.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:38.018] (+1503.96s) ELM      keep-alive
+           → envío:     3E00  (3010.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:43.449] (+1509.4s) ELM      keep-alive
+           → envío:     3E00  (3019.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:48.880] (+1514.83s) ELM      keep-alive
+           → envío:     3E00  (3017.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:54.278] (+1520.22s) ELM      keep-alive
+           → envío:     3E00  (3019.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:43:59.709] (+1525.66s) ELM      keep-alive
+           → envío:     3E00  (3019.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:05.124] (+1531.07s) ELM      keep-alive
+           → envío:     3E00  (3015.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:10.538] (+1536.48s) ELM      keep-alive
+           → envío:     3E00  (3014.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:17.959] (+1543.91s) ELM      keep-alive
+           → envío:     3E00  (5001.7 ms)
+           → respuesta: !LP ALERT TIMEOUT 
+
+[14:44:21.385] (+1547.33s) ELM      keep-alive
+           → envío:     3E00  (1015.5 ms)
+           → respuesta: ELM327 v2.1 
+
+[14:44:26.816] (+1552.76s) ELM      keep-alive
+           → envío:     3E00  (3008.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:32.231] (+1558.18s) ELM      keep-alive
+           → envío:     3E00  (3007.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:37.647] (+1563.59s) ELM      keep-alive
+           → envío:     3E00  (3009.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:43.076] (+1569.02s) ELM      keep-alive
+           → envío:     3E00  (3020.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:48.505] (+1574.45s) ELM      keep-alive
+           → envío:     3E00  (3021.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:53.937] (+1579.88s) ELM      keep-alive
+           → envío:     3E00  (3014.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:44:59.350] (+1585.3s) ELM      keep-alive
+           → envío:     3E00  (3016.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:04.782] (+1590.73s) ELM      keep-alive
+           → envío:     3E00  (3013.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:10.213] (+1596.16s) ELM      keep-alive
+           → envío:     3E00  (3012.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:15.658] (+1601.6s) ELM      keep-alive
+           → envío:     3E00  (3021.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:21.073] (+1607.02s) ELM      keep-alive
+           → envío:     3E00  (3009.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:26.489] (+1612.44s) ELM      keep-alive
+           → envío:     3E00  (3007.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:31.921] (+1617.87s) ELM      keep-alive
+           → envío:     3E00  (3018.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:37.333] (+1623.28s) ELM      keep-alive
+           → envío:     3E00  (3015.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:42.781] (+1628.73s) ELM      keep-alive
+           → envío:     3E00  (3019.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:48.181] (+1634.13s) ELM      keep-alive
+           → envío:     3E00  (3017.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:53.611] (+1639.56s) ELM      keep-alive
+           → envío:     3E00  (3012.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:45:59.042] (+1644.99s) ELM      keep-alive
+           → envío:     3E00  (3012.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:04.472] (+1650.42s) ELM      keep-alive
+           → envío:     3E00  (3008.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:09.902] (+1655.85s) ELM      keep-alive
+           → envío:     3E00  (3009.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:15.334] (+1661.28s) ELM      keep-alive
+           → envío:     3E00  (3022.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:20.795] (+1666.74s) ELM      keep-alive
+           → envío:     3E00  (3019.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:26.227] (+1672.17s) ELM      keep-alive
+           → envío:     3E00  (3016.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:31.657] (+1677.6s) ELM      keep-alive
+           → envío:     3E00  (3015.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:37.104] (+1683.05s) ELM      keep-alive
+           → envío:     3E00  (3006.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:42.535] (+1688.48s) ELM      keep-alive
+           → envío:     3E00  (3006.0 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:47.948] (+1693.9s) ELM      keep-alive
+           → envío:     3E00  (3007.8 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:53.380] (+1699.33s) ELM      keep-alive
+           → envío:     3E00  (3019.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:46:58.844] (+1704.79s) ELM      keep-alive
+           → envío:     3E00  (3016.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:04.274] (+1710.22s) ELM      keep-alive
+           → envío:     3E00  (3015.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:09.671] (+1715.62s) ELM      keep-alive
+           → envío:     3E00  (3016.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:15.119] (+1721.07s) ELM      keep-alive
+           → envío:     3E00  (3013.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:20.517] (+1726.46s) ELM      keep-alive
+           → envío:     3E00  (3011.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:25.948] (+1731.89s) ELM      keep-alive
+           → envío:     3E00  (3010.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:31.378] (+1737.32s) ELM      keep-alive
+           → envío:     3E00  (3010.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:36.809] (+1742.76s) ELM      keep-alive
+           → envío:     3E00  (3021.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:44.226] (+1750.17s) ELM      keep-alive
+           → envío:     3E00  (5004.6 ms)
+           → respuesta: !LP ALERT TIMEOUT 
+
+[14:47:47.623] (+1753.57s) ELM      keep-alive
+           → envío:     3E00  (1006.3 ms)
+           → respuesta: ELM327 v2.1 
+
+[14:47:53.055] (+1759.0s) ELM      keep-alive
+           → envío:     3E00  (3020.9 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:47:58.484] (+1764.43s) ELM      keep-alive
+           → envío:     3E00  (3019.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:03.899] (+1769.85s) ELM      keep-alive
+           → envío:     3E00  (3011.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:09.329] (+1775.28s) ELM      keep-alive
+           → envío:     3E00  (3015.7 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:14.746] (+1780.69s) ELM      keep-alive
+           → envío:     3E00  (3012.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:20.176] (+1786.12s) ELM      keep-alive
+           → envío:     3E00  (3012.2 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:25.606] (+1791.55s) ELM      keep-alive
+           → envío:     3E00  (3006.4 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:31.125] (+1797.07s) ELM      keep-alive
+           → envío:     3E00  (3090.6 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:36.516] (+1802.46s) ELM      keep-alive
+           → envío:     3E00  (3007.1 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:41.930] (+1807.88s) ELM      keep-alive
+           → envío:     3E00  (3010.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:47.378] (+1813.32s) ELM      keep-alive
+           → envío:     3E00  (3020.3 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:48:52.792] (+1818.74s) ELM      keep-alive
+           → envío:     3E00  (3019.5 ms)
+           → respuesta: BUS INIT: ERROR 
+
+[14:49:10.718] (+1836.66s) ELM      keep-alive
+           → envío:     3E00  (15527.6 ms)
+           → respuesta: BUS INIT: ETIMEOUT 
+
+[14:49:13.222] (+1839.17s) ELM      keep-alive
+           → envío:     3E00  (1.3 ms)
+           → respuesta: 
+
+[15:25:40.268] (+4026.21s) ELM      keep-alive
+           → envío:     3E00  (2184625.7 ms)
+           → respuesta: BUS INIT: TIMEOUT 
+
+[15:25:42.720] (+4028.67s) ELM      keep-alive
+           → envío:     3E00  (1.3 ms)
+           → respuesta: 
+
+[15:25:45.137] (+4031.08s) ELM      keep-alive
+           → envío:     3E00  (0.0 ms)
+           → respuesta: !LP ALERT ELM327 v2.1 
+
+[15:25:46.801] (+4032.75s) SESION   Fin de grabación
+           · eventos: 224
