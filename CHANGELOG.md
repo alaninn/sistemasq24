@@ -7,6 +7,27 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-30] — BUG DE FONDO en la autodetección: la vía KWP (21 80) NUNCA podía matchear
+
+Auditando por qué la Kangoo/Dokker no se detectaba (el usuario preguntó bien: "si en algún
+momento probaba la correcta, ¿por qué no la conectó?"), aparecieron **tres** problemas reales:
+
+1. **`_parse_ident_2180` devolvía la versión de diagnóstico en DECIMAL** (`str(int(dv,16))`),
+   pero `EcuIdent.checkWith` la re-interpreta como HEX: `int("0x104",16)=260 ≠ int("0x68",16)=104`.
+   Resultado: **ninguna ECU identificada por el servicio `21 80` podía matchear jamás** — y esa es
+   justamente la vía de las Renault clásicas (F4R, EMS312x de Kangoo/Dokker…). La vía UDS
+   (`22F1A0`) sí funcionaba porque deja el hex crudo. **Corregido**: ahora devuelve hex crudo,
+   consistente con la vía UDS y con `db.json`.
+2. **Las ECUs que respondían pero no matcheaban se descartaban en silencio** → el usuario veía
+   "no se detectaron ECUs" aunque el auto hubiera contestado. Ahora se juntan en
+   `no_identificadas` (dirección + identificación leída), se devuelven en el resultado y el
+   frontend las muestra: *"⚠️ N módulo(s) SÍ contestaron"* con sus datos, e invita a cargar la ECU
+   a mano.
+3. **El match es ambiguo** (documentado, no resuelto): 2 ECUs comparten el autoident exacto del
+   EMS312X (él y `N_PB1D_HR15`) y **84** comparten el match aproximado (supplier 001 + soft 00DC),
+   así que `_match` puede devolver una ECU equivocada — devuelve la primera que encuentra. Para
+   eso está el selector manual.
+
 ## [2026-07-30] — Elegir la ECU A MANO de la base (para autos que la autodetección no encuentra)
 
 El usuario probó una **Kangoo/Dokker** y el scanner no detectó la ECU del motor, aunque en

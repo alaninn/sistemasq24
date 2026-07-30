@@ -59,6 +59,9 @@ class SQ24Scanner:
         self.pares_can = []        # [{send, recv}, ...] direcciones CAN reales a sondear
         self.addrs_kwp = []        # direcciones KWP2000 a sondear (byte único, ej '7A')
         self.addrs_iso8 = []       # direcciones ISO8 a sondear
+        # ECUs que CONTESTARON la identificación pero no coinciden con nada de la base.
+        # Se informan igual: son módulos vivos que el usuario puede cargar a mano.
+        self.no_identificadas = []
         self._cargado = False
 
     # ---------------------------------------------------------------- base
@@ -241,15 +244,23 @@ class SQ24Scanner:
             return None
         try:
             if len(resp) > 59:
-                diagversion = str(int(resp[21:23], 16))
+                dv = resp[21:23].replace(" ", "")
                 supplier = bytes.fromhex(resp[24:32].replace(" ", "")).decode("utf-8", "ignore")
                 soft = resp[48:53].replace(" ", "")
                 version = resp[54:59].replace(" ", "")
             else:
-                diagversion = str(int(resp[6:8], 16))
+                dv = resp[6:8].replace(" ", "")
                 supplier = bytes.fromhex(resp[9:17].replace(" ", "")).decode("utf-8", "ignore")
                 soft = resp[18:26].replace(" ", "")
                 version = resp[27:35].replace(" ", "")
+            # La versión de diagnóstico se devuelve en HEX CRUDO, igual que la vía UDS
+            # (22F1A0) y que la base (db.json guarda "68", "70", "71"…).
+            # BUG HISTÓRICO: acá se hacía str(int(dv,16)) → devolvía DECIMAL ("104"), y
+            # `EcuIdent.checkWith` lo re-interpreta como hex → int("0x104",16)=260 ≠ 104.
+            # Resultado: NINGUNA ECU identificada por el servicio 21 80 (las Renault
+            # clásicas: F4R, EMS312x de Kangoo/Dokker…) podía matchear jamás.
+            int(dv, 16)                      # valida que sea hex
+            diagversion = dv.upper()
         except (ValueError, IndexError):
             return None
         return diagversion, supplier, soft, version
@@ -342,6 +353,7 @@ class SQ24Scanner:
         total = len(pares) + len(addrs_kwp)
         detectadas = []
         vistos = set()
+        self.no_identificadas = []
         paso = 0
 
         # --- Pasada 1: CAN ---
@@ -369,6 +381,16 @@ class SQ24Scanner:
             if ident is None:
                 continue
             t = self._match(*ident, addr, protocolos=("CAN",))
+            if t is None:
+                # La ECU RESPONDIÓ pero su identificación no coincide con ninguna de la base.
+                # Antes se descartaba en silencio y el usuario veía "no se encontró nada",
+                # sin saber que había un módulo vivo. Se reporta para que pueda elegir la
+                # ECU a mano sabiendo la dirección y la identificación real.
+                self.no_identificadas.append({
+                    "addr": addr, "diagversion": ident[0], "supplier": ident[1],
+                    "soft": ident[2], "version": ident[3], "protocolo": "CAN",
+                })
+                continue
             self._agregar_si_nuevo(t, detectadas, vistos, addr, i)
 
         # --- Pasada 2: KWP2000 (módulos viejos de un solo hilo, no-CAN) ---
@@ -388,6 +410,12 @@ class SQ24Scanner:
                 if ident is None:
                     continue
                 t = self._match(*ident, addr, protocolos=("KWP2000",))
+                if t is None:
+                    self.no_identificadas.append({
+                        "addr": addr, "diagversion": ident[0], "supplier": ident[1],
+                        "soft": ident[2], "version": ident[3], "protocolo": "KWP2000",
+                    })
+                    continue
                 self._agregar_si_nuevo(t, detectadas, vistos, addr, len(pares) + j)
 
         if not options.simulation_mode and elm is not None:
@@ -400,7 +428,10 @@ class SQ24Scanner:
 
         vehiculo = self._deducir_vehiculo(detectadas)
         return {"ok": True, "detectadas": detectadas, "vehiculo": vehiculo,
-                "total": len(detectadas)}
+                "total": len(detectadas),
+                # módulos que contestaron pero no están en la base (o no matchearon):
+                # se informan para que el usuario sepa que hay algo vivo en esa dirección
+                "no_identificadas": self.no_identificadas}
 
     def _agregar_si_nuevo(self, t, detectadas, vistos, addr, indice):
         """Si `t` (EcuIdent matcheado) es nuevo, lo agrega a `detectadas` con un

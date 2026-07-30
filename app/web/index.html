@@ -3631,7 +3631,26 @@ async function ejecutarDeteccion(resEl, btnEl, progEl){
       if(btnEl) btnEl.disabled = false;
       const res = p.resultado || {};
       if(!res.ok){ toast(res.error||'Error al escanear','err'); resEl.innerHTML=`<div class="error">${esc(res.error||'Error')}</div>`; return; }
-      if(!res.total){ resEl.innerHTML = `<div style="color:var(--ink-dim);text-align:center;padding:24px">${esc(res.mensaje||'No se detectaron ECUs.')}</div>`; toast('No se detectaron ECUs','warn'); return; }
+      if(!res.total){
+        // Puede que haya módulos VIVOS que contestaron pero no matchean la base: mostrarlos,
+        // así el usuario sabe que el auto responde y puede cargar la ECU a mano.
+        const ni = res.no_identificadas || [];
+        let extra = '';
+        if(ni.length){
+          extra = `<div class="man-msg" style="margin-top:16px;text-align:left">
+            <b style="color:var(--amber)">⚠️ ${ni.length} módulo(s) SÍ contestaron</b>, pero su identificación
+            no coincide con ninguna ECU de la base:
+            <div class="man-list" style="margin-top:8px">${ni.map(m=>`<div class="man-it" style="cursor:default">
+              <div><div class="man-n">Dirección ${esc(m.addr)} · ${esc(m.protocolo||'')}</div>
+              <div class="man-m">versión diag ${esc(m.diagversion)} · proveedor ${esc(m.supplier)} ·
+              soft ${esc(m.soft)} · versión ${esc(m.version)}</div></div></div>`).join('')}</div>
+            <div style="margin-top:10px">El auto responde. Cargá la ECU <b>a mano</b> desde
+            «Vehículos» → «¿Tu auto no está en la lista?».</div></div>`;
+        }
+        resEl.innerHTML = `<div style="color:var(--ink-dim);text-align:center;padding:24px">${esc(res.mensaje||'No se detectaron ECUs.')}</div>${extra}`;
+        toast(ni.length?'Hay módulos que responden pero no están en la base':'No se detectaron ECUs','warn');
+        return;
+      }
       _pintarDeteccion(resEl, res);
       return;
     }
