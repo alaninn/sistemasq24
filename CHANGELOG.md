@@ -7,6 +7,18 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-30] — El informe de conducción se adapta si el auto no se movió (eje = RPM)
+
+Verificado en el log de hoy que el fix del sensor de velocidad **funciona** (ya elige
+`Velocidad del vehículo` y no devuelve `None`). Pero la prueba fue **con el auto parado**
+(velocidad siempre 0, RPM de 0 a 2144 = acelerando en el lugar), así que el informe quedaba con
+una sola banda y sin análisis.
+- Ahora, si el auto **no se movió** (`max(velocidad) < 3 km/h`), el informe usa el **régimen**
+  como eje: bandas Ralentí / 1000-1500 / 1500-2000 / 2000-2500 / 2500-3000 / 3000+.
+- El resumen expone `eje` ("velocidad" | "rpm") y `se_movio`; los títulos del TXT/HTML lo aclaran
+  ("el auto no se movió: se usa el RPM como eje").
+- Así la prueba en el taller (acelerando en el lugar) también rinde un informe útil.
+
 ## [2026-07-30] — BUG DE FONDO en la autodetección: la vía KWP (21 80) NUNCA podía matchear
 
 Auditando por qué la Kangoo/Dokker no se detectaba (el usuario preguntó bien: "si en algún

@@ -555,6 +555,13 @@ BANDAS_VEL = [
     (0, 3, "Detenido / ralentí"), (3, 20, "Baja (3-20)"), (20, 40, "Media-baja (20-40)"),
     (40, 60, "Media (40-60)"), (60, 90, "Alta (60-90)"), (90, 9999, "Muy alta (90+)"),
 ]
+# Si el auto NO se movió (prueba en el taller/garage acelerando en el lugar), la velocidad es 0
+# todo el tiempo y segmentar por ella no dice nada. En ese caso se usa el RÉGIMEN como eje.
+BANDAS_RPM = [
+    (0, 400, "Motor apagado"), (400, 900, "Ralentí"), (900, 1500, "1000-1500"),
+    (1500, 2000, "1500-2000"), (2000, 2500, "2000-2500"), (2500, 3000, "2500-3000"),
+    (3000, 99999, "3000+"),
+]
 
 
 def _conduccion_analizar(datos):
@@ -568,16 +575,43 @@ def _conduccion_analizar(datos):
     # estadísticas globales (todas las muestras)
     stats_glob = estadisticas_de_muestras(muestras)
 
-    # por banda de velocidad
+    # ¿el auto se movió? Si la velocidad fue siempre ~0 (prueba en el lugar), el eje pasa a ser
+    # el RÉGIMEN: si no, el informe queda con una sola banda ("detenido") y no dice nada.
+    se_movio = bool(vels) and max(vels) >= 3
+    eje = "velocidad" if se_movio else "rpm"
+
+    def _rpm_de(m):
+        """RPM de una muestra (viene dentro de `valores` como texto 'NNN RPM')."""
+        for k, v in (m.get("valores") or {}).items():
+            kl = k.lower()
+            if "régimen del motor" in kl or "regime moteur" in kl or "rpm" in kl:
+                try:
+                    return float(str(v).split()[0])
+                except (ValueError, IndexError):
+                    return None
+        return None
+
     bandas = []
-    for lo, hi, nombre in BANDAS_VEL:
-        sub = [m for m in muestras if m.get("vel") is not None and lo <= m["vel"] < hi]
-        if len(sub) < 2:
-            continue
-        st = estadisticas_de_muestras(sub)
-        bandas.append({"banda": nombre, "rango": [lo, hi], "n": len(sub),
-                       "vel_prom": round(sum(m["vel"] for m in sub) / len(sub), 1),
-                       "promedios": {s: v["promedio"] for s, v in st.items()}})
+    if se_movio:
+        for lo, hi, nombre in BANDAS_VEL:
+            sub = [m for m in muestras if m.get("vel") is not None and lo <= m["vel"] < hi]
+            if len(sub) < 2:
+                continue
+            st = estadisticas_de_muestras(sub)
+            bandas.append({"banda": nombre, "rango": [lo, hi], "n": len(sub),
+                           "vel_prom": round(sum(m["vel"] for m in sub) / len(sub), 1),
+                           "promedios": {s: v["promedio"] for s, v in st.items()}})
+    else:
+        for m in muestras:
+            m["_rpm"] = _rpm_de(m)
+        for lo, hi, nombre in BANDAS_RPM:
+            sub = [m for m in muestras if m.get("_rpm") is not None and lo <= m["_rpm"] < hi]
+            if len(sub) < 2:
+                continue
+            st = estadisticas_de_muestras(sub)
+            bandas.append({"banda": nombre, "rango": [lo, hi], "n": len(sub),
+                           "rpm_prom": round(sum(m["_rpm"] for m in sub) / len(sub)),
+                           "promedios": {s: v["promedio"] for s, v in st.items()}})
 
     # evolución por velocidad: {sensor: {unidad, por_banda:{banda:prom}}}
     evolucion = {}
@@ -617,6 +651,8 @@ def _conduccion_analizar(datos):
         "vel_min": round(min(vels), 1) if vels else None,
         "vel_max": round(max(vels), 1) if vels else None,
         "sensores_distintos": len(stats_glob),
+        "eje": eje,                 # "velocidad" | "rpm" (si el auto no se movió)
+        "se_movio": se_movio,
         "veredicto": veredicto,
         "bandas_velocidad": bandas, "evolucion_por_velocidad": evolucion, "diagnostico": diag,
         "estadisticas": stats_glob,   # todas: min/prom/max/σ/oscila por sensor
@@ -625,7 +661,7 @@ def _conduccion_analizar(datos):
     datos["para_experto"] = {
         "vehiculo": datos.get("vehiculo"), "perfil": datos.get("perfil"), "fecha": datos.get("fecha"),
         "duracion_seg": dur, "velocidad": {"min": datos["resumen"]["vel_min"], "max": datos["resumen"]["vel_max"]},
-        "veredicto": veredicto, "datos_clave": diag, "evolucion_por_velocidad": evolucion,
+        "veredicto": veredicto, "eje": eje, "datos_clave": diag, "evolucion_por_velocidad": evolucion,
         "bandas": bandas, "estadisticas_por_sensor": stats_glob, "foto_final": datos.get("snapshot", {}),
     }
     return datos
@@ -648,7 +684,8 @@ def _txt_conduccion(datos):
             L.append(f"  · {d['sensor']}: {d['min']} / {d['prom']} / {d['max']} {d['unidad']}")
             L.append(f"      ↳ {d['referencia']}")
     L.append("")
-    L.append("EVOLUCIÓN POR VELOCIDAD (promedio de cada sensor en cada banda)")
+    _ejet = "VELOCIDAD" if r.get("eje", "velocidad") == "velocidad" else "RÉGIMEN (el auto no se movió)"
+    L.append(f"EVOLUCIÓN POR {_ejet} (promedio de cada sensor en cada banda)")
     bandas = [b["banda"] for b in r["bandas_velocidad"]]
     if bandas:
         L.append("  " + "Sensor".ljust(38) + "".join(b[:12].rjust(13) for b in bandas))
