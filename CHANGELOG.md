@@ -7,6 +7,27 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-31] — Autodetección: el timeout de 200 ms cortaba la identificación (por eso ni el F4R se detectaba)
+
+El usuario probó el auto-escaneo **en su propio F4R** (que sabemos que responde perfecto) y no
+encontró nada. Rastreado con una respuesta REAL capturada en un log viejo:
+
+    61 80 82 00 87 89 38 54 32 31 33 82 00 50 95 16 00 AD 89 00 40 06 46 01 00 00
+
+- Pasada por `_parse_ident_2180` da `supplier=213, soft=00AD, version=8900` y **matchea
+  exactamente `S3000_AD_CAN_3_X84ph2_S`** — el archivo curado del F4R. O sea: **el match y la
+  base están bien**; el problema es que la identificación **nunca se llegaba a leer**.
+- Causa: `escanear()` baja el timeout CAN a **200 ms** para descartar rápido las 121 direcciones
+  muertas, pero esa respuesta son **26 bytes = multiframe** (con flow control) y no entra en
+  200 ms. Se cortaba, `_parse_ident_2180` recibía basura → `None` → sin identificación → sin
+  match → "no se detectaron ECUs".
+- **Fix**: el timeout corto queda solo para el sondeo; en cuanto una dirección **contesta la
+  sesión** (`10C0`), se sube a **900 ms** para leer la identificación y se vuelve a bajar.
+  Constantes `TIMEOUT_SONDEO_MS` / `TIMEOUT_IDENT_MS`.
+- **Además, el escaneo ahora deja rastro en la grabación** (`_log`): inicio (direcciones a
+  sondear, targets de la base), cada dirección que responde con su identificación cruda, y el
+  resultado final. Antes no registraba NADA, por eso los logs no servían para diagnosticarlo.
+
 ## [2026-07-31] — FIX: los actuadores del MOTOR no funcionaban (canister, VVT, bomba…)
 
 Del log de las 20:53: todos los actuadores del motor fallaban con

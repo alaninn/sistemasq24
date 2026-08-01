@@ -52,6 +52,22 @@ def _slot_para_grupo(group, indice):
 # no las direcciones cortas (que necesitarían la tabla dnat, que está vacía).
 PARES_CAN_PATH = BASE / "app" / "direcciones_can.json"
 
+# Timeouts del escaneo (ms). El sondeo tiene que descartar rápido las direcciones muertas
+# (121 direcciones × varios segundos sería eterno), pero la IDENTIFICACIÓN de una ECU que sí
+# contestó devuelve una trama larga y necesita más aire.
+TIMEOUT_SONDEO_MS = 200
+TIMEOUT_IDENT_MS = 900
+
+
+def _log(tipo, msg, det=None):
+    """Deja rastro del escaneo en la grabación de sesión (si está activa). Sin esto, cuando la
+    detección no encuentra nada no queda NINGÚN dato para saber por qué."""
+    try:
+        from session_logger import logger as _slog
+        _slog.log(tipo, msg, det or {})
+    except Exception:
+        pass
+
 
 class SQ24Scanner:
     def __init__(self):
@@ -209,6 +225,8 @@ class SQ24Scanner:
         self._cerrar_sesion()
         if diagversion == "":
             return None
+        _log("SCAN", f"{addr}: respondió UDS (22F1Ax)",
+             {"identificacion": [diagversion, supplier, soft, version]})
         return diagversion, supplier, soft, version
 
     def _req(self, addr, cmd):
@@ -308,15 +326,30 @@ class SQ24Scanner:
             try:
                 if not elm.start_session_can("10C0"):
                     return None
+                # La ECU CONTESTÓ la sesión → acá sí hay alguien. El sondeo corre con un
+                # timeout muy corto (200 ms) para descartar rápido las direcciones muertas,
+                # pero la identificación 21 80 devuelve una trama larga (multiframe) que con
+                # ese timeout se corta. Se le da aire solo a las direcciones que respondieron.
+                try:
+                    elm.set_can_timeout(TIMEOUT_IDENT_MS)
+                except Exception:
+                    pass
                 elm.clear_cache()
                 resp = elm.request(req="2180", positive="61", cache=False)
                 try:
                     elm.cmd("1081")   # volver a sesión default (no dejar la ECU en broadcast)
                 except Exception:
                     pass
+                try:
+                    elm.set_can_timeout(TIMEOUT_SONDEO_MS)   # volver al timeout corto
+                except Exception:
+                    pass
             except Exception:
                 return None
-        return self._parse_ident_2180(resp)
+        ident = self._parse_ident_2180(resp)
+        _log("SCAN", f"{addr}: respondió la sesión 10C0",
+             {"respuesta_2180": (resp or "")[:120], "identificacion": ident})
+        return ident
 
     # ---------------------------------------------------------------- escaneo
     def escanear(self, canline=0, progress_cb=None):
@@ -336,7 +369,7 @@ class SQ24Scanner:
                 # Timeout CORTO durante el escaneo: las direcciones que no responden
                 # deben fallar rápido (si no, 124 direcciones × varios segundos = eterno).
                 timeout_prev = getattr(options, "cantimeout", None)
-                elm.set_can_timeout(200)
+                elm.set_can_timeout(TIMEOUT_SONDEO_MS)
             except Exception:
                 pass
 
@@ -354,6 +387,9 @@ class SQ24Scanner:
         detectadas = []
         vistos = set()
         self.no_identificadas = []
+        _log("SCAN", "Autodetección: inicio",
+             {"pares_can": len(pares), "addrs_kwp": len(addrs_kwp), "canline": canline,
+              "targets_en_base": len(self.targets)})
         paso = 0
 
         # --- Pasada 1: CAN ---
@@ -427,6 +463,9 @@ class SQ24Scanner:
                 pass
 
         vehiculo = self._deducir_vehiculo(detectadas)
+        _log("SCAN", "Autodetección: fin",
+             {"detectadas": [d["ecuname"] for d in detectadas],
+              "respondieron_sin_match": self.no_identificadas, "vehiculo": vehiculo})
         return {"ok": True, "detectadas": detectadas, "vehiculo": vehiculo,
                 "total": len(detectadas),
                 # módulos que contestaron pero no están en la base (o no matchearon):
