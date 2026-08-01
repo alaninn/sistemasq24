@@ -7,6 +7,22 @@ Repo: https://github.com/alaninn/sistemasq24
 
 ---
 
+## [2026-07-31] — FIX: los actuadores del MOTOR no funcionaban (canister, VVT, bomba…)
+
+Del log de las 20:53: todos los actuadores del motor fallaban con
+`Ecurequest::build_data_stream : Data item Output Control.tempON does not exist`, mientras que
+los de la UCH (luces, electroventilador…) andaban bien.
+- Causa: `activate_actuator` **hardcodeaba el campo `Output Control.tempON`**, que existe en la
+  UCH pero **no en el motor**. El request `Output Control` del motor F4R usa
+  **`Nombre de cycle de pilotage`** (número de ciclos, 8 bits). Pasar un campo que la ECU no
+  declara hace fallar el armado del comando, así que nunca se enviaba nada.
+- Fix: el comando se arma **según los campos que el request declara realmente**
+  (`req.sendbyte_dataitems`): siempre Command + lista de salida, y la duración se pone en
+  `tempON` o en `Nombre de cycle de pilotage` según cuál exista; se descarta cualquier campo
+  que la ECU no tenga.
+- Verificado: motor ID35 (Vanne Purge canister) → `30 23 00 FF`; apagar → `30 23 11 0A`;
+  UCH ID8 sigue armando `30 08 00 FF`.
+
 ## [2026-07-30] — El informe de conducción se adapta si el auto no se movió (eje = RPM)
 
 Verificado en el log de hoy que el fix del sensor de velocidad **funciona** (ya elige

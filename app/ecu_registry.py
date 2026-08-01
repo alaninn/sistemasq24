@@ -600,20 +600,27 @@ class TranslatedECU:
         if req is None:
             return {"ok": False, "error": "Esta computadora no permite activar actuadores"}
         id_hex = hex(int(actuator_id))[2:].upper().zfill(2)
+        # Los campos del request de actuadores NO son iguales en todas las ECUs: la UCH usa
+        # "Output Control.tempON" y el MOTOR del F4R usa "Nombre de cycle de pilotage". Pasar
+        # un campo que la ECU no tiene hace fallar el armado del comando ("Data item ... does
+        # not exist") — por eso los actuadores del motor no andaban. Se arma según los campos
+        # que el request declara realmente.
+        campos = set(getattr(req, "sendbyte_dataitems", {}) or {})
+        inputs = {
+            "Output Control Command": "00" if on else "11",   # 00 = Start Temporary, 11 = Stop
+            "Output Temporary Control List": id_hex,          # qué salida (enum, hex)
+        }
         if on:
-            inputs = {
-                "Output Control Command": "00",              # 00 = Start Temporary
-                "Output Temporary Control List": id_hex,     # qué salida (enum, hex)
-                # tempON: byte que ENCIENDE/mantiene la salida. Es un dato "scaled",
-                # así que se pasa en DECIMAL (no hex). En 0 la ECU acepta el comando
-                # pero NO enciende (ese era el bug). 255 = duración máxima.
-                "Output Control.tempON": "255",
-            }
-        else:
-            inputs = {                                       # 11 (hex) = 17 = Stop
-                "Output Control Command": "11",
-                "Output Temporary Control List": id_hex,
-            }
+            # Duración/insistencia del pilotaje. Ambos son datos "scaled" → en DECIMAL.
+            # En 0 la ECU acepta el comando pero NO enciende.
+            if "Output Control.tempON" in campos:
+                inputs["Output Control.tempON"] = "255"
+            if "Nombre de cycle de pilotage" in campos:
+                inputs["Nombre de cycle de pilotage"] = "255"
+        # descartar cualquier campo que esta ECU no declare (a prueba de otras variantes)
+        inputs = {k: v for k, v in inputs.items() if k in campos}
+        if "Output Temporary Control List" not in inputs:
+            return {"ok": False, "error": "Esta ECU no expone la lista de salidas temporales"}
         # Los actuadores (servicio 30) necesitan la sesión SIEMPRE abierta y activa.
         if not self.ensure_session(force=True):
             return {"ok": False, "error": "No se pudo abrir sesión diagnóstica"}
