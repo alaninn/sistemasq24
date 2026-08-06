@@ -693,6 +693,14 @@ def _conduccion_setup():
     for p in params:
         if p.get("dato") in clave and p["request"] not in reqs:
             reqs.append(p["request"])
+    # Los PIDs OBD "extra" del motor (ajuste corto/largo de combustible ±%, lazo, RPM de
+    # respaldo — ver TranslatedECU.obd_extra en ecu_registry.py) NO están en DATOS_CLAVE_F4R
+    # (esa lista son nombres nativos en francés de la ECU); sin esto nunca se agregaban a la
+    # captura y "Ajuste corto/largo de combustible" no aparecía en la grabación de conducción.
+    for pid in getattr(motor, "obd_extra", []):
+        r = "01" + pid
+        if r not in reqs:
+            reqs.append(r)
     # Etiqueta de la VELOCIDAD (es el eje del informe de conducción). Hay ~10 parámetros con la
     # palabra "velocidad" (botón del limitador, velocidad solicitada, "velocidad inválida"…) y
     # quedarse con el primero daba un sensor que no se captura → el informe salía sin velocidad

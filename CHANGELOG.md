@@ -3,6 +3,36 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-06] — FIX: el ajuste corto/largo no se capturaba en "Grabar conducción" + gráfico de evolución con scroll
+
+Revisando el informe `conduccion_20260806_195254`: "ajuste corto"/"ajuste largo" salían como NO
+leídos, y en las muestras crudas ni aparecían (0 de 76 sensores capturados los mencionaba).
+- **Causa**: `_conduccion_setup()` (`server.py`) arma la lista de requests a partir de
+  `chequeo.DATOS_CLAVE_F4R`, que son nombres NATIVOS en francés de la ECU. Los PIDs OBD "extra"
+  del motor (`motor.obd_extra` = ajuste corto/largo ±%, lazo, RPM de respaldo — ver
+  `ecu_registry.py`) tienen su `dato` en español (viene de `obd_generico.PIDS`) y nunca estaban
+  en esa lista, así que sus requests (`0106`/`0107`/`010C`) nunca se agregaban a la captura.
+- **Fix**: `_conduccion_setup()` ahora agrega explícitamente los requests de `motor.obd_extra`
+  a la captura, sin depender de que su nombre esté en `DATOS_CLAVE_F4R`. Verificado: ahora
+  `0106`/`0107`/`010C` están en la lista de requests capturados.
+
+**Gráfico de evolución temporal en el informe de conducción** (`reporte.py`): el HTML de
+"Grabar conducción" solo tenía tablas — nunca tuvo gráfico real (lo que el usuario vio antes
+eran demos armadas aparte, no algo generado por el sistema). Ahora:
+- `_bloque_grafico()` arma un gráfico Chart.js (embebido INLINE — el informe es un archivo
+  suelto, sin servidor detrás) con series de tiempo de los sensores clave (velocidad, RPM,
+  ajuste corto/largo, temperatura, avance, MAP, sondas, mariposa/pedal, par, inyección — los
+  que aparezcan en las muestras).
+- **Checkboxes** para elegir qué sensores mostrar (por defecto: velocidad, RPM, ajuste corto,
+  ajuste largo).
+- **Scroll horizontal en vez de achicarse**: el canvas es ANCHO (~14 px/segundo de manejo, con
+  techo de 24000px) dentro de un contenedor `overflow-x:auto` — grabaciones largas se recorren
+  desplazando, nunca se comprimen hasta quedar ilegibles.
+- Bug encontrado y corregido en el camino: con `parsing:false`, Chart.js necesita puntos
+  `{x,y}`, no arrays `[t,v]` (con arrays el gráfico quedaba vacío). Verificado visualmente
+  (Edge headless + captura): las series se dibujan bien.
+
+
 Repo: https://github.com/alaninn/sistemasq24
 
 ---

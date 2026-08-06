@@ -708,6 +708,115 @@ def _txt_conduccion(datos):
     return "\n".join(L)
 
 
+# Sensores que se ofrecen en el selector del gráfico de evolución (nombre a buscar por
+# subcadena → color). Se buscan en las muestras reales; si no aparecen, no se ofrecen.
+_GRAF_CANDIDATOS = [
+    ("Velocidad del vehículo", "#2fd4d4"), ("Régimen del motor", "#8f9cff"),
+    ("Ajuste corto de combustible", "#3ddc97"), ("Ajuste largo de combustible", "#ff7a45"),
+    ("Temperatura del agua", "#ff9d7a"), ("Temperatura del aire", "#ffcf7a"),
+    ("Presión absoluta del colector", "#ffab2e"), ("Avance de encendido", "#9fd0ff"),
+    ("Tensión de la sonda lambda anterior", "#ff5a9e"), ("Tensión de batería", "#f1c40f"),
+    ("Posición de la mariposa", "#c98bff"), ("Posición del pedal", "#e08bff"),
+    ("Par motor efectivo", "#ffd166"), ("Tiempo de inyección", "#7ee0c0"),
+]
+
+
+def _series_para_grafico(muestras):
+    """Arma {sensor: [[t, valor], ...]} para los sensores candidatos que realmente aparecen
+    en las muestras, listo para pasarle a Chart.js. Solo valores numéricos."""
+    series = {}
+    for etiqueta, color in _GRAF_CANDIDATOS:
+        pts = []
+        nombre_real = None
+        for m in muestras:
+            for k, v in (m.get("valores") or {}).items():
+                if etiqueta.lower() not in k.lower():
+                    continue
+                nombre_real = k
+                try:
+                    val = float(str(v).split()[0])
+                except (ValueError, IndexError):
+                    continue
+                # Chart.js con `parsing:false` exige {x,y} (un array [t,v] queda vacío).
+                pts.append({"x": round(m["t"], 2), "y": val})
+                break
+        if pts and nombre_real:
+            series[nombre_real] = {"color": color, "puntos": pts}
+    return series
+
+
+def _bloque_grafico(datos, id_prefix="cond"):
+    """HTML+JS de un gráfico Chart.js de evolución temporal, con scroll horizontal (el canvas
+    es ANCHO — no responsive — así nunca queda chico; el contenedor con overflow-x lo scrollea).
+    Chart.js se embebe INLINE (el informe es un archivo suelto, sin servidor detrás)."""
+    muestras = datos.get("muestras", [])
+    series = _series_para_grafico(muestras)
+    if not series:
+        return ""
+    try:
+        chartjs_src = (APP_DIR / "web" / "chart.umd.js").read_text(encoding="utf-8")
+    except Exception:
+        chartjs_src = None
+    dur = muestras[-1]["t"] if muestras else 1
+    # ~14 px por segundo de manejo, con un piso y un techo razonables para no generar un
+    # canvas absurdo en grabaciones muy largas.
+    ancho_px = max(1000, min(24000, int(dur * 14)))
+    datasets_js = []
+    checks_html = []
+    DEFAULT_ON = {"Vitesse véhicule", "Velocidad del vehículo", "Régime moteur", "Régimen del motor (RPM)",
+                  "Ajuste corto de combustible B1", "Ajuste largo de combustible B1"}
+    for i, (nombre, info) in enumerate(sorted(series.items())):
+        cid = f"{id_prefix}_chk_{i}"
+        visible = "true" if (nombre in DEFAULT_ON or i < 2) else "false"
+        datasets_js.append(
+            "{id:%r,label:%r,data:%s,borderColor:%r,backgroundColor:%r,borderWidth:1.6,"
+            "pointRadius:0,tension:.15,yAxisID:'y%d',hidden:!%s}" % (
+                cid, nombre, json.dumps(info["puntos"]), info["color"], info["color"] + "22", i, visible))
+        checks_html.append(
+            f"<label class='gchk'><input type='checkbox' data-id='{cid}' "
+            f"onchange=\"{id_prefix}_toggle(this)\" {'checked' if visible=='true' else ''}>"
+            f"<i style='background:{info['color']}'></i>{_esc(nombre)}</label>")
+    scales_js = ", ".join(
+        f"y{i}:{{type:'linear',display:false,position:'left'}}" for i in range(len(series)))
+    script = "" if not chartjs_src else f"<script>{chartjs_src}</script>"
+    return f"""
+<h2>📈 Evolución de los sensores en el tiempo</h2>
+<p class='lead' style='color:#8ea0b2;font-size:13px;margin:4px 0 10px'>Elegí qué sensores ver.
+El gráfico es ancho — <b>desplazate con la barra de abajo</b> (o Shift + rueda del mouse) para
+recorrer todo el manejo sin que se achique.</p>
+<div class='gchecks'>{''.join(checks_html)}</div>
+<div class='gwrap'><div style='width:{ancho_px}px;height:340px'><canvas id='{id_prefix}_canvas'></canvas></div></div>
+{script}
+<script>
+(function(){{
+  var ctx = document.getElementById('{id_prefix}_canvas');
+  if(!ctx || typeof Chart==='undefined') return;
+  var chart = new Chart(ctx, {{
+    type: 'line',
+    data: {{ datasets: [{','.join(datasets_js)}] }},
+    options: {{
+      responsive: true, maintainAspectRatio: false, animation: false,
+      interaction: {{mode:'nearest', axis:'x', intersect:false}},
+      parsing: false,
+      scales: {{
+        x: {{type:'linear', title:{{display:true,text:'segundos desde el inicio',color:'#8ea0b2'}},
+             ticks:{{color:'#8ea0b2'}}, grid:{{color:'#1c2732'}}}},
+        {scales_js}
+      }},
+      plugins: {{
+        legend: {{display:false}},
+        tooltip: {{mode:'nearest', axis:'x', intersect:false}}
+      }}
+    }}
+  }});
+  window['{id_prefix}_toggle'] = function(el){{
+    var ds = chart.data.datasets.find(function(d){{return d.id===el.dataset.id}});
+    if(ds){{ ds.hidden = !el.checked; chart.update(); }}
+  }};
+}})();
+</script>"""
+
+
 def _html_conduccion(datos):
     r = datos["resumen"]
     v = r.get("veredicto", {})
@@ -736,7 +845,12 @@ def _html_conduccion(datos):
     details{margin-top:10px}summary{cursor:pointer;color:#2fd4d4;font-size:13px;font-weight:600;padding:6px 0}
     .est2{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px 18px;margin-top:10px}
     .est2 div{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:3px 0;border-bottom:1px solid #1c2732}
-    .est2 span{color:#8ea0b2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}"""
+    .est2 span{color:#8ea0b2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .gchecks{display:flex;flex-wrap:wrap;gap:6px 14px;margin:6px 0 12px}
+    .gchk{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#c9d3dc;cursor:pointer;user-select:none}
+    .gchk input{accent-color:#2fd4d4}
+    .gchk i{display:inline-block;width:12px;height:12px;border-radius:3px}
+    .gwrap{overflow-x:auto;border:1px solid #22303c;border-radius:10px;background:#0b1017;padding:14px 10px}"""
     evol = r["evolucion_por_velocidad"]
     bandas = [b["banda"] for b in r["bandas_velocidad"]]
     stats = r.get("estadisticas", {})
@@ -762,6 +876,8 @@ def _html_conduccion(datos):
                      f"<span class='dim'>(rango {_esc(d['min'])}–{_esc(d['max'])})</span></div>"
                      f"<div class='r'>{_esc(d['referencia'])}</div></div>")
     H.append("</div>")
+    # gráfico de evolución temporal (interactivo, con scroll horizontal)
+    H.append(_bloque_grafico(datos, "cond"))
     # evolución por velocidad (todos los que varían)
     if bandas:
         H.append("<h2>📈 Cómo reaccionó cada sensor según la velocidad (promedio por banda)</h2>")
