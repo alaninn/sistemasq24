@@ -748,7 +748,13 @@ def _series_para_grafico(muestras):
 def _bloque_grafico(datos, id_prefix="cond"):
     """HTML+JS de un gráfico Chart.js de evolución temporal, con scroll horizontal (el canvas
     es ANCHO — no responsive — así nunca queda chico; el contenedor con overflow-x lo scrollea).
-    Chart.js se embebe INLINE (el informe es un archivo suelto, sin servidor detrás)."""
+    Chart.js se embebe INLINE (el informe es un archivo suelto, sin servidor detrás).
+
+    El RÉGIMEN (RPM) es la referencia principal: se dibuja como ÁREA de fondo (no una línea más),
+    porque es el dato que dice en qué estado estaba el motor en cada instante — en las pruebas
+    del F4R el auto casi nunca se mueve, así que la velocidad no sirve de contexto pero el RPM
+    sí. El resto de los sensores se superponen encima como líneas finas (con sus propios ejes Y,
+    para que un ajuste de ±10% y un RPM de miles no se aplasten entre sí)."""
     muestras = datos.get("muestras", [])
     series = _series_para_grafico(muestras)
     if not series:
@@ -761,31 +767,58 @@ def _bloque_grafico(datos, id_prefix="cond"):
     # ~14 px por segundo de manejo, con un piso y un techo razonables para no generar un
     # canvas absurdo en grabaciones muy largas.
     ancho_px = max(1000, min(24000, int(dur * 14)))
-    datasets_js = []
-    checks_html = []
+
+    # El RPM (o, si no está, la velocidad) va SIEMPRE primero y como área de fondo.
+    def _es_rpm(n):
+        nl = n.lower()
+        return "régime moteur" in nl or "regime moteur" in nl or "régimen del motor" in nl
+    def _es_vel(n):
+        nl = n.lower()
+        return "vitesse véhicule" in nl or "velocidad del vehículo" in nl
+    nombre_rpm = next((n for n in series if _es_rpm(n)), None)
+    nombre_vel = next((n for n in series if _es_vel(n)), None)
+    fondo = nombre_rpm or nombre_vel
+    orden = ([fondo] if fondo else []) + sorted(n for n in series if n != fondo)
+
     DEFAULT_ON = {"Vitesse véhicule", "Velocidad del vehículo", "Régime moteur", "Régimen del motor (RPM)",
                   "Ajuste corto de combustible B1", "Ajuste largo de combustible B1"}
-    for i, (nombre, info) in enumerate(sorted(series.items())):
+    datasets_js, checks_html = [], []
+    for i, nombre in enumerate(orden):
+        info = series[nombre]
         cid = f"{id_prefix}_chk_{i}"
-        visible = "true" if (nombre in DEFAULT_ON or i < 2) else "false"
-        datasets_js.append(
-            "{id:%r,label:%r,data:%s,borderColor:%r,backgroundColor:%r,borderWidth:1.6,"
-            "pointRadius:0,tension:.15,yAxisID:'y%d',hidden:!%s}" % (
-                cid, nombre, json.dumps(info["puntos"]), info["color"], info["color"] + "22", i, visible))
+        es_fondo = (nombre == fondo)
+        visible = "true" if (es_fondo or nombre in DEFAULT_ON or i < 3) else "false"
+        if es_fondo:
+            # Área rellena, algo más gruesa, dibujada primero (queda "atrás" del resto).
+            datasets_js.append(
+                "{id:%r,label:%r,data:%s,borderColor:%r,backgroundColor:%r,borderWidth:2,"
+                "pointRadius:0,tension:.1,fill:true,order:99,yAxisID:'y%d',hidden:!%s}" % (
+                    cid, nombre, json.dumps(info["puntos"]), info["color"], info["color"] + "33", i, visible))
+        else:
+            datasets_js.append(
+                "{id:%r,label:%r,data:%s,borderColor:%r,backgroundColor:%r,borderWidth:1.6,"
+                "pointRadius:0,tension:.15,order:%d,yAxisID:'y%d',hidden:!%s}" % (
+                    cid, nombre, json.dumps(info["puntos"]), info["color"], info["color"] + "22", i, i, visible))
+        marca = " gchk-fondo" if es_fondo else ""
         checks_html.append(
-            f"<label class='gchk'><input type='checkbox' data-id='{cid}' "
-            f"onchange=\"{id_prefix}_toggle(this)\" {'checked' if visible=='true' else ''}>"
-            f"<i style='background:{info['color']}'></i>{_esc(nombre)}</label>")
+            f"<label class='gchk{marca}' title='{_esc(nombre)}'>"
+            f"<input type='checkbox' data-id='{cid}' onchange=\"{id_prefix}_toggle(this)\" "
+            f"{'checked' if visible=='true' else ''}>"
+            f"<i style='background:{info['color']}'></i>{_esc(nombre)}"
+            f"{' <b>(referencia)</b>' if es_fondo else ''}</label>")
     scales_js = ", ".join(
-        f"y{i}:{{type:'linear',display:false,position:'left'}}" for i in range(len(series)))
+        f"y{i}:{{type:'linear',display:false,position:'left'}}" for i in range(len(orden)))
     script = "" if not chartjs_src else f"<script>{chartjs_src}</script>"
+    ref_txt = (f"El área de fondo es el <b>{_esc(fondo)}</b>: es la referencia — te dice en qué "
+               "estado estaba el motor en cada momento, para leer el resto de los sensores en "
+               "contexto." if fondo else "")
     return f"""
 <h2>📈 Evolución de los sensores en el tiempo</h2>
-<p class='lead' style='color:#8ea0b2;font-size:13px;margin:4px 0 10px'>Elegí qué sensores ver.
-El gráfico es ancho — <b>desplazate con la barra de abajo</b> (o Shift + rueda del mouse) para
-recorrer todo el manejo sin que se achique.</p>
+<p class='lead' style='color:#8ea0b2;font-size:13px;margin:4px 0 10px'>{ref_txt} Tildá qué otros
+sensores mostrar encima. El gráfico es ancho — <b>desplazate con la barra de abajo</b> (o Shift +
+rueda del mouse) para recorrer todo el manejo sin que se achique.</p>
 <div class='gchecks'>{''.join(checks_html)}</div>
-<div class='gwrap'><div style='width:{ancho_px}px;height:340px'><canvas id='{id_prefix}_canvas'></canvas></div></div>
+<div class='gwrap'><div style='width:{ancho_px}px;height:360px'><canvas id='{id_prefix}_canvas'></canvas></div></div>
 {script}
 <script>
 (function(){{
@@ -847,21 +880,29 @@ def _html_conduccion(datos):
     .est2 div{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:3px 0;border-bottom:1px solid #1c2732}
     .est2 span{color:#8ea0b2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .gchecks{display:flex;flex-wrap:wrap;gap:6px 14px;margin:6px 0 12px}
-    .gchk{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#c9d3dc;cursor:pointer;user-select:none}
+    .gchk{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#c9d3dc;cursor:pointer;user-select:none;
+    padding:3px 9px;border-radius:20px;border:1px solid transparent}
     .gchk input{accent-color:#2fd4d4}
     .gchk i{display:inline-block;width:12px;height:12px;border-radius:3px}
+    .gchk-fondo{background:#161e27;border-color:#2c3b49}
+    .gchk-fondo b{font-weight:600;color:#8ea0b2;font-size:11px}
     .gwrap{overflow-x:auto;border:1px solid #22303c;border-radius:10px;background:#0b1017;padding:14px 10px}"""
     evol = r["evolucion_por_velocidad"]
     bandas = [b["banda"] for b in r["bandas_velocidad"]]
     stats = r.get("estadisticas", {})
     varian = {s: st for s, st in stats.items() if st.get("oscila")}
+    por_rpm = r.get("eje", "velocidad") == "rpm"
+    sub_eje = "indexado por RÉGIMEN (el auto no se movió)" if por_rpm else "indexado por velocidad"
+    if por_rpm:
+        card1 = "<div class='card'><b class='cyan'>RPM</b><span class='u'>eje: régimen (auto detenido)</span></div>"
+    else:
+        card1 = f"<div class='card'><b class='cyan'>{r['vel_min']}–{r['vel_max']}</b><span class='u'>km/h recorridos</span></div>"
     H = [f"<style>{css}</style><div class='wrap'>",
          f"<h1>🏁 Grabación de conducción — {_esc(datos.get('vehiculo'))}</h1>",
-         f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))} · registro continuo indexado por velocidad</div>",
+         f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))} · registro continuo {sub_eje}</div>",
          f"<div class='verdict' style='background:{vcol}1a;border:1px solid {vcol};border-left:5px solid {vcol}'>"
          f"<span class='d'>{vico}</span><div><h3 style='color:{vcol}'>{_esc(v.get('titulo',''))}</h3><p>{_esc(v.get('detalle',''))}</p></div></div>",
-         "<div class='cards'>",
-         f"<div class='card'><b class='cyan'>{r['vel_min']}–{r['vel_max']}</b><span class='u'>km/h recorridos</span></div>",
+         "<div class='cards'>", card1,
          f"<div class='card'><b>{r['duracion_seg']}</b><span class='u'>segundos</span></div>",
          f"<div class='card'><b>{r['muestras']}</b><span class='u'>muestras</span></div>",
          f"<div class='card'><b>{r['sensores_distintos']}</b><span class='u'>sensores</span></div>",
@@ -880,7 +921,9 @@ def _html_conduccion(datos):
     H.append(_bloque_grafico(datos, "cond"))
     # evolución por velocidad (todos los que varían)
     if bandas:
-        H.append("<h2>📈 Cómo reaccionó cada sensor según la velocidad (promedio por banda)</h2>")
+        titulo_tabla = ("Cómo reaccionó cada sensor según el RÉGIMEN (promedio por banda de RPM)"
+                        if por_rpm else "Cómo reaccionó cada sensor según la velocidad (promedio por banda)")
+        H.append(f"<h2>📈 {titulo_tabla}</h2>")
         H.append("<div class='tw'><table><thead><tr><th>Sensor</th>" + "".join(f"<th class='num'>{_esc(b)}</th>" for b in bandas) + "<th></th></tr></thead><tbody>")
         for sensor, d in evol.items():
             H.append("<tr><td>" + _esc(sensor) + "</td>" +

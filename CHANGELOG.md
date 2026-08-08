@@ -3,6 +3,25 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-08] — Gráfico de conducción: el RPM es la referencia (área de fondo), no la velocidad
+
+Pedido del usuario: "las rpm son las que nos dicen en qué estado está el auto" — en sus pruebas
+el F4R casi nunca se mueve (acelera en el lugar), así que la velocidad no sirve de contexto visual
+pero el régimen sí.
+- `_bloque_grafico()` (`reporte.py`) ahora identifica el **Régimen del motor** entre las series y
+  lo dibuja SIEMPRE como **área de fondo** (relleno, más grosor, `order:99` para quedar detrás),
+  con el resto de los sensores (ajuste corto/largo, temperatura, avance, velocidad si hay…) como
+  líneas finas encima — sus oscilaciones ("picos") quedan bien visibles sobre el fondo del RPM.
+  Si no hay RPM en las muestras, cae a Velocidad como fondo.
+- El checkbox del RPM queda destacado (fondo propio + etiqueta "(referencia)").
+- **Textos dinámicos** según el eje real (`resumen.eje`): el subtítulo, la tarjeta de arriba (antes
+  mostraba "0.0–0.0 km/h" cuando el auto no se movía — ahora muestra "RPM · eje: régimen") y el
+  título de la tabla de bandas se adaptan a "velocidad" o "régimen" según corresponda.
+- Verificado visualmente (Edge headless + captura) en los dos escenarios: auto detenido
+  (acelerando en el lugar, eje=rpm) y auto en movimiento (eje=velocidad) — en ambos el RPM queda
+  de fondo y el resto de los sensores se leen encima con sus picos bien marcados.
+
+
 ## [2026-08-06] — FIX: el ajuste corto/largo no se capturaba en "Grabar conducción" + gráfico de evolución con scroll
 
 Revisando el informe `conduccion_20260806_195254`: "ajuste corto"/"ajuste largo" salían como NO
