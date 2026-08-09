@@ -298,7 +298,16 @@ class TranslatedECU:
         if d is None:
             return ""
         unit = getattr(d, "unit", "")
+        if self._es_unidad_microsegundos(unit):
+            return "ms"
         return self.t(unit) if unit else ""
+
+    @staticmethod
+    def _es_unidad_microsegundos(unit):
+        """µs/us es difícil de leer para una persona (ej. tiempo de inyección: 4776µs).
+        Se muestra siempre en ms, más fácil de interpretar (4.78ms)."""
+        u = (unit or "").strip().lower()
+        return u in ("µs", "μs", "us")
 
     def _input_meta(self, data_name):
         """Devuelve cómo pedirle este dato al usuario: combo de opciones o campo libre."""
@@ -826,9 +835,14 @@ class TranslatedECU:
             return None
         out = {}
         for data_name, val in values.items():
+            valor = self.t(val) if isinstance(val, str) else val
+            d = self.ecu.data.get(data_name)
+            if (isinstance(valor, (int, float))
+                    and self._es_unidad_microsegundos(getattr(d, "unit", "") if d else "")):
+                valor = round(valor / 1000.0, 3)
             out[data_name] = {
                 "etiqueta": self.t(data_name),
-                "valor": self.t(val) if isinstance(val, str) else val,
+                "valor": valor,
                 "unidad": self._unit_of(data_name),
             }
         return out

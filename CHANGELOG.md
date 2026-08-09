@@ -3,6 +3,16 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-09] — Tiempo de inyección (y otros datos en µs) ahora se muestran en ms
+
+Pedido del usuario: los µs son difíciles de leer a simple vista (ej. "4775.96 µs"). Se agregó
+conversión automática en `TranslatedECU._unit_of()`/`read_request()` (`ecu_registry.py`): CUALQUIER
+dataitem cuya unidad cruda sea µs/us se muestra en ms (÷1000, redondeado a 3 decimales) — no es
+una lista hardcodeada de nombres, así que cubre las 4 variables del F4R que usan esa unidad
+("Temps injection réel" y sus 3 históricos) y cualquier otra que aparezca en el futuro. Se
+actualizó también el rango curado de `rangos_f4r.json` (1500-5000µs → 1.5-5.0ms). Verificado en
+simulación: 4775.96µs → 4.776ms, unidad "ms".
+
 ## [2026-08-09] — Se saca info de turbo/wastegate: el F4R es atmosférico
 
 Pedido del usuario: "quita información inútil de la pantalla en vivo como por ejemplo lo del

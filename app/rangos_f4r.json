@@ -7,7 +7,7 @@
   "avance de encendido": {"min": 0, "max": 30, "unidad": "°", "nota": "a ralentí"},
   "tensión de la sonda lambda anterior": {"min": 0, "max": 1000, "unidad": "mV", "nota": "DEBE oscilar (0.1-0.9 V) con motor caliente"},
   "tensión de la sonda lambda posterior": {"min": 0, "max": 1000, "unidad": "mV", "nota": "más estable que la anterior"},
-  "tiempo de inyección": {"min": 1500, "max": 5000, "unidad": "µs", "nota": "a ralentí"},
+  "tiempo de inyección": {"min": 1.5, "max": 5.0, "unidad": "ms", "nota": "a ralentí"},
   "posición de mariposa": {"min": 0, "max": 15, "unidad": "%", "nota": "a ralentí (pie fuera del acelerador)"},
   "posición del pedal": {"min": 0, "max": 12, "unidad": "%", "nota": "pie fuera del acelerador"},
   "tensión de batería": {"min": 13.2, "max": 14.8, "unidad": "V", "nota": "motor en marcha (alternador cargando)"},
