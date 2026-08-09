@@ -3,6 +3,21 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-08] — Se saca "Depresión altimétrica": dato mal escalado, no confiable
+
+El usuario notó que nunca coincide con el MAP a auto en contacto (debería ser ~igual a la
+presión atmosférica real, ~1000-1013 mbar). Revisando la definición del ECU: el dato usa
+1 solo byte sin offset (`valor = crudo × 3.7`), con tope matemático de 943.5 mbar — **nunca
+puede alcanzar la presión atmosférica real**, así que jamás iba a coincidir con el MAP. En
+los logs reales se confirmó que queda clavado en 3.70 mbar (crudo=1) durante toda la sesión.
+No es una falla del sensor ni del auto: es un dato mal escalado en la base de definiciones
+del ECU. Se sacó de `SENSORES_RELEVANTES` y `SENSORES_PRECARGADOS` (`index.html`) y del
+archivo de rangos curados (`rangos_f4r.json`). Se agregó migración (`PRECARGADOS_VER` 4→5,
+`SENSORES_DESCARTADOS`) para sacarlo también de los tableros que el usuario ya tenía guardados
+en su notebook. De paso: se confirmó que el S3000 NO expone el voltaje crudo del MAP como dato
+de diagnóstico (solo el valor ya convertido a mbar) — a diferencia del TPS y las sondas lambda,
+que sí exponen su tensión analógica.
+
 ## [2026-08-08] — Gráfico de conducción: el RPM es la referencia (área de fondo), no la velocidad
 
 Pedido del usuario: "las rpm son las que nos dicen en qué estado está el auto" — en sus pruebas

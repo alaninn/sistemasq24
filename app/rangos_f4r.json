@@ -12,6 +12,5 @@
   "posición de mariposa": {"min": 0, "max": 15, "unidad": "%", "nota": "a ralentí (pie fuera del acelerador)"},
   "posición del pedal": {"min": 0, "max": 12, "unidad": "%", "nota": "pie fuera del acelerador"},
   "tensión de batería": {"min": 13.2, "max": 14.8, "unidad": "V", "nota": "motor en marcha (alternador cargando)"},
-  "velocidad del vehículo": {"min": 0, "max": 3, "unidad": "km/h", "nota": "debe ser 0 durante el chequeo (auto detenido)"},
-  "depresión altimétrica": {"min": 900, "max": 1050, "unidad": "mbar", "nota": "presión atmosférica según altitud"}
+  "velocidad del vehículo": {"min": 0, "max": 3, "unidad": "km/h", "nota": "debe ser 0 durante el chequeo (auto detenido)"}
 }

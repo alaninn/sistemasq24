@@ -1084,8 +1084,11 @@ const SENSORES_RELEVANTES = new Set([
   'Régime moteur','Vitesse véhicule','Etat moteur',
   // — Temperaturas (equiv. PID 05, 0F) —
   'Température eau mesurée',"Température d'eau haute résolution",'Température air mesurée',
-  // — Presiones: MAP, atmosférica, turbo, A/A (equiv. PID 0B, 33) —
-  'Pression collecteur absolue mesurée','Dépression altimétrique','Pression de suralimentation',
+  // — Presiones: MAP, turbo, A/A (equiv. PID 0B) —
+  // Nota: se descartó "Dépression altimétrique" — su definición en el ECU (1 byte, sin
+  // offset) tiene tope matemático de 943mb, nunca puede igualar la presión atmosférica
+  // real (~1013mb); es un dato mal escalado en la base, no una lectura confiable.
+  'Pression collecteur absolue mesurée','Pression de suralimentation',
   'Consigne RCO commande wastegate','Pression climatisation',
   // — Batería (equiv. PID 42) —
   'Tension batterie mesurée',
@@ -1146,7 +1149,6 @@ const SENSORES_PRECARGADOS = [
   'Température eau mesurée',                            // temp refrigerante (PID 05)
   'Température air mesurée',                            // temp aire admisión (PID 0F)
   'Pression collecteur absolue mesurée',               // MAP (PID 0B)
-  'Dépression altimétrique',                           // presión atmosférica (PID 33)
   'Tension batterie mesurée',                          // batería (PID 42)
   'Vitesse véhicule',                                  // velocidad (PID 0D)
   'Avance allumage',                                   // avance de encendido (PID 0E)
@@ -1177,7 +1179,7 @@ const SENSORES_PRECARGADOS = [
 // Versión de la lista de precargados. Al subirla, los tableros YA guardados reciben los
 // sensores nuevos que les falten (sin perder los que el usuario eligió a mano).
 // v3: ajustes de combustible OBD-II estándar (% ±). v4: contadores de detonación por cilindro.
-const PRECARGADOS_VER = 4;
+const PRECARGADOS_VER = 5;
 
 // Alias en "idioma de taller": las etiquetas del F4R son traducción literal del francés
 // ("Factor de enriquecimiento de la regulación de riqueza"), así que buscar "ajuste de
@@ -2007,11 +2009,14 @@ async function ensureParams(){
 // los sensores nuevos (ajuste corto/largo de combustible, lazo cerrado…) porque
 // _autoSelectDefault solo corre con el tablero vacío. Acá se suman los que falten, SIN
 // tocar los que el usuario eligió a mano.
+// Sensores descartados de la lista curada (mal escalados / no confiables) que hay que
+// sacar de los tableros YA guardados, aunque el usuario los haya tenido seleccionados.
+const SENSORES_DESCARTADOS = ['Dépression altimétrique'];
 function _migrarPrecargados(){
   if(ST.perfil!=='f4r') return;
   const ver=parseInt(localStorage.getItem('meg_sel_ver')||'0',10);
   if(ver>=PRECARGADOS_VER) return;
-  let sumados=0;
+  let sumados=0, sacados=0;
   for(const nombre of SENSORES_PRECARGADOS){
     let yaEsta=false;
     for(const id of ST.selected){ if(ST.paramMeta[id] && ST.paramMeta[id].dato===nombre){ yaEsta=true; break; } }
@@ -2020,9 +2025,15 @@ function _migrarPrecargados(){
       if(ST.paramMeta[id].dato===nombre){ ST.selected.add(id); sumados++; break; }
     }
   }
+  for(const nombre of SENSORES_DESCARTADOS){
+    for(const id of [...ST.selected]){
+      if(ST.paramMeta[id] && ST.paramMeta[id].dato===nombre){ ST.selected.delete(id); sacados++; }
+    }
+  }
   localStorage.setItem('meg_sel',JSON.stringify([...ST.selected]));
   localStorage.setItem('meg_sel_ver',String(PRECARGADOS_VER));
   if(sumados) setTimeout(()=>toast(`➕ Se agregaron ${sumados} sensores nuevos al tablero (ajuste de combustible, lazo cerrado…)`,'ok'),800);
+  if(sacados) setTimeout(()=>toast(`➖ Se sacó "Depresión altimétrica" del tablero (dato mal escalado, no confiable)`,'ok'),1400);
 }
 function _autoSelectDefault(){
   // Los sensores precargados a mano son del Mégane F4R: solo aplican en perfil curado.
