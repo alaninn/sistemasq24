@@ -1084,12 +1084,14 @@ const SENSORES_RELEVANTES = new Set([
   'Régime moteur','Vitesse véhicule','Etat moteur',
   // — Temperaturas (equiv. PID 05, 0F) —
   'Température eau mesurée',"Température d'eau haute résolution",'Température air mesurée',
-  // — Presiones: MAP, turbo, A/A (equiv. PID 0B) —
+  // — Presiones: MAP, A/A (equiv. PID 0B) —
   // Nota: se descartó "Dépression altimétrique" — su definición en el ECU (1 byte, sin
   // offset) tiene tope matemático de 943mb, nunca puede igualar la presión atmosférica
   // real (~1013mb); es un dato mal escalado en la base, no una lectura confiable.
-  'Pression collecteur absolue mesurée','Pression de suralimentation',
-  'Consigne RCO commande wastegate','Pression climatisation',
+  // Nota: se descartó "Pression de suralimentation" y "Consigne RCO commande wastegate"
+  // (turbo/wastegate) — el F4R es atmosférico, sin turbo; esos canales quedan clavados en
+  // un valor fijo (sin sensor/actuador físico conectado), no aportan información real.
+  'Pression collecteur absolue mesurée','Pression climatisation',
   // — Batería (equiv. PID 42) —
   'Tension batterie mesurée',
   // — Avance de encendido + corrección por cliquetis/knock (equiv. PID 0E) —
@@ -1140,10 +1142,10 @@ const SENSORES_RELEVANTES = new Set([
 // Sensores que aparecen POR DEFECTO en el Tablero en vivo (si no hay selección guardada).
 // Los clásicos que mira cualquiera: RPM, temps, MAP, batería, velocidad, avance,
 // mariposa, pedal, sondas lambda, inyección.
-// Estos 16 igualan (y superan) lo que muestra el OBD-II genérico por defecto:
+// Estos igualan (y superan) lo que muestra el OBD-II genérico por defecto:
 // RPM, temps agua/aire, MAP, batería, velocidad, mariposa, pedal, avance, ambas sondas
 // lambda, tiempo de inyección, ajuste de combustible (corto = Facteur enrichissement;
-// largo = Correction adaptative 1ª zona) y presión de sobrealimentación.
+// largo = Correction adaptative 1ª zona).
 const SENSORES_PRECARGADOS = [
   'Régime moteur',                                     // RPM (PID 0C)
   'Température eau mesurée',                            // temp refrigerante (PID 05)
@@ -1160,7 +1162,6 @@ const SENSORES_PRECARGADOS = [
   'Facteur enrichissement regulation richesse',        // ajuste de combustible CORTO (PID 06)
   'Correction adaptative de la 1ère zone de pression', // ajuste de combustible LARGO (PID 07)
   'Etat stratégie régulation richesse',                // estado de LAZO CERRADO / abierto
-  'Pression de suralimentation',                       // presión de sobrealimentación (turbo)
   // Sensores OBD-II ESTÁNDAR (ECU virtual "obd" que ahora también está en el perfil F4R).
   // El ECU enhanced del F4R no da el ajuste corto/largo como % ± igual que el escáner
   // genérico; estos SÍ, con la misma escala que el usuario ve en el modo universal.
@@ -1221,7 +1222,6 @@ const SENSOR_ALIAS = {
   'Tension batterie mesurée': {alias:'tensión de batería', buscar:'bateria tension voltaje alternador carga'},
   'Avance allumage': {alias:'avance de encendido', buscar:'avance encendido ignicion timing'},
   'Temps injection réel': {alias:'tiempo de inyección', buscar:'inyeccion tiempo pulso inyector ancho'},
-  'Pression de suralimentation': {alias:'presión de turbo (boost)', buscar:'turbo boost sobrealimentacion presion'},
   'Débit air moteur évalué': {alias:'caudal de aire (MAF estimado)', buscar:'maf caudal aire masa flujo admision'},
   'Valeur max correction lente avance cliquetis': {alias:'corrección por detonación (knock)', buscar:'knock cliquetis detonacion picado avance correccion'},
 };

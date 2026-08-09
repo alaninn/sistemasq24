@@ -39,13 +39,13 @@ SOLO_UTILES_EN_PANEO = True  # en el paneo, leer solo sensores OBSERVABLES (no p
 # La captura elige QUÉ REQUESTS leer a partir de estos `dato`; una vez elegido un request se
 # guardan TODOS sus campos (no solo el nombrado). Así, con UN `dato` por trama se arrastra toda
 # la trama. Estos cubren 5 tramas del motor (~65-70 sensores que varían con RPM/carga):
-# Trame 01 (régimen, avance, MAP, boost, temps, batería, velocidad),
+# Trame 01 (régimen, avance, MAP, temps, batería, velocidad),
 # Trame 03 (mariposa/pedal, ambas pistas), Trame 04 (inyección, VVT, riqueza/canister),
 # Trame 05 (sondas lambda amont/aval), Trame 06 (PAR MOTOR — antes no se capturaba).
 DATOS_CLAVE_F4R = [
     # Trame 01 : Paramètres généraux
     "Régime moteur", "Avance allumage", "Pression collecteur absolue mesurée",
-    "Pression de suralimentation", "Température eau mesurée", "Température air mesurée",
+    "Température eau mesurée", "Température air mesurée",
     "Tension batterie mesurée", "Vitesse véhicule",
     # Trame 03 : Papillon / pédale
     "Position papillon mesurée piste 1 après filtrage", "Position pédale mesurée",

@@ -38,7 +38,7 @@ PICO_MIN_FIN = 25.0             # sólo cortar por desaceleración si antes pas�
 # buscan aparte). Bajo carga estos son los que más información dan.
 DATOS_ENSAYO_F4R = [
     "Régime moteur", "Vitesse véhicule",
-    "Pression collecteur absolue mesurée", "Pression de suralimentation",
+    "Pression collecteur absolue mesurée",
     "Avance allumage", "Avance allumage corrigée",
     "Débit air moteur évalué", "Remplissage en air",
     "Position papillon mesurée piste 1 après filtrage", "Position pédale mesurée",
@@ -345,7 +345,6 @@ class Ensayo:
                             "prom": s["promedio"], "unidad": s["unidad"]}
             return None
         res["destacados"] = {k: v for k, v in {
-            "boost": _pico(["suralimentation", "boost", "sobrealim"]),
             "map": _pico(["collecteur", "map", "colector"]),
             "avance": _pico(["avance", "encendido"]),
             "mariposa": _pico(["papillon", "acelerador", "mariposa"]),

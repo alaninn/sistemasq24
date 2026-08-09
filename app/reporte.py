@@ -62,8 +62,6 @@ DIAG_CLAVE = [
      "Ancho de pulso del inyector: sube con la carga. Anómalo = inyector/mezcla."),
     (["caudal de aire", "maf", "débit air"],
      "MAF: proporcional a las RPM y la carga. Bajo = MAF sucio / falsa de aire."),
-    (["presión de turbo", "suralimentation", "boost"],
-     "Boost (si tiene turbo): sube con la carga. Bajo = fuga/wastegate."),
 ]
 
 

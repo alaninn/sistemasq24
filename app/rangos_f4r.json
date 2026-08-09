@@ -4,7 +4,6 @@
   "temperatura del agua": {"min": 80, "max": 100, "unidad": "°C", "nota": "con el motor en temperatura; en frío es menor"},
   "temperatura del aire": {"min": 5, "max": 60, "unidad": "°C", "nota": "según ambiente"},
   "presión absoluta del colector": {"min": 250, "max": 550, "unidad": "mbar", "nota": "a ralentí (vacío); sube al acelerar"},
-  "presión de sobrealimentación": {"min": 900, "max": 1100, "unidad": "mbar", "nota": "a ralentí ~atmosférica"},
   "avance de encendido": {"min": 0, "max": 30, "unidad": "°", "nota": "a ralentí"},
   "tensión de la sonda lambda anterior": {"min": 0, "max": 1000, "unidad": "mV", "nota": "DEBE oscilar (0.1-0.9 V) con motor caliente"},
   "tensión de la sonda lambda posterior": {"min": 0, "max": 1000, "unidad": "mV", "nota": "más estable que la anterior"},

@@ -3,6 +3,19 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-09] — Se saca info de turbo/wastegate: el F4R es atmosférico
+
+Pedido del usuario: "quita información inútil de la pantalla en vivo como por ejemplo lo del
+turbo. el f4r no tiene turbo". Confirmado con logs reales: "Presión de sobrealimentación
+(turbo)" y "Consigna RCO wastegate" quedan clavados en un valor fijo toda la sesión (103.00
+mbar y 1.17% en las 123/123 lecturas del log) — son canales del ECU sin sensor/actuador físico
+conectado en la variante atmosférica. Se sacaron de: sensores relevantes/precargados y del
+diccionario de búsqueda manual (`index.html`), de la lista de captura del Chequeo General
+(`chequeo.py`), de la lista de captura y de los "destacados" de Grabar ensayo (`ensayo.py`),
+de las notas de diagnóstico del informe (`reporte.py`), y del rango curado (`rangos_f4r.json`).
+Se dejaron sin tocar las traducciones genéricas de DTC de turbo/wastegate en `dtc_db.py` (son
+compartidas con otros perfiles de auto que sí puedan tener turbo).
+
 ## [2026-08-08] — Se saca "Depresión altimétrica": dato mal escalado, no confiable
 
 El usuario notó que nunca coincide con el MAP a auto en contacto (debería ser ~igual a la
