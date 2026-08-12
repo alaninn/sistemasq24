@@ -44,8 +44,16 @@ DIAG_CLAVE = [
      "Con el motor caliente debe estar ~85-95 °C. Frío = no entra en lazo cerrado; muy alto = riesgo."),
     (["ajuste corto", "enrichissement regulation", "facteur enrichissement"],
      "STFT: corrección instantánea de mezcla. Sano ±10%. Muy + = mezcla pobre; muy − = rica."),
-    (["ajuste largo", "correction adaptative", "apprentissage regulation"],
-     "LTFT: corrección aprendida. Alto + = falsa de aire / inyectores sucios / MAF; alto − = mezcla rica."),
+    (["ajuste largo", "correction adaptative"],
+     "LTFT: corrección aprendida, por zona de carga. 0%=neutro. Alto + = falsa de aire / "
+     "inyectores sucios / MAF; alto − = mezcla rica. Normal ±5%, sospechoso ±5-8%, "
+     "problema >±25% sostenido."),
+    (["offset de aprendizaje", "ganancia de aprendizaje", "offset apprentissage", "gain apprentissage"],
+     "Calibración del ALGORITMO de aprendizaje de mezcla (no es directamente la corrección "
+     "en sí, a diferencia del ajuste largo). Su fórmula no tiene offset de -50 como las 5 "
+     "zonas — hipótesis razonada (NO confirmada con fuente Renault) es que su neutro esté en "
+     "~50% (equivalente a byte crudo 128), no en 0%. Interpretar con cautela; comparar "
+     "sesiones entre sí más que buscar un valor absoluto."),
     (["estado del sistema de combustible", "lazo", "stratégie régulation", "état stratégie"],
      "Con motor caliente debe estar en LAZO CERRADO. Si queda abierto → sonda o temperatura."),
     (["sonda lambda", "sonde amont", "tension sonde", "relación lambda", "λ"],

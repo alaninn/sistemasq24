@@ -3,6 +3,25 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-12] — Corrige interpretación de "Offset/Gain de aprendizaje": no son ±0%-neutro
+
+El usuario trajo una info (de origen incierto) sobre códigos "PR009/PR624/PR625/ET037" de
+CAN Clip y una escala de byte 0-255 con 128=neutro. Investigado con un agente contra
+documentación RTA real (Revue Technique Automobile) y ddt4all: los códigos exactos que
+pegó el usuario (PR009, PR624, PR625, ET037, ET055) y los rangos "115-140"/"110-145" **no
+se encontraron en ninguna fuente verificable** — probablemente inventados/mezclados por una
+IA. PERO el concepto de fondo (escala de byte 0-255, 128=neutro) **sí es real**: confirmado
+en la RTA de un Vel Satis con el MISMO motor F4R (parámetros PR173/174), consistente con lo
+que ya teníamos confirmado para las 5 zonas de ajuste largo (offset=-50 en su fórmula → 0%
+en nuestra escala = byte crudo 128). Hallazgo accionable: "Offset apprentissage regulation
+richesse" y "Gain apprentissage regulation richesse" (parámetros DISTINTOS a las 5 zonas) NO
+tienen ese offset=-50 en su fórmula — por lo que es razonable (no confirmado) que SU neutro
+esté en ~50% y no en 0%, a diferencia de lo que asumía el código hasta ahora. Se corrigió
+`DIAG_CLAVE` en `reporte.py` (antes agrupaba "apprentissage regulation" junto con
+"correction adaptative" bajo el mismo criterio ±0%-neutro de las 5 zonas — eran cosas
+distintas) y se agregaron textos de ayuda propios en `ayudas.json` con la salvedad explícita
+de que el neutro en 50% es una hipótesis razonada, no un hecho confirmado por Renault.
+
 ## [2026-08-12] — Fix: valores con basura de precisión de punto flotante (se veían "rotos")
 
 El usuario mandó fotos del auto real: las 3 primeras zonas de ajuste largo mostraban el
