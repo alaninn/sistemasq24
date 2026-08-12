@@ -3,6 +3,18 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-12] — Se agregan las 5 zonas del ajuste largo nativo del F4R al tablero
+
+El F4R no tiene un solo "ajuste largo" como el PID 07 estándar: Renault lo modela con 5
+correcciones adaptativas independientes, una por zona de presión/carga del motor
+(`Correction adaptative de la 1ère...5ème zone de pression`, cada una ±50% centrada en 0).
+Antes solo se mostraba la zona 1 por defecto; se agregan las 5 a `SENSORES_PRECARGADOS`
+(`index.html`) — ya estaban en `SENSORES_RELEVANTES` y `SENSOR_ALIAS` (buscables), solo
+faltaba que aparecieran solas en el tablero. Se pueden sacar del tablero desde "Elegir
+sensores" igual que cualquier otro, por si no se quieren ver las 5. Ya se leían automático en
+Grabar sesión/chequeo (están en la misma Trame 04 que otros datos ya capturados, no hacía
+falta tocar `chequeo.py`). `PRECARGADOS_VER` 6→7.
+
 ## [2026-08-12] — Autodetección: bug de timeout que impedía detectar hasta el F4R propio
 
 El usuario reportó que "Auto detectar" no encontraba ni la Kangoo NI el F4R (auto conocido,

@@ -1171,7 +1171,15 @@ const SENSORES_PRECARGADOS = [
   'Tension sonde aval',                                // sonda lambda posterior (PID 15)
   'Temps injection réel',                              // tiempo de inyección
   'Facteur enrichissement regulation richesse',        // ajuste de combustible CORTO (PID 06)
-  'Correction adaptative de la 1ère zone de pression', // ajuste de combustible LARGO (PID 07)
+  // Ajuste LARGO nativo del F4R: Renault lo parte en 5 zonas de presión/carga con
+  // aprendizaje independiente (a diferencia del PID 07 estándar, que es un solo valor
+  // resumido). Se agregan las 5 — se pueden sacar del tablero desde "Elegir sensores"
+  // igual que cualquier otro, por si no se quieren ver todas.
+  'Correction adaptative de la 1ère zone de pression',
+  'Correction adaptative de la 2ème zone de pression',
+  'Correction adaptative de la 3ème zone de pression',
+  'Correction adaptative de la 4ème zone de pression',
+  'Correction adaptative de la 5ème zone de pression',
   'Etat stratégie régulation richesse',                // estado de LAZO CERRADO / abierto
   // Sensores OBD-II ESTÁNDAR (ECU virtual "obd" que ahora también está en el perfil F4R).
   // El ECU enhanced del F4R no da el ajuste corto/largo como % ± igual que el escáner
@@ -1191,7 +1199,7 @@ const SENSORES_PRECARGADOS = [
 // Versión de la lista de precargados. Al subirla, los tableros YA guardados reciben los
 // sensores nuevos que les falten (sin perder los que el usuario eligió a mano).
 // v3: ajustes de combustible OBD-II estándar (% ±). v4: contadores de detonación por cilindro.
-const PRECARGADOS_VER = 6;
+const PRECARGADOS_VER = 7;
 
 // Alias en "idioma de taller": las etiquetas del F4R son traducción literal del francés
 // ("Factor de enriquecimiento de la regulación de riqueza"), así que buscar "ajuste de
