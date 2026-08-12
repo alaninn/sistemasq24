@@ -3,6 +3,22 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-12] — Valores de referencia (ayuda) para diagnosticar el ajuste de combustible
+
+Pedido del usuario: cómo sabe si el valor de cada zona es correcto/alto/bajo para poder
+diagnosticar. Investigación (agente con búsqueda web/GitHub) sobre el estándar SAE J1979
+(PID 06/07) y cómo lo maneja Renault internamente. Confirmado: fórmula estándar
+`%=(byte-128)×100/128`, 0%=neutro; referencias de industria: ±5% normal, ±8% sospechoso, más
+de ±25% sostenido = problema real; positivo=mezcla pobre (agrega nafta), negativo=mezcla
+rica (saca nafta). La documentación técnica de Renault (manual RTA del F4R) confirma que el
+ajuste largo nativo usa la misma escala centrada en 0%, dividida en zonas de carga (nuestra
+base tiene 5). No se encontró documentación de cómo la ECU resume esas zonas en el único valor
+del PID 07 estándar — dato marcado explícitamente como no confirmado. Se agregaron estas
+referencias como texto de ayuda (botón "?") en `ayudas.json` para: las 5 zonas nativas, el
+"Facteur enrichissement" (corto nativo, con nota de incertidumbre sobre su punto neutro real,
+ya que no es una escala ± como el resto), y los "Ajuste corto/largo de combustible B1" (PID
+06/07 estándar), con nota de que ese resumen puede no reflejar bien una sola zona con problema.
+
 ## [2026-08-12] — Se agregan las 5 zonas del ajuste largo nativo del F4R al tablero
 
 El F4R no tiene un solo "ajuste largo" como el PID 07 estándar: Renault lo modela con 5
