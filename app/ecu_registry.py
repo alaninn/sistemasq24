@@ -840,6 +840,13 @@ class TranslatedECU:
             if (isinstance(valor, (int, float))
                     and self._es_unidad_microsegundos(getattr(d, "unit", "") if d else "")):
                 valor = round(valor / 1000.0, 3)
+            elif isinstance(valor, float):
+                # Dataitems sin "format" propio (ej. las 5 zonas de ajuste de combustible)
+                # llegan del motor de ddt4all con basura de precisión de punto flotante
+                # (ej. raw*0.001526-50 -> 0.003968000000000416 en vez de 0.0039680), que se
+                # ve roto en pantalla (el número se corta en dos líneas). Redondeo a 2
+                # decimales acá, mismo criterio que usa el resto de la app (batería, temps).
+                valor = round(valor, 2)
             out[data_name] = {
                 "etiqueta": self.t(data_name),
                 "valor": valor,

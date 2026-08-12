@@ -3,6 +3,25 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-12] — Fix: valores con basura de precisión de punto flotante (se veían "rotos")
+
+El usuario mandó fotos del auto real: las 3 primeras zonas de ajuste largo mostraban el
+MISMO valor "0.00396800 0000000416" (número cortado en dos líneas). Investigado: NO es un
+bug de lectura cruzada entre zonas (los `firstbyte` de las 5 zonas están bien definidos y
+sin superposición: 26/28/30/32/34, 2 bytes cada una) — que las 3 primeras coincidan es
+esperable, es el valor NEUTRO por defecto (raw≈32768 → ~0%) tras el reset de aprendizajes
+reciente: las zonas todavía no divergieron porque el auto no anduvo lo suficiente en cada
+rango de carga para que cada una aprenda su propia corrección. El problema real es de
+REDONDEO: esos 5 dataitems no tienen un `"format"` propio en la base del ECU (a diferencia
+de otros como el ajuste corto, que sí lo tiene y por eso se ve "50.00%" limpio), así que el
+motor de ddt4all devuelve el float crudo con basura de precisión de Python
+(`32768*0.001526-50 = 0.003968000000000416`, confirmado calculándolo a mano). Fix en
+`ecu_registry.py:read_request()`: cualquier valor float sin la conversión especial de
+µs→ms ahora se redondea a 2 decimales antes de salir — mismo criterio que ya usa el resto
+de la app (batería, temperaturas). Este fix corre en el mismo lugar que usan TODAS las
+lecturas (tablero, chequeos, grabaciones), así que corrige el problema en todos lados de
+una sola vez.
+
 ## [2026-08-12] — Chequeo de mezcla: agrega panel de valores EN VIVO
 
 Pedido del usuario: la pantalla tenía el chequeo guiado (botón "Chequear mezcla") pero
