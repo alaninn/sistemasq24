@@ -966,6 +966,197 @@ def generar_conduccion(datos):
             "carpeta": str(LOG_DIR), "nombre": nombre}
 
 
+# ============================================================================
+# CHEQUEO DE MEZCLA (2 etapas: ralentí + ~2500 rpm)
+# ============================================================================
+def _evaluar_zona_mezcla(valor):
+    """Clasifica el % de una zona de ajuste (o el ajuste corto) con el criterio de mezcla:
+    0=neutral, ±5=normal, ±5-8=sospechoso, >±8 (y sobre todo >±25 sostenido)=problema.
+    Positivo=mezcla pobre (la ECU agrega nafta); negativo=mezcla rica (la ECU saca nafta).
+    Devuelve {estado: normal|sospechoso|problema|sin_dato, signo: pobre|rica|neutral, texto}."""
+    if valor is None:
+        return {"estado": "sin_dato", "signo": None, "texto": "No se pudo leer."}
+    av = abs(valor)
+    signo = "neutral" if av < 0.5 else ("pobre" if valor > 0 else "rica")
+    if av <= 5:
+        estado_, calif = "normal", "dentro de lo normal"
+    elif av <= 8:
+        estado_, calif = "sospechoso", "sospechoso"
+    else:
+        estado_, calif = "problema", ("problema" if av > 25 else "sospechoso alto")
+    if signo == "neutral":
+        texto = f"{valor:+.1f}% — {calif} (mezcla correcta)."
+    else:
+        accion = "agregando" if signo == "pobre" else "sacando"
+        texto = (f"{valor:+.1f}% — {calif} (mezcla {signo}: la ECU está {accion} nafta "
+                 f"para compensar).")
+    return {"estado": estado_, "signo": signo, "texto": texto}
+
+
+def _mezcla_analizar(datos):
+    """Evalúa las 5 zonas de ajuste largo (prioriza la etapa 2500rpm, cae a ralentí si no hay
+    dato) y arma el veredicto general + por zona."""
+    from chequeo_mezcla import ZONAS_MEZCLA
+    etapas = datos.get("etapas", {})
+    ralenti_stats = (etapas.get("ralenti") or {}).get("estadisticas", {})
+    p2500_stats = (etapas.get("2500") or {}).get("estadisticas", {})
+
+    def _valor(stats, nombre):
+        s = stats.get(nombre)
+        return s.get("promedio") if s else None
+
+    orden = {"ok": 0, "warn": 1, "bad": 2}
+    nivel_de_estado = {"normal": "ok", "sospechoso": "warn", "problema": "bad", "sin_dato": "ok"}
+    por_zona = []
+    peor = "ok"
+    for i, zona in enumerate(ZONAS_MEZCLA, start=1):
+        v_ral = _valor(ralenti_stats, zona)
+        v_25 = _valor(p2500_stats, zona)
+        valor = v_25 if v_25 is not None else v_ral
+        ev = _evaluar_zona_mezcla(valor)
+        nivel = nivel_de_estado[ev["estado"]]
+        if orden[nivel] > orden[peor]:
+            peor = nivel
+        por_zona.append({"zona": f"Zona {i}", "dato": zona, "valor": valor,
+                         "estado": ev["estado"], "nivel": nivel, "texto": ev["texto"]})
+
+    stft_ralenti = _valor(ralenti_stats, "Facteur enrichissement regulation richesse")
+    stft_2500 = _valor(p2500_stats, "Facteur enrichissement regulation richesse")
+    lazo = (ralenti_stats.get("Etat stratégie régulation richesse") or {})
+    v_amont = _valor(ralenti_stats, "Tension sonde amont")
+    amont_osc = (ralenti_stats.get("Tension sonde amont") or {}).get("oscila")
+
+    n_problema = sum(1 for z in por_zona if z["nivel"] == "bad")
+    n_sospechoso = sum(1 for z in por_zona if z["nivel"] == "warn")
+    if peor == "bad":
+        titulo = f"Problema de mezcla detectado ({n_problema} zona{'s' if n_problema != 1 else ''})"
+        detalle = ("Al menos una zona de presión superó el ±8% (>25% ya es un problema claro): "
+                   "revisar fugas de vacío/admisión, inyectores, MAF o sonda lambda según el "
+                   "signo de cada zona (ver detalle por zona).")
+    elif peor == "warn":
+        titulo = f"Mezcla sospechosa en {n_sospechoso} zona{'s' if n_sospechoso != 1 else ''}"
+        detalle = "Algunas zonas están entre ±5% y ±8%: vale la pena vigilar, no es concluyente aún."
+    else:
+        titulo = "Mezcla dentro de lo normal"
+        detalle = "Las 5 zonas de corrección adaptativa están dentro de ±5%."
+
+    veredicto = {"nivel": peor, "titulo": titulo, "detalle": detalle}
+    datos["resumen"] = {
+        "generado": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "veredicto": veredicto,
+        "por_zona": por_zona,
+        "stft_ralenti": stft_ralenti, "stft_2500": stft_2500,
+        "lazo_cerrado": lazo,
+        "tension_amont": v_amont, "amont_oscila": amont_osc,
+        "etapas": {k: {"rpm_prom": v.get("rpm_prom"), "n_muestras": v.get("n_muestras"),
+                       "alcanzo_banda": v.get("alcanzo_banda")} for k, v in etapas.items()},
+        "estadisticas_ralenti": ralenti_stats, "estadisticas_2500": p2500_stats,
+    }
+    datos["para_experto"] = {
+        "vehiculo": datos.get("vehiculo"), "perfil": datos.get("perfil"), "fecha": datos.get("fecha"),
+        "veredicto": veredicto, "por_zona": por_zona,
+        "stft": {"ralenti": stft_ralenti, "2500rpm": stft_2500}, "lazo_cerrado": lazo,
+        "sonda_amont": {"tension": v_amont, "oscila": amont_osc},
+        "estadisticas_ralenti": ralenti_stats, "estadisticas_2500": p2500_stats,
+    }
+    return datos
+
+
+def _txt_mezcla(datos):
+    r = datos["resumen"]
+    L = ["=" * 70, "  CHEQUEO DE MEZCLA — SISTEMASQ24",
+         f"  Vehículo: {datos.get('vehiculo')}   |   {datos.get('fecha')}", "=" * 70, ""]
+    v = r["veredicto"]
+    L.append(f"VEREDICTO: {v['titulo']}")
+    L.append(f"  {v['detalle']}")
+    L.append("")
+    L.append("POR ZONA DE PRESIÓN (ajuste largo nativo del F4R):")
+    for z in r["por_zona"]:
+        L.append(f"  · {z['zona']} ({z['dato']}): {z['texto']}")
+    L.append("")
+    L.append(f"Ajuste corto (richesse) — ralentí: {r.get('stft_ralenti')}%  |  a 2500rpm: {r.get('stft_2500')}%")
+    lazo = r.get("lazo_cerrado") or {}
+    L.append(f"Lazo de riqueza (ralentí): {lazo.get('promedio', '—')}")
+    L.append(f"Sonda amont — tensión (ralentí): {r.get('tension_amont')} V  (oscila: {r.get('amont_oscila')})")
+    etapas = r.get("etapas", {})
+    L.append("")
+    L.append("ETAPAS:")
+    for nombre, e in etapas.items():
+        L.append(f"  · {nombre}: rpm_prom={e.get('rpm_prom')}  muestras={e.get('n_muestras')}  "
+                 f"banda_alcanzada={e.get('alcanzo_banda')}")
+    return "\n".join(L)
+
+
+def _html_mezcla(datos):
+    r = datos["resumen"]
+    v = r.get("veredicto", {})
+    vcol = {"ok": "#3ddc97", "warn": "#ffab2e", "bad": "#ff5a5a"}.get(v.get("nivel"), "#8ea0b2")
+    vico = {"ok": "🟢", "warn": "🟡", "bad": "🔴"}.get(v.get("nivel"), "⚪")
+    nivelico = {"normal": "🟢", "sospechoso": "🟡", "problema": "🔴", "sin_dato": "⚪"}
+    css = """body{font-family:system-ui,Segoe UI,Arial,sans-serif;background:#0e141b;color:#e8eef4;margin:0;padding:24px;line-height:1.5}
+    .wrap{max-width:820px;margin:0 auto}
+    h1{font-size:23px;margin:0 0 4px}h2{font-size:16px;border-bottom:1px solid #24303f;padding-bottom:6px;margin-top:26px}
+    .sub{color:#8ea0b2;font-size:13px;margin-bottom:16px}
+    .verdict{display:flex;gap:14px;align-items:flex-start;border-radius:11px;padding:15px 18px;margin:6px 0 8px}
+    .verdict .d{font-size:24px;line-height:1}.verdict h3{margin:0 0 3px;font-size:16px}.verdict p{margin:0;font-size:13.5px;color:#cdd8e2}
+    .zona{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #1c2732}
+    .zona .ico{font-size:17px}.zona b{font-size:13.5px}.zona .dato{color:#8ea0b2;font-size:11.5px}
+    .zona .txt{font-size:13px;color:#cdd8e2;margin-top:2px}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+    th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #1c2732}
+    thead th{background:#111922;color:#8ea0b2;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+    .dim{color:#8ea0b2}
+    .note{margin-top:16px;padding:10px 14px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px;font-size:13px;color:#9fd}"""
+    H = [f"<style>{css}</style><div class='wrap'>",
+         f"<h1>⚗️ Chequeo de mezcla — {_esc(datos.get('vehiculo'))}</h1>",
+         f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))} · ralentí + ~2500 rpm</div>",
+         f"<div class='verdict' style='background:{vcol}1a;border:1px solid {vcol};border-left:5px solid {vcol}'>"
+         f"<span class='d'>{vico}</span><div><h3 style='color:{vcol}'>{_esc(v.get('titulo',''))}</h3><p>{_esc(v.get('detalle',''))}</p></div></div>"]
+    H.append("<h2>Por zona de presión (ajuste largo nativo)</h2>")
+    for z in r["por_zona"]:
+        H.append(f"<div class='zona'><span class='ico'>{nivelico.get(z['estado'],'⚪')}</span>"
+                 f"<div><b>{_esc(z['zona'])}</b> <span class='dato'>({_esc(z['dato'])})</span>"
+                 f"<div class='txt'>{_esc(z['texto'])}</div></div></div>")
+    H.append("<h2>Otros datos de mezcla</h2>")
+    H.append("<table><tbody>")
+    H.append(f"<tr><td>Ajuste corto (richesse) — ralentí</td><td>{_esc(r.get('stft_ralenti'))}%</td></tr>")
+    H.append(f"<tr><td>Ajuste corto (richesse) — a 2500rpm</td><td>{_esc(r.get('stft_2500'))}%</td></tr>")
+    lazo = r.get("lazo_cerrado") or {}
+    H.append(f"<tr><td>Lazo de riqueza (ralentí)</td><td>{_esc(lazo.get('promedio','—'))}</td></tr>")
+    H.append(f"<tr><td>Sonda amont — tensión (ralentí)</td><td>{_esc(r.get('tension_amont'))} V "
+             f"<span class='dim'>(oscila: {_esc(r.get('amont_oscila'))})</span></td></tr>")
+    H.append("</tbody></table>")
+    etapas = r.get("etapas", {})
+    if etapas:
+        H.append("<h2>Etapas capturadas</h2><table><thead><tr><th>Etapa</th><th>RPM prom.</th>"
+                 "<th>Muestras</th><th>Banda alcanzada</th></tr></thead><tbody>")
+        for nombre, e in etapas.items():
+            H.append(f"<tr><td>{_esc(nombre)}</td><td>{_esc(e.get('rpm_prom'))}</td>"
+                     f"<td>{_esc(e.get('n_muestras'))}</td><td>{_esc(e.get('alcanzo_banda'))}</td></tr>")
+        H.append("</tbody></table>")
+    H.append("<div class='note'>Chequeo enfocado solo en mezcla (RPM, MAP, las 5 zonas de ajuste "
+             "largo, ajuste corto, lazo y sondas de oxígeno) — no barre otras ECUs. El <b>.json</b> "
+             "trae el bloque <code>para_experto</code> con todo junto. Podés imprimir esta página "
+             "a PDF (Ctrl+P).</div></div>")
+    return "\n".join(H)
+
+
+def generar_mezcla(datos):
+    """Analiza el chequeo de mezcla y escribe HTML/JSON/TXT. Devuelve {html,json,txt,carpeta,nombre}."""
+    _mezcla_analizar(datos)
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    nombre = "mezcla_" + datetime.now().strftime("%Y%m%d_%H%M%S")
+    p_json = LOG_DIR / f"{nombre}.json"
+    p_txt = LOG_DIR / f"{nombre}.txt"
+    p_html = LOG_DIR / f"{nombre}.html"
+    p_json.write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf-8")
+    p_txt.write_text(_txt_mezcla(datos), encoding="utf-8")
+    p_html.write_text("<!doctype html><meta charset='utf-8'><title>Mezcla " +
+                      _esc(datos.get("vehiculo", "")) + "</title>" + _html_mezcla(datos), encoding="utf-8")
+    return {"html": str(p_html), "json": str(p_json), "txt": str(p_txt),
+            "carpeta": str(LOG_DIR), "nombre": nombre}
+
+
 def generar(datos):
     """Analiza los datos y escribe los 3 archivos. Devuelve {html, json, txt, carpeta}."""
     _analizar(datos)

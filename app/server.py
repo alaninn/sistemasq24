@@ -80,6 +80,12 @@ class Estado:
                         "terminado": False, "resultado": None, "error": None}
         self.chequeo_cancelar = False    # flag para abortar el chequeo
         self.chequeo_capturar = False    # flag "capturar ahora" (fallback manual)
+        # estado del chequeo de mezcla (F4R): 2 etapas fijas — ralentí y ~2500 rpm.
+        self.mezcla = {"corriendo": False, "fase": "", "rpm_objetivo": 0, "rpm_actual": None,
+                       "progreso": 0, "instruccion": "", "timeout": False,
+                       "terminado": False, "resultado": None, "error": None}
+        self.mezcla_cancelar = False     # flag para abortar el chequeo de mezcla
+        self.mezcla_capturar = False     # flag "capturar ahora" (fallback manual)
         # estado del ensayo de aceleración (motor en movimiento, ~50/100 m)
         self.ensayo = {"corriendo": False, "fase": "", "vel_actual": None, "rpm_actual": None,
                        "distancia": 0, "progreso": 0, "instruccion": "", "timeout": False,
@@ -895,7 +901,7 @@ def _github_token():
 
 # Prefijos de INFORMES (se conservan siempre al limpiar); el resto (sesion_/consola_) es ruido
 # de debug que se poda dejando solo los más recientes.
-_LOG_INFORMES = ("reporte_", "ensayo_", "conduccion_", "informe_")
+_LOG_INFORMES = ("reporte_", "ensayo_", "conduccion_", "informe_", "mezcla_")
 _LOG_MANTENER_RUIDO = 12   # cuántos sesion_/consola_ recientes conservar
 
 
@@ -1259,6 +1265,7 @@ def api_desconectar():
         estado.adaptador_info = None
         estado.actuadores_activos = {}   # cortar el keep-alive de actuadores
         estado.chequeo_cancelar = True   # abortar chequeo si estaba corriendo
+        estado.mezcla_cancelar = True    # abortar chequeo de mezcla si estaba corriendo
         estado.ensayo_cancelar = True    # abortar ensayo si estaba corriendo
         # Descargar el auto activo: al desconectar no debe quedar ningún perfil cargado.
         estado.registro.reset()
@@ -2438,6 +2445,115 @@ def api_chequeo_cancelar():
 def api_chequeo_reporte(tipo: str):
     """Descarga el reporte generado (tipo: html | json | txt)."""
     res = (estado.chequeo.get("resultado") or {}).get("reporte") or {}
+    ruta = res.get(tipo)
+    if not ruta or not Path(ruta).exists():
+        return JSONResponse({"error": "Reporte no disponible"}, status_code=404)
+    contenido = Path(ruta).read_text(encoding="utf-8")
+    media = {"html": "text/html", "json": "application/json", "txt": "text/plain"}.get(tipo, "text/plain")
+    from fastapi.responses import Response
+    return Response(content=contenido, media_type=media + "; charset=utf-8",
+                    headers={"Content-Disposition": f'attachment; filename="{Path(ruta).name}"'})
+
+
+# ----------------------------------------------------------------------------
+# CHEQUEO DE MEZCLA (F4R): ralentí + ~2500 rpm, solo sensores de mezcla
+# ----------------------------------------------------------------------------
+class _CtxMezcla:
+    """Contexto que el orquestador `chequeo_mezcla.ChequeoMezcla` usa para hablar con el
+    server, sin imports circulares. Mismo contrato que _CtxChequeo + pausar_lecturas()."""
+    registro = estado.registro
+    elm_lock = ELM_LOCK
+
+    def marcar_actividad(self):
+        _marcar_actividad()
+
+    def seleccionar_ecu(self, ecu_id):
+        _seleccionar_ecu(ecu_id)
+
+    def set_estado(self, kw):
+        with ESTADO_LOCK:
+            estado.mezcla.update(kw)
+
+    def cancelado(self):
+        return estado.mezcla_cancelar
+
+    def capturar_ahora(self):
+        return estado.mezcla_capturar
+
+    def reset_capturar_ahora(self):
+        estado.mezcla_capturar = False
+
+    def simulacion(self):
+        return options.simulation_mode
+
+    def pausar_lecturas(self):
+        return estado.pausar_lecturas
+
+    def log(self, tipo, msg, det=None):
+        slog.log(tipo, msg, det or {})
+
+
+def _run_mezcla():
+    import chequeo_mezcla
+    ctx = _CtxMezcla()
+    ctx.registro = estado.registro   # perfil activo al momento de iniciar
+    try:
+        resultado = chequeo_mezcla.ChequeoMezcla(ctx).run()
+    except Exception as e:
+        slog.log("MEZCLA", f"Error en el chequeo de mezcla: {e}", {})
+        resultado = {"ok": False, "error": f"Error en el chequeo de mezcla: {e}"}
+    with ESTADO_LOCK:
+        estado.mezcla.update({"corriendo": False, "terminado": True, "resultado": resultado})
+
+
+@app.post("/api/mezcla/iniciar")
+def api_mezcla_iniciar():
+    """Inicia el chequeo de mezcla en segundo plano. Requiere auto conectado, perfil F4R
+    (depende de las 5 zonas nativas de ajuste largo, que no existen en OBD genérico)."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    if estado.registro.perfil != "f4r":
+        return JSONResponse({"error": "El chequeo de mezcla es exclusivo del perfil F4R"}, status_code=409)
+    with ESTADO_LOCK:
+        if estado.mezcla.get("corriendo"):
+            return {"ok": True, "iniciado": True, "ya_corria": True}
+        if estado.chequeo.get("corriendo") or estado.conduccion.get("corriendo"):
+            return JSONResponse({"error": "Ya hay otro chequeo/grabación corriendo"}, status_code=409)
+        estado.mezcla = {"corriendo": True, "fase": "iniciando", "rpm_objetivo": 0,
+                         "rpm_actual": None, "progreso": 0, "instruccion": "Preparando…",
+                         "timeout": False, "terminado": False, "resultado": None, "error": None}
+        estado.mezcla_cancelar = False
+        estado.mezcla_capturar = False
+    slog.log("MEZCLA", "Chequeo de mezcla iniciado", {"perfil": estado.registro.perfil})
+    THREAD_POOL.submit(_run_mezcla)
+    return {"ok": True, "iniciado": True}
+
+
+@app.get("/api/mezcla/estado")
+def api_mezcla_estado():
+    """Progreso del chequeo de mezcla (fase, rpm_actual/objetivo, instruccion, terminado, resultado)."""
+    with ESTADO_LOCK:
+        return dict(estado.mezcla)
+
+
+@app.post("/api/mezcla/capturar-ahora")
+def api_mezcla_capturar():
+    """Fuerza la captura de la etapa 2500rpm (fallback si no detecta la banda)."""
+    estado.mezcla_capturar = True
+    return {"ok": True}
+
+
+@app.post("/api/mezcla/cancelar")
+def api_mezcla_cancelar():
+    """Aborta el chequeo de mezcla en curso."""
+    estado.mezcla_cancelar = True
+    return {"ok": True}
+
+
+@app.get("/api/mezcla/reporte/{tipo}")
+def api_mezcla_reporte(tipo: str):
+    """Descarga el reporte generado (tipo: html | json | txt)."""
+    res = (estado.mezcla.get("resultado") or {}).get("reporte") or {}
     ruta = res.get(tipo)
     if not ruta or not Path(ruta).exists():
         return JSONResponse({"error": "Reporte no disponible"}, status_code=404)

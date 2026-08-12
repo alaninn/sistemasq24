@@ -751,6 +751,18 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       <div id="chequeoContent"></div>
     </section>
 
+    <!-- VISTA: CHEQUEO DE MEZCLA -->
+    <section class="view hidden" id="view-mezcla">
+      <div class="view-head">
+        <div>
+          <div class="eyebrow">Diagnóstico de mezcla</div>
+          <h2>⚗️ Chequeo de mezcla</h2>
+          <div class="desc">Lee solo lo necesario para diagnosticar la mezcla (RPM, MAP, las 5 zonas adaptativas nativas, ajuste corto y sondas de oxígeno) a ralentí y a ~2500 RPM sostenidas, y te da un veredicto por zona. Rápido: no lee otras computadoras.</div>
+        </div>
+      </div>
+      <div id="mezclaContent"></div>
+    </section>
+
     <!-- VISTA: ENSAYO DE ACELERACIÓN -->
     <section class="view hidden" id="view-ensayo">
       <div class="view-head">
@@ -1418,6 +1430,7 @@ function go(v){
   if(v==='escanear') renderEscaneo();
   if(v==='ondas') renderOndas();
   if(v==='chequeo') renderChequeo();
+  if(v==='mezcla') renderMezcla();
   if(v==='ensayo') renderEnsayo();
   if(v==='vehiculo') renderVehiculos();
 }
@@ -2876,6 +2889,144 @@ function renderChequeoResultado(res){
     </div>`;
 }
 
+/* ============================ CHEQUEO DE MEZCLA ============================ */
+let MEZCLA = {polling:false};
+
+function renderMezcla(){
+  const box=document.getElementById('mezclaContent');
+  fetch(API+'/api/mezcla/estado').then(r=>r.json()).then(e=>{
+    if(e.corriendo){ arrancarPollingMezcla(); return; }
+    if(e.terminado && e.resultado){ renderMezclaResultado(e.resultado); return; }
+    box.innerHTML=`
+      <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+        <div style="font-size:15px;line-height:1.7;color:var(--ink-dim)">
+          Chequeo rápido y enfocado SOLO en la mezcla:
+          <ol style="margin:12px 0 0;padding-left:20px;line-height:1.9">
+            <li><b>Ralentí</b> — capturá unos segundos con el auto quieto en ralentí.</li>
+            <li><b>~2500 RPM</b> — te va a pedir mantener el motor en 2500 RPM; cuando detecta la banda estable, captura solo.</li>
+            <li><b>Veredicto</b> — un resumen general y una línea por cada una de las 5 zonas adaptativas (normal / sospechoso / problema).</li>
+          </ol>
+        </div>
+        <div style="margin-top:20px;padding:12px;background:rgba(255,171,46,.08);border:1px solid rgba(255,171,46,.3);border-radius:8px;font-size:13px;color:var(--amber)">
+          ⚠️ Hacelo con freno de mano puesto y en un lugar seguro y ventilado.
+        </div>
+        <button class="uni-btn" style="margin-top:20px;max-width:280px" onclick="iniciarMezcla()">⚗️ Chequear mezcla</button>
+      </div>`;
+  }).catch(()=>{ box.innerHTML='<div class="error">No se pudo consultar el estado.</div>'; });
+}
+
+async function iniciarMezcla(){
+  if(!ST.conectado){ toast('Conectá el auto primero','warn'); return; }
+  try{
+    const r=await fetch(API+'/api/mezcla/iniciar',{method:'POST'});
+    const j=await r.json();
+    if(!j.ok && !j.iniciado){ toast(j.error||'No se pudo iniciar','err'); return; }
+    arrancarPollingMezcla();
+  }catch(e){ toast('Error iniciando el chequeo de mezcla','err'); }
+}
+
+function arrancarPollingMezcla(){
+  if(MEZCLA.polling) return;
+  MEZCLA.polling=true;
+  const loop=async()=>{
+    if(ST.view!=='mezcla'){ MEZCLA.polling=false; return; }
+    let e;
+    try{ e=await (await fetch(API+'/api/mezcla/estado')).json(); }
+    catch(err){ setTimeout(loop,700); return; }
+    if(e.terminado){ MEZCLA.polling=false; renderMezclaResultado(e.resultado); return; }
+    renderMezclaFase(e);
+    setTimeout(loop,500);
+  };
+  loop();
+}
+
+function renderMezclaFase(e){
+  const box=document.getElementById('mezclaContent');
+  const fase=e.fase||'';
+  let cuerpo='';
+  if(fase==='iniciando'){
+    cuerpo=`<div style="font-size:16px;text-align:center;padding:20px">⚗️ ${esc(e.instruccion||'Preparando…')}</div>`;
+  } else if(fase==='ralenti'){
+    cuerpo=`<div style="font-size:20px;text-align:center;padding:20px">🅿️ ${esc(e.instruccion||'Dejá el auto en ralentí — capturando…')}</div>`;
+  } else if(fase.startsWith('esperando_') || fase.startsWith('capturando_')){
+    const obj=e.rpm_objetivo||0;
+    const rpm=e.rpm_actual;
+    const enBanda = rpm!=null && Math.abs(rpm-obj)<=200;
+    const capturando = fase.startsWith('capturando_');
+    const color = capturando ? 'var(--green)' : (enBanda?'var(--green)':(rpm!=null&&rpm<obj?'var(--amber)':'var(--red)'));
+    cuerpo=`
+      <div style="text-align:center;padding:14px">
+        <div style="font-size:20px;margin-bottom:6px">${capturando?'📸 Capturando a':'🎯 Llevá el motor a'} <b>${obj} RPM</b>${capturando?'…':' y mantené'}</div>
+        <div style="font-size:64px;font-weight:800;color:${color};line-height:1.1;margin:8px 0">${rpm!=null?rpm:'—'}</div>
+        <div style="color:var(--ink-dim);font-size:13px">RPM actuales</div>
+        ${e.timeout && !capturando ? `<div style="margin-top:14px;color:var(--amber)">${esc(e.instruccion)}</div><button class="chip" style="margin-top:10px" onclick="capturarAhoraMezcla()">📸 Capturar ahora</button>`:''}
+      </div>`;
+  } else if(fase==='rpm_no_disponible'){
+    cuerpo=`<div style="text-align:center;padding:20px">
+      <div style="font-size:34px;margin-bottom:8px">⚠️</div>
+      <div style="font-size:15px;color:var(--amber)">${esc(e.instruccion||'No se pudieron leer las RPM; genero el reporte con lo leído.')}</div></div>`;
+  } else if(fase==='reporte'){
+    cuerpo=`<div style="font-size:18px;text-align:center;padding:24px">📝 Generando el veredicto…</div>`;
+  }
+  box.innerHTML=`
+    <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+      ${cuerpo}
+      <div style="margin-top:20px;text-align:right"><button class="chip" onclick="cancelarMezcla()">✕ Cancelar</button></div>
+    </div>`;
+}
+
+async function capturarAhoraMezcla(){ try{ await fetch(API+'/api/mezcla/capturar-ahora',{method:'POST'}); }catch(e){} }
+async function cancelarMezcla(){
+  try{ await fetch(API+'/api/mezcla/cancelar',{method:'POST'}); }catch(e){}
+  MEZCLA.polling=false; toast('Chequeo de mezcla cancelado','warn'); renderMezcla();
+}
+
+function renderMezclaResultado(res){
+  const box=document.getElementById('mezclaContent');
+  if(!res || !res.ok){
+    box.innerHTML=`<div class="error" style="max-width:640px">${esc((res&&res.error)||'El chequeo no se completó.')}</div>
+      <button class="uni-btn" style="margin-top:16px;max-width:240px" onclick="renderMezcla()">Volver a empezar</button>`;
+    return;
+  }
+  // El veredicto/por_zona vive en el JSON del reporte generado.
+  fetch(API+'/api/mezcla/reporte/json').then(r=>r.json()).then(datos=>{
+    const r = datos.resumen || {};
+    const v = r.veredicto || {};
+    const dotcol = {ok:'#3ddc97', warn:'#ffab2e', bad:'#ff5a5a'}[v.nivel] || '#8ea0b2';
+    const dotico = {ok:'🟢', warn:'🟡', bad:'🔴'}[v.nivel] || '⚪';
+    const nivelico = {normal:'🟢', sospechoso:'🟡', problema:'🔴', sin_dato:'⚪'};
+    const zonasHtml = (r.por_zona||[]).map(z=>`
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)">
+        <span style="font-size:18px">${nivelico[z.estado]||'⚪'}</span>
+        <div><b>${esc(z.zona)}</b> <span style="color:var(--ink-dim);font-size:12px">(${esc(z.dato)})</span>
+        <div style="font-size:13px;color:var(--ink-dim)">${esc(z.texto)}</div></div>
+      </div>`).join('');
+    box.innerHTML=`
+      <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+        <div style="display:flex;gap:12px;align-items:flex-start;background:${dotcol}1a;border:1px solid ${dotcol};border-left:5px solid ${dotcol};border-radius:10px;padding:14px 16px">
+          <span style="font-size:22px">${dotico}</span>
+          <div><div style="font-weight:700;color:${dotcol}">${esc(v.titulo||'')}</div>
+          <div style="font-size:13px;color:var(--ink-dim);margin-top:3px">${esc(v.detalle||'')}</div></div>
+        </div>
+        <div style="margin-top:18px;font-size:14px;font-weight:600">Por zona de presión:</div>
+        <div style="margin-top:6px">${zonasHtml}</div>
+        <div style="margin-top:18px;font-size:14px;font-weight:600">Descargar el reporte:</div>
+        <div class="obd-quick" style="margin-top:10px">
+          <a href="/api/mezcla/reporte/html" target="_blank"><button>🌐 HTML (ver/imprimir)</button></a>
+          <a href="/api/mezcla/reporte/json"><button>🤖 JSON (para IA)</button></a>
+          <a href="/api/mezcla/reporte/txt"><button>📄 TXT</button></a>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <button class="chip" onclick="subirLogs()">☁ Subir reporte a GitHub</button>
+          <button class="chip" onclick="renderMezcla()">🔁 Hacer otro chequeo</button>
+        </div>
+      </div>`;
+  }).catch(()=>{
+    box.innerHTML=`<div class="error" style="max-width:640px">No se pudo cargar el veredicto.</div>
+      <button class="uni-btn" style="margin-top:16px;max-width:240px" onclick="renderMezcla()">Volver a empezar</button>`;
+  });
+}
+
 /* ============================ ENSAYO DE ACELERACIÓN ============================ */
 let ENSAYO = {polling:false, distancia:100};
 
@@ -3879,6 +4030,7 @@ async function cargarEcusCompatibles(){
 const MENU_COMPLETO = [
   {view:'dash',ico:'📟',txt:'Tablero en vivo'},
   {view:'chequeo',ico:'🩺',txt:'Chequeo general', perf:['f4r','detectado','generico']},
+  {view:'mezcla',ico:'⚗️',txt:'Chequeo de mezcla', perf:['f4r']},
   {view:'ensayo',ico:'🏁',txt:'Ensayo de aceleración', perf:['f4r','detectado','generico']},
   {view:'ondas',ico:'📈',txt:'Analizador de Ondas'},
   {view:'dtc',ico:'🚨',txt:'Códigos de falla'},

@@ -3,6 +3,30 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-12] — Nueva pantalla "⚗️ Chequeo de mezcla" (F4R)
+
+Pedido del usuario: una pantalla exclusiva para diagnosticar mezcla rica/pobre, rápida (sin
+barrer otras ECUs), con veredicto textual tipo bot. Nuevo módulo `app/chequeo_mezcla.py`
+(hermano de `chequeo.py`, reutiliza sus constantes y helpers genéricos): lee SOLO 11 sensores
+(RPM, MAP, las 5 zonas nativas de ajuste largo, ajuste corto, lazo abierto/cerrado, sondas
+lambda amont/aval) en 2 etapas — ralentí y ~2500 RPM sostenidas (mismo criterio de banda/
+estabilidad/timeout/captura-manual que Chequeo General, funciona con el auto detenido o
+andando). Nuevo en `reporte.py`: `_evaluar_zona_mezcla` (evaluador propio de 3 niveles —
+normal ±5%/sospechoso ±5-8%/problema >±8%, con dirección rica/pobre — separado del `_evaluar`
+de 2 niveles que ya existía), `_mezcla_analizar`/`_txt_mezcla`/`_html_mezcla`/`generar_mezcla`
+(mismo patrón que `_conduccion_analizar`/`generar_conduccion`). Nuevo en `server.py`:
+`estado.mezcla` + `_CtxMezcla` + endpoints `/api/mezcla/{iniciar,estado,capturar-ahora,
+cancelar,reporte/{tipo}}` (mismo patrón que Chequeo General), con **exclusión mutua** (409 si
+ya hay un chequeo general o una grabación de conducción corriendo) para no competir por el
+ELM. El loop de captura de mezcla, a diferencia del de Chequeo General, SÍ respeta
+`estado.pausar_lecturas` (se autopausa en pantallas silenciosas como reaprendizajes). Nueva
+vista `⚗️ Chequeo de mezcla` en `index.html` (perfil F4R únicamente — depende de las 5 zonas
+nativas, que no existen en OBD genérico), con el mismo patrón de polling/gauge de RPM que
+Chequeo General. Verificado en simulación end-to-end (todas las fases, exclusión mutua,
+capturar-ahora, cancelar) — las zonas salen `sin_dato` en pura simulación porque el harness
+de sim no tiene canned data para esos datos nativos (mismo comportamiento preexistente que
+Chequeo General con datos F4R en simulación); con el auto real van a traer valores.
+
 ## [2026-08-12] — Valores de referencia (ayuda) para diagnosticar el ajuste de combustible
 
 Pedido del usuario: cómo sabe si el valor de cada zona es correcto/alto/bajo para poder
