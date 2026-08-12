@@ -3,6 +3,19 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-12] — Chequeo de mezcla: agrega panel de valores EN VIVO
+
+Pedido del usuario: la pantalla tenía el chequeo guiado (botón "Chequear mezcla") pero
+faltaban los valores en tiempo real — son dos cosas separadas. Se agregó un panel `📡 En
+vivo` (arriba del botón, siempre visible, independiente de si el chequeo guiado está
+corriendo) con los mismos 11 sensores que lee el backend (`DATOS_MEZCLA_LIVE` en
+`index.html`, espejo de `chequeo_mezcla.DATOS_MEZCLA_F4R`). Usa una suscripción WebSocket
+propia (`subscribeLiveMezcla()`) independiente de la del Tablero en vivo — no toca
+`ST.selected` (la selección del usuario en el tablero principal), así que entrar a esta
+pantalla no cambia lo que el usuario tiene armado en su tablero. Al salir de la pantalla se
+desuscribe (`go()` ya llamaba `unsubscribeLive()` al cambiar de vista; se ajustó para no
+hacerlo también al ENTRAR a mezcla, ya que esta pantalla arma su propia suscripción).
+
 ## [2026-08-12] — Nueva pantalla "⚗️ Chequeo de mezcla" (F4R)
 
 Pedido del usuario: una pantalla exclusiva para diagnosticar mezcla rica/pobre, rápida (sin

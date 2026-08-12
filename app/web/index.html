@@ -760,6 +760,7 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
           <div class="desc">Lee solo lo necesario para diagnosticar la mezcla (RPM, MAP, las 5 zonas adaptativas nativas, ajuste corto y sondas de oxígeno) a ralentí y a ~2500 RPM sostenidas, y te da un veredicto por zona. Rápido: no lee otras computadoras.</div>
         </div>
       </div>
+      <div id="mezclaLive"></div>
       <div id="mezclaContent"></div>
     </section>
 
@@ -1394,7 +1395,7 @@ function go(v){
     const b=document.getElementById('ondas-captura-btn');
     if(b) b.innerHTML='▶ Iniciar captura';
   }
-  if(v!=='dash' && typeof unsubscribeLive==='function') unsubscribeLive();
+  if(v!=='dash' && v!=='mezcla' && typeof unsubscribeLive==='function') unsubscribeLive();
   // Pantallas que NO deben leer nada (para no pisar la sesión del reset): pausar el barrido de
   // grabación y el tester-present. En cualquier otra vista, reanudar.
   const QUIET_VIEWS=['reaprendizajes'];
@@ -2892,7 +2893,65 @@ function renderChequeoResultado(res){
 /* ============================ CHEQUEO DE MEZCLA ============================ */
 let MEZCLA = {polling:false};
 
+// Sensores que se muestran EN VIVO arriba del botón (independiente del chequeo guiado de
+// 2 etapas) — mismo set que lee el backend en chequeo_mezcla.DATOS_MEZCLA_F4R.
+const DATOS_MEZCLA_LIVE = [
+  'Régime moteur','Pression collecteur absolue mesurée',
+  'Correction adaptative de la 1ère zone de pression',
+  'Correction adaptative de la 2ème zone de pression',
+  'Correction adaptative de la 3ème zone de pression',
+  'Correction adaptative de la 4ème zone de pression',
+  'Correction adaptative de la 5ème zone de pression',
+  'Facteur enrichissement regulation richesse',
+  'Etat stratégie régulation richesse',
+  'Tension sonde amont','Tension sonde aval',
+];
+
+function renderMezclaLive(){
+  ensureParams().then(()=>{
+    const ids=[];
+    for(const dato of DATOS_MEZCLA_LIVE){
+      for(const id in ST.paramMeta){
+        if(ST.paramMeta[id].dato===dato){ ids.push(id); break; }
+      }
+    }
+    ST._mezclaLiveIds=ids;
+    const box=document.getElementById('mezclaLive');
+    if(!ids.length){ box.innerHTML=''; return; }
+    let html='<div style="font-size:13px;font-weight:600;color:var(--ink-dim);margin:4px 0 8px">📡 En vivo</div><div class="grid dash">';
+    for(const id of ids){
+      const m=ST.paramMeta[id]; if(!m) continue;
+      const a=_aliasDe(m.dato);
+      html+=`<div class="card sensor" id="s_${cssId(id)}" data-id="${esc(id)}">
+        <div class="top">
+          <span class="name">${esc(m.etiqueta)}${a?` <span style="color:var(--cyan);font-size:11px;font-weight:600">· ${esc(a.alias)}</span>`:''}</span>
+          <button class="help-btn" onclick="showHelp('${esc(id)}')">?</button>
+        </div>
+        <div class="val stale" id="v_${cssId(id)}">—<span class="u">${esc(m.unidad||'')}</span></div>
+      </div>`;
+    }
+    html+='</div>';
+    box.innerHTML=html;
+    subscribeLiveMezcla();
+  });
+}
+
+function subscribeLiveMezcla(){
+  if(!ST.ws||ST.ws.readyState!==1){ setTimeout(subscribeLiveMezcla,300); return; }
+  const ids=ST._mezclaLiveIds||[];
+  const byEcu={};
+  for(const id of ids){ const m=ST.paramMeta[id]; if(!m) continue; (byEcu[m.ecu]=byEcu[m.ecu]||new Set()).add(m.request); }
+  const ecuIds=Object.keys(byEcu);
+  if(!ecuIds.length) return;
+  ecuIds.sort((a,b)=> byEcu[b].size - byEcu[a].size);
+  const liveEcu=ecuIds[0];
+  const reqs=[...byEcu[liveEcu]];
+  const extra=ecuIds.slice(1).map(e=>({ecu:e, requests:[...byEcu[e]]}));
+  ST.ws.send(JSON.stringify({tipo:'suscribir',ecu:liveEcu,requests:reqs,intervalo:0.2,extra}));
+}
+
 function renderMezcla(){
+  renderMezclaLive();
   const box=document.getElementById('mezclaContent');
   fetch(API+'/api/mezcla/estado').then(r=>r.json()).then(e=>{
     if(e.corriendo){ arrancarPollingMezcla(); return; }
