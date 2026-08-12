@@ -1084,14 +1084,19 @@ const SENSORES_RELEVANTES = new Set([
   'Régime moteur','Vitesse véhicule','Etat moteur',
   // — Temperaturas (equiv. PID 05, 0F) —
   'Température eau mesurée',"Température d'eau haute résolution",'Température air mesurée',
-  // — Presiones: MAP, A/A (equiv. PID 0B) —
-  // Nota: se descartó "Dépression altimétrique" — su definición en el ECU (1 byte, sin
-  // offset) tiene tope matemático de 943mb, nunca puede igualar la presión atmosférica
-  // real (~1013mb); es un dato mal escalado en la base, no una lectura confiable.
-  // Nota: se descartó "Pression de suralimentation" y "Consigne RCO commande wastegate"
-  // (turbo/wastegate) — el F4R es atmosférico, sin turbo; esos canales quedan clavados en
-  // un valor fijo (sin sensor/actuador físico conectado), no aportan información real.
-  'Pression collecteur absolue mesurée','Pression climatisation',
+  // — Presiones: MAP, atmosférica, A/A (equiv. PID 0B, 33) —
+  // "Dépression altimétrique": RECONSIDERADO (antes se había sacado por creerla un dato mal
+  // escalado). Comparando con un Clip CAN real sobre el MISMO mapa: el Clip sí muestra una
+  // presión atmosférica ~1000mb, casi fija — coincide en comportamiento (valor chico y
+  // estable) con lo que leemos acá (ej. 3.7mb, también fijo). La hipótesis más probable: nuestro
+  // valor es una DESVIACIÓN respecto a una referencia interna del ECU (no la presión absoluta
+  // directa) — de ahí el nombre "depresión" y que nunca pase de ~943mb (el delta nunca sería
+  // tan grande). El Clip probablemente le suma su propia constante de referencia para mostrar
+  // el valor absoluto, algo que no podemos replicar sin esa constante (no está documentada en
+  // la base abierta). Se deja el dato crudo (delta), etiquetado para no confundir con presión
+  // absoluta. Si en algún test se anota la presión atmosférica real (de un reporte del clima)
+  // junto a este valor, se puede calibrar la referencia y mostrarla como absoluta.
+  'Pression collecteur absolue mesurée','Dépression altimétrique','Pression climatisation',
   // — Batería (equiv. PID 42) —
   'Tension batterie mesurée',
   // — Avance de encendido + corrección por cliquetis/knock (equiv. PID 0E) —
@@ -1132,6 +1137,11 @@ const SENSORES_RELEVANTES = new Set([
   'Valeur apprentissage régulation ralenti','RCO théorique régulation ralenti',
   'Etat stratégie régulation ralenti','Info demande ralenti accéléré',
   // — Distribución variable (VVT) —
+  // "Commande décaleur VVT" (Actif/Inactif) SÍ es en vivo — es el comando al actuador del VVT,
+  // se activa por encima de cierto régimen/carga y vuelve a desactivarse. Está en la Trame 02
+  // (no en la pantalla "Ralentí y VVT", que solo trae "Config VVT" = tipo de VVT que TIENE el
+  // auto, fijo, no cambia nunca — esa es la que confirmamos que es solo informativa).
+  'Commande décaleur VVT',
   'Décalage VVT continu mesuré','Final intake VVT relative angle','Consigne RCO commande VVT',
   // — Par motor (torque) —
   'Couple moteur effectif','Couple moteur estimé volonté conducteur','Déchéance de couple',
@@ -1151,6 +1161,7 @@ const SENSORES_PRECARGADOS = [
   'Température eau mesurée',                            // temp refrigerante (PID 05)
   'Température air mesurée',                            // temp aire admisión (PID 0F)
   'Pression collecteur absolue mesurée',               // MAP (PID 0B)
+  'Dépression altimétrique',                           // presión atmosférica (delta, sin calibrar — PID 33)
   'Tension batterie mesurée',                          // batería (PID 42)
   'Vitesse véhicule',                                  // velocidad (PID 0D)
   'Avance allumage',                                   // avance de encendido (PID 0E)
@@ -1180,7 +1191,7 @@ const SENSORES_PRECARGADOS = [
 // Versión de la lista de precargados. Al subirla, los tableros YA guardados reciben los
 // sensores nuevos que les falten (sin perder los que el usuario eligió a mano).
 // v3: ajustes de combustible OBD-II estándar (% ±). v4: contadores de detonación por cilindro.
-const PRECARGADOS_VER = 5;
+const PRECARGADOS_VER = 6;
 
 // Alias en "idioma de taller": las etiquetas del F4R son traducción literal del francés
 // ("Factor de enriquecimiento de la regulación de riqueza"), así que buscar "ajuste de
@@ -2011,7 +2022,9 @@ async function ensureParams(){
 // tocar los que el usuario eligió a mano.
 // Sensores descartados de la lista curada (mal escalados / no confiables) que hay que
 // sacar de los tableros YA guardados, aunque el usuario los haya tenido seleccionados.
-const SENSORES_DESCARTADOS = ['Dépression altimétrique'];
+// "Dépression altimétrique" se sacó de acá (v5): se reincorporó (v6) tras comparar con un
+// Clip real — ver la nota en SENSORES_RELEVANTES.
+const SENSORES_DESCARTADOS = [];
 function _migrarPrecargados(){
   if(ST.perfil!=='f4r') return;
   const ver=parseInt(localStorage.getItem('meg_sel_ver')||'0',10);

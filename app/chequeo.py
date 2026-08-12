@@ -40,6 +40,7 @@ SOLO_UTILES_EN_PANEO = True  # en el paneo, leer solo sensores OBSERVABLES (no p
 # guardan TODOS sus campos (no solo el nombrado). Así, con UN `dato` por trama se arrastra toda
 # la trama. Estos cubren 5 tramas del motor (~65-70 sensores que varían con RPM/carga):
 # Trame 01 (régimen, avance, MAP, temps, batería, velocidad),
+# Trame 02 (comando ACTIVO del actuador VVT — Actif/Inactif, sube con RPM/carga),
 # Trame 03 (mariposa/pedal, ambas pistas), Trame 04 (inyección, VVT, riqueza/canister),
 # Trame 05 (sondas lambda amont/aval), Trame 06 (PAR MOTOR — antes no se capturaba).
 DATOS_CLAVE_F4R = [
@@ -47,6 +48,8 @@ DATOS_CLAVE_F4R = [
     "Régime moteur", "Avance allumage", "Pression collecteur absolue mesurée",
     "Température eau mesurée", "Température air mesurée",
     "Tension batterie mesurée", "Vitesse véhicule",
+    # Trame 02 : États et paramètres secondaires — comando del actuador VVT
+    "Commande décaleur VVT",
     # Trame 03 : Papillon / pédale
     "Position papillon mesurée piste 1 après filtrage", "Position pédale mesurée",
     # Trame 04 : Adaptatif de richesse 1

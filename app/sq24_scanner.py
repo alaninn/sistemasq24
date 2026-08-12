@@ -55,8 +55,17 @@ PARES_CAN_PATH = BASE / "app" / "direcciones_can.json"
 # Timeouts del escaneo (ms). El sondeo tiene que descartar rápido las direcciones muertas
 # (121 direcciones × varios segundos sería eterno), pero la IDENTIFICACIÓN de una ECU que sí
 # contestó devuelve una trama larga y necesita más aire.
-TIMEOUT_SONDEO_MS = 200
-TIMEOUT_IDENT_MS = 900
+# BUG: 200ms estaba puesto también en el PEDIDO DE SESIÓN mismo (1003 / 10C0), no solo en la
+# identificación posterior — `start_session_can()` corre bajo el timeout que esté activo en
+# ese momento, que en el sondeo es el corto. `AT ST` (lo que fija este valor en el ELM327) es
+# el timeout que usa el CHIP para esperar la respuesta antes de devolver "NO DATA"; con un
+# clon lento o justo después de reabrir el protocolo, 200ms corta la sesión ANTES de que
+# conteste una ECU real y viva — así fallaba en pruebas reales hasta con el F4R propio
+# (conocido, siempre presente en 7E0/7E8, primera dirección que se sondea). Se sube a 350ms:
+# sigue siendo rápido para descartar las ~110 direcciones muertas de un escaneo típico, pero
+# da margen real a la sesión de una ECU viva antes de decidir que no hay nadie.
+TIMEOUT_SONDEO_MS = 350
+TIMEOUT_IDENT_MS = 1000
 
 
 def _log(tipo, msg, det=None):

@@ -3,6 +3,45 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-12] — Autodetección: bug de timeout que impedía detectar hasta el F4R propio
+
+El usuario reportó que "Auto detectar" no encontraba ni la Kangoo NI el F4R (auto conocido,
+siempre presente y probado antes). Encontrado: `TIMEOUT_SONDEO_MS=200` (`sq24_scanner.py`) no
+solo se usaba para descartar rápido direcciones muertas — también se aplicaba al PEDIDO DE
+SESIÓN mismo (`10C0`/`1003`, en `_identificar`/`_identificar_old_can`), porque
+`start_session_can()` corre bajo el timeout activo en ese momento. `AT ST` (lo que fija ese
+valor en el ELM327) es el tiempo que el CHIP espera la respuesta antes de devolver "NO DATA";
+con un clon lento, o justo después de reabrir el protocolo/direccionar, 200ms puede cortar la
+sesión antes de que conteste una ECU viva. Se sube `TIMEOUT_SONDEO_MS` a 350ms y
+`TIMEOUT_IDENT_MS` a 1000ms. Sigue siendo rápido para las ~110 direcciones muertas de un
+escaneo típico, pero da margen real a las que sí tienen algo. Verificado en simulación (sigue
+detectando las 6 ECUs sin regresión); falta confirmar en el auto real.
+
+## [2026-08-12] — VVT: encontrado el campo que SÍ es en vivo (estaba en otra pantalla)
+
+El usuario comparó con un Clip CAN real sobre el mismo mapa del F4R: a ralentí "VVT" aparece
+desactivada, y con una acelerada fuerte (>3000rpm) pasa a activada y vuelve a desactivarse.
+Antes dijimos que el campo VVT que el usuario veía era solo informativo — y es CORRECTO para
+"Config VVT" (en la pantalla "Trame 05 Ralentí y VVT"): es una lista fija que dice el TIPO de
+VVT que tiene el auto ("sans VVT"/"VVT on-off"/"VVT continu"), no cambia nunca. Pero existe
+OTRO campo, "Commande décaleur VVT" (Actif/Inactif) — el comando real al actuador del VVT —
+que vive en una pantalla sin "VVT" en el nombre ("Trame 02 États et paramètres secondaires"),
+por eso nunca se había encontrado. Se agregó a `SENSORES_RELEVANTES` (`index.html`) y a
+`DATOS_CLAVE_F4R` (`chequeo.py`) para que aparezca en el tablero y se capture en las
+grabaciones/chequeos.
+
+## [2026-08-12] — Presión atmosférica: se reincorpora "Depresión altimétrica"
+
+Reconsiderado tras la comparación con el Clip real: el Clip muestra una presión atmosférica
+~1000mb, casi fija, para el mismo mapa — coincide en comportamiento (valor chico y estable) con
+lo que ya leíamos acá. La hipótesis: nuestro valor es una DESVIACIÓN (delta) respecto a una
+referencia interna del ECU, no la presión absoluta directa — de ahí el nombre "depresión" y por
+qué el delta nunca superaría los ~943mb de tope. El Clip probablemente suma su propia
+constante de referencia (no documentada en la base abierta) para mostrar el absoluto. Se
+reincorpora el dato crudo (sin inventar una conversión que no podemos verificar); si en algún
+test se anota la presión atmosférica real (de un reporte del clima) junto a este valor, se
+puede calibrar la referencia. `PRECARGADOS_VER` 5→6.
+
 ## [2026-08-09] — Tiempo de inyección (y otros datos en µs) ahora se muestran en ms
 
 Pedido del usuario: los µs son difíciles de leer a simple vista (ej. "4775.96 µs"). Se agregó
