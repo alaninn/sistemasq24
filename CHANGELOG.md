@@ -3,6 +3,27 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-21] — Fix: el reset de mezcla parecía "solo tocar el OBD", no las tramas nativas
+
+El usuario reportó: el reaprendizaje de ajustes de combustible reinicia el ajuste corto/largo
+(el que se lee por OBD), pero deja igual las 5 zonas nativas y el offset/ganancia de
+aprendizaje del F4R. Investigado:
+1. **El modo `82` que ya usábamos SÍ es correcto** — confirmado directamente en la definición
+   del ECU (`ResetMode` en el JSON del F4R): `0x82 = "adaptatifs de richesse"`, el código real
+   de Renault para resetear TODO el sistema nativo de mezcla (no un valor inventado).
+2. **La causa real era otra**: después de mandar el `ECUReset` (servicio 11), el ECU cierra la
+   sesión de diagnóstico extendida y vuelve a la default — pero `elm.startSession` (la variable
+   que `ensure_session()` usa para decidir si hace falta reabrir sesión) seguía diciendo que
+   estábamos en la sesión de antes del reset. Resultado: TODAS las lecturas nativas del F4R
+   después del reset se salteaban el reabrir-sesión y volvían viejas/vacías, mientras que los
+   PID OBD estándar (van por broadcast 7DF, sin sesión) sí se actualizaban con normalidad —
+   dando la falsa impresión de que el reset "solo tocaba el OBD".
+Fix en `_intentar_reset_en_sesion` (`server.py`): fuerza `elm.startSession = ""` justo después
+de mandar el reset, para que la próxima lectura reabra la sesión de verdad. También se corrigió
+el texto de la opción "Ajustes de combustible" en `index.html` (antes decía "borra el ajuste
+corto/largo (STFT/LTFT)"; ahora explica que resetea el sistema nativo completo, del cual el
+STFT/LTFT es solo el reflejo por OBD).
+
 ## [2026-08-21] — Se sube al repo la copia archivada de ddt4all original (partida)
 
 Pedido del usuario: subir `ddt4all.rar` (179 MB, el proyecto ddt4all original completo que

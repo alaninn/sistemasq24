@@ -1715,7 +1715,7 @@ async function pausarLecturas(activar){
 // Qué reiniciar (input ResetMode del F4R) y en qué sesión (input Session Name).
 const RESET_OPCIONES = [
   {v:'82', t:'Ajustes de combustible (mezcla)', reco:true,
-   d:'Borra los ajustes corto y largo de combustible (STFT/LTFT). Después de arreglar una <b>fuga de vacío</b> o cualquier problema de mezcla — como el ajuste largo ~30% del diagnóstico.'},
+   d:'Este es el código real del ECU para "adaptatifs de richesse": resetea TODO el sistema nativo de mezcla — las 5 zonas de ajuste largo, el offset/ganancia de aprendizaje y, como consecuencia, también lo que se ve por OBD (STFT/LTFT). Usalo después de arreglar una <b>fuga de vacío</b> o cualquier problema de mezcla — como el ajuste largo ~30% del diagnóstico.'},
   {v:'80', t:'Regulación del ralentí',
    d:'Tras <b>limpiar el cuerpo de mariposa</b> o el paso de aire.'},
   {v:'83', t:'Medidor de par', d:'Reinicia el aprendizaje del medidor de par. Rara vez hace falta.'},

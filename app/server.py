@@ -1316,6 +1316,20 @@ def _intentar_reset_en_sesion(session, mode):
             pass
         ok_sesion = options.elm.start_session_can(sess)          # setea elm.startSession
         resp = options.elm.request(reset_cmd, cache=False) or ""  # reset RAW en esa sesión
+        # CRÍTICO: un ECUReset (servicio 11) real hace que el ECU cierre la sesión de
+        # diagnóstico extendida y vuelva a la sesión por defecto — pero `elm.startSession`
+        # (la variable LOCAL que ecu_registry.ensure_session() usa para decidir si hace falta
+        # reabrir sesión) sigue diciendo que seguimos en la sesión que abrimos antes del
+        # reset. Sin esto, TODAS las lecturas nativas del F4R después del reset se saltean
+        # el reabrir-sesión (ensure_session cree que ya está bien) y salen viejas/vacías —
+        # mientras que los PID OBD estándar (broadcast 7DF, sin sesión) sí se actualizan.
+        # Eso hacía parecer que el reset "solo reinicia el ajuste corto/largo (OBD)" y deja
+        # intactos los datos nativos (zonas, offset/gain de aprendizaje), cuando en realidad
+        # el ECU sí los resetea — el software simplemente no los volvía a leer bien.
+        try:
+            options.elm.startSession = ""
+        except Exception:
+            pass
     up = resp.upper().replace(" ", "")
     negativo = "7F" in up or "NR" in resp.upper()
     positivo = ("51" + str(mode).upper()) in up or up.startswith("51")
