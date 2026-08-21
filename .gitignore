@@ -9,6 +9,12 @@ env/
 vendor/**/ecu.zip
 *.ecu.zip
 
+# Copia archivada del proyecto ddt4all original (referencia histórica, GPL-3.0). Se sube
+# partida en upstream/ddt4all.rar.part* (<100 MB c/u); reconstruir con
+# tools/rearmar_ddt4all_rar.py. No hace falta para correr el scanner (ya vendoreado en
+# vendor/sistemasq24/core).
+upstream/ddt4all.rar
+
 # Instalador y artefactos de build (pesados, se generan localmente)
 dist/
 build/

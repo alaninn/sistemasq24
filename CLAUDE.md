@@ -33,6 +33,11 @@ después se saca y quedan solo en `log/` local.
 - `ecu.zip` NO se sube entero (142 MB > límite de GitHub); se sube **partido** en
   `vendor/sistemasq24/ecu.zip.part*` (cada parte <100 MB) y `run.py` lo re-arma solo al
   arrancar si falta. `debug-logs/` SÍ se sube (logs de prueba para revisar).
+- `upstream/ddt4all.rar` (copia archivada del proyecto ddt4all original, GPL-3.0, solo
+  referencia histórica — NO hace falta para correr el scanner) tampoco se sube entero
+  (179 MB); se sube partido en `upstream/ddt4all.rar.part*` con
+  `tools/repartir_ddt4all_rar.py` y se reconstruye a mano (no automático como el ecu.zip,
+  porque no se necesita para arrancar) con `tools/rearmar_ddt4all_rar.py`.
 
 ## Arquitectura (resumen)
 - **Backend**: `app/server.py` (FastAPI + WebSocket), `app/ecu_registry.py` (perfiles de ECU

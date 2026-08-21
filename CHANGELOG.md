@@ -3,6 +3,20 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-21] — Se sube al repo la copia archivada de ddt4all original (partida)
+
+Pedido del usuario: subir `ddt4all.rar` (179 MB, el proyecto ddt4all original completo que
+había dejado en la carpeta) junto con la última versión. GitHub bloquea archivos de más de
+100 MB en un push normal, así que se aplicó el mismo truco que ya usa `ecu.zip`: partido en
+`upstream/ddt4all.rar.part00`/`part01` (90 MB y 89 MB, con margen bajo el límite) con el
+nuevo `tools/repartir_ddt4all_rar.py`. Integridad verificada por hash SHA-256 (partes
+re-armadas en memoria = hash idéntico al original) y también reconstruyendo el archivo real
+con el nuevo `tools/rearmar_ddt4all_rar.py` (mismo hash, confirmado). A diferencia de
+`ecu.zip`, este `.rar` NO se re-arma solo al arrancar (`run.py` no lo toca) porque no hace
+falta para correr el scanner — el código de ddt4all ya está vendoreado/rebrandeado en
+`vendor/sistemasq24/core`; esto es solo una copia de referencia histórica. `.gitignore` y
+`CLAUDE.md` actualizados con la misma nota que ya tenía `ecu.zip`.
+
 ## [2026-08-12] — Corrige interpretación de "Offset/Gain de aprendizaje": no son ±0%-neutro
 
 El usuario trajo una info (de origen incierto) sobre códigos "PR009/PR624/PR625/ET037" de
