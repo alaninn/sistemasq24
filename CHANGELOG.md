@@ -3,6 +3,19 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-21] — Confirmado: el reset de mezcla NO reinicia offset/ganancia de aprendizaje
+
+El usuario probó el fix de sesión del reset (commit anterior) y reportó que el problema
+seguía: el offset de aprendizaje se queda con el valor viejo AUNQUE se cierre y reabra el
+programa de cero. Eso descarta el caché de sesión como causa (una app nueva no tiene ese
+caché) — confirma que es el propio ECU el que no toca ese valor con el reset modo 82, no un
+bug de nuestro software. Actualizada la documentación (`ayudas.json`, `reporte.py`) para
+reflejar esto como CONFIRMADO en la práctica (antes decía "hipótesis, no confirmado" sobre
+el punto neutro, ahora agrega que el reset directamente no lo mueve). Corregido también el
+texto de la pantalla de reset en `index.html`, que había quedado sobre-prometiendo que el
+reset tocaba "el offset/ganancia de aprendizaje" — eso era incorrecto, se aclara que esos dos
+valores NO se reinician con este comando (solo el ajuste corto y las 5 zonas de ajuste largo).
+
 ## [2026-08-21] — Fix: el reset de mezcla parecía "solo tocar el OBD", no las tramas nativas
 
 El usuario reportó: el reaprendizaje de ajustes de combustible reinicia el ajuste corto/largo

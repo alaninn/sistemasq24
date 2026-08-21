@@ -50,10 +50,12 @@ DIAG_CLAVE = [
      "problema >±25% sostenido."),
     (["offset de aprendizaje", "ganancia de aprendizaje", "offset apprentissage", "gain apprentissage"],
      "Calibración del ALGORITMO de aprendizaje de mezcla (no es directamente la corrección "
-     "en sí, a diferencia del ajuste largo). Su fórmula no tiene offset de -50 como las 5 "
-     "zonas — hipótesis razonada (NO confirmada con fuente Renault) es que su neutro esté en "
-     "~50% (equivalente a byte crudo 128), no en 0%. Interpretar con cautela; comparar "
-     "sesiones entre sí más que buscar un valor absoluto."),
+     "en sí, a diferencia del ajuste largo). CONFIRMADO EN LA PRÁCTICA: el reset de mezcla "
+     "(modo 82) NO cambia este valor, ni reiniciando el programa — solo resetea el ajuste "
+     "corto y las 5 zonas. Su fórmula tampoco tiene offset de -50 como las 5 zonas — hipótesis "
+     "razonada (NO confirmada con fuente Renault) es que su neutro esté en ~50% (equivalente a "
+     "byte crudo 128), no en 0%. Interpretar con cautela; comparar sesiones entre sí más que "
+     "buscar un valor absoluto, y no esperar que un reset lo mueva."),
     (["estado del sistema de combustible", "lazo", "stratégie régulation", "état stratégie"],
      "Con motor caliente debe estar en LAZO CERRADO. Si queda abierto → sonda o temperatura."),
     (["sonda lambda", "sonde amont", "tension sonde", "relación lambda", "λ"],
