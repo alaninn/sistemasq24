@@ -1160,6 +1160,13 @@ const SENSORES_RELEVANTES = new Set([
   'Couple moteur effectif','Couple moteur estimé volonté conducteur','Déchéance de couple',
   // — A/A (carga sobre el motor) —
   'Puissance absorbée climatisation','calculated AC Load',
+  // — Salud interna del ECU (autodiagnóstico de hardware, no del auto) —
+  // Comparados con otras variantes de la misma familia S3000: comparten byte con "Panne
+  // calculateur injection" (misma Trame 02, mismo byte 21) — no cuestan una lectura extra.
+  // Útiles para fallas intermitentes raras que no son del motor sino de la propia ECU.
+  'Panne mémoire de sauvegarde','Panne mémoire de sauvegarde zone verrou logiciel',
+  'Panne présente microncontroleur secondaire','Panne mémorisée microncontroleur secondaire',
+  'Panne présente liaison SPI','Panne mémorisée liaison SPI',
 ]);
 
 // Sensores que aparecen POR DEFECTO en el Tablero en vivo (si no hay selección guardada).

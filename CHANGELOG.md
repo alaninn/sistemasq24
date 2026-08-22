@@ -3,6 +3,37 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-22] — Comparadas las 15 variantes de S3000 de la base contra la nuestra curada
+
+Pedido del usuario: revisar en detalle si las otras ECUs S3000 que detectó con Renolink (más
+completas que la nuestra) tienen algo útil para sumar. Comparación sistemática de los 617
+datos de nuestro `S3000_AD_CAN_3_X84ph2_S.json` contra los ~753-654 de las variantes más
+ricas (`S3000_26_55_CAN_91`, `S3000_AD_CAN_3_X61`, etc.): 321 datos legibles y con unidad/
+lista que ellas tienen y nosotros no. La mayoría no aplica al F4R estándar (flex-fuel/etanol,
+GLP, bomba de vacío de mastervac — cosas de otras versiones del motor) o son duplicados con
+otro nombre del mismo byte que ya leemos.
+
+**Hallazgo verificado y agregado**: comparando byte a byte la Trame 02 (misma
+`sentbytes`/`minbytes`/layout en ambas variantes — confirma que Renault reusa el mismo
+layout de trama entre revisiones de software del S3000), el byte 21 — donde ya leíamos
+"Panne calculateur injection" (bit 2) — tiene 6 bits más decodificados en `S3000_A774_Can_1_X84`
+que la nuestra no traía: avería de memoria de respaldo, avería de la zona de bloqueo lógico,
+avería del microcontrolador secundario (presente/memorizada) y avería del enlace SPI interno
+(presente/memorizada) — autodiagnóstico de HARDWARE del propio ECU (no del motor), útil para
+fallas intermitentes raras. Se agregaron a `original/S3000_AD_CAN_3_X84ph2_S.json` (data +
+receivebyte_dataitems de la Trame 02, con el `bitoffset` correcto verificado 1/3/4/5/6/7) y a
+`es/S3000_AD_CAN_3_X84ph2_S.es.json` (traducción) — **mismo byte que ya leíamos, sin costo
+extra de red**. Verificado: `readable_params()` pasa de 524 a 530 (exactos +6), sin romper
+nada existente. Agregados a `SENSORES_RELEVANTES` en `index.html` (buscables, no en el
+tablero por defecto — son diagnóstico interno raro, no algo para mirar todos los días).
+
+Otros hallazgos NO implementados por baja confianza (byte layout diverge más allá de cierto
+punto entre variantes, o son renombres del mismo dato, no info nueva real): posiciones de
+mariposa "piste 1/2" sin filtrar (mismo byte que la versión filtrada que ya tenemos), avance
+de encendido post-corrección anti-cliquetis (podría ser útil pero requiere verificar mejor el
+layout antes de sumarlo), y decenas de flags de inhibición de A/A muy específicos (bajo valor
+para un scanner genérico).
+
 ## [2026-08-21] — Confirmado: el reset de mezcla NO reinicia offset/ganancia de aprendizaje
 
 El usuario probó el fix de sesión del reset (commit anterior) y reportó que el problema
