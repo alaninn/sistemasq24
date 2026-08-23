@@ -3,6 +3,21 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-23] — La pestaña "Ralentí y VVT" ahora muestra el comando REAL del VVT en vivo
+
+El usuario reportó: en la pantalla de VVT, el "activado/desactivado" no hace nada — pero en
+Clip CAN sí ve cómo se activa con una acelerada y se desactiva después. Esto reconfirma un
+hallazgo de esta sesión: esa pantalla ("Trame 05 Ralenti et VVT") solo mostraba "Config VVT",
+que es un dato FIJO (tipo de VVT que tiene el auto — nunca cambia), NO el campo que realmente
+se activa/desactiva en vivo ("Commande décaleur VVT", que ya habíamos encontrado vive en la
+Trame 02, en otra pantalla sin "VVT" en el nombre). Se agregó ese display real a la pantalla
+"Ralentí y VVT" (`original/S3000_AD_CAN_3_X84ph2_S.json.layout`) — la pantalla ya mezclaba
+Trame 04 y Trame 05 en los mismos displays, así que agregar una tercera trama (Trame 02) es
+seguro y usa el mismo mecanismo de refresco en vivo que ya soporta varias tramas por pantalla
+(`readScreen()` en `index.html` ya dedupea y lee todas las tramas distintas de una pantalla,
+no hizo falta tocar el frontend). Verificado en simulación: la pantalla ahora trae 8 displays
+(antes 7), incluyendo "Comando del variador de distribución (VVT)".
+
 ## [2026-08-22] — Comparadas las 15 variantes de S3000 de la base contra la nuestra curada
 
 Pedido del usuario: revisar en detalle si las otras ECUs S3000 que detectó con Renolink (más
