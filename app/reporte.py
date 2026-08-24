@@ -1208,6 +1208,15 @@ def _vacio_analizar(datos):
     ev_zona1 = _evaluar_zona_mezcla(zona1_valor)
     nivel_de_estado = {"normal": "ok", "sospechoso": "warn", "problema": "bad", "sin_dato": "ok"}
     nivel_zona1 = nivel_de_estado[ev_zona1["estado"]]
+    # Patrón de CONVERGENCIA (investigado): una fuga de vacío real hace que el ajuste se
+    # normalice al acelerar (el aire de la fuga pesa menos sobre el total que entra). Si en
+    # ralentí está mal y en 2500rpm mejora claramente, es una firma típica de fuga — más
+    # específica que solo mirar un valor aislado. Si sigue mal en las dos etapas, es más
+    # probable que sea otra causa (inyector, sonda, MAF/MAP) que una fuga de vacío puntual.
+    converge = (v_ral is not None and v_25 is not None
+                and abs(v_ral) > 8 and abs(v_25) < abs(v_ral) * 0.5)
+    persiste = (v_ral is not None and v_25 is not None
+                and abs(v_ral) > 8 and abs(v_25) > 8)
 
     # --- MAP a ralentí: contra el rango curado (rangos_f4r.json) ---
     map_prom, map_unidad = _valor_unidad(ralenti_stats, "Presión absoluta del colector medida")
@@ -1224,8 +1233,18 @@ def _vacio_analizar(datos):
     lazo_cerrado = "1" in lazo_txt or "bouc" in lazo_txt.lower()
     nivel_lazo = "ok" if (not lazo_ral or lazo_cerrado) else "warn"
 
+    # --- sonda lambda anterior: ¿oscila a ralentí? (investigado: una fuga grande puede
+    # hacer que la sonda quede "pegada pobre" sin oscilar, en vez de solo subir el ajuste) ---
+    sonda_ral = (ralenti_stats.get(_ES_NATIVO["Tension sonde amont"]) or {})
+    sonda_oscila = sonda_ral.get("oscila")
+    # Solo cuenta como señal de alarma si además hay indicios de mezcla pobre (zona1/map mal)
+    # — una sonda quieta por sí sola puede ser solo que el motor no varió de régimen/carga.
+    nivel_sonda = "ok"
+    if sonda_ral and sonda_oscila is False and (nivel_zona1 == "bad" or nivel_map == "bad"):
+        nivel_sonda = "bad"
+
     orden = {"ok": 0, "warn": 1, "bad": 2}
-    peor = max([nivel_zona1, nivel_map, nivel_lazo], key=lambda n: orden[n])
+    peor = max([nivel_zona1, nivel_map, nivel_lazo, nivel_sonda], key=lambda n: orden[n])
 
     if peor == "bad":
         titulo = "Evidencia de fuga de vacío / entrada de aire no medida"
@@ -1233,12 +1252,26 @@ def _vacio_analizar(datos):
                    "a ralentí están fuera de lo esperado — patrón típico de una fuga de vacío. "
                    "Revisar manguera de servofreno, PCV, junta de admisión, cuerpo de mariposa "
                    "y sus O-rings.")
+        if nivel_sonda == "bad":
+            detalle += (" La sonda lambda anterior NO está oscilando en ralentí (se quedó fija "
+                        "en un valor bajo) — refuerza la sospecha: con una fuga grande, la sonda "
+                        "puede quedar \"pegada pobre\" en vez de oscilar normalmente.")
+        if converge:
+            detalle += (" El ajuste mejora claramente al acelerar a 2500rpm — patrón específico "
+                        "de fuga de vacío (el aire de la fuga pesa menos sobre el total que entra "
+                        "con más carga).")
+        elif persiste:
+            detalle += (" El ajuste sigue mal incluso a 2500rpm — esto es MENOS típico de una "
+                        "fuga de vacío puntual y más compatible con otra causa (inyector, sonda, "
+                        "calibración de MAP/presión), conviene no asumir que es solo una fuga.")
     elif peor == "warn":
         titulo = "Indicios sospechosos, no concluyente"
         detalle = "Alguno de los datos clave está en zona de sospecha, no de problema claro todavía."
     else:
         titulo = "Sin evidencia clara de fuga de vacío"
         detalle = "La zona 1, el MAP a ralentí y el lazo de riqueza están dentro de lo esperado."
+        if sonda_ral and sonda_oscila:
+            detalle += " La sonda lambda anterior oscila con normalidad en ralentí."
     veredicto = {"nivel": peor, "titulo": titulo, "detalle": detalle}
 
     # --- evidencia de apoyo: ralentí vs 2500rpm, SIN umbral (no confirmado con fuente) ---
@@ -1264,6 +1297,8 @@ def _vacio_analizar(datos):
         "map_ralenti": {"valor": map_prom, "unidad": map_unidad, "estado": ev_map["estado"],
                         "nivel": nivel_map},
         "lazo_cerrado_ralenti": lazo_txt or None,
+        "sonda_amont_oscila_ralenti": sonda_oscila,
+        "zona1_converge_al_acelerar": converge, "zona1_persiste_al_acelerar": persiste,
         "rpm_consigna_ralenti": rpm_consigna, "rpm_real_ralenti": rpm_real,
         "apoyo": apoyo,
         "etapas": {k: {"rpm_prom": v.get("rpm_prom"), "n_muestras": v.get("n_muestras"),
@@ -1295,6 +1330,8 @@ def _txt_vacio(datos):
     L.append(f"Presión de colector (MAP) a ralentí: {m['valor']} {m['unidad']} "
              f"({'dentro de rango' if m['estado']=='ok' else ('fuera de rango' if m['estado']=='atencion' else 'sin rango de referencia')})")
     L.append(f"Lazo de riqueza (ralentí): {r.get('lazo_cerrado_ralenti') or '—'}")
+    osc = r.get('sonda_amont_oscila_ralenti')
+    L.append(f"Sonda lambda anterior oscila en ralentí: {'sí' if osc else ('no' if osc is False else '—')}")
     L.append(f"RPM consigna vs. real en ralentí: {r.get('rpm_consigna_ralenti')} vs {r.get('rpm_real_ralenti')}")
     L.append("")
     L.append("EVIDENCIA DE APOYO (ralentí vs. 2500rpm — sin umbral numérico confirmado):")
@@ -1338,6 +1375,8 @@ def _html_vacio(datos):
     est_map = {"ok": "dentro de rango", "atencion": "fuera de rango", "sin_rango": "sin referencia"}.get(m["estado"], "")
     H.append(f"<tr><td>Presión de colector (MAP) a ralentí</td><td>{_esc(m['valor'])} {_esc(m['unidad'])} — {_esc(est_map)}</td></tr>")
     H.append(f"<tr><td>Lazo de riqueza (ralentí)</td><td>{_esc(r.get('lazo_cerrado_ralenti') or '—')}</td></tr>")
+    osc = r.get('sonda_amont_oscila_ralenti')
+    H.append(f"<tr><td>Sonda lambda anterior oscila en ralentí</td><td>{'sí' if osc else ('no' if osc is False else '—')}</td></tr>")
     H.append(f"<tr><td>RPM consigna vs. real (ralentí)</td><td>{_esc(r.get('rpm_consigna_ralenti'))} vs {_esc(r.get('rpm_real_ralenti'))}</td></tr>")
     H.append("</tbody></table>")
     H.append("<h2>Evidencia de apoyo (ralentí → 2500rpm)</h2>")

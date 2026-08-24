@@ -3179,10 +3179,13 @@ function renderVacio(){
           <ol style="margin:12px 0 0;padding-left:20px;line-height:1.9">
             <li><b>Ralentí</b> — capturá unos segundos con el auto quieto en ralentí.</li>
             <li><b>~2500 RPM</b> — te va a pedir mantener el motor en 2500 RPM; cuando detecta la banda estable, captura solo. Comparar ralentí vs. acelerando es lo que ayuda a distinguir una fuga real (mejora con más aire entrando) de otro problema.</li>
-            <li><b>Veredicto</b> — basado en la zona 1 de ajuste largo, la presión de colector y el lazo de riqueza, más una tabla de apoyo con los datos de ralentí.</li>
+            <li><b>Veredicto</b> — basado en la zona 1 de ajuste largo, la presión de colector, el lazo de riqueza y si la sonda lambda anterior oscila normalmente, más una tabla de apoyo con los datos de ralentí.</li>
           </ol>
         </div>
-        <div style="margin-top:20px;padding:12px;background:rgba(255,171,46,.08);border:1px solid rgba(255,171,46,.3);border-radius:8px;font-size:13px;color:var(--amber)">
+        <div style="margin-top:14px;padding:12px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px;font-size:12.5px;color:#9fd">
+          ℹ️ Ojo: como el ralentí está en lazo cerrado, la computadora compensa una fuga automáticamente — las vueltas pueden verse perfectamente normales y estables aunque HAYA una fuga real. No la descartes solo por eso; mirá el veredicto completo.
+        </div>
+        <div style="margin-top:10px;padding:12px;background:rgba(255,171,46,.08);border:1px solid rgba(255,171,46,.3);border-radius:8px;font-size:13px;color:var(--amber)">
           ⚠️ Hacelo con freno de mano puesto y en un lugar seguro y ventilado.
         </div>
         <button class="uni-btn" style="margin-top:20px;max-width:280px" onclick="iniciarVacio()">🕳️ Probar vacío</button>
@@ -3285,6 +3288,7 @@ function renderVacioResultado(res){
         <div class="obd-quick" style="margin-top:8px;display:block">
           <div style="font-size:13px;color:var(--ink-dim);margin-bottom:4px">Zona 1 (ralentí/baja carga): <span style="color:var(--ink)">${esc(z.texto||'—')}</span></div>
           <div style="font-size:13px;color:var(--ink-dim);margin-bottom:4px">MAP a ralentí: <span style="color:var(--ink)">${m.valor==null?'—':esc(m.valor)} ${esc(m.unidad||'')} (${esc(estMap)})</span></div>
+          <div style="font-size:13px;color:var(--ink-dim);margin-bottom:4px">Sonda lambda anterior oscila en ralentí: <span style="color:var(--ink)">${r.sonda_amont_oscila_ralenti===true?'sí':(r.sonda_amont_oscila_ralenti===false?'no':'—')}</span></div>
           <div style="font-size:13px;color:var(--ink-dim)">RPM consigna vs. real: <span style="color:var(--ink)">${esc(r.rpm_consigna_ralenti)} vs ${esc(r.rpm_real_ralenti)}</span></div>
         </div>
         <div style="margin-top:16px;font-size:13px;font-weight:600">Evidencia de apoyo (ralentí → 2500rpm, sin umbral confirmado):</div>

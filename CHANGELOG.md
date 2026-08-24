@@ -3,6 +3,31 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-24] — Prueba de vacío: mejorada con investigación sobre diagnóstico real de fugas
+
+El usuario señaló algo importante: como el ralentí está en lazo cerrado, la ECU compensa una
+fuga constantemente — así que las vueltas pueden verse perfectamente normales aunque haya
+una fuga real, y confiar solo en "RPM inestable" o incluso en el % de la válvula de ralentí
+puede no alcanzar. Investigado con un agente (fuentes de diagnóstico automotriz profesional):
+
+1. **Confirmado**: el lazo cerrado de ralentí está diseñado justamente para que el RPM no se
+   mueva ante una fuga — no es una señal confiable por sí sola.
+2. **Corrección importante**: no hay certeza de que "RCO alto = fuga" — el sentido de
+   compensación (sube o baja el % según arquitectura del ECU) no está confirmado para el
+   S3000 en ninguna fuente. Se corrigió el texto en `ayudas.json` para no afirmar esto sin
+   respaldo, y se agregó la advertencia sobre el lazo cerrado a la pantalla.
+3. **Señal nueva agregada**: si la sonda lambda anterior NO oscila en ralentí (se queda fija
+   en un valor bajo) y además la zona 1/MAP están mal, refuerza la sospecha de fuga — patrón
+   documentado ("sonda pegada pobre"). Ya capturábamos el dato (`oscila`, de
+   `estadisticas_de_muestras`) pero no se usaba en el veredicto; ahora sí.
+4. **Patrón de convergencia agregado**: si la zona 1 mejora claramente al acelerar a 2500rpm
+   (el aire de la fuga pesa menos sobre el total que entra), es más específico de una fuga de
+   vacío real; si el problema persiste igual de mal a 2500rpm, el texto del veredicto ahora
+   avisa que es MENOS típico de una fuga puntual y sugiere no asumirlo sin más.
+Todo en `_vacio_analizar` (`reporte.py`). Verificado con datos simulados: caso "fuga real"
+(zona1 mal en ralentí, mejora en 2500, sonda sin oscilar) da el veredicto y las 3 explicaciones
+combinadas correctamente.
+
 ## [2026-08-24] — FIX IMPORTANTE: el reporte de Chequeo de mezcla nunca leyó datos reales
 
 Construyendo "Prueba de vacío" (ver entrada siguiente) se encontró un bug retroactivo en
