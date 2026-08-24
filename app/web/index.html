@@ -764,6 +764,19 @@ nav .hint{font-size:10.5px;color:var(--ink-faint);padding:8px 14px;line-height:1
       <div id="mezclaContent"></div>
     </section>
 
+    <!-- VISTA: PRUEBA DE VACÍO -->
+    <section class="view hidden" id="view-vacio">
+      <div class="view-head">
+        <div>
+          <div class="eyebrow">Diagnóstico de fuga de vacío</div>
+          <h2>🕳️ Prueba de vacío</h2>
+          <div class="desc">Lee lo necesario para descartar una fuga de vacío / entrada de aire no medida (RPM, MAP, válvula de aire de ralentí, corrección y aprendizaje de ralentí, purga canister, zona 1 de ajuste largo) a ralentí y a ~2500 RPM sostenidas, y te da un veredicto. Rápido: no lee otras computadoras.</div>
+        </div>
+      </div>
+      <div id="vacioLive"></div>
+      <div id="vacioContent"></div>
+    </section>
+
     <!-- VISTA: ENSAYO DE ACELERACIÓN -->
     <section class="view hidden" id="view-ensayo">
       <div class="view-head">
@@ -1402,7 +1415,7 @@ function go(v){
     const b=document.getElementById('ondas-captura-btn');
     if(b) b.innerHTML='▶ Iniciar captura';
   }
-  if(v!=='dash' && v!=='mezcla' && typeof unsubscribeLive==='function') unsubscribeLive();
+  if(v!=='dash' && v!=='mezcla' && v!=='vacio' && typeof unsubscribeLive==='function') unsubscribeLive();
   // Pantallas que NO deben leer nada (para no pisar la sesión del reset): pausar el barrido de
   // grabación y el tester-present. En cualquier otra vista, reanudar.
   const QUIET_VIEWS=['reaprendizajes'];
@@ -1439,6 +1452,7 @@ function go(v){
   if(v==='ondas') renderOndas();
   if(v==='chequeo') renderChequeo();
   if(v==='mezcla') renderMezcla();
+  if(v==='vacio') renderVacio();
   if(v==='ensayo') renderEnsayo();
   if(v==='vehiculo') renderVehiculos();
 }
@@ -3093,6 +3107,207 @@ function renderMezclaResultado(res){
   });
 }
 
+/* ============================ PRUEBA DE VACÍO ============================ */
+let VACIO = {polling:false};
+
+// Sensores que se muestran EN VIVO arriba del botón — mismo set que lee el backend en
+// prueba_vacio.DATOS_VACIO_F4R.
+const DATOS_VACIO_LIVE = [
+  'Régime moteur','Régime consigne régulation ralenti',
+  'Pression collecteur absolue mesurée','Correction régime ralenti après-vente',
+  'RCO théorique régulation ralenti','Valeur apprentissage régulation ralenti',
+  'RCO purge canister',
+  'Correction adaptative de la 1ère zone de pression',
+  'Facteur enrichissement regulation richesse',
+  'Etat stratégie régulation richesse','Etat stratégie régulation ralenti',
+  'Tension sonde amont',
+];
+
+function renderVacioLive(){
+  ensureParams().then(()=>{
+    const ids=[];
+    for(const dato of DATOS_VACIO_LIVE){
+      for(const id in ST.paramMeta){
+        if(ST.paramMeta[id].dato===dato){ ids.push(id); break; }
+      }
+    }
+    ST._vacioLiveIds=ids;
+    const box=document.getElementById('vacioLive');
+    if(!ids.length){ box.innerHTML=''; return; }
+    let html='<div style="font-size:13px;font-weight:600;color:var(--ink-dim);margin:4px 0 8px">📡 En vivo</div><div class="grid dash">';
+    for(const id of ids){
+      const m=ST.paramMeta[id]; if(!m) continue;
+      const a=_aliasDe(m.dato);
+      html+=`<div class="card sensor" id="s_${cssId(id)}" data-id="${esc(id)}">
+        <div class="top">
+          <span class="name">${esc(m.etiqueta)}${a?` <span style="color:var(--cyan);font-size:11px;font-weight:600">· ${esc(a.alias)}</span>`:''}</span>
+          <button class="help-btn" onclick="showHelp('${esc(id)}')">?</button>
+        </div>
+        <div class="val stale" id="v_${cssId(id)}">—<span class="u">${esc(m.unidad||'')}</span></div>
+      </div>`;
+    }
+    html+='</div>';
+    box.innerHTML=html;
+    subscribeLiveVacio();
+  });
+}
+
+function subscribeLiveVacio(){
+  if(!ST.ws||ST.ws.readyState!==1){ setTimeout(subscribeLiveVacio,300); return; }
+  const ids=ST._vacioLiveIds||[];
+  const byEcu={};
+  for(const id of ids){ const m=ST.paramMeta[id]; if(!m) continue; (byEcu[m.ecu]=byEcu[m.ecu]||new Set()).add(m.request); }
+  const ecuIds=Object.keys(byEcu);
+  if(!ecuIds.length) return;
+  ecuIds.sort((a,b)=> byEcu[b].size - byEcu[a].size);
+  const liveEcu=ecuIds[0];
+  const reqs=[...byEcu[liveEcu]];
+  const extra=ecuIds.slice(1).map(e=>({ecu:e, requests:[...byEcu[e]]}));
+  ST.ws.send(JSON.stringify({tipo:'suscribir',ecu:liveEcu,requests:reqs,intervalo:0.2,extra}));
+}
+
+function renderVacio(){
+  renderVacioLive();
+  const box=document.getElementById('vacioContent');
+  fetch(API+'/api/vacio/estado').then(r=>r.json()).then(e=>{
+    if(e.corriendo){ arrancarPollingVacio(); return; }
+    if(e.terminado && e.resultado){ renderVacioResultado(e.resultado); return; }
+    box.innerHTML=`
+      <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+        <div style="font-size:15px;line-height:1.7;color:var(--ink-dim)">
+          Prueba rápida y enfocada SOLO en descartar una fuga de vacío:
+          <ol style="margin:12px 0 0;padding-left:20px;line-height:1.9">
+            <li><b>Ralentí</b> — capturá unos segundos con el auto quieto en ralentí.</li>
+            <li><b>~2500 RPM</b> — te va a pedir mantener el motor en 2500 RPM; cuando detecta la banda estable, captura solo. Comparar ralentí vs. acelerando es lo que ayuda a distinguir una fuga real (mejora con más aire entrando) de otro problema.</li>
+            <li><b>Veredicto</b> — basado en la zona 1 de ajuste largo, la presión de colector y el lazo de riqueza, más una tabla de apoyo con los datos de ralentí.</li>
+          </ol>
+        </div>
+        <div style="margin-top:20px;padding:12px;background:rgba(255,171,46,.08);border:1px solid rgba(255,171,46,.3);border-radius:8px;font-size:13px;color:var(--amber)">
+          ⚠️ Hacelo con freno de mano puesto y en un lugar seguro y ventilado.
+        </div>
+        <button class="uni-btn" style="margin-top:20px;max-width:280px" onclick="iniciarVacio()">🕳️ Probar vacío</button>
+      </div>`;
+  }).catch(()=>{ box.innerHTML='<div class="error">No se pudo consultar el estado.</div>'; });
+}
+
+async function iniciarVacio(){
+  if(!ST.conectado){ toast('Conectá el auto primero','warn'); return; }
+  try{
+    const r=await fetch(API+'/api/vacio/iniciar',{method:'POST'});
+    const j=await r.json();
+    if(!j.ok && !j.iniciado){ toast(j.error||'No se pudo iniciar','err'); return; }
+    arrancarPollingVacio();
+  }catch(e){ toast('Error iniciando la prueba de vacío','err'); }
+}
+
+function arrancarPollingVacio(){
+  if(VACIO.polling) return;
+  VACIO.polling=true;
+  const loop=async()=>{
+    if(ST.view!=='vacio'){ VACIO.polling=false; return; }
+    let e;
+    try{ e=await (await fetch(API+'/api/vacio/estado')).json(); }
+    catch(err){ setTimeout(loop,700); return; }
+    if(e.terminado){ VACIO.polling=false; renderVacioResultado(e.resultado); return; }
+    renderVacioFase(e);
+    setTimeout(loop,500);
+  };
+  loop();
+}
+
+function renderVacioFase(e){
+  const box=document.getElementById('vacioContent');
+  const fase=e.fase||'';
+  let cuerpo='';
+  if(fase==='iniciando'){
+    cuerpo=`<div style="font-size:16px;text-align:center;padding:20px">🕳️ ${esc(e.instruccion||'Preparando…')}</div>`;
+  } else if(fase==='ralenti'){
+    cuerpo=`<div style="font-size:20px;text-align:center;padding:20px">🅿️ ${esc(e.instruccion||'Dejá el auto en ralentí — capturando…')}</div>`;
+  } else if(fase.startsWith('esperando_') || fase.startsWith('capturando_')){
+    const obj=e.rpm_objetivo||0;
+    const rpm=e.rpm_actual;
+    const enBanda = rpm!=null && Math.abs(rpm-obj)<=200;
+    const capturando = fase.startsWith('capturando_');
+    const color = capturando ? 'var(--green)' : (enBanda?'var(--green)':(rpm!=null&&rpm<obj?'var(--amber)':'var(--red)'));
+    cuerpo=`
+      <div style="text-align:center;padding:14px">
+        <div style="font-size:20px;margin-bottom:6px">${capturando?'📸 Capturando a':'🎯 Llevá el motor a'} <b>${obj} RPM</b>${capturando?'…':' y mantené'}</div>
+        <div style="font-size:64px;font-weight:800;color:${color};line-height:1.1;margin:8px 0">${rpm!=null?rpm:'—'}</div>
+        <div style="color:var(--ink-dim);font-size:13px">RPM actuales</div>
+        ${e.timeout && !capturando ? `<div style="margin-top:14px;color:var(--amber)">${esc(e.instruccion)}</div><button class="chip" style="margin-top:10px" onclick="capturarAhoraVacio()">📸 Capturar ahora</button>`:''}
+      </div>`;
+  } else if(fase==='rpm_no_disponible'){
+    cuerpo=`<div style="text-align:center;padding:20px">
+      <div style="font-size:34px;margin-bottom:8px">⚠️</div>
+      <div style="font-size:15px;color:var(--amber)">${esc(e.instruccion||'No se pudieron leer las RPM; genero el reporte con lo leído.')}</div></div>`;
+  } else if(fase==='reporte'){
+    cuerpo=`<div style="font-size:18px;text-align:center;padding:24px">📝 Generando el veredicto…</div>`;
+  }
+  box.innerHTML=`
+    <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+      ${cuerpo}
+      <div style="margin-top:20px;text-align:right"><button class="chip" onclick="cancelarVacio()">✕ Cancelar</button></div>
+    </div>`;
+}
+
+async function capturarAhoraVacio(){ try{ await fetch(API+'/api/vacio/capturar-ahora',{method:'POST'}); }catch(e){} }
+async function cancelarVacio(){
+  try{ await fetch(API+'/api/vacio/cancelar',{method:'POST'}); }catch(e){}
+  VACIO.polling=false; toast('Prueba de vacío cancelada','warn'); renderVacio();
+}
+
+function renderVacioResultado(res){
+  const box=document.getElementById('vacioContent');
+  if(!res || !res.ok){
+    box.innerHTML=`<div class="error" style="max-width:640px">${esc((res&&res.error)||'La prueba no se completó.')}</div>
+      <button class="uni-btn" style="margin-top:16px;max-width:240px" onclick="renderVacio()">Volver a empezar</button>`;
+    return;
+  }
+  fetch(API+'/api/vacio/reporte/json').then(r=>r.json()).then(datos=>{
+    const r = datos.resumen || {};
+    const v = r.veredicto || {};
+    const dotcol = {ok:'#3ddc97', warn:'#ffab2e', bad:'#ff5a5a'}[v.nivel] || '#8ea0b2';
+    const dotico = {ok:'🟢', warn:'🟡', bad:'🔴'}[v.nivel] || '⚪';
+    const z = r.zona1 || {};
+    const m = r.map_ralenti || {};
+    const estMap = {ok:'dentro de rango', atencion:'fuera de rango', sin_rango:'sin referencia'}[m.estado] || '';
+    const apoyoHtml = (r.apoyo||[]).map(a=>`
+      <tr><td>${esc(a.dato)}</td><td>${a.ralenti==null?'—':esc(a.ralenti)} ${esc(a.unidad||'')}</td>
+      <td>${a['2500rpm']==null?'—':esc(a['2500rpm'])} ${esc(a.unidad||'')}</td></tr>`).join('');
+    box.innerHTML=`
+      <div style="max-width:640px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:24px">
+        <div style="display:flex;gap:12px;align-items:flex-start;background:${dotcol}1a;border:1px solid ${dotcol};border-left:5px solid ${dotcol};border-radius:10px;padding:14px 16px">
+          <span style="font-size:22px">${dotico}</span>
+          <div><div style="font-weight:700;color:${dotcol}">${esc(v.titulo||'')}</div>
+          <div style="font-size:13px;color:var(--ink-dim);margin-top:3px">${esc(v.detalle||'')}</div></div>
+        </div>
+        <div style="margin-top:18px;font-size:14px;font-weight:600">Datos clave:</div>
+        <div class="obd-quick" style="margin-top:8px;display:block">
+          <div style="font-size:13px;color:var(--ink-dim);margin-bottom:4px">Zona 1 (ralentí/baja carga): <span style="color:var(--ink)">${esc(z.texto||'—')}</span></div>
+          <div style="font-size:13px;color:var(--ink-dim);margin-bottom:4px">MAP a ralentí: <span style="color:var(--ink)">${m.valor==null?'—':esc(m.valor)} ${esc(m.unidad||'')} (${esc(estMap)})</span></div>
+          <div style="font-size:13px;color:var(--ink-dim)">RPM consigna vs. real: <span style="color:var(--ink)">${esc(r.rpm_consigna_ralenti)} vs ${esc(r.rpm_real_ralenti)}</span></div>
+        </div>
+        <div style="margin-top:16px;font-size:13px;font-weight:600">Evidencia de apoyo (ralentí → 2500rpm, sin umbral confirmado):</div>
+        <div class="tw" style="margin-top:8px;overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12.5px">
+          <thead><tr><th style="text-align:left;padding:6px">Dato</th><th style="text-align:left;padding:6px">Ralentí</th><th style="text-align:left;padding:6px">~2500rpm</th></tr></thead>
+          <tbody>${apoyoHtml}</tbody></table></div>
+        <div style="margin-top:18px;font-size:14px;font-weight:600">Descargar el reporte:</div>
+        <div class="obd-quick" style="margin-top:10px">
+          <a href="/api/vacio/reporte/html" target="_blank"><button>🌐 HTML (ver/imprimir)</button></a>
+          <a href="/api/vacio/reporte/json"><button>🤖 JSON (para IA)</button></a>
+          <a href="/api/vacio/reporte/txt"><button>📄 TXT</button></a>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+          <button class="chip" onclick="subirLogs()">☁ Subir reporte a GitHub</button>
+          <button class="chip" onclick="renderVacio()">🔁 Hacer otra prueba</button>
+        </div>
+      </div>`;
+  }).catch(()=>{
+    box.innerHTML=`<div class="error" style="max-width:640px">No se pudo cargar el veredicto.</div>
+      <button class="uni-btn" style="margin-top:16px;max-width:240px" onclick="renderVacio()">Volver a empezar</button>`;
+  });
+}
+
 /* ============================ ENSAYO DE ACELERACIÓN ============================ */
 let ENSAYO = {polling:false, distancia:100};
 
@@ -4097,6 +4312,7 @@ const MENU_COMPLETO = [
   {view:'dash',ico:'📟',txt:'Tablero en vivo'},
   {view:'chequeo',ico:'🩺',txt:'Chequeo general', perf:['f4r','detectado','generico']},
   {view:'mezcla',ico:'⚗️',txt:'Chequeo de mezcla', perf:['f4r']},
+  {view:'vacio',ico:'🕳️',txt:'Prueba de vacío', perf:['f4r']},
   {view:'ensayo',ico:'🏁',txt:'Ensayo de aceleración', perf:['f4r','detectado','generico']},
   {view:'ondas',ico:'📈',txt:'Analizador de Ondas'},
   {view:'dtc',ico:'🚨',txt:'Códigos de falla'},

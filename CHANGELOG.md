@@ -3,6 +3,51 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-24] — FIX IMPORTANTE: el reporte de Chequeo de mezcla nunca leyó datos reales
+
+Construyendo "Prueba de vacío" (ver entrada siguiente) se encontró un bug retroactivo en
+`_mezcla_analizar` (`reporte.py`): buscaba los valores de las 5 zonas, el ajuste corto, el
+lazo y la sonda amont usando el nombre ORIGINAL en francés (`Correction adaptative de la
+1ère zone de pression`, etc.) como clave contra las estadísticas de la captura — pero esas
+estadísticas están indexadas por la ETIQUETA TRADUCIDA al español (`_valores_legibles` guarda
+por `etiqueta`, no por el dato original). Como las claves nunca coincidían, el veredicto por
+zona del reporte de "Chequeo de mezcla" **siempre caía en "sin_dato"**, tanto en simulación
+como con el auto real — el bug es independiente del entorno. Confirmado con una prueba
+directa: armando estadísticas falsas indexadas por etiqueta en español, `_mezcla_analizar`
+devolvía `None`/`sin_dato` para todo antes del fix, y valores reales después. Fix: se agregó
+`_ES_NATIVO` (diccionario de traducciones verificadas con `motor.t()`) en `reporte.py`, y se
+usa para traducir la clave antes de buscarla en las estadísticas. Esto corrige el reporte de
+mezcla para cualquier chequeo que se corra de acá en adelante — los que ya se generaron
+quedan con "sin_dato" en el JSON viejo (no se puede recalcular retroactivamente sin volver a
+capturar).
+
+## [2026-08-24] — Nueva pantalla "🕳️ Prueba de vacío" (F4R)
+
+Pedido del usuario: una pantalla dedicada para descartar una fuga de vacío / entrada de aire
+no medida, con sensores propios (no solo el resultado ya corregido de mezcla). Gemela
+estructural de "Chequeo de mezcla" (mismo patrón: `app/prueba_vacio.py` reusa los helpers
+genéricos de `chequeo.py`, 2 etapas ralentí + ~2500rpm, `estado.vacio` + `_CtxVacio` +
+endpoints `/api/vacio/*` en `server.py` con exclusión mutua contra chequeo/conducción/mezcla,
+panel "📡 En vivo" + vista `view-vacio` en `index.html`, ícono 🕳️).
+
+Sensores nuevos (no los lee mezcla): `RCO théorique régulation ralenti` (el dato clave — %
+de apertura de la válvula de aire de ralentí; clavado alto = compensando una fuga sin margen
+para corregir más), `Correction régime ralenti après-vente`, `Valeur apprentissage régulation
+ralenti`, `RCO purge canister` (descarta una válvula de purga del canister trabada abierta
+como causa alternativa), `Régime consigne régulation ralenti` (para ver si el ralentí "caza"),
+`Etat stratégie régulation ralenti` — más las 5 zonas y el ajuste corto ya usados en mezcla
+(reusa `_evaluar_zona_mezcla`, ya validado esta sesión).
+
+**Nota de honestidad**: ninguna de las 15 variantes de S3000 en la base documenta un umbral
+numérico para RCO/corrección/aprendizaje de ralentí — el veredicto "duro" se apoya solo en lo
+confirmado (zona 1 ±5/±8/±25%, rango de MAP 250-550mb ya curado, estado de lazo); esos 3
+datos de ralentí se muestran como "evidencia de apoyo" (ralentí vs. 2500rpm, sin clasificar)
+en vez de inventar un pass/fail sin sustento. Se agregaron ayudas nuevas en `ayudas.json`
+explicando esto mismo. Verificado en simulación end-to-end (todas las fases, exclusión mutua,
+cancelar) y con datos simulados realistas (confirmando que el veredicto/apoyo se calculan
+bien una vez que hay datos, ya que la simulación pura no trae canned data nativa del F4R,
+mismo límite ya documentado para mezcla).
+
 ## [2026-08-23] — La pestaña "Ralentí y VVT" ahora muestra el comando REAL del VVT en vivo
 
 El usuario reportó: en la pantalla de VVT, el "activado/desactivado" no hace nada — pero en

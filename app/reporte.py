@@ -1003,6 +1003,13 @@ def _evaluar_zona_mezcla(valor):
     return {"estado": estado_, "signo": signo, "texto": texto}
 
 
+# Traducciones verificadas (motor.t()) de los datos nativos usados como CLAVE de
+# lookup contra las estadisticas (que vienen indexadas por ETIQUETA en espanol, no
+# por el nombre original en frances -- usar el nombre frances ahi es un bug silencioso
+# que siempre devuelve None/sin_dato, tanto en real como en simulacion).
+_ES_NATIVO = {'Correction adaptative de la 1ère zone de pression': 'Corrección adaptativa de la 1.ª zona de presión', 'Correction adaptative de la 2ème zone de pression': 'Corrección adaptativa de la 2.ª zona de presión', 'Correction adaptative de la 3ème zone de pression': 'Corrección adaptativa de la 3.ª zona de presión', 'Correction adaptative de la 4ème zone de pression': 'Corrección adaptativa de la 4.ª zona de presión', 'Correction adaptative de la 5ème zone de pression': 'Corrección adaptativa de la 5.ª zona de presión', 'Facteur enrichissement regulation richesse': 'Factor de enriquecimiento de la regulación de riqueza', 'Etat stratégie régulation richesse': 'Estado de la estrategia de regulación de riqueza de mezcla', 'Tension sonde amont': 'Tensión de la sonda lambda anterior', 'RCO théorique régulation ralenti': 'Ciclo de trabajo (RCO) teórico de la regulación del ralentí', 'Correction régime ralenti après-vente': 'Corrección del régimen de ralentí de posventa', 'Valeur apprentissage régulation ralenti': 'Valor de aprendizaje de la regulación del ralentí', 'RCO purge canister': 'Ciclo de trabajo (RCO) de la purga del cánister', 'Régime consigne régulation ralenti': 'Régimen de consigna de la regulación del ralentí', 'Pression collecteur absolue mesurée': 'Presión absoluta del colector medida'}
+
+
 def _mezcla_analizar(datos):
     """Evalúa las 5 zonas de ajuste largo (prioriza la etapa 2500rpm, cae a ralentí si no hay
     dato) y arma el veredicto general + por zona."""
@@ -1020,8 +1027,8 @@ def _mezcla_analizar(datos):
     por_zona = []
     peor = "ok"
     for i, zona in enumerate(ZONAS_MEZCLA, start=1):
-        v_ral = _valor(ralenti_stats, zona)
-        v_25 = _valor(p2500_stats, zona)
+        v_ral = _valor(ralenti_stats, _ES_NATIVO.get(zona, zona))
+        v_25 = _valor(p2500_stats, _ES_NATIVO.get(zona, zona))
         valor = v_25 if v_25 is not None else v_ral
         ev = _evaluar_zona_mezcla(valor)
         nivel = nivel_de_estado[ev["estado"]]
@@ -1030,11 +1037,11 @@ def _mezcla_analizar(datos):
         por_zona.append({"zona": f"Zona {i}", "dato": zona, "valor": valor,
                          "estado": ev["estado"], "nivel": nivel, "texto": ev["texto"]})
 
-    stft_ralenti = _valor(ralenti_stats, "Facteur enrichissement regulation richesse")
-    stft_2500 = _valor(p2500_stats, "Facteur enrichissement regulation richesse")
-    lazo = (ralenti_stats.get("Etat stratégie régulation richesse") or {})
-    v_amont = _valor(ralenti_stats, "Tension sonde amont")
-    amont_osc = (ralenti_stats.get("Tension sonde amont") or {}).get("oscila")
+    stft_ralenti = _valor(ralenti_stats, _ES_NATIVO["Facteur enrichissement regulation richesse"])
+    stft_2500 = _valor(p2500_stats, _ES_NATIVO["Facteur enrichissement regulation richesse"])
+    lazo = (ralenti_stats.get(_ES_NATIVO["Etat stratégie régulation richesse"]) or {})
+    v_amont = _valor(ralenti_stats, _ES_NATIVO["Tension sonde amont"])
+    amont_osc = (ralenti_stats.get(_ES_NATIVO["Tension sonde amont"]) or {}).get("oscila")
 
     n_problema = sum(1 for z in por_zona if z["nivel"] == "bad")
     n_sospechoso = sum(1 for z in por_zona if z["nivel"] == "warn")
@@ -1163,6 +1170,213 @@ def generar_mezcla(datos):
     p_txt.write_text(_txt_mezcla(datos), encoding="utf-8")
     p_html.write_text("<!doctype html><meta charset='utf-8'><title>Mezcla " +
                       _esc(datos.get("vehiculo", "")) + "</title>" + _html_mezcla(datos), encoding="utf-8")
+    return {"html": str(p_html), "json": str(p_json), "txt": str(p_txt),
+            "carpeta": str(LOG_DIR), "nombre": nombre}
+
+
+# ============================================================================
+# PRUEBA DE VACÍO (2 etapas: ralentí + ~2500 rpm)
+# ============================================================================
+def _vacio_analizar(datos):
+    """Evalúa la zona 1 (ralentí/baja carga) con el criterio de mezcla ya validado, el MAP
+    de ralentí contra el rango curado, y el estado de lazo — esos 3 son el veredicto "duro".
+    Los datos de RCO/corrección/aprendizaje de ralentí y purga canister se muestran como
+    evidencia de apoyo (ralentí vs. 2500rpm) SIN clasificación, porque no hay un umbral
+    numérico confirmado para ellos (ninguna de las variantes de S3000 en la base lo trae)."""
+    from prueba_vacio import ZONAS_VACIO
+    etapas = datos.get("etapas", {})
+    ralenti_stats = (etapas.get("ralenti") or {}).get("estadisticas", {})
+    p2500_stats = (etapas.get("2500") or {}).get("estadisticas", {})
+
+    def _valor(stats, nombre):
+        s = stats.get(nombre)
+        return s.get("promedio") if s else None
+
+    def _valor_unidad(stats, nombre):
+        s = stats.get(nombre)
+        if not s:
+            return None, ""
+        return s.get("promedio"), s.get("unidad", "")
+
+    # --- zona 1 (ralentí/baja carga): mismo evaluador ya validado en mezcla ---
+    # Ojo: ZONAS_VACIO trae el nombre ORIGINAL francés (se usa para filtrar requests); las
+    # estadísticas están indexadas por la ETIQUETA en español (_ES_NATIVO la traduce).
+    zona1_dato = ZONAS_VACIO[0]
+    v_ral = _valor(ralenti_stats, _ES_NATIVO.get(zona1_dato, zona1_dato))
+    v_25 = _valor(p2500_stats, _ES_NATIVO.get(zona1_dato, zona1_dato))
+    zona1_valor = v_25 if v_25 is not None else v_ral
+    ev_zona1 = _evaluar_zona_mezcla(zona1_valor)
+    nivel_de_estado = {"normal": "ok", "sospechoso": "warn", "problema": "bad", "sin_dato": "ok"}
+    nivel_zona1 = nivel_de_estado[ev_zona1["estado"]]
+
+    # --- MAP a ralentí: contra el rango curado (rangos_f4r.json) ---
+    map_prom, map_unidad = _valor_unidad(ralenti_stats, "Presión absoluta del colector medida")
+    rangos = _cargar_rangos()
+    if map_prom is not None:
+        ev_map = _evaluar("presión absoluta del colector", f"{map_prom} {map_unidad}", rangos)
+    else:
+        ev_map = {"estado": "sin_rango"}
+    nivel_map = {"ok": "ok", "atencion": "bad", "sin_rango": "ok"}[ev_map["estado"]]
+
+    # --- lazo cerrado (BOUCLE) en ralentí ---
+    lazo_ral = (ralenti_stats.get(_ES_NATIVO["Etat stratégie régulation richesse"]) or {})
+    lazo_txt = str(lazo_ral.get("promedio", "")) if lazo_ral else ""
+    lazo_cerrado = "1" in lazo_txt or "bouc" in lazo_txt.lower()
+    nivel_lazo = "ok" if (not lazo_ral or lazo_cerrado) else "warn"
+
+    orden = {"ok": 0, "warn": 1, "bad": 2}
+    peor = max([nivel_zona1, nivel_map, nivel_lazo], key=lambda n: orden[n])
+
+    if peor == "bad":
+        titulo = "Evidencia de fuga de vacío / entrada de aire no medida"
+        detalle = ("La zona 1 (ralentí/baja carga) del ajuste largo y/o la presión de colector "
+                   "a ralentí están fuera de lo esperado — patrón típico de una fuga de vacío. "
+                   "Revisar manguera de servofreno, PCV, junta de admisión, cuerpo de mariposa "
+                   "y sus O-rings.")
+    elif peor == "warn":
+        titulo = "Indicios sospechosos, no concluyente"
+        detalle = "Alguno de los datos clave está en zona de sospecha, no de problema claro todavía."
+    else:
+        titulo = "Sin evidencia clara de fuga de vacío"
+        detalle = "La zona 1, el MAP a ralentí y el lazo de riqueza están dentro de lo esperado."
+    veredicto = {"nivel": peor, "titulo": titulo, "detalle": detalle}
+
+    # --- evidencia de apoyo: ralentí vs 2500rpm, SIN umbral (no confirmado con fuente) ---
+    def _apoyo(nombre_es):
+        v_r, u = _valor_unidad(ralenti_stats, nombre_es)
+        v_2, _ = _valor_unidad(p2500_stats, nombre_es)
+        return {"dato": nombre_es, "ralenti": v_r, "2500rpm": v_2, "unidad": u}
+
+    apoyo = [
+        _apoyo("Ciclo de trabajo (RCO) teórico de la regulación del ralentí"),
+        _apoyo("Corrección del régimen de ralentí de posventa"),
+        _apoyo("Valor de aprendizaje de la regulación del ralentí"),
+        _apoyo("Ciclo de trabajo (RCO) de la purga del cánister"),
+    ]
+    rpm_consigna = _valor(ralenti_stats, "Régimen de consigna de la regulación del ralentí")
+    rpm_real = _valor(ralenti_stats, "Régimen del motor (RPM)")
+
+    datos["resumen"] = {
+        "generado": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "veredicto": veredicto,
+        "zona1": {"dato": zona1_dato, "valor": zona1_valor, "estado": ev_zona1["estado"],
+                  "nivel": nivel_zona1, "texto": ev_zona1["texto"]},
+        "map_ralenti": {"valor": map_prom, "unidad": map_unidad, "estado": ev_map["estado"],
+                        "nivel": nivel_map},
+        "lazo_cerrado_ralenti": lazo_txt or None,
+        "rpm_consigna_ralenti": rpm_consigna, "rpm_real_ralenti": rpm_real,
+        "apoyo": apoyo,
+        "etapas": {k: {"rpm_prom": v.get("rpm_prom"), "n_muestras": v.get("n_muestras"),
+                       "alcanzo_banda": v.get("alcanzo_banda")} for k, v in etapas.items()},
+        "estadisticas_ralenti": ralenti_stats, "estadisticas_2500": p2500_stats,
+    }
+    datos["para_experto"] = {
+        "vehiculo": datos.get("vehiculo"), "perfil": datos.get("perfil"), "fecha": datos.get("fecha"),
+        "veredicto": veredicto, "zona1": datos["resumen"]["zona1"],
+        "map_ralenti": datos["resumen"]["map_ralenti"],
+        "rpm": {"consigna_ralenti": rpm_consigna, "real_ralenti": rpm_real},
+        "evidencia_de_apoyo_sin_umbral_confirmado": apoyo,
+        "estadisticas_ralenti": ralenti_stats, "estadisticas_2500": p2500_stats,
+    }
+    return datos
+
+
+def _txt_vacio(datos):
+    r = datos["resumen"]
+    L = ["=" * 70, "  PRUEBA DE VACÍO — SISTEMASQ24",
+         f"  Vehículo: {datos.get('vehiculo')}   |   {datos.get('fecha')}", "=" * 70, ""]
+    v = r["veredicto"]
+    L.append(f"VEREDICTO: {v['titulo']}")
+    L.append(f"  {v['detalle']}")
+    L.append("")
+    z = r["zona1"]
+    L.append(f"Zona 1 de ajuste largo (ralentí/baja carga): {z['texto']}")
+    m = r["map_ralenti"]
+    L.append(f"Presión de colector (MAP) a ralentí: {m['valor']} {m['unidad']} "
+             f"({'dentro de rango' if m['estado']=='ok' else ('fuera de rango' if m['estado']=='atencion' else 'sin rango de referencia')})")
+    L.append(f"Lazo de riqueza (ralentí): {r.get('lazo_cerrado_ralenti') or '—'}")
+    L.append(f"RPM consigna vs. real en ralentí: {r.get('rpm_consigna_ralenti')} vs {r.get('rpm_real_ralenti')}")
+    L.append("")
+    L.append("EVIDENCIA DE APOYO (ralentí vs. 2500rpm — sin umbral numérico confirmado):")
+    for a in r["apoyo"]:
+        L.append(f"  · {a['dato']}: {a['ralenti']} -> {a['2500rpm']} {a['unidad']}")
+    L.append("")
+    etapas = r.get("etapas", {})
+    L.append("ETAPAS:")
+    for nombre, e in etapas.items():
+        L.append(f"  · {nombre}: rpm_prom={e.get('rpm_prom')}  muestras={e.get('n_muestras')}  "
+                 f"banda_alcanzada={e.get('alcanzo_banda')}")
+    return "\n".join(L)
+
+
+def _html_vacio(datos):
+    r = datos["resumen"]
+    v = r.get("veredicto", {})
+    vcol = {"ok": "#3ddc97", "warn": "#ffab2e", "bad": "#ff5a5a"}.get(v.get("nivel"), "#8ea0b2")
+    vico = {"ok": "🟢", "warn": "🟡", "bad": "🔴"}.get(v.get("nivel"), "⚪")
+    css = """body{font-family:system-ui,Segoe UI,Arial,sans-serif;background:#0e141b;color:#e8eef4;margin:0;padding:24px;line-height:1.5}
+    .wrap{max-width:820px;margin:0 auto}
+    h1{font-size:23px;margin:0 0 4px}h2{font-size:16px;border-bottom:1px solid #24303f;padding-bottom:6px;margin-top:26px}
+    .sub{color:#8ea0b2;font-size:13px;margin-bottom:16px}
+    .verdict{display:flex;gap:14px;align-items:flex-start;border-radius:11px;padding:15px 18px;margin:6px 0 8px}
+    .verdict .d{font-size:24px;line-height:1}.verdict h3{margin:0 0 3px;font-size:16px}.verdict p{margin:0;font-size:13.5px;color:#cdd8e2}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+    th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #1c2732}
+    thead th{background:#111922;color:#8ea0b2;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+    .dim{color:#8ea0b2}
+    .note{margin-top:16px;padding:10px 14px;background:rgba(47,212,212,.08);border:1px solid rgba(47,212,212,.3);border-radius:8px;font-size:13px;color:#9fd}
+    .warnbox{margin-top:10px;padding:10px 14px;background:rgba(255,171,46,.08);border:1px solid rgba(255,171,46,.3);border-radius:8px;font-size:12.5px;color:#ffcf8a}"""
+    H = [f"<style>{css}</style><div class='wrap'>",
+         f"<h1>🕳️ Prueba de vacío — {_esc(datos.get('vehiculo'))}</h1>",
+         f"<div class='sub'>{_esc(datos.get('fecha'))} · perfil {_esc(datos.get('perfil'))} · ralentí + ~2500 rpm</div>",
+         f"<div class='verdict' style='background:{vcol}1a;border:1px solid {vcol};border-left:5px solid {vcol}'>"
+         f"<span class='d'>{vico}</span><div><h3 style='color:{vcol}'>{_esc(v.get('titulo',''))}</h3><p>{_esc(v.get('detalle',''))}</p></div></div>"]
+    H.append("<h2>Datos clave (veredicto)</h2><table><tbody>")
+    z = r["zona1"]
+    H.append(f"<tr><td>Zona 1 de ajuste largo (ralentí/baja carga)</td><td>{_esc(z['texto'])}</td></tr>")
+    m = r["map_ralenti"]
+    est_map = {"ok": "dentro de rango", "atencion": "fuera de rango", "sin_rango": "sin referencia"}.get(m["estado"], "")
+    H.append(f"<tr><td>Presión de colector (MAP) a ralentí</td><td>{_esc(m['valor'])} {_esc(m['unidad'])} — {_esc(est_map)}</td></tr>")
+    H.append(f"<tr><td>Lazo de riqueza (ralentí)</td><td>{_esc(r.get('lazo_cerrado_ralenti') or '—')}</td></tr>")
+    H.append(f"<tr><td>RPM consigna vs. real (ralentí)</td><td>{_esc(r.get('rpm_consigna_ralenti'))} vs {_esc(r.get('rpm_real_ralenti'))}</td></tr>")
+    H.append("</tbody></table>")
+    H.append("<h2>Evidencia de apoyo (ralentí → 2500rpm)</h2>")
+    H.append("<div class='warnbox'>⚠️ Estos 4 datos NO tienen un umbral numérico confirmado con documentación de Renault "
+             "(ninguna de las 15 variantes de la base lo trae) — se muestran para comparar, no como pass/fail. "
+             "Si mejoran mucho al acelerar, refuerza la hipótesis de fuga (se diluye con más aire real entrando); "
+             "si no cambian, el problema probablemente no es una fuga de vacío.</div>")
+    H.append("<table><thead><tr><th>Dato</th><th>Ralentí</th><th>~2500rpm</th></tr></thead><tbody>")
+    for a in r["apoyo"]:
+        H.append(f"<tr><td>{_esc(a['dato'])}</td><td>{_esc(a['ralenti'])} {_esc(a['unidad'])}</td>"
+                 f"<td>{_esc(a['2500rpm'])} {_esc(a['unidad'])}</td></tr>")
+    H.append("</tbody></table>")
+    etapas = r.get("etapas", {})
+    if etapas:
+        H.append("<h2>Etapas capturadas</h2><table><thead><tr><th>Etapa</th><th>RPM prom.</th>"
+                 "<th>Muestras</th><th>Banda alcanzada</th></tr></thead><tbody>")
+        for nombre, e in etapas.items():
+            H.append(f"<tr><td>{_esc(nombre)}</td><td>{_esc(e.get('rpm_prom'))}</td>"
+                     f"<td>{_esc(e.get('n_muestras'))}</td><td>{_esc(e.get('alcanzo_banda'))}</td></tr>")
+        H.append("</tbody></table>")
+    H.append("<div class='note'>Prueba enfocada en fuga de vacío (RPM, MAP, RCO/corrección/aprendizaje de "
+             "ralentí, purga canister, zona 1 de ajuste largo, lazo) — no barre otras ECUs. El <b>.json</b> "
+             "trae el bloque <code>para_experto</code> con todo junto. Podés imprimir esta página a PDF "
+             "(Ctrl+P).</div></div>")
+    return "\n".join(H)
+
+
+def generar_vacio(datos):
+    """Analiza la prueba de vacío y escribe HTML/JSON/TXT. Devuelve {html,json,txt,carpeta,nombre}."""
+    _vacio_analizar(datos)
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    nombre = "vacio_" + datetime.now().strftime("%Y%m%d_%H%M%S")
+    p_json = LOG_DIR / f"{nombre}.json"
+    p_txt = LOG_DIR / f"{nombre}.txt"
+    p_html = LOG_DIR / f"{nombre}.html"
+    p_json.write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf-8")
+    p_txt.write_text(_txt_vacio(datos), encoding="utf-8")
+    p_html.write_text("<!doctype html><meta charset='utf-8'><title>Vacío " +
+                      _esc(datos.get("vehiculo", "")) + "</title>" + _html_vacio(datos), encoding="utf-8")
     return {"html": str(p_html), "json": str(p_json), "txt": str(p_txt),
             "carpeta": str(LOG_DIR), "nombre": nombre}
 

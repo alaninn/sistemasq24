@@ -86,6 +86,12 @@ class Estado:
                        "terminado": False, "resultado": None, "error": None}
         self.mezcla_cancelar = False     # flag para abortar el chequeo de mezcla
         self.mezcla_capturar = False     # flag "capturar ahora" (fallback manual)
+        # estado de la prueba de vacío (F4R): 2 etapas fijas — ralentí y ~2500 rpm.
+        self.vacio = {"corriendo": False, "fase": "", "rpm_objetivo": 0, "rpm_actual": None,
+                      "progreso": 0, "instruccion": "", "timeout": False,
+                      "terminado": False, "resultado": None, "error": None}
+        self.vacio_cancelar = False      # flag para abortar la prueba de vacío
+        self.vacio_capturar = False      # flag "capturar ahora" (fallback manual)
         # estado del ensayo de aceleración (motor en movimiento, ~50/100 m)
         self.ensayo = {"corriendo": False, "fase": "", "vel_actual": None, "rpm_actual": None,
                        "distancia": 0, "progreso": 0, "instruccion": "", "timeout": False,
@@ -901,7 +907,7 @@ def _github_token():
 
 # Prefijos de INFORMES (se conservan siempre al limpiar); el resto (sesion_/consola_) es ruido
 # de debug que se poda dejando solo los más recientes.
-_LOG_INFORMES = ("reporte_", "ensayo_", "conduccion_", "informe_", "mezcla_")
+_LOG_INFORMES = ("reporte_", "ensayo_", "conduccion_", "informe_", "mezcla_", "vacio_")
 _LOG_MANTENER_RUIDO = 12   # cuántos sesion_/consola_ recientes conservar
 
 
@@ -1266,6 +1272,7 @@ def api_desconectar():
         estado.actuadores_activos = {}   # cortar el keep-alive de actuadores
         estado.chequeo_cancelar = True   # abortar chequeo si estaba corriendo
         estado.mezcla_cancelar = True    # abortar chequeo de mezcla si estaba corriendo
+        estado.vacio_cancelar = True     # abortar prueba de vacío si estaba corriendo
         estado.ensayo_cancelar = True    # abortar ensayo si estaba corriendo
         # Descargar el auto activo: al desconectar no debe quedar ningún perfil cargado.
         estado.registro.reset()
@@ -2568,6 +2575,116 @@ def api_mezcla_cancelar():
 def api_mezcla_reporte(tipo: str):
     """Descarga el reporte generado (tipo: html | json | txt)."""
     res = (estado.mezcla.get("resultado") or {}).get("reporte") or {}
+    ruta = res.get(tipo)
+    if not ruta or not Path(ruta).exists():
+        return JSONResponse({"error": "Reporte no disponible"}, status_code=404)
+    contenido = Path(ruta).read_text(encoding="utf-8")
+    media = {"html": "text/html", "json": "application/json", "txt": "text/plain"}.get(tipo, "text/plain")
+    from fastapi.responses import Response
+    return Response(content=contenido, media_type=media + "; charset=utf-8",
+                    headers={"Content-Disposition": f'attachment; filename="{Path(ruta).name}"'})
+
+
+# ----------------------------------------------------------------------------
+# PRUEBA DE VACÍO (F4R): ralentí + ~2500 rpm, sensores de fuga de vacío/ralentí
+# ----------------------------------------------------------------------------
+class _CtxVacio:
+    """Contexto que el orquestador `prueba_vacio.PruebaVacio` usa para hablar con el
+    server, sin imports circulares. Mismo contrato que _CtxMezcla."""
+    registro = estado.registro
+    elm_lock = ELM_LOCK
+
+    def marcar_actividad(self):
+        _marcar_actividad()
+
+    def seleccionar_ecu(self, ecu_id):
+        _seleccionar_ecu(ecu_id)
+
+    def set_estado(self, kw):
+        with ESTADO_LOCK:
+            estado.vacio.update(kw)
+
+    def cancelado(self):
+        return estado.vacio_cancelar
+
+    def capturar_ahora(self):
+        return estado.vacio_capturar
+
+    def reset_capturar_ahora(self):
+        estado.vacio_capturar = False
+
+    def simulacion(self):
+        return options.simulation_mode
+
+    def pausar_lecturas(self):
+        return estado.pausar_lecturas
+
+    def log(self, tipo, msg, det=None):
+        slog.log(tipo, msg, det or {})
+
+
+def _run_vacio():
+    import prueba_vacio
+    ctx = _CtxVacio()
+    ctx.registro = estado.registro   # perfil activo al momento de iniciar
+    try:
+        resultado = prueba_vacio.PruebaVacio(ctx).run()
+    except Exception as e:
+        slog.log("VACIO", f"Error en la prueba de vacío: {e}", {})
+        resultado = {"ok": False, "error": f"Error en la prueba de vacío: {e}"}
+    with ESTADO_LOCK:
+        estado.vacio.update({"corriendo": False, "terminado": True, "resultado": resultado})
+
+
+@app.post("/api/vacio/iniciar")
+def api_vacio_iniciar():
+    """Inicia la prueba de vacío en segundo plano. Requiere auto conectado, perfil F4R
+    (depende de las 5 zonas nativas de ajuste largo, que no existen en OBD genérico)."""
+    if not estado.conectado:
+        return JSONResponse({"error": "No hay conexión con el auto"}, status_code=409)
+    if estado.registro.perfil != "f4r":
+        return JSONResponse({"error": "La prueba de vacío es exclusiva del perfil F4R"}, status_code=409)
+    with ESTADO_LOCK:
+        if estado.vacio.get("corriendo"):
+            return {"ok": True, "iniciado": True, "ya_corria": True}
+        if (estado.chequeo.get("corriendo") or estado.conduccion.get("corriendo")
+                or estado.mezcla.get("corriendo")):
+            return JSONResponse({"error": "Ya hay otro chequeo/grabación corriendo"}, status_code=409)
+        estado.vacio = {"corriendo": True, "fase": "iniciando", "rpm_objetivo": 0,
+                        "rpm_actual": None, "progreso": 0, "instruccion": "Preparando…",
+                        "timeout": False, "terminado": False, "resultado": None, "error": None}
+        estado.vacio_cancelar = False
+        estado.vacio_capturar = False
+    slog.log("VACIO", "Prueba de vacío iniciada", {"perfil": estado.registro.perfil})
+    THREAD_POOL.submit(_run_vacio)
+    return {"ok": True, "iniciado": True}
+
+
+@app.get("/api/vacio/estado")
+def api_vacio_estado():
+    """Progreso de la prueba de vacío (fase, rpm_actual/objetivo, instruccion, terminado, resultado)."""
+    with ESTADO_LOCK:
+        return dict(estado.vacio)
+
+
+@app.post("/api/vacio/capturar-ahora")
+def api_vacio_capturar():
+    """Fuerza la captura de la etapa 2500rpm (fallback si no detecta la banda)."""
+    estado.vacio_capturar = True
+    return {"ok": True}
+
+
+@app.post("/api/vacio/cancelar")
+def api_vacio_cancelar():
+    """Aborta la prueba de vacío en curso."""
+    estado.vacio_cancelar = True
+    return {"ok": True}
+
+
+@app.get("/api/vacio/reporte/{tipo}")
+def api_vacio_reporte(tipo: str):
+    """Descarga el reporte generado (tipo: html | json | txt)."""
+    res = (estado.vacio.get("resultado") or {}).get("reporte") or {}
     ruta = res.get(tipo)
     if not ruta or not Path(ruta).exists():
         return JSONResponse({"error": "Reporte no disponible"}, status_code=404)
