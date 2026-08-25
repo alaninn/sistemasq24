@@ -8510,6 +8510,90 @@
   "état connexion avec UCEMUX9 BVA": {
    "ayuda": "",
    "es": "estado de conexión con la ECU multiplexada 9 (caja automática)"
+  },
+  "Panne mémoire de sauvegarde": {
+   "ayuda": "",
+   "es": "Avería de la memoria de respaldo",
+   "lists": {
+    "0": {
+     "es": "OK",
+     "original": "OK"
+    },
+    "1": {
+     "es": "Avería",
+     "original": "Panne"
+    }
+   }
+  },
+  "Panne mémoire de sauvegarde zone verrou logiciel": {
+   "ayuda": "",
+   "es": "Avería de la zona de bloqueo lógico de la memoria de respaldo",
+   "lists": {
+    "0": {
+     "es": "OK",
+     "original": "OK"
+    },
+    "1": {
+     "es": "Avería",
+     "original": "Panne"
+    }
+   }
+  },
+  "Panne présente microncontroleur secondaire": {
+   "ayuda": "",
+   "es": "Avería PRESENTE del microcontrolador secundario",
+   "lists": {
+    "0": {
+     "es": "OK",
+     "original": "OK"
+    },
+    "1": {
+     "es": "Avería",
+     "original": "Panne"
+    }
+   }
+  },
+  "Panne mémorisée microncontroleur secondaire": {
+   "ayuda": "",
+   "es": "Avería MEMORIZADA del microcontrolador secundario",
+   "lists": {
+    "0": {
+     "es": "OK",
+     "original": "OK"
+    },
+    "1": {
+     "es": "Avería",
+     "original": "Panne"
+    }
+   }
+  },
+  "Panne présente liaison SPI": {
+   "ayuda": "",
+   "es": "Avería PRESENTE del enlace SPI (comunicación interna del ECU)",
+   "lists": {
+    "0": {
+     "es": "OK",
+     "original": "OK"
+    },
+    "1": {
+     "es": "Avería",
+     "original": "Panne"
+    }
+   }
+  },
+  "Panne mémorisée liaison SPI": {
+   "ayuda": "",
+   "es": "Avería MEMORIZADA del enlace SPI (comunicación interna del ECU)",
+   "lists": {
+    "0": {
+     "es": "OK",
+     "original": "OK"
+    },
+    "1": {
+     "es": "Avería",
+     "original": "Panne"
+    }
+   }
   }
  },
  "ecuname": "S3000_AD_CAN_3_X84ph2_S",
@@ -8874,90 +8958,6 @@
   },
   "Trame de contexte 4": {
    "es": "Trama de contexto 4"
-  }
- },
- "Panne mémoire de sauvegarde": {
-  "ayuda": "",
-  "es": "Avería de la memoria de respaldo",
-  "lists": {
-   "0": {
-    "es": "OK",
-    "original": "OK"
-   },
-   "1": {
-    "es": "Avería",
-    "original": "Panne"
-   }
-  }
- },
- "Panne mémoire de sauvegarde zone verrou logiciel": {
-  "ayuda": "",
-  "es": "Avería de la zona de bloqueo lógico de la memoria de respaldo",
-  "lists": {
-   "0": {
-    "es": "OK",
-    "original": "OK"
-   },
-   "1": {
-    "es": "Avería",
-    "original": "Panne"
-   }
-  }
- },
- "Panne présente microncontroleur secondaire": {
-  "ayuda": "",
-  "es": "Avería PRESENTE del microcontrolador secundario",
-  "lists": {
-   "0": {
-    "es": "OK",
-    "original": "OK"
-   },
-   "1": {
-    "es": "Avería",
-    "original": "Panne"
-   }
-  }
- },
- "Panne mémorisée microncontroleur secondaire": {
-  "ayuda": "",
-  "es": "Avería MEMORIZADA del microcontrolador secundario",
-  "lists": {
-   "0": {
-    "es": "OK",
-    "original": "OK"
-   },
-   "1": {
-    "es": "Avería",
-    "original": "Panne"
-   }
-  }
- },
- "Panne présente liaison SPI": {
-  "ayuda": "",
-  "es": "Avería PRESENTE del enlace SPI (comunicación interna del ECU)",
-  "lists": {
-   "0": {
-    "es": "OK",
-    "original": "OK"
-   },
-   "1": {
-    "es": "Avería",
-    "original": "Panne"
-   }
-  }
- },
- "Panne mémorisée liaison SPI": {
-  "ayuda": "",
-  "es": "Avería MEMORIZADA del enlace SPI (comunicación interna del ECU)",
-  "lists": {
-   "0": {
-    "es": "OK",
-    "original": "OK"
-   },
-   "1": {
-    "es": "Avería",
-    "original": "Panne"
-   }
   }
  }
 }

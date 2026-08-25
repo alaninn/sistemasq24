@@ -3,6 +3,31 @@
 Todos los cambios importantes del scanner se anotan acá. El más reciente arriba.
 Formato de fecha: AAAA-MM-DD.
 
+## [2026-08-24] — Investigación de regresión reportada (lento/tildado, sensores desaparecidos)
+
+El usuario reportó que la última versión no lee sensores, lo poco que lee está lento/tildado,
+y que desaparecieron sensores del tablero principal — señalando como última versión buena la
+de antes de agregar los 6 flags de autodiagnóstico (comparación S3000). Investigado a fondo
+comparando semánticamente (no solo diff de texto) los 4 commits sospechosos contra la versión
+anterior:
+- `original/S3000_AD_CAN_3_X84ph2_S.json`: 0 valores distintos, 0 campos perdidos (el diff de
+  16998 líneas era 100% cambio de formato de escape unicode `é`→`é`, semánticamente
+  idéntico) — solo se agregaron los 6 datos nuevos, confirmado.
+- `original/...json.layout`: 0 pantallas perdidas ni alteradas salvo la de VVT (intencional).
+- Carga completa del ECU como lo hace la app real: 530 sensores, 0 errores de traducción,
+  0.1s de carga — nada lento.
+- Prueba de estrés: se armó una respuesta cruda falsa de la Trama 02 con todos los bits en 1
+  y se decodificó con el motor real (`get_values_from_stream`) — los 8 bits del byte 21
+  decodificaron sin ningún error.
+No se encontró la causa de la regresión reportada en estos 4 commits. Se corrigió de paso un
+detalle real pero menor encontrado en el camino: las 6 traducciones nuevas se habían escrito
+en la raíz de `es/S3000_AD_CAN_3_X84ph2_S.es.json` en vez de anidadas dentro de `data` (la
+traducción igual funcionaba por cómo se arma la memoria de traducción, pero quedaba
+inconsistente con la estructura real del archivo — corregido, ahora `data` tiene 623 entradas
+igual que el archivo original). **Pendiente**: hacen falta los logs reales (`sesion_*.txt`/
+`consola_*.txt`) de una sesión donde falle para encontrar la causa real — sin eso no se puede
+reproducir "lento y tildado" desde acá.
+
 ## [2026-08-24] — Prueba de vacío: mejorada con investigación sobre diagnóstico real de fugas
 
 El usuario señaló algo importante: como el ralentí está en lazo cerrado, la ECU compensa una
